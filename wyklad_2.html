@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="pl"><head>
+<script src="wyklad_2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="wyklad_2_files/libs/quarto-html/tabby.min.js"></script>
+<script src="wyklad_2_files/libs/quarto-html/popper.min.js"></script>
+<script src="wyklad_2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="wyklad_2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="wyklad_2_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="wyklad_2_files/libs/quarto-html/quarto-syntax-highlighting-b754b9fd3853d7e56faef54c29c5d52b.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
+
+  <meta name="author" content="prof. UPP dr hab. inż. Marek Urbaniak">
+  <title>Język Rzeczy</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="wyklad_2_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="wyklad_2_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="wyklad_2_files/libs/revealjs/dist/theme/quarto-5f66212b01f094180b8d10b5b9960144.css">
+  <link href="wyklad_2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="wyklad_2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="wyklad_2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="wyklad_2_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="wyklad_2_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="wyklad_2_files/libs/revealjs/plugin/appearance/appearance.css" rel="stylesheet">
+  <link href="wyklad_2_files/libs/revealjs/plugin/reveal-pointer/pointer.css" rel="stylesheet">
+  <link href="wyklad_2_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="wyklad_2_files/libs/quarto-diagram/mermaid-postprocess-shim.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+  body { background-color: #1a1a1a; }
+  .reveal .slide-background-content {
+      background-image: url("../img/iot_tlo_gr.jpg") !important;
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+      background-position: center center !important;
+      opacity: 0.4 !important;
+  }
+  .reveal .backgrounds .slide-background:nth-child(1) .slide-background-content {
+      background-image: none !important;
+      background-color: white !important;
+      opacity: 1 !important;
+  }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Język Rzeczy</h1>
+  <p class="subtitle">Jak Maszyny Rozmawiają ze Sobą (Wykład 2)</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+<span style="font-size: 1.5em;"><strong>prof. UPP dr hab. inż. Marek Urbaniak</strong></span> 
+</div>
+        <p class="quarto-title-affiliation">
+            Wydział Inżynierii Środowiska i Inżynierii Mechanicznej<br><br>
+            </p><div style="display: flex; justify-content: left; align-items: center; gap: 40px;">
+            <p><img src="https://www.up.poznan.pl/sites/default/files/2024-10/logo_zielone_polskie_uklad_poziomy.png" style="height: 200px;"></p>
+            <p><img src="https://wisim.up.poznan.pl/sites/default/files/2023-02-13%2011%3A41/logo_wisim06.jpg" style="height: 200px;"></p>
+            <p><img src="../img/kbig.jpg" style="height: 200px;"></p>
+            </div>
+          <p></p>
+    </div>
+</div>
+
+</section>
+<section>
+<section id="prolog-fizyka-energia-i-wieża-babel" class="title-slide slide level1 center" data-background-color="#f8f9fa">
+<h1>Prolog: Fizyka, Energia i Wieża Babel</h1>
+
+</section>
+<section id="problem-komunikacji-m2m" class="slide level2">
+<h2><i class="bi bi-translate"></i> 1. Problem Komunikacji M2M</h2>
+<p>W świecie Internetu Rzeczy komunikacja „Maszyna-Maszyna” (M2M) opiera się na radykalnych kompromisach, których nie znamy w świecie komputerów osobistych.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Wyobraź sobie miliardy urządzeń.</li>
+<li class="fragment">Nie mają gniazdka 230 V – tylko baterię wielkości monety.</li>
+<li class="fragment">Działają w piwnicach, na pełnym morzu lub zakopane w glebie twardej jak beton.</li>
+<li class="fragment">Jak sprawić, by w takich warunkach przesłać dane i nie opróżnić baterii w pięć minut?</li>
+</ul>
+<div class="fragment fade-in" style="font-size: 0.8em; background-color: #e6f3f7ff;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Trójkąt Niemożliwy IoT</strong></p>
+</div>
+<div class="callout-content">
+<p>Inżynier projektujący system sieciowy musi wybrać <strong>tylko dwa z trzech</strong> parametrów:</p>
+<ol type="1">
+<li>Zasięg (kilometry)</li>
+<li>Przepustowość (megabajty na sekundę)</li>
+<li>Czas życia na baterii (lata)</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<p><img data-src="img/scatter_triangle.png" style="width:90.0%"></p>
+</div>
+</div></div>
+<aside class="notes">
+<p><strong>Rozpoczęcie:</strong> Nawiąż do wykładu pierwszego – urządzenia już mają zmysły (czujniki), ale milczą. Dziś nauczymy je mówić. Problem polega na fizyce: fala elektromagnetyczna wymaga energii i napotyka opór w postaci ścian i odległości. Nie da się wysyłać strumienia wideo z licznika wody w piwnicy bez stałego zasilania sieciowego. To wymusza powstanie całkowicie nowych protokołów bezprzewodowych dostosowanych do specyfiki komunikacji M2M.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="rozdział-i-komunikacja-na-wyciągnięcie-ręki" class="title-slide slide level1 center" data-background-color="#f8f9fa">
+<h1>Rozdział I: Komunikacja na Wyciągnięcie Ręki</h1>
+
+</section>
+<section id="wi-fi-ieee-802.11-przekleństwo-i-błogosławieństwo" class="slide level2">
+<h2><i class="bi bi-wifi"></i> 2. Wi-Fi (IEEE 802.11): Przekleństwo i Błogosławieństwo</h2>
+<p>Król Internetu w domach jest najsłabszym ogniwem IoT na bateriach.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment"><strong>Zalety:</strong> Ogromna przepustowość (MB/s), powszechność infrastruktury (router w każdym współczesnym domu), natywna integracja z protokołem IP.</li>
+<li class="fragment"><strong>Wady:</strong> Architektura Wi-Fi jest koszmarnie prądożerna – napadowe budzenie anteny i przeszukiwanie nadajników (beaconing) pochłaniają setki mA.</li>
+<li class="fragment">Złożony proces zestawiania połączenia (handshake), zanim prześle znikomą wartość, np. samą wilgotność powietrza 45%.</li>
+<li class="fragment"><strong>Zastosowanie w IoT:</strong> Tylko tam, gdzie istnieje stałe zasilanie – np. Smart TV, asystenci głosowi, sprzęty AGD.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="fragment">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Podatność na zakłócenia</strong></p>
+</div>
+<div class="callout-content">
+<p>Zagęszczone pasmo 2,4 GHz w budynkach mieszkalnych powoduje wzajemne zakłócenia między urządzeniami Wi-Fi, degradując jakość połączenia.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+<aside class="notes">
+<p>Wyjaśnij, że chociaż Wi-Fi jest najpopularniejsze, w profesjonalnym IoT pełni głównie rolę „backhaulu” dla bramek (gateways), a nie protokołu dla czujników końcowych rozrzuconych w terenie. Zwróć uwagę, dlaczego producenci inteligentnych żarówek zalecają własne mostki zamiast podłączania dziesiątek żarówek bezpośrednio pod Wi-Fi – kilkanaście tanich czujników bardzo skutecznie wysyca limit połączeń domowego routera.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="bluetooth-i-rewolucja-ble-low-energy" class="slide level2">
+<h2><i class="bi bi-bluetooth"></i> 3. Bluetooth i rewolucja BLE (Low Energy)</h2>
+<p>Od ciągłego przesyłu audio do energooszczędnych opasek zdrowotnych.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment"><strong>Bluetooth (Classic):</strong> Zaprojektowany dla ciągłego strumienia danych, np. sygnału audio w zestawach głośnomówiących. Moc ciągła, radio zawsze aktywne.</li>
+<li class="fragment"><strong>Bluetooth Low Energy (BLE):</strong> Rewolucja wprowadzona w specyfikacji Bluetooth 4.0. Urządzenie śpi, błyskawicznie emituje kilka pakietów danych w milisekundy i wraca w tryb uśpienia.</li>
+<li class="fragment">Pobór prądu spada nawet stukrotnie w porównaniu z klasycznym Bluetooth.</li>
+<li class="fragment"><strong>Zastosowania:</strong> Opaski fitness, medycyna cyfrowa, bezprzewodowe tagi lokalizacyjne (beacony).</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Różnica architektoniczna</strong></p>
+</div>
+<div class="callout-content">
+<p>Klasyczny Bluetooth przesyła ciągły strumień (np. audio). BLE „usypia” radio natychmiast po wysłaniu pakietu danych telemetrycznych. Bateryjka CR2032 wystarcza modułom BLE na lata pracy.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+<aside class="notes">
+<p>Najlepszy punkt wyjścia do opisania technologii beaconingu sklepowego. Wyjaśnij różnicę między protokołem „Classic”, który musi utrzymywać połączenie 24/7 (audio), a systemem oszczędnym z krótkimi powiadomieniami dla urządzeń ubieralnych (wearables).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="zigbee-i-z-wave-inżynieria-roju-mesh" class="slide level2">
+<h2><i class="bi bi-diagram-3-fill"></i> 4. Zigbee i Z-Wave: Inżynieria Roju (Mesh)</h2>
+<p>Rozwiązanie problemu krótkiego zasięgu poprzez architekturę sieci kratowej.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment">W tradycyjnej topologii gwiazdy sygnał czujnika trafia do centralnego routera. Problem pojawia się, gdy router oddzielony jest czterema zbrojonymi ścianami.</li>
+<li class="fragment"><strong>Zigbee (Mesh):</strong> Urządzenia zasilane z sieci (np. inteligentne gniazdka) działają jednocześnie jako wzmacniacze (routery), odbierając pakiet od słabego czujnika bateryjnego i przekazując go dalej.</li>
+<li class="fragment">System „samoleczący się” (self-healing) – awaria jednego węzła powoduje automatyczne znalezienie nowej trasy.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewbox="0 0 371.015625 195.3125" style="; display: block; margin: auto auto auto auto" class="flowchart" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="480" id="mermaid-figure-1" height="240">
+<style>#mermaid-figure-1{font-size:16px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-figure-1 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-figure-1 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-figure-1 .error-icon{fill:#552222;}#mermaid-figure-1 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-1 .edge-thickness-normal{stroke-width:1px;}#mermaid-figure-1 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-1 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-1 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-figure-1 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-1 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-1 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-1 .marker.cross{stroke:#333333;}#mermaid-figure-1 svg{font-size:16px;}#mermaid-figure-1 p{margin:0;}#mermaid-figure-1 .label{color:#333;}#mermaid-figure-1 .cluster-label text{fill:#333;}#mermaid-figure-1 .cluster-label span{color:#333;}#mermaid-figure-1 .cluster-label span p{background-color:transparent;}#mermaid-figure-1 .label text,#mermaid-figure-1 span{fill:#333;color:#333;}#mermaid-figure-1 .node rect,#mermaid-figure-1 .node circle,#mermaid-figure-1 .node ellipse,#mermaid-figure-1 .node polygon,#mermaid-figure-1 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-1 .rough-node .label text,#mermaid-figure-1 .node .label text,#mermaid-figure-1 .image-shape .label,#mermaid-figure-1 .icon-shape .label{text-anchor:middle;}#mermaid-figure-1 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-figure-1 .rough-node .label,#mermaid-figure-1 .node .label,#mermaid-figure-1 .image-shape .label,#mermaid-figure-1 .icon-shape .label{text-align:center;}#mermaid-figure-1 .node.clickable{cursor:pointer;}#mermaid-figure-1 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaid-figure-1 .arrowheadPath{fill:#333333;}#mermaid-figure-1 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-1 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-1 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-1 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaid-figure-1 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-1 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-figure-1 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-1 .cluster text{fill:#333;}#mermaid-figure-1 .cluster span{color:#333;}#mermaid-figure-1 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-1 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-1 rect.text{fill:none;stroke-width:0;}#mermaid-figure-1 .icon-shape,#mermaid-figure-1 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-1 .icon-shape p,#mermaid-figure-1 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaid-figure-1 .icon-shape rect,#mermaid-figure-1 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-1 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style>
+<g><marker orient="auto" markerheight="8" markerwidth="8" markerunits="userSpaceOnUse" refy="5" refx="5" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1772538314275_flowchart-v2-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerheight="8" markerwidth="8" markerunits="userSpaceOnUse" refy="5" refx="4.5" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1772538314275_flowchart-v2-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="11" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1772538314275_flowchart-v2-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="-1" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1772538314275_flowchart-v2-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="12" viewbox="0 0 11 11" class="marker cross flowchart-v2" id="mermaid-1772538314275_flowchart-v2-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="-1" viewbox="0 0 11 11" class="marker cross flowchart-v2" id="mermaid-1772538314275_flowchart-v2-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#mermaid-1772538314275_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_A_B_0" d="M75.563,71.746L81.386,66.509C87.209,61.273,98.854,50.801,108.177,45.564C117.5,40.328,124.5,40.328,128,40.328L131.5,40.328"></path><path marker-end="url(#mermaid-1772538314275_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_A_C_0" d="M75.563,123.567L81.386,128.803C87.209,134.039,98.854,144.512,108.177,149.748C117.5,154.984,124.5,154.984,128,154.984L131.5,154.984"></path><path marker-end="url(#mermaid-1772538314275_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link" id="L_B_D_0" d="M200.156,40.328L208.34,40.328C216.523,40.328,232.891,40.328,249.695,46.397C266.499,52.467,283.741,64.605,292.362,70.674L300.983,76.743"></path><path marker-end="url(#mermaid-1772538314275_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_C_D_0" d="M200.156,154.984L208.34,154.984C216.523,154.984,232.891,154.984,249.695,148.915C266.499,142.846,283.741,130.708,292.362,124.638L300.983,118.569"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g><g transform="translate(249.2578125, 40.328125)" class="edgeLabel"><g transform="translate(-24.1015625, -12)" class="label"><foreignobject height="24" width="48.203125">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel">
+<p>
+Awaria
+</p>
+</span>
+</div>
+</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g></g><g class="nodes"><g transform="translate(46.75, 97.65625)" id="flowchart-A-0" class="node default"><circle cy="0" cx="0" r="38.75" style="" class="basic label-container"></circle><g transform="translate(-31.25, -12)" style="" class="label"><rect></rect><foreignobject height="24" width="62.5">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Gateway
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(167.828125, 40.328125)" id="flowchart-B-1" class="node default"><circle cy="0" cx="0" r="32.328125" style="fill:#f8d7da !important;stroke:#842029 !important" class="basic label-container"></circle><g transform="translate(-24.828125, -12)" style="" class="label"><rect></rect><foreignobject height="24" width="49.65625">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Node 1
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(167.828125, 154.984375)" id="flowchart-C-3" class="node default"><circle cy="0" cx="0" r="32.328125" style="" class="basic label-container"></circle><g transform="translate(-24.828125, -12)" style="" class="label"><rect></rect><foreignobject height="24" width="49.65625">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Node 2
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(330.6875, 97.65625)" id="flowchart-D-5" class="node default"><circle cy="0" cx="0" r="32.328125" style="" class="basic label-container"></circle><g transform="translate(-24.828125, -12)" style="" class="label"><rect></rect><foreignobject height="24" width="49.65625">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Node 3
+</p>
+</span>
+</div>
+</foreignobject></g></g></g></g></g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Z-Wave – pasmo sub-GHz</strong></p>
+</div>
+<div class="callout-content">
+<p>Z-Wave działa w paśmie 868 MHz (EU), co zapewnia znacznie lepszą penetrację ścian niż protokoły 2,4 GHz (Zigbee, Wi-Fi). Wadą jest brak jednego uniwersalnego standardu – każdy producent tworzy własne nakładki (np. Philips Hue, IKEA TRÅDFRI).</p>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+<aside class="notes">
+<p>Prezentując ten slajd, zapytaj słuchaczy, ile żarówek Zigbee należy umieścić w domu jednorodzinnym między piętrem a ogrodem, by czujnik na bramie zyskał zasięg do pierwszej najbliższej lampki-wzmacniacza pod werandą. To idealne studium rozciągania „niewidzialnego sznura połączeń”.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="rozdział-ii-komunikacja-dalekiego-zasięgu" class="title-slide slide level1 center" data-background-color="#f8f9fa">
+<h1>Rozdział II: Komunikacja Dalekiego Zasięgu</h1>
+
+</section>
+<section id="lpwan-telemetria-na-kilometry" class="slide level2">
+<h2><i class="bi bi-broadcast"></i> 5. LPWAN: Telemetria na kilometry</h2>
+<p><strong>Low Power Wide Area Network</strong> – odpowiedź na potrzeby systemów telemetrycznych działających na rozległych obszarach.</p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li class="fragment">Aby zwiększyć zasięg przy minimalnym zużyciu energii, drastycznie ograniczamy przepustowość – z megabitów na sekundę do zaledwie kilkudziesięciu bajtów na sekundę.</li>
+<li class="fragment">Żywotność baterii: od 5 do nawet 10 lat na pojedynczym ogniwie (np. litowo-tionylowym).</li>
+<li class="fragment">Zasięg: nawet 15–20 km w otwartym terenie.</li>
+<li class="fragment">Służy wyłącznie do przesyłania telemetrii. Czujnik wilgotności gleby przyśle odczyt, ale kamera 4K jest całkowicie wykluczona z LPWAN.</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="fragment">
+<p><img data-src="img/lpwan_station.png" style="width:100.0%"></p>
+</div>
+</div></div>
+<aside class="notes">
+<p>Zwróć uwagę na jednoznaczną granicę – technologie LPWAN nie są zaprojektowane do przesyłania strumieni wideo ani dużych plików. Tylko krótkie paczki zmiennych liczbowych i tekstowych. Warto odnieść się do badań środowiskowych: zamiast ciągnąć kilometry kabli zasilających do stacji pomiarowej w lesie, można zastosować sieć LPWAN, która prześle uśrednione wyniki bezpośrednio do bramki oddalonej o wiele kilometrów.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="porównanie-technologii-radiowych" class="slide level2">
+<h2><i class="bi bi-tower"></i> 6. Porównanie technologii radiowych</h2>
+<p>Gdzie leży fizyczna i energetyczna granica każdego standardu?</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<ul>
+<li class="fragment">Lewy górny róg wykresu: duża przepustowość, ale wysoki pobór energii (większy bąbel).</li>
+<li class="fragment">Prawy dolny róg: LPWAN – zasięg poza horyzont przy zaledwie kilkudziesięciu bajtach co kwadrans i minimalnym koszcie energetycznym.</li>
+</ul>
+</div><div class="column" style="width:70%;">
+<p><img data-src="img/protocol_bubble.png" style="width:60.0%"></p>
+</div></div>
+<aside class="notes">
+<p>Wyjaśnij kolorowy wykres Bubble Chart. Oś „x” to dystans (od metrów do kilometrów), oś „y” to przepustowość (skala logarytmiczna). Wielkość bąbli reprezentuje pobór energii. Zrozumienie tego wykresu decyduje u większości początkujących inżynierów o wyborze technologii dla nowo projektowanej inwestycji. Handover (lub handoff) to proces w sieciach bezprzewodowych (głównie komórkowych), który polega na przekazaniu aktywnego połączenia urządzenia z jednej stacji bazowej (nadajnika) do drugiej w momencie, gdy użytkownik się przemieszcza.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="lorawan-vs-nb-iot-prywatna-sieć-czy-abonament" class="slide level2 smaller">
+<h2><i class="bi bi-antenna"></i> 7. LoRaWAN vs NB-IoT: Prywatna sieć czy abonament?</h2>
+<p>Dwa konkurencyjne podejścia do łączności dalekiego zasięgu.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="lora-lorawan">LoRa / LoRaWAN</h3>
+<ul>
+<li class="fragment"><strong>LoRa (warstwa fizyczna):</strong> Opatentowana modulacja Chirp Spread Spectrum (CSS), odporna na zakłócenia.</li>
+<li class="fragment"><strong>LoRaWAN (warstwa logiczna):</strong> Otwarty protokół sieciowy. Pozwala na budowę własnych bramek w darmowym paśmie 868 MHz.</li>
+<li class="fragment">Społeczność crowdsourcowa: The Things Network (TTN) – bezpłatne, globalne pokrycie.</li>
+<li class="fragment">Słabsza penetracja gęstej zabudowy miejskiej.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="nb-iot-lte-m">NB-IoT / LTE-M</h3>
+<ul>
+<li class="fragment">Standard operatorów telekomunikacyjnych (Orange, Play, T-Mobile) – nakładka na istniejące stacje bazowe 4G.</li>
+<li class="fragment"><strong>NB-IoT:</strong> Doskonała penetracja piwnic i podziemnych parkingów. Urządzenie stacjonarne (brak handoveru).</li>
+<li class="fragment"><strong>LTE-M:</strong> Wyższa przepustowość, obsługa mobilności (śledzenie pojazdów) i komunikacji głosowej.</li>
+<li class="fragment">Wadą jest stała opłata za kartę SIM i zależność od operatora.</li>
+</ul>
+</div></div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewbox="0 0 1054.296875 123.671875" style="; display: block; margin: auto auto auto auto" class="flowchart" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="960" id="mermaid-figure-5" height="144">
+<style>#mermaid-figure-5{font-size:16px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-figure-5 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-figure-5 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-figure-5 .error-icon{fill:#552222;}#mermaid-figure-5 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-5 .edge-thickness-normal{stroke-width:1px;}#mermaid-figure-5 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-5 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-5 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-figure-5 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-5 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-5 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-5 .marker.cross{stroke:#333333;}#mermaid-figure-5 svg{font-size:16px;}#mermaid-figure-5 p{margin:0;}#mermaid-figure-5 .label{color:#333;}#mermaid-figure-5 .cluster-label text{fill:#333;}#mermaid-figure-5 .cluster-label span{color:#333;}#mermaid-figure-5 .cluster-label span p{background-color:transparent;}#mermaid-figure-5 .label text,#mermaid-figure-5 span{fill:#333;color:#333;}#mermaid-figure-5 .node rect,#mermaid-figure-5 .node circle,#mermaid-figure-5 .node ellipse,#mermaid-figure-5 .node polygon,#mermaid-figure-5 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-5 .rough-node .label text,#mermaid-figure-5 .node .label text,#mermaid-figure-5 .image-shape .label,#mermaid-figure-5 .icon-shape .label{text-anchor:middle;}#mermaid-figure-5 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-figure-5 .rough-node .label,#mermaid-figure-5 .node .label,#mermaid-figure-5 .image-shape .label,#mermaid-figure-5 .icon-shape .label{text-align:center;}#mermaid-figure-5 .node.clickable{cursor:pointer;}#mermaid-figure-5 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaid-figure-5 .arrowheadPath{fill:#333333;}#mermaid-figure-5 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-5 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-5 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-5 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaid-figure-5 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-5 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-figure-5 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-5 .cluster text{fill:#333;}#mermaid-figure-5 .cluster span{color:#333;}#mermaid-figure-5 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-5 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-5 rect.text{fill:none;stroke-width:0;}#mermaid-figure-5 .icon-shape,#mermaid-figure-5 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-5 .icon-shape p,#mermaid-figure-5 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaid-figure-5 .icon-shape rect,#mermaid-figure-5 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-5 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style>
+<g><marker orient="auto" markerheight="8" markerwidth="8" markerunits="userSpaceOnUse" refy="5" refx="5" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1772538314981_flowchart-v2-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerheight="8" markerwidth="8" markerunits="userSpaceOnUse" refy="5" refx="4.5" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1772538314981_flowchart-v2-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="11" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1772538314981_flowchart-v2-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="-1" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1772538314981_flowchart-v2-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="12" viewbox="0 0 11 11" class="marker cross flowchart-v2" id="mermaid-1772538314981_flowchart-v2-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="-1" viewbox="0 0 11 11" class="marker cross flowchart-v2" id="mermaid-1772538314981_flowchart-v2-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#mermaid-1772538314981_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_A_B_0" d="M189.969,61.836L198.88,61.836C207.792,61.836,225.615,61.836,242.771,61.836C259.927,61.836,276.417,61.836,284.661,61.836L292.906,61.836"></path><path marker-end="url(#mermaid-1772538314981_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_B_C_0" d="M404.578,61.836L416.539,61.836C428.5,61.836,452.422,61.836,475.677,61.836C498.932,61.836,521.521,61.836,532.815,61.836L544.109,61.836"></path><path marker-end="url(#mermaid-1772538314981_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_C_D_0" d="M718.422,61.836L729.798,61.836C741.174,61.836,763.927,61.836,786.013,61.836C808.099,61.836,829.518,61.836,840.228,61.836L850.938,61.836"></path></g><g class="edgeLabels"><g transform="translate(243.4375, 61.8359375)" class="edgeLabel"><g transform="translate(-28.46875, -12)" class="label"><foreignobject height="24" width="56.9375">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel">
+<p>
+LoRa RF
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(476.34375, 61.8359375)" class="edgeLabel"><g transform="translate(-46.765625, -12)" class="label"><foreignobject height="24" width="93.53125">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel">
+<p>
+IP / Ethernet
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(786.6796875, 61.8359375)" class="edgeLabel"><g transform="translate(-43.2578125, -12)" class="label"><foreignobject height="24" width="86.515625">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel">
+<p>
+API / HTTPS
+</p>
+</span>
+</div>
+</foreignobject></g></g></g><g class="nodes"><g transform="translate(98.984375, 61.8359375)" id="flowchart-A-0" class="node default"><rect height="54" width="181.96875" y="-27" x="-90.984375" style="" class="basic label-container"></rect><g transform="translate(-60.984375, -12)" style="" class="label"><rect></rect><foreignobject height="24" width="121.96875">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Czujnik z baterią
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(350.7421875, 61.8359375)" id="flowchart-B-1" class="node default"><circle cy="0" cx="0" r="53.8359375" style="" class="basic label-container"></circle><g transform="translate(-46.3359375, -12)" style="" class="label"><rect></rect><foreignobject height="24" width="92.671875">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Bramka LoRa
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(633.265625, 61.8359375)" id="flowchart-C-3" class="node default"><rect height="54" width="170.3125" y="-27" x="-85.15625" style="" class="basic label-container"></rect><g transform="translate(-55.15625, -12)" style="" class="label"><rect></rect><foreignobject height="24" width="110.3125">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Network Server
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(950.6171875, 61.8359375)" id="flowchart-D-5" class="node default"><rect height="54" width="191.359375" y="-27" x="-95.6796875" style="" class="basic label-container"></rect><g transform="translate(-65.6796875, -12)" style="" class="label"><rect></rect><foreignobject height="24" width="131.359375">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Application Server
+</p>
+</span>
+</div>
+</foreignobject></g></g></g></g></g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>Potężny kompromis projektanta: jeśli budujesz 20 wodomierzy w osiedlu miejskim, kup karty NB-IoT za 2 zł/mies. i śpij spokojnie. Jeśli masz 120 hektarów pod Nowym Tomyślem, postaw 2 własne stacje LoRaWAN z panelem słonecznym i nie płać ani złotówki abonamentu.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="sigfox-ultralekkie-wiadomości-jako-usługa" class="slide level2">
+<h2><i class="bi bi-soundwave"></i> 8. Sigfox: ultralekkie wiadomości jako usługa</h2>
+<p>Model „Network as a Service” – operator globalnej sieci dostarcza łączność bez budowy własnej infrastruktury.</p>
+<ul>
+<li class="fragment">Maksymalnie <strong>140 wiadomości dziennie</strong> od pojedynczego urządzenia.</li>
+<li class="fragment">Rozmiar ładunku (payload): zaledwie <strong>12 bajtów</strong> na wiadomość.</li>
+<li class="fragment">Architektura silnie asymetryczna – bardzo ograniczone wysyłanie danych w dół (downlink) do czujnika.</li>
+<li class="fragment">Ekstremalnie tanie wdrożenia, ale narzuca poważne ograniczenia projektowe.</li>
+</ul>
+<aside class="notes">
+<p>Sigfox to dobry przykład technologii o skrajnie wąskim zastosowaniu: idealny np. do jednorazowego potwierdzenia „jestem sprawny” raz na godzinę, ale kompletnie nieprzydatny do sterowania lub pobierania większych porcji danych.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="rozdział-iii-protokoły-warstwy-aplikacji" class="title-slide slide level1 center" data-background-color="#f8f9fa">
+<h1>Rozdział III: Protokoły Warstwy Aplikacji</h1>
+
+</section>
+<section id="dlaczego-protokół-http-nie-pasuje-do-iot" class="slide level2">
+<h2><i class="bi bi-x-octagon"></i> 9. Dlaczego protokół HTTP nie pasuje do IoT?</h2>
+<p>Klasyczne środowisko webowe (REST API) jest zbyt „ciężkie” dla urządzeń o ograniczonych zasobach.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment"><strong>Narzut nagłówków:</strong> Nagłówki HTTP potrafią zajmować więcej bajtów niż same dane pomiarowe (np. pojedyncza wartość „temperatura = 22,5°C”).</li>
+<li class="fragment"><strong>Model Request-Response:</strong> Architektura synchroniczna – czujnik musi czekać na potwierdzenie od serwera, trzymając włączone, prądożerne radio.</li>
+<li class="fragment"><strong>Brak natywnego wsparcia dla asynchroniczności i broadcastu</strong> – każde urządzenie musi indywidualnie odpytywać serwer.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="fragment">
+<div style="text-align: center; transform: scale(1.7); transform-origin: top center;">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewbox="0 0 523.546875 394" style="; display: block; margin: auto auto auto auto" class="flowchart" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="384" id="mermaid-figure-4" height="384">
+<style>#mermaid-figure-4{font-size:14px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-figure-4 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-figure-4 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-figure-4 .error-icon{fill:#552222;}#mermaid-figure-4 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-4 .edge-thickness-normal{stroke-width:1px;}#mermaid-figure-4 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-4 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-4 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-figure-4 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-4 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-4 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-4 .marker.cross{stroke:#333333;}#mermaid-figure-4 svg{font-size:14px;}#mermaid-figure-4 p{margin:0;}#mermaid-figure-4 .label{color:#333;}#mermaid-figure-4 .cluster-label text{fill:#333;}#mermaid-figure-4 .cluster-label span{color:#333;}#mermaid-figure-4 .cluster-label span p{background-color:transparent;}#mermaid-figure-4 .label text,#mermaid-figure-4 span{fill:#333;color:#333;}#mermaid-figure-4 .node rect,#mermaid-figure-4 .node circle,#mermaid-figure-4 .node ellipse,#mermaid-figure-4 .node polygon,#mermaid-figure-4 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-4 .rough-node .label text,#mermaid-figure-4 .node .label text,#mermaid-figure-4 .image-shape .label,#mermaid-figure-4 .icon-shape .label{text-anchor:middle;}#mermaid-figure-4 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-figure-4 .rough-node .label,#mermaid-figure-4 .node .label,#mermaid-figure-4 .image-shape .label,#mermaid-figure-4 .icon-shape .label{text-align:center;}#mermaid-figure-4 .node.clickable{cursor:pointer;}#mermaid-figure-4 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaid-figure-4 .arrowheadPath{fill:#333333;}#mermaid-figure-4 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-4 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-4 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-4 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaid-figure-4 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-4 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-figure-4 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-4 .cluster text{fill:#333;}#mermaid-figure-4 .cluster span{color:#333;}#mermaid-figure-4 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-4 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-4 rect.text{fill:none;stroke-width:0;}#mermaid-figure-4 .icon-shape,#mermaid-figure-4 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-4 .icon-shape p,#mermaid-figure-4 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaid-figure-4 .icon-shape rect,#mermaid-figure-4 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-4 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style>
+<g><marker orient="auto" markerheight="8" markerwidth="8" markerunits="userSpaceOnUse" refy="5" refx="5" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1772538314805_flowchart-v2-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerheight="8" markerwidth="8" markerunits="userSpaceOnUse" refy="5" refx="4.5" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1772538314805_flowchart-v2-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="11" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1772538314805_flowchart-v2-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="-1" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1772538314805_flowchart-v2-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="12" viewbox="0 0 11 11" class="marker cross flowchart-v2" id="mermaid-1772538314805_flowchart-v2-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="-1" viewbox="0 0 11 11" class="marker cross flowchart-v2" id="mermaid-1772538314805_flowchart-v2-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"></g><g class="edgeLabels"></g><g class="nodes"><g transform="translate(0, 0)" class="root"><g class="clusters"><g data-look="classic" id="subGraph1" class="cluster"><rect height="378" width="229.984375" y="8" x="8" style=""></rect><g transform="translate(59.4765625, 8)" class="cluster-label"><foreignobject height="21" width="127.03125">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Pakiet MQTT (~40 B)
+</p>
+</span>
+</div>
+</foreignobject></g></g></g><g class="edgePaths"><path style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_D_E_0" d="M122.992,96.5L122.992,102.75C122.992,109,122.992,121.5,122.992,134C122.992,146.5,122.992,159,122.992,165.25L122.992,171.5"></path><path style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_E_F_0" d="M122.992,222.5L122.992,228.75C122.992,235,122.992,247.5,122.992,260C122.992,272.5,122.992,285,122.992,291.25L122.992,297.5"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g></g><g class="nodes"><g transform="translate(122.9921875, 71)" id="flowchart-D-3" class="node default"><rect height="51" width="127.765625" y="-25.5" x="-63.8828125" style="" class="basic label-container"></rect><g transform="translate(-33.8828125, -10.5)" style="" class="label"><rect></rect><foreignobject height="21" width="67.765625">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Dane: 22.5
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(122.9921875, 197)" id="flowchart-E-4" class="node default"><rect height="51" width="159.984375" y="-25.5" x="-79.9921875" style="fill:#d1e7dd !important;stroke:green !important" class="basic label-container"></rect><g transform="translate(-49.9921875, -10.5)" style="" class="label"><rect></rect><foreignobject height="21" width="99.984375">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Nagłówek MQTT
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(122.9921875, 323)" id="flowchart-F-5" class="node default"><rect height="51" width="111.546875" y="-25.5" x="-55.7734375" style="" class="basic label-container"></rect><g transform="translate(-25.7734375, -10.5)" style="" class="label"><rect></rect><foreignobject height="21" width="51.546875">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+TCP / IP
+</p>
+</span>
+</div>
+</foreignobject></g></g></g></g><g transform="translate(279.984375, 0)" class="root"><g class="clusters"><g data-look="classic" id="subGraph0" class="cluster"><rect height="378" width="227.5625" y="8" x="8" style=""></rect><g transform="translate(55.8046875, 8)" class="cluster-label"><foreignobject height="21" width="131.953125">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Pakiet HTTP (~500 B)
+</p>
+</span>
+</div>
+</foreignobject></g></g></g><g class="edgePaths"><path style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_A_B_0" d="M121.781,96.5L121.781,102.75C121.781,109,121.781,121.5,121.781,134C121.781,146.5,121.781,159,121.781,165.25L121.781,171.5"></path><path style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_B_C_0" d="M121.781,222.5L121.781,228.75C121.781,235,121.781,247.5,121.781,260C121.781,272.5,121.781,285,121.781,291.25L121.781,297.5"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignobject height="0" width="0">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel"></span>
+</div>
+</foreignobject></g></g></g><g class="nodes"><g transform="translate(121.78125, 71)" id="flowchart-A-0" class="node default"><rect height="51" width="127.765625" y="-25.5" x="-63.8828125" style="" class="basic label-container"></rect><g transform="translate(-33.8828125, -10.5)" style="" class="label"><rect></rect><foreignobject height="21" width="67.765625">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Dane: 22.5
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(121.78125, 197)" id="flowchart-B-1" class="node default"><rect height="51" width="157.5625" y="-25.5" x="-78.78125" style="fill:#f8d7da !important;stroke:red !important" class="basic label-container"></rect><g transform="translate(-48.78125, -10.5)" style="" class="label"><rect></rect><foreignobject height="21" width="97.5625">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Nagłówek HTTP
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(121.78125, 323)" id="flowchart-C-2" class="node default"><rect height="51" width="111.546875" y="-25.5" x="-55.7734375" style="" class="basic label-container"></rect><g transform="translate(-25.7734375, -10.5)" style="" class="label"><rect></rect><foreignobject height="21" width="51.546875">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+TCP / IP
+</p>
+</span>
+</div>
+</foreignobject></g></g></g></g></g></g></g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+<aside class="notes">
+<p>Kluczowe, by uświadomić słuchaczom, że zasobność pamięci mikrokontrolera i komputera osobistego to przepaść. Typowa strona internetowa ważąca kilkanaście megabajtów nie przejdzie przez pamięć buforową płytki ESP32, dysponującej zaledwie kilkuset kilobajtami RAM.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="mqtt-lekki-binarny-standard-iot" class="slide level2">
+<h2><i class="bi bi-envelope-paper"></i> 10. MQTT: Lekki, binarny standard IoT</h2>
+<p><strong>Message Queuing Telemetry Transport</strong> – architektura Publikacja/Subskrypcja (Pub/Sub).</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment">Czujnik nie łączy się bezpośrednio z odbiorcą danych. Wysyła wiadomość do centralnego <strong>Brokera</strong> pod określonym <strong>tematem (Topic)</strong>.</li>
+<li class="fragment">Broker filtruje i dystrybuuje wiadomości do wszystkich zainteresowanych subskrybentów.</li>
+<li class="fragment">Urządzenia klienckie nie wiedzą o swoim wzajemnym istnieniu – znają tylko Brokera.</li>
+<li class="fragment">Skrajnie asynchroniczny, zoptymalizowany pod kątem niestabilnych połączeń sieciowych.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="fragment">
+<div style="text-align: center; transform: scale(1.7); transform-origin: top center;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewbox="0 0 307.953125 364.09375" style="; display: block; margin: auto auto auto auto" class="flowchart" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="480" id="mermaid-figure-3" height="288">
+<style>#mermaid-figure-3{font-size:14px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-figure-3 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-figure-3 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-figure-3 .error-icon{fill:#552222;}#mermaid-figure-3 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-3 .edge-thickness-normal{stroke-width:1px;}#mermaid-figure-3 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-3 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-3 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-figure-3 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-3 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-3 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-3 .marker.cross{stroke:#333333;}#mermaid-figure-3 svg{font-size:14px;}#mermaid-figure-3 p{margin:0;}#mermaid-figure-3 .label{color:#333;}#mermaid-figure-3 .cluster-label text{fill:#333;}#mermaid-figure-3 .cluster-label span{color:#333;}#mermaid-figure-3 .cluster-label span p{background-color:transparent;}#mermaid-figure-3 .label text,#mermaid-figure-3 span{fill:#333;color:#333;}#mermaid-figure-3 .node rect,#mermaid-figure-3 .node circle,#mermaid-figure-3 .node ellipse,#mermaid-figure-3 .node polygon,#mermaid-figure-3 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-3 .rough-node .label text,#mermaid-figure-3 .node .label text,#mermaid-figure-3 .image-shape .label,#mermaid-figure-3 .icon-shape .label{text-anchor:middle;}#mermaid-figure-3 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-figure-3 .rough-node .label,#mermaid-figure-3 .node .label,#mermaid-figure-3 .image-shape .label,#mermaid-figure-3 .icon-shape .label{text-align:center;}#mermaid-figure-3 .node.clickable{cursor:pointer;}#mermaid-figure-3 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaid-figure-3 .arrowheadPath{fill:#333333;}#mermaid-figure-3 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-3 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-3 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-3 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaid-figure-3 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-3 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-figure-3 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-3 .cluster text{fill:#333;}#mermaid-figure-3 .cluster span{color:#333;}#mermaid-figure-3 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-3 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-3 rect.text{fill:none;stroke-width:0;}#mermaid-figure-3 .icon-shape,#mermaid-figure-3 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-3 .icon-shape p,#mermaid-figure-3 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaid-figure-3 .icon-shape rect,#mermaid-figure-3 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-3 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style>
+<g><marker orient="auto" markerheight="8" markerwidth="8" markerunits="userSpaceOnUse" refy="5" refx="5" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1772538314634_flowchart-v2-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerheight="8" markerwidth="8" markerunits="userSpaceOnUse" refy="5" refx="4.5" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1772538314634_flowchart-v2-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="11" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1772538314634_flowchart-v2-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5" refx="-1" viewbox="0 0 10 10" class="marker flowchart-v2" id="mermaid-1772538314634_flowchart-v2-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="12" viewbox="0 0 11 11" class="marker cross flowchart-v2" id="mermaid-1772538314634_flowchart-v2-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerheight="11" markerwidth="11" markerunits="userSpaceOnUse" refy="5.2" refx="-1" viewbox="0 0 11 11" class="marker cross flowchart-v2" id="mermaid-1772538314634_flowchart-v2-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#mermaid-1772538314634_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_A_B_0" d="M151.879,59L151.879,64.917C151.879,70.833,151.879,82.667,151.879,93.833C151.879,105,151.879,115.5,151.879,120.75L151.879,126"></path><path marker-end="url(#mermaid-1772538314634_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_B_C_0" d="M115.517,219.285L107.329,227.67C99.141,236.054,82.766,252.824,74.578,266.459C66.391,280.094,66.391,290.594,66.391,295.844L66.391,301.094"></path><path marker-end="url(#mermaid-1772538314634_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_B_D_0" d="M188.241,219.285L196.429,227.67C204.617,236.054,220.992,252.824,229.18,266.459C237.367,280.094,237.367,290.594,237.367,295.844L237.367,301.094"></path></g><g class="edgeLabels"><g transform="translate(151.87890625, 94.5)" class="edgeLabel"><g transform="translate(-25.84375, -10.5)" class="label"><foreignobject height="21" width="51.6875">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel">
+<p>
+PUBLISH
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(66.390625, 269.59375)" class="edgeLabel"><g transform="translate(-16.390625, -10.5)" class="label"><foreignobject height="21" width="32.78125">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel">
+<p>
+PUSH
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(237.3671875, 269.59375)" class="edgeLabel"><g transform="translate(-16.390625, -10.5)" class="label"><foreignobject height="21" width="32.78125">
+<div class="labelBkg" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="edgeLabel">
+<p>
+PUSH
+</p>
+</span>
+</div>
+</foreignobject></g></g></g><g class="nodes"><g transform="translate(151.87890625, 33.5)" id="flowchart-A-0" class="node default"><rect height="51" width="143.921875" y="-25.5" x="-71.9609375" style="" class="basic label-container"></rect><g transform="translate(-41.9609375, -10.5)" style="" class="label"><rect></rect><foreignobject height="21" width="83.921875">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Czujnik Temp
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(151.87890625, 182.046875)" id="flowchart-B-1" class="node default"><circle cy="0" cx="0" r="52.046875" style="" class="basic label-container"></circle><g transform="translate(-44.546875, -10.5)" style="" class="label"><rect></rect><foreignobject height="21" width="89.09375">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+BROKER MQTT
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(66.390625, 330.59375)" id="flowchart-C-3" class="node default"><rect height="51" width="116.78125" y="-25.5" x="-58.390625" style="" class="basic label-container"></rect><g transform="translate(-28.390625, -10.5)" style="" class="label"><rect></rect><foreignobject height="21" width="56.78125">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Baza SQL
+</p>
+</span>
+</div>
+</foreignobject></g></g><g transform="translate(237.3671875, 330.59375)" id="flowchart-D-5" class="node default"><rect height="51" width="125.171875" y="-25.5" x="-62.5859375" style="" class="basic label-container"></rect><g transform="translate(-32.5859375, -10.5)" style="" class="label"><rect></rect><foreignobject height="21" width="65.171875">
+<div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
+<span class="nodeLabel">
+<p>
+Dashboard
+</p>
+</span>
+</div>
+</foreignobject></g></g></g></g></g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="fragment fade-up">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Efektywność</strong></p>
+</div>
+<div class="callout-content">
+<p>Nagłówek wiadomości MQTT wynosi zaledwie <strong>2 bajty</strong>, co minimalizuje czas pracy modułu radiowego i zużycie energii.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>„MQTT (Message Queuing Telemetry Transport)” – protokół stworzony pierwotnie przez IBM dla sektora naftowego. Klucz architektury Pub/Sub polega na tym, że czujnik i aplikacja na dashboardzie nigdy nie komunikują się bezpośrednio – obaj niezależnie łączą się z Brokerem. To zapewnia pełną niezależność klientów i lekkość protokołu.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="mqtt-tematy-qos-i-ostatnia-wola" class="slide level2">
+<h2><i class="bi bi-folder2-open"></i> 11. MQTT: Tematy, QoS i „Ostatnia Wola”</h2>
+<p>Zaawansowane mechanizmy niezawodności wbudowane w protokół.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="tematy-topics">Tematy (Topics)</h3>
+<ul>
+<li class="fragment">Wiadomości kategoryzowane są w logiczne, hierarchiczne drzewa: <code>prod/hala_B/prasa_3/temperatura</code></li>
+<li class="fragment">Separacja środowisk (<code>dev/</code>, <code>test/</code>, <code>prod/</code>) pozwala izolować dane eksperymentalne od produkcyjnych na jednym Brokerze.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="qos-i-lwt">QoS i LWT</h3>
+<div style="font-size: 0.85em;">
+<ul>
+<li class="fragment"><strong>QoS 0</strong> – „wyślij i zapomnij” (najszybszy).</li>
+<li class="fragment"><strong>QoS 1</strong> – wymaga potwierdzenia (możliwe duplikaty).</li>
+<li class="fragment"><strong>QoS 2</strong> – pełny handshake, gwarancja dostarczenia.</li>
+<li class="fragment"><strong>Last Will (LWT):</strong> Automatyczne powiadomienia o awarii.</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section class="slide level2">
+
+<div style="text-align: center; transform: scale(1.7); transform-origin: top center;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg aria-roledescription="sequence" role="graphics-document document" viewbox="-50 -10 544 548" style="; display: block; margin: auto auto auto auto" xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="480" id="mermaid-figure-2" height="432">
+<g><rect class="actor actor-bottom" ry="3" rx="3" name="B" height="65" width="150" stroke="#666" fill="#eaeaea" y="462" x="294"></rect><text style="text-anchor: middle; font-size: 16px; font-weight: 400;" class="actor actor-box" alignment-baseline="central" dominant-baseline="central" y="494.5" x="369"><tspan dy="0" x="369">Broker</tspan></text></g><g><rect class="actor actor-bottom" ry="3" rx="3" name="C" height="65" width="150" stroke="#666" fill="#eaeaea" y="462" x="0"></rect><text style="text-anchor: middle; font-size: 16px; font-weight: 400;" class="actor actor-box" alignment-baseline="central" dominant-baseline="central" y="494.5" x="75"><tspan dy="0" x="75">Czujnik</tspan></text></g><g><line name="B" stroke="#999" stroke-width="0.5px" class="actor-line 200" y2="462" x2="369" y1="65" x1="369" id="actor1"></line><g id="root-1"><rect class="actor actor-top" ry="3" rx="3" name="B" height="65" width="150" stroke="#666" fill="#eaeaea" y="0" x="294"></rect><text style="text-anchor: middle; font-size: 16px; font-weight: 400;" class="actor actor-box" alignment-baseline="central" dominant-baseline="central" y="32.5" x="369"><tspan dy="0" x="369">Broker</tspan></text></g></g><g><line name="C" stroke="#999" stroke-width="0.5px" class="actor-line 200" y2="462" x2="75" y1="65" x1="75" id="actor0"></line><g id="root-0"><rect class="actor actor-top" ry="3" rx="3" name="C" height="65" width="150" stroke="#666" fill="#eaeaea" y="0" x="0"></rect><text style="text-anchor: middle; font-size: 16px; font-weight: 400;" class="actor actor-box" alignment-baseline="central" dominant-baseline="central" y="32.5" x="75"><tspan dy="0" x="75">Czujnik</tspan></text></g></g>
+<style>#mermaid-figure-2{font-size:12px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-figure-2 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-figure-2 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-figure-2 .error-icon{fill:#552222;}#mermaid-figure-2 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-2 .edge-thickness-normal{stroke-width:1px;}#mermaid-figure-2 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-2 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-2 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-figure-2 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-2 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-2 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-2 .marker.cross{stroke:#333333;}#mermaid-figure-2 svg{font-size:12px;}#mermaid-figure-2 p{margin:0;}#mermaid-figure-2 .actor{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-figure-2 text.actor>tspan{fill:black;stroke:none;}#mermaid-figure-2 .actor-line{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);}#mermaid-figure-2 .messageLine0{stroke-width:1.5;stroke-dasharray:none;stroke:#333;}#mermaid-figure-2 .messageLine1{stroke-width:1.5;stroke-dasharray:2,2;stroke:#333;}#mermaid-figure-2 #mermaid-figure-2-arrowhead path{fill:#333;stroke:#333;}#mermaid-figure-2 .sequenceNumber{fill:white;}#mermaid-figure-2 #mermaid-figure-2-sequencenumber{fill:#333;}#mermaid-figure-2 #mermaid-figure-2-crosshead path{fill:#333;stroke:#333;}#mermaid-figure-2 .messageText{fill:#333;stroke:none;}#mermaid-figure-2 .labelBox{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-figure-2 .labelText,#mermaid-figure-2 .labelText>tspan{fill:black;stroke:none;}#mermaid-figure-2 .loopText,#mermaid-figure-2 .loopText>tspan{fill:black;stroke:none;}#mermaid-figure-2 .loopLine{stroke-width:2px;stroke-dasharray:2,2;stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);}#mermaid-figure-2 .note{stroke:#aaaa33;fill:#fff5ad;}#mermaid-figure-2 .noteText,#mermaid-figure-2 .noteText>tspan{fill:black;stroke:none;}#mermaid-figure-2 .activation0{fill:#f4f4f4;stroke:#666;}#mermaid-figure-2 .activation1{fill:#f4f4f4;stroke:#666;}#mermaid-figure-2 .activation2{fill:#f4f4f4;stroke:#666;}#mermaid-figure-2 .actorPopupMenu{position:absolute;}#mermaid-figure-2 .actorPopupMenuPanel{position:absolute;fill:#ECECFF;box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);filter:drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));}#mermaid-figure-2 .actor-man line{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-figure-2 .actor-man circle,#mermaid-figure-2 line{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;stroke-width:2px;}#mermaid-figure-2 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style>
+<g></g><defs><symbol height="24" width="24" id="mermaid-figure-2-computer"><path d="M2 2v13h20v-13h-20zm18 11h-16v-9h16v9zm-10.228 6l.466-1h3.524l.467 1h-4.457zm14.228 3h-24l2-6h2.104l-1.33 4h18.45l-1.297-4h2.073l2 6zm-5-10h-14v-7h14v7z" transform="scale(.5)"></path></symbol></defs><defs><symbol clip-rule="evenodd" fill-rule="evenodd" id="mermaid-figure-2-database"><path d="M12.258.001l.256.004.255.005.253.008.251.01.249.012.247.015.246.016.242.019.241.02.239.023.236.024.233.027.231.028.229.031.225.032.223.034.22.036.217.038.214.04.211.041.208.043.205.045.201.046.198.048.194.05.191.051.187.053.183.054.18.056.175.057.172.059.168.06.163.061.16.063.155.064.15.066.074.033.073.033.071.034.07.034.069.035.068.035.067.035.066.035.064.036.064.036.062.036.06.036.06.037.058.037.058.037.055.038.055.038.053.038.052.038.051.039.05.039.048.039.047.039.045.04.044.04.043.04.041.04.04.041.039.041.037.041.036.041.034.041.033.042.032.042.03.042.029.042.027.042.026.043.024.043.023.043.021.043.02.043.018.044.017.043.015.044.013.044.012.044.011.045.009.044.007.045.006.045.004.045.002.045.001.045v17l-.001.045-.002.045-.004.045-.006.045-.007.045-.009.044-.011.045-.012.044-.013.044-.015.044-.017.043-.018.044-.02.043-.021.043-.023.043-.024.043-.026.043-.027.042-.029.042-.03.042-.032.042-.033.042-.034.041-.036.041-.037.041-.039.041-.04.041-.041.04-.043.04-.044.04-.045.04-.047.039-.048.039-.05.039-.051.039-.052.038-.053.038-.055.038-.055.038-.058.037-.058.037-.06.037-.06.036-.062.036-.064.036-.064.036-.066.035-.067.035-.068.035-.069.035-.07.034-.071.034-.073.033-.074.033-.15.066-.155.064-.16.063-.163.061-.168.06-.172.059-.175.057-.18.056-.183.054-.187.053-.191.051-.194.05-.198.048-.201.046-.205.045-.208.043-.211.041-.214.04-.217.038-.22.036-.223.034-.225.032-.229.031-.231.028-.233.027-.236.024-.239.023-.241.02-.242.019-.246.016-.247.015-.249.012-.251.01-.253.008-.255.005-.256.004-.258.001-.258-.001-.256-.004-.255-.005-.253-.008-.251-.01-.249-.012-.247-.015-.245-.016-.243-.019-.241-.02-.238-.023-.236-.024-.234-.027-.231-.028-.228-.031-.226-.032-.223-.034-.22-.036-.217-.038-.214-.04-.211-.041-.208-.043-.204-.045-.201-.046-.198-.048-.195-.05-.19-.051-.187-.053-.184-.054-.179-.056-.176-.057-.172-.059-.167-.06-.164-.061-.159-.063-.155-.064-.151-.066-.074-.033-.072-.033-.072-.034-.07-.034-.069-.035-.068-.035-.067-.035-.066-.035-.064-.036-.063-.036-.062-.036-.061-.036-.06-.037-.058-.037-.057-.037-.056-.038-.055-.038-.053-.038-.052-.038-.051-.039-.049-.039-.049-.039-.046-.039-.046-.04-.044-.04-.043-.04-.041-.04-.04-.041-.039-.041-.037-.041-.036-.041-.034-.041-.033-.042-.032-.042-.03-.042-.029-.042-.027-.042-.026-.043-.024-.043-.023-.043-.021-.043-.02-.043-.018-.044-.017-.043-.015-.044-.013-.044-.012-.044-.011-.045-.009-.044-.007-.045-.006-.045-.004-.045-.002-.045-.001-.045v-17l.001-.045.002-.045.004-.045.006-.045.007-.045.009-.044.011-.045.012-.044.013-.044.015-.044.017-.043.018-.044.02-.043.021-.043.023-.043.024-.043.026-.043.027-.042.029-.042.03-.042.032-.042.033-.042.034-.041.036-.041.037-.041.039-.041.04-.041.041-.04.043-.04.044-.04.046-.04.046-.039.049-.039.049-.039.051-.039.052-.038.053-.038.055-.038.056-.038.057-.037.058-.037.06-.037.061-.036.062-.036.063-.036.064-.036.066-.035.067-.035.068-.035.069-.035.07-.034.072-.034.072-.033.074-.033.151-.066.155-.064.159-.063.164-.061.167-.06.172-.059.176-.057.179-.056.184-.054.187-.053.19-.051.195-.05.198-.048.201-.046.204-.045.208-.043.211-.041.214-.04.217-.038.22-.036.223-.034.226-.032.228-.031.231-.028.234-.027.236-.024.238-.023.241-.02.243-.019.245-.016.247-.015.249-.012.251-.01.253-.008.255-.005.256-.004.258-.001.258.001zm-9.258 20.499v.01l.001.021.003.021.004.022.005.021.006.022.007.022.009.023.01.022.011.023.012.023.013.023.015.023.016.024.017.023.018.024.019.024.021.024.022.025.023.024.024.025.052.049.056.05.061.051.066.051.07.051.075.051.079.052.084.052.088.052.092.052.097.052.102.051.105.052.11.052.114.051.119.051.123.051.127.05.131.05.135.05.139.048.144.049.147.047.152.047.155.047.16.045.163.045.167.043.171.043.176.041.178.041.183.039.187.039.19.037.194.035.197.035.202.033.204.031.209.03.212.029.216.027.219.025.222.024.226.021.23.02.233.018.236.016.24.015.243.012.246.01.249.008.253.005.256.004.259.001.26-.001.257-.004.254-.005.25-.008.247-.011.244-.012.241-.014.237-.016.233-.018.231-.021.226-.021.224-.024.22-.026.216-.027.212-.028.21-.031.205-.031.202-.034.198-.034.194-.036.191-.037.187-.039.183-.04.179-.04.175-.042.172-.043.168-.044.163-.045.16-.046.155-.046.152-.047.148-.048.143-.049.139-.049.136-.05.131-.05.126-.05.123-.051.118-.052.114-.051.11-.052.106-.052.101-.052.096-.052.092-.052.088-.053.083-.051.079-.052.074-.052.07-.051.065-.051.06-.051.056-.05.051-.05.023-.024.023-.025.021-.024.02-.024.019-.024.018-.024.017-.024.015-.023.014-.024.013-.023.012-.023.01-.023.01-.022.008-.022.006-.022.006-.022.004-.022.004-.021.001-.021.001-.021v-4.127l-.077.055-.08.053-.083.054-.085.053-.087.052-.09.052-.093.051-.095.05-.097.05-.1.049-.102.049-.105.048-.106.047-.109.047-.111.046-.114.045-.115.045-.118.044-.12.043-.122.042-.124.042-.126.041-.128.04-.13.04-.132.038-.134.038-.135.037-.138.037-.139.035-.142.035-.143.034-.144.033-.147.032-.148.031-.15.03-.151.03-.153.029-.154.027-.156.027-.158.026-.159.025-.161.024-.162.023-.163.022-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.011-.178.01-.179.008-.179.008-.181.006-.182.005-.182.004-.184.003-.184.002h-.37l-.184-.002-.184-.003-.182-.004-.182-.005-.181-.006-.179-.008-.179-.008-.178-.01-.176-.011-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.022-.162-.023-.161-.024-.159-.025-.157-.026-.156-.027-.155-.027-.153-.029-.151-.03-.15-.03-.148-.031-.146-.032-.145-.033-.143-.034-.141-.035-.14-.035-.137-.037-.136-.037-.134-.038-.132-.038-.13-.04-.128-.04-.126-.041-.124-.042-.122-.042-.12-.044-.117-.043-.116-.045-.113-.045-.112-.046-.109-.047-.106-.047-.105-.048-.102-.049-.1-.049-.097-.05-.095-.05-.093-.052-.09-.051-.087-.052-.085-.053-.083-.054-.08-.054-.077-.054v4.127zm0-5.654v.011l.001.021.003.021.004.021.005.022.006.022.007.022.009.022.01.022.011.023.012.023.013.023.015.024.016.023.017.024.018.024.019.024.021.024.022.024.023.025.024.024.052.05.056.05.061.05.066.051.07.051.075.052.079.051.084.052.088.052.092.052.097.052.102.052.105.052.11.051.114.051.119.052.123.05.127.051.131.05.135.049.139.049.144.048.147.048.152.047.155.046.16.045.163.045.167.044.171.042.176.042.178.04.183.04.187.038.19.037.194.036.197.034.202.033.204.032.209.03.212.028.216.027.219.025.222.024.226.022.23.02.233.018.236.016.24.014.243.012.246.01.249.008.253.006.256.003.259.001.26-.001.257-.003.254-.006.25-.008.247-.01.244-.012.241-.015.237-.016.233-.018.231-.02.226-.022.224-.024.22-.025.216-.027.212-.029.21-.03.205-.032.202-.033.198-.035.194-.036.191-.037.187-.039.183-.039.179-.041.175-.042.172-.043.168-.044.163-.045.16-.045.155-.047.152-.047.148-.048.143-.048.139-.05.136-.049.131-.05.126-.051.123-.051.118-.051.114-.052.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.051.07-.052.065-.051.06-.05.056-.051.051-.049.023-.025.023-.024.021-.025.02-.024.019-.024.018-.024.017-.024.015-.023.014-.023.013-.024.012-.022.01-.023.01-.023.008-.022.006-.022.006-.022.004-.021.004-.022.001-.021.001-.021v-4.139l-.077.054-.08.054-.083.054-.085.052-.087.053-.09.051-.093.051-.095.051-.097.05-.1.049-.102.049-.105.048-.106.047-.109.047-.111.046-.114.045-.115.044-.118.044-.12.044-.122.042-.124.042-.126.041-.128.04-.13.039-.132.039-.134.038-.135.037-.138.036-.139.036-.142.035-.143.033-.144.033-.147.033-.148.031-.15.03-.151.03-.153.028-.154.028-.156.027-.158.026-.159.025-.161.024-.162.023-.163.022-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.011-.178.009-.179.009-.179.007-.181.007-.182.005-.182.004-.184.003-.184.002h-.37l-.184-.002-.184-.003-.182-.004-.182-.005-.181-.007-.179-.007-.179-.009-.178-.009-.176-.011-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.022-.162-.023-.161-.024-.159-.025-.157-.026-.156-.027-.155-.028-.153-.028-.151-.03-.15-.03-.148-.031-.146-.033-.145-.033-.143-.033-.141-.035-.14-.036-.137-.036-.136-.037-.134-.038-.132-.039-.13-.039-.128-.04-.126-.041-.124-.042-.122-.043-.12-.043-.117-.044-.116-.044-.113-.046-.112-.046-.109-.046-.106-.047-.105-.048-.102-.049-.1-.049-.097-.05-.095-.051-.093-.051-.09-.051-.087-.053-.085-.052-.083-.054-.08-.054-.077-.054v4.139zm0-5.666v.011l.001.02.003.022.004.021.005.022.006.021.007.022.009.023.01.022.011.023.012.023.013.023.015.023.016.024.017.024.018.023.019.024.021.025.022.024.023.024.024.025.052.05.056.05.061.05.066.051.07.051.075.052.079.051.084.052.088.052.092.052.097.052.102.052.105.051.11.052.114.051.119.051.123.051.127.05.131.05.135.05.139.049.144.048.147.048.152.047.155.046.16.045.163.045.167.043.171.043.176.042.178.04.183.04.187.038.19.037.194.036.197.034.202.033.204.032.209.03.212.028.216.027.219.025.222.024.226.021.23.02.233.018.236.017.24.014.243.012.246.01.249.008.253.006.256.003.259.001.26-.001.257-.003.254-.006.25-.008.247-.01.244-.013.241-.014.237-.016.233-.018.231-.02.226-.022.224-.024.22-.025.216-.027.212-.029.21-.03.205-.032.202-.033.198-.035.194-.036.191-.037.187-.039.183-.039.179-.041.175-.042.172-.043.168-.044.163-.045.16-.045.155-.047.152-.047.148-.048.143-.049.139-.049.136-.049.131-.051.126-.05.123-.051.118-.052.114-.051.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.052.07-.051.065-.051.06-.051.056-.05.051-.049.023-.025.023-.025.021-.024.02-.024.019-.024.018-.024.017-.024.015-.023.014-.024.013-.023.012-.023.01-.022.01-.023.008-.022.006-.022.006-.022.004-.022.004-.021.001-.021.001-.021v-4.153l-.077.054-.08.054-.083.053-.085.053-.087.053-.09.051-.093.051-.095.051-.097.05-.1.049-.102.048-.105.048-.106.048-.109.046-.111.046-.114.046-.115.044-.118.044-.12.043-.122.043-.124.042-.126.041-.128.04-.13.039-.132.039-.134.038-.135.037-.138.036-.139.036-.142.034-.143.034-.144.033-.147.032-.148.032-.15.03-.151.03-.153.028-.154.028-.156.027-.158.026-.159.024-.161.024-.162.023-.163.023-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.01-.178.01-.179.009-.179.007-.181.006-.182.006-.182.004-.184.003-.184.001-.185.001-.185-.001-.184-.001-.184-.003-.182-.004-.182-.006-.181-.006-.179-.007-.179-.009-.178-.01-.176-.01-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.023-.162-.023-.161-.024-.159-.024-.157-.026-.156-.027-.155-.028-.153-.028-.151-.03-.15-.03-.148-.032-.146-.032-.145-.033-.143-.034-.141-.034-.14-.036-.137-.036-.136-.037-.134-.038-.132-.039-.13-.039-.128-.041-.126-.041-.124-.041-.122-.043-.12-.043-.117-.044-.116-.044-.113-.046-.112-.046-.109-.046-.106-.048-.105-.048-.102-.048-.1-.05-.097-.049-.095-.051-.093-.051-.09-.052-.087-.052-.085-.053-.083-.053-.08-.054-.077-.054v4.153zm8.74-8.179l-.257.004-.254.005-.25.008-.247.011-.244.012-.241.014-.237.016-.233.018-.231.021-.226.022-.224.023-.22.026-.216.027-.212.028-.21.031-.205.032-.202.033-.198.034-.194.036-.191.038-.187.038-.183.04-.179.041-.175.042-.172.043-.168.043-.163.045-.16.046-.155.046-.152.048-.148.048-.143.048-.139.049-.136.05-.131.05-.126.051-.123.051-.118.051-.114.052-.11.052-.106.052-.101.052-.096.052-.092.052-.088.052-.083.052-.079.052-.074.051-.07.052-.065.051-.06.05-.056.05-.051.05-.023.025-.023.024-.021.024-.02.025-.019.024-.018.024-.017.023-.015.024-.014.023-.013.023-.012.023-.01.023-.01.022-.008.022-.006.023-.006.021-.004.022-.004.021-.001.021-.001.021.001.021.001.021.004.021.004.022.006.021.006.023.008.022.01.022.01.023.012.023.013.023.014.023.015.024.017.023.018.024.019.024.02.025.021.024.023.024.023.025.051.05.056.05.06.05.065.051.07.052.074.051.079.052.083.052.088.052.092.052.096.052.101.052.106.052.11.052.114.052.118.051.123.051.126.051.131.05.136.05.139.049.143.048.148.048.152.048.155.046.16.046.163.045.168.043.172.043.175.042.179.041.183.04.187.038.191.038.194.036.198.034.202.033.205.032.21.031.212.028.216.027.22.026.224.023.226.022.231.021.233.018.237.016.241.014.244.012.247.011.25.008.254.005.257.004.26.001.26-.001.257-.004.254-.005.25-.008.247-.011.244-.012.241-.014.237-.016.233-.018.231-.021.226-.022.224-.023.22-.026.216-.027.212-.028.21-.031.205-.032.202-.033.198-.034.194-.036.191-.038.187-.038.183-.04.179-.041.175-.042.172-.043.168-.043.163-.045.16-.046.155-.046.152-.048.148-.048.143-.048.139-.049.136-.05.131-.05.126-.051.123-.051.118-.051.114-.052.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.051.07-.052.065-.051.06-.05.056-.05.051-.05.023-.025.023-.024.021-.024.02-.025.019-.024.018-.024.017-.023.015-.024.014-.023.013-.023.012-.023.01-.023.01-.022.008-.022.006-.023.006-.021.004-.022.004-.021.001-.021.001-.021-.001-.021-.001-.021-.004-.021-.004-.022-.006-.021-.006-.023-.008-.022-.01-.022-.01-.023-.012-.023-.013-.023-.014-.023-.015-.024-.017-.023-.018-.024-.019-.024-.02-.025-.021-.024-.023-.024-.023-.025-.051-.05-.056-.05-.06-.05-.065-.051-.07-.052-.074-.051-.079-.052-.083-.052-.088-.052-.092-.052-.096-.052-.101-.052-.106-.052-.11-.052-.114-.052-.118-.051-.123-.051-.126-.051-.131-.05-.136-.05-.139-.049-.143-.048-.148-.048-.152-.048-.155-.046-.16-.046-.163-.045-.168-.043-.172-.043-.175-.042-.179-.041-.183-.04-.187-.038-.191-.038-.194-.036-.198-.034-.202-.033-.205-.032-.21-.031-.212-.028-.216-.027-.22-.026-.224-.023-.226-.022-.231-.021-.233-.018-.237-.016-.241-.014-.244-.012-.247-.011-.25-.008-.254-.005-.257-.004-.26-.001-.26.001z" transform="scale(.5)"></path></symbol></defs><defs><symbol height="24" width="24" id="mermaid-figure-2-clock"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.848 12.459c.202.038.202.333.001.372-1.907.361-6.045 1.111-6.547 1.111-.719 0-1.301-.582-1.301-1.301 0-.512.77-5.447 1.125-7.445.034-.192.312-.181.343.014l.985 6.238 5.394 1.011z" transform="scale(.5)"></path></symbol></defs><defs><marker orient="auto-start-reverse" markerheight="12" markerwidth="12" markerunits="userSpaceOnUse" refy="5" refx="7.9" id="mermaid-figure-2-arrowhead"><path d="M -1 0 L 10 5 L 0 10 z"></path></marker></defs><defs><marker refy="4.5" refx="4" orient="auto" markerheight="8" markerwidth="15" id="mermaid-figure-2-crosshead"><path style="stroke-dasharray: 0, 0;" d="M 1,2 L 6,7 M 6,2 L 1,7" stroke-width="1pt" stroke="#000000" fill="none"></path></marker></defs><defs><marker orient="auto" markerheight="28" markerwidth="20" refy="7" refx="15.5" id="mermaid-figure-2-filled-head"><path d="M 18,7 L9,13 L14,7 L9,1 Z"></path></marker></defs><defs><marker orient="auto" markerheight="40" markerwidth="60" refy="15" refx="15" id="mermaid-figure-2-sequencenumber"><circle r="6" cy="15" cx="15"></circle></marker></defs><g><rect class="note" height="39" width="344" stroke="#666" fill="#EDF2AE" y="75" x="50"></rect><text style="font-size: 16px; font-weight: 400;" dy="1em" class="noteText" alignment-baseline="middle" dominant-baseline="middle" text-anchor="middle" y="80" x="222"><tspan x="222">QoS 0</tspan></text></g><g><rect class="note" height="39" width="344" stroke="#666" fill="#EDF2AE" y="170" x="50"></rect><text style="font-size: 16px; font-weight: 400;" dy="1em" class="noteText" alignment-baseline="middle" dominant-baseline="middle" text-anchor="middle" y="175" x="222"><tspan x="222">QoS 1</tspan></text></g><g><rect class="note" height="39" width="344" stroke="#666" fill="#EDF2AE" y="311" x="50"></rect><text style="font-size: 16px; font-weight: 400;" dy="1em" class="noteText" alignment-baseline="middle" dominant-baseline="middle" text-anchor="middle" y="316" x="222"><tspan x="222">QoS 2</tspan></text></g><text style="font-size: 16px; font-weight: 400;" dy="1em" class="messageText" alignment-baseline="middle" dominant-baseline="middle" text-anchor="middle" y="129" x="221">PUBLISH</text><line style="fill: none;" marker-end="url(#mermaid-figure-2-arrowhead)" stroke="none" stroke-width="2" class="messageLine0" y2="160" x2="365" y1="160" x1="76"></line><text style="font-size: 16px; font-weight: 400;" dy="1em" class="messageText" alignment-baseline="middle" dominant-baseline="middle" text-anchor="middle" y="224" x="221">PUBLISH</text><line style="fill: none;" marker-end="url(#mermaid-figure-2-arrowhead)" stroke="none" stroke-width="2" class="messageLine0" y2="255" x2="365" y1="255" x1="76"></line><text style="font-size: 16px; font-weight: 400;" dy="1em" class="messageText" alignment-baseline="middle" dominant-baseline="middle" text-anchor="middle" y="270" x="224">PUBACK</text><line style="stroke-dasharray: 3, 3; fill: none;" marker-end="url(#mermaid-figure-2-arrowhead)" stroke="none" stroke-width="2" class="messageLine1" y2="301" x2="79" y1="301" x1="368"></line><text style="font-size: 16px; font-weight: 400;" dy="1em" class="messageText" alignment-baseline="middle" dominant-baseline="middle" text-anchor="middle" y="365" x="221">PUBLISH</text><line style="fill: none;" marker-end="url(#mermaid-figure-2-arrowhead)" stroke="none" stroke-width="2" class="messageLine0" y2="396" x2="365" y1="396" x1="76"></line><text style="font-size: 16px; font-weight: 400;" dy="1em" class="messageText" alignment-baseline="middle" dominant-baseline="middle" text-anchor="middle" y="411" x="224">PUBREC / PUBREL / PUBCOMP</text><line style="stroke-dasharray: 3, 3; fill: none;" marker-end="url(#mermaid-figure-2-arrowhead)" stroke="none" stroke-width="2" class="messageLine1" y2="442" x2="79" y1="442" x1="368"></line>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>Bardzo ważny slajd pod kątem organizacji kodu i danych. Zaprojektowanie dobrego drzewa tematów to połowa sukcesu w utrzymaniu porządku w złożonym systemie. Pozwala to analitykom w R lub Pythonie subskrybować jednym poleceniem całe kategorie danych (np. wszystkie czujniki temperatury w hali „B”).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="coap-i-amqp-alternatywy-dla-specyficznych-scenariuszy" class="slide level2">
+<h2><i class="bi bi-arrow-left-right"></i> 12. CoAP i AMQP: Alternatywy dla specyficznych scenariuszy</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="coap-constrained-application-protocol">CoAP (Constrained Application Protocol)</h3>
+<ul>
+<li class="fragment">Odpowiednik HTTP (metody GET, POST, PUT), ale oparty na bezpołączeniowym protokole <strong>UDP</strong> – szybszy, lecz bez gwarancji dostarczenia.</li>
+<li class="fragment">Wbudowane wsparcie dla szyfrowania DTLS.</li>
+<li class="fragment">Idealny dla prostych interakcji typu żądanie-odpowiedź na mikrokontrolerach.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="amqp-advanced-message-queuing-protocol">AMQP (Advanced Message Queuing Protocol)</h3>
+<ul>
+<li class="fragment">Skomplikowany, potężny system kolejek wiadomości dla środowisk korporacyjnych i finansowych.</li>
+<li class="fragment">Zbyt ciężki dla mikrokontrolerów – stosowany na zapleczu (backend), np. między serwerami w chmurze (RabbitMQ).</li>
+</ul>
+</div></div>
+<aside class="notes">
+<p>CoAP sprawdza się tam, gdzie MQTT jest „za dużo” – np. pojedynczy mikrokontroler, który po prostu odpowiada na zapytanie „podaj aktualną temperaturę” bez potrzeby stałego połączenia z Brokerem. AMQP z kolei żyje w świecie serwerów, nie czujników.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="podsumowanie-dobór-technologii" class="slide level2">
+<h2><i class="bi bi-table"></i> 13. Podsumowanie: Dobór technologii</h2>
+<p>Wybór standardu komunikacyjnego determinuje całą architekturę systemu IoT.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Warstwa</th>
+<th style="text-align: left;">Technologia</th>
+<th style="text-align: left;">Zastosowanie</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Krótki zasięg</strong></td>
+<td style="text-align: left;">BLE, Zigbee, Z-Wave</td>
+<td style="text-align: left;">Wearables, Smart Home, czujniki lokalne</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Daleki zasięg</strong></td>
+<td style="text-align: left;">LoRaWAN, NB-IoT, Sigfox</td>
+<td style="text-align: left;">Rolnictwo, monitoring środowiskowy, Smart City</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Protokół aplikacyjny</strong></td>
+<td style="text-align: left;">MQTT (Pub/Sub)</td>
+<td style="text-align: left;">Niska latencja, asynchroniczność, izolacja środowisk</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Protokół aplikacyjny</strong></td>
+<td style="text-align: left;">CoAP (Req/Res)</td>
+<td style="text-align: left;">Proste interakcje na mikrokontrolerach (UDP)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Protokół aplikacyjny</strong></td>
+<td style="text-align: left;">HTTP</td>
+<td style="text-align: left;">Wyłącznie bramki i serwery ze stałym zasilaniem</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>To podsumowanie powinno pozwolić słuchaczom szybko odnaleźć się w gąszczu technologii. Kluczowa zasada: im dalej chcesz przesłać dane, tym mniej ich przesyłasz i tym dłużej bateria przeżyje.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="dziękuję-za-uwagę" class="slide level2">
+<h2><i class="bi bi-arrow-left-right"></i> 14. Dziękuję za uwagę</h2>
+<h3 id="w-kolejnym-wykładzie-omówimy">W kolejnym wykładzie omówimy</h3>
+<ul>
+<li>przetwarzanie zebranych danych w chmurze (Cloud),</li>
+<li>zagadnienia bezpieczeństwa oraz</li>
+<li>zaawansowane zastosowania IoT (Smart City, Digital Twins).</li>
+</ul>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p>Internet Rzeczy – IoT (Wykład 2)</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="wyklad_2_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="wyklad_2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="wyklad_2_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="wyklad_2_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="wyklad_2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="wyklad_2_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="wyklad_2_files/libs/revealjs/plugin/appearance/appearance.js"></script>
+  <script src="wyklad_2_files/libs/revealjs/plugin/reveal-pointer/pointer.js"></script>
+  <script src="wyklad_2_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="wyklad_2_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="wyklad_2_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="wyklad_2_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="wyklad_2_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'appearance': {"hideagain":true,"delay":300,"debug":false,"appearevent":"slidetransitionend","autoappear":false,"autoelements":false,"appearparents":false},
+'pointer': {"key":"q","color":"#e60000","pointerSize":20,"alwaysVisible":false},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, Appearance, RevealPointer, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Skopiowano!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Skopiowano!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

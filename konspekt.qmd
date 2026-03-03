@@ -1,0 +1,100 @@
+---
+title: "Internet Rzeczy (IoT) – Od koncepcji do Przemysłu 4.0"
+subtitle: "Cykl 3 wykładów dla studentów kierunków technicznych"
+author: "Prelegent"
+date: "2026-03-02"
+format: 
+  beamer:
+    aspectratio: 169
+    theme: Madrid
+---
+
+# Wykład 1: Fundamenty i Architektura IoT
+
+## Cel wykładu
+* Zrozumienie genezy IoT.
+* Zapoznanie się z warstwową budową systemów.
+* Przegląd popularnych platform prototypowych.
+
+## 1. Wprowadzenie i Historia (15 min)
+* **Definicja IoT:** Ewolucja pojęcia (od RFID do wszechobecnej inteligencji).
+* **Kamienie milowe:**
+    * 1982: Automat Coca-Cola na CMU (pierwsze urządzenie "connected").
+    * 1999: Kevin Ashton i termin "Internet of Things" w kontekście Supply Chain.
+    * 2008/2009: Moment, w którym liczba rzeczy podłączonych do sieci przekroczyła liczbę ludzi.
+* **Statystyki:** Dynamika wzrostu rynku i liczby sensorów.
+
+
+
+## 2. Architektura Systemów IoT (15 min)
+* **Model 3-warstwowy:**
+    1. **Warstwa Percepcji:** Czujniki (temperatura, wilgotność, gaz), elementy wykonawcze (serwa, przekaźniki).
+    2. **Warstwa Sieciowa:** Transmisja danych, bramy (gateways).
+    3. **Warstwa Aplikacji:** Przetwarzanie danych, UI/UX, analityka.
+* **Edge vs. Cloud Computing:** Gdzie powinna odbywać się logika?
+
+## 3. Platformy Sprzętowe i Prototypowanie (15 min)
+* **Arduino:** Idealne dla prostych zadań real-time (mikrokontrolery AVR/ARM).
+* **ESP32:** "Król IoT" – zintegrowane Wi-Fi/BT, niski koszt, duża moc.
+* **Raspberry Pi:** Komputer jednopłytkowy (SBC) jako brama lub zaawansowany kontroler.
+
+---
+
+# Wykład 2: Komunikacja i Protokoły w IoT
+
+## Cel wykładu
+* Rozróżnienie technologii łączności ze względu na zasięg i energię.
+* Zrozumienie protokołów lekkich (MQTT, CoAP).
+
+## 1. Technologie Krótkiego Zasięgu (15 min)
+* **Wi-Fi:** Wysoka przepustowość vs. wysoki pobór mocy.
+* **Bluetooth / BLE:** Energooszczędność w komunikacji personalnej.
+* **Zigbee / Z-Wave:** Sieci kratowe (Mesh) w automatyce budynkowej.
+
+
+
+## 2. Technologie Dalekiego Zasięgu - LPWAN (15 min)
+* **Koncepcja LPWAN:** Mało danych, duży zasięg, lata pracy na baterii.
+* **LoRaWAN:** Standard otwarty, prywatne bramy.
+* **NB-IoT & LTE-M:** Wykorzystanie infrastruktury operatorów komórkowych.
+* **Sigfox:** Ultralekkie wiadomości.
+
+## 3. Protokoły Przesyłania Danych (15 min)
+* **Dlaczego nie HTTP?** Narzut nagłówków i model request-response.
+* **MQTT (Message Queuing Telemetry Transport):**
+    * Model Publish/Subscribe.
+    * Lekkość i hierarchia tematów (topics).
+* **CoAP (Constrained Application Protocol):** Odpowiednik HTTP dla urządzeń o ograniczonych zasobach (UDP).
+* **AMQP:** Zastosowania biznesowe i kolejkowanie.
+
+---
+
+# Wykład 3: Chmura, Bezpieczeństwo i Zastosowania
+
+## Cel wykładu
+* Przegląd ekosystemów chmurowych.
+* Analiza zagrożeń.
+* Prezentacja realnych wdrożeń (Smart City).
+
+## 1. Ekosystemy Chmurowe i Narzędzia (15 min)
+* **Giganci (PaaS):** AWS IoT Core, Azure IoT Hub – skalowalność i analityka AI.
+* **Rozwiązania Open-Source:**
+    * **ThingsBoard:** Dashboardy i zarządzanie urządzeniami.
+    * **Node-RED:** Programowanie przepływowe (Low-code).
+
+## 2. Bezpieczeństwo i Prywatność (15 min)
+* **Wektor ataku:** Fizyczny dostęp, niezabezpieczone porty, brak szyfrowania.
+* **Botnety IoT:** Przykład ataku Mirai.
+* **Dobre praktyki:** TLS/SSL, aktualizacje OTA (Over-the-Air), unikalne hasła.
+
+
+
+## 3. IoT w Praktyce - Smart City i Przemysł (15 min)
+* **Smart City:**
+    * Inteligentne oświetlenie i parkingi.
+    * **Przykład: Poznań** (systemy ITS, monitoring jakości powietrza).
+* **IIoT (Industrial IoT):** Predictive maintenance, cyfrowe bliźniaki (Digital Twins).
+* **Smart Home:** Integracja ekosystemów (standard Matter).
+
+## Podsumowanie i Przyszłość
+* Kierunki rozwoju: 6G, integracja z AI, energia z otoczenia (Energy Harvesting).
