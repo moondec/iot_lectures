@@ -37,3 +37,8 @@ format:
     background-transition: none
     pdf-separate-fragments: false
     lang: pl
+
+website:
+  page-footer: 
+    left: "© 2026 Marek Urbaniak"
+    right: "Licencja: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode.pl)"

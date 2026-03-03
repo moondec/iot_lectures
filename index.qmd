@@ -1,6 +1,10 @@
 ---
-title: "Wykłady IoT - Materiały Dydaktyczne"
+  title: "Wykłady IoT - Materiały Dydaktyczne"
 ---
+
+::: {.callout-tip appearance="simple"}
+Materiały udostępnione na licencji [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/legalcode.pl).
+:::
 
 Witaj w repozytorium materiałów do wykładu z Internetu Rzeczy (IoT). Poniżej znajdziesz linki do poszczególnych prezentacji:
 
