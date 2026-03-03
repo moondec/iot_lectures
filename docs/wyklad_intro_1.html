@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="pl"><head>
-<script src="wyklad_intro_2_files/libs/clipboard/clipboard.min.js"></script>
-<script src="wyklad_intro_2_files/libs/quarto-html/tabby.min.js"></script>
-<script src="wyklad_intro_2_files/libs/quarto-html/popper.min.js"></script>
-<script src="wyklad_intro_2_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="wyklad_intro_2_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="wyklad_intro_2_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="wyklad_intro_2_files/libs/quarto-html/quarto-syntax-highlighting-b754b9fd3853d7e56faef54c29c5d52b.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-b754b9fd3853d7e56faef54c29c5d52b.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="prof. UPP dr hab. inż. Marek Urbaniak">
-  <title>Internet Przyszłości</title>
+  <title>Wykłady IoT – Internet Przyszłości</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="wyklad_intro_2_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="wyklad_intro_2_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -29,15 +29,15 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="wyklad_intro_2_files/libs/revealjs/dist/theme/quarto-5f66212b01f094180b8d10b5b9960144.css">
-  <link href="wyklad_intro_2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="wyklad_intro_2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="wyklad_intro_2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="wyklad_intro_2_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="wyklad_intro_2_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="wyklad_intro_2_files/libs/revealjs/plugin/appearance/appearance.css" rel="stylesheet">
-  <link href="wyklad_intro_2_files/libs/revealjs/plugin/reveal-pointer/pointer.css" rel="stylesheet">
-  <link href="wyklad_intro_2_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-5f66212b01f094180b8d10b5b9960144.css">
+  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/appearance/appearance.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-pointer/pointer.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -129,7 +129,7 @@
   <style>
   body { background-color: #1a1a1a; }
   .reveal .slide-background-content {
-      background-image: url("img/iot_tlo_or.jpg") !important;
+      background-image: url("img/iot_tlo_gr.jpg") !important;
       background-size: cover !important;
       background-repeat: no-repeat !important;
       background-position: center center !important;
@@ -148,7 +148,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Internet Przyszłości</h1>
-  <p class="subtitle">Zagrożenia, AI i Nowe Horyzonty Ludzkości (Część 2)</p>
+  <p class="subtitle">Utopia?, Dystopia?, Rzeczywistość – Technologia o wielu twarzach (Część 1)</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -168,141 +168,67 @@
 
 </section>
 <section>
-<section id="cyfrowe-cienie" class="title-slide slide level1 center" data-background-color="#f8f9fa">
-<h1>Cyfrowe Cienie</h1>
+<section id="złudzenia-i-rzeczywistość" class="title-slide slide level1 center" data-background-color="#f8f9fa">
+<h1>Złudzenia i Rzeczywistość</h1>
 
 </section>
-<section id="ciemna-strona-mocy-dobre-narzędzia-złe-intencje" class="slide level2">
-<h2><i class="bi bi-mask"></i> 1. Ciemna strona mocy: Dobre narzędzia, Złe intencje</h2>
-<p>Zastanówmy się czy technologia rodzi same korzyści.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li class="fragment"><strong>Afera Cambridge Analytica:</strong> Wykorzystanie danych z pozoru niewinnego Facebooka do mikro-targetowania (‘hakowania świata’) wpływającego na demokratyczne wybory.</li>
-<li class="fragment"><strong>Chiński System Kredytu Społecznego:</strong> Automatyczna weryfikacja i nadzór. <em>„Ktoś, kto przez dziesięć godzin dziennie gra w gry wideo, zostanie zaklasyfikowany jako osoba bezproduktywna.”</em></li>
-<li class="fragment">Powszechna, zintegrowana inwigilacja staje się mierzalną szarą strefą państw.</li>
-</ul>
-</div><div class="column" style="width:50%;">
+<section id="technologia-was-wyzwoli" class="slide level2">
+<h2><i class="bi bi-lightbulb"></i> 1. Technologia was wyzwoli?</h2>
 <div class="fragment">
+<div title="Motto" style="font-size: 1.5em;">
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Motto</strong></p>
+</div>
+<div class="callout-content">
+<p>… „<strong>globalizacja</strong>”, „<strong>blockchain</strong>”, „<strong>inżynieria genetyczna</strong>”, „<strong>sztuczna inteligencja</strong>”, „<strong>uczenie maszynowe</strong>” – prości ludzie zapewne podejrzewają, że żadne z tych pojęć ich nie dotyczy.</p>
+<p>— <em>21 Lekcji Na XXI Wiek, Yuval Noah Harari</em></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>Zaczynamy od mocnego uderzenia. Pokaż studentom, że technologia to nie tylko nowe formaty kabli. Dziś przeciętny człowiek uważa, że zaawansowane pojęcia technologiczne go nie dotyczą – do momentu, w którym algorytm połączony z siecią IoT (jak np. asystent w aucie) decyduje w stochastyczny sposób o jego życiu.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="kto-tworzy-przyszłość" class="slide level2">
+<h2><i class="bi bi-exclamation-triangle"></i> 2. Kto tworzy “przyszłość”?</h2>
+<div title="Odpowiedzialność" style="font-size: 1.5em;">
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Od kontroli do dedykowanej propagandy</strong></p>
+<p><strong>Odpowiedzialność</strong></p>
 </div>
 <div class="callout-content">
-<p>Zagrożenia technologii to nie wojna nuklearna maszyn. To sterowanie demokracjami poprzez precyzyjną, dedykowaną propagandę oraz pełna kontrola społeczeństw na poziomie ludzkich pragnień i obaw. (Nawiązanie do wizji “Nowego wspaniałego świata”).</p>
+<p>Rewolucje dokonujące się w biotechnologii i technologii informacyjnej przeprowadzają <strong>inżynierowie, przedsiębiorcy i naukowcy</strong>, którzy często nie zdają sobie sprawy z politycznych czy wręcz globalnych konsekwencji własnych decyzji, i z całą pewnością… <strong>nikogo nie reprezentują</strong>.</p>
 </div>
 </div>
 </div>
-</div>
-</div></div>
-<aside class="notes">
-<p>Początek to szybkie zejście na ziemię po utopii z pierwszej części. Jak widać, technologia analityki Big Data działa w dwie strony. Ten slajd idealnie unaocznia “hakowanie zachowań”, o którym pisze Yuval Noah Harari.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="sztuczna-inteligencja-asystent-czy-konkurencja" class="slide level2">
-<h2><i class="bi bi-robot"></i> 2. Sztuczna Inteligencja: Asystent czy Konkurencja?</h2>
-<p>AI wkracza w sfery zarezerwowane wyłącznie dla intelektu.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li class="fragment">Algorytmy piszą kod, przewidują zachowania rynkowe i stawiają diagnozy medyczne trafniejsze od lekarzy pierwszego kontaktu.</li>
-<li class="fragment">Istnieje ryzyko, że rewolucja sztucznej inteligencji wypchnie miliardy ludzi z rynku pracy.</li>
-<li class="fragment">Stworzy to nową klasę społeczną: “bezużyteczną klasę”, która doprowadzi do politycznych napięć.</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="fragment">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Efekt Skali i Asymetria Pracy</strong></p>
-</div>
-<div class="callout-content">
-<p>Do obsługi każdego bezzałogowego drona w strefie kryzysowej potrzeba na ziemi około <strong>30 osób</strong>, a do analizowania zbieranych przez drona danych wideo – kolejnych <strong>80 pilotów/analityków</strong>. Paradoksalnie “autonomia” sprzętu oznacza dla nas więcej pracy z danymi, nie zawsze na produkcji.</p>
-</div>
-</div>
-</div>
-</div>
-</div></div>
-<aside class="notes">
-<p>Podkreśl przesunięcie kompetencyjne na rynku. Bezrobocie dla pracowników fizycznych idzie w parze z gigantycznym zapotrzebowaniem na wysokokwalifikowanych oficerów danych, których jest ogromny deficyt. A same komputery, jak drony autonomiczne z przykładu na slajdzie, bez danych są ślepe.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="czy-jesteśmy-programami" class="slide level2">
-<h2><i class="bi bi-hdd-network"></i> 3. Czy jesteśmy programami?</h2>
-<p>Algorytmy maszyn stają naprzeciw ludzkiej intuicji.</p>
-<div class="fragment">
-<blockquote>
-<p>“…Nasze decyzje w każdej sprawie – od wyboru jedzenia po wybór partnerów – wynikają nie z jakiejś tajemniczej wolnej woli, lecz raczej z miliardów neuronów w ułamku sekundy obliczających prawdopodobieństwa. Osławiona „ludzka intuicja” jest w rzeczywistości „rozpoznawaniem wzorców”.”</p>
-<p>— <em>Yuval Noah Harari (21 Lekcji Na XXI Wiek)</em></p>
-</blockquote>
 </div>
 <ul>
-<li class="fragment">Sztuczna inteligencja jest gotowa osiągnąć lepsze od nas wyniki, bazując na tych samych zasadach wzorców i prawdopodobieństw.</li>
-<li class="fragment">Jeżeli człowiek jest biochemicznym algorytmem, to z krzemu można stworzyć sztuczny zamiennik ludzkiej decyzyjności.</li>
+<li class="fragment">Technologia nie ma moralności – jest neutralnym wektorem siły.</li>
+<li class="fragment">To cel (i wdrożenie) definiuje czy Internet Rzeczy służy ratowaniu klimatu, czy totalnej inwigilacji obywatela.</li>
 </ul>
 <aside class="notes">
-<p>Głęboko filozoficzny wątek dla inżynierów. Jeśli uznajemy, że nie ma w nas iskry boskiej a jedynie skomplikowana macierz sieci neuronów (które to sieci my sami właśnie tworzymy w Pythonie w Tensorflow), to znaczy, że nasza przewaga z dnia na dzień po prostu będzie zanikać z każdą falą tranzystorów TSMC 3 nanometry w procesorach.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="ucieczka-z-tu-i-teraz" class="slide level2">
-<h2><i class="bi bi-phone-fill"></i> 4. Ucieczka z “Tu i Teraz”</h2>
-<p>Dlaczego tak łatwo ulegamy algorytmom?</p>
-<div class="fragment">
-<div style="font-size: 1.5em;">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Cyfrowe Znieczulenie</strong></p>
-</div>
-<div class="callout-content">
-<p>„Jeżeli większość ludzi spędza znaczną część swojego czasu nie tu i teraz ani w przewidywalnej przyszłości, ale gdzie indziej, w pozbawionych znaczenia zaświatach sportu i oper mydlanych, mitologii i metafizycznych fantazji, <strong>społeczeństwu będzie trudno oprzeć się zakusom tych, którzy chcą nim manipulować</strong>, dążąc do przejęcia kontroli.” <em>— Aldous Huxley (Nowy Wspaniały Świat 30 Lat Później)</em></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>Zwróć uwagę na prorocze słowa Huxleya. Nie jesteśmy w świecie inwigilacji rodem z “Roku 1984” Orwella przez ból i biczowanie, żyjemy w dyktaturze przyjemności i rozrywki z telefonu i TikToka. Dajemy się zniewolić przez łatwą i darmową usługę, płacąc za nią informacjami o naszych przyzwyczajeniach.</p>
+<p>Kluczowe wejście w temat IoT: ci którzy tworzą układy “smart” to inżynierowie, nie politycy. Kiedy projektowaliśmy bezprzewodowe mikro-kamery lub asystentów domowych, chodziło o wygodę, nie budowę globalnego systemu podsłuchowego. A to myślenie wpływa na Wasze (słuchaczy) jutrzejsze projekty.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -319,27 +245,139 @@
 
 </section></section>
 <section>
-<section id="nowe-perspektywy-gatunku" class="title-slide slide level1 center" data-background-color="#f8f9fa">
-<h1>Nowe Perspektywy Gatunku</h1>
+<section id="nowe-perspektywy-danych" class="title-slide slide level1 center" data-background-color="#f8f9fa">
+<h1>Nowe Perspektywy Danych</h1>
 
 </section>
-<section id="kierunki-rozwoju-wychodząc-z-jaskini" class="slide level2">
-<h2><i class="bi bi-person-bounding-box"></i> 5. Kierunki rozwoju: Wychodząc z Jaskini</h2>
-<p>Jak technologia pozwala ewoluować samemu gatunkowi.</p>
+<section id="jasna-strona-mocy-profity-z-iot" class="slide level2">
+<h2><i class="bi bi-graph-up-arrow"></i> 3. Jasna strona mocy (Profity z IoT)</h2>
+<p>Technologia daje nam narzędzia, jakich nigdy wcześniej nie posiadała ludzkość, pozwalając na jednoczesne powiązanie:</p>
+<ol type="1">
+<li class="fragment">Poszerzenia wiedzy o środowisku.</li>
+<li class="fragment">Poznania nas samych (lepsza opieka medyczna ludzi, zwierząt oraz… roślin).</li>
+<li class="fragment">Świadomego i zrównoważonego wykorzystywania kurczących się zasobów globu.</li>
+<li class="fragment">Rewolucyjnej poprawy procesów produkcji (Przemysł 4.0).</li>
+<li class="fragment">Natychmiastowej komunikacji wektorowej.</li>
+</ol>
+<aside class="notes">
+<p>Przechodzimy do rdzenia tematycznego inżynierii XXI wieku - czym jest optymalizacja zasilana danymi (Data-Driven). Jeżeli nie możemy zmierzyć planety w 20.000 miejscach jednocześnie, to na jakiej podstawie chcemy nią zarządzać?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="iot-w-rolnictwie-monitoring-upraw-i-ekosystemów" class="slide level2">
+<h2><i class="bi bi-tree"></i> 4. IoT w Rolnictwie: Monitoring upraw i ekosystemów</h2>
+<p>Zrozumienie, zapobieganie, reagowanie.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment">Systemy zintegrowanego monitoringu zastępują intuicję „starego rolnika”.</li>
+<li class="fragment">Analiza mikroklimatu bezpośrednio w chmurze liści (temperatura, wilgotność, natężenie PAR).</li>
+<li class="fragment">Minimalizacja użycia oprysków: algorytmy AI analizują sensory na polu sugerując fungicydy tylko po przekroczeniu fizycznego progu punktu rosy, powstrzymując plagi prewencyjnie.</li>
+<li class="fragment">Czujniki glebowe mierzące NPK oraz pH minimalizujące wymywanie do wód gruntowych.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="fragment">
+<p><img data-src="img/th-1774962466.png" style="width:100.0%"></p>
+</div>
+</div></div>
+<aside class="notes">
+<p>Przykład agrotechniczny to świetny argument: precyzyjne rolnictwo optymalizuje dawkę chemii co do centymetra i pory dnia, chroniąc wodę. Działa to oczywiście dzięki systemom takim jak Tree-Talker mierzącym strumień transpiracji.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="medycyna-poznać-siebie-smart-wearables" class="slide level2">
+<h2><i class="bi bi-heart-pulse"></i> 5. Medycyna – Poznać Siebie (Smart Wearables)</h2>
+<p>Opaska nie jest tylko zegarkiem.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Zjawisko „Self-Tracking” (Quantified Self).</li>
+<li class="fragment">Zegarki i smart-obrączki dokonują odczytów zmienności rytmu zatokowego (HRV) oraz nasycenia tlenem.</li>
+<li class="fragment">Bazy danych uczą się wzorców spania, wyprzedzając diagnozy spadku samopoczucia zanim te zamienią się w depresję czy arytmię.</li>
+<li class="fragment">Ekstrakcja kluczowych danych “in-vivo”, a nie w sterylnym labie co pół roku u lekarza.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<p><img data-src="img/Oura-ring.jpg" height="600"></p>
+</div>
+</div></div>
+<aside class="notes">
+<p>Zwróć uwagę słuchaczy na Oura Ring. Pokazuje to miniaturyzację. Zaledwie kilkanaście lat temu zapis tętna 24h/7 wymagał noszenia klamorów z Holterem EKG. Czerwona dioda na naszym ciele ciągle mierzy nasz rytm biologiczny i w tle (w smartfonie, połączonym Bluetooth) buduje gigantyczną sieć diagnoz AI populacji globalnej.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="zrównoważone-zastosowanie-zasobów" class="slide level2">
+<h2><i class="bi bi-droplet"></i> 6. Zrównoważone Zastosowanie Zasobów</h2>
+<p>Każda kropla wody i każdy Watt zliczony na bieżąco - nawożenie ‘Smart’.</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="fragment">
+<p><img data-src="img/residential-sprinkler-systems-2663960231.jpg" style="width:100.0%"></p>
+</div>
+</div><div class="column" style="width:55%;">
+<ul>
+<li class="fragment">Systemy nawadniające połączone z satelitarną prognozą pogody i lokalnym czujnikiem deszczu – oszczędzające dziesiątki milionów litrów wody deszczowej.</li>
+<li class="fragment">Optymalizacja szlaków kurierskich na poziomie milisekund, redukująca spaliny.</li>
+<li class="fragment">Oświetlenie uliczne przyciemniane dzięki czujnikom wykrywającym niewielki ruch pieszy w nocy.</li>
+</ul>
+</div></div>
+<aside class="notes">
+<p>System domowych zraszaczy. Jeśli podlewanie załączy się o 4:00 bo taki jest harmonogram, a o 6:00 zacznie nawalać burza - zmarnowałeś prąd na pompy i zasoby. Smart zraszacz używa otwartego API meteo, zatrzymując algorytm na 2 godziny.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="przemysł-4.0-monitoring-procesów" class="slide level2">
+<h2><i class="bi bi-gear-wide-connected"></i> 7. Przemysł 4.0: Monitoring Procesów</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
-<li class="fragment">Ludzkość nie zdominowała natury przez ostre pazury, ogromną siłę, ani wielki intelekt poszczególnej jednostki.</li>
-<li class="fragment">To komunikacja: Nasza przewaga to absolutna umiejętność asynchronicznego koordynowania pracy na miliardowej skali, wymieniania myśli i budowy struktur, których nie pojmie i nie stworzy pojedynczy umysł.</li>
-<li class="fragment">Nowe sieci (jak IoT, internet satelitarny Starlink itp.) to biologicznie patrząc nowy sposób globalnego neuronowego pająka.</li>
+<li class="fragment">To rewolucja silników napędzających nowoczesne gospodarki.</li>
+<li class="fragment">Analiza predykcyjna (Predictive Maintenance) – czujniki wibracji na robotach chwytnych mogą wykryć zatarte łożyska jeszcze przed pęknięciem.</li>
+<li class="fragment">Pełna automatyzacja i cyfrowe bliźniaki hal produkcyjnych, minimalizujące liczbę przestojów w dostawach pojazdów na globalny rynek.</li>
 </ul>
 </div><div class="column" style="width:45%;">
 <div class="fragment">
-<p><img data-src="img/Pasted%20image%2020221117144301.png" style="width:100.0%"></p>
+<p><img data-src="img/IIoT-smart-manufacturing-smart-factory-3751296197.jpg" style="width:100.0%"></p>
 </div>
 </div></div>
 <aside class="notes">
-<p>Klucz do przetrwania - współpraca. Komputery współpracują miliony razy lepiej. Dziś człowiek uczy się maszynowego punktu widzenia. Zdjęcie ilustruje jak technologia uczy roboty “widzieć i zbierać owoce”, ucząc się naszej domeny na naszym poziomie.</p>
+<p>Przemysł to główny odbiorca IIoT (Industrial IoT). Tutaj czas to ogromne pieniądze. Każda sekunda postoju taśmy oznacza wady produkcyjne za miliony euro. Roboty już dzisiaj same wzywają inżynierów serwisowych zanim ulegną defektom akustycznym.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -352,24 +390,23 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="bezpośredni-transfer-wrażeń-bci" class="slide level2">
-<h2><i class="bi bi-wifi"></i> 6. Bezpośredni transfer wrażeń (BCI)</h2>
-<p>Idea rodem z Matrixa udowodniona naukowo 10 lat temu.</p>
+<section id="komunikacja-wektorowa" class="slide level2">
+<h2><i class="bi bi-truck"></i> 8. Komunikacja wektorowa</h2>
+<p>Samojezdne platformy i logistyka naczyń połączonych.</p>
 <div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li class="fragment"><strong>Projekt Miguela Nicolelisa:</strong> W serii eksperymentów wszczepiono implanty do ośrodków ruchowych dwóch szczurów.</li>
-<li class="fragment">Jeden znajdował się na kampusie Duke (USA), drugi w Brazylii.</li>
-<li class="fragment">Połączono ich na serwerach siecią i przesyłano komendy ruchowe.</li>
-<li class="fragment">Szczur podrzędny uczył się pociągać właściwe dźwignie świetlne <strong>wyłącznie z sygnałów przesyłanych pętlą TCP/IP prosto z mózgu pierwszego</strong>.</li>
-</ul>
-</div><div class="column" style="width:40%;">
+<div class="column" style="width:50%;">
 <div class="fragment">
-<p><img data-src="img/Pasted%20image%2020221117150031.png" style="width:100.0%"></p>
+<p><img data-src="img/smart_transportation_781x512-1163925340.jpg" style="width:100.0%"></p>
 </div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Inteligentne autostrady posiadające zintegrowane systemy wykrywania oblodzenia i dostosowywania dynamiki znaków LED w zależności od mgły.</li>
+<li class="fragment">Autonomiczna jazda plutonowa (platooning) ciężarówek – pojazdy sprzężone radiowo jadą w odległości 2 metrów od siebie, drastycznie redukując współczynnik oporu aerodynamicznego (Cx).</li>
+<li class="fragment">Zarządzanie flotowe dla e-commerce od terminala po drzwi Twojej zamrażarki.</li>
+</ul>
 </div></div>
 <aside class="notes">
-<p>Zobrazuj im skok jaki to robi: komunikacja siecią Internet poleceń motorycznych pomiędzy szczurami oddalonymi o kontynenty. Ten “Brain to Brain Interface” nie jest tylko medycyną do naprawy zerwanego rdzenia, to komunikacja, gdzie człowiek podłączałby się pod pamięć roboczą chmury internetowej.</p>
+<p>Komunikacja dotyczy miast. Transport publiczny i komercyjny optymalizowany jest przez zwinne sieci komunikacji Machine-to-Machine. Półciężarówki V2X (Vehicle to Everything) w niedalekiej przyszłości zaczną informować się nawzajem o korkach i wybojach bez podłączenia ludzi.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -382,81 +419,17 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="interfejs-człowiek-człowiek-university-of-washington-2013" class="slide level2">
-<h2><i class="bi bi-person-check-fill"></i> 7. Interfejs Człowiek-Człowiek (University of Washington, 2013)</h2>
-<p>Eksperyment, który przekroczył barierę ludzką: <em>Nieinwazyjny interfejs komputera mózgowego</em>.</p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li class="fragment">Rajesh Rao i Andrea Stocco zagrali w grę wideo w przeciwnych połówkach kampusu.</li>
-<li class="fragment"><strong>Rajesh</strong> widział na monitorze nadlatujące obiekty, lecz nie posiadał klawiatury ani pada. Chciał wystrzelić pocisk, a myśl ta przesyłana za pomocą analizy EEG (elektroencefalogramu) była przesyłana pętlą TCP/IP prosto z mózgu kolegi.</li>
-<li class="fragment"><strong>Andrea</strong> siedziała w ślepym zamkniętym pokoju z klawiaturą (kontrolerem), nie widząc samej gry, ale mając na głowie cewkę oddziałującą polem magnetycznym na korę ruchową dłoni.</li>
-<li class="fragment">Myśl Rajesha, po zdekodowaniu, wędrowała milisekundy siecią wi-fi by wzbudzić drgnięcie mięśniowe dłoni Andrei naciskającej klawisz. Z sukcesem ustrzelili cel.</li>
-</ul>
-</div><div class="column" style="width:40%;">
+<section id="cykl-iot-ai-to-przyszłość-a-obecnie" class="slide level2">
+<h2><i class="bi bi-diagram-3"></i> 9. Cykl IoT &amp; AI – To przyszłość, a obecnie?</h2>
+<p>Cztery fazy rozwoju procesowania danych w historii.</p>
 <div class="fragment">
-<p><img data-src="img/Pasted%20image%2020221117150512.png" style="width:100.0%"></p>
-</div>
-</div></div>
-<aside class="notes">
-<p>Ten eksperyment (z 2013 roku, ponad dekadę temu) to pokaz “Transferu Telemetrycznego” do człowieka. Przekaz impulsu do wykonania z intencji. Pokazuje to gigantyczne pole przed systemami Neuralink.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="podstawowa-blokada-prawdziwy-koszt-energii" class="slide level2">
-<h2><i class="bi bi-battery-charging"></i> 8. Podstawowa Blokada: Prawdziwy Koszt Energii</h2>
-<p>Paliwo ludzkiego a maszynowego bytu.</p>
-<div class="columns">
-<div class="column" style="width:60%;">
 <ul>
-<li class="fragment">Energia dzienna spożywana przez dorosłego pracującego ciężko człowieka wynosi ok. <strong>2500 - 3000 kcal</strong> (co matematycznie daje <strong>~12.6 MJ</strong> energii, lub 3.5 kWh prądu).</li>
-<li class="fragment">Z drugiej strony, przeciętne auto potrzebuje blisko 2,5 MJ energii na każdy kilometr jazdy.</li>
+<li><strong>Generacja 1.0:</strong> Ręczna, prosta praca fizyczna oparta o mięśnie zwierząt.</li>
+<li><strong>Generacja 2.0:</strong> Zastosowanie maszyn mechanicznych – przeskok z energii biologicznej na napęd ropą naftową oraz węglem.</li>
+<li><strong>Generacja 3.0:</strong> Przewidywanie matematyczne, informatyka lat 90’, sztywne systemy ERP próbujące planować wydajność w Excelach.</li>
 </ul>
-</div><div class="column" style="width:40%;">
+</div>
 <div class="fragment">
-<div style="font-size: 1.5em;">
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Ekologia zderza się z Fizyką</strong></p>
-</div>
-<div class="callout-content">
-<p>Aby pokonać błahe <strong>5 km</strong> samochodem i przewieźć fizycznie 1 człowieka, infrastruktura wyzwala ładunek energetyczny potężniejszy niż dobowy koszt egzystencji (BMR) całego zapotrzebowania narządów i mózgu tego człowieka na 24h. Systemy komputerowe są ogromnie prądożerne na wzór aut.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div></div>
-<aside class="notes">
-<p>Klucz i konkluzja na sam koniec – wszystko zmierza do energooszczędności na poziomie biochemii. Obecnie serwerownie pożerają zasilanie całych dzielnic w czasie, gdy ludzki mózg liczy genialne i kreatywne operacje, pobierając 20 W mocy ze spalania małego wafelka z czekoladą.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="literatura-do-wstępu-i-zakończenie" class="slide level2">
-<h2><i class="bi bi-journal-text"></i> 9. Literatura do Wstępu i Zakończenie</h2>
-<p>Jeśli zafascynowały was omawiane koncepcje…</p>
 <div style="font-size: 1.5em;">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -464,28 +437,73 @@
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Adnotacja</strong></p>
+<p><strong>Transformacja rolnictwa / Przemysłu do Generacji 4.0</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Zalecana biblioteka inspiracji</strong></p>
-<ul>
-<li>Yuval Noah Harari: <strong>“Homo Deus, krótka historia jutra”</strong> (2015)</li>
-<li>Yuval Noah Harari: <strong>“21 Lekcji Na XXI Wiek”</strong></li>
-<li>Jacek Dukaj: <strong>“Po słowie”</strong> (2019)</li>
-<li>Ramez Naam: Trylogia <strong>Nexus, Crux, Apex</strong></li>
-<li>Aldous Huxley: <strong>“Nowy wspaniały świat”</strong> (1931)</li>
-</ul>
+<p>Wkraczamy w czwarty wyższy paradygmat świadomości – Wykorzystanie narzędzi IoT na brzegu sieci do natychmiastowego zbioru gigabitów informacji i napędzania tymi bazami danych algorytmów uczenia maszynowego (ML / AI). System staje się reagujący na warunki brzegowe środowiska i rozmawia “językiem naturalnym”.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="fragment">
-<ul>
-<li><strong><em>Dziękuję za Państwa uwagę na tym Wprowadzeniu. Zapraszam was serdecznie na Część Główną cyklu Internetu Rzeczy.</em></strong></li>
-</ul>
 </div>
 <aside class="notes">
-<p>Zamykamy drugą część Wykładu Zerowego. Zostawcie studentom na ekranie listę autorów fantastyki naukowej (i hard sci-fi jak Ramez Naam) oraz socjologów, ponieważ te dzieła kształtują młode umysły i dają tło do obaw na inżynierii przed ślepym i radosnym wdrożeniem skomplikowanych technologii.</p>
+<p>Warto tu nawiązać do ewolucji rolnictwa podanej w źródłach “doi.org/10.1016/j.compag.2022.107217”. Generacje uległy zmianom. W 4.0 rolnik (czy manager produkcji) nie operuje już pługiem a panelem tableta odpalającym w roju autonomiczne drony zapylające czy siejące na skali makro.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="przypadek-studyjny-tree-talker" class="slide level2">
+<h2><i class="bi bi-binoculars"></i> 10. Przypadek Studyjny: ‘Tree Talker’</h2>
+<p>Sensory jako “Nature 4.0”.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment">Klasyczna leśna dendrometria ulega rewolucji wizyjnej – przełamano problem “drogich przyrządów”.</li>
+<li class="fragment">Zastosowanie Tree-Talker’a (Walentini i in., 2019): autonomiczne opaski przybijane do pni drzew analizujące:
+<ul>
+<li class="fragment">Przepływ soków (Xylem sap flow) w czasie rzeczywistym.</li>
+<li class="fragment">Absorpcję i dyspersję światła słonecznego z pułapu liści.</li>
+<li class="fragment">Sensoryczne zorientowanie przestrzeni przez akcelerometry 3D na korze (wiatrołomy, zgorzele).</li>
+</ul></li>
+<li class="fragment">Oraz oczywiście, sam zasilany małym panelem fotowoltaicznym z baterią.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="fragment">
+<p><img data-src="img/Pasted image 20221114223256.png" style="width:100.0%"></p>
+</div>
+</div></div>
+<aside class="notes">
+<p>To konkretny eksperyment akademicki. Wyjaśnij jak IoT przeszło od sterylizowanych hal do pni drzew we mgle i brudzie. To świetny most dla studentów kierunku, by widzieli praktyczne wykorzystanie radiostacji LoRa w bagnach i lasach mieszanych Europy badających ocieplenia klimatu.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="podsumowanie-wstępu" class="slide level2">
+<h2><i class="bi bi-signpost-split"></i> 11. Podsumowanie Wstępu</h2>
+<ul>
+<li class="fragment">Jesteśmy świadkami niezwykłej transformacji od ustandaryzowanego pisania oprogramowania IT do inżynierii danych świata fizycznego.</li>
+<li class="fragment">Narzędzia IoT pozwalają człowiekowi spojrzeć w głąb silników, serc żywych ludzi i ekosystemów leśnych, dostarczając ziaren optymalizacji.</li>
+<li class="fragment">Jest jednak ukryty koszt, a każda mocna innowacja nieświadomie podąża drogą potencjalnych dysfunkcji społecznych i filozoficznych… o czym porozmawiamy szerzej w drugiej części Wstępu.</li>
+<li class="fragment"><strong><em>Dziękuję za pierwszą część.</em></strong></li>
+</ul>
+<aside class="notes">
+<p>Przemowa zakańczająca część 1. Należy tu nastroić widownię niepokojem. Ukazałem ci profity, zieleń oczyszczoną i niesamowitą potęgę medycyny, ale w kolejnej minucie wejdziemy w zagmatwane koncepcje moralności używania tych danych na globalnej psychologii mas.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -498,31 +516,32 @@
           display:block!important;
       }</style></aside>
 
+
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>Zrozumieć Internet – Wstęp (Część 2)</p>
+<p>Zrozumieć Internet – Wstęp (Część 1)</p>
 </div>
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="wyklad_intro_2_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="site_libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="wyklad_intro_2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="wyklad_intro_2_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="wyklad_intro_2_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="wyklad_intro_2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="wyklad_intro_2_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="wyklad_intro_2_files/libs/revealjs/plugin/appearance/appearance.js"></script>
-  <script src="wyklad_intro_2_files/libs/revealjs/plugin/reveal-pointer/pointer.js"></script>
-  <script src="wyklad_intro_2_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="site_libs/revealjs/plugin/appearance/appearance.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-pointer/pointer.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="wyklad_intro_2_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="wyklad_intro_2_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="wyklad_intro_2_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="wyklad_intro_2_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

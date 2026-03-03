@@ -1,7 +1,39 @@
 project:
-  type: default
-  title: "Termodynamika Techniczna"
+  type: website
+  output-dir: docs
+
+website:
+  title: "Wykłady IoT"
+  navbar:
+    left:
+      - text: "Start"
+        file: index.qmd
+      - text: "Program"
+        file: konspekt.qmd
+      - text: "Wstęp 1"
+        file: wyklad_intro_1.qmd
+      - text: "Wstęp 2"
+        file: wyklad_intro_2.qmd
+      - text: "Wykład 1"
+        file: wyklad_1.qmd
+      - text: "Wykład 2"
+        file: wyklad_2.qmd
+      - text: "Wykład 3"
+        file: wyklad_3.qmd
 
 format:
   revealjs:
     theme: default
+    width: 1600
+    height: 900
+    margin: 0.1
+    center: false
+    navigation-mode: linear
+    controls-layout: edges
+    controls-tutorial: false
+    hash: true
+    history: true
+    transition: slide
+    background-transition: none
+    pdf-separate-fragments: false
+    lang: pl

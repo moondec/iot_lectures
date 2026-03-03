@@ -1,0 +1,429 @@
+[
+  {
+    "objectID": "wyklad_1.html#ewolucja-od-punktu-do-punktu",
+    "href": "wyklad_1.html#ewolucja-od-punktu-do-punktu",
+    "title": "Internet Rzeczy (IoT) – Od koncepcji do Przemysłu 4.0",
+    "section": " 1. Ewolucja: Od punktu do punktu",
+    "text": "1. Ewolucja: Od punktu do punktu\nZanim maszyny zaczęły rozmawiać autonomicznie, musieliśmy zbudować drogi.\n\n1832: Baron Schilling konstruuje w Rosji pierwszy telegraf elektromagnetyczny. Zdefiniowało to komunikację punkt-punkt.\n1844: Publiczne wiadomości telegraficzne kodem Samuela Morse’a.\n1876: Patent Aleksandra Bella na telefon (komunikacja głosowa na odległość).\n1955: Edward O. Thorp buduje pierwszy komputer ubieralny (wearable) do przewidywania ruletki.\n1969: Uruchomienie sieci ARPANET (komutacja pakietów, fundament dzisiejszego Internetu).\n\n\nHistoria IoT jest nierozerwalnie związana z rozwojem komunikacji. Pokaż słuchaczom, że potrzeba przesyłania danych na odległość istnieje od wieków, ale dopiero lata 80. i 90. XX wieku przyniosły miniaturyzację pozwalającą wyeliminować z tego łańcucha żywego operatora (telegrafistę)."
+  },
+  {
+    "objectID": "wyklad_1.html#mit-założycielski-pragnienie",
+    "href": "wyklad_1.html#mit-założycielski-pragnienie",
+    "title": "Internet Rzeczy (IoT) – Od koncepcji do Przemysłu 4.0",
+    "section": " 2. Mit Założycielski: Pragnienie",
+    "text": "2. Mit Założycielski: Pragnienie\nKawa, kod i chęć oszczędności czasu – od tego zaczął się IoT.\n\n\n\nGdzie? Carnegie Mellon University (CMU), wydział informatyki.\nKiedy? Rok 1982.\nProblem: Studenci pracujący po nocach schodzili piętro niżej po napoje do automatu z Coca-Colą.\nCzęsto dowiadywali się na miejscu, że w automacie brakuje napojów.\n\n\n\n\n\n\n\n\n\nNarodziny idei\n\n\n„Zrobmy tak, żeby maszyna sama nam mówiła, czy jest sens do niej schodzić”.\n\n\n\n\n\n\nRozpoczęcie: Studenci, zamiast chodzić po schodach, postanowili wykorzystać to, co umieli najlepiej – połączyć maszynę z lokalną siecią wydziału (pre-internetem ARPANET). Zainstalowali mikroprzełączniki rejestrujące fakt otwarcia drzwiczek oraz ładowania butelki (by mierzyć czas chłodzenia). Informacje te były dostępne zdalnie przez program Finger. To był dowód koncepcji: rzeczy mogą się komunikować bez człowieka w środku."
+  },
+  {
+    "objectID": "wyklad_1.html#kevin-ashton-i-toster-lata-90.",
+    "href": "wyklad_1.html#kevin-ashton-i-toster-lata-90.",
+    "title": "Internet Rzeczy (IoT) – Od koncepcji do Przemysłu 4.0",
+    "section": " 3. Kevin Ashton i Toster (Lata 90.)",
+    "text": "3. Kevin Ashton i Toster (Lata 90.)\nOd uczelnianych ciekawostek do potencjału komercyjnego.\n\n\nPierwsze urządzenie TCP/IP (1990)\n\nJ. Romkey na konferencji Interop udowodnił potęgę stosu TCP/IP.\nZdalnie sterowany toster kuchenny.\nWłączanie i wyłączanie odbywało się z użyciem Internetu.\nJedna wada: człowiek musiał najpierw włożyć do niego chleb.\n\n\nNarodziny Terminu “IoT” (1999)\n\nKevin Ashton, Procter & Gamble (P&G).\nAnalizował łańcuchy dostaw, poszukując przyczyny pustych półek ze szminkami Olay.\nSformułował przełomową prezentację pt. „The Internet of Things”.\nZidentyfikował technologię RFID jako klucz do autonomicznego śledzenia towarów.\n\n\n\nAshton zauważył, że problemem nie była logistyka przesyłek, ale brak widoczności w czasie rzeczywistym. “Komputery wiedzą o rzeczach tylko to, co my im powiemy” - to zdanie z jego prezentacji w 1999 definiuje ograniczenia starych systemów IT."
+  },
+  {
+    "objectID": "wyklad_1.html#moment-zwrotny-skala-zjawiska",
+    "href": "wyklad_1.html#moment-zwrotny-skala-zjawiska",
+    "title": "Internet Rzeczy (IoT) – Od koncepcji do Przemysłu 4.0",
+    "section": " 3. Moment Zwrotny: Skala zjawiska",
+    "text": "3. Moment Zwrotny: Skala zjawiska\nPrawdziwy IoT zaczyna się tam, gdzie człowiek przestaje być głównym twórcą danych.\n\n\n\n\nCzym jest IoT? To sieć składająca się z urządzeń posiadających unikalne identyfikatory (UID) potrafiących wymieniać dane autonomicznym strumieniem bez interakcji człowieka.\nPodział Urządzeń:\n\nDigital-first: Projektowane z myślą o sieci (laptopy, smartfony).\nPhysical-first: Przedmioty fizyczne, stające się widoczne w sieci dzięki dołożonym mikroczipom (bramy wjazdowe, żarówki, pralki).\n\nRok 2008 / 2009: Historyczny Rubikon.\nWtedy po raz pierwszy liczba aktywnych, połączonych urządzeń przewyższyła całkowitą populację ludzi na Ziemi (moment zdefiniowany analizami Cisco).\n\n\n\n\n\n\nŹródło: Cisco Annual Internet Report\n\n\n\n\nDo 2008 roku “internet” w dużej mierze polegał na tym, co wpisał człowiek: status na MySpace, mail w skrzynce, zapytanie w Google. Zmiana polega na pasywnym i aktywnym generowaniu gigabajtów danych telemetrycznych, o których ludzkość nie ma pojęcia dopóki komputer nie wskaże anomalii. Zwróć uwagę na eksponencjalny wzrost na wykresie w ciągu ostatnich 10 lat – to efekt boomu małych mikrokontrolerów."
+  },
+  {
+    "objectID": "wyklad_1.html#architektura-systemów-iot",
+    "href": "wyklad_1.html#architektura-systemów-iot",
+    "title": "Internet Rzeczy (IoT) – Od koncepcji do Przemysłu 4.0",
+    "section": " 4. Architektura Systemów IoT",
+    "text": "4. Architektura Systemów IoT\nRozbicie abstrakcyjnego pojęcia „inteligentnego przedmiotu” na logiczne ramy (warstwy).\n\nAby system działał, komunikacja musi posiadać hierarchiczną, 3-warstwową konstrukcję ustandaryzowaną przez IEEE.\nJak układ nerwowy człowieka: czuje, przekazuje szybki impuls, analizuje go w mózgu.\nPowszechnie przyjęty model zakłada trzy filary:\n\nPercepcję (Czujniki i Aktuatory)\nSieć (Bramy i Routing)\nAplikację (Interfejsy i Analityka)\n\n\n\nKluczowe w modelu jest odizolowanie poszczególnych procesów. Architektura warstwowa daje systemowi możliwość aktualizacji i konserwacji bez pełnego przebudowywania układu. Jeśli wymieniasz stary router na lepszy, czujnik krańcowy na zewnątrz nie powinien w ogóle o tym wiedzieć."
+  },
+  {
+    "objectID": "wyklad_1.html#schemat-przepływu",
+    "href": "wyklad_1.html#schemat-przepływu",
+    "title": "Internet Rzeczy (IoT) – Od koncepcji do Przemysłu 4.0",
+    "section": " 5. Schemat przepływu",
+    "text": "5. Schemat przepływu\nTrzy warstwy to fundament – bez płynnego ruchu informacji w pionie, system paraliżuje się.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWarstwa Percepcji:Czujniki, Aktuatory\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWarstwa Percepcji:Czujniki, Aktuatory\n\n\n\n\n\n\n\nWarstwa Sieciowa:Gateway, MQTT, Wi-Fi\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWarstwa Percepcji:Czujniki, Aktuatory\n\n\n\n\n\n\n\nWarstwa Sieciowa:Gateway, MQTT, Wi-Fi\n\n\n\n\n\n\n\nWarstwa Aplikacji:Dashboardy, Analityka Cloud\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWarstwa percepcji to palce systemu. Warstwa sieci to rdzeń kręgowy. Warstwa aplikacji to kora mózgowa. Podkreśl prelegentom, że nie zawsze informacja musi iść w górę do aplikacji – w nowoczesnym Edge Computing, jeśli warstwa percepcji wyczuje „ból” (np. awarię prasy hydraulicznej), to na poziomie bramy Edge następuje odcięcie mocy, z całkowitym zignorowaniem długiej i wolnej drogi do Chmury."
+  },
+  {
+    "objectID": "wyklad_1.html#warstwa-percepcji-zmysły-maszyny",
+    "href": "wyklad_1.html#warstwa-percepcji-zmysły-maszyny",
+    "title": "Internet Rzeczy (IoT) – Od koncepcji do Przemysłu 4.0",
+    "section": " 6. Warstwa Percepcji: Zmysły maszyny",
+    "text": "6. Warstwa Percepcji: Zmysły maszyny\nJak fizyka staje się sygnałem cyfrowym?\n\n\n\nRodzaje “czucia”: temperatura, wilgotność, natężenie światła, gazy (VOC, CO2), ciśnienie, ruch (akcelerometry), wibracje, geolokalizacja (GPS).\nKlasyfikacja czujników:\n\nPasywne (nie wymagają zasilania do detekcji – np. fotorezystor).\nAktywne (emitują sygnał by zmierzyć odbicie, np. ultradźwięki, Lidar).\n\nRola kalibracji (np. drift wskazań sensora, dryft zera).\n\n\n\n\n\n\n\n\n\nWady Świata Fizycznego\n\n\nŚrodowisko naturalne niszczy sprzęt. Ekstremalne drgania na linii produkcyjnej zniszczą lutowane łącza szybciej niż jakikolwiek protokół przestanie mieć rację bytu.\n\n\n\n\n\n\nKlucz inżynierski: sam proces „uzyskania pomiaru” to konwersja wielkości fizycznej na sygnał elektryczny (najczęściej napięcie lub natężenie), który następnie przechodzi przez Przetwornik Analogowo-Cyfrowy (ADC), otrzymując numeryczny byt, zazwyczaj rzędu bitowego mrugania mikrokontrolera."
+  },
+  {
+    "objectID": "wyklad_1.html#warstwa-percepcji-aktuatory",
+    "href": "wyklad_1.html#warstwa-percepcji-aktuatory",
+    "title": "Internet Rzeczy (IoT) – Od koncepcji do Przemysłu 4.0",
+    "section": " 7. Warstwa Percepcji: Aktuatory",
+    "text": "7. Warstwa Percepcji: Aktuatory\nAby mieć wpływ na fizykę, system wykorzystuje aktuatory – elementy wykonawcze.\n\nInformacja zwrotna: Posiadanie dachu reagującego na burzę wymaga elementu domykającego włazy.\nTypy urządzeń wykonawczych:\n\nElektryczne: przekaźniki półprzewodnikowe, serwomechanizmy, silniki krokowe, oświetlenie.\nCiekłe/Gazowe: elektrozawory (kontrola nawadniania, upusty ciśnienia).\n\nPrzepływ pracy (Pętla Sterowania):\n\nPomiar → Decyzja w warstwie wyższej → Akcja Aktuatora.\n\n\n\nKażdy aktuator stwarza „ryzyko twarde” - jeśli czujnik okłamie system (fałszywy odczyt mrozu z uszkodzonego termistora), system w dobrej wierze załączy grzałki, co może stworzyć ryzyko pożarowe. Warto poruszyć z audytorium aspekt niezawodności w systemach czasu rzeczywistego (RTOS)."
+  },
+  {
+    "objectID": "wyklad_1.html#brama-brzegu-sieci-edge-gateway",
+    "href": "wyklad_1.html#brama-brzegu-sieci-edge-gateway",
+    "title": "Internet Rzeczy (IoT) – Od koncepcji do Przemysłu 4.0",
+    "section": " 8. Brama brzegu sieci (Edge Gateway)",
+    "text": "8. Brama brzegu sieci (Edge Gateway)\nZjawisko izolacji i ochrony w sieciowych gardłach.\n\n\n\nEdge Computing “Brzeg sieci”: Odchodzimy od przesyłania wszystkich danych bezpośrednio do wielkiej chmury.\nGateway staje się inteligentnym hubem: uczy się, filtruje, przesyła średnie agregaty (nie 10 milionów pakietów drgań na sekundę, tylko log “Stan Łożyska: Stabilny”).\n\n\n\n\n\n\n\n\n\nLatency\n\n\nCzas pokonania trasy danych od urządzenia do chmury obliczeniowej i z powrotem z komendą do urządzenia. Często jest krytyczny (np. hamowanie autonomicznych pojazdów), dlatego przenieśliśmy inteligencję blisko brzegu sieci (Edge).\n\n\n\n\n\n\nBędziemy wielokrotnie słyszeć termin Gateway, czyli lokalna brama (często fizycznie skrzynka montowana na szynie DIN w rozdzielnicy) agregująca w fabryce setki małych czujników Bluetooth, tłumacząca sygnał na Ethernet/Światłowód i przesyłająca go dalej na zewnątrz firmy przez VPN. Translacja języka radia to kwintesencja bramek."
+  },
+  {
+    "objectID": "wyklad_1.html#od-pomysłu-do-wdrożenia",
+    "href": "wyklad_1.html#od-pomysłu-do-wdrożenia",
+    "title": "Internet Rzeczy (IoT) – Od koncepcji do Przemysłu 4.0",
+    "section": " 9. Od pomysłu do wdrożenia",
+    "text": "9. Od pomysłu do wdrożenia\nZłoty wiek IoT to zasługa drastycznego obniżenia bariery wejścia i skrócenia czasu od pomysłu do wdrożenia (Time To Market).\n\nPrzed dekadą zaprojektowanie modułu testującego łączność to były miesiące testowania specjalistycznych płytek drukowanych PCB, analiz schematów Altium/Eagle.\nZjawisko „Rapid Prototyping” (Szybkiego Prototypowania).\nGotowe środowiska deweloperskie ustandaryzowały piny, uziemienia (GND), zasilania (VCC), porty wejścia-wyjścia cyfrowego (GPIO).\n\n\nPokazując środowiska DIY, warto podkreślić, że inżynieria Przemysłu 4.0 również zaczyna od gotowego sprzętu w celu weryfikacji koncepcji (proof-of-concept). Najwięksi liderzy przemysłowi posiadają wewnętrzne struktury badawcze, budujące prototypy z gotowych modułów (Arduino/Raspberry Pi), zanim zlecą produkcję docelowego układu w technice SMT."
+  },
+  {
+    "objectID": "wyklad_1.html#platformy-sprzętowe-jako-kamień-węgielny",
+    "href": "wyklad_1.html#platformy-sprzętowe-jako-kamień-węgielny",
+    "title": "Internet Rzeczy (IoT) – Od koncepcji do Przemysłu 4.0",
+    "section": " 10. Platformy sprzętowe jako kamień węgielny",
+    "text": "10. Platformy sprzętowe jako kamień węgielny\nWybór platformy zależy od poboru mocy i profilu radiowego.\n\n\nMikrokontrolery (MCU)\n\nArduino: Klasyczne, edukacyjne, łatwy w przyswojeniu język C/C++. Brak łączności radiowej na samej płytce (trzeba dodatkowych tzw. shieldów).\nESP32: Król taniego, profesjonalnego IoT. Układ SoC (System on Chip) z wbudowanym Wi-Fi i Bluetooth, a w trybie uśpienia pobiera zaledwie mikroampery.\n\n\nKomputery (SBC)\n\nRaspberry Pi 5: To dosłownie PC. Uruchamia Linuksa.\nPrzestarzałe względem roli czujnika, zbyt prądożerne (grzeje się, kilkanaście Wattów ciągłego obciążenia w piku).\nWłaśnie na nim stawiamy lokalne serwery MQTT czy Edge Computing w domu.\n\n\n\n\n\nWyjaśnij zdjęcie na slajdzie. Mikrokontrolery: Arduino Uno i ESP32. Arduino jest znacznie większe od ESP, ale drastycznie ustępuje mu wydajnością w przeliczeniu na rozmiar krzemu. SBC (Single Board Computer) – to zupełnie inna klasa urządzeń, przeznaczona do zadań wymagających pełnego systemu operacyjnego."
+  },
+  {
+    "objectID": "wyklad_1.html#deep-sleep---czyli-kompromis-mocy",
+    "href": "wyklad_1.html#deep-sleep---czyli-kompromis-mocy",
+    "title": "Internet Rzeczy (IoT) – Od koncepcji do Przemysłu 4.0",
+    "section": " 11. “Deep Sleep” - czyli kompromis Mocy",
+    "text": "11. “Deep Sleep” - czyli kompromis Mocy\nCo to znaczy “Zasilane małą baterią na 3 lata”?\n\nTypowe moduły Wi-Fi zużywają setki miliamperów energii na samo przeszukiwanie sieci i zestawianie połączenia TCP/IP.\nMikrokontrolery wykorzystują paradygmat: obudź procesor z głębokiego snu, wykonaj błyskawicznie zadanie (odczyt + nadanie pakietu) w ułamku sekundy i ponownie uśpij jednostkę.\nProcesor główny na płytce odcina sobie zasilanie, pozostawiając jedynie minimalny zegar czasu rzeczywistego (RTC) do wybudzenia (Ultra Low Power).\n\n\nBaterie IoT nie wyrosły magicznie – pojemność ogniw poprawiano przez 40 lat jedynie symbolicznie. Prawdziwy postęp to zasługa agresywnego zarządzania poborem mocy. Zmiana paradygmatu dotyka fizyki: zamiast pompować więcej prądu z potężnego ogniwa Li-Po, układ wyłącza swoje systemy, by obudzić się i wysłać paczkę radiową do bramy na kilka dziesiątych sekundy."
+  },
+  {
+    "objectID": "wyklad_1.html#digital-twins-cyfrowy-bliźniak",
+    "href": "wyklad_1.html#digital-twins-cyfrowy-bliźniak",
+    "title": "Internet Rzeczy (IoT) – Od koncepcji do Przemysłu 4.0",
+    "section": " 12. Digital Twins (Cyfrowy Bliźniak)",
+    "text": "12. Digital Twins (Cyfrowy Bliźniak)\nEwolucja warstw abstrakcyjnych, wizualne odtworzenie hardware.\n\n\n\nWirtualne odbicia połączonych systemów – cyfrowe kopie silników, przesyłek, pociągów, serwerowni, a nawet systemów wentylacyjnych szpitala.\nPozwalają z dużym wyprzedzeniem, na podstawie danych historycznych, szukać słabych punktów w cyklu operacyjnym.\nPrzemysłowe maszyny i hale poddawane są symulacjom stochastycznym (od scenariusza „co by było, gdyby pożar w rogu hali” po testowanie uszkodzenia konkretnego podzespołu).\n\n\n\n\n\n\n\n\n\nWirtualne prototypowanie\n\n\nZamiast zatrzymywać kosztowną linię produkcyjną na test nowego oprogramowania, uruchamia się kod na Cyfrowym Bliźniaku, widząc odpowiedź czujników symulowaną z wysoką wiernością matematyczno-fizyczną w chmurze.\n\n\n\n\n\n\nPojęcie bliźniaka zamyka pierwszy moduł architektury i pokazuje jej ewolucję. 40 lat temu łączono się z automatem z Coca-Colą, by zobaczyć zimne napoje na terminalu tekstowym uczelni. Dziś technologia mapuje miasta i procesy z odchyleniami rzędu milimetrów od rzeczywistości, uwzględniając odczyty z czujników wibracyjnych i temperaturowych."
+  },
+  {
+    "objectID": "wyklad_1.html#zestawienie-arduino-vs-esp-vs-raspberry-pi",
+    "href": "wyklad_1.html#zestawienie-arduino-vs-esp-vs-raspberry-pi",
+    "title": "Internet Rzeczy (IoT) – Od koncepcji do Przemysłu 4.0",
+    "section": " 13. Zestawienie: Arduino vs ESP vs Raspberry Pi",
+    "text": "13. Zestawienie: Arduino vs ESP vs Raspberry Pi\nTrzy kompletnie różne światy, często błędnie wrzucane do jednego worka.\n\n\n\n\n\n\n\n\n\nParametr\nESP32\nArduino Uno\nRaspberry Pi 5\n\n\n\n\nTyp układu\nMikrokontroler (SOC)\nMikrokontroler\nKomputer (SBC)\n\n\nSystem Operacyjny\nBrak / RTOS\nBrak\nLinux\n\n\nPobór prądu / Zasilanie\nBardzo niskie (Bateria, uśpienie w \\(\\mu A\\))\nNiskie (mA)\nWysokie (Sieciowe stałe, piki Watowe)\n\n\nWbudowane Radio\nTak (Wi-Fi, Bluetooth)\nNie (Wymaga “Shieldów”)\nTak (Wi-Fi, Bluetooth, Ethernet)\n\n\nGłówne zastosowanie\nAutonomiczne Czujniki Terenowe\nProste prototypy edukacyjne\nLokalna Brama (Gateway) koordynująca\n\n\n\n\nKluczowe podsumowanie dla inżynierów. ESP32 dominuje na rynku komercyjnym małych urządzeń, ponieważ ma wbudowane anteny Wi-Fi/BT przy minimalnym poborze energii w trybie uśpienia. Arduino to legenda edukacyjna, idealna do nauki elektroniki i programowania bez łączności radiowej. Raspberry Pi udźwignie lokalną chmurę, bazy danych i serwery MQTT, ale musi być podłączone do stałego zasilania jak komputer stacjonarny."
+  },
+  {
+    "objectID": "wyklad_1.html#podsumowanie",
+    "href": "wyklad_1.html#podsumowanie",
+    "title": "Internet Rzeczy (IoT) – Od koncepcji do Przemysłu 4.0",
+    "section": " 14. Podsumowanie",
+    "text": "14. Podsumowanie\n\nW tym wykładzie poznaliśmy podstawy: jak fizyczny przedmiot otrzymuje tożsamość (UID) i zmysły (czujniki/aktuatory).\nOmówiliśmy rolę bramek brzegowych (Gateway) i przetwarzania na krawędzi sieci (Edge Computing).\nZrozumieliśmy, że mały błąd na warstwie percepcyjnej wywołuje lawinę błędnych algorytmów w warstwie końcowej analizy.\nDziękuję za uwagę.\n\n\nKluczowa lekcja pierwszych zajęć – żadne AI ani magia programisty nie uratuje słabego i niezakalibrowanego łącza sprzętowego. Zabrudzony czujnik to pierwszy problem inżyniera wdrażającego układy w zakładach mechanicznych i pierwszy powód fałszywych odczytów w systemach domowych."
+  },
+  {
+    "objectID": "wyklad_2.html#problem-komunikacji-m2m",
+    "href": "wyklad_2.html#problem-komunikacji-m2m",
+    "title": "Język Rzeczy",
+    "section": " 1. Problem Komunikacji M2M",
+    "text": "1. Problem Komunikacji M2M\nW świecie Internetu Rzeczy komunikacja „Maszyna-Maszyna” (M2M) opiera się na radykalnych kompromisach, których nie znamy w świecie komputerów osobistych.\n\n\n\nWyobraź sobie miliardy urządzeń.\nNie mają gniazdka 230 V – tylko baterię wielkości monety.\nDziałają w piwnicach, na pełnym morzu lub zakopane w glebie twardej jak beton.\nJak sprawić, by w takich warunkach przesłać dane i nie opróżnić baterii w pięć minut?\n\n\n\n\n\n\n\n\nTrójkąt Niemożliwy IoT\n\n\nInżynier projektujący system sieciowy musi wybrać tylko dwa z trzech parametrów:\n\nZasięg (kilometry)\nPrzepustowość (megabajty na sekundę)\nCzas życia na baterii (lata)\n\n\n\n\n\n\n\n\n\n\n\nRozpoczęcie: Nawiąż do wykładu pierwszego – urządzenia już mają zmysły (czujniki), ale milczą. Dziś nauczymy je mówić. Problem polega na fizyce: fala elektromagnetyczna wymaga energii i napotyka opór w postaci ścian i odległości. Nie da się wysyłać strumienia wideo z licznika wody w piwnicy bez stałego zasilania sieciowego. To wymusza powstanie całkowicie nowych protokołów bezprzewodowych dostosowanych do specyfiki komunikacji M2M."
+  },
+  {
+    "objectID": "wyklad_2.html#wi-fi-ieee-802.11-przekleństwo-i-błogosławieństwo",
+    "href": "wyklad_2.html#wi-fi-ieee-802.11-przekleństwo-i-błogosławieństwo",
+    "title": "Język Rzeczy",
+    "section": " 2. Wi-Fi (IEEE 802.11): Przekleństwo i Błogosławieństwo",
+    "text": "2. Wi-Fi (IEEE 802.11): Przekleństwo i Błogosławieństwo\nKról Internetu w domach jest najsłabszym ogniwem IoT na bateriach.\n\n\n\nZalety: Ogromna przepustowość (MB/s), powszechność infrastruktury (router w każdym współczesnym domu), natywna integracja z protokołem IP.\nWady: Architektura Wi-Fi jest koszmarnie prądożerna – napadowe budzenie anteny i przeszukiwanie nadajników (beaconing) pochłaniają setki mA.\nZłożony proces zestawiania połączenia (handshake), zanim prześle znikomą wartość, np. samą wilgotność powietrza 45%.\nZastosowanie w IoT: Tylko tam, gdzie istnieje stałe zasilanie – np. Smart TV, asystenci głosowi, sprzęty AGD.\n\n\n\n\n\n\n\n\n\nPodatność na zakłócenia\n\n\nZagęszczone pasmo 2,4 GHz w budynkach mieszkalnych powoduje wzajemne zakłócenia między urządzeniami Wi-Fi, degradując jakość połączenia.\n\n\n\n\n\n\nWyjaśnij, że chociaż Wi-Fi jest najpopularniejsze, w profesjonalnym IoT pełni głównie rolę „backhaulu” dla bramek (gateways), a nie protokołu dla czujników końcowych rozrzuconych w terenie. Zwróć uwagę, dlaczego producenci inteligentnych żarówek zalecają własne mostki zamiast podłączania dziesiątek żarówek bezpośrednio pod Wi-Fi – kilkanaście tanich czujników bardzo skutecznie wysyca limit połączeń domowego routera."
+  },
+  {
+    "objectID": "wyklad_2.html#bluetooth-i-rewolucja-ble-low-energy",
+    "href": "wyklad_2.html#bluetooth-i-rewolucja-ble-low-energy",
+    "title": "Język Rzeczy",
+    "section": " 3. Bluetooth i rewolucja BLE (Low Energy)",
+    "text": "3. Bluetooth i rewolucja BLE (Low Energy)\nOd ciągłego przesyłu audio do energooszczędnych opasek zdrowotnych.\n\n\n\nBluetooth (Classic): Zaprojektowany dla ciągłego strumienia danych, np. sygnału audio w zestawach głośnomówiących. Moc ciągła, radio zawsze aktywne.\nBluetooth Low Energy (BLE): Rewolucja wprowadzona w specyfikacji Bluetooth 4.0. Urządzenie śpi, błyskawicznie emituje kilka pakietów danych w milisekundy i wraca w tryb uśpienia.\nPobór prądu spada nawet stukrotnie w porównaniu z klasycznym Bluetooth.\nZastosowania: Opaski fitness, medycyna cyfrowa, bezprzewodowe tagi lokalizacyjne (beacony).\n\n\n\n\n\n\n\n\n\nRóżnica architektoniczna\n\n\nKlasyczny Bluetooth przesyła ciągły strumień (np. audio). BLE „usypia” radio natychmiast po wysłaniu pakietu danych telemetrycznych. Bateryjka CR2032 wystarcza modułom BLE na lata pracy.\n\n\n\n\n\n\nNajlepszy punkt wyjścia do opisania technologii beaconingu sklepowego. Wyjaśnij różnicę między protokołem „Classic”, który musi utrzymywać połączenie 24/7 (audio), a systemem oszczędnym z krótkimi powiadomieniami dla urządzeń ubieralnych (wearables)."
+  },
+  {
+    "objectID": "wyklad_2.html#zigbee-i-z-wave-inżynieria-roju-mesh",
+    "href": "wyklad_2.html#zigbee-i-z-wave-inżynieria-roju-mesh",
+    "title": "Język Rzeczy",
+    "section": " 4. Zigbee i Z-Wave: Inżynieria Roju (Mesh)",
+    "text": "4. Zigbee i Z-Wave: Inżynieria Roju (Mesh)\nRozwiązanie problemu krótkiego zasięgu poprzez architekturę sieci kratowej.\n\n\n\nW tradycyjnej topologii gwiazdy sygnał czujnika trafia do centralnego routera. Problem pojawia się, gdy router oddzielony jest czterema zbrojonymi ścianami.\nZigbee (Mesh): Urządzenia zasilane z sieci (np. inteligentne gniazdka) działają jednocześnie jako wzmacniacze (routery), odbierając pakiet od słabego czujnika bateryjnego i przekazując go dalej.\nSystem „samoleczący się” (self-healing) – awaria jednego węzła powoduje automatyczne znalezienie nowej trasy.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAwaria\n\n\n\n\n\n\n\n\n\n\n\nGateway\n\n\n\n\n\n\n\nNode 1\n\n\n\n\n\n\n\nNode 2\n\n\n\n\n\n\n\nNode 3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nZ-Wave – pasmo sub-GHz\n\n\nZ-Wave działa w paśmie 868 MHz (EU), co zapewnia znacznie lepszą penetrację ścian niż protokoły 2,4 GHz (Zigbee, Wi-Fi). Wadą jest brak jednego uniwersalnego standardu – każdy producent tworzy własne nakładki (np. Philips Hue, IKEA TRÅDFRI).\n\n\n\n\n\n\nPrezentując ten slajd, zapytaj słuchaczy, ile żarówek Zigbee należy umieścić w domu jednorodzinnym między piętrem a ogrodem, by czujnik na bramie zyskał zasięg do pierwszej najbliższej lampki-wzmacniacza pod werandą. To idealne studium rozciągania „niewidzialnego sznura połączeń”."
+  },
+  {
+    "objectID": "wyklad_2.html#lpwan-telemetria-na-kilometry",
+    "href": "wyklad_2.html#lpwan-telemetria-na-kilometry",
+    "title": "Język Rzeczy",
+    "section": " 5. LPWAN: Telemetria na kilometry",
+    "text": "5. LPWAN: Telemetria na kilometry\nLow Power Wide Area Network – odpowiedź na potrzeby systemów telemetrycznych działających na rozległych obszarach.\n\n\n\nAby zwiększyć zasięg przy minimalnym zużyciu energii, drastycznie ograniczamy przepustowość – z megabitów na sekundę do zaledwie kilkudziesięciu bajtów na sekundę.\nŻywotność baterii: od 5 do nawet 10 lat na pojedynczym ogniwie (np. litowo-tionylowym).\nZasięg: nawet 15–20 km w otwartym terenie.\nSłuży wyłącznie do przesyłania telemetrii. Czujnik wilgotności gleby przyśle odczyt, ale kamera 4K jest całkowicie wykluczona z LPWAN.\n\n\n\n\n\n\n\nZwróć uwagę na jednoznaczną granicę – technologie LPWAN nie są zaprojektowane do przesyłania strumieni wideo ani dużych plików. Tylko krótkie paczki zmiennych liczbowych i tekstowych. Warto odnieść się do badań środowiskowych: zamiast ciągnąć kilometry kabli zasilających do stacji pomiarowej w lesie, można zastosować sieć LPWAN, która prześle uśrednione wyniki bezpośrednio do bramki oddalonej o wiele kilometrów."
+  },
+  {
+    "objectID": "wyklad_2.html#porównanie-technologii-radiowych",
+    "href": "wyklad_2.html#porównanie-technologii-radiowych",
+    "title": "Język Rzeczy",
+    "section": " 6. Porównanie technologii radiowych",
+    "text": "6. Porównanie technologii radiowych\nGdzie leży fizyczna i energetyczna granica każdego standardu?\n\n\n\nLewy górny róg wykresu: duża przepustowość, ale wysoki pobór energii (większy bąbel).\nPrawy dolny róg: LPWAN – zasięg poza horyzont przy zaledwie kilkudziesięciu bajtach co kwadrans i minimalnym koszcie energetycznym.\n\n\n\n\n\nWyjaśnij kolorowy wykres Bubble Chart. Oś „x” to dystans (od metrów do kilometrów), oś „y” to przepustowość (skala logarytmiczna). Wielkość bąbli reprezentuje pobór energii. Zrozumienie tego wykresu decyduje u większości początkujących inżynierów o wyborze technologii dla nowo projektowanej inwestycji. Handover (lub handoff) to proces w sieciach bezprzewodowych (głównie komórkowych), który polega na przekazaniu aktywnego połączenia urządzenia z jednej stacji bazowej (nadajnika) do drugiej w momencie, gdy użytkownik się przemieszcza."
+  },
+  {
+    "objectID": "wyklad_2.html#lorawan-vs-nb-iot-prywatna-sieć-czy-abonament",
+    "href": "wyklad_2.html#lorawan-vs-nb-iot-prywatna-sieć-czy-abonament",
+    "title": "Język Rzeczy",
+    "section": " 7. LoRaWAN vs NB-IoT: Prywatna sieć czy abonament?",
+    "text": "7. LoRaWAN vs NB-IoT: Prywatna sieć czy abonament?\nDwa konkurencyjne podejścia do łączności dalekiego zasięgu.\n\n\nLoRa / LoRaWAN\n\nLoRa (warstwa fizyczna): Opatentowana modulacja Chirp Spread Spectrum (CSS), odporna na zakłócenia.\nLoRaWAN (warstwa logiczna): Otwarty protokół sieciowy. Pozwala na budowę własnych bramek w darmowym paśmie 868 MHz.\nSpołeczność crowdsourcowa: The Things Network (TTN) – bezpłatne, globalne pokrycie.\nSłabsza penetracja gęstej zabudowy miejskiej.\n\n\nNB-IoT / LTE-M\n\nStandard operatorów telekomunikacyjnych (Orange, Play, T-Mobile) – nakładka na istniejące stacje bazowe 4G.\nNB-IoT: Doskonała penetracja piwnic i podziemnych parkingów. Urządzenie stacjonarne (brak handoveru).\nLTE-M: Wyższa przepustowość, obsługa mobilności (śledzenie pojazdów) i komunikacji głosowej.\nWadą jest stała opłata za kartę SIM i zależność od operatora.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLoRa RF\n\n\n\n\n\n\n\nIP / Ethernet\n\n\n\n\n\n\n\nAPI / HTTPS\n\n\n\n\n\n\n\nCzujnik z baterią\n\n\n\n\n\n\n\nBramka LoRa\n\n\n\n\n\n\n\nNetwork Server\n\n\n\n\n\n\n\nApplication Server\n\n\n\n\n\n\n\n\n\n\n\n\nPotężny kompromis projektanta: jeśli budujesz 20 wodomierzy w osiedlu miejskim, kup karty NB-IoT za 2 zł/mies. i śpij spokojnie. Jeśli masz 120 hektarów pod Nowym Tomyślem, postaw 2 własne stacje LoRaWAN z panelem słonecznym i nie płać ani złotówki abonamentu."
+  },
+  {
+    "objectID": "wyklad_2.html#sigfox-ultralekkie-wiadomości-jako-usługa",
+    "href": "wyklad_2.html#sigfox-ultralekkie-wiadomości-jako-usługa",
+    "title": "Język Rzeczy",
+    "section": " 8. Sigfox: ultralekkie wiadomości jako usługa",
+    "text": "8. Sigfox: ultralekkie wiadomości jako usługa\nModel „Network as a Service” – operator globalnej sieci dostarcza łączność bez budowy własnej infrastruktury.\n\nMaksymalnie 140 wiadomości dziennie od pojedynczego urządzenia.\nRozmiar ładunku (payload): zaledwie 12 bajtów na wiadomość.\nArchitektura silnie asymetryczna – bardzo ograniczone wysyłanie danych w dół (downlink) do czujnika.\nEkstremalnie tanie wdrożenia, ale narzuca poważne ograniczenia projektowe.\n\n\nSigfox to dobry przykład technologii o skrajnie wąskim zastosowaniu: idealny np. do jednorazowego potwierdzenia „jestem sprawny” raz na godzinę, ale kompletnie nieprzydatny do sterowania lub pobierania większych porcji danych."
+  },
+  {
+    "objectID": "wyklad_2.html#dlaczego-protokół-http-nie-pasuje-do-iot",
+    "href": "wyklad_2.html#dlaczego-protokół-http-nie-pasuje-do-iot",
+    "title": "Język Rzeczy",
+    "section": " 9. Dlaczego protokół HTTP nie pasuje do IoT?",
+    "text": "9. Dlaczego protokół HTTP nie pasuje do IoT?\nKlasyczne środowisko webowe (REST API) jest zbyt „ciężkie” dla urządzeń o ograniczonych zasobach.\n\n\n\nNarzut nagłówków: Nagłówki HTTP potrafią zajmować więcej bajtów niż same dane pomiarowe (np. pojedyncza wartość „temperatura = 22,5°C”).\nModel Request-Response: Architektura synchroniczna – czujnik musi czekać na potwierdzenie od serwera, trzymając włączone, prądożerne radio.\nBrak natywnego wsparcia dla asynchroniczności i broadcastu – każde urządzenie musi indywidualnie odpytywać serwer.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPakiet MQTT (~40 B)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDane: 22.5\n\n\n\n\n\n\n\nNagłówek MQTT\n\n\n\n\n\n\n\nTCP / IP\n\n\n\n\n\n\n\nPakiet HTTP (~500 B)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDane: 22.5\n\n\n\n\n\n\n\nNagłówek HTTP\n\n\n\n\n\n\n\nTCP / IP\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nKluczowe, by uświadomić słuchaczom, że zasobność pamięci mikrokontrolera i komputera osobistego to przepaść. Typowa strona internetowa ważąca kilkanaście megabajtów nie przejdzie przez pamięć buforową płytki ESP32, dysponującej zaledwie kilkuset kilobajtami RAM."
+  },
+  {
+    "objectID": "wyklad_2.html#mqtt-lekki-binarny-standard-iot",
+    "href": "wyklad_2.html#mqtt-lekki-binarny-standard-iot",
+    "title": "Język Rzeczy",
+    "section": " 10. MQTT: Lekki, binarny standard IoT",
+    "text": "10. MQTT: Lekki, binarny standard IoT\nMessage Queuing Telemetry Transport – architektura Publikacja/Subskrypcja (Pub/Sub).\n\n\n\nCzujnik nie łączy się bezpośrednio z odbiorcą danych. Wysyła wiadomość do centralnego Brokera pod określonym tematem (Topic).\nBroker filtruje i dystrybuuje wiadomości do wszystkich zainteresowanych subskrybentów.\nUrządzenia klienckie nie wiedzą o swoim wzajemnym istnieniu – znają tylko Brokera.\nSkrajnie asynchroniczny, zoptymalizowany pod kątem niestabilnych połączeń sieciowych.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPUBLISH\n\n\n\n\n\n\n\nPUSH\n\n\n\n\n\n\n\nPUSH\n\n\n\n\n\n\n\nCzujnik Temp\n\n\n\n\n\n\n\nBROKER MQTT\n\n\n\n\n\n\n\nBaza SQL\n\n\n\n\n\n\n\nDashboard\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEfektywność\n\n\nNagłówek wiadomości MQTT wynosi zaledwie 2 bajty, co minimalizuje czas pracy modułu radiowego i zużycie energii.\n\n\n\n\n\n\n„MQTT (Message Queuing Telemetry Transport)” – protokół stworzony pierwotnie przez IBM dla sektora naftowego. Klucz architektury Pub/Sub polega na tym, że czujnik i aplikacja na dashboardzie nigdy nie komunikują się bezpośrednio – obaj niezależnie łączą się z Brokerem. To zapewnia pełną niezależność klientów i lekkość protokołu."
+  },
+  {
+    "objectID": "wyklad_2.html#mqtt-tematy-qos-i-ostatnia-wola",
+    "href": "wyklad_2.html#mqtt-tematy-qos-i-ostatnia-wola",
+    "title": "Język Rzeczy",
+    "section": " 11. MQTT: Tematy, QoS i „Ostatnia Wola”",
+    "text": "11. MQTT: Tematy, QoS i „Ostatnia Wola”\nZaawansowane mechanizmy niezawodności wbudowane w protokół.\n\n\nTematy (Topics)\n\nWiadomości kategoryzowane są w logiczne, hierarchiczne drzewa: prod/hala_B/prasa_3/temperatura\nSeparacja środowisk (dev/, test/, prod/) pozwala izolować dane eksperymentalne od produkcyjnych na jednym Brokerze.\n\n\nQoS i LWT\n\n\nQoS 0 – „wyślij i zapomnij” (najszybszy).\nQoS 1 – wymaga potwierdzenia (możliwe duplikaty).\nQoS 2 – pełny handshake, gwarancja dostarczenia.\nLast Will (LWT): Automatyczne powiadomienia o awarii."
+  },
+  {
+    "objectID": "wyklad_2.html#coap-i-amqp-alternatywy-dla-specyficznych-scenariuszy",
+    "href": "wyklad_2.html#coap-i-amqp-alternatywy-dla-specyficznych-scenariuszy",
+    "title": "Język Rzeczy",
+    "section": " 12. CoAP i AMQP: Alternatywy dla specyficznych scenariuszy",
+    "text": "12. CoAP i AMQP: Alternatywy dla specyficznych scenariuszy\n\n\nCoAP (Constrained Application Protocol)\n\nOdpowiednik HTTP (metody GET, POST, PUT), ale oparty na bezpołączeniowym protokole UDP – szybszy, lecz bez gwarancji dostarczenia.\nWbudowane wsparcie dla szyfrowania DTLS.\nIdealny dla prostych interakcji typu żądanie-odpowiedź na mikrokontrolerach.\n\n\nAMQP (Advanced Message Queuing Protocol)\n\nSkomplikowany, potężny system kolejek wiadomości dla środowisk korporacyjnych i finansowych.\nZbyt ciężki dla mikrokontrolerów – stosowany na zapleczu (backend), np. między serwerami w chmurze (RabbitMQ).\n\n\n\nCoAP sprawdza się tam, gdzie MQTT jest „za dużo” – np. pojedynczy mikrokontroler, który po prostu odpowiada na zapytanie „podaj aktualną temperaturę” bez potrzeby stałego połączenia z Brokerem. AMQP z kolei żyje w świecie serwerów, nie czujników."
+  },
+  {
+    "objectID": "wyklad_2.html#podsumowanie-dobór-technologii",
+    "href": "wyklad_2.html#podsumowanie-dobór-technologii",
+    "title": "Język Rzeczy",
+    "section": " 13. Podsumowanie: Dobór technologii",
+    "text": "13. Podsumowanie: Dobór technologii\nWybór standardu komunikacyjnego determinuje całą architekturę systemu IoT.\n\n\n\n\n\n\n\n\nWarstwa\nTechnologia\nZastosowanie\n\n\n\n\nKrótki zasięg\nBLE, Zigbee, Z-Wave\nWearables, Smart Home, czujniki lokalne\n\n\nDaleki zasięg\nLoRaWAN, NB-IoT, Sigfox\nRolnictwo, monitoring środowiskowy, Smart City\n\n\nProtokół aplikacyjny\nMQTT (Pub/Sub)\nNiska latencja, asynchroniczność, izolacja środowisk\n\n\nProtokół aplikacyjny\nCoAP (Req/Res)\nProste interakcje na mikrokontrolerach (UDP)\n\n\nProtokół aplikacyjny\nHTTP\nWyłącznie bramki i serwery ze stałym zasilaniem\n\n\n\n\nTo podsumowanie powinno pozwolić słuchaczom szybko odnaleźć się w gąszczu technologii. Kluczowa zasada: im dalej chcesz przesłać dane, tym mniej ich przesyłasz i tym dłużej bateria przeżyje."
+  },
+  {
+    "objectID": "wyklad_2.html#dziękuję-za-uwagę",
+    "href": "wyklad_2.html#dziękuję-za-uwagę",
+    "title": "Język Rzeczy",
+    "section": " 14. Dziękuję za uwagę",
+    "text": "14. Dziękuję za uwagę\nW kolejnym wykładzie omówimy\n\nprzetwarzanie zebranych danych w chmurze (Cloud),\nzagadnienia bezpieczeństwa oraz\nzaawansowane zastosowania IoT (Smart City, Digital Twins)."
+  },
+  {
+    "objectID": "wyklad_intro_1.html#technologia-was-wyzwoli",
+    "href": "wyklad_intro_1.html#technologia-was-wyzwoli",
+    "title": "Internet Przyszłości",
+    "section": " 1. Technologia was wyzwoli?",
+    "text": "1. Technologia was wyzwoli?\n\n\n\n\n\n\n\n\nMotto\n\n\n… „globalizacja”, „blockchain”, „inżynieria genetyczna”, „sztuczna inteligencja”, „uczenie maszynowe” – prości ludzie zapewne podejrzewają, że żadne z tych pojęć ich nie dotyczy.\n— 21 Lekcji Na XXI Wiek, Yuval Noah Harari\n\n\n\n\n\n\nZaczynamy od mocnego uderzenia. Pokaż studentom, że technologia to nie tylko nowe formaty kabli. Dziś przeciętny człowiek uważa, że zaawansowane pojęcia technologiczne go nie dotyczą – do momentu, w którym algorytm połączony z siecią IoT (jak np. asystent w aucie) decyduje w stochastyczny sposób o jego życiu."
+  },
+  {
+    "objectID": "wyklad_intro_1.html#kto-tworzy-przyszłość",
+    "href": "wyklad_intro_1.html#kto-tworzy-przyszłość",
+    "title": "Internet Przyszłości",
+    "section": " 2. Kto tworzy “przyszłość”?",
+    "text": "2. Kto tworzy “przyszłość”?\n\n\n\n\n\n\n\nOdpowiedzialność\n\n\nRewolucje dokonujące się w biotechnologii i technologii informacyjnej przeprowadzają inżynierowie, przedsiębiorcy i naukowcy, którzy często nie zdają sobie sprawy z politycznych czy wręcz globalnych konsekwencji własnych decyzji, i z całą pewnością… nikogo nie reprezentują.\n\n\n\n\n\nTechnologia nie ma moralności – jest neutralnym wektorem siły.\nTo cel (i wdrożenie) definiuje czy Internet Rzeczy służy ratowaniu klimatu, czy totalnej inwigilacji obywatela.\n\n\nKluczowe wejście w temat IoT: ci którzy tworzą układy “smart” to inżynierowie, nie politycy. Kiedy projektowaliśmy bezprzewodowe mikro-kamery lub asystentów domowych, chodziło o wygodę, nie budowę globalnego systemu podsłuchowego. A to myślenie wpływa na Wasze (słuchaczy) jutrzejsze projekty."
+  },
+  {
+    "objectID": "wyklad_intro_1.html#jasna-strona-mocy-profity-z-iot",
+    "href": "wyklad_intro_1.html#jasna-strona-mocy-profity-z-iot",
+    "title": "Internet Przyszłości",
+    "section": " 3. Jasna strona mocy (Profity z IoT)",
+    "text": "3. Jasna strona mocy (Profity z IoT)\nTechnologia daje nam narzędzia, jakich nigdy wcześniej nie posiadała ludzkość, pozwalając na jednoczesne powiązanie:\n\nPoszerzenia wiedzy o środowisku.\nPoznania nas samych (lepsza opieka medyczna ludzi, zwierząt oraz… roślin).\nŚwiadomego i zrównoważonego wykorzystywania kurczących się zasobów globu.\nRewolucyjnej poprawy procesów produkcji (Przemysł 4.0).\nNatychmiastowej komunikacji wektorowej.\n\n\nPrzechodzimy do rdzenia tematycznego inżynierii XXI wieku - czym jest optymalizacja zasilana danymi (Data-Driven). Jeżeli nie możemy zmierzyć planety w 20.000 miejscach jednocześnie, to na jakiej podstawie chcemy nią zarządzać?"
+  },
+  {
+    "objectID": "wyklad_intro_1.html#iot-w-rolnictwie-monitoring-upraw-i-ekosystemów",
+    "href": "wyklad_intro_1.html#iot-w-rolnictwie-monitoring-upraw-i-ekosystemów",
+    "title": "Internet Przyszłości",
+    "section": " 4. IoT w Rolnictwie: Monitoring upraw i ekosystemów",
+    "text": "4. IoT w Rolnictwie: Monitoring upraw i ekosystemów\nZrozumienie, zapobieganie, reagowanie.\n\n\n\nSystemy zintegrowanego monitoringu zastępują intuicję „starego rolnika”.\nAnaliza mikroklimatu bezpośrednio w chmurze liści (temperatura, wilgotność, natężenie PAR).\nMinimalizacja użycia oprysków: algorytmy AI analizują sensory na polu sugerując fungicydy tylko po przekroczeniu fizycznego progu punktu rosy, powstrzymując plagi prewencyjnie.\nCzujniki glebowe mierzące NPK oraz pH minimalizujące wymywanie do wód gruntowych.\n\n\n\n\n\n\n\nPrzykład agrotechniczny to świetny argument: precyzyjne rolnictwo optymalizuje dawkę chemii co do centymetra i pory dnia, chroniąc wodę. Działa to oczywiście dzięki systemom takim jak Tree-Talker mierzącym strumień transpiracji."
+  },
+  {
+    "objectID": "wyklad_intro_1.html#medycyna-poznać-siebie-smart-wearables",
+    "href": "wyklad_intro_1.html#medycyna-poznać-siebie-smart-wearables",
+    "title": "Internet Przyszłości",
+    "section": " 5. Medycyna – Poznać Siebie (Smart Wearables)",
+    "text": "5. Medycyna – Poznać Siebie (Smart Wearables)\nOpaska nie jest tylko zegarkiem.\n\n\n\nZjawisko „Self-Tracking” (Quantified Self).\nZegarki i smart-obrączki dokonują odczytów zmienności rytmu zatokowego (HRV) oraz nasycenia tlenem.\nBazy danych uczą się wzorców spania, wyprzedzając diagnozy spadku samopoczucia zanim te zamienią się w depresję czy arytmię.\nEkstrakcja kluczowych danych “in-vivo”, a nie w sterylnym labie co pół roku u lekarza.\n\n\n\n\n\n\n\nZwróć uwagę słuchaczy na Oura Ring. Pokazuje to miniaturyzację. Zaledwie kilkanaście lat temu zapis tętna 24h/7 wymagał noszenia klamorów z Holterem EKG. Czerwona dioda na naszym ciele ciągle mierzy nasz rytm biologiczny i w tle (w smartfonie, połączonym Bluetooth) buduje gigantyczną sieć diagnoz AI populacji globalnej."
+  },
+  {
+    "objectID": "wyklad_intro_1.html#zrównoważone-zastosowanie-zasobów",
+    "href": "wyklad_intro_1.html#zrównoważone-zastosowanie-zasobów",
+    "title": "Internet Przyszłości",
+    "section": " 6. Zrównoważone Zastosowanie Zasobów",
+    "text": "6. Zrównoważone Zastosowanie Zasobów\nKażda kropla wody i każdy Watt zliczony na bieżąco - nawożenie ‘Smart’.\n\n\n\n\n\n\n\nSystemy nawadniające połączone z satelitarną prognozą pogody i lokalnym czujnikiem deszczu – oszczędzające dziesiątki milionów litrów wody deszczowej.\nOptymalizacja szlaków kurierskich na poziomie milisekund, redukująca spaliny.\nOświetlenie uliczne przyciemniane dzięki czujnikom wykrywającym niewielki ruch pieszy w nocy.\n\n\n\nSystem domowych zraszaczy. Jeśli podlewanie załączy się o 4:00 bo taki jest harmonogram, a o 6:00 zacznie nawalać burza - zmarnowałeś prąd na pompy i zasoby. Smart zraszacz używa otwartego API meteo, zatrzymując algorytm na 2 godziny."
+  },
+  {
+    "objectID": "wyklad_intro_1.html#przemysł-4.0-monitoring-procesów",
+    "href": "wyklad_intro_1.html#przemysł-4.0-monitoring-procesów",
+    "title": "Internet Przyszłości",
+    "section": " 7. Przemysł 4.0: Monitoring Procesów",
+    "text": "7. Przemysł 4.0: Monitoring Procesów\n\n\n\nTo rewolucja silników napędzających nowoczesne gospodarki.\nAnaliza predykcyjna (Predictive Maintenance) – czujniki wibracji na robotach chwytnych mogą wykryć zatarte łożyska jeszcze przed pęknięciem.\nPełna automatyzacja i cyfrowe bliźniaki hal produkcyjnych, minimalizujące liczbę przestojów w dostawach pojazdów na globalny rynek.\n\n\n\n\n\n\n\nPrzemysł to główny odbiorca IIoT (Industrial IoT). Tutaj czas to ogromne pieniądze. Każda sekunda postoju taśmy oznacza wady produkcyjne za miliony euro. Roboty już dzisiaj same wzywają inżynierów serwisowych zanim ulegną defektom akustycznym."
+  },
+  {
+    "objectID": "wyklad_intro_1.html#komunikacja-wektorowa",
+    "href": "wyklad_intro_1.html#komunikacja-wektorowa",
+    "title": "Internet Przyszłości",
+    "section": " 8. Komunikacja wektorowa",
+    "text": "8. Komunikacja wektorowa\nSamojezdne platformy i logistyka naczyń połączonych.\n\n\n\n\n\n\n\nInteligentne autostrady posiadające zintegrowane systemy wykrywania oblodzenia i dostosowywania dynamiki znaków LED w zależności od mgły.\nAutonomiczna jazda plutonowa (platooning) ciężarówek – pojazdy sprzężone radiowo jadą w odległości 2 metrów od siebie, drastycznie redukując współczynnik oporu aerodynamicznego (Cx).\nZarządzanie flotowe dla e-commerce od terminala po drzwi Twojej zamrażarki.\n\n\n\nKomunikacja dotyczy miast. Transport publiczny i komercyjny optymalizowany jest przez zwinne sieci komunikacji Machine-to-Machine. Półciężarówki V2X (Vehicle to Everything) w niedalekiej przyszłości zaczną informować się nawzajem o korkach i wybojach bez podłączenia ludzi."
+  },
+  {
+    "objectID": "wyklad_intro_1.html#cykl-iot-ai-to-przyszłość-a-obecnie",
+    "href": "wyklad_intro_1.html#cykl-iot-ai-to-przyszłość-a-obecnie",
+    "title": "Internet Przyszłości",
+    "section": " 9. Cykl IoT & AI – To przyszłość, a obecnie?",
+    "text": "9. Cykl IoT & AI – To przyszłość, a obecnie?\nCztery fazy rozwoju procesowania danych w historii.\n\n\nGeneracja 1.0: Ręczna, prosta praca fizyczna oparta o mięśnie zwierząt.\nGeneracja 2.0: Zastosowanie maszyn mechanicznych – przeskok z energii biologicznej na napęd ropą naftową oraz węglem.\nGeneracja 3.0: Przewidywanie matematyczne, informatyka lat 90’, sztywne systemy ERP próbujące planować wydajność w Excelach.\n\n\n\n\n\n\n\n\n\n\nTransformacja rolnictwa / Przemysłu do Generacji 4.0\n\n\nWkraczamy w czwarty wyższy paradygmat świadomości – Wykorzystanie narzędzi IoT na brzegu sieci do natychmiastowego zbioru gigabitów informacji i napędzania tymi bazami danych algorytmów uczenia maszynowego (ML / AI). System staje się reagujący na warunki brzegowe środowiska i rozmawia “językiem naturalnym”.\n\n\n\n\n\n\nWarto tu nawiązać do ewolucji rolnictwa podanej w źródłach “doi.org/10.1016/j.compag.2022.107217”. Generacje uległy zmianom. W 4.0 rolnik (czy manager produkcji) nie operuje już pługiem a panelem tableta odpalającym w roju autonomiczne drony zapylające czy siejące na skali makro."
+  },
+  {
+    "objectID": "wyklad_intro_1.html#przypadek-studyjny-tree-talker",
+    "href": "wyklad_intro_1.html#przypadek-studyjny-tree-talker",
+    "title": "Internet Przyszłości",
+    "section": " 10. Przypadek Studyjny: ‘Tree Talker’",
+    "text": "10. Przypadek Studyjny: ‘Tree Talker’\nSensory jako “Nature 4.0”.\n\n\n\nKlasyczna leśna dendrometria ulega rewolucji wizyjnej – przełamano problem “drogich przyrządów”.\nZastosowanie Tree-Talker’a (Walentini i in., 2019): autonomiczne opaski przybijane do pni drzew analizujące:\n\nPrzepływ soków (Xylem sap flow) w czasie rzeczywistym.\nAbsorpcję i dyspersję światła słonecznego z pułapu liści.\nSensoryczne zorientowanie przestrzeni przez akcelerometry 3D na korze (wiatrołomy, zgorzele).\n\nOraz oczywiście, sam zasilany małym panelem fotowoltaicznym z baterią.\n\n\n\n\n\n\n\nTo konkretny eksperyment akademicki. Wyjaśnij jak IoT przeszło od sterylizowanych hal do pni drzew we mgle i brudzie. To świetny most dla studentów kierunku, by widzieli praktyczne wykorzystanie radiostacji LoRa w bagnach i lasach mieszanych Europy badających ocieplenia klimatu."
+  },
+  {
+    "objectID": "wyklad_intro_1.html#podsumowanie-wstępu",
+    "href": "wyklad_intro_1.html#podsumowanie-wstępu",
+    "title": "Internet Przyszłości",
+    "section": " 11. Podsumowanie Wstępu",
+    "text": "11. Podsumowanie Wstępu\n\nJesteśmy świadkami niezwykłej transformacji od ustandaryzowanego pisania oprogramowania IT do inżynierii danych świata fizycznego.\nNarzędzia IoT pozwalają człowiekowi spojrzeć w głąb silników, serc żywych ludzi i ekosystemów leśnych, dostarczając ziaren optymalizacji.\nJest jednak ukryty koszt, a każda mocna innowacja nieświadomie podąża drogą potencjalnych dysfunkcji społecznych i filozoficznych… o czym porozmawiamy szerzej w drugiej części Wstępu.\nDziękuję za pierwszą część.\n\n\nPrzemowa zakańczająca część 1. Należy tu nastroić widownię niepokojem. Ukazałem ci profity, zieleń oczyszczoną i niesamowitą potęgę medycyny, ale w kolejnej minucie wejdziemy w zagmatwane koncepcje moralności używania tych danych na globalnej psychologii mas."
+  },
+  {
+    "objectID": "wyklad_intro_2.html#ciemna-strona-mocy-dobre-narzędzia-złe-intencje",
+    "href": "wyklad_intro_2.html#ciemna-strona-mocy-dobre-narzędzia-złe-intencje",
+    "title": "Internet Przyszłości",
+    "section": " 1. Ciemna strona mocy: Dobre narzędzia, Złe intencje",
+    "text": "1. Ciemna strona mocy: Dobre narzędzia, Złe intencje\nZastanówmy się czy technologia rodzi same korzyści.\n\n\n\nAfera Cambridge Analytica: Wykorzystanie danych z pozoru niewinnego Facebooka do mikro-targetowania (‘hakowania świata’) wpływającego na demokratyczne wybory.\nChiński System Kredytu Społecznego: Automatyczna weryfikacja i nadzór. „Ktoś, kto przez dziesięć godzin dziennie gra w gry wideo, zostanie zaklasyfikowany jako osoba bezproduktywna.”\nPowszechna, zintegrowana inwigilacja staje się mierzalną szarą strefą państw.\n\n\n\n\n\n\n\n\n\nOd kontroli do dedykowanej propagandy\n\n\nZagrożenia technologii to nie wojna nuklearna maszyn. To sterowanie demokracjami poprzez precyzyjną, dedykowaną propagandę oraz pełna kontrola społeczeństw na poziomie ludzkich pragnień i obaw. (Nawiązanie do wizji “Nowego wspaniałego świata”).\n\n\n\n\n\n\nPoczątek to szybkie zejście na ziemię po utopii z pierwszej części. Jak widać, technologia analityki Big Data działa w dwie strony. Ten slajd idealnie unaocznia “hakowanie zachowań”, o którym pisze Yuval Noah Harari."
+  },
+  {
+    "objectID": "wyklad_intro_2.html#sztuczna-inteligencja-asystent-czy-konkurencja",
+    "href": "wyklad_intro_2.html#sztuczna-inteligencja-asystent-czy-konkurencja",
+    "title": "Internet Przyszłości",
+    "section": " 2. Sztuczna Inteligencja: Asystent czy Konkurencja?",
+    "text": "2. Sztuczna Inteligencja: Asystent czy Konkurencja?\nAI wkracza w sfery zarezerwowane wyłącznie dla intelektu.\n\n\n\nAlgorytmy piszą kod, przewidują zachowania rynkowe i stawiają diagnozy medyczne trafniejsze od lekarzy pierwszego kontaktu.\nIstnieje ryzyko, że rewolucja sztucznej inteligencji wypchnie miliardy ludzi z rynku pracy.\nStworzy to nową klasę społeczną: “bezużyteczną klasę”, która doprowadzi do politycznych napięć.\n\n\n\n\n\n\n\n\n\nEfekt Skali i Asymetria Pracy\n\n\nDo obsługi każdego bezzałogowego drona w strefie kryzysowej potrzeba na ziemi około 30 osób, a do analizowania zbieranych przez drona danych wideo – kolejnych 80 pilotów/analityków. Paradoksalnie “autonomia” sprzętu oznacza dla nas więcej pracy z danymi, nie zawsze na produkcji.\n\n\n\n\n\n\nPodkreśl przesunięcie kompetencyjne na rynku. Bezrobocie dla pracowników fizycznych idzie w parze z gigantycznym zapotrzebowaniem na wysokokwalifikowanych oficerów danych, których jest ogromny deficyt. A same komputery, jak drony autonomiczne z przykładu na slajdzie, bez danych są ślepe."
+  },
+  {
+    "objectID": "wyklad_intro_2.html#czy-jesteśmy-programami",
+    "href": "wyklad_intro_2.html#czy-jesteśmy-programami",
+    "title": "Internet Przyszłości",
+    "section": " 3. Czy jesteśmy programami?",
+    "text": "3. Czy jesteśmy programami?\nAlgorytmy maszyn stają naprzeciw ludzkiej intuicji.\n\n\n“…Nasze decyzje w każdej sprawie – od wyboru jedzenia po wybór partnerów – wynikają nie z jakiejś tajemniczej wolnej woli, lecz raczej z miliardów neuronów w ułamku sekundy obliczających prawdopodobieństwa. Osławiona „ludzka intuicja” jest w rzeczywistości „rozpoznawaniem wzorców”.”\n— Yuval Noah Harari (21 Lekcji Na XXI Wiek)\n\n\n\nSztuczna inteligencja jest gotowa osiągnąć lepsze od nas wyniki, bazując na tych samych zasadach wzorców i prawdopodobieństw.\nJeżeli człowiek jest biochemicznym algorytmem, to z krzemu można stworzyć sztuczny zamiennik ludzkiej decyzyjności.\n\n\nGłęboko filozoficzny wątek dla inżynierów. Jeśli uznajemy, że nie ma w nas iskry boskiej a jedynie skomplikowana macierz sieci neuronów (które to sieci my sami właśnie tworzymy w Pythonie w Tensorflow), to znaczy, że nasza przewaga z dnia na dzień po prostu będzie zanikać z każdą falą tranzystorów TSMC 3 nanometry w procesorach."
+  },
+  {
+    "objectID": "wyklad_intro_2.html#ucieczka-z-tu-i-teraz",
+    "href": "wyklad_intro_2.html#ucieczka-z-tu-i-teraz",
+    "title": "Internet Przyszłości",
+    "section": " 4. Ucieczka z “Tu i Teraz”",
+    "text": "4. Ucieczka z “Tu i Teraz”\nDlaczego tak łatwo ulegamy algorytmom?\n\n\n\n\n\n\n\n\nCyfrowe Znieczulenie\n\n\n„Jeżeli większość ludzi spędza znaczną część swojego czasu nie tu i teraz ani w przewidywalnej przyszłości, ale gdzie indziej, w pozbawionych znaczenia zaświatach sportu i oper mydlanych, mitologii i metafizycznych fantazji, społeczeństwu będzie trudno oprzeć się zakusom tych, którzy chcą nim manipulować, dążąc do przejęcia kontroli.” — Aldous Huxley (Nowy Wspaniały Świat 30 Lat Później)\n\n\n\n\n\n\nZwróć uwagę na prorocze słowa Huxleya. Nie jesteśmy w świecie inwigilacji rodem z “Roku 1984” Orwella przez ból i biczowanie, żyjemy w dyktaturze przyjemności i rozrywki z telefonu i TikToka. Dajemy się zniewolić przez łatwą i darmową usługę, płacąc za nią informacjami o naszych przyzwyczajeniach."
+  },
+  {
+    "objectID": "wyklad_intro_2.html#kierunki-rozwoju-wychodząc-z-jaskini",
+    "href": "wyklad_intro_2.html#kierunki-rozwoju-wychodząc-z-jaskini",
+    "title": "Internet Przyszłości",
+    "section": " 5. Kierunki rozwoju: Wychodząc z Jaskini",
+    "text": "5. Kierunki rozwoju: Wychodząc z Jaskini\nJak technologia pozwala ewoluować samemu gatunkowi.\n\n\n\nLudzkość nie zdominowała natury przez ostre pazury, ogromną siłę, ani wielki intelekt poszczególnej jednostki.\nTo komunikacja: Nasza przewaga to absolutna umiejętność asynchronicznego koordynowania pracy na miliardowej skali, wymieniania myśli i budowy struktur, których nie pojmie i nie stworzy pojedynczy umysł.\nNowe sieci (jak IoT, internet satelitarny Starlink itp.) to biologicznie patrząc nowy sposób globalnego neuronowego pająka.\n\n\n\n\n\n\n\nKlucz do przetrwania - współpraca. Komputery współpracują miliony razy lepiej. Dziś człowiek uczy się maszynowego punktu widzenia. Zdjęcie ilustruje jak technologia uczy roboty “widzieć i zbierać owoce”, ucząc się naszej domeny na naszym poziomie."
+  },
+  {
+    "objectID": "wyklad_intro_2.html#bezpośredni-transfer-wrażeń-bci",
+    "href": "wyklad_intro_2.html#bezpośredni-transfer-wrażeń-bci",
+    "title": "Internet Przyszłości",
+    "section": " 6. Bezpośredni transfer wrażeń (BCI)",
+    "text": "6. Bezpośredni transfer wrażeń (BCI)\nIdea rodem z Matrixa udowodniona naukowo 10 lat temu.\n\n\n\nProjekt Miguela Nicolelisa: W serii eksperymentów wszczepiono implanty do ośrodków ruchowych dwóch szczurów.\nJeden znajdował się na kampusie Duke (USA), drugi w Brazylii.\nPołączono ich na serwerach siecią i przesyłano komendy ruchowe.\nSzczur podrzędny uczył się pociągać właściwe dźwignie świetlne wyłącznie z sygnałów przesyłanych pętlą TCP/IP prosto z mózgu pierwszego.\n\n\n\n\n\n\n\nZobrazuj im skok jaki to robi: komunikacja siecią Internet poleceń motorycznych pomiędzy szczurami oddalonymi o kontynenty. Ten “Brain to Brain Interface” nie jest tylko medycyną do naprawy zerwanego rdzenia, to komunikacja, gdzie człowiek podłączałby się pod pamięć roboczą chmury internetowej."
+  },
+  {
+    "objectID": "wyklad_intro_2.html#interfejs-człowiek-człowiek-university-of-washington-2013",
+    "href": "wyklad_intro_2.html#interfejs-człowiek-człowiek-university-of-washington-2013",
+    "title": "Internet Przyszłości",
+    "section": " 7. Interfejs Człowiek-Człowiek (University of Washington, 2013)",
+    "text": "7. Interfejs Człowiek-Człowiek (University of Washington, 2013)\nEksperyment, który przekroczył barierę ludzką: Nieinwazyjny interfejs komputera mózgowego.\n\n\n\nRajesh Rao i Andrea Stocco zagrali w grę wideo w przeciwnych połówkach kampusu.\nRajesh widział na monitorze nadlatujące obiekty, lecz nie posiadał klawiatury ani pada. Chciał wystrzelić pocisk, a myśl ta przesyłana za pomocą analizy EEG (elektroencefalogramu) była przesyłana pętlą TCP/IP prosto z mózgu kolegi.\nAndrea siedziała w ślepym zamkniętym pokoju z klawiaturą (kontrolerem), nie widząc samej gry, ale mając na głowie cewkę oddziałującą polem magnetycznym na korę ruchową dłoni.\nMyśl Rajesha, po zdekodowaniu, wędrowała milisekundy siecią wi-fi by wzbudzić drgnięcie mięśniowe dłoni Andrei naciskającej klawisz. Z sukcesem ustrzelili cel.\n\n\n\n\n\n\n\nTen eksperyment (z 2013 roku, ponad dekadę temu) to pokaz “Transferu Telemetrycznego” do człowieka. Przekaz impulsu do wykonania z intencji. Pokazuje to gigantyczne pole przed systemami Neuralink."
+  },
+  {
+    "objectID": "wyklad_intro_2.html#podstawowa-blokada-prawdziwy-koszt-energii",
+    "href": "wyklad_intro_2.html#podstawowa-blokada-prawdziwy-koszt-energii",
+    "title": "Internet Przyszłości",
+    "section": " 8. Podstawowa Blokada: Prawdziwy Koszt Energii",
+    "text": "8. Podstawowa Blokada: Prawdziwy Koszt Energii\nPaliwo ludzkiego a maszynowego bytu.\n\n\n\nEnergia dzienna spożywana przez dorosłego pracującego ciężko człowieka wynosi ok. 2500 - 3000 kcal (co matematycznie daje ~12.6 MJ energii, lub 3.5 kWh prądu).\nZ drugiej strony, przeciętne auto potrzebuje blisko 2,5 MJ energii na każdy kilometr jazdy.\n\n\n\n\n\n\n\n\n\n\nEkologia zderza się z Fizyką\n\n\nAby pokonać błahe 5 km samochodem i przewieźć fizycznie 1 człowieka, infrastruktura wyzwala ładunek energetyczny potężniejszy niż dobowy koszt egzystencji (BMR) całego zapotrzebowania narządów i mózgu tego człowieka na 24h. Systemy komputerowe są ogromnie prądożerne na wzór aut.\n\n\n\n\n\n\n\nKlucz i konkluzja na sam koniec – wszystko zmierza do energooszczędności na poziomie biochemii. Obecnie serwerownie pożerają zasilanie całych dzielnic w czasie, gdy ludzki mózg liczy genialne i kreatywne operacje, pobierając 20 W mocy ze spalania małego wafelka z czekoladą."
+  },
+  {
+    "objectID": "wyklad_intro_2.html#literatura-do-wstępu-i-zakończenie",
+    "href": "wyklad_intro_2.html#literatura-do-wstępu-i-zakończenie",
+    "title": "Internet Przyszłości",
+    "section": " 9. Literatura do Wstępu i Zakończenie",
+    "text": "9. Literatura do Wstępu i Zakończenie\nJeśli zafascynowały was omawiane koncepcje…\n\n\n\n\n\n\n\nAdnotacja\n\n\nZalecana biblioteka inspiracji\n\nYuval Noah Harari: “Homo Deus, krótka historia jutra” (2015)\nYuval Noah Harari: “21 Lekcji Na XXI Wiek”\nJacek Dukaj: “Po słowie” (2019)\nRamez Naam: Trylogia Nexus, Crux, Apex\nAldous Huxley: “Nowy wspaniały świat” (1931)\n\n\n\n\n\n\n\nDziękuję za Państwa uwagę na tym Wprowadzeniu. Zapraszam was serdecznie na Część Główną cyklu Internetu Rzeczy.\n\n\n\nZamykamy drugą część Wykładu Zerowego. Zostawcie studentom na ekranie listę autorów fantastyki naukowej (i hard sci-fi jak Ramez Naam) oraz socjologów, ponieważ te dzieła kształtują młode umysły i dają tło do obaw na inżynierii przed ślepym i radosnym wdrożeniem skomplikowanych technologii."
+  },
+  {
+    "objectID": "wyklad_3.html#od-gigabajtów-do-wiedzy",
+    "href": "wyklad_3.html#od-gigabajtów-do-wiedzy",
+    "title": "Mózg w Chmurze i jego Cienie",
+    "section": " 1. Od gigabajtów do wiedzy",
+    "text": "1. Od gigabajtów do wiedzy\nProblem skali danych: „Dane to nowa ropa” brzmi pięknie, dopóki nie musisz jej rafinować.\n\n\n\nPojedynczy czujnik temperatury w chłodni jest bezwartościowy.\n10 000 czujników w 100 magazynach w Europie, generujących logi co minutę, tworzy Big Data.\nGdzie to wszystko składować, filtrować i jak wyciągać użyteczne biznesowo wnioski?\nOdpowiedź: Chmura Obliczeniowa (Cloud Computing) – ostateczna Warstwa Aplikacji w modelu IoT.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCLOUD COMPUTING\n\n\n\n\n\n\n\nEDGE COMPUTING\n\n\n\n\n\n\n\nUrządzenia Pomiarowe\n\n\n\n\n\n\n\nSurowy szum\n\n\n\n\n\n\n\nSurowy szum\n\n\n\n\n\n\n\nAgregacja:Bloki 30-minutowe\n\n\n\n\n\n\n\nAnemometr10 Hz\n\n\n\n\n\n\n\nAnalizator Gazu10 Hz\n\n\n\n\n\n\n\nGatewayKowariancja wirów\n\n\n\n\n\n\n\nChmura\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRozpoczęcie: Wyjaśnij słuchaczom, że po opanowaniu sprzętu (Wykład 1) i dostarczeniu danych drogą radiową do Internetu (Wykład 2), inżynier staje przed ścianą IT i analizy danych. Surowe, wysokoczęstotliwościowe dane środowiskowe są najpierw redukowane na brzegu sieci, a do chmury trafiają już uśrednione strumienie (np. wartości 30-minutowe)."
+  },
+  {
+    "objectID": "wyklad_3.html#platformy-korporacyjne-paas",
+    "href": "wyklad_3.html#platformy-korporacyjne-paas",
+    "title": "Mózg w Chmurze i jego Cienie",
+    "section": " 2. Platformy korporacyjne (PaaS)",
+    "text": "2. Platformy korporacyjne (PaaS)\nRozwiązania dostarczane przez gigantów technologicznych, pozwalające na błyskawiczne skalowanie.\n\n\n\nAWS IoT Core: Lider rynku. Potężna integracja z usługami analitycznymi i bazami danych (np. DynamoDB).\nAzure IoT Hub: Silna pozycja w sektorze przemysłowym (IIoT), świetna integracja z Active Directory.\nObie platformy umożliwiają masową aktualizację oprogramowania wewnętrznego (OTA – Over The Air) dla milionów urządzeń jednocześnie, z zastosowaniem certyfikatów kryptograficznych.\n\n\n\n\n\n\n\n\n\nVendor Lock-in (Złota Klatka)\n\n\nW 2023 roku Google wyłączyło swoją usługę Google Cloud IoT Core. Zmusiło to tysiące firm do kosztownej i czasochłonnej migracji całych ekosystemów do konkurencji. Oparcie projektu w 100% o jednego dostawcę chmury to poważne ryzyko biznesowe.\n\n\n\n\n\n\nKluczowa jest definicja OTA (Over The Air). W dobie IoT nie podłącza się urządzenia kablem do aktualizacji. System autoryzuje podpis kluczem cyfrowym, a urządzenie samodzielnie w tle nadpisuje firmware – np. auto aktualizuje się po wjeździe do garażu z Wi-Fi. Wykorzystaj przypadek Google IoT Core jako przestrogę inżynieryjną."
+  },
+  {
+    "objectID": "wyklad_3.html#narzędzia-otwartoźródłowe-niezależność-twórców",
+    "href": "wyklad_3.html#narzędzia-otwartoźródłowe-niezależność-twórców",
+    "title": "Mózg w Chmurze i jego Cienie",
+    "section": " 3. Narzędzia otwartoźródłowe: niezależność twórców",
+    "text": "3. Narzędzia otwartoźródłowe: niezależność twórców\nJak zachować niezależność i prywatność danych? Odpowiedzią są systemy wdrażane na własnych serwerach (On-Premise).\n\n\n\nThingsBoard: Profesjonalne pulpity nawigacyjne (dashboardy) obsługujące ogromne potoki danych telemetrycznych z fizyczną izolacją środowisk (dev, test, prod).\nHome Assistant: Integracja lokalna bez zależności od zewnętrznych chmur.\nNode-RED: Wizualne programowanie logiki (Low-code).\n\n\n\n\n\n\n\nPlatformy Open-Source pozwalają studentom na szybkie prototypowanie. Można podpiąć czujnik LoRaWAN do graficznego silnika Node-RED, po czym natychmiast zaprezentować odczyt na tablicy analitycznej i wysłać powiadomienie na kanał Discord lub przez SMS. Node-RED sprawdza się doskonale jako „klej” integracyjny w architekturze IoT."
+  },
+  {
+    "objectID": "wyklad_3.html#barcelona-pionierzy-miasta-jako-komputera",
+    "href": "wyklad_3.html#barcelona-pionierzy-miasta-jako-komputera",
+    "title": "Mózg w Chmurze i jego Cienie",
+    "section": " 4. Barcelona: Pionierzy „miasta jako komputera”",
+    "text": "4. Barcelona: Pionierzy „miasta jako komputera”\nCo się dzieje, gdy dodamy miastu układ nerwowy?\n\n\n\nOświetlenie miejskie: 10 000 lamp analizujących ruch pieszych i gasnących inteligentnie na peryferiach – oszczędność 30% budżetu energetycznego rocznie.\nWywóz odpadów: Czujniki laserowe mierzące poziom zapełnienia kontenerów wytyczają dynamiczną trasę dla śmieciarki, redukując puste przejazdy o 28%.\nNawadnianie parków: Czujniki wilgotności glebowej sterujące zaworami podlewania – pompa nie uruchomi się dzień po deszczu.\n\n\n\n\n\n\n\n\n\nKto kontroluje dane?\n\n\nGdy system ITS (Inteligentny System Transportowy) liczy pojazdy i odczytuje tablice rejestracyjne (LPR) kamerami, kto ostatecznie kontroluje dostęp do statystyk o przemieszczaniu się mieszkańców? To pytanie otwiera dyskusję etyczną.\n\n\n\n\n\n\nOpowiadając o Smart City, płynnie przechodzimy od optymistycznych raportów do naruszeń prawa prywatności – przygotowując grunt pod kolejny rozdział o zagrożeniach. Miasto, które „czuje i liczy oddech”, generuje jednocześnie ogromną wartość monetarną i poważne wyzwania etyczne."
+  },
+  {
+    "objectID": "wyklad_3.html#smart-city-i-przemysł-4.0-iiot",
+    "href": "wyklad_3.html#smart-city-i-przemysł-4.0-iiot",
+    "title": "Mózg w Chmurze i jego Cienie",
+    "section": " 5. Smart City i Przemysł 4.0 (IIoT)",
+    "text": "5. Smart City i Przemysł 4.0 (IIoT)\nJak łączność IoT transformuje przestrzeń miejską i produkcję?\n\n\nInteligentne miasta\n\nSystemy ITS optymalizujące ruch uliczny w czasie rzeczywistym.\nGęste sieci monitoringu jakości powietrza.\nInteligentne oświetlenie dopasowujące się do natężenia ruchu.\n\n\nPrzemysł 4.0 (IIoT)\n\nPredictive Maintenance: Przewidywanie awarii maszyn na podstawie analizy wibracji i temperatur – zanim fizycznie do nich dojdzie.\nOptymalizacja łańcucha dostaw (Supply Chain) z pełną transparentnością lokalizacji paczek.\n\n\n\nJako przykład z życia podaj infrastrukturę miejską Poznania, gdzie systemy telematyczne i środowiskowe połączone są w jeden spójny organizm. Dane z tych systemów często trafiają do otwartych interfejsów API."
+  },
+  {
+    "objectID": "wyklad_3.html#cyfrowe-bliźniaki-digital-twins",
+    "href": "wyklad_3.html#cyfrowe-bliźniaki-digital-twins",
+    "title": "Mózg w Chmurze i jego Cienie",
+    "section": " 6. Cyfrowe Bliźniaki (Digital Twins)",
+    "text": "6. Cyfrowe Bliźniaki (Digital Twins)\nWirtualna reprezentacja fizycznego obiektu, systemu lub całego ekosystemu, zasilana danymi w czasie rzeczywistym.\n\n\n\nTo nie tylko wizualizacja 3D. Cyfrowy Bliźniak jest zasilany strumieniem danych z czujników w czasie rzeczywistym – rzutowanych 1:1 na model inżynierski.\nUmożliwia przeprowadzanie symulacji „What If”: co się stanie, jeśli zawór nr 43 ulegnie awarii podczas festiwalu?\nZastosowania: Od optymalizacji silników odrzutowych po modelowanie dynamiki wymiany gazowej na dużych obszarach leśnych.\n\n\n\n\n\nTak wygląda futurystyczny panel dla operatora dużych inwestycji infrastrukturalnych. Gdy komunikat „Awaria pompy ciśnieniowej ul. Północnej” na pasku tekstowej konsoli niewiele mówi, ten sam sygnał alarmowy na fotorealistycznej makiecie 3D z nałożonymi odczytami obciążeniowymi precyzuje skalę awarii natychmiast. Zamiast testować hipotezy na fizycznym systemie, analityk wykonuje symulacje na jego cyfrowej kopii."
+  },
+  {
+    "objectID": "wyklad_3.html#gdy-rzeczy-stają-się-bronią-ddos",
+    "href": "wyklad_3.html#gdy-rzeczy-stają-się-bronią-ddos",
+    "title": "Mózg w Chmurze i jego Cienie",
+    "section": " 7. Gdy „rzeczy” stają się bronią DDoS",
+    "text": "7. Gdy „rzeczy” stają się bronią DDoS\nParadoks tanich chipów – kupić szybko, włączyć od razu, nie aktualizować nigdy.\n\n\n\nOgraniczone zasoby: Brak mocy obliczeniowej na zaawansowane algorytmy kryptograficzne.\nDostęp fizyczny: Czujniki w terenie publicznym podatne na sabotaż sprzętowy (np. odczyt pamięci Flash).\nBrak aktualizacji: Miliony urządzeń działają latami na przestarzałym oprogramowaniu z domyślnym hasłem „admin / admin” – tzw. porzucone technologie.\n\n\n\n\n\n\n\n\n\nBotnet Mirai (2016)\n\n\nZłośliwe oprogramowanie (botnet) przejęło kontrolę nad niezabezpieczonymi kamerami IP, dokonując gigantycznego ataku DDoS na infrastrukturę DNS (m.in. Twitter, Netflix).\n\n\n\n\n\n\n\nPodkreśl różnicę między atakiem na serwer webowy a atakiem na systemy IoT. W IoT atakujący może uzyskać kontrolę nad fizycznymi zaworami, przekaźnikami lub zakłócić krytyczne odczyty środowiskowe.\nWarto wyjaśnić “niemiecki ślad” na mapie: Choć Mirai był globalny, Niemcy stały się głośnym przykładem w listopadzie 2016 r., gdy wariant Mirai zaatakował routery Deutsche Telekom (wykorzystując lukę w TR-064). Odcięło to od sieci blisko 900 000 klientów, stąd na mapach historycznych Niemcy często widnieją jako główne ognisko (pole bitwy), mimo że źródło ataku było rozproszone."
+  },
+  {
+    "objectID": "wyklad_3.html#dobre-praktyki-bezpieczeństwa-defence-in-depth",
+    "href": "wyklad_3.html#dobre-praktyki-bezpieczeństwa-defence-in-depth",
+    "title": "Mózg w Chmurze i jego Cienie",
+    "section": " 8. Dobre praktyki bezpieczeństwa (Defence in Depth)",
+    "text": "8. Dobre praktyki bezpieczeństwa (Defence in Depth)\nOchrona systemu IoT musi być wdrażana wielowarstwowo.\n\n\n\n\nTożsamość: Szyfrowanie asymetryczne (X.509) dla TLS/DTLS.\nAktualizacje OTA: Zdalne łatanie podatności.\nSegmentacja sieci (VLAN): Izolowanie czujników IoT od głównej sieci biurowej/serwerów.\nSecure Boot: Blokada nieautoryzowanego kodu.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVLAN IoT (Sensory)\n\n\n\n\n\n\n\nVLAN Biurowy / Serwery\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIzolacja / Brak Dostępu\n\n\n\n\n\n\n\nIzolacja\n\n\n\n\n\n\n\nPC Pracownika\n\n\n\n\n\n\n\nZasoby Sieciowe\n\n\n\n\n\n\n\nZaporaFirewall\n\n\n\n\n\n\n\nCzujnikKlimatu\n\n\n\n\n\n\n\nKameraZewnętrzna\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSegmentacja sieci i izolowanie środowisk (np. testowych od produkcyjnych) to absolutny standard bezpieczeństwa. Atakujący, który włamie się do niezabezpieczonego testowego węzła IoT, nie może mieć ścieżki przejścia do bazy z wrażliwymi danymi produkcyjnymi."
+  },
+  {
+    "objectID": "wyklad_3.html#prywatność-w-epoce-mikrofonów-zawsze-włączonych",
+    "href": "wyklad_3.html#prywatność-w-epoce-mikrofonów-zawsze-włączonych",
+    "title": "Mózg w Chmurze i jego Cienie",
+    "section": " 9. Prywatność w epoce mikrofonów zawsze włączonych",
+    "text": "9. Prywatność w epoce mikrofonów zawsze włączonych\nKto nas słucha, liczy i mierzy? Profilowanie konsumenckie na danych z warstw IoT.\n\n\nInteligentne liczniki energii mierzące zużycie co 10 sekund potrafią na podstawie analizy pików zużycia określić, kiedy włączasz czajnik (07:30), kiedy wychodzisz z domu (08:30) i kiedy wracasz (14:00). To nie jest fikcja – to dane dostępne dostawcy energii.\nZabawki IoT wysyłające nieszyfrowane nagrania głosowe dzieci do chmur w obcych jurysdykcjach – częsty powód wycofań produktów z rynku europejskiego (np. lalka „My Friend Cayla”).\nOpaski fitness profilujące puls i aktywność mogą posłużyć do automatycznego podniesienia składki ubezpieczenia zdrowotnego na podstawie odczytów wskazujących na siedzący tryb życia.\n\n\n\nTo kluczowy moment wykładu, w którym inżynieria spotyka się z etyką. Filozofia „zbieramy wszystko, bo chmura jest tania” uderza o twardy filar dyskusji prawno-etycznej o tym, czy IoT powinno być projektowane z myślą o prywatności i bezpieczeństwie „by default” (Privacy by Design)."
+  },
+  {
+    "objectID": "wyklad_3.html#bilans-korzyści-i-wyzwań-na-nową-dekadę",
+    "href": "wyklad_3.html#bilans-korzyści-i-wyzwań-na-nową-dekadę",
+    "title": "Mózg w Chmurze i jego Cienie",
+    "section": " 10. Bilans korzyści i wyzwań na nową dekadę",
+    "text": "10. Bilans korzyści i wyzwań na nową dekadę\n\n\nObiecujące zyski\n\nPrecyzyjne rolnictwo: Redukcja zużycia wody nawet o 50% dzięki pomiarom „na kroplę do celu” w nawadnianiu upraw.\nPredictive Maintenance: Czujniki wibracji chronią turbiny – przewidzą awarię szybciej, niż stopi się łożysko nośne silnika.\nEdge AI (AIoT): Modele uczenia maszynowego (np. TensorFlow Lite) działające bezpośrednio na mikrokontrolerach, bez potrzeby łączności z chmurą.\n\n\nWyzwania\n\nE-Waste: Miliardy jednorazowych urządzeń z baterią niemożliwą do wymiany, zaklejonych w plastikowej obudowie – góra elektroniki jednorazowej.\nEnergy Harvesting: Konieczność odejścia od klasycznych baterii na rzecz zasilania z otoczenia (różnice temperatur, wibracje, fale radiowe).\nEtyka i regulacje: Kto jest właścicielem danych generowanych przez „rzeczy” w twoim domu?\n\n\n\nParadoks zrównoważonego rozwoju: IoT pozwala ratować zasoby planety (Green-Tech), ale jednocześnie generuje tony elektronicznych śmieci z jednorazowymi urządzeniami. Predictive Maintenance pozwala chronić miliony na prewencji katastrof i tu tkwi ogromna szansa dla IoT w skali przemysłowej."
+  },
+  {
+    "objectID": "wyklad_3.html#przyszłość-6g-i-nowe-paradygmaty",
+    "href": "wyklad_3.html#przyszłość-6g-i-nowe-paradygmaty",
+    "title": "Mózg w Chmurze i jego Cienie",
+    "section": " 11. Przyszłość: 6G i nowe paradygmaty",
+    "text": "11. Przyszłość: 6G i nowe paradygmaty\nW jakim kierunku zmierza telemetria i systemy wbudowane?\n\nIntegracja 6G: Oczekiwane opóźnienia na poziomie sub-milisekund i gigabitowe przepustowości pozwolą na błyskawiczną synchronizację Cyfrowych Bliźniaków o wysokiej rozdzielczości.\nKonwergencja AI + IoT: Inteligentne urządzenia podejmujące decyzje autonomicznie, bez ciągłej łączności z chmurą.\nRegulacje prawne: Unia Europejska wprowadza Cyber Resilience Act, nakładający obowiązek aktualizacji bezpieczeństwa przez cały cykl życia produktu IoT.\n\n\nPodsumuj cykl wykładów. Podkreśl, że sprzęt jest coraz tańszy, a protokoły ustandaryzowane. Prawdziwym wyzwaniem dla przyszłych inżynierów będzie wyciągnięcie wartości z oceanu danych (Big Data) przy jednoczesnym zachowaniu etyki i pełnego bezpieczeństwa infrastruktury."
+  },
+  {
+    "objectID": "wyklad_3.html#zakończenie-cyklu-wykładów",
+    "href": "wyklad_3.html#zakończenie-cyklu-wykładów",
+    "title": "Mózg w Chmurze i jego Cienie",
+    "section": " 12. Zakończenie cyklu wykładów",
+    "text": "12. Zakończenie cyklu wykładów\n\n\n\n\n\nIoT zbudowali inżynierowie, którzy chcieli zaoszczędzić sobie chodzenia po schodach po Coca-Colę. Dziś ta sama filozofia steruje miastami, fabrykami i systemami ratującymi życie.\n\n\n\n\n\n\n\n\nJaką inteligentną rzecz zaprojektujesz i zbudujesz?\n\n\n\n\n\nDziękuję za uwagę.\n\n\n\nKoniec trzyczęściowego cyklu wykładów. Wezwanie skierowane do audytorium inżynieryjnego: wszyscy mamy dostęp do ESP32 za kilkanaście złotych i brokera MQTT na Raspberry Pi. W kilka godzin możemy zbudować działający prototyp inteligentnego systemu. I tego właśnie uczmy."
+  }
+]

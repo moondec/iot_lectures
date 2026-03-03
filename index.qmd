@@ -1,0 +1,17 @@
+---
+title: "Wykłady IoT - Materiały Dydaktyczne"
+---
+
+Witaj w repozytorium materiałów do wykładu z Internetu Rzeczy (IoT). Poniżej znajdziesz linki do poszczególnych prezentacji:
+
+### Wprowadzenie
+* [Przyszłość Internetu - Część 1](wyklad_intro_1.html)
+* [Zagrożenia i Nowe Horyzonty - Część 2](wyklad_intro_2.html)
+
+### Wykłady Główne
+* [Wykład 1: Narodziny Nowego Świata](wyklad_1.html)
+* [Wykład 2: Język Rzeczy (Komunikacja)](wyklad_2.html)
+* [Wykład 3: Mózg w Chmurze i jego Cienie](wyklad_3.html)
+
+### Program Kursu
+* [Konspekt / Sylabus](konspekt.html)
