@@ -203,6 +203,69 @@
     "text": "14. Dziękuję za uwagę\nW kolejnym wykładzie omówimy\n\nprzetwarzanie zebranych danych w chmurze (Cloud),\nzagadnienia bezpieczeństwa oraz\nzaawansowane zastosowania IoT (Smart City, Digital Twins)."
   },
   {
+    "objectID": "wyklad_intro_2.html#ciemna-strona-mocy-dobre-narzędzia-złe-intencje",
+    "href": "wyklad_intro_2.html#ciemna-strona-mocy-dobre-narzędzia-złe-intencje",
+    "title": "Internet Przyszłości",
+    "section": " 1. Ciemna strona mocy: Dobre narzędzia, Złe intencje",
+    "text": "1. Ciemna strona mocy: Dobre narzędzia, Złe intencje\nZastanówmy się czy technologia rodzi same korzyści.\n\n\n\nAfera Cambridge Analytica: Wykorzystanie danych z pozoru niewinnego Facebooka do mikro-targetowania (‘hakowania świata’) wpływającego na demokratyczne wybory.\nChiński System Kredytu Społecznego: Automatyczna weryfikacja i nadzór. „Ktoś, kto przez dziesięć godzin dziennie gra w gry wideo, zostanie zaklasyfikowany jako osoba bezproduktywna.”\nPowszechna, zintegrowana inwigilacja staje się mierzalną szarą strefą państw.\n\n\n\n\n\n\n\n\n\nOd kontroli do dedykowanej propagandy\n\n\nZagrożenia technologii to nie wojna nuklearna maszyn. To sterowanie demokracjami poprzez precyzyjną, dedykowaną propagandę oraz pełna kontrola społeczeństw na poziomie ludzkich pragnień i obaw. (Nawiązanie do wizji “Nowego wspaniałego świata”).\n\n\n\n\n\n\nPoczątek to szybkie zejście na ziemię po utopii z pierwszej części. Jak widać, technologia analityki Big Data działa w dwie strony. Ten slajd idealnie unaocznia “hakowanie zachowań”, o którym pisze Yuval Noah Harari."
+  },
+  {
+    "objectID": "wyklad_intro_2.html#sztuczna-inteligencja-asystent-czy-konkurencja",
+    "href": "wyklad_intro_2.html#sztuczna-inteligencja-asystent-czy-konkurencja",
+    "title": "Internet Przyszłości",
+    "section": " 2. Sztuczna Inteligencja: Asystent czy Konkurencja?",
+    "text": "2. Sztuczna Inteligencja: Asystent czy Konkurencja?\nAI wkracza w sfery zarezerwowane wyłącznie dla intelektu.\n\n\n\nAlgorytmy piszą kod, przewidują zachowania rynkowe i stawiają diagnozy medyczne trafniejsze od lekarzy pierwszego kontaktu.\nIstnieje ryzyko, że rewolucja sztucznej inteligencji wypchnie miliardy ludzi z rynku pracy.\nStworzy to nową klasę społeczną: “bezużyteczną klasę”, która doprowadzi do politycznych napięć.\n\n\n\n\n\n\n\n\n\nEfekt Skali i Asymetria Pracy\n\n\nDo obsługi każdego bezzałogowego drona w strefie kryzysowej potrzeba na ziemi około 30 osób, a do analizowania zbieranych przez drona danych wideo – kolejnych 80 pilotów/analityków. Paradoksalnie “autonomia” sprzętu oznacza dla nas więcej pracy z danymi, nie zawsze na produkcji.\n\n\n\n\n\n\nPodkreśl przesunięcie kompetencyjne na rynku. Bezrobocie dla pracowników fizycznych idzie w parze z gigantycznym zapotrzebowaniem na wysokokwalifikowanych oficerów danych, których jest ogromny deficyt. A same komputery, jak drony autonomiczne z przykładu na slajdzie, bez danych są ślepe."
+  },
+  {
+    "objectID": "wyklad_intro_2.html#czy-jesteśmy-programami",
+    "href": "wyklad_intro_2.html#czy-jesteśmy-programami",
+    "title": "Internet Przyszłości",
+    "section": " 3. Czy jesteśmy programami?",
+    "text": "3. Czy jesteśmy programami?\nAlgorytmy maszyn stają naprzeciw ludzkiej intuicji.\n\n\n“…Nasze decyzje w każdej sprawie – od wyboru jedzenia po wybór partnerów – wynikają nie z jakiejś tajemniczej wolnej woli, lecz raczej z miliardów neuronów w ułamku sekundy obliczających prawdopodobieństwa. Osławiona „ludzka intuicja” jest w rzeczywistości „rozpoznawaniem wzorców”.”\n— Yuval Noah Harari (21 Lekcji Na XXI Wiek)\n\n\n\nSztuczna inteligencja jest gotowa osiągnąć lepsze od nas wyniki, bazując na tych samych zasadach wzorców i prawdopodobieństw.\nJeżeli człowiek jest biochemicznym algorytmem, to z krzemu można stworzyć sztuczny zamiennik ludzkiej decyzyjności.\n\n\nGłęboko filozoficzny wątek dla inżynierów. Jeśli uznajemy, że nie ma w nas iskry boskiej a jedynie skomplikowana macierz sieci neuronów (które to sieci my sami właśnie tworzymy w Pythonie w Tensorflow), to znaczy, że nasza przewaga z dnia na dzień po prostu będzie zanikać z każdą falą tranzystorów TSMC 3 nanometry w procesorach."
+  },
+  {
+    "objectID": "wyklad_intro_2.html#ucieczka-z-tu-i-teraz",
+    "href": "wyklad_intro_2.html#ucieczka-z-tu-i-teraz",
+    "title": "Internet Przyszłości",
+    "section": " 4. Ucieczka z “Tu i Teraz”",
+    "text": "4. Ucieczka z “Tu i Teraz”\nDlaczego tak łatwo ulegamy algorytmom?\n\n\n\n\n\n\n\n\nCyfrowe Znieczulenie\n\n\n„Jeżeli większość ludzi spędza znaczną część swojego czasu nie tu i teraz ani w przewidywalnej przyszłości, ale gdzie indziej, w pozbawionych znaczenia zaświatach sportu i oper mydlanych, mitologii i metafizycznych fantazji, społeczeństwu będzie trudno oprzeć się zakusom tych, którzy chcą nim manipulować, dążąc do przejęcia kontroli.” — Aldous Huxley (Nowy Wspaniały Świat 30 Lat Później)\n\n\n\n\n\n\nZwróć uwagę na prorocze słowa Huxleya. Nie jesteśmy w świecie inwigilacji rodem z “Roku 1984” Orwella przez ból i biczowanie, żyjemy w dyktaturze przyjemności i rozrywki z telefonu i TikToka. Dajemy się zniewolić przez łatwą i darmową usługę, płacąc za nią informacjami o naszych przyzwyczajeniach."
+  },
+  {
+    "objectID": "wyklad_intro_2.html#kierunki-rozwoju-wychodząc-z-jaskini",
+    "href": "wyklad_intro_2.html#kierunki-rozwoju-wychodząc-z-jaskini",
+    "title": "Internet Przyszłości",
+    "section": " 5. Kierunki rozwoju: Wychodząc z Jaskini",
+    "text": "5. Kierunki rozwoju: Wychodząc z Jaskini\nJak technologia pozwala ewoluować samemu gatunkowi.\n\n\n\nLudzkość nie zdominowała natury przez ostre pazury, ogromną siłę, ani wielki intelekt poszczególnej jednostki.\nTo komunikacja: Nasza przewaga to absolutna umiejętność asynchronicznego koordynowania pracy na miliardowej skali, wymieniania myśli i budowy struktur, których nie pojmie i nie stworzy pojedynczy umysł.\nNowe sieci (jak IoT, internet satelitarny Starlink itp.) to biologicznie patrząc nowy sposób globalnego neuronowego pająka.\n\n\n\n\n\n\n\nKlucz do przetrwania - współpraca. Komputery współpracują miliony razy lepiej. Dziś człowiek uczy się maszynowego punktu widzenia. Zdjęcie ilustruje jak technologia uczy roboty “widzieć i zbierać owoce”, ucząc się naszej domeny na naszym poziomie."
+  },
+  {
+    "objectID": "wyklad_intro_2.html#bezpośredni-transfer-wrażeń-bci",
+    "href": "wyklad_intro_2.html#bezpośredni-transfer-wrażeń-bci",
+    "title": "Internet Przyszłości",
+    "section": " 6. Bezpośredni transfer wrażeń (BCI)",
+    "text": "6. Bezpośredni transfer wrażeń (BCI)\nIdea rodem z Matrixa udowodniona naukowo 10 lat temu.\n\n\n\nProjekt Miguela Nicolelisa: W serii eksperymentów wszczepiono implanty do ośrodków ruchowych dwóch szczurów.\nJeden znajdował się na kampusie Duke (USA), drugi w Brazylii.\nPołączono ich na serwerach siecią i przesyłano komendy ruchowe.\nSzczur podrzędny uczył się pociągać właściwe dźwignie świetlne wyłącznie z sygnałów przesyłanych pętlą TCP/IP prosto z mózgu pierwszego.\n\n\n\n\n\n\n\nZobrazuj im skok jaki to robi: komunikacja siecią Internet poleceń motorycznych pomiędzy szczurami oddalonymi o kontynenty. Ten “Brain to Brain Interface” nie jest tylko medycyną do naprawy zerwanego rdzenia, to komunikacja, gdzie człowiek podłączałby się pod pamięć roboczą chmury internetowej."
+  },
+  {
+    "objectID": "wyklad_intro_2.html#interfejs-człowiek-człowiek-university-of-washington-2013",
+    "href": "wyklad_intro_2.html#interfejs-człowiek-człowiek-university-of-washington-2013",
+    "title": "Internet Przyszłości",
+    "section": " 7. Interfejs Człowiek-Człowiek (University of Washington, 2013)",
+    "text": "7. Interfejs Człowiek-Człowiek (University of Washington, 2013)\nEksperyment, który przekroczył barierę ludzką: Nieinwazyjny interfejs komputera mózgowego.\n\n\n\nRajesh Rao i Andrea Stocco zagrali w grę wideo w przeciwnych połówkach kampusu.\nRajesh widział na monitorze nadlatujące obiekty, lecz nie posiadał klawiatury ani pada. Chciał wystrzelić pocisk, a myśl ta przesyłana za pomocą analizy EEG (elektroencefalogramu) była przesyłana pętlą TCP/IP prosto z mózgu kolegi.\nAndrea siedziała w ślepym zamkniętym pokoju z klawiaturą (kontrolerem), nie widząc samej gry, ale mając na głowie cewkę oddziałującą polem magnetycznym na korę ruchową dłoni.\nMyśl Rajesha, po zdekodowaniu, wędrowała milisekundy siecią wi-fi by wzbudzić drgnięcie mięśniowe dłoni Andrei naciskającej klawisz. Z sukcesem ustrzelili cel.\n\n\n\n\n\n\n\nTen eksperyment (z 2013 roku, ponad dekadę temu) to pokaz “Transferu Telemetrycznego” do człowieka. Przekaz impulsu do wykonania z intencji. Pokazuje to gigantyczne pole przed systemami Neuralink."
+  },
+  {
+    "objectID": "wyklad_intro_2.html#podstawowa-blokada-prawdziwy-koszt-energii",
+    "href": "wyklad_intro_2.html#podstawowa-blokada-prawdziwy-koszt-energii",
+    "title": "Internet Przyszłości",
+    "section": " 8. Podstawowa Blokada: Prawdziwy Koszt Energii",
+    "text": "8. Podstawowa Blokada: Prawdziwy Koszt Energii\nPaliwo ludzkiego a maszynowego bytu.\n\n\n\nEnergia dzienna spożywana przez dorosłego pracującego ciężko człowieka wynosi ok. 2500 - 3000 kcal (co matematycznie daje ~12.6 MJ energii, lub 3.5 kWh prądu).\nZ drugiej strony, przeciętne auto potrzebuje blisko 2,5 MJ energii na każdy kilometr jazdy.\n\n\n\n\n\n\n\n\n\n\nEkologia zderza się z Fizyką\n\n\nAby pokonać błahe 5 km samochodem i przewieźć fizycznie 1 człowieka, infrastruktura wyzwala ładunek energetyczny potężniejszy niż dobowy koszt egzystencji (BMR) całego zapotrzebowania narządów i mózgu tego człowieka na 24h. Systemy komputerowe są ogromnie prądożerne na wzór aut.\n\n\n\n\n\n\n\nKlucz i konkluzja na sam koniec – wszystko zmierza do energooszczędności na poziomie biochemii. Obecnie serwerownie pożerają zasilanie całych dzielnic w czasie, gdy ludzki mózg liczy genialne i kreatywne operacje, pobierając 20 W mocy ze spalania małego wafelka z czekoladą."
+  },
+  {
+    "objectID": "wyklad_intro_2.html#literatura-do-wstępu-i-zakończenie",
+    "href": "wyklad_intro_2.html#literatura-do-wstępu-i-zakończenie",
+    "title": "Internet Przyszłości",
+    "section": " 9. Literatura do Wstępu i Zakończenie",
+    "text": "9. Literatura do Wstępu i Zakończenie\nJeśli zafascynowały was omawiane koncepcje…\n\n\n\n\n\n\n\nAdnotacja\n\n\nZalecana biblioteka inspiracji\n\nYuval Noah Harari: “Homo Deus, krótka historia jutra” (2015)\nYuval Noah Harari: “21 Lekcji Na XXI Wiek”\nJacek Dukaj: “Po słowie” (2019)\nRamez Naam: Trylogia Nexus, Crux, Apex\nAldous Huxley: “Nowy wspaniały świat” (1931)\n\n\n\n\n\n\n\nDziękuję za Państwa uwagę na tym Wprowadzeniu. Zapraszam was serdecznie na Część Główną cyklu Internetu Rzeczy.\n\n\n\nZamykamy drugą część Wykładu Zerowego. Zostawcie studentom na ekranie listę autorów fantastyki naukowej (i hard sci-fi jak Ramez Naam) oraz socjologów, ponieważ te dzieła kształtują młode umysły i dają tło do obaw na inżynierii przed ślepym i radosnym wdrożeniem skomplikowanych technologii."
+  },
+  {
     "objectID": "wyklad_intro_1.html#technologia-was-wyzwoli",
     "href": "wyklad_intro_1.html#technologia-was-wyzwoli",
     "title": "Internet Przyszłości",
@@ -278,69 +341,6 @@
     "title": "Internet Przyszłości",
     "section": " 11. Podsumowanie Wstępu",
     "text": "11. Podsumowanie Wstępu\n\nJesteśmy świadkami niezwykłej transformacji od ustandaryzowanego pisania oprogramowania IT do inżynierii danych świata fizycznego.\nNarzędzia IoT pozwalają człowiekowi spojrzeć w głąb silników, serc żywych ludzi i ekosystemów leśnych, dostarczając ziaren optymalizacji.\nJest jednak ukryty koszt, a każda mocna innowacja nieświadomie podąża drogą potencjalnych dysfunkcji społecznych i filozoficznych… o czym porozmawiamy szerzej w drugiej części Wstępu.\nDziękuję za pierwszą część.\n\n\nPrzemowa zakańczająca część 1. Należy tu nastroić widownię niepokojem. Ukazałem ci profity, zieleń oczyszczoną i niesamowitą potęgę medycyny, ale w kolejnej minucie wejdziemy w zagmatwane koncepcje moralności używania tych danych na globalnej psychologii mas."
-  },
-  {
-    "objectID": "wyklad_intro_2.html#ciemna-strona-mocy-dobre-narzędzia-złe-intencje",
-    "href": "wyklad_intro_2.html#ciemna-strona-mocy-dobre-narzędzia-złe-intencje",
-    "title": "Internet Przyszłości",
-    "section": " 1. Ciemna strona mocy: Dobre narzędzia, Złe intencje",
-    "text": "1. Ciemna strona mocy: Dobre narzędzia, Złe intencje\nZastanówmy się czy technologia rodzi same korzyści.\n\n\n\nAfera Cambridge Analytica: Wykorzystanie danych z pozoru niewinnego Facebooka do mikro-targetowania (‘hakowania świata’) wpływającego na demokratyczne wybory.\nChiński System Kredytu Społecznego: Automatyczna weryfikacja i nadzór. „Ktoś, kto przez dziesięć godzin dziennie gra w gry wideo, zostanie zaklasyfikowany jako osoba bezproduktywna.”\nPowszechna, zintegrowana inwigilacja staje się mierzalną szarą strefą państw.\n\n\n\n\n\n\n\n\n\nOd kontroli do dedykowanej propagandy\n\n\nZagrożenia technologii to nie wojna nuklearna maszyn. To sterowanie demokracjami poprzez precyzyjną, dedykowaną propagandę oraz pełna kontrola społeczeństw na poziomie ludzkich pragnień i obaw. (Nawiązanie do wizji “Nowego wspaniałego świata”).\n\n\n\n\n\n\nPoczątek to szybkie zejście na ziemię po utopii z pierwszej części. Jak widać, technologia analityki Big Data działa w dwie strony. Ten slajd idealnie unaocznia “hakowanie zachowań”, o którym pisze Yuval Noah Harari."
-  },
-  {
-    "objectID": "wyklad_intro_2.html#sztuczna-inteligencja-asystent-czy-konkurencja",
-    "href": "wyklad_intro_2.html#sztuczna-inteligencja-asystent-czy-konkurencja",
-    "title": "Internet Przyszłości",
-    "section": " 2. Sztuczna Inteligencja: Asystent czy Konkurencja?",
-    "text": "2. Sztuczna Inteligencja: Asystent czy Konkurencja?\nAI wkracza w sfery zarezerwowane wyłącznie dla intelektu.\n\n\n\nAlgorytmy piszą kod, przewidują zachowania rynkowe i stawiają diagnozy medyczne trafniejsze od lekarzy pierwszego kontaktu.\nIstnieje ryzyko, że rewolucja sztucznej inteligencji wypchnie miliardy ludzi z rynku pracy.\nStworzy to nową klasę społeczną: “bezużyteczną klasę”, która doprowadzi do politycznych napięć.\n\n\n\n\n\n\n\n\n\nEfekt Skali i Asymetria Pracy\n\n\nDo obsługi każdego bezzałogowego drona w strefie kryzysowej potrzeba na ziemi około 30 osób, a do analizowania zbieranych przez drona danych wideo – kolejnych 80 pilotów/analityków. Paradoksalnie “autonomia” sprzętu oznacza dla nas więcej pracy z danymi, nie zawsze na produkcji.\n\n\n\n\n\n\nPodkreśl przesunięcie kompetencyjne na rynku. Bezrobocie dla pracowników fizycznych idzie w parze z gigantycznym zapotrzebowaniem na wysokokwalifikowanych oficerów danych, których jest ogromny deficyt. A same komputery, jak drony autonomiczne z przykładu na slajdzie, bez danych są ślepe."
-  },
-  {
-    "objectID": "wyklad_intro_2.html#czy-jesteśmy-programami",
-    "href": "wyklad_intro_2.html#czy-jesteśmy-programami",
-    "title": "Internet Przyszłości",
-    "section": " 3. Czy jesteśmy programami?",
-    "text": "3. Czy jesteśmy programami?\nAlgorytmy maszyn stają naprzeciw ludzkiej intuicji.\n\n\n“…Nasze decyzje w każdej sprawie – od wyboru jedzenia po wybór partnerów – wynikają nie z jakiejś tajemniczej wolnej woli, lecz raczej z miliardów neuronów w ułamku sekundy obliczających prawdopodobieństwa. Osławiona „ludzka intuicja” jest w rzeczywistości „rozpoznawaniem wzorców”.”\n— Yuval Noah Harari (21 Lekcji Na XXI Wiek)\n\n\n\nSztuczna inteligencja jest gotowa osiągnąć lepsze od nas wyniki, bazując na tych samych zasadach wzorców i prawdopodobieństw.\nJeżeli człowiek jest biochemicznym algorytmem, to z krzemu można stworzyć sztuczny zamiennik ludzkiej decyzyjności.\n\n\nGłęboko filozoficzny wątek dla inżynierów. Jeśli uznajemy, że nie ma w nas iskry boskiej a jedynie skomplikowana macierz sieci neuronów (które to sieci my sami właśnie tworzymy w Pythonie w Tensorflow), to znaczy, że nasza przewaga z dnia na dzień po prostu będzie zanikać z każdą falą tranzystorów TSMC 3 nanometry w procesorach."
-  },
-  {
-    "objectID": "wyklad_intro_2.html#ucieczka-z-tu-i-teraz",
-    "href": "wyklad_intro_2.html#ucieczka-z-tu-i-teraz",
-    "title": "Internet Przyszłości",
-    "section": " 4. Ucieczka z “Tu i Teraz”",
-    "text": "4. Ucieczka z “Tu i Teraz”\nDlaczego tak łatwo ulegamy algorytmom?\n\n\n\n\n\n\n\n\nCyfrowe Znieczulenie\n\n\n„Jeżeli większość ludzi spędza znaczną część swojego czasu nie tu i teraz ani w przewidywalnej przyszłości, ale gdzie indziej, w pozbawionych znaczenia zaświatach sportu i oper mydlanych, mitologii i metafizycznych fantazji, społeczeństwu będzie trudno oprzeć się zakusom tych, którzy chcą nim manipulować, dążąc do przejęcia kontroli.” — Aldous Huxley (Nowy Wspaniały Świat 30 Lat Później)\n\n\n\n\n\n\nZwróć uwagę na prorocze słowa Huxleya. Nie jesteśmy w świecie inwigilacji rodem z “Roku 1984” Orwella przez ból i biczowanie, żyjemy w dyktaturze przyjemności i rozrywki z telefonu i TikToka. Dajemy się zniewolić przez łatwą i darmową usługę, płacąc za nią informacjami o naszych przyzwyczajeniach."
-  },
-  {
-    "objectID": "wyklad_intro_2.html#kierunki-rozwoju-wychodząc-z-jaskini",
-    "href": "wyklad_intro_2.html#kierunki-rozwoju-wychodząc-z-jaskini",
-    "title": "Internet Przyszłości",
-    "section": " 5. Kierunki rozwoju: Wychodząc z Jaskini",
-    "text": "5. Kierunki rozwoju: Wychodząc z Jaskini\nJak technologia pozwala ewoluować samemu gatunkowi.\n\n\n\nLudzkość nie zdominowała natury przez ostre pazury, ogromną siłę, ani wielki intelekt poszczególnej jednostki.\nTo komunikacja: Nasza przewaga to absolutna umiejętność asynchronicznego koordynowania pracy na miliardowej skali, wymieniania myśli i budowy struktur, których nie pojmie i nie stworzy pojedynczy umysł.\nNowe sieci (jak IoT, internet satelitarny Starlink itp.) to biologicznie patrząc nowy sposób globalnego neuronowego pająka.\n\n\n\n\n\n\n\nKlucz do przetrwania - współpraca. Komputery współpracują miliony razy lepiej. Dziś człowiek uczy się maszynowego punktu widzenia. Zdjęcie ilustruje jak technologia uczy roboty “widzieć i zbierać owoce”, ucząc się naszej domeny na naszym poziomie."
-  },
-  {
-    "objectID": "wyklad_intro_2.html#bezpośredni-transfer-wrażeń-bci",
-    "href": "wyklad_intro_2.html#bezpośredni-transfer-wrażeń-bci",
-    "title": "Internet Przyszłości",
-    "section": " 6. Bezpośredni transfer wrażeń (BCI)",
-    "text": "6. Bezpośredni transfer wrażeń (BCI)\nIdea rodem z Matrixa udowodniona naukowo 10 lat temu.\n\n\n\nProjekt Miguela Nicolelisa: W serii eksperymentów wszczepiono implanty do ośrodków ruchowych dwóch szczurów.\nJeden znajdował się na kampusie Duke (USA), drugi w Brazylii.\nPołączono ich na serwerach siecią i przesyłano komendy ruchowe.\nSzczur podrzędny uczył się pociągać właściwe dźwignie świetlne wyłącznie z sygnałów przesyłanych pętlą TCP/IP prosto z mózgu pierwszego.\n\n\n\n\n\n\n\nZobrazuj im skok jaki to robi: komunikacja siecią Internet poleceń motorycznych pomiędzy szczurami oddalonymi o kontynenty. Ten “Brain to Brain Interface” nie jest tylko medycyną do naprawy zerwanego rdzenia, to komunikacja, gdzie człowiek podłączałby się pod pamięć roboczą chmury internetowej."
-  },
-  {
-    "objectID": "wyklad_intro_2.html#interfejs-człowiek-człowiek-university-of-washington-2013",
-    "href": "wyklad_intro_2.html#interfejs-człowiek-człowiek-university-of-washington-2013",
-    "title": "Internet Przyszłości",
-    "section": " 7. Interfejs Człowiek-Człowiek (University of Washington, 2013)",
-    "text": "7. Interfejs Człowiek-Człowiek (University of Washington, 2013)\nEksperyment, który przekroczył barierę ludzką: Nieinwazyjny interfejs komputera mózgowego.\n\n\n\nRajesh Rao i Andrea Stocco zagrali w grę wideo w przeciwnych połówkach kampusu.\nRajesh widział na monitorze nadlatujące obiekty, lecz nie posiadał klawiatury ani pada. Chciał wystrzelić pocisk, a myśl ta przesyłana za pomocą analizy EEG (elektroencefalogramu) była przesyłana pętlą TCP/IP prosto z mózgu kolegi.\nAndrea siedziała w ślepym zamkniętym pokoju z klawiaturą (kontrolerem), nie widząc samej gry, ale mając na głowie cewkę oddziałującą polem magnetycznym na korę ruchową dłoni.\nMyśl Rajesha, po zdekodowaniu, wędrowała milisekundy siecią wi-fi by wzbudzić drgnięcie mięśniowe dłoni Andrei naciskającej klawisz. Z sukcesem ustrzelili cel.\n\n\n\n\n\n\n\nTen eksperyment (z 2013 roku, ponad dekadę temu) to pokaz “Transferu Telemetrycznego” do człowieka. Przekaz impulsu do wykonania z intencji. Pokazuje to gigantyczne pole przed systemami Neuralink."
-  },
-  {
-    "objectID": "wyklad_intro_2.html#podstawowa-blokada-prawdziwy-koszt-energii",
-    "href": "wyklad_intro_2.html#podstawowa-blokada-prawdziwy-koszt-energii",
-    "title": "Internet Przyszłości",
-    "section": " 8. Podstawowa Blokada: Prawdziwy Koszt Energii",
-    "text": "8. Podstawowa Blokada: Prawdziwy Koszt Energii\nPaliwo ludzkiego a maszynowego bytu.\n\n\n\nEnergia dzienna spożywana przez dorosłego pracującego ciężko człowieka wynosi ok. 2500 - 3000 kcal (co matematycznie daje ~12.6 MJ energii, lub 3.5 kWh prądu).\nZ drugiej strony, przeciętne auto potrzebuje blisko 2,5 MJ energii na każdy kilometr jazdy.\n\n\n\n\n\n\n\n\n\n\nEkologia zderza się z Fizyką\n\n\nAby pokonać błahe 5 km samochodem i przewieźć fizycznie 1 człowieka, infrastruktura wyzwala ładunek energetyczny potężniejszy niż dobowy koszt egzystencji (BMR) całego zapotrzebowania narządów i mózgu tego człowieka na 24h. Systemy komputerowe są ogromnie prądożerne na wzór aut.\n\n\n\n\n\n\n\nKlucz i konkluzja na sam koniec – wszystko zmierza do energooszczędności na poziomie biochemii. Obecnie serwerownie pożerają zasilanie całych dzielnic w czasie, gdy ludzki mózg liczy genialne i kreatywne operacje, pobierając 20 W mocy ze spalania małego wafelka z czekoladą."
-  },
-  {
-    "objectID": "wyklad_intro_2.html#literatura-do-wstępu-i-zakończenie",
-    "href": "wyklad_intro_2.html#literatura-do-wstępu-i-zakończenie",
-    "title": "Internet Przyszłości",
-    "section": " 9. Literatura do Wstępu i Zakończenie",
-    "text": "9. Literatura do Wstępu i Zakończenie\nJeśli zafascynowały was omawiane koncepcje…\n\n\n\n\n\n\n\nAdnotacja\n\n\nZalecana biblioteka inspiracji\n\nYuval Noah Harari: “Homo Deus, krótka historia jutra” (2015)\nYuval Noah Harari: “21 Lekcji Na XXI Wiek”\nJacek Dukaj: “Po słowie” (2019)\nRamez Naam: Trylogia Nexus, Crux, Apex\nAldous Huxley: “Nowy wspaniały świat” (1931)\n\n\n\n\n\n\n\nDziękuję za Państwa uwagę na tym Wprowadzeniu. Zapraszam was serdecznie na Część Główną cyklu Internetu Rzeczy.\n\n\n\nZamykamy drugą część Wykładu Zerowego. Zostawcie studentom na ekranie listę autorów fantastyki naukowej (i hard sci-fi jak Ramez Naam) oraz socjologów, ponieważ te dzieła kształtują młode umysły i dają tło do obaw na inżynierii przed ślepym i radosnym wdrożeniem skomplikowanych technologii."
   },
   {
     "objectID": "wyklad_3.html#od-gigabajtów-do-wiedzy",

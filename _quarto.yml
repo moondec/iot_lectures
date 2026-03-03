@@ -20,6 +20,9 @@ website:
         file: wyklad_2.qmd
       - text: "Wykład 3"
         file: wyklad_3.qmd
+  page-footer: 
+    left: "© 2026 Marek Urbaniak"
+    right: "Licencja: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode.pl)"
 
 format:
   revealjs:
@@ -37,8 +40,3 @@ format:
     background-transition: none
     pdf-separate-fragments: false
     lang: pl
-
-website:
-  page-footer: 
-    left: "© 2026 Marek Urbaniak"
-    right: "Licencja: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode.pl)"

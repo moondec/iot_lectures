@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html lang="pl"><head>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-html/tabby.min.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<html lang="en"><head>
+<script src="konspekt_files/libs/clipboard/clipboard.min.js"></script>
+<script src="konspekt_files/libs/quarto-html/tabby.min.js"></script>
+<script src="konspekt_files/libs/quarto-html/popper.min.js"></script>
+<script src="konspekt_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="konspekt_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="konspekt_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="konspekt_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.27">
 
-  <title>Wykłady IoT – Wykłady IoT - Materiały Dydaktyczne</title>
+  <meta name="author" content="Prof.&nbsp;UPP dr. hab. inż. Marek Urbaniak">
+  <meta name="dcterms.date" content="2026-03-02">
+  <title>Internet Rzeczy (IoT) – Od koncepcji do Przemysłu 4.0</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="konspekt_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="konspekt_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -28,11 +30,11 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
-  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="konspekt_files/libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
+  <link href="konspekt_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="konspekt_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="konspekt_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="konspekt_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -126,43 +128,261 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Wykłady IoT - Materiały Dydaktyczne</h1>
+  <h1 class="title">Internet Rzeczy (IoT) – Od koncepcji do Przemysłu 4.0</h1>
 
 <div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Prof.&nbsp;UPP dr. hab. inż. Marek Urbaniak 
+</div>
+</div>
 </div>
 
+  <p class="date">2026-03-02</p>
 </section>
-<section class="slide level2">
+<section>
+<section id="wykład-1-fundamenty-ewolucja-i-architektura-iot" class="title-slide slide level1 center" data-background-color="#f8f9fa">
+<h1>Wykład 1: Fundamenty, Ewolucja i Architektura IoT</h1>
 
-<div class="callout callout-tip callout-style-simple">
+</section>
+<section id="wprowadzenie-i-historia-iot" class="slide level2">
+<h2>1. Wprowadzenie i Historia IoT <i class="bi bi-clock-history"></i></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment">[cite_start]<strong>Definicja IoT:</strong> System urządzeń i przedmiotów posiadających unikalne identyfikatory (UID), zdolnych do przesyłania danych bez interakcji z człowiekiem[cite: 6, 7].</li>
+<li class="fragment"><strong>Kamienie milowe:</strong>
+<ul>
+<li class="fragment">[cite_start]<strong>1982:</strong> Automat Coca-Cola na CMU – pierwsze udokumentowane urządzenie “connected”[cite: 2, 4].</li>
+<li class="fragment">[cite_start]<strong>1990:</strong> Toster internetowy Johna Romkeya[cite: 2, 5].</li>
+<li class="fragment">[cite_start]<strong>1999:</strong> Kevin Ashton formułuje termin “Internet of Things” (technologia RFID w łańcuchu dostaw)[cite: 1, 6].</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
+<div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
+<p><strong>Punkt zwrotny</strong></p>
+</div>
 <div class="callout-content">
-<p>Materiały udostępnione na licencji <a href="https://creativecommons.org/licenses/by/4.0/legalcode.pl">Creative Commons Attribution 4.0 International (CC BY 4.0)</a>.</p>
+<p>[cite_start]W 2008 roku liczba połączonych urządzeń po raz pierwszy w historii przekroczyła liczbę ludności na Ziemi[cite: 2].</p>
 </div>
 </div>
 </div>
-<p>Witaj w repozytorium materiałów do wykładu z Internetu Rzeczy (IoT). Poniżej znajdziesz linki do poszczególnych prezentacji:</p>
-<h3 id="wprowadzenie">Wprowadzenie</h3>
-<ul>
-<li><a href="wyklad_intro_1.html">Przyszłość Internetu - Część 1</a></li>
-<li><a href="wyklad_intro_2.html">Zagrożenia i Nowe Horyzonty - Część 2</a></li>
-</ul>
-<h3 id="wykłady-główne">Wykłady Główne</h3>
-<ul>
-<li><a href="wyklad_1.html">Wykład 1: Narodziny Nowego Świata</a></li>
-<li><a href="wyklad_2.html">Wykład 2: Język Rzeczy (Komunikacja)</a></li>
-<li><a href="wyklad_3.html">Wykład 3: Mózg w Chmurze i jego Cienie</a></li>
-</ul>
-<h3 id="program-kursu">Program Kursu</h3>
-<ul>
-<li><a href="konspekt.html">Konspekt / Sylabus</a></li>
-</ul>
-
-
+</div>
+<p><em>Miejsce na grafikę: Oś czasu (Timeline) ewolucji telekomunikacji od telegrafu (1832) po współczesne IoT. </em></p>
+</div></div>
+<aside class="notes">
+<p><strong>Notatki dla prelegenta:</strong> [cite_start]Rozpocznij od wyjaśnienia, że IoT to nie jest nagły wynalazek, ale kulminacja dekad innowacji w telekomunikacji[cite: 5]. [cite_start]Warto przypomnieć, że fundamenty pod komunikację na odległość kładł już telegraf Schillinga w 1832 r.[cite: 1, 2]. [cite_start]Podkreśl różnicę między urządzeniami “digital-first” (smartfony), a “physical-first” (np. inteligentne żarówki, które zyskują łączność dzięki dodaniu mikroczipów)[cite: 3].</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
+<section id="architektura-systemów-iot" class="slide level2">
+<h2>2. Architektura Systemów IoT <i class="bi bi-layers"></i></h2>
+<p>[cite_start]Zrozumienie działania IoT wymaga dekompozycji na warstwy funkcjonalne[cite: 22]. ::: {.columns} ::: {.column width=“40%”} ::: {.incremental} 1. <strong>Warstwa Percepcji:</strong> Czujniki i aktuatory. [cite_start]Odpowiada za zjawisko gromadzenia informacji o środowisku fizycznym[cite: 7, 8, 10, 12]. 2. [cite_start]<strong>Warstwa Sieciowa:</strong> Bezpieczna transmisja danych przez bramki i protokoły. 3. [cite_start]<strong>Warstwa Aplikacji:</strong> Interfejsy i usługi, np. pulpity nawigacyjne. ::: :::</p>
+<div class="column" style="width:60%;">
+<div class="fragment">
+<p>graph TD A[Warstwa Aplikacji: Dashboardy, Analityka] –&gt; B[Warstwa Sieciowa: Gateway, MQTT, Wi-Fi] B –&gt; C[Warstwa Percepcji: Czujniki, Aktuatory]</p>
+</div>
+</div><p>:::</p>
+<aside class="notes">
+<p>Notatki dla prelegenta: Omów szerokie spektrum warstwy percepcji. To tutaj działają zarówno proste czujniki temperatury, jak i zaawansowane instrumenty przetwarzające złożone dane środowiskowe (np. analizatory monitorujące wymianę gazową na styku ekosystem-atmosfera czy wykorzystujące metodę kowariancji wirów do precyzyjnych pomiarów). Przejdź do różnicy między Edge a Cloud computing. Edge pozwala na przetwarzanie bezpośrednio na urządzeniu końcowym, co jest kluczowe dla redukcji opóźnień. W zaawansowanych systemach (IIoT) model rozszerza się do pięciu warstw.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ol start="3" type="1">
+<li>Platformy Sprzętowe Wybór platformy zależy od poboru mocy, potrzeb obliczeniowych i kosztów. ::: {.columns} ::: {.column width=“50%”} Mikrokontrolery (MCU) ::: {.incremental}</li>
+</ol>
+<p>Arduino: Klasyczne środowisko edukacyjne, wymaga zewnętrznych modułów do łączności.</p>
+<p>ESP32: Platforma “IoT-first”. Integruje Wi-Fi/BT, posiada tryb Deep Sleep (pobór rzędu mikroamperów). ::: :::</p>
+<div class="column" style="width:50%;">
+<p>Komputery jednopłytkowe (SBC) ::: {.incremental}</p>
+<p>Raspberry Pi: Pełnoprawny komputer z systemem Linux.</p>
+<p>Idealny jako brama (gateway) lub do Edge AI.</p>
+<p>Wymaga odpowiedniego zasilania i bezpiecznego zamykania OS.</p>
+</div><p>::: :::</p>
+<aside class="notes">
+<p>Notatki dla prelegenta: Podkreśl kompromisy. Mikrokontrolery to systemy typu “zbuduj i zapomnij”, idealne do zadań zasilanych bateryjnie rozrzuconych w terenie. Z kolei Raspberry Pi, pobierając znacznie więcej prądu, służy jako lokalny hub agregujący dane z setek mniejszych czujników.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<p>Wykład 2: Komunikacja i Protokoły {background-color=“#e9ecef”} 1. Technologie Krótkiego Zasięgu Kompromis między zasięgiem, przepustowością a żywotnością baterii.</p>
+<p>Wi-Fi: Dominujący standard o wysokiej przepustowości, jednak zużywa dużo energii (ograniczenia dla urządzeń bateryjnych).</p>
+<p>Bluetooth Low Energy (BLE): Kluczowy dla technologii ubieralnych (wearables). Szybkie parowanie i minimalne zużycie energii.</p>
+<p>Zigbee / Z-Wave: Energooszczędne protokoły typu mesh (sieć kratowa), popularne w automatyce budynkowej.</p>
+<p>Miejsce na grafikę: Wykres punktowy (Scatter plot) porównujący zasięg, pobór mocy i przepustowość różnych protokołów radiowych.</p>
+<aside class="notes">
+<p>Notatki dla prelegenta: Projektując komunikację w IoT inżynierowie muszą uwzględniać fizykę, w tym dyfrakcję fal i straty w wolnej przestrzeni. Wyjaśnij przewagę sieci Zigbee: każde podłączone do zasilania urządzenie staje się routerem, przedłużając zasięg całej sieci w budynku.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ol start="2" type="1">
+<li>Technologie Dalekiego Zasięgu (LPWAN) Koncentracja na małych porcjach danych, zasięgu rzędu kilometrów i latach pracy na baterii. ::: {.columns} ::: {.column width=“50%”} ::: {.callout-tip}</li>
+</ol>
+<p>LoRaWAN</p>
+<p>Wykorzystuje nielicencjonowane pasma radiowe. W otwartym terenie zasięg może wynosić nawet 15 km przy bardzo niskiej przepustowości. ::: :::</p>
+<div class="column" style="width:50%;">
+<p>NB-IoT: Standard komórkowy zoptymalizowany pod kątem głębokiej penetracji budynków (np. liczniki w piwnicach).</p>
+<p>LTE-M: Szybsza alternatywa z obsługą mobilności (handover) dla transportu.</p>
+</div><p>:::</p>
+<aside class="notes">
+<p>Notatki dla prelegenta: Omów koncepcję LPWAN (Low Power Wide Area Network). To technologie, które zrewolucjonizowały monitoring rolniczy, środowiskowy i zarządzanie mediami. Nie służą do przesyłania wideo, lecz kluczowych wskaźników telemetrycznych. LoRaWAN pozwala na budowę prywatnych, darmowych sieci bez polegania na operatorach telekomunikacyjnych.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ol start="3" type="1">
+<li>Protokoły Warstwy Aplikacji Dlaczego IoT unika tradycyjnego HTTP? Narzut nagłówków i połączeń TCP jest zbyt kosztowny energetycznie dla czujników.</li>
+</ol>
+<div class="fragment">
+<p>MQTT (Message Queuing Telemetry Transport)</p>
+</div>
+<p>Działa w architekturze Publikacja/Subskrypcja (Pub/Sub) przez centralnego brokera.</p>
+<p>Lekki, binarny, obsługuje mechanizm “Last Will and Testament”.</p>
+<div class="fragment">
+<p>CoAP i AMQP</p>
+</div>
+<p>CoAP: Odpowiednik HTTP wykorzystujący lekki protokół UDP.</p>
+<p>AMQP: Zaawansowane kolejkowanie dla systemów biznesowych (kosztem zasobów).</p>
+<aside class="notes">
+<p>Notatki dla prelegenta: Architektura Pub/Sub w MQTT jest fundamentem dla większości systemów telemetrii – pozwala odseparować nadawcę od odbiorcy. Czujnik tylko wysyła daną pod określony “temat” (topic), nie martwiąc się, ile aplikacji tę daną odczytuje.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<p>Wykład 3: Ekosystemy, Chmura i Przyszłość {background-color=“#f8f9fa”} 1. Platformy Chmurowe IoT Służą do uwierzytelniania milionów urządzeń, zbierania danych i analityki.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Rozwiązania Korporacyjne ::: {.incremental}</p>
+<p>Liderzy: AWS IoT Core, Azure IoT Hub (skalowalność).</p>
+</div><div class="fragment">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>Ryzyko Vendor Lock-in</p>
+<p>Wycofanie Google Cloud IoT Core w 2023 r. zmusiło firmy do kosztownych migracji.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="column" style="width:50%;">
+<p>Otwarte Alternatywy ::: {.incremental}</p>
+<p>Home Assistant: Lokalne zarządzanie z zachowaniem pełnej prywatności.</p>
+<p>Node-RED: Wizualne programowanie logiki “przepływami” (skraca czas prototypowania).</p>
+</div><p>::: :::</p>
+<aside class="notes">
+<p>Notatki dla prelegenta: Podkreśl znaczenie wyboru architektury “Vendor-agnostic”. Lokalne systemy jak Home Assistant gwarantują, że wyłączenie chmury producenta nie “ucegli” inteligentnego domu. Node-RED jest potężnym narzędziem umożliwiającym inżynierom łączenie różnych strumieni danych i API bez pisania tysięcy linii kodu.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ol start="2" type="1">
+<li>Bezpieczeństwo Internetu Rzeczy IoT to system o krytycznym znaczeniu dla bezpieczeństwa fizycznego. ::: {.incremental}</li>
+</ol>
+<p>Wektory ataków: Botnety (np. Mirai) wykorzystujące domyślne hasła fabryczne.</p>
+<p>Segmentacja sieci: Separacja urządzeń IoT w osobnych sieciach VLAN chroni główne zasoby w razie włamania.</p>
+<p>Fundamenty kryptograficzne: Stosowanie szyfrowania TLS 1.3 dla komunikacji.</p>
+<p>Bezpieczny rozruch (Secure Boot): Gwarancja uruchamiania tylko oprogramowania podpisanego przez producenta. :::</p>
+<aside class="notes">
+<p>Notatki dla prelegenta: Atak na systemy IoT może mieć skutki w świecie fizycznym – paraliż inteligentnych miast czy sabotaż linii produkcyjnych. Zwróć także uwagę na dylematy etyczne związane z profilowaniem użytkowników na podstawie odczytów ze zwykłych liczników energii czy wody.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ol start="3" type="1">
+<li>Zastosowania i Przyszłość Przewidywania na rozwój IoT w nadchodzącej dekadzie. ::: {.incremental}</li>
+</ol>
+<p>Smart City (np. Poznań): Inteligentne systemy ITS, zaawansowany monitoring jakości powietrza.</p>
+<p>Cyfrowe Bliźniaki (Digital Twins): Wirtualne kopie obiektów fizycznych przewidujące awarie w czasie rzeczywistym.</p>
+<p>AIoT: Przenoszenie modeli uczenia maszynowego bezpośrednio na mikrokontrolery (Edge AI).</p>
+<p>6G i Energy Harvesting: Opóźnienia rzędu 1 ms oraz pozyskiwanie energii z otoczenia, co eliminuje problem baterii. :::</p>
+<aside class="notes">
+<p>Notatki dla prelegenta: Podsumuj wykłady tezą, że obecnie największym wyzwaniem w IoT nie jest już nawiązanie połączenia, ale zarządzanie ogromem spływających danych w sposób bezpieczny i zrównoważony. IoT wkracza w fazę dojrzałości, gdzie algorytmy AI na brzegu sieci (AIoT) i zbieranie energii z otoczenia otwierają całkowicie nowe możliwości.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -171,19 +391,19 @@
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="site_libs/revealjs/dist/reveal.js"></script>
+  <script src="konspekt_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="konspekt_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="konspekt_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="konspekt_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="konspekt_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="konspekt_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="site_libs/revealjs/plugin/math/math.js"></script>
+  <script src="konspekt_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="konspekt_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="konspekt_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="konspekt_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -324,7 +544,7 @@
         previewLinks: false,
 
         // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'slide',
+        transition: 'none',
 
         // Transition speed (default/fast/slow)
         transitionSpeed: 'default',
@@ -344,9 +564,9 @@
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1600,
+        width: 1050,
 
-        height: 900,
+        height: 700,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
@@ -400,12 +620,12 @@
           // flash "checked"
           button.classList.add('code-copy-button-checked');
           var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Skopiowano!");
+          button.setAttribute("title", "Copied!");
           let tooltip;
           if (window.bootstrap) {
             button.setAttribute("data-bs-toggle", "tooltip");
             button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Skopiowano!");
+            button.setAttribute("data-bs-title", "Copied!");
             tooltip = new bootstrap.Tooltip(button, 
               { trigger: "manual", 
                 customClass: "code-copy-button-tooltip",
