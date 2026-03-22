@@ -217,7 +217,7 @@ Eksperyment, który przekroczył barierę ludzką: *Nieinwazyjny interfejs kompu
 
 ::: {.columns}
 ::: {.column width="60%"}
-::: {.incremental}
+::: {.incremental style="font-size: 0.9em;"}
 * Rajesh Rao i Andrea Stocco zagrali w grę wideo w przeciwnych połówkach kampusu.
 * **Rajesh** widział na monitorze nadlatujące obiekty, lecz nie posiadał klawiatury ani pada. Chciał wystrzelić pocisk, a myśl ta przesyłana za pomocą analizy EEG (elektroencefalogramu) była przesyłana pętlą TCP/IP prosto z mózgu kolegi.
 * **Andrea** siedziała w ślepym zamkniętym pokoju z klawiaturą (kontrolerem), nie widząc samej gry, ale mając na głowie cewkę oddziałującą polem magnetycznym na korę ruchową dłoni.
