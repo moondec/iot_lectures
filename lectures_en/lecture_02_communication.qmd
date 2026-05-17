@@ -1,0 +1,844 @@
+---
+title: "Language of Things"
+subtitle: "How Machines Talk to Each Other (Lecture 2)"
+author: "<span style='font-size: 1.5em;'>**prof. UPP dr hab. inż. Marek Urbaniak**</span>"
+institute: |
+  Faculty of Environmental and Mechanical Engineering<br><br>
+  <div style="display: flex; justify-content: left; align-items: center; gap: 40px;">
+    
+    <img src="https://www.up.poznan.pl/sites/default/files/2024-10/logo_zielone_polskie_uklad_poziomy.png" 
+         style="height: 200px;">
+    
+    <img src="https://wisim.up.poznan.pl/sites/default/files/2023-02-13%2011%3A41/logo_wisim06.jpg" 
+         style="height: 200px;">
+          
+    <img src="../img/kbig.jpg" 
+         style="height: 200px;">
+          
+  </div>
+lang: en
+mermaid-format: svg
+format:
+  revealjs:
+    include-in-header:
+      text: |
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <style>
+        body { background-color: #1a1a1a; }
+        .reveal .slide-background-content {
+            background-image: url("../img/iot_tlo_gr.jpg") !important;
+            background-size: contain !important; 
+            background-repeat: no-repeat !important;
+            background-position: center center !important;
+            opacity: 0.4 !important;
+        }
+        .reveal .backgrounds .slide-background:nth-child(1) .slide-background-content {
+            background-image: none !important;
+            background-color: white !important; 
+            opacity: 1 !important;
+        }
+        </style>
+    slide-number: c/t
+    show-slide-number: all
+    transition: slide
+    chalkboard: true
+    footer: "Internet of Things - IoT (Lecture 2)"
+    center: false
+    code-overflow: wrap
+    highlight-style: a11y
+    width: 1600
+    height: 900
+    revealjs-plugins:
+      - appearance
+      - pointer
+    pointer:
+      color: "#e60000"
+      pointerSize: 20
+      alwaysVisible: false
+editor: source
+---
+
+# Prologue: Physics, Energy, and the Tower of Babel {background-color="#f8f9fa"}
+
+## <i class="bi bi-translate"></i> 1. M2M Communication Problem
+
+In the Internet of Things world, "Machine-Machine" (M2M) communication relies on radical compromises unknown in the personal computer world.
+
+::: {.columns}
+::: {.column width="50%"}
+::: {.incremental}
+* Imagine billions of devices.
+* They don't have a 230 V socket – only a coin-sized battery.
+* They operate in basements, on the open sea, or buried in concrete-hard soil.
+* How to make them transmit data in such conditions without draining the battery in five minutes?
+:::
+::: {.fragment .fade-in .callout-note style="font-size: 0.8em; background-color: #e6f3f7ff;"}
+### IoT Impossible Triangle
+An engineer designing a network system must choose **only two of three** parameters:
+
+1. Range (kilometers)
+2. Throughput (megabytes per second)
+3. Battery life (years)
+:::
+:::
+
+::: {.column width="50%"}
+::: {.fragment}
+![](img/scatter_triangle.png){width=90%}
+
+:::
+:::
+:::
+
+::: {.notes}
+**Opening:** Refer to the first lecture – devices already have senses (sensors), but they're silent. Today we'll teach them to speak. The problem is physics: electromagnetic waves require energy and encounter resistance in the form of walls and distance. You can't send a video stream from a water meter in a basement without constant mains power. This forces the creation of completely new wireless protocols adapted to M2M communication specifics.
+:::
+
+---
+
+# Chapter I: Short-Range Communication {background-color="#f8f9fa"}
+
+## <i class="bi bi-wifi"></i> 2. Wi-Fi (IEEE 802.11): Curse and Blessing
+
+The king of home Internet is the weakest link in battery-powered IoT.
+
+::: {.columns}
+::: {.column width="60%"}
+::: {.incremental}
+* **Advantages:** Huge throughput (MB/s), infrastructure ubiquity (router in every modern home), native IP protocol integration.
+* **Disadvantages:** Wi-Fi architecture is terribly power-hungry – burst antenna waking and beacon scanning consume hundreds of mA.
+* Complex connection handshake process before transmitting a tiny value, e.g., just 45% air humidity.
+* **IoT Application:** Only where there's constant power – e.g., Smart TV, voice assistants, home appliances.
+:::
+:::
+
+::: {.column width="40%"}
+::: {.fragment}
+::: {.callout-warning}
+### Interference susceptibility
+Dense 2.4 GHz band in residential buildings causes mutual interference between Wi-Fi devices, degrading connection quality.
+:::
+:::
+:::
+:::
+
+::: {.notes}
+Explain that although Wi-Fi is the most popular, in professional IoT it mainly serves as "backhaul" for gateways, not as a protocol for end sensors scattered in the field. Note why smart bulb manufacturers recommend their own bridges instead of connecting dozens of bulbs directly to Wi-Fi – a dozen cheap sensors very effectively saturate a home router's connection limit.
+:::
+
+---
+
+## <i class="bi bi-bluetooth"></i> 3. Bluetooth and BLE (Low Energy) Revolution
+
+From continuous audio streaming to energy-efficient health bands.
+
+::: {.columns}
+::: {.column width="60%"}
+::: {.incremental}
+* **Bluetooth (Classic):** Designed for continuous data streams, e.g., audio signals in hands-free sets. Continuous power, radio always active.
+* **Bluetooth Low Energy (BLE):** Revolution introduced in Bluetooth 4.0 specification. The device sleeps, instantly emits several data packets in milliseconds, and returns to sleep mode.
+* Current consumption drops up to a hundredfold compared to classic Bluetooth.
+* **Applications:** Fitness bands, digital medicine, wireless location tags (beacons).
+:::
+:::
+
+::: {.column width="40%"}
+::: {.fragment}
+::: {.callout-note}
+### Architectural difference
+Classic Bluetooth transmits a continuous stream (e.g., audio). BLE "falls asleep" immediately after sending a telemetry data packet. A CR2032 battery lasts BLE modules for years of operation.
+:::
+:::
+:::
+:::
+
+::: {.notes}
+Best starting point to describe store beaconing technology. Explain the difference between "Classic" protocol that must maintain connection 24/7 (audio) and an economical system with short notifications for wearable devices.
+:::
+
+---
+
+## <i class="bi bi-diagram-3-fill"></i> 4. Zigbee and Z-Wave: Swarm Engineering (Mesh)
+
+Solving the short range problem through mesh network architecture.
+
+::: {.columns}
+::: {.column width="50%"}
+::: {.incremental}
+* In traditional star topology, the sensor signal goes to the central router. The problem arises when the router is separated by four reinforced walls.
+* **Zigbee (Mesh):** Mains-powered devices (e.g., smart sockets) simultaneously act as amplifiers (routers), receiving packets from a weak battery sensor and forwarding them further.
+* "Self-healing" system – failure of one node causes automatic finding of a new route.
+:::
+:::
+
+::: {.column width="50%"}
+::: {.fragment}
+```{mermaid}
+%%| fig-width: 5
+%%| fig-height: 2.5
+%%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '16px', 'fontFamily': 'sans-serif' }}}%%
+graph LR
+    A((Gateway)) --> B((Node 1))
+    A --> C((Node 2))
+    B -.->|Failure| D((Node 3))
+    C --> D
+    style B fill:#f8d7da,stroke:#842029
+```
+
+::: {.callout-tip}
+### Z-Wave – sub-GHz band
+Z-Wave operates in the 868 MHz band (EU), ensuring much better wall penetration than 2.4 GHz protocols (Zigbee, Wi-Fi). The disadvantage is the lack of a single universal standard – each manufacturer creates its own overlays (e.g., Philips Hue, IKEA TRÅDFRI).
+:::
+:::
+:::
+:::
+
+::: {.notes}
+Presenting this slide, ask the audience how many Zigbee bulbs should be placed in a single-family home between the floor and the garden for the sensor at the gate to gain range to the first nearest lamp-amplifier under the porch. This is an ideal study of stretching the "invisible connection string".
+:::
+
+---
+
+# Chapter II: Long-Range Communication {background-color="#f8f9fa"}
+
+## <i class="bi bi-broadcast"></i> 5. LPWAN: Telemetry Over Kilometers
+
+**Low Power Wide Area Network** – the answer to needs of telemetry systems operating over vast areas.
+
+::: {.columns}
+::: {.column width="55%"}
+::: {.incremental}
+* To increase range with minimal energy consumption, we drastically limit throughput – from megabits per second to just a few dozen bytes per second.
+* Battery life: from 5 to even 10 years on a single cell (e.g., lithium-thionyl).
+* Range: up to 15–20 km in open terrain.
+* Used exclusively for telemetry transmission. A soil moisture sensor will send a reading, but a 4K camera is completely excluded from LPWAN.
+:::
+:::
+
+::: {.column width="45%"}
+::: {.fragment}
+![](img/lpwan_station.png){width=100%}
+:::
+:::
+:::
+
+::: {.notes}
+Pay attention to the clear boundary – LPWAN technologies are not designed to transmit video streams or large files. Only short packets of numerical and text variables. Worth referring to environmental research: instead of pulling kilometers of power cables to a measuring station in the forest, you can use an LPWAN network that will transmit averaged results directly to a gateway many kilometers away.
+:::
+
+---
+
+## <i class="bi bi-tower"></i> 6. Comparison of Radio Technologies
+
+Where lies the physical and energetic boundary of each standard?
+
+::: {.columns}
+::: {.column width="30%"}
+::: {.incremental}
+* Upper left corner of the chart: high throughput, but high energy consumption (larger bubble).
+* Lower right corner: LPWAN – range beyond the horizon with just a few dozen bytes every quarter hour and minimal energy cost.
+:::
+:::
+
+::: {.column width="70%"}
+![](img/protocol_bubble.png){width=60%}
+:::
+:::
+
+::: {.notes}
+Explain the colorful Bubble Chart. The "x" axis is distance (from meters to kilometers), the "y" axis is throughput (logarithmic scale). Bubble size represents power consumption. Understanding this chart determines the technology choice for most novice engineers designing a new investment.
+Handover (or handoff) is a process in wireless networks (mainly cellular) that involves transferring an active device connection from one base station (transmitter) to another when the user is moving.
+:::
+
+---
+
+## <i class="bi bi-antenna"></i> 7. LoRaWAN vs NB-IoT: Private Network or Subscription?{.smaller}
+
+Two competing approaches to long-range connectivity.
+
+::: {.columns}
+::: {.column width="50%"}
+### LoRa / LoRaWAN
+::: {.incremental}
+* **LoRa (physical layer):** Patented Chirp Spread Spectrum (CSS) modulation, interference-resistant.
+* **LoRaWAN (logical layer):** Open network protocol. Allows building your own gateways in the free 868 MHz band.
+* Crowdsourcing community: The Things Network (TTN) – free, global coverage.
+* Weaker penetration of dense urban development.
+:::
+:::
+
+::: {.column width="50%"}
+### NB-IoT / LTE-M
+::: {.incremental}
+* Telecommunications operators' standard (Orange, Play, T-Mobile) – overlay on existing 4G base stations.
+* **NB-IoT:** Excellent basement and underground parking penetration. Stationary device (no handover).
+* **LTE-M:** Higher throughput, mobility support (vehicle tracking) and voice communication.
+* The disadvantage is the constant SIM card fee and dependence on the operator.
+:::
+:::
+:::
+
+::: {.fragment}
+```{mermaid}
+%%| fig-align: center
+%%| fig-width: 10
+%%| fig-height: 1.5
+%%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '16px', 'fontFamily': 'sans-serif' }}}%%
+graph LR
+    A[Battery Sensor] -->|LoRa RF| B((LoRa Gateway))
+    B -->|IP / Ethernet| C[Network Server]
+    C -->|API / HTTPS| D[Application Server]
+```
+:::
+
+::: {.notes}
+Powerful designer compromise: if you're building 20 water meters in an urban housing estate, buy NB-IoT cards for 2 PLN/month and sleep peacefully. If you have 120 hectares near Nowy Tomyśl, set up 2 own LoRaWAN stations with a solar panel and don't pay a penny in subscription fees.
+:::
+
+---
+
+## <i class="bi bi-soundwave"></i> 8. Sigfox: Ultra-Light Messages as a Service
+
+"Network as a Service" model – a global network operator delivers connectivity without building your own infrastructure.
+
+::: {.incremental}
+* Maximum **140 messages per day** from a single device.
+* Payload size: only **12 bytes** per message.
+* Strongly asymmetric architecture – very limited data sending down (downlink) to the sensor.
+* Extremely cheap deployments, but imposes serious design limitations.
+:::
+
+::: {.notes}
+Sigfox is a good example of technology with an extremely narrow application: ideal e.g., for one-time "I'm operational" confirmation once an hour, but completely useless for control or downloading larger data portions.
+:::
+
+---
+
+# Chapter III: Application Layer Protocols {background-color="#f8f9fa"}
+
+## <i class="bi bi-x-octagon"></i> 9. Why HTTP Protocol Doesn't Fit IoT?
+
+Classic web environment (REST API) is too "heavy" for resource-constrained devices.
+
+::: {.columns}
+::: {.column width="60%"}
+::: {.incremental}
+* **Header overhead:** HTTP headers can occupy more bytes than the measurement data itself (e.g., a single "temperature = 22.5°C" value).
+* **Request-Response Model:** Synchronous architecture – the sensor must wait for server confirmation, keeping the power-hungry radio on.
+* **No native support for asynchronicity and broadcast** – each device must individually query the server.
+:::
+:::
+
+::: {.column width="40%"}
+::: {.fragment}
+<div style="text-align: center; transform: scale(1.7); transform-origin: top center;">
+```{mermaid}
+%%| fig-width: 4
+%%| fig-height: 4
+%%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '14px', 'fontFamily': 'sans-serif' }}}%%
+graph BT
+    subgraph "HTTP Packet (~500 B)"
+    A[Data: 22.5] --- B[HTTP Header] --- C[TCP / IP]
+    end
+    
+    subgraph "MQTT Packet (~40 B)"
+    D[Data: 22.5] --- E[MQTT Header] --- F[TCP / IP]
+    end
+    
+    style B fill:#f8d7da,stroke:red
+    style E fill:#d1e7dd,stroke:green
+```
+</div>
+:::
+:::
+:::
+
+::: {.notes}
+Key to make the audience aware that the memory resourcefulness of a microcontroller and a personal computer is an abyss. A typical website weighing a dozen or so megabytes won't pass through the buffer memory of an ESP32 board, which has only a few hundred kilobytes of RAM.
+:::
+
+---
+
+## <i class="bi bi-envelope-paper"></i> 10. MQTT: Lightweight, Binary IoT Standard
+
+**Message Queuing Telemetry Transport** – Publish/Subscribe (Pub/Sub) architecture.
+
+::: {.columns}
+::: {.column width="60%"}
+::: {.incremental}
+* The sensor doesn't connect directly to the data recipient. It sends a message to a central **Broker** under a specific **Topic**.
+* The Broker filters and distributes messages to all interested subscribers.
+* Client devices don't know about their mutual existence – they only know the Broker.
+* Extremely asynchronous, optimized for unstable network connections.
+:::
+:::
+
+::: {.column width="40%"}
+::: {.fragment}
+<div style="text-align: center; transform: scale(1.7); transform-origin: top center;">
+```{mermaid}
+%%| fig-align: center
+%%| fig-width: 5
+%%| fig-height: 3
+%%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '14px', 'fontFamily': 'sans-serif' }}}%%
+graph TD
+    A[Temp Sensor] -->|PUBLISH| B((MQTT BROKER))
+    B -->|PUSH| C[SQL Database]
+    B -->|PUSH| D[Dashboard]
+```
+</div>
+
+:::
+:::
+::: {.fragment .fade-up .callout-note}
+### Efficiency
+MQTT message header is only **2 bytes**, minimizing radio module operating time and energy consumption.
+:::
+:::
+
+::: {.notes}
+"MQTT (Message Queuing Telemetry Transport)" – protocol originally created by IBM for the oil sector. The key Pub/Sub architecture is that the sensor and dashboard application never communicate directly – both independently connect to the Broker. This ensures full client independence and protocol lightness.
+:::
+
+---
+
+## <i class="bi bi-folder2-open"></i> 11. MQTT: Topics, QoS, and "Last Will"
+
+Advanced reliability mechanisms built into the protocol.
+
+::: {.columns}
+::: {.column width="50%"}
+### Topics
+::: {.incremental}
+* Messages are categorized into logical, hierarchical trees: `prod/hall_B/press_3/temperature`
+* Environment separation (`dev/`, `test/`, `prod/`) allows isolating experimental data from production on one Broker.
+:::
+:::
+
+::: {.column width="50%"}
+### QoS and LWT
+::: {.incremental style="font-size: 0.85em;"}
+* **QoS 0** – "fire and forget" (fastest).
+* **QoS 1** – requires confirmation (possible duplicates).
+* **QoS 2** – full handshake, delivery guarantee.
+* **Last Will (LWT):** Automatic failure notifications.
+:::
+:::
+:::
+
+---
+
+<div style="text-align: center; transform: scale(1.7); transform-origin: top center;">
+```{mermaid}
+%%| fig-align: center
+%%| fig-width: 5
+%%| fig-height: 4.5
+%%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '12px', 'fontFamily': 'sans-serif' }}}%%
+sequenceDiagram
+    participant C as Sensor
+    participant B as Broker
+    Note over C,B: QoS 0
+    C->>B: PUBLISH
+    Note over C,B: QoS 1
+    C->>B: PUBLISH
+    B-->>C: PUBACK
+    Note over C,B: QoS 2
+    C->>B: PUBLISH
+    B-->>C: PUBREC / PUBREL / PUBCOMP
+```
+</div>
+
+::: {.notes}
+Very important slide for code and data organization. Good topic tree design is half the success in maintaining order in a complex system. This allows analysts in R or Python to subscribe to entire data categories with one command (e.g., all temperature sensors in "B" hall).
+:::
+
+---
+
+## <i class="bi bi-arrow-left-right"></i> 12. CoAP and AMQP: Alternatives for Specific Scenarios
+
+::: {.columns}
+::: {.column width="50%"}
+### CoAP (Constrained Application Protocol)
+::: {.incremental}
+* HTTP equivalent (GET, POST, PUT methods), but based on connectionless **UDP** protocol – faster, but without delivery guarantee.
+* Built-in DTLS encryption support.
+* Ideal for simple request-response interactions on microcontrollers.
+:::
+:::
+
+::: {.column width="50%"}
+### AMQP (Advanced Message Queuing Protocol)
+::: {.incremental}
+* Complicated, powerful message queue system for corporate and financial environments.
+* Too heavy for microcontrollers – used on the backend, e.g., between cloud servers (RabbitMQ).
+:::
+:::
+:::
+
+::: {.notes}
+CoAP works where MQTT is "too much" – e.g., a single microcontroller that simply responds to "give current temperature" query without needing a constant Broker connection. AMQP, on the other hand, lives in the server world, not sensors.
+:::
+
+---
+
+# Chapter IV: Cloud Computing and Security {background-color="#f8f9fa"}
+
+## <i class="bi bi-cloud-haze2"></i> 13. From Gigabytes to Knowledge
+
+Data scale problem: "Data is the new oil" sounds beautiful until you have to refine it.
+
+::: {.columns}
+::: {.column width="60%"}
+::: {.incremental}
+* A single temperature sensor in a cold store is worthless.
+* 10,000 sensors in 100 warehouses across Europe, generating logs every minute, create **Big Data**.
+* Where to store, filter all this, and extract useful business conclusions?
+* **Answer:** Cloud Computing – the ultimate Application Layer in the IoT model.
+:::
+:::
+
+::: {.column width="40%"}
+::: {.fragment}
+<div style="text-align: center; transform: scale(2); transform-origin: top center;">
+```{mermaid}
+%%| fig-width: 4.5
+%%| fig-height: 3.5
+%%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '13px', 'fontFamily': 'sans-serif' }}}%%
+flowchart TD
+    subgraph "Measuring Devices"
+        A[Anemometer<br>10 Hz]
+        B[Gas Analyzer<br>10 Hz]
+    end
+    
+    subgraph "EDGE COMPUTING"
+        C(Gateway<br>Vortex Covariance)
+    end
+    
+    subgraph "CLOUD COMPUTING"
+        D[(Cloud)]
+    end
+    
+    A -->|Raw noise| C
+    B -->|Raw noise| C
+    C -->|Aggregation:<br>30-min blocks| D
+```
+</div>
+
+:::
+:::
+:::
+
+::: {.notes}
+**Opening:** Explain to the audience that after mastering hardware (Lecture 1) and delivering data via radio to the Internet (earlier lectures), the engineer faces an IT and data analysis wall. Raw, high-frequency environmental data is first reduced at the network edge, and averaged streams (e.g., 30-minute values) go to the cloud.
+:::
+
+---
+
+## <i class="bi bi-server"></i> 14. Corporate Platforms (PaaS)
+
+Solutions provided by tech giants, allowing instant scaling.
+
+::: {.columns}
+::: {.column width="50%"}
+::: {.incremental}
+* **AWS IoT Core:** Market leader. Powerful integration with analytical services and databases (e.g., DynamoDB).
+* **Azure IoT Hub:** Strong position in the industrial sector (IIoT), excellent Active Directory integration.
+* Both platforms enable massive firmware updates (OTA – Over The Air) for millions of devices simultaneously, using cryptographic certificates.
+:::
+:::
+
+::: {.column width="50%"}
+::: {.fragment}
+::: {.callout-warning}
+### Vendor Lock-in (Golden Cage)
+In 2023, Google discontinued its **Google Cloud IoT Core** service. This forced thousands of companies to costly and time-consuming migration of entire ecosystems to competitors. Basing a project 100% on a single cloud provider is a serious business risk.
+:::
+:::
+:::
+:::
+
+::: {.notes}
+OTA (Over The Air) definition is key. In the IoT era, you don't connect the device with a cable for updates. The system authorizes with a digital key signature, and the device independently overwrites firmware in the background – e.g., a car updates itself after entering a garage with Wi-Fi. Use the Google IoT Core case as an engineering caution.
+:::
+
+---
+
+## <i class="bi bi-code-slash"></i> 15. Open-Source Tools: Creator Independence
+
+How to maintain data independence and privacy? The answer is systems deployed on your own servers (On-Premise).
+
+::: {.columns}
+::: {.column width="50%"}
+::: {.incremental}
+* **ThingsBoard:** Professional navigation dashboards handling huge telemetry data streams with physical environment isolation (dev, test, prod).
+* **Home Assistant:** Local integration without external cloud dependencies.
+* **Node-RED:** Visual logic programming (Low-code).
+:::
+:::
+
+::: {.column width="50%"}
+::: {.fragment}
+![](img/iot_dashboard.png){width=90%}
+:::
+:::
+:::
+
+::: {.notes}
+Open-Source platforms allow students to quickly prototype. You can connect a LoRaWAN sensor to the Node-RED graphical engine, then immediately present the reading on an analytical board and send a notification to a Discord channel or via SMS. Node-RED works perfectly as IoT "integration glue".
+:::
+
+---
+
+# Chapter V: Smart City and Industry 4.0 {background-color="#f8f9fa"}
+
+## <i class="bi bi-buildings-fill"></i> 16. Barcelona: Pioneers of "City as a Computer"
+
+What happens when you add a nervous system to a city?
+
+::: {.columns}
+::: {.column width="50%"}
+::: {.incremental}
+* **Municipal lighting:** 10,000 lamps analyzing pedestrian traffic and intelligently dimming on the peripheries – 30% annual energy budget savings.
+* **Waste collection:** Laser sensors measuring container fill levels dynamically route garbage trucks, reducing empty runs by 28%.
+* **Park irrigation:** Soil moisture sensors controlling irrigation valves – the pump won't start the day after rain.
+:::
+:::
+
+::: {.column width="50%"}
+::: {.fragment}
+::: {.callout-note}
+### Who controls the data?
+When an ITS (Intelligent Transport System) counts vehicles and reads license plates (LPR) with cameras, who ultimately controls access to statistics about resident movement? This opens an ethical discussion.
+:::
+:::
+:::
+:::
+
+::: {.notes}
+Talking about Smart City, we smoothly transition from optimistic reports to privacy violations – preparing the ground for the next chapter on threats. A city that "feels and counts breath" simultaneously generates enormous monetary value and serious ethical challenges.
+:::
+
+---
+
+## <i class="bi bi-buildings"></i> 17. Smart City and Industry 4.0 (IIoT)
+
+How does IoT connectivity transform urban space and production?
+
+::: {.columns}
+::: {.column width="50%"}
+### Smart Cities
+::: {.incremental}
+* ITS systems optimizing traffic in real-time.
+* Dense air quality monitoring networks.
+* Smart lighting adjusting to traffic intensity.
+:::
+:::
+
+::: {.column width="50%"}
+### Industry 4.0 (IIoT)
+::: {.incremental}
+* **Predictive Maintenance:** Predicting machine failures based on vibration and temperature analysis – before they physically occur.
+* Supply Chain optimization with full package location transparency.
+:::
+:::
+:::
+
+::: {.notes}
+As a real-life example, cite Poznań's urban infrastructure, where telematic and environmental systems are connected into one coherent organism. Data from these systems often goes to open API interfaces.
+:::
+
+---
+
+## <i class="bi bi-vr"></i> 18. Digital Twins
+
+Virtual representation of a physical object, system, or entire ecosystem, powered by real-time data.
+
+::: {.columns}
+::: {.column width="50%"}
+::: {.incremental}
+* It's not just 3D visualization. A Digital Twin is powered by a real-time sensor data stream – projected 1:1 onto an engineering model.
+* Enables "What If" simulations: what happens if valve #43 fails during a festival?
+* **Applications:** From jet engine optimization to modeling gas exchange dynamics over large forest areas.
+:::
+:::
+
+::: {.column width="50%"}
+![](img/digital_twin_nature.png){width=90%}
+:::
+:::
+
+::: {.notes}
+This looks like a futuristic panel for a large infrastructure investment operator. When the "High-pressure pump failure North St." message on the text console bar says little, the same alarm signal on a photorealistic 3D model with overlaid load readings immediately specifies the failure scale. Instead of testing hypotheses on a physical system, the analyst performs simulations on its digital copy.
+:::
+
+---
+
+# Chapter VI: IoT Shadows – Security {background-color="#f8f9fa"}
+
+## <i class="bi bi-shield-slash-fill"></i> 19. When "Things" Become DDoS Weapons
+
+The cheap chip paradox – buy fast, plug in immediately, never update.
+
+::: {.columns}
+::: {.column width="50%"}
+::: {.incremental}
+* **Limited resources:** No computing power for advanced cryptographic algorithms.
+* **Physical access:** Sensors in public areas vulnerable to hardware sabotage (e.g., Flash memory readout).
+* **No updates:** Millions of devices operate for years on outdated software with default password "admin / admin" – so-called abandoned technologies.
+:::
+:::
+
+::: {.column width="50%"}
+::: {.fragment}
+::: {.callout-important}
+### Mirai Botnet (2016)
+Malicious software (botnet) took control of unsecured IP cameras, carrying out a gigantic DDoS attack on DNS infrastructure (including Twitter, Netflix).
+:::
+![](img/mirai_map.png){width=70%}
+:::
+:::
+:::
+
+::: {.notes}
+Emphasize the difference between an attack on a web server and an attack on IoT systems. In IoT, the attacker can gain control over physical valves, relays, or disrupt critical environmental readings.
+
+**Worth explaining the "German trace" on the map:** Although Mirai was global, Germany became a loud example in November 2016 when a Mirai variant attacked Deutsche Telekom routers (exploiting a TR-064 vulnerability). This disconnected nearly 900,000 customers from the network, hence in historical maps Germany often appears as the main hotspot (battlefield), even though the attack source was distributed.
+:::
+
+---
+
+## <i class="bi bi-check-circle"></i> 20. Good Security Practices (Defence in Depth)
+
+IoT system protection must be implemented in multiple layers.
+
+::: {.columns}
+::: {.column width="45%"}
+::: {.incremental style="font-size: 0.9em;"}
+1. **Identity:** Asymmetric encryption (X.509) for TLS/DTLS.
+2. **OTA Updates:** Remote vulnerability patching.
+3. **Network segmentation (VLAN):** Isolating IoT sensors from the main office/server network.
+4. **Secure Boot:** Blocking unauthorized code.
+:::
+:::
+
+::: {.column width="55%"}
+::: {.fragment}
+<div style="text-align: center; transform: scale(1.7); transform-origin: top center;">
+```{mermaid}
+%%| fig-width: 5.5
+%%| fig-height: 3.5
+%%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '12px', 'fontFamily': 'sans-serif' }}}%%
+graph LR
+    subgraph "Office / Server VLAN"
+        PC((Employee PC))
+        DB[(Network Resources)]
+    end
+    
+    FW{Firewall<br>Firewall}
+    
+    subgraph "IoT VLAN (Sensors)"
+        S1[Climate<br>Sensor]
+        S2[Outdoor<br>Camera]
+    end
+    
+    PC --- FW
+    DB --- FW
+    FW -.->|Isolation / No Access| S1
+    FW -.->|Isolation| S2
+    
+    style FW fill:#f8d7da,stroke:#842029
+```
+</div>
+:::
+:::
+:::
+
+::: {.notes}
+Network segmentation and environment isolation (e.g., test from production) is an absolute security standard. An attacker who breaks into an unsecured test IoT node cannot have a path to the database with sensitive production data.
+:::
+
+---
+
+## <i class="bi bi-eye"></i> 21. Privacy in the Era of Always-On Microphones
+
+Who listens to us, counts, and measures? Consumer profiling on IoT layer data.
+
+::: {.incremental style="font-size: 0.9em;"}
+* **Smart energy meters** measuring consumption every 10 seconds can determine from peak consumption analysis when you turn on the kettle (07:30), when you leave home (08:30), and when you return (14:00). This isn't fiction – it's data available to the energy supplier.
+* **IoT toys** sending unencrypted voice recordings of children to clouds in foreign jurisdictions – frequent reason for product withdrawals from the European market (e.g., "My Friend Cayla" doll).
+* **Fitness bands** profiling pulse and activity can be used to automatically increase health insurance premiums based on readings indicating a sedentary lifestyle.
+:::
+
+::: {.notes}
+This is the key lecture moment where engineering meets ethics. The philosophy of "we collect everything because the cloud is cheap" hits the hard pillar of legal-ethical discussion about whether IoT should be designed with privacy and security "by default" in mind (Privacy by Design).
+:::
+
+---
+
+# Epilogue: Summary of the Thing Trilogy {background-color="#f8f9fa"}
+
+## <i class="bi bi-balance-scale"></i> 22. Balance of Benefits and Challenges for the New Decade
+
+::: {.columns}
+::: {.column width="50%"}
+### Promising Gains
+::: {.incremental}
+* **Precision agriculture:** Water consumption reduction up to 50% thanks to "drop by drop to target" measurements in crop irrigation.
+* **Predictive Maintenance:** Vibration sensors protect turbines – they predict failure faster than the engine bearing melts.
+* **Edge AI (AIoT):** Machine learning models (e.g., TensorFlow Lite) operating directly on microcontrollers, without needing cloud connectivity.
+:::
+:::
+
+::: {.column width="50%"}
+### Challenges
+::: {.incremental}
+* **E-Waste:** Billions of single-use devices with non-replaceable batteries, glued in plastic housing – a mountain of single-use electronics.
+* **Energy Harvesting:** Need to move away from classic batteries to powering from the environment (temperature differences, vibrations, radio waves).
+* **Ethics and regulations:** Who owns the data generated by "things" in your home?
+:::
+:::
+:::
+
+::: {.notes}
+Sustainable development paradox: IoT allows saving the planet's resources (Green-Tech), but simultaneously generates tons of electronic waste with single-use devices. Predictive Maintenance allows protecting millions on disaster prevention, and herein lies the huge opportunity for IoT on an industrial scale.
+:::
+
+---
+
+## <i class="bi bi-stars"></i> 23. Future: 6G and New Paradigms
+
+Which direction is telemetry and embedded systems heading?
+
+::: {.incremental}
+* **6G Integration:** Expected sub-millisecond latencies and gigabit throughputs will allow instant synchronization of high-resolution Digital Twins.
+* **AI + IoT Convergence:** Intelligent devices making decisions autonomously, without continuous cloud connectivity.
+* **Legal regulations:** European Union introduces Cyber Resilience Act, imposing security update obligations throughout the IoT product lifecycle.
+:::
+
+::: {.notes}
+Summarize the lecture cycle. Emphasize that hardware is getting cheaper, and protocols standardized. The real challenge for future engineers will be extracting value from an ocean of data (Big Data) while maintaining ethics and full infrastructure security.
+:::
+
+---
+
+## <i class="bi bi-flag-fill"></i> 24. End of the Lecture Cycle
+
+::: {.fragment}
+::: {.callout-note icon=false appearance="simple" style="font-size: 1.9em;"}
+IoT was built by engineers who wanted to save themselves from walking down stairs for Coca-Cola.<br> Today this same philosophy controls cities, factories, and life-saving systems.
+:::
+:::
+
+::: {.fragment .fade-up}
+<br><br>
+<h3 style="text-align: center; color: #ff3333;">What smart thing will you design and build?</h3>
+:::
+
+::: {.fragment}
+<br>
+<p style="text-align: center; font-size: 1.2em;">***Thank you for your attention.***</p>
+:::
+
+::: {.notes}
+End of the three-part lecture cycle. Call to the engineering audience: we all have access to ESP32 for a dozen or so zlotys and an MQTT broker on Raspberry Pi. In a few hours, we can build a working prototype of an intelligent system. And this is exactly what we should teach.
+:::

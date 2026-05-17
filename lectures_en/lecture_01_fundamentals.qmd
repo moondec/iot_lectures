@@ -1,0 +1,600 @@
+---
+title: "Internet of Things - From Concept to Industry 4.0"
+subtitle: "From Automation to Ubiquity (Lecture 1)"
+author: "<span style='font-size: 1.5em;'>**prof. UPP dr hab. inż. Marek Urbaniak**</span>"
+institute: |
+  Faculty of Environmental and Mechanical Engineering<br><br>
+  <div style="display: flex; justify-content: left; align-items: center; gap: 40px;">
+    
+    <img src="https://www.up.poznan.pl/sites/default/files/2024-10/logo_zielone_polskie_uklad_poziomy.png" 
+         style="height: 200px;">
+    
+    <img src="https://wisim.up.poznan.pl/sites/default/files/2023-02-13%2011%3A41/logo_wisim06.jpg" 
+         style="height: 200px;">
+          
+    <img src="../img/kbig.jpg" 
+         style="height: 200px;">
+          
+  </div>
+lang: en
+mermaid-format: svg
+format:
+  revealjs:
+    include-in-header:
+      text: |
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <style>
+        body { background-color: #1a1a1a; }
+        .reveal .slide-background-content {
+            background-image: url("../img/iot_tlo_or.jpg") !important;
+            background-size: contain !important; 
+            background-repeat: no-repeat !important;
+            background-position: center center !important;
+            opacity: 0.4 !important;
+        }
+        .reveal .backgrounds .slide-background:nth-child(1) .slide-background-content {
+            background-image: none !important;
+            background-color: white !important; 
+            opacity: 1 !important;
+        }
+        </style>
+    slide-number: c/t
+    show-slide-number: all
+    transition: slide
+    chalkboard: true
+    footer: "Internet of Things - IoT (Lecture 1)"
+    center: false
+    code-overflow: wrap
+    highlight-style: a11y
+    width: 1600
+    height: 900
+    revealjs-plugins:
+      - appearance
+      - pointer
+    pointer:
+      color: "#e60000"
+      pointerSize: 20
+      alwaysVisible: false
+editor: source
+---
+
+# Introduction: Technology and Reality {background-color="#f8f9fa"}
+
+## <i class="bi bi-lightbulb"></i> 1. Technology Will Set You Free?
+
+::: {.fragment}
+::: {.callout-caution title="Motto" style="font-size: 1.5em;"}
+... "**globalization**", "**blockchain**", "**genetic engineering**", "**artificial intelligence**", "**machine learning**" – ordinary people probably suspect that none of these concepts concerns them.
+
+--- *21 Lessons for the 21st Century, Yuval Noah Harari*
+:::
+:::
+
+::: {.notes}
+Start with a strong opening. Technology is not just new cable formats. Today, the average person thinks advanced technological concepts don't concern them—until an algorithm connected to an IoT network (like a car assistant) makes stochastic decisions about their life.
+:::
+
+---
+
+## <i class="bi bi-graph-up-arrow"></i> 2. The Bright Side: IoT Benefits
+
+Technology gives us tools humanity never had before, enabling:
+
+::: {.incremental}
+1. Expanded environmental knowledge.
+2. Self-knowledge (better medical care for humans, animals, and plants).
+3. Conscious and sustainable use of shrinking global resources.
+4. Revolutionary improvement of production processes (Industry 4.0).
+5. Instant vector communication.
+:::
+
+::: {.notes}
+This is the core of 21st-century engineering—data-driven optimization. If we can't measure the planet in 20,000 places simultaneously, how can we manage it?
+:::
+
+---
+
+## <i class="bi bi-tree"></i> 3. IoT in Agriculture: Crop and Ecosystem Monitoring
+
+Understanding, preventing, reacting.
+
+::: {.columns}
+::: {.column width="60%"}
+::: {.incremental}
+* Integrated monitoring systems replace the "old farmer's" intuition.
+* Microclimate analysis directly in the leaf canopy (temperature, humidity, PAR intensity).
+* Minimizing pesticide use: AI algorithms analyze field sensors, suggesting fungicides only after exceeding the dew point physical threshold.
+* Soil sensors measuring NPK and pH minimize leaching into groundwater.
+:::
+:::
+
+::: {.column width="40%"}
+::: {.fragment}
+![](img/th-1774962466.png){width=100%}
+:::
+:::
+:::
+
+::: {.notes}
+Precision agriculture optimizes chemical dosage down to the centimeter and time of day, protecting water. This works thanks to systems like Tree-Talker measuring transpiration flow.
+:::
+
+---
+
+## <i class="bi bi-heart-pulse"></i> 4. Medicine – Know Yourself (Smart Wearables)
+
+A band is not just a watch.
+
+::: {.columns}
+::: {.column width="50%"}
+::: {.incremental}
+* The "Self-Tracking" phenomenon (Quantified Self).
+* Watches and smart rings perform heart rate variability (HRV) and oxygen saturation readings.
+* Databases learn sleep patterns, predicting mood decline diagnoses before they turn into depression or arrhythmia.
+* Extraction of key "in-vivo" data, not in a sterile lab every six months at the doctor's.
+:::
+:::
+
+::: {.column width="50%"}
+::: {.fragment}
+![](img/Oura-ring.jpg){height=600px}
+:::
+:::
+:::
+
+::: {.notes}
+Note the Oura Ring. It shows miniaturization. Just over a dozen years ago, 24/7 heart rate recording required wearing Holter EKG clamps. A red diode on our body continuously measures our biological rhythm and builds a gigantic global population AI diagnosis database in the background (in a Bluetooth-connected smartphone).
+:::
+
+---
+
+## <i class="bi bi-gear-wide-connected"></i> 5. Industry 4.0: Process Monitoring
+
+::: {.columns}
+::: {.column width="55%"}
+::: {.incremental}
+* This is the revolution driving modern economies.
+* Predictive Maintenance – vibration sensors on robotic grippers can detect worn bearings before they crack.
+* Full automation and digital twins of production halls, minimizing the number of downtime in vehicle supplies to the global market.
+:::
+:::
+
+::: {.column width="45%"}
+::: {.fragment}
+![](img/IIoT-smart-manufacturing-smart-factory-3751296197.jpg){width=100%}
+:::
+:::
+:::
+
+::: {.notes}
+Industry is the main recipient of IIoT (Industrial IoT). Here, time is huge money. Every second of assembly line downtime means defective products worth millions of euros. Robots today call service engineers themselves before they suffer acoustic defects.
+:::
+
+---
+
+## <i class="bi bi-diagram-3"></i> 6. IoT & AI Cycle – The Future, and Now?
+
+Four phases of data processing development in history.
+
+::: {.fragment}
+* **Generation 1.0:** Manual, simple physical work based on animal muscles.
+* **Generation 2.0:** Use of mechanical machines – a leap from biological energy to petroleum and coal power.
+* **Generation 3.0:** Mathematical prediction, 90s informatics, rigid ERP systems trying to plan efficiency in Excels.
+:::
+
+::: {.fragment}
+::: {.callout-note style="font-size: 1.5em;"}
+### Agriculture / Industry Transformation to Generation 4.0
+We are entering the fourth higher paradigm of consciousness – Using IoT tools at the network edge to immediately collect gigabits of information and power machine learning algorithms (ML / AI) with these databases. The system becomes responsive to environmental boundary conditions and speaks "natural language".
+:::
+:::
+
+::: {.notes}
+Refer to the evolution of agriculture from sources "doi.org/10.1016/j.compag.2022.107217". Generations have changed. In 4.0, the farmer (or production manager) no longer operates a plow but a tablet panel launching autonomous pollinating or sowing drone swarms on a macro scale.
+:::
+
+---
+
+# Prologue: The Desire that Began the Digital Ecosystem {background-color="#f8f9fa"}
+
+## <i class="bi bi-telephone-outbound"></i> 7. Evolution: From Point to Point
+
+Before machines began talking autonomously, we had to build roads.
+
+::: {.incremental}
+* **1832:** Baron Schilling constructs the first electromagnetic telegraph in Russia. This defined point-to-point communication.
+* **1844:** Public telegraph messages with Samuel Morse's code.
+* **1876:** Alexander Bell's patent for the telephone (voice communication over distance).
+* **1955:** Edward O. Thorp builds the first wearable computer to predict roulette.
+* **1969:** Launch of the ARPANET network (packet switching, the foundation of today's Internet).
+:::
+
+::: {.notes}
+The history of IoT is inextricably linked with the development of communication. Show the audience that the need to transmit data over long distances has existed for centuries, but only the 1980s and 1990s brought miniaturization that eliminated the human operator (telegraphist) from this chain.
+:::
+
+---
+
+## <i class="bi bi-cup-straw"></i> 8. Founding Myth: Desire
+
+Coffee, code, and the desire to save time – this is how IoT began.
+
+::: {.columns}
+::: {.column width="60%"}
+::: {.incremental}
+* **Where?** Carnegie Mellon University (CMU), computer science department.
+* **When?** 1982.
+* **Problem:** Students working nights went downstairs for drinks from a Coca-Cola vending machine.
+* They often found out on site that the machine was out of drinks.
+
+:::
+:::
+
+::: {.column width="40%"}
+::: {.fragment}
+::: {.callout-note}
+### Birth of an idea
+"Let's make the machine tell us itself whether it's worth going downstairs".
+:::
+:::
+:::
+:::
+
+::: {.notes}
+**Opening:** Instead of walking down the stairs, students decided to use what they knew best – connecting the machine to the local faculty network (pre-Internet ARPANET). They installed microswitches registering the opening of the door and loading of the bottle (to measure cooling time). This information was available remotely via the Finger program. This was proof of concept: things can communicate without a human in between.
+:::
+
+---
+
+## <i class="bi bi-person-fill"></i> 9. Kevin Ashton and the Toaster (1990s)
+
+From university curiosities to commercial potential.
+
+::: {.columns}
+::: {.column width="50%"}
+### First TCP/IP Device (1990)
+::: {.incremental}
+* J. Romkey at the Interop conference proved the power of the TCP/IP stack.
+* Remotely controlled **kitchen toaster**.
+* Turning on and off was done using the Internet.
+* One drawback: a human had to put bread in it first.
+:::
+:::
+
+::: {.column width="50%"}
+### Birth of the Term "IoT" (1999)
+::: {.incremental}
+* Kevin Ashton, Procter & Gamble (P&G).
+* He analyzed supply chains, looking for the cause of empty shelves with Olay lipsticks.
+* He formulated a groundbreaking presentation titled "**The Internet of Things**".
+* He identified RFID technology as the key to autonomous cargo tracking.
+:::
+:::
+:::
+
+::: {.notes}
+Ashton noticed that the problem was not shipment logistics, but the lack of real-time visibility. "Computers only know about things what we tell them" - this sentence from his 1999 presentation defines the limitations of old IT systems.
+:::
+
+---
+
+## <i class="bi bi-globe"></i> 10. Turning Point: Scale of the Phenomenon
+
+True IoT begins where humans cease to be the main data creators.
+
+::: {.columns}
+::: {.column width="50%"}
+::: {.incremental style="font-size: 0.85em"}
+* **What is IoT?** It is a network consisting of devices with unique identifiers (UIDs) capable of exchanging data in an autonomous stream without human interaction.
+* **Device Classification:** 
+    * *Digital-first:* Designed with the network in mind (laptops, smartphones).
+    * *Physical-first:* Physical objects becoming visible on the network thanks to added microchips (gates, light bulbs, washing machines).
+* **2008 / 2009:** Historical Rubicon.
+* For the first time, the number of active, connected devices exceeded the total human population on Earth (a moment defined by Cisco analyses).
+:::
+:::
+
+::: {.column width="50%"}
+::: {.fragment}
+![](img/iot_growth.png){width=85%}
+
+::: {style="font-size: 0.6em; color: gray;"}
+Source: Cisco Annual Internet Report
+:::
+
+:::
+:::
+:::
+
+::: {.notes}
+Until 2008, the "Internet" largely depended on what humans entered: status on MySpace, email in the inbox, query in Google. 
+The change involves passive and active generation of gigabytes of telemetry data that humanity has no idea about until a computer indicates anomalies. Note the exponential growth on the chart over the past 10 years – this is the effect of the small microcontroller boom.
+:::
+
+---
+
+# Chapter I: Anatomy of the "Digital Thing" {background-color="#f8f9fa"}
+
+## <i class="bi bi-layers"></i> 11. IoT System Architecture
+
+Breaking down the abstract concept of a "smart object" into logical frameworks (layers).
+
+::: {.incremental}
+* For the system to work, communication must have a hierarchical, 3-layer construction standardized by IEEE.
+* Like the human nervous system: it feels, transmits a fast impulse, analyzes it in the brain.
+* The commonly accepted model assumes three pillars: 
+  * Perception (Sensors and Actuators)
+  * Network (Gateways and Routing)
+  * Application (Interfaces and Analytics)
+:::
+
+::: {.notes}
+The key in the model is the isolation of individual processes. Layered architecture gives the system the ability to update and maintain without completely rebuilding the system. If you replace an old router with a better one, the outdoor end sensor shouldn't know about it at all.
+:::
+
+---
+
+## <i class="bi bi-cpu-fill"></i> 12. Flow Diagram
+
+Three layers are the foundation – without smooth vertical information flow, the system paralyzes.
+
+::: {.column width="100%"}
+<div style="text-align: center; transform: scale(3.5); transform-origin: top center; margin-top: 50px;">
+::: {.r-stack}
+
+<!-- STEP 1 -->
+::: {.fragment .fade-out fragment-index=1}
+```{mermaid}
+%%| fig-align: center
+%%| fig-width: 3
+%%| fig-height: 1
+%%{init: {'theme': 'default', 'flowchart': { 'useMaxWidth': false, 'htmlLabels': false }, 'themeVariables': { 'fontSize': '20px', 'fontFamily': 'sans-serif', 'fontColor': '#000000', 'lineColor': '#000000' }}}%%
+
+graph TD
+    A["Perception Layer:<br>Sensors, Actuators"] 
+```
+:::
+
+<!-- STEP 2 -->
+::: {.fragment .current-visible fragment-index=1}
+```{mermaid}
+%%| fig-align: center
+%%| fig-width: 3
+%%| fig-height: 1.2
+%%{init: {'theme': 'default', 'flowchart': { 'useMaxWidth': false, 'htmlLabels': false }, 'themeVariables': { 'fontSize': '20px', 'fontFamily': 'sans-serif', 'fontColor': '#000000', 'lineColor': '#000000' }}}%%
+
+graph TD
+    A["Perception Layer:<br>Sensors, Actuators"] --> B["Network Layer:<br>Gateway, MQTT, Wi-Fi"]
+```
+:::
+
+<!-- STEP 3 -->
+::: {.fragment .fade-in fragment-index=2}
+```{mermaid}
+%%| fig-align: center
+%%| fig-width: 3
+%%| fig-height: 2
+%%{init: {'theme': 'default', 'flowchart': { 'useMaxWidth': false, 'htmlLabels': false }, 'themeVariables': { 'fontSize': '15px', 'fontFamily': 'sans-serif', 'fontColor': '#000000', 'lineColor': '#000000' }}}%%
+
+graph TD
+    A["Perception Layer:<br>Sensors, Actuators"] --> B["Network Layer:<br>Gateway, MQTT, Wi-Fi"]
+    B --> C["Application Layer:<br>Dashboards, Cloud Analytics"]
+```
+:::
+:::
+</div>
+:::
+
+::: {.notes}
+The perception layer is the system's fingers. The network layer is the spinal cord. The application layer is the cerebral cortex. 
+Emphasize to presenters that information doesn't always have to go up to the application – in modern Edge Computing, if the perception layer senses "pain" (e.g., hydraulic press failure), power is cut off at the Edge gateway level, completely ignoring the long and slow path to the Cloud.
+:::
+
+---
+
+## <i class="bi bi-eye"></i> 13. Perception Layer: Machine Senses
+
+How does physics become a digital signal?
+
+::: {.columns}
+::: {.column width="60%"}
+::: {.incremental}
+* **"Sensing" types:** temperature, humidity, light intensity, gases (VOC, CO2), pressure, motion (accelerometers), vibrations, geolocation (GPS).
+* **Sensor classification:**
+    * Passive (do not require power for detection – e.g., photoresistor).
+    * Active (emit a signal to measure reflection, e.g., ultrasound, Lidar).
+* Calibration role (e.g., sensor reading drift, zero drift).
+:::
+:::
+
+::: {.column width="40%"}
+::: {.fragment}
+::: {.callout-note}
+### Flaws of the Physical World
+The natural environment destroys equipment. Extreme vibrations on a production line will destroy soldered joints faster than any protocol ceases to be valid.
+:::
+:::
+:::
+:::
+
+::: {.notes}
+Engineering key: the process of "obtaining a measurement" itself is the conversion of a physical quantity into an electrical signal (mostly voltage or current), which then goes through an Analog-to-Digital Converter (ADC), receiving a numerical entity, usually of the order of the microcontroller's bit flashing.
+:::
+
+---
+
+## <i class="bi bi-hammer"></i> 14. Perception Layer: Actuators
+
+To influence physics, the system uses actuators – executive elements.
+
+::: {.incremental}
+* Feedback: Having a roof that reacts to a storm requires an element that closes the hatches.
+* **Types of executive devices:**
+    * *Electric:* semiconductor relays, servomechanisms, stepper motors, lighting.
+    * *Liquid/Gas:* solenoid valves (irrigation control, pressure relief).
+* Workflow (Control Loop):
+    * Measurement → Decision in higher layer → Actuator Action.
+:::
+
+::: {.notes}
+Every actuator creates "hard risk" - if the sensor lies to the system (false frost reading from a damaged thermistor), the system in good faith will turn on heaters, which can create a fire hazard. It's worth raising the issue of reliability in real-time systems (RTOS) with the audience.
+:::
+
+---
+
+## <i class="bi bi-router"></i> 15. Network Edge Gateway (Edge Gateway)
+
+The phenomenon of isolation and protection in network bottlenecks.
+
+::: {.columns}
+::: {.column width="50%"}
+::: {.incremental}
+* **Edge Computing "Network Edge":** We are moving away from transmitting *all* data directly to the big cloud.
+* The Gateway becomes an intelligent hub: it learns, filters, transmits aggregate averages (not 10 million vibration packets per second, just a log "Bearing Status: Stable").
+:::
+:::
+
+::: {.column width="50%"}
+::: {.fragment}
+::: {.callout-warning}
+### Latency
+The time it takes for data to travel from the device to the cloud and back with a command to the device. It is often critical (e.g., braking autonomous vehicles), which is why we moved intelligence close to the network edge (Edge).
+:::
+:::
+:::
+:::
+
+::: {.notes}
+We will hear the term Gateway many times, i.e., a local gateway (often physically a box mounted on a DIN rail in a switchgear) aggregating hundreds of small Bluetooth sensors in a factory, translating the signal to Ethernet/Fiber and transmitting it further outside the company via VPN. Radio language translation is the quintessence of gateways.
+:::
+
+---
+
+# Chapter II: Creators' Tools – Prototyping {background-color="#f8f9fa"}
+
+## <i class="bi bi-lightbulb"></i> 16. From Idea to Deployment
+
+The golden age of IoT is due to the drastic lowering of the entry barrier and shortening the time from idea to deployment (Time To Market).
+
+::: {.incremental}
+* A decade ago, designing a connectivity test board was months of testing specialized PCB boards, analyzing Altium/Eagle schematics.
+* The "Rapid Prototyping" phenomenon.
+* Ready-made development environments standardized pins, grounds (GND), power supplies (VCC), digital input-output ports (GPIO).
+:::
+
+::: {.notes}
+When showing DIY environments, it's worth emphasizing that Industry 4.0 engineering also starts with ready-made equipment to verify the concept (proof-of-concept). The largest industrial leaders have internal research structures, building prototypes from ready-made modules (Arduino/Raspberry Pi), before ordering production of the target system in SMT technology.
+:::
+
+---
+
+## <i class="bi bi-motherboard"></i> 17. Hardware Platforms as the Cornerstone
+
+Platform selection depends on power consumption and radio profile.
+
+::: {.columns}
+::: {.column width="35%"}
+### Microcontrollers (MCU)
+::: {.incremental}
+* **Arduino:** Classic, educational, easy-to-learn C/C++ language. No radio connectivity on the board itself (requires additional "shields").
+* **ESP32:** King of cheap, professional IoT. SoC (System on Chip) with built-in Wi-Fi and Bluetooth, and in sleep mode consumes only microamperes.
+:::
+:::
+
+::: {.column width="35%"}
+### Computers (SBC)
+::: {.incremental}
+* **Raspberry Pi 5:** It's literally a PC. It runs Linux.
+* Obsolete compared to the sensor role, too power-hungry (heats up, several Watts of continuous load in peak).
+* It's exactly on this that we set up local MQTT servers or Edge Computing at home.
+:::
+:::
+
+::: {.column width="30%"}
+![](img/mcu_compare.png){width=100%}
+:::
+:::
+
+::: {.notes}
+Explain the photo on the slide. Microcontrollers: Arduino Uno and ESP32. Arduino is much larger than ESP, but drastically underperforms it in performance per silicon size. SBC (Single Board Computer) – this is a completely different class of devices, designed for tasks requiring a full operating system.
+:::
+
+---
+
+## <i class="bi bi-battery-half"></i> 18. "Deep Sleep" - the Power Compromise
+
+What does "Powered by a small battery for 3 years" mean?
+
+::: {.incremental}
+* Typical Wi-Fi modules consume hundreds of milliamperes of energy just to search the network and establish a TCP/IP connection.
+* Microcontrollers use the paradigm: wake up the processor from deep sleep, perform the task quickly (read + transmit packet) in a fraction of a second, and put the unit back to sleep.
+* The main processor on the board cuts off its power, leaving only a minimal real-time clock (RTC) to wake up (Ultra Low Power).
+::: 
+
+::: {.notes}
+IoT batteries didn't magically grow – battery capacity has only symbolically improved over 40 years. The real progress is due to aggressive power management. The paradigm shift touches physics: instead of pumping more current from a powerful Li-Po cell, the system turns off its systems to wake up and send a radio packet to the gateway for a few tenths of a second.
+:::
+
+---
+
+## <i class="bi bi-building-add"></i> 19. Digital Twins
+
+Evolution of abstract layers, visual hardware reconstruction.
+
+::: {.columns}
+::: {.column width="60%"}
+::: {.incremental}
+* Virtual reflections of connected systems – digital copies of engines, shipments, trains, server rooms, even hospital ventilation systems.
+* They allow searching for weak points in the operational cycle well in advance, based on historical data.
+* Industrial machines and halls are subjected to stochastic simulations (from the "what if fire in the corner of the hall" scenario to testing damage to a specific component).
+:::
+:::
+
+::: {.column width="40%"}
+::: {.fragment}
+::: {.callout-note}
+### Virtual prototyping
+Instead of stopping a costly production line to test new software, the code is run on a Digital Twin, seeing sensor responses simulated with high mathematical-physical fidelity in the cloud.
+:::
+:::
+:::
+:::
+
+::: {.notes}
+The concept of the twin closes the first module of architecture and shows its evolution. 40 years ago, we connected to a Coca-Cola machine to see cold drinks on the university text terminal. Today, the technology maps cities and processes with deviations of the order of millimeters from reality, taking into account readings from vibration and temperature sensors.
+:::
+
+---
+
+## <i class="bi bi-table"></i> 20. Comparison: Arduino vs ESP vs Raspberry Pi
+
+Three completely different worlds, often mistakenly lumped together.
+
+| Parameter | ESP32 | Arduino Uno | Raspberry Pi 5 |
+|:---|:---|:---|:---|
+| **Chip Type** | Microcontroller (SOC) | Microcontroller | Computer (SBC) |
+| **Operating System** | None / RTOS | None | Linux |
+| **Power Consumption / Supply** | Very low (Battery, sleep in μA) | Low (mA) | High (Constant network, Watt peaks) |
+| **Built-in Radio** | **Yes** (Wi-Fi, Bluetooth) | **No** (Requires "Shields") | **Yes** (Wi-Fi, Bluetooth, Ethernet) |
+| **Main Use** | Autonomous Field Sensors | Simple educational prototypes | Local Gateway coordinating |
+
+::: {.notes}
+Key summary for engineers. ESP32 dominates the commercial market for small devices because it has built-in Wi-Fi/BT antennas with minimal power consumption in sleep mode. Arduino is an educational legend, ideal for learning electronics and programming without radio connectivity. Raspberry Pi will handle a local cloud, databases, and MQTT servers, but must be connected to constant power like a desktop computer.
+:::
+
+---
+
+## <i class="bi bi-gear"></i> 21. Summary
+
+::: {.incremental}
+* In this lecture, we learned the **basics**: how a physical object receives identity (UID) and senses (sensors/actuators).
+* We discussed the role of edge gateways (Gateway) and network edge processing (Edge Computing).
+* We understood that a small error at the perceptual layer triggers an avalanche of erroneous algorithms in the final analysis layer.
+
+
+* ***Thank you for your attention.***
+:::
+
+::: {.notes}
+Key lesson of the first lecture – no AI or programmer magic will save poor and uncalibrated hardware connections. A dirty sensor is the engineer's first problem when implementing systems in mechanical plants and the first cause of false readings in home systems.
+:::
