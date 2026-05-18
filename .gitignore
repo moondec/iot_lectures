@@ -8,3 +8,7 @@
 **/*.quarto_ipynb
 .Rproj.user
 .Rhistory
+
+# Sensitive files
+Lista_obecnosci.xlsx
+List.docx
