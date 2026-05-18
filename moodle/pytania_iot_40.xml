@@ -1,0 +1,1644 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <question type="category">
+    <category>
+      <text>$course$/IoT - Internet Rzeczy</text>
+    </category>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 01</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Według Yuvala Noaha Harariego, kto przeprowadza rewolucje w biotechnologii i technologii informacyjnej?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Inżynierowie, przedsiębiorcy i naukowcy, którzy często nie zdają sobie sprawy z globalnych konsekwencji swoich decyzji.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Politycy i rządy państw na podstawie demokratycznych wyborów.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Filozofowie i etycy tworzący kodeksy moralne dla technologii.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Organizacje pozarządowe kontrolujące wdrażanie innowacji.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 02</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Czym jest system Tree Talker omawiany na wykładzie jako przykład zastosowania IoT w leśnictwie?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Autonomiczna opaska montowana na pniu drzewa, mierząca przepływ soków, absorpcję światła oraz orientację przestrzenną za pomocą akcelerometrów 3D.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Stacja meteorologiczna montowana na wieży obserwacyjnej nad koronami drzew.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Dron skanujący lasy za pomocą kamery termowizyjnej i lidaru.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Aplikacja mobilna do ręcznego notowania pomiarów dendrometrycznych przez leśników.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 03</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Co oznacza pojęcie 'Przemysł 4.0' (Generacja 4.0) w kontekście ewolucji przetwarzania danych?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Wykorzystanie narzędzi IoT na brzegu sieci do zbierania danych i napędzania nimi algorytmów uczenia maszynowego (ML/AI).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Całkowite zastąpienie pracowników fizycznych przez roboty humanoidalne.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Przejście z napędu parowego na napęd elektryczny w liniach produkcyjnych.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Ręczne planowanie wydajności produkcji w arkuszach kalkulacyjnych.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 04</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Na czym polega koncepcja jazdy plutonowej (platooning) ciężarówek omawiana w kontekście komunikacji wektorowej IoT?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Pojazdy sprzężone radiowo jadą w odległości ok. 2 metrów od siebie, drastycznie redukując opór aerodynamiczny (Cx) i zużycie paliwa.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Ciężarówki poruszają się autonomicznie po wyznaczonym pasie bez kierowcy.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Pojazdy komunikują się z infrastrukturą drogową w celu omijania korków.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Kolumny ciężarówek są ładowane bezprzewodowo z nadajników umieszczonych w nawierzchni drogi.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 05</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Jakie zastosowanie IoT w rolnictwie pozwala na minimalizację użycia oprysków chemicznych?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Algorytmy AI analizujące dane z czujników polowych i sugerujące stosowanie fungicydów dopiero po przekroczeniu fizycznego progu punktu rosy.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Drony rozpylające środki ochrony roślin na całej powierzchni pola według stałego harmonogramu.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Systemy nawadniające rozcieńczające opryski w wodzie podlewanej na pole.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Kamery satelitarne wykonujące zdjęcia pól raz w miesiącu.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 06</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Na czym polega zagrożenie związane z Chińskim Systemem Kredytu Społecznego omawiane na wykładzie?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Automatyczna klasyfikacja zachowań obywateli – np. osoba grająca 10 godzin dziennie w gry wideo zostaje uznana za bezproduktywną, co prowadzi do ograniczenia jej praw.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>System blokuje dostęp do internetu osobom, które nie opłacają rachunków.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Obywatele muszą obowiązkowo nosić opaski fitness monitorujące ich aktywność fizyczną.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>System przyznaje kredyty bankowe wyłącznie na podstawie historii zakupów online.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 07</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Jaki paradoks dotyczący autonomicznych dronów opisano na wykładzie?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Do obsługi jednego drona potrzeba ok. 30 osób na ziemi i ok. 80 analityków danych – 'autonomia' sprzętu oznacza więcej pracy z danymi, a nie mniej ludzi.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Drony zużywają mniej energii niż samoloty, ale są droższe w produkcji.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Drony mogą latać wyłącznie w przestrzeni kontrolowanej przez rząd.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Każdy dron musi posiadać wbudowany system blockchain do weryfikacji lotów.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 08</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Na jakie zagrożenie zwrócił uwagę Aldous Huxley, cytowany na wykładzie w kontekście 'cyfrowego znieczulenia'?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Ludzie spędzający czas w świecie rozrywki i fantazji nie potrafią oprzeć się manipulacji ze strony tych, którzy chcą przejąć kontrolę nad społeczeństwem.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Technologia doprowadzi do nuklearnej wojny między maszynami a ludźmi.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Sztuczna inteligencja zastąpi ludzki mózg w ciągu najbliższych 10 lat.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Komputery kwantowe złamią wszystkie szyfry i zniszczą prywatność.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 09</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Co udowodnił eksperyment Rajesh Rao i Andrei Stocco na University of Washington w 2013 r.?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Możliwość przesyłania impulsu ruchowego między mózgami dwóch osób za pomocą EEG i cewki magnetycznej połączonych przez sieć TCP/IP – nieinwazyjny interfejs mózg-mózg.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Możliwość bezprzewodowego ładowania implantów mózgowych przez Wi-Fi.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Zdolność AI do odczytywania ludzkich myśli z dokładnością 99%.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Przesyłanie plików bezpośrednio do pamięci długotrwałej człowieka.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 10</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Ile energii (w przybliżeniu) potrzebuje samochód na pokonanie 5 km, w porównaniu z dobowym zapotrzebowaniem energetycznym człowieka?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Pokonanie 5 km autem wymaga ładunku energetycznego większego niż całodobowe zapotrzebowanie organizmu człowieka (ok. 12,6 MJ dziennie).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Samochód potrzebuje tysiąckrotnie mniej energii niż człowiek na dobę.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Zużycie energii jest porównywalne – ok. 500 kcal na 5 km jazdy.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Człowiek zużywa więcej energii na 5 km biegu niż samochód na tę samą odległość.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 11</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Kto i w którym roku po raz pierwszy użył terminu 'Internet of Things' (Internet Rzeczy)?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Kevin Ashton w 1999 roku, podczas pracy nad łańcuchami dostaw w firmie Procter & Gamble.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>John Romkey w 1990 roku, prezentując zdalnie sterowany toster.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Studenci Carnegie Mellon University w 1982 roku.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Tim Berners-Lee w 1991 roku, tworząc World Wide Web.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 12</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Jakie urządzenie z 1982 roku na Carnegie Mellon University jest uznawane za pierwszy 'inteligentny' przedmiot podłączony do sieci?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Automat (dystrybutor) z napojami Coca-Cola, z mikroprzełącznikami rejestrującymi dostępność i temperaturę butelek.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Zdalnie sterowany toster kuchenny.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Inteligentna lodówka z czujnikiem temperatury.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Terminal tekstowy monitorujący drukarkę w laboratorium.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 13</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Kiedy, według analiz firmy Cisco, liczba urządzeń podłączonych do sieci po raz pierwszy przekroczyła populację ludzi na Ziemi?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>W latach 2008–2009.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>W 1999 roku, po sformułowaniu definicji IoT.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>W 2016 roku, podczas ataku botnetu Mirai.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Dopiero w 2020 roku, wraz z rozwojem sieci 5G.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 14</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Z jakich trzech warstw składa się standardowa architektura systemów IoT?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Z warstwy percepcji (czujniki i aktuatory), warstwy sieciowej (bramy i routing) oraz warstwy aplikacji (interfejsy i analityka).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Z warstwy bazy danych, warstwy logicznej i warstwy radiowej.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Z warstwy użytkownika, warstwy serwera i warstwy zabezpieczeń.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Z warstwy fizycznej, warstwy transportowej i warstwy prezentacji (model OSI).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 15</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Czym różnią się czujniki pasywne od aktywnych w warstwie percepcji IoT?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Czujniki pasywne (np. fotorezystor) nie emitują sygnału – jedynie reagują na otoczenie. Aktywne (np. ultradźwiękowe, Lidar) emitują sygnał i mierzą jego odbicie, co zużywa więcej energii.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Pasywne są zawsze cyfrowe, a aktywne analogowe.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Pasywne wymagają stałego zasilania sieciowego, a aktywne działają na baterii.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Pasywne przesyłają dane do chmury, a aktywne je jedynie zapisują lokalnie.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 16</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Czym jest Edge Computing (przetwarzanie brzegowe) i jaką rolę pełni bramka brzegowa (Edge Gateway)?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Gateway filtruje i przetwarza dane lokalnie, przesyłając do chmury jedynie przesianie agregaty zamiast milionów surowych pakietów – zmniejsza to opóźnienia i obciążenie sieci.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Edge Gateway to router służący wyłącznie do szyfrowania danych przed wysyłką do chmury.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To termin oznaczający fizyczną krawędź płytki drukowanej mikrokontrolera.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Edge Computing zastępuje chmurę obliczeniową w całości – dane nigdy nie trafiają do internetu.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 17</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Co oznacza tryb 'Deep Sleep' (głębokiego uśpienia) w mikrokontrolerach IoT, takich jak ESP32?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Procesor odcina sobie zasilanie, pozostawiając jedynie minimalny zegar czasu rzeczywistego (RTC) do wybudzenia, co redukuje pobór prądu do mikroamperów.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Urządzenie przechodzi w tryb awaryjny i przestaje reagować na jakiekolwiek sygnały.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Procesor zmniejsza częstotliwość taktowania do 1 MHz, ale wszystkie moduły pozostają aktywne.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Deep Sleep oznacza wyłączenie modułu radiowego przy jednoczesnej pracy wszystkich czujników.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 18</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Dlaczego mikrokontroler ESP32 jest popularniejszy w zastosowaniach IoT niż klasyczne Arduino Uno?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>ESP32 to układ SoC z wbudowanym modułem Wi-Fi i Bluetooth, podczas gdy Arduino Uno nie posiada łączności radiowej na płytce i wymaga dokupienia zewnętrznych modułów (shieldów).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>ESP32 posiada pełny system operacyjny Linux jak Raspberry Pi.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Arduino Uno jest droższe i trudniejsze w programowaniu.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>ESP32 działa wyłącznie z językiem Python, co jest łatwiejsze niż C++ w Arduino.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 19</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Czym jest Cyfrowy Bliźniak (Digital Twin) w kontekście Internetu Rzeczy?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Wirtualna kopia fizycznego obiektu (np. silnika, hali produkcyjnej), zasilana danymi z czujników w czasie rzeczywistym, umożliwiająca symulacje 'what-if' bez zatrzymywania rzeczywistego systemu.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Kopia zapasowa (backup) danych z czujników przechowywana na drugim serwerze.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Drugi, identyczny fizyczny egzemplarz urządzenia działający jako rezerwa awaryjna.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Wirtualna sieć VPN łącząca dwa identyczne systemy IoT w różnych lokalizacjach.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 20</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Jaka jest główna rola Raspberry Pi w architekturze systemów IoT?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Pełni rolę lokalnej bramy (Gateway) koordynującej czujniki – uruchamia Linuxa, serwer MQTT, Edge Computing. Jest jednak zbyt prądożerne, by służyć jako autonomiczny czujnik bateryjny.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Służy wyłącznie jako zastępczy czujnik temperatury w zastosowaniach polowych.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Jest podstawowym mikrokontrolerem IoT o najniższym poborze prądu na rynku.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Zastępuje chmurę obliczeniową AWS w dużych wdrożeniach przemysłowych.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 21</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Na czym polega tzw. 'Trójkąt Niemożliwy' w komunikacji bezprzewodowej IoT?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Inżynier musi wybrać tylko dwa z trzech parametrów: zasięg (kilometry), przepustowość (megabajty/s) i czas życia na baterii (lata). Nie można mieć wszystkich trzech jednocześnie.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Odnosi się do trzech warstw architektury IoT, które muszą działać równolegle.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To ograniczenie procesora, który może obsłużyć maksymalnie trzy czujniki naraz.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Jest to reguła bezpieczeństwa wymagająca trzech poziomów szyfrowania.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 22</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Dlaczego Wi-Fi (IEEE 802.11) nie nadaje się do zasilanych bateryjnie czujników IoT?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Architektura Wi-Fi jest prądożerna – przeszukiwanie nadajników i zestawianie połączenia pochłaniają setki mA, szybko wyczerpując baterię.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Wi-Fi nie obsługuje protokołu MQTT niezbędnego do komunikacji IoT.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Wi-Fi działa wyłącznie w paśmie 5 GHz, które nie jest legalne w UE.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Wi-Fi wymaga stałego połączenia kablowego z routerem.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 23</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Na czym polega rewolucja wprowadzona przez Bluetooth Low Energy (BLE) w wersji 4.0?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Urządzenie BLE nie utrzymuje ciągłego połączenia – błyskawicznie emituje kilka pakietów danych i natychmiast wraca w tryb uśpienia, co redukuje pobór energii nawet stukrotnie.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>BLE umożliwia przesyłanie ciągłego strumienia wideo w jakości HD.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>BLE zwiększa zasięg transmisji do kilkunastu kilometrów.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>BLE zastąpił Wi-Fi jako główny protokół domowych routerów.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 24</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Jaką architekturę sieciową stosują protokoły Zigbee i Z-Wave i jaki problem rozwiązują?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Stosują topologię sieci kratowej (Mesh) – urządzenia zasilane z sieci (np. gniazdka) pełnią rolę routerów, przekazując sygnał dalej i rozwiązując problem słabego zasięgu przez grube ściany.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Stosują topologię gwiazdy wymagającej centralnego serwera w chmurze.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Działają wyłącznie w paśmie 5 GHz zapewniającym dużą przepustowość.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Wymagają stałego łącza kablowego Ethernet między wszystkimi urządzeniami.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 25</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Czym jest LPWAN (Low Power Wide Area Network) i do jakich zastosowań służy?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>To sieć o bardzo niskim poborze energii i dużym zasięgu (nawet 15–20 km), ale z drastycznie ograniczoną przepustowością – służy wyłącznie do przesyłania krótkich danych telemetrycznych.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To szybka sieć lokalna do strumieniowania wideo z kamer w budynkach.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To sieć Mesh łącząca inteligentne żarówki w jednym pomieszczeniu.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To protokół warstwy aplikacji alternatywny wobec MQTT i CoAP.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 26</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Czym różni się LoRaWAN od NB-IoT jako technologie dalekiego zasięgu?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>LoRaWAN pozwala budować własne bramki w darmowym paśmie 868 MHz (bez opłat abonamentowych), a NB-IoT korzysta ze stacji bazowych operatorów komórkowych i wymaga karty SIM z abonamentem.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>LoRaWAN przesyła strumienie wideo, a NB-IoT jedynie tekst.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>NB-IoT działa w darmowym paśmie radiowym, a LoRaWAN wymaga licencji.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>LoRaWAN działa wyłącznie w budynkach, a NB-IoT tylko w terenie otwartym.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 27</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Jakie specyficzne ograniczenia ma technologia Sigfox?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Maksymalnie 140 wiadomości dziennie na urządzenie, z ładunkiem zaledwie 12 bajtów na wiadomość – jest to architektura silnie asymetryczna.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Sigfox wymaga budowy własnych stacji bazowych i nie oferuje pokrycia globalnego.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Sigfox przesyła do 1 GB danych dziennie, ale wymaga stałego zasilania sieciowego.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Sigfox obsługuje wyłącznie komunikację między serwerami, a nie czujnikami.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 28</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Dlaczego protokół HTTP nie jest odpowiedni dla urządzeń IoT o ograniczonych zasobach?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Nagłówki HTTP zajmują więcej bajtów niż przesyłane dane pomiarowe, a synchroniczny model Request-Response zmusza czujnik do utrzymywania włączonego, prądożernego radia w oczekiwaniu na odpowiedź.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>HTTP nie obsługuje szyfrowania TLS wymaganego przez certyfikaty IoT.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>HTTP działa wyłącznie na komputerach stacjonarnych z systemem Windows.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>HTTP wymaga stałego łącza kablowego i nie obsługuje transmisji bezprzewodowej.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 29</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Na jakim modelu architektonicznym opiera się protokół MQTT?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Na modelu Publikacja/Subskrypcja (Pub/Sub) – czujnik wysyła wiadomość do centralnego Brokera pod określonym tematem (Topic), a Broker dystrybuuje ją do zainteresowanych subskrybentów.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Na modelu Żądanie-Odpowiedź (Request-Response) jak w HTTP.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Na bezpośrednim połączeniu peer-to-peer między czujnikiem a serwerem.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Na modelu kolejki FIFO, gdzie wiadomości są odbierane w ściśle ustalonej kolejności.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 30</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Ile bajtów zajmuje nagłówek wiadomości MQTT i dlaczego jest to istotne?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Zaledwie 2 bajty – dzięki temu czas pracy modułu radiowego jest minimalny, co redukuje zużycie energii w urządzeniach bateryjnych.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Około 500 bajtów – tyle samo co nagłówek HTTP.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Dokładnie 128 bajtów – jest to stała wartość wynikająca ze specyfikacji TCP.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>MQTT nie posiada nagłówków – przesyłane są wyłącznie surowe dane binarne.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 31</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Co oznaczają poziomy QoS (Quality of Service) 0, 1 i 2 w protokole MQTT?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>QoS 0 – 'wyślij i zapomnij' (najszybszy). QoS 1 – wymaga potwierdzenia (możliwe duplikaty). QoS 2 – pełny handshake z gwarancją jednokrotnego dostarczenia.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>QoS 0 – szyfrowanie wyłączone. QoS 1 – szyfrowanie TLS. QoS 2 – szyfrowanie AES-256.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>QoS odnosi się do priorytetów tematów (Topics) w brokerze MQTT.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>QoS 0, 1 i 2 określają liczbę subskrybentów mogących jednocześnie odbierać wiadomość.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 32</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Co oznacza mechanizm LWT (Last Will and Testament) w protokole MQTT?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Automatyczne powiadomienie wysyłane przez Brokera do subskrybentów w momencie nagłej, nieoczekiwanej utraty połączenia z urządzeniem – informuje o awarii czujnika.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Ostatnia wiadomość wysyłana przez czujnik przed jego planowanym wyłączeniem.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Mechanizm tworzenia kopii zapasowej wszystkich wiadomości w kolejce Brokera.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Protokół autoryzacji urządzenia przy pierwszym połączeniu z siecią MQTT.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 33</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Czym jest CoAP (Constrained Application Protocol) i czym różni się od MQTT?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>CoAP to lekki protokół oparty na bezpołączeniowym UDP z modelem Żądanie-Odpowiedź (jak HTTP), idealny do prostych interakcji na mikrokontrolerach – w odróżnieniu od asynchronicznego modelu Pub/Sub w MQTT.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CoAP obsługuje wyłącznie szyfrowanie symetryczne, a MQTT asymetryczne.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CoAP działa tylko w sieciach kablowych, a MQTT wyłącznie bezprzewodowo.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>CoAP jest cięższy od HTTP i stosowany tylko na serwerach korporacyjnych.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 34</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Czym różni się NB-IoT od LTE-M pod kątem mobilności urządzeń?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>NB-IoT jest przeznaczony dla urządzeń stacjonarnych (brak handoveru) z doskonałą penetracją piwnic, a LTE-M obsługuje mobilność (handover między stacjami bazowymi) – np. do śledzenia pojazdów.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>NB-IoT przesyła strumienie wideo, a LTE-M jedynie dane tekstowe.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>LTE-M działa wyłącznie w terenie otwartym, a NB-IoT tylko w budynkach.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Oba standardy wymagają budowy własnych stacji bazowych i nie korzystają z sieci operatorów.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 35</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Dlaczego Chmura Obliczeniowa (Cloud Computing) jest niezbędna jako warstwa aplikacji w architekturze IoT?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Pozwala składować, filtrować i analizować dane z tysięcy czujników generujących Big Data – pojedynczy czujnik jest bezwartościowy, ale 10 000 czujników z logami co minutę tworzy użyteczne wzorce.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Chmura jest jedynym miejscem, w którym można uruchomić protokół MQTT.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Dane IoT są zbyt małe, by zapisywać je lokalnie na dyskach.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Bez chmury czujniki nie mogą się ze sobą komunikować.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 36</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Co oznacza zjawisko 'Vendor Lock-in' (Złota Klatka) i jaki podano przykład na wykładzie?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Uzależnienie od jednego dostawcy chmury – np. w 2023 r. Google wyłączyło usługę Cloud IoT Core, zmuszając tysiące firm do kosztownej migracji do konkurencji.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Fizyczne zablokowanie urządzenia IoT przez producenta po upływie gwarancji.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Konieczność stosowania wyłącznie jednego typu czujników danego producenta.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Odcięcie urządzenia od internetu po nieopłaceniu abonamentu SIM.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 37</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Czym jest Node-RED i jaką pełni rolę w ekosystemie IoT?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>To narzędzie open-source do wizualnego, graficznego programowania logiki (Low-code), pozwalające budować przepływy danych IoT bez pisania dużej ilości kodu.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To system operacyjny instalowany na mikrokontrolerach ESP32.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To komercyjna platforma chmurowa Amazona do zarządzania bramkami IoT.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>To język programowania stworzony specjalnie do obsługi protokołu MQTT.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 38</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Co oznacza skrót OTA (Over The Air) w kontekście zarządzania urządzeniami IoT?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Zdalna aktualizacja oprogramowania wewnętrznego (firmware) urządzenia drogą bezprzewodową, bez fizycznego podłączania kablem – np. auto aktualizujące się po wjeździe do garażu z Wi-Fi.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Protokół radiowy do przesyłania danych telemetrycznych na duże odległości.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Standard szyfrowania komunikacji między czujnikiem a brokerem MQTT.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Metoda bezprzewodowego ładowania baterii urządzeń IoT.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 39</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Jakie oszczędności przyniosło inteligentne oświetlenie miejskie w Barcelonie, opisanej jako studium przypadku Smart City?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Oszczędność 30% budżetu energetycznego rocznie dzięki 10 000 lamp analizujących ruch pieszych i inteligentnie gasnących na peryferiach.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Oszczędność 90% energii dzięki całkowitemu wyłączeniu oświetlenia nocą.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Brak oszczędności – system generował równie wysokie koszty konserwacji.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Oszczędność wynikała wyłącznie z wymiany lamp na LED, bez systemu IoT.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 40</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Co to jest botnet Mirai (2016) i dlaczego stanowi przestrogę dla branży IoT?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Złośliwe oprogramowanie, które przejęło kontrolę nad niezabezpieczonymi kamerami IP (z domyślnym hasłem 'admin/admin'), przeprowadzając gigantyczny atak DDoS na infrastrukturę DNS (m.in. Twitter, Netflix).</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Wirus komputerowy atakujący wyłącznie serwery banków poprzez protokół MQTT.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Program szpiegujący stworzony przez rząd do monitorowania obywateli.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Atak polegający na fizycznym niszczeniu mikrokontrolerów IoT poprzez przeciążenie zasilania.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 41</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Na czym polega zasada segmentacji sieci (VLAN) jako praktyka bezpieczeństwa IoT?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Izolowanie czujników IoT w osobnej sieci wirtualnej (VLAN), oddzielonej zaporą (firewall) od głównej sieci biurowej i serwerów – aby włamanie do czujnika nie dało dostępu do wrażliwych danych.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Podział danych na mniejsze pakiety przesyłane różnymi trasami radiowymi.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Tworzenie kopii danych z czujników na wielu serwerach jednocześnie.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Stosowanie osobnych haseł dla każdego czujnika w sieci.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 42</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Jakie zagrożenie prywatności wiąże się z inteligentnymi licznikami energii opisanym na wykładzie?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Pomiar zużycia co 10 sekund pozwala na analizę pików i określenie, kiedy mieszkaniec włącza czajnik, wychodzi z domu i wraca – te dane są dostępne dostawcy energii.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Liczniki mogą zostać zhakowane, by wyłączyć prąd w całym budynku.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Liczniki emitują promieniowanie elektromagnetyczne szkodliwe dla zdrowia.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Inteligentne liczniki są zbyt drogie, by wdrożyć je na dużą skalę.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name>
+      <text>Pytanie 43</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Co oznacza termin 'Predictive Maintenance' (konserwacja predykcyjna) w kontekście IIoT?</p>]]></text>
+    </questiontext>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Przewidywanie awarii maszyn na podstawie analizy danych z czujników wibracji i temperatur, zanim do uszkodzenia fizycznie dojdzie – np. wykrycie zatartych łożysk przed pęknięciem.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź poprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Regularne przeglądy techniczne wykonywane co miesiąc według stałego harmonogramu.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Automatyczna naprawa urządzenia przez robota bez udziału człowieka.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>System wyłączający maszynę po wystąpieniu awarii i powiadamiający serwisanta.</p>]]></text>
+      <feedback format="html">
+        <text><![CDATA[<p>Odpowiedź niepoprawna.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>

@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+<question type="category">
+  <category><text>$course$/IoT - Lectures 1-3</text></category>
+  <info format="html"><text></text></info>
+</question>
+
+<!-- ===================== LECTURE 1 (10 questions) ===================== -->
+
+<question type="multichoice">
+  <name><text>W1-01: First IoT device</text></name>
+  <questiontext format="html"><text><![CDATA[<p>Which device at Carnegie Mellon University (1982) is considered the first example of the "Internet of Things"?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>A Coca-Cola vending machine connected to ARPANET</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>A laser printer controlled remotely</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>A weather station with a telephone modem</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>A CCTV camera with digital transmission</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W1-02: IoT term</text></name>
+  <questiontext format="html"><text><![CDATA[<p>Who first used the term "Internet of Things" in a 1999 presentation for Procter &amp; Gamble?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>Kevin Ashton</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Tim Berners-Lee</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Vint Cerf</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Mark Weiser</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W1-03: IoT Rubicon</text></name>
+  <questiontext format="html"><text><![CDATA[<p>According to Cisco analyses, in which approximate year did the number of devices connected to the Internet exceed the human population on Earth?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>2008/2009</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>2001</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>2015</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>1999</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W1-04: IoT layers</text></name>
+  <questiontext format="html"><text><![CDATA[<p>Which of the following sets correctly describes the three layers of IoT architecture?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>Perception – Network – Application</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Hardware – Software – Cloud</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Physical – Transport – Session</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Sensors – Database – Website</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W1-05: Passive sensors</text></name>
+  <questiontext format="html"><text><![CDATA[<p>Which of the following sensors is an example of a <b>passive</b> sensor (does not require power for detection)?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>Photoresistor</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Ultrasonic sensor</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Lidar</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Doppler radar</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W1-06: Edge Computing</text></name>
+  <questiontext format="html"><text><![CDATA[<p>What is Edge Computing in the context of IoT?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>Processing and filtering data close to the source (device) before it reaches the cloud</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Transmitting all raw data directly to the cloud without processing</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>A server cooling technology located at the building edge</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>A special type of Wi-Fi network operating outdoors</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W1-07: ESP32</text></name>
+  <questiontext format="html"><text><![CDATA[<p>What distinguishes the ESP32 microcontroller from Arduino Uno in IoT applications?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>It has built-in Wi-Fi and Bluetooth modules and very low power consumption in sleep mode</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>It runs full Linux with a graphical user interface</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>It is much larger physically and more expensive than Arduino</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>It has no GPIO ports</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W1-08: Deep Sleep</text></name>
+  <questiontext format="html"><text><![CDATA[<p>What is the "Deep Sleep" paradigm in IoT microcontrollers?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>The processor cuts off its power, wakes up for a fraction of a second, performs measurement and data transmission, then goes back to sleep</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>The processor runs continuously but reduces clock frequency by 50%</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>The device turns off at night and turns on automatically in the morning</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>The battery is charged with solar energy during processor sleep</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W1-09: Digital Twin</text></name>
+  <questiontext format="html"><text><![CDATA[<p>What is the concept of a "Digital Twin"?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>A virtual copy of a physical object powered by real-time sensor data, enabling simulations</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>A backup copy of microcontroller firmware stored in the cloud</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Two identical physical sensors placed side by side for redundancy</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>An AI algorithm analyzing historical data without connection to the real object</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W1-10: Raspberry Pi in IoT</text></name>
+  <questiontext format="html"><text><![CDATA[<p>For which task is Raspberry Pi (SBC) best suited in IoT architecture?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>Local Gateway coordinating sensor networks, MQTT server, Edge Computing</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Autonomous field sensor powered by battery for many years</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Ultra-light Mesh network node (Zigbee)</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Long-range LoRa radio module</p>]]></text></answer>
+</question>
+
+<!-- ===================== LECTURE 2 (10 questions) ===================== -->
+
+<question type="multichoice">
+  <name><text>W2-01: IoT Triangle</text></name>
+  <questiontext format="html"><text><![CDATA[<p>An engineer designing an IoT network must choose a compromise – they can optimize only <b>two of three</b> parameters simultaneously. What are these parameters?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>Range, Throughput, Battery life</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Price, Quality, Delivery time</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Computing power, RAM, Disk capacity</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Bandwidth, Latency, Security</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W2-02: Wi-Fi in IoT</text></name>
+  <questiontext format="html"><text><![CDATA[<p>Why is Wi-Fi a <b>poor</b> choice for autonomous battery-powered IoT sensors?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>It is very power-hungry – the network scanning and connection handshake process consumes hundreds of mA</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>It does not support IP protocol</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>It has too large range (over 50 km)</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>It requires licensed radio spectrum</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W2-03: BLE</text></name>
+  <questiontext format="html"><text><![CDATA[<p>How does Bluetooth Low Energy (BLE) differ from classic Bluetooth?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>BLE puts the radio to sleep immediately after sending a packet, drastically reducing power consumption</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>BLE has a range above 10 km</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>BLE streams Hi-Fi audio</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>BLE requires constant 230 V mains power</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W2-04: Zigbee Mesh</text></name>
+  <questiontext format="html"><text><![CDATA[<p>What does "self-healing" mean in the context of Zigbee mesh network?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>Automatic finding of an alternative routing path in case of a node failure</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Automatic repair of damaged hardware by a service robot</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Automatic battery replacement in battery nodes</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Automatic switching from Zigbee to Wi-Fi upon signal loss</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W2-05: LPWAN</text></name>
+  <questiontext format="html"><text><![CDATA[<p>What is the key feature of LPWAN (Low Power Wide Area Network) technology?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>Long range (kilometers) with drastically limited throughput and very low power consumption</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Very high throughput (gigabits) with range up to 10 meters</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Ability to transmit 4K video over 100 km distance</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Requirement of constant mains power and parabolic antenna</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W2-06: LoRaWAN vs NB-IoT</text></name>
+  <questiontext format="html"><text><![CDATA[<p>Which feature <b>distinguishes</b> LoRaWAN from NB-IoT?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>LoRaWAN allows building your own gateways in the free radio band, without subscription fees</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>LoRaWAN requires a SIM card and subscription from a telecommunications operator</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>LoRaWAN works only in buildings and is not suitable for field applications</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>LoRaWAN offers higher throughput than Wi-Fi</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W2-07: Sigfox</text></name>
+  <questiontext format="html"><text><![CDATA[<p>How many messages per day can a single device send in the Sigfox network?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>Maximum 140</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Unlimited</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Exactly 10</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Maximum 10,000</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W2-08: MQTT Pub/Sub</text></name>
+  <questiontext format="html"><text><![CDATA[<p>How does the Publish/Subscribe (Pub/Sub) architecture work in MQTT protocol?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>A sensor publishes data to a central Broker under a specific topic, and the Broker sends it to all interested subscribers</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>The sensor connects directly to each data recipient through a dedicated channel</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>The server queries the sensor every second (polling) for current values</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Data is transmitted via broadcast to all devices on the local network</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W2-09: MQTT header</text></name>
+  <questiontext format="html"><text><![CDATA[<p>How many bytes is the minimum MQTT message header?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>2 bytes</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>500 bytes</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>64 bytes</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>1 kilobyte</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W2-10: CoAP</text></name>
+  <questiontext format="html"><text><![CDATA[<p>Which transport protocol is CoAP (Constrained Application Protocol) based on?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>UDP (connectionless)</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>TCP (connection-oriented)</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>FTP</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>SMTP</p>]]></text></answer>
+</question>
+
+<!-- ===================== LECTURE 3 (10 questions) ===================== -->
+
+<question type="multichoice">
+  <name><text>W3-01: Cloud Computing</text></name>
+  <questiontext format="html"><text><![CDATA[<p>Why is raw data from IoT sensors usually aggregated at the network edge before being sent to the cloud?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>To reduce the volume of transmitted data and transmission costs – only averaged values are sent to the cloud</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Because the cloud cannot process numerical data</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Due to legal regulations prohibiting transmission of raw data over the Internet</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Cloud computing does not support MQTT protocol</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W3-02: Vendor Lock-in</text></name>
+  <questiontext format="html"><text><![CDATA[<p>Which cloud provider discontinued its IoT Core service in 2023, forcing customers to costly migration?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>Google</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Amazon (AWS)</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Microsoft (Azure)</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Oracle</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W3-03: ThingsBoard</text></name>
+  <questiontext format="html"><text><![CDATA[<p>What is ThingsBoard in the IoT ecosystem?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>An open-source platform for creating dashboards and managing telemetry data</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>A commercial microcontroller from Texas Instruments</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>A communication protocol replacing MQTT</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>An operating system for Raspberry Pi</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W3-04: Smart City Barcelona</text></name>
+  <questiontext format="html"><text><![CDATA[<p>What energy savings did smart municipal lighting bring to Barcelona?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>About 30% of the annual energy budget</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>About 90% of the annual energy budget</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>No savings – the system was unprofitable</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>About 5% of the annual energy budget</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W3-05: Predictive Maintenance</text></name>
+  <questiontext format="html"><text><![CDATA[<p>What is the concept of Predictive Maintenance in Industry 4.0?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>Predicting machine failures based on sensor data analysis (vibrations, temperature) before they physically occur</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Scheduled machine shutdowns every week for manual inspection</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Repairing machines only after they are completely damaged</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Installing backup machines in case of main unit failure</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W3-06: Mirai Botnet</text></name>
+  <questiontext format="html"><text><![CDATA[<p>Which IoT devices were hijacked by the Mirai botnet in 2016 to carry out a DDoS attack?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>Unsecured IP cameras with default passwords</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Samsung smart refrigerators</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Tesla autonomous cars</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Starlink communication satellites</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W3-07: Network segmentation</text></name>
+  <questiontext format="html"><text><![CDATA[<p>Why should IoT devices be placed in a separate VLAN?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>To prevent a breach of an unsecured sensor from giving access to the main office network and servers</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>To increase Wi-Fi throughput for employee laptops</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Due to device limit in Zigbee protocol</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>VLAN is required by MQTT protocol</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W3-08: IoT privacy</text></name>
+  <questiontext format="html"><text><![CDATA[<p>What privacy threat can smart energy meters pose?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>Based on power consumption peak analysis, they can determine when the resident is at home, when cooking, and when sleeping</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>They can eavesdrop on phone calls through the electrical socket</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>They transmit images from a built-in camera to the energy supplier</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>They pose no privacy threat</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W3-09: E-Waste</text></name>
+  <questiontext format="html"><text><![CDATA[<p>What ecological problem does mass production of IoT devices generate?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>Billions of single-use devices with non-replaceable batteries create a huge amount of electronic waste (e-waste)</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Increased drinking water consumption by microcontroller cooling processes</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Noise generated by ultrasonic sensors threatens bird populations</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Electromagnetic radiation from IoT sensors causes global warming</p>]]></text></answer>
+</question>
+
+<question type="multichoice">
+  <name><text>W3-10: Cyber Resilience Act</text></name>
+  <questiontext format="html"><text><![CDATA[<p>What does the European Cyber Resilience Act impose on IoT device manufacturers?</p>]]></text></questiontext>
+  <defaultgrade>1</defaultgrade>
+  <penalty>0.3333333</penalty>
+  <single>true</single>
+  <shuffleanswers>true</shuffleanswers>
+  <answer fraction="100" format="html"><text><![CDATA[<p>Obligation to provide security updates throughout the product lifecycle</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Prohibition of selling IoT devices to individual consumers</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Obligation to use only HTTP protocol in IoT communication</p>]]></text></answer>
+  <answer fraction="0" format="html"><text><![CDATA[<p>Mandatory installation of Linux on all IoT devices</p>]]></text></answer>
+</question>
+
+</quiz>

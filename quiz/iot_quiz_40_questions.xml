@@ -1,0 +1,1683 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 1 - Podstawy IoT [Źródło: wyklad_1.qmd, Slajd 2, Sekcja: Mit Założycielski]</text>
+    </category>
+    <name>
+      <text>Q1_Historia_IoT_Automat</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;W którym roku i na jakiej uczelni powstał pierwszy prototyp urządzenia IoT – Automat Coca-Cola połączony z siecią?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Pierwszy prototyp IoT powstał w 1982 roku na Carnegie Mellon University. Studenci zmęczeni schodzeniem po schodach do automatu podłączyli go do sieci, aby zdalnie sprawdzać dostępność napojów.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>1982, Carnegie Mellon University (CMU)</text>
+      <feedback format="html">
+        <text>Poprawnie! Studenci CMU w 1982 roku podłączyli Automat Coca-Cola do sieci wydziałowej.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>1999, MIT</text>
+      <feedback format="html">
+        <text>Niepoprawnie. 1999 to rok użycia terminu &quot;Internet of Things&quot; przez Kevina Ashtona.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>1969, Stanford</text>
+      <feedback format="html">
+        <text>Niepoprawnie. 1969 to rok uruchomienia ARPANET.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>1990, Berkeley</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 1 - Podstawy IoT [Źródło: wyklad_1.qmd, Slajd 3, Sekcja: Kevin Ashton i Toster]</text>
+    </category>
+    <name>
+      <text>Q2_Kevin_Ashton_Termin</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Kto i w którym roku ukuł termin &quot;Internet of Things&quot; (IoT)?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Kevin Ashton, pracując w Procter &amp; Gamble, analizował problem pustych półek ze szminkami Olay i zidentyfikował technologię RFID jako klucz do autonomicznego śledzenia towarów.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Kevin Ashton, 1999</text>
+      <feedback format="html">
+        <text>Poprawnie! Kevin Ashton z Procter &amp; Gamble użył tego terminu w prezentacji w 1999 roku.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Tim Berners-Lee, 1989</text>
+      <feedback format="html">
+        <text>Niepoprawnie. Tim Berners-Lee wynalazł World Wide Web.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Vint Cerf, 2000</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Elon Musk, 2010</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 1 - Podstawy IoT [Źródło: wyklad_1.qmd, Slajd 3, Sekcja: Moment Zwrotny]</text>
+    </category>
+    <name>
+      <text>Q3_Moment_Zwrotny_Skala</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;W którym roku liczba aktywnych, połączonych urządzeń po raz pierwszy przewyższyła całkowitą populację ludzi na Ziemi?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Rok 2008/2009 to moment, gdy urządzenia IoT zaczęły generować więcej danych niż ludzie. To początek ery pasywnego generowania danych telemetrycznych.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>2008/2009</text>
+      <feedback format="html">
+        <text>Poprawnie! Według analiz Cisco był to historyczny Rubikon.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>2000</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To za wcześnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>2015</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To już po przekroczeniu.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>1999</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 1 - Architektura IoT [Źródło: wyklad_1.qmd, Slajd 4, Sekcja: Architektura Systemów IoT]</text>
+    </category>
+    <name>
+      <text>Q4_Architektura_Warstwy</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Jakie są trzy główne warstwy architektury systemów IoT według modelu IEEE?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Model 3-warstwowy: Percepcja (czujniki/aktuatory), Sieć (bramy, routing), Aplikacja (dashboardy, analityka).&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Percepcja, Sieć, Aplikacja</text>
+      <feedback format="html">
+        <text>Poprawnie! To podstawowy model 3-warstwowy.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Hardware, Software, Cloud</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Czujniki, Procesory, Ekrany</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Input, Processing, Output</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To model komputera, nie IoT.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 1 - Architektura IoT [Źródło: wyklad_1.qmd, Slajd 6, Sekcja: Warstwa Percepcji]</text>
+    </category>
+    <name>
+      <text>Q5_Warstwa_Percepcji</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Co należy do warstwy percepcji w systemie IoT?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Warstwa percepcji odpowiada za zbieranie danych z otoczenia (czujniki) i wpływ na fizyczny świat (aktuatory).&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Czujniki i aktuatory</text>
+      <feedback format="html">
+        <text>Poprawnie! To &quot;zmysły&quot; i &quot;ręce&quot; systemu IoT.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Serwery chmurowe</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To warstwa aplikacji.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Protokoły MQTT, HTTP</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To warstwa sieci/aplikacji.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Bazy danych</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 1 - Architektura IoT [Źródło: wyklad_1.qmd, Slajd 8, Sekcja: Brama brzegu sieci]</text>
+    </category>
+    <name>
+      <text>Q6_Edge_Computing_Definicja</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Czym jest Edge Computing w kontekście IoT?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Edge Computing pozwala na filtrowanie i agregację danych na bramie (Gateway), zanim trafią do chmury. Krytyczne dla systemów czasu rzeczywistego.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Przetwarzanie danych blisko źródła ich powstawania, na brzegu sieci</text>
+      <feedback format="html">
+        <text>Poprawnie! Redukuje to opóźnienia i obciążenie chmury.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Przesyłanie wszystkich danych bezpośrednio do chmury</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To przeciwieństwo Edge Computing.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Zapisywanie danych na dyskach lokalnych</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Używanie tylko sieci kablowych</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 1 - Platformy Sprzętowe [Źródło: wyklad_1.qmd, Slajd 10, Sekcja: Platformy sprzętowe]</text>
+    </category>
+    <name>
+      <text>Q7_ESP32_Arduino_Porownanie</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Która platforma sprzętowa ma wbudowane Wi-Fi i Bluetooth oraz bardzo niski pobór prądu w trybie uśpienia?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;ESP32 to System on Chip (SoC) z wbudowanym Wi-Fi/Bluetooth, pobierający mikroampery w trybie deep sleep. Idealny dla autonomicznych czujników terenowych.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>ESP32</text>
+      <feedback format="html">
+        <text>Poprawnie! ESP32 to król taniego, profesjonalnego IoT.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Arduino Uno</text>
+      <feedback format="html">
+        <text>Niepoprawnie. Arduino wymaga dodatkowych shieldów do łączności radiowej.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Raspberry Pi 5</text>
+      <feedback format="html">
+        <text>Niepoprawnie. Raspberry Pi to komputer, zbyt prądożerny dla czujników bateryjnych.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Intel NUC</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 1 - Platformy Sprzętowe [Źródło: wyklad_1.qmd, Slajd 11, Sekcja: Deep Sleep]</text>
+    </category>
+    <name>
+      <text>Q8_Deep_Sleep_Zasada</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Na czym polega mechanizm &quot;Deep Sleep&quot; w mikrokontrolerach IoT?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Deep Sleep pozwala mikrokontrolerom pracować lata na jednej baterii. Procesor budzi się na ułamek sekundy, wysyła dane i wraca do snu.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Procesor wyłącza większość systemów, budzi się tylko na chwilę by wykonać zadanie i zasypia ponownie</text>
+      <feedback format="html">
+        <text>Poprawnie! To klucz do wieloletniej pracy na baterii.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Procesor działa z pełną wydajnością 24/7</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To szybko wyczerpie baterię.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Bateria jest ładowana energią słoneczną</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To osobna technologia.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Urządzenie jest podłączone do sieci elektrycznej</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 1 - Digital Twins [Źródło: wyklad_1.qmd, Slajd 12, Sekcja: Digital Twins]</text>
+    </category>
+    <name>
+      <text>Q9_Digital_Twins_Definicja</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Czym jest Cyfrowy Bliźniak (Digital Twin) w IoT?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Cyfrowy Bliźniak to nie tylko wizualizacja 3D - to żywy model zasilany strumieniem danych z czujników, pozwalający na symulacje &quot;What If&quot;.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Wirtualna kopia fizycznego obiektu/systemu zasilana danymi z czujników w czasie rzeczywistym</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Kopia zapasowa danych w chmurze</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Drugi identyczny czujnik dla redundancji</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Symulator bez połączenia z rzeczywistymi danymi</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 1 - Platformy Sprzętowe [Źródło: wyklad_1.qmd, Slajd 13, Tabela]</text>
+    </category>
+    <name>
+      <text>Q10_Raspberry_Pi_Zastosowanie</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Do czego najlepiej nadaje się Raspberry Pi w architekturze IoT?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Raspberry Pi to Single Board Computer (SBC) z Linuxem. Idealny jako lokalny serwer, brama lub hub, ale wymaga stałego zasilania.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Lokalna brama (Gateway) koordynująca, serwer MQTT, Edge Computing</text>
+      <feedback format="html">
+        <text>Poprawnie! Raspberry Pi to pełny komputer z Linuxem.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Autonomiczny czujnik terenowy na baterii</text>
+      <feedback format="html">
+        <text>Niepoprawnie. Zbyt prądożerny.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Prosty prototyp edukacyjny bez łączności</text>
+      <feedback format="html">
+        <text>Niepoprawnie. Do tego lepsze Arduino.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Zasilanie innych urządzeń</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 2 - Protokoły Komunikacyjne [Źródło: wyklad_2.qmd, Slajd 1, Sekcja: Trójkąt Niemożliwy IoT]</text>
+    </category>
+    <name>
+      <text>Q11_Trojkat_Niemozliwy</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;W &quot;Trójkącie Niemożliwym IoT&quot; inżynier może wybrać tylko DWA z trzech parametrów. Które to parametry?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Fizyka fal elektromagnetycznych wymusza kompromis: daleki zasięg + długa bateria = niska przepustowość (LPWAN).&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Zasięg, Przepustowość, Czas życia na baterii</text>
+      <feedback format="html">
+        <text>Poprawnie! Nie da się mieć wszystkich trzech jednocześnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Koszt, Rozmiar, Kolor</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Szybkość, Bezpieczeństwo, Cena</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Zasięg, Bezpieczeństwo, Cena</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 2 - Protokoły Komunikacyjne [Źródło: wyklad_2.qmd, Slajd 2, Sekcja: Wi-Fi]</text>
+    </category>
+    <name>
+      <text>Q12_WiFi_IoT_Wady</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Dlaczego Wi-Fi jest nieodpowiednie dla urządzeń IoT zasilanych bateryjnie?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Wi-Fi wymaga ciągłego nasłuchiwania beaconów i złożonego handshake, co zużywa setki mA. Nadaje się tylko dla urządzeń ze stałym zasilaniem.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Koszmarnie prądożerne - napadowe budzenie anteny i beaconing pochłaniają setki mA</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Zbyt mały zasięg</text>
+      <feedback format="html">
+        <text>Niepoprawnie. Zasięg Wi-Fi jest wystarczający.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Brak obsługi IPv6</text>
+      <feedback format="html">
+        <text>Niepoprawnie. Wi-Fi obsługuje IPv6.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Zbyt wysoka przepustowość</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 2 - Protokoły Komunikacyjne [Źródło: wyklad_2.qmd, Slajd 3, Sekcja: Bluetooth Low Energy]</text>
+    </category>
+    <name>
+      <text>Q13_BLE_Roznica</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Jaka jest główna różnica między Bluetooth Classic a Bluetooth Low Energy (BLE)?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Bluetooth Low Energy (BLE) wprowadził rewolucyjny tryb uśpienia - radio budzi się na milisekundy, wysyła pakiet i zasypia. Bateria CR2032 wystarcza na lata.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>BLE usypia radio natychmiast po wysłaniu pakietu, Classic przesyła ciągły strumień</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>BLE ma większy zasięg</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Classic jest nowszy</text>
+      <feedback format="html">
+        <text>Niepoprawnie. BLE jest nowszy.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Nie ma różnicy</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 2 - Protokoły Komunikacyjne [Źródło: wyklad_2.qmd, Slajd 4, Sekcja: Zigbee i Z-Wave]</text>
+    </category>
+    <name>
+      <text>Q14_Zigbee_Mesh</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Jaką zaletę ma sieć Zigbee w topologii Mesh?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Zigbee Mesh pozwala urządzeniom zasilanym z sieci (np. żarówki) działać jako routery, przekazując pakiety od czujników bateryjnych. Awaria jednego węzła nie przerywa komunikacji.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Urządzenia zasilane z sieci działają jako wzmacniacze, system samoleczący</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Mniejszy pobór energii niż BLE</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Działa w paśmie 5 GHz</text>
+      <feedback format="html">
+        <text>Niepoprawnie. Zigbee działa w 2,4 GHz.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Nie wymaga bramki</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 2 - Protokoły Komunikacyjne [Źródło: wyklad_2.qmd, Slajd 5, Sekcja: LPWAN]</text>
+    </category>
+    <name>
+      <text>Q15_LPWAN_Zastosowanie</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Do czego służy technologia LPWAN (Low Power Wide Area Network)?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;LPWAN oferuje zasięg 15-20 km i żywotność baterii 5-10 lat, ale przesyła tylko kilkadziesiąt bajtów na sekundę. Idealne dla czujników środowiskowych.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Telemetria na kilometry przy minimalnym zużyciu energii, bateria 5-10 lat</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Przesyłanie wideo z kamer</text>
+      <feedback format="html">
+        <text>Niepoprawnie. LPWAN ma zbyt niską przepustowość.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Komunikacja wewnątrz jednego pomieszczenia</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Połączenia głosowe</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 2 - Protokoły Komunikacyjne [Źródło: wyklad_2.qmd, Slajd 7, Sekcja: LoRaWAN vs NB-IoT]</text>
+    </category>
+    <name>
+      <text>Q16_LoRaWAN_NBIoT</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Jaka jest główna różnica między LoRaWAN a NB-IoT?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;LoRaWAN działa w darmowym paśmie 868 MHz, pozwala na budowę własnej sieci. NB-IoT to standard operatorów komórkowych na istniejącej infrastrukturze 4G.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>LoRaWAN pozwala na budowę własnych bramek w darmowym paśmie, NB-IoT wymaga operatora</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>NB-IoT ma większy zasięg</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>LoRaWAN wymaga abonamentu</text>
+      <feedback format="html">
+        <text>Niepoprawnie. LoRaWAN może być darmowy.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Nie ma różnicy</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 2 - Protokoły Komunikacyjne [Źródło: wyklad_2.qmd, Slajd 8, Sekcja: Sigfox]</text>
+    </category>
+    <name>
+      <text>Q17_Sigfox_Limit</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Ile wiadomości dziennie może wysłać urządzenie w sieci Sigfox?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Sigfox to technologia ultralekkich wiadomości - maksymalnie 140 wiadomości dziennie po 12 bajtów. Idealne dla prostych powiadomień &quot;jestem sprawny&quot;.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Maksymalnie 140 wiadomości dziennie, 12 bajtów na wiadomość</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Nieograniczenie</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>1000 wiadomości</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Tylko 1 wiadomość</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 2 - Protokoły Aplikacyjne [Źródło: wyklad_2.qmd, Slajd 9, Sekcja: Dlaczego HTTP nie pasuje]</text>
+    </category>
+    <name>
+      <text>Q18_HTTP_IoT_Problem</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Dlaczego protokół HTTP nie pasuje do urządzeń IoT?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;HTTP ma duże nagłówki (często większe niż dane pomiarowe) i wymaga synchronicznego oczekiwania na odpowiedź, co zużywa energię radia.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Duży narzut nagłówków, model synchroniczny request-response, brak asynchroniczności</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>HTTP nie obsługuje JSON</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>HTTP jest zbyt wolny</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>HTTP wymaga kabla Ethernet</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 2 - Protokoły Aplikacyjne [Źródło: wyklad_2.qmd, Slajd 10, Sekcja: MQTT]</text>
+    </category>
+    <name>
+      <text>Q19_MQTT_PubSub</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Jak działa architektura MQTT?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;MQTT używa Brokera jako pośrednika. Czujnik publikuje wiadomość pod tematem, Broker dystrybuuje ją do wszystkich subskrybentów. Nagłówek wiadomości to tylko 2 bajty.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Publikacja/Subskrypcja przez centralnego Brokera, urządzenia nie wiedzą o sobie nawzajem</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Bezpośrednie połączenie między czujnikiem a aplikacją</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Każde urządzenie odpytuje serwer</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To model HTTP.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Połączenie punkt-punkt</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 2 - Protokoły Aplikacyjne [Źródło: wyklad_2.qmd, Slajd 11, Sekcja: MQTT Tematy i QoS]</text>
+    </category>
+    <name>
+      <text>Q20_MQTT_QoS</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Co oznacza QoS 2 w protokole MQTT?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;QoS 2 to najwyższy poziom - pełny handshake (PUBREC/PUBREL/PUBCOMP) gwarantujący dokładnie jednokrotne dostarczenie. QoS 0 to &quot;fire and forget&quot;, QoS 1 to &quot;at least once&quot;.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Pełny handshake, gwarancja dostarczenia wiadomości</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Wyślij i zapomnij</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To QoS 0.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Wymaga potwierdzenia, możliwe duplikaty</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To QoS 1.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Brak potwierdzenia</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 2 - Protokoły Aplikacyjne [Źródło: wyklad_2.qmd, Slajd 12, Sekcja: CoAP i AMQP]</text>
+    </category>
+    <name>
+      <text>Q21_CoAP_UDP</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Na jakim protokole transportowym bazuje CoAP?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;CoAP (Constrained Application Protocol) to odpowiednik HTTP dla mikrokontrolerów, działający na UDP. Szybszy, ale bez gwarancji dostarczenia. Obsługuje metody GET, POST, PUT.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>UDP - szybszy, bezpołączeniowy, bez gwarancji dostarczenia</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>TCP</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To MQTT i HTTP.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>SCTP</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>ICMP</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 3 - Cloud i Platformy [Źródło: wyklad_3.qmd, Slajd 1, Sekcja: Od gigabajtów do wiedzy]</text>
+    </category>
+    <name>
+      <text>Q22_Chmura_BigData</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Dlaczego pojedynczy czujnik temperatury jest bezwartościowy, ale 10 000 czujników tworzy wartość?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Big Data z tysięcy czujników pozwala na analizę wzorców, predykcję i optymalizację. Pojedynczy punkt danych nie daje kontekstu.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>10 000 czujników generuje Big Data, z których można wyciągać wnioski biznesowe</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Pojedynczy czujnik jest zbyt tani</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>10 000 czujników zużywa więcej prądu</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Nie ma różnicy</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 3 - Cloud i Platformy [Źródło: wyklad_3.qmd, Slajd 2, Sekcja: Platformy korporacyjne]</text>
+    </category>
+    <name>
+      <text>Q23_Vendor_Lockin</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Co stało się z Google Cloud IoT Core w 2023 roku?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Wyłączenie Google Cloud IoT Core w 2023 to przykład Vendor Lock-in - oparcie projektu w 100% o jednego dostawcę chmury to poważne ryzyko biznesowe.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Google wyłączyło usługę, zmuszając firmy do kosztownej migracji</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Google zwiększyło pojemność</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Usługa została sprzedana Amazonowi</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Nic, działa nadal</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 3 - Cloud i Platformy [Źródło: wyklad_3.qmd, Slajd 3, Sekcja: Narzędzia otwartoźródłowe]</text>
+    </category>
+    <name>
+      <text>Q24_ThingsBoard</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Które narzędzie open-source pozwala na tworzenie profesjonalnych dashboardów IoT?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;ThingsBoard to platforma open-source z profesjonalnymi dashboardami. Inne narzędzia to Home Assistant (integracja lokalna) i Node-RED (wizualne programowanie logiki).&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>ThingsBoard</text>
+      <feedback format="html">
+        <text>Poprawnie! ThingsBoard obsługuje ogromne potoki danych telemetrycznych.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Photoshop</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Excel</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Notepad</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 3 - Smart City i IIoT [Źródło: wyklad_3.qmd, Slajd 4, Sekcja: Barcelona]</text>
+    </category>
+    <name>
+      <text>Q25_Barcelona_SmartCity</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Jakie oszczędności osiągnęła Barcelona dzięki inteligentnemu oświetleniu miejskiemu?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Barcelona to pionier Smart City. 10 000 lamp analizuje ruch pieszych i gaśnie inteligentnie na peryferiach, oszczędzając 30% budżetu energetycznego.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>30% budżetu energetycznego rocznie dzięki 10 000 lamp analizujących ruch</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>10%</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>50%</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Nie było oszczędności</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 3 - Smart City i IIoT [Źródło: wyklad_3.qmd, Slajd 5, Sekcja: Smart City i Przemysł 4.0]</text>
+    </category>
+    <name>
+      <text>Q26_Predictive_Maintenance</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Na czym polega Predictive Maintenance w Przemysle 4.0?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Predictive Maintenance używa czujników wibracji i temperatury do wykrywania wczesnych oznak zużycia łożysk i innych podzespołów, pozwalając na planowaną naprawę przed katastrofalną awarią.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Przewidywanie awarii maszyn na podstawie analizy wibracji i temperatury zanim dojdzie do fizycznej awarii</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Naprawa maszyn po awarii</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To maintenance reaktywny.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Regularna wymiana części co miesiąc</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To maintenance prewencyjny.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Czyszczenie maszyn</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 3 - Smart City i IIoT [Źródło: wyklad_3.qmd, Slajd 6, Sekcja: Cyfrowe Bliźniaki]</text>
+    </category>
+    <name>
+      <text>Q27_Digital_Twin_RealTime</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Czym różni się Cyfrowy Bliźniak od zwykłej wizualizacji 3D?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Cyfrowy Bliźniak to nie statyczny model 3D - to żywa reprezentacja zasilana danymi telemetrycznymi w czasie rzeczywistym, pozwalająca na symulacje &quot;What If&quot;.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Cyfrowy Bliźniak jest zasilany strumieniem danych z czujników w czasie rzeczywistym</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Niczym, to to samo</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Cyfrowy Bliźniak jest większy</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Wizualizacja 3D jest droższa</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 3 - Bezpieczeństwo IoT [Źródło: wyklad_3.qmd, Slajd 7, Sekcja: Gdy rzeczy stają się bronią]</text>
+    </category>
+    <name>
+      <text>Q28_Botnet_Mirai</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Co to był Botnet Mirai (2016)?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Mirai przejął miliony kamer IP z domyślnymi hasłami (admin/admin) i użył ich do gigantycznego ataku DDoS na infrastrukturę DNS, wyłączając m.in. Twitter i Netflix.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Złośliwe oprogramowanie przejmujące kontrolę nad niezabezpieczonymi kamerami IP do ataków DDoS</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Nowy protokół komunikacyjny</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Firma produkująca kamery</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>System antywirusowy</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 3 - Bezpieczeństwo IoT [Źródło: wyklad_3.qmd, Slajd 8, Sekcja: Dobre praktyki]</text>
+    </category>
+    <name>
+      <text>Q29_Bezpieczenstwo_Praktyki</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Które NIE jest dobrą praktyką bezpieczeństwa IoT?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Dobre praktyki: X.509 dla TLS/DTLS, aktualizacje OTA, segmentacja VLAN, Secure Boot. Domyślne hasła to najczęstsza przyczyna przejęć urządzeń.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Używanie domyślnych haseł admin/admin</text>
+      <feedback format="html">
+        <text>Poprawnie! To ZŁA praktyka - należy zmieniać hasła.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Szyfrowanie asymetryczne X.509</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To DOBRA praktyka.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Aktualizacje OTA</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To DOBRA praktyka.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Segmentacja sieci VLAN</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To DOBRA praktyka.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład 3 - Bezpieczeństwo IoT [Źródło: wyklad_3.qmd, Slajd 9, Sekcja: Prywatność]</text>
+    </category>
+    <name>
+      <text>Q30_Prywatność_Liczniki</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Co mogą ujawnić inteligentne liczniki energii mierzące zużycie co 10 sekund?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Analiza pików zużycia energii pozwala określić harmonogram dnia mieszkańców - kiedy wstają, wychodzą, gotują. To poważne wyzwanie dla prywatności.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Kiedy włączasz czajnik, wychodzisz z domu i wracasz - na podstawie pików zużycia</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Tylko miesięczne zużycie</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Nic, to tylko liczby</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Tylko czy jest prąd</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład Intro - Zastosowania IoT [Źródło: wyklad_intro_1.qmd, Slajd 4, Sekcja: IoT w Rolnictwie]</text>
+    </category>
+    <name>
+      <text>Q31_Rolnictwo_IoT</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Co to jest Tree-Talker w rolnictwie precyzyjnym?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Tree-Talker to autonomiczny sensor montowany na pniach drzew, mierzący przepływ soków (Xylem sap flow), absorpcję światła i wibracje korony. Zasilany panelem fotowoltaicznym.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Autonomiczne opaski przybijane do pni drzew analizujące przepływ soków i absorpcję światła</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Nowy ciągnik</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Oprogramowanie do fakturowania</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Nawóz sztuczny</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład Intro - Zastosowania IoT [Źródło: wyklad_intro_1.qmd, Slajd 5, Sekcja: Medycyna]</text>
+    </category>
+    <name>
+      <text>Q32_Wearables_Medycyna</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Co mierzy pierścionek Oura Ring?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Oura Ring to zaawansowany wearable mierzący HRV, SpO2, wzorce snu i aktywności. Buduje bazę danych pozwalającą wyprzedzać diagnozy spadku samopoczucia.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Zmienność rytmu zatokowego (HRV) i nasycenie tlenem 24h/7</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Tylko kroki</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Tylko sen</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Tylko tętno w spoczynku</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład Intro - Zastosowania IoT [Źródło: wyklad_intro_1.qmd, Slajd 7, Sekcja: Przemysł 4.0]</text>
+    </category>
+    <name>
+      <text>Q33_Predictive_Przemysl</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Co mogą wykryć czujniki wibracji na robotach chwytnych w fabryce?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Predictive Maintenance w Przemyśle 4.0 używa czujników wibracji do wykrywania wczesnych oznak zużycia łożysk, minimalizując przestoje taśm produkcyjnych.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Zatarte łożyska jeszcze przed pęknięciem</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Kolor produktu</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Wagę produktu</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Temperaturę hali</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład Intro - Zastosowania IoT [Źródło: wyklad_intro_1.qmd, Slajd 9, Sekcja: Cykl IoT &amp; AI]</text>
+    </category>
+    <name>
+      <text>Q34_Generacja_4</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Co charakteryzuje Generację 4.0 w rolnictwie/przemyśle?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Generacja 4.0 to połączenie IoT (zbiór danych z czujników) z AI/ML (analiza i predykcja). System staje się reagujący na warunki środowiska i rozmawia &quot;językiem naturalnym&quot;.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Wykorzystanie IoT na brzegu sieci do zbioru danych i napędzania algorytmów ML/AI</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Praca ręczna</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To Generacja 1.0.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Maszyny mechaniczne na ropę</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To Generacja 2.0.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Komputery i Excel</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To Generacja 3.0.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład Intro 2 - Zagrożenia [Źródło: wyklad_intro_2.qmd, Slajd 1, Sekcja: Ciemna strona mocy]</text>
+    </category>
+    <name>
+      <text>Q35_Cambridge_Analytica</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Do czego wykorzystano dane z Facebooka w aferze Cambridge Analytica?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Cambridge Analytica użyła danych Facebooka do tworzenia profili psychologicznych i mikro-targetowania reklam politycznych, wpływając na wyniki wyborów.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Do mikro-targetowania i wpływania na demokratyczne wybory</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Do sprzedaży produktów</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Do badań naukowych</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Do poprawy algorytmów</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład Intro 2 - Zagrożenia [Źródło: wyklad_intro_2.qmd, Slajd 1, Sekcja: Ciemna strona mocy]</text>
+    </category>
+    <name>
+      <text>Q36_Chinski_System</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Co to jest Chiński System Kredytu Społecznego?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Chiński System Kredytu Społecznego to system nadzoru, który klasyfikuje obywateli na podstawie zachowań (np. granie w gry wideo = osoba bezproduktywna).&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>System automatycznej weryfikacji i nadzoru obywateli na podstawie ich zachowań</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>System bankowy</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>System podatkowy</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>System ubezpieczeń</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład Intro 2 - Zagrożenia [Źródło: wyklad_intro_2.qmd, Slajd 2, Sekcja: Sztuczna Inteligencja]</text>
+    </category>
+    <name>
+      <text>Q37_AI_Rynek_Pracy</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Jakie ryzyko niesie rewolucja AI według Yuval Noah Harari?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Harari ostrzega, że AI może stworzyć &quot;bezużyteczną klasę&quot; - miliardy ludzi bez pracy, co doprowadzi do poważnych napięć politycznych i społecznych.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Wypchnięcie miliardów ludzi z rynku pracy i powstanie &quot;bezużytecznej klasy&quot;</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Zbyt wiele miejsc pracy</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Spadek cen komputerów</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Brak ryzyka</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład Intro 2 - BCI/Energia [Źródło: wyklad_intro_2.qmd, Slajd 6, Sekcja: Bezpośredni transfer wrażeń]</text>
+    </category>
+    <name>
+      <text>Q38_BCI_Nicolelis</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Co udowodnił eksperyment Miguela Nicolelisa z szczurami?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Nicolelis połączył implanty mózgowe dwóch szczurów (USA i Brazylia) przez Internet. Szczur podrzędny uczył się zadań wyłącznie z sygnałów przesyłanych z mózgu pierwszego szczura.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Możliwość przesyłania komend ruchowych między mózgami szczurów przez TCP/IP na odległość kontynentów</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Że szczury są inteligentne</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Że TCP/IP jest wolny</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Nic nowego</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład Intro 2 - Energia [Źródło: wyklad_intro_2.qmd, Slajd 8, Sekcja: Podstawowa Blokada]</text>
+    </category>
+    <name>
+      <text>Q39_Koszt_Energii</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Ile energii dziennie zużywa dorosły człowiek w porównaniu do samochodu?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Przejechanie 5 km autem zużywa więcej energii niż dobowe zapotrzebowanie całego ludzkiego organizmu. Mózg ludzki działa na ~20W - to ewolucyjny cud efektywności.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>~3.5 kWh (2500-3000 kcal) vs auto zużywające 2.5 MJ na kilometr</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Tyle samo</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Człowiek zużywa więcej</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Samochód nie zużywa energii</text>
+      <feedback format="html">
+        <text>Niepoprawnie.</text>
+      </feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <category>
+      <text>Wykład Intro 2 - Literatura [Źródło: wyklad_intro_2.qmd, Slajd 9, Sekcja: Literatura]</text>
+    </category>
+    <name>
+      <text>Q40_Literatura_Harari</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Który autor napisał &quot;21 Lekcji na XXI Wiek&quot; i &quot;Homo Deus&quot;?&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;p&gt;Harari analizuje wpływ technologii na ludzkość. Lektura obowiązkowa dla inżynierów myślących o konsekwencjach swoich projektów.&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden/>
+    <single>true</single>
+    <answer fraction="100">
+      <text>Yuval Noah Harari</text>
+      <feedback format="html">
+        <text>Poprawnie!</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Aldous Huxley</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To &quot;Nowy Wspaniały Świat&quot;.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Jacek Dukaj</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To &quot;Po słowie&quot;.</text>
+      </feedback>
+    </answer>
+    <answer fraction="0">
+      <text>Ramez Naam</text>
+      <feedback format="html">
+        <text>Niepoprawnie. To trylogia Nexus.</text>
+      </feedback>
+    </answer>
+  </question>
+</quiz>
