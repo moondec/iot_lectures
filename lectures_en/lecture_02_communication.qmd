@@ -72,21 +72,19 @@ In the Internet of Things world, "Machine-Machine" (M2M) communication relies on
 * They operate in basements, on the open sea, or buried in concrete-hard soil.
 * How to make them transmit data in such conditions without draining the battery in five minutes?
 :::
-::: {.fragment .fade-in .callout-note style="font-size: 0.8em; background-color: #e6f3f7ff;"}
-### IoT Impossible Triangle
-An engineer designing a network system must choose **only two of three** parameters:
-
-1. Range (kilometers)
-2. Throughput (megabytes per second)
-3. Battery life (years)
-:::
 :::
 
 ::: {.column width="50%"}
 ::: {.fragment}
-![](../img/scatter_triangle.png){width=90%}
-
+![](../img/scatter_triangle.png){width=85% style="background-color: white; padding: 15px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"}
 :::
+:::
+:::
+
+::: {.fragment .fade-in}
+::: {.callout-note style="font-size: 0.85em; background-color: #e6f3f7ff; margin-top: 15px;"}
+### IoT Impossible Triangle
+An engineer designing a network system must choose **only two of three** parameters: **1. Range** (kilometers), **2. Throughput** (megabytes per second), or **3. Battery life** (years).
 :::
 :::
 
@@ -241,7 +239,7 @@ Where lies the physical and energetic boundary of each standard?
 :::
 
 ::: {.column width="70%"}
-![](../img/protocol_bubble.png){width=60%}
+![](../img/protocol_bubble.png){width=85% style="background-color: white; padding: 15px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"}
 :::
 :::
 
