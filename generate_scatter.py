@@ -5,8 +5,10 @@ import os
 # Ensure img dir exists
 os.makedirs('img', exist_ok=True)
 
-plt.style.use('dark_background')
-fig, ax = plt.subplots(figsize=(10, 6))
+# Use clean default style
+plt.style.use('default')
+fig, ax = plt.subplots(figsize=(10, 6.2), facecolor='white')
+ax.set_facecolor('#f8f9fa')
 
 # Data: [Range (m), Bandwidth (bps), Power (mA scale)]
 techs = {
@@ -22,24 +24,36 @@ techs = {
 
 x = [v[0] for v in techs.values()]
 y = [v[1] for v in techs.values()]
-sizes = [v[2]*15 for v in techs.values()] 
+sizes = [v[2]*1.5 for v in techs.values()] # scale for bubble sizes
 
-scatter = ax.scatter(x, y, s=sizes, alpha=0.7, c=sizes, cmap='YlOrRd')
+# Create scatter plot
+scatter = ax.scatter(x, y, s=sizes, alpha=0.85, c=[v[2] for v in techs.values()], cmap='YlOrRd', edgecolors='#111111', linewidths=1.5)
 
+# Annotate each technology label in bold black
 for i, txt in enumerate(techs.keys()):
-    ax.annotate(txt, (x[i], y[i]), xytext=(10, 0), textcoords='offset points', color='white', fontsize=11, fontweight='bold', va='center')
+    ax.annotate(txt, (x[i], y[i]), xytext=(12, 0), textcoords='offset points', color='black', fontsize=11, fontweight='bold', va='center')
 
+# Log scales as required by the logarithmic nature of range/bandwidth
 ax.set_xscale('log')
 ax.set_yscale('log')
-ax.set_xlabel('Zasięg [Metry]', fontsize=12)
-ax.set_ylabel('Przepustowość [b/s]', fontsize=12)
-ax.set_title('Złoty Trójkąt Łączności IoT: Kompromisy', fontsize=16, fontweight='bold', pad=20)
 
-# Add a colorbar to explain size/color
+# Axis labels and titles in bold black (bilingual)
+ax.set_xlabel('Zasięg / Range [m]', fontsize=13, fontweight='bold', color='black', labelpad=10)
+ax.set_ylabel('Przepustowość / Bandwidth [b/s]', fontsize=13, fontweight='bold', color='black', labelpad=10)
+ax.set_title('IoT Connectivity: Range vs. Bandwidth vs. Power', fontsize=16, fontweight='bold', pad=20, color='black')
+
+# Style ticks
+ax.tick_params(colors='black', which='both', labelsize=10)
+
+# Add a colorbar to explain size/color with bold black labels
 cbar = plt.colorbar(scatter)
-cbar.set_label('Zużycie Energii (szacunkowe)', fontsize=12)
+cbar.set_label('Power Consumption / Pobór prądu [mA]', fontsize=11, fontweight='bold', color='black', labelpad=10)
+cbar.ax.tick_params(colors='black')
 
-plt.grid(True, which="both", ls="--", alpha=0.2)
+# Grid setup
+plt.grid(True, which="both", ls="--", alpha=0.5, color='#cccccc')
 plt.tight_layout()
-plt.savefig('img/scatter_triangle.png', transparent=True, dpi=300)
-print("Saved scatter plot to img/scatter_triangle.png")
+
+# Save with a solid white background (not transparent) so it is universally high contrast
+plt.savefig('img/scatter_triangle.png', transparent=False, dpi=300, facecolor='white')
+print("Saved light-themed scatter plot to img/scatter_triangle.png")
