@@ -1,2 +1,10 @@
+.quarto/
+*_files/
+.ipynb_checkpoints/
+.DS_Store
+*.bak
+
 /.quarto/
 **/*.quarto_ipynb
+.Rproj.user
+.Rhistory
