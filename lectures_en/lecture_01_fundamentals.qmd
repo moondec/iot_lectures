@@ -172,25 +172,33 @@ Industry is the main recipient of IIoT (Industrial IoT). Here, time is huge mone
 
 ---
 
-## <i class="bi bi-diagram-3"></i> 6. IoT & AI Cycle – The Future, and Now?
+## <i class="bi bi-diagram-3"></i> 6. IoT & AI Cycle – Generations 1.0 to 3.0
 
 Four phases of data processing development in history.
 
-::: {.fragment}
+::: {.incremental}
 * **Generation 1.0:** Manual, simple physical work based on animal muscles.
 * **Generation 2.0:** Use of mechanical machines – a leap from biological energy to petroleum and coal power.
 * **Generation 3.0:** Mathematical prediction, 90s informatics, rigid ERP systems trying to plan efficiency in Excels.
 :::
 
+::: {.notes}
+Refer to the evolution of agriculture from sources "doi.org/10.1016/j.compag.2022.107217". Generations have changed. In 4.0, the farmer (or production manager) no longer operates a plow but a tablet panel launching autonomous pollinating or sowing drone swarms on a macro scale.
+:::
+
+---
+
+## <i class="bi bi-diagram-3"></i> 6. IoT & AI Cycle – Generation 4.0
+
 ::: {.fragment}
-::: {.callout-note style="font-size: 1.5em;"}
+::: {.callout-note style="font-size: 1.3em;"}
 ### Agriculture / Industry Transformation to Generation 4.0
 We are entering the fourth higher paradigm of consciousness – Using IoT tools at the network edge to immediately collect gigabits of information and power machine learning algorithms (ML / AI) with these databases. The system becomes responsive to environmental boundary conditions and speaks "natural language".
 :::
 :::
 
 ::: {.notes}
-Refer to the evolution of agriculture from sources "doi.org/10.1016/j.compag.2022.107217". Generations have changed. In 4.0, the farmer (or production manager) no longer operates a plow but a tablet panel launching autonomous pollinating or sowing drone swarms on a macro scale.
+In 4.0, the system becomes responsive to environmental boundary conditions and leverages machine learning models at the edge.
 :::
 
 ---

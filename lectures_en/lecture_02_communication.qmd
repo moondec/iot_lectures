@@ -252,7 +252,7 @@ Handover (or handoff) is a process in wireless networks (mainly cellular) that i
 
 ---
 
-## <i class="bi bi-antenna"></i> 7. LoRaWAN vs NB-IoT: Private Network or Subscription?{.smaller}
+## <i class="bi bi-antenna"></i> 7. LoRaWAN vs NB-IoT: Two Approaches
 
 Two competing approaches to long-range connectivity.
 
@@ -277,6 +277,10 @@ Two competing approaches to long-range connectivity.
 :::
 :::
 :::
+
+---
+
+## <i class="bi bi-antenna"></i> 7. LoRaWAN: System Architecture
 
 ::: {.fragment}
 ```{mermaid}
@@ -359,7 +363,7 @@ Key to make the audience aware that the memory resourcefulness of a microcontrol
 
 ---
 
-## <i class="bi bi-envelope-paper"></i> 10. MQTT: Lightweight, Binary IoT Standard
+## <i class="bi bi-envelope-paper"></i> 10. MQTT: Publish/Subscribe Architecture
 
 **Message Queuing Telemetry Transport** – Publish/Subscribe (Pub/Sub) architecture.
 
@@ -390,14 +394,31 @@ graph TD
 
 :::
 :::
-::: {.fragment .fade-up .callout-note}
-### Efficiency
-MQTT message header is only **2 bytes**, minimizing radio module operating time and energy consumption.
-:::
 :::
 
 ::: {.notes}
 "MQTT (Message Queuing Telemetry Transport)" – protocol originally created by IBM for the oil sector. The key Pub/Sub architecture is that the sensor and dashboard application never communicate directly – both independently connect to the Broker. This ensures full client independence and protocol lightness.
+:::
+
+---
+
+## <i class="bi bi-envelope-paper"></i> 10. MQTT: Lightweight Efficiency
+
+::: {.fragment}
+::: {.callout-note style="font-size: 1.3em;"}
+### Binary Header Efficiency
+MQTT message header is only **2 bytes**, minimizing radio module operating time and energy consumption.
+:::
+:::
+
+::: {.incremental}
+* **Minimal overhead:** While HTTP packages carry hundreds of bytes of metadata headers, MQTT is extremely frugal.
+* **Low network latency:** Quick handshake and asynchronous design mean the radio module can be shut off quickly.
+* **Coin battery friendly:** Optimized for low-power microcontrollers operating on battery cells for years.
+:::
+
+::: {.notes}
+By using a simple binary format, MQTT ensures that even highly constrained microcontrollers (such as ESP32 or small 8-bit chips) can speak to network resources without depleting their batteries.
 :::
 
 ---
@@ -428,7 +449,9 @@ Advanced reliability mechanisms built into the protocol.
 
 ---
 
-<div style="text-align: center; transform: scale(1.7); transform-origin: top center;">
+## <i class="bi bi-folder2-open"></i> 11. MQTT: Quality of Service (QoS) Flows
+
+<div style="text-align: center; transform: scale(1.5); transform-origin: top center; margin-top: 20px;">
 ```{mermaid}
 %%| fig-align: center
 %%| fig-width: 5
@@ -437,19 +460,19 @@ Advanced reliability mechanisms built into the protocol.
 sequenceDiagram
     participant C as Sensor
     participant B as Broker
-    Note over C,B: QoS 0
+    Note over C,B: QoS 0 (Fire & Forget)
     C->>B: PUBLISH
-    Note over C,B: QoS 1
+    Note over C,B: QoS 1 (At least once)
     C->>B: PUBLISH
     B-->>C: PUBACK
-    Note over C,B: QoS 2
+    Note over C,B: QoS 2 (Exactly once)
     C->>B: PUBLISH
     B-->>C: PUBREC / PUBREL / PUBCOMP
 ```
 </div>
 
 ::: {.notes}
-Very important slide for code and data organization. Good topic tree design is half the success in maintaining order in a complex system. This allows analysts in R or Python to subscribe to entire data categories with one command (e.g., all temperature sensors in "B" hall).
+Quality of Service defines communication reliability levels. QoS 0 is fast and memoryless, QoS 1 guarantees delivery but allows duplicates, and QoS 2 ensures exactly once delivery through a 4-way handshake, at the cost of higher network overhead.
 :::
 
 ---
