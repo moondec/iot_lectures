@@ -82,3 +82,46 @@ fig.tight_layout(rect=[0, 0.035, 1, 1])
 fig.savefig(f"{OUT}/sheets-limit.png", dpi=170)
 plt.close(fig)
 print("OK assets/img/sheets-limit.png")
+
+# --- Rys. 3: paliwo a dobowa energia człowieka (wykład 00) -------------
+p = CALC["paliwo_czlowiek"]
+lo, hi = p["czlowiek_MJ_doba"]
+fig, ax = plt.subplots(figsize=(10, 4.6))
+ax.barh(["człowiek:\ndoba ciężkiej pracy", "samochód:\n5 km"], [hi, p["auto_5km_MJ"]],
+        color=[ACC, WARN], height=0.55, zorder=3)
+ax.barh([0], [lo], color="#5fa8b4", height=0.55, zorder=4)
+ax.text(hi + 0.2, 0, f"{lo}–{hi} MJ\n(2500–3000 kcal)".replace(".", ","), va="center", fontsize=14)
+ax.text(p["auto_5km_MJ"] + 0.2, 1, f"{p['auto_5km_MJ']} MJ".replace(".", ",") + "\n(ok. 0,35 l benzyny)",
+        va="center", fontsize=14)
+ax.set_xlim(0, 17)
+ax.set_xlabel("Energia [MJ]")
+ax.set_title("5 km samochodem ≈ dobowa energia człowieka", pad=12)
+ax.grid(True, axis="x", ls=":", color=GRID, zorder=1)
+fig.text(0.01, 0.01,
+         (f"Benzyna E5: 43,2 MJ/kg, 0,80 kg/l → {p['E5_MJ_l']} MJ/l; spalanie 7 l/100 km "
+          f"→ {p['auto_kWh_km']} kWh/km").replace(".", ",") + ". Rachunek: scripts/verify-calc.py.",
+         fontsize=10.5, color="#5a646e")
+fig.tight_layout(rect=[0, 0.05, 1, 1])
+fig.savefig(f"{OUT}/energia-auto-czlowiek.png", dpi=170)
+plt.close(fig)
+print("OK assets/img/energia-auto-czlowiek.png")
+
+# --- Rys. 4: liczba aktywnych urządzeń IoT (wykład 00) ------------------
+# IoT Analytics, State of IoT 2025: 2024 = szacunek, 2025 i 2030 = prognozy.
+lata, mld = ["2024", "2025", "2030"], [18.5, 21.1, 39.0]
+fig, ax = plt.subplots(figsize=(10, 5.2))
+bars = ax.bar(lata, mld, color=[ACC, "white", "white"], edgecolor=ACC,
+              hatch=["", "//", "//"], lw=2.5, width=0.55, zorder=3)
+for b, v, opis in zip(bars, mld, ["szacunek", "prognoza", "prognoza"]):
+    ax.text(b.get_x() + b.get_width() / 2, v + 0.8, f"{v:g} mld\n{opis}".replace(".", ","),
+            ha="center", fontsize=15, color=TXT)
+ax.set_ylim(0, 48)
+ax.set_ylabel("Aktywne urządzenia IoT [mld]")
+ax.set_title("Przyszłość jest już infrastrukturą", pad=12)
+ax.grid(True, axis="y", ls=":", color=GRID, zorder=1)
+fig.text(0.01, 0.01, "Źródło: IoT Analytics, State of IoT 2025 (28.10.2025). "
+         "Kreskowanie = prognoza, nie pomiar.", fontsize=10.5, color="#5a646e")
+fig.tight_layout(rect=[0, 0.035, 1, 1])
+fig.savefig(f"{OUT}/iot-urzadzenia.png", dpi=170)
+plt.close(fig)
+print("OK assets/img/iot-urzadzenia.png")

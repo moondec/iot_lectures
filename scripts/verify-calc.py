@@ -174,6 +174,27 @@ out["adc"] = {
 assert out["adc"]["kroki"] == 4096
 assert out["adc"]["LSB_mV_dla_3V3"] == 0.806
 
+# --- 9. Paliwo a dobowa energia człowieka (wykład 00) ------------------
+# Rachunek z prezentacji źródłowej „Internet przyszłości” (2022).
+E5_MJ_KG, E5_KG_L = 43.2, 0.80                 # wartość opałowa, gęstość benzyny
+SPALANIE_L_100KM = 7.0
+KCAL_MJ = 4.184e-3                              # 1 kcal = 4,184 kJ
+e5_mj_l = E5_MJ_KG * E5_KG_L
+mj_km = e5_mj_l * SPALANIE_L_100KM / 100
+dieta_mj = [k * KCAL_MJ for k in (2500, 3000)]
+out["paliwo_czlowiek"] = {
+    "E5_MJ_l": round(e5_mj_l, 2),
+    "auto_MJ_km": round(mj_km, 3), "auto_kWh_km": round(mj_km / 3.6, 3),
+    "czlowiek_MJ_doba": [round(x, 1) for x in dieta_mj],
+    "czlowiek_kWh_doba": [round(x / 3.6, 2) for x in dieta_mj],
+    "auto_5km_MJ": round(5 * mj_km, 1),
+    "km_na_dobe_czlowieka": [round(x / mj_km, 1) for x in dieta_mj],
+}
+assert out["paliwo_czlowiek"]["E5_MJ_l"] == 34.56
+assert out["paliwo_czlowiek"]["auto_kWh_km"] == 0.672
+assert out["paliwo_czlowiek"]["czlowiek_MJ_doba"] == [10.5, 12.6]
+assert out["paliwo_czlowiek"]["auto_5km_MJ"] == 12.1
+
 json.dump(out, open("provenance/obliczenia.json", "w"), ensure_ascii=False, indent=1)
 for k, v in out.items():
     if isinstance(v, dict):

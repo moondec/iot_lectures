@@ -35,8 +35,23 @@ z obecną konfiguracją (motyw `../assets/...` jest względny wobec `slides/`).
 - Quarto **1.10.18** (przypięte) + Chromium dla `mermaid-format: svg`
   (`QUARTO_CHROMIUM` albo `quarto install chromium`). Na Windows Quarto nie ma —
   buduj w WSL. Szczegóły: `README.md`.
-- Po każdym budowaniu: `python3 scripts/test-structure.py` i `python3 scripts/test-links.py`
-  (zapisują wyniki do `review/verification-*.json`).
+- Najprościej budować w kontenerze `hermes` (ma Quarto i Chromium):
+  `bash ~/.hermes/build/rebuild.sh 00-internet-przyszlosci` w WSL kopiuje repo do
+  `~/.hermes/build/iot_lectures`, renderuje i robi zrzuty slajdów. Wynik `docs/` trzeba
+  skopiować z powrotem do repo.
+- Po każdym budowaniu: `python3 scripts/build-provenance.py`, `python3 scripts/test-structure.py`
+  i `python3 scripts/test-links.py`. Każdy slajd (`#id`) musi mieć wpis w tabeli `MAPA`
+  w `scripts/build-provenance.py`.
+- Liczby z rachunków dopisuj do `scripts/verify-calc.py`, a wykresy do `scripts/make-figures.py`.
+
+## Ilustracje
+
+- W repo tylko grafiki z jasną licencją (Wikimedia Commons CC/PD, wykresy własne).
+  Każdą dopisz do `THIRD_PARTY_NOTICES.md` i `ILUSTRACJE_WYKORZYSTANE` w `build-provenance.py`,
+  a na slajdzie podaj autora i licencję w `.zrodlo`.
+- Grafiki bez potwierdzonej licencji (stockowe, zrzuty, kadry) leżą w `private/` (w `.gitignore`).
+- Klasy motywu do slajdów obrazowych: `.foto` (zdjęcie na całym tle), `.cytat`, `.wielkie`,
+  `.kafelki` (siatka zdjęć), `img.portret`.
 
 ## Publikacja
 

@@ -50,9 +50,9 @@ body.reveal-viewport {
 // Oryginalne tła z repozytorium moondec/iot_lectures. Kolory odpowiadają
 // trzem dawnym częściom kursu: pomarańczowej, zielonej i niebieskiej.
 // Biała warstwa o kryciu 78% rozjaśnia tapetę bez zmiany kontrastu tekstu.
-body.tlo-orange .reveal .slide-background-content,
-body.tlo-green .reveal .slide-background-content,
-body.tlo-blue .reveal .slide-background-content {
+body.tlo-orange .reveal .slide-background:not(.foto) .slide-background-content,
+body.tlo-green .reveal .slide-background:not(.foto) .slide-background-content,
+body.tlo-blue .reveal .slide-background:not(.foto) .slide-background-content {
   background-color: #ffffff !important;
   background-size: 100% 100%, contain !important;
   background-repeat: no-repeat, no-repeat !important;
@@ -60,19 +60,19 @@ body.tlo-blue .reveal .slide-background-content {
   opacity: 1 !important;
 }
 
-body.tlo-orange .reveal .slide-background-content {
+body.tlo-orange .reveal .slide-background:not(.foto) .slide-background-content {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
     url("../../../../assets/img/background-orange.jpg") !important;
 }
 
-body.tlo-green .reveal .slide-background-content {
+body.tlo-green .reveal .slide-background:not(.foto) .slide-background-content {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
     url("../../../../assets/img/background-green.jpg") !important;
 }
 
-body.tlo-blue .reveal .slide-background-content {
+body.tlo-blue .reveal .slide-background:not(.foto) .slide-background-content {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
     url("../../../../assets/img/background-blue.jpg") !important;
@@ -538,6 +538,77 @@ body.media-zoom-open #review-toolbar {
   color: #51626c;
   line-height: 1.26;
   margin-top: 0.15em;
+}
+
+// --- Slajdy obrazowe (wykład 00) -----------------------------------------
+// Zdjęcie na całym slajdzie: tekst biały z cieniem, bo jasność fotografii
+// zmienia się w obrębie kadru, a półprzezroczysta warstwa jest w data-background-opacity.
+.reveal section.foto {
+  h1, h2, h3, p, li {
+    color: #ffffff;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
+  }
+  h2 {
+    border-bottom-color: rgba(255, 255, 255, 0.55);
+  }
+  .zrodlo,
+  .zrodlo a {
+    color: #dbe6ea;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+  }
+  .cytat {
+    border-left-color: #ffffff;
+  }
+}
+
+// Cytat jako główna treść slajdu.
+.reveal .cytat {
+  font-size: 1.12em;
+  line-height: 1.42;
+  font-style: italic;
+  border-left: 6px solid #0b6b78;
+  padding-left: 0.8em;
+  margin: 0.3em 0 0.5em;
+}
+
+// Pojedyncze hasło na pół slajdu, np. pytanie retoryczne.
+.reveal .wielkie {
+  font-size: 2.6em;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  color: #b02a37;
+  margin: 0.25em 0;
+}
+
+// Siatka zdjęć z podpisami; kadry przycięte do wspólnej wysokości.
+.reveal .kafelki {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  grid-auto-flow: column;
+  gap: 0.55em;
+  margin-top: 0.3em;
+
+  > div img {
+    width: 100%;
+    height: 330px;
+    max-height: none;
+    object-fit: cover;
+    border-radius: 6px;
+    margin: 0;
+  }
+  p {
+    font-size: 0.72em;
+    line-height: 1.3;
+    margin: 0.25em 0 0;
+  }
+}
+
+// Portret lub zdjęcie obok tekstu.
+.reveal img.portret {
+  max-height: 520px;
+  border-radius: 6px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.25);
 }
 
 // --- Stopka i numeracja --------------------------------------------------

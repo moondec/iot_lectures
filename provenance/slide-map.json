@@ -14,19 +14,19 @@
   "new": "slajd napisany od nowa na podstawie materiałów kursu i źródeł pierwotnych"
  },
  "statystyka": {
-  "slajdow_lacznie": 187,
+  "slajdow_lacznie": 183,
   "wg_origin": {
-   "new": 144,
-   "adapted": 35,
-   "retained": 8
+   "new": 133,
+   "adapted": 39,
+   "retained": 11
   },
   "slajdy_merytoryczne_wg_origin": {
-   "adapted": 35,
-   "new": 109,
-   "retained": 8
+   "adapted": 39,
+   "new": 98,
+   "retained": 11
   },
   "wg_talii": {
-   "00-internet-przyszlosci": 34,
+   "00-internet-przyszlosci": 30,
    "01-architektura-i-wymagania": 21,
    "02-urzadzenie-sensory-energia": 24,
    "03-lacznosc-i-ota": 24,
@@ -43,7 +43,7 @@
    "rodzaj": "tytulowy",
    "tytul": "Slajd tytułowy",
    "origin": "new",
-   "uzasadnienie": "Nowy nagłówek wykładu zerowego."
+   "uzasadnienie": "Podtytuł pierwowzoru: utopia, dystopia, rzeczywistość."
   },
   {
    "deck": "00-internet-przyszlosci",
@@ -51,61 +51,51 @@
    "rodzaj": "tresc",
    "tytul": "Technologia nas wyzwoli?",
    "origin": "adapted",
-   "uzasadnienie": "Przywrócono filozoficzne otwarcie pierwowzoru i pytanie o odpowiedzialność projektanta.",
+   "uzasadnienie": "Przywrócono otwarcie pierwowzoru: motto Harariego na zdjęciu Ziemi nocą.",
    "zrodlo": {
     "typ": "prezentacja",
     "qmd": "wyklad_intro_1.qmd",
     "tytul": "1. Technologia was wyzwoli?",
     "wiersze": "62-74"
-   },
-   "zrodla_dodatkowe": [
-    {
-     "typ": "prezentacja",
-     "qmd": "wyklad_intro_1.qmd",
-     "tytul": "2. Kto tworzy \"przyszłość\"?",
-     "wiersze": "78-91"
-    }
-   ]
+   }
   },
   {
    "deck": "00-internet-przyszlosci",
    "id": "cele",
    "rodzaj": "tresc",
-   "tytul": "Po co ten wykład",
-   "origin": "new",
-   "uzasadnienie": "Cele i plan wykładu zerowego."
-  },
-  {
-   "deck": "00-internet-przyszlosci",
-   "id": "przyszłość-jest-już-architekturą",
-   "rodzaj": "sekcja",
-   "tytul": "Sekcja: Przyszłość jest już architekturą",
-   "origin": "new",
-   "uzasadnienie": "Przekładka wyjaśnia, że dzisiaj zaprojektowane systemy determinują naszą przyszłość."
+   "tytul": "Kto decyduje o przyszłości?",
+   "origin": "adapted",
+   "uzasadnienie": "Cytat Harariego o inżynierach; zwrot do studentów i trzy pytania wykładu zamiast listy celów.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_intro_1.qmd",
+    "tytul": "2. Kto tworzy \"przyszłość\"?",
+    "wiersze": "78-91"
+   }
   },
   {
    "deck": "00-internet-przyszlosci",
    "id": "skala",
    "rodzaj": "tresc",
-   "tytul": "Przyszłość już jest infrastrukturą",
+   "tytul": "Przyszłość jest już infrastrukturą",
    "origin": "new",
-   "uzasadnienie": "Szacunek IoT Analytics 2025 z jawnym rozróżnieniem estymacji i prognozy."
+   "uzasadnienie": "Szacunek i prognozy IoT Analytics 2025 jako wykres z rozróżnieniem prognozy."
   },
   {
    "deck": "00-internet-przyszlosci",
-   "id": "lancuch",
-   "rodzaj": "tresc",
-   "tytul": "Nie rzecz, lecz pętla",
+   "id": "utopia",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Utopia",
    "origin": "new",
-   "uzasadnienie": "Nowa rama wiążąca pomiar, model, decyzję i działanie."
+   "uzasadnienie": "Pierwszy akt struktury pierwowzoru."
   },
   {
    "deck": "00-internet-przyszlosci",
-   "id": "rolnictwo",
+   "id": "profity",
    "rodzaj": "tresc",
-   "tytul": "Agriculture 4.0",
+   "tytul": "Jasna strona mocy",
    "origin": "adapted",
-   "uzasadnienie": "Proces decyzyjny od obserwacji do oceny efektu; włączono warunek wartości z usuniętego osobnego slajdu korzyści.",
+   "uzasadnienie": "Kolaż obszarów korzyści z pierwowzoru na licencjonowanych zdjęciach.",
    "zrodlo": {
     "typ": "prezentacja",
     "qmd": "wyklad_intro_1.qmd",
@@ -116,86 +106,96 @@
     {
      "typ": "prezentacja",
      "qmd": "wyklad_intro_1.qmd",
-     "tytul": "4. IoT w Rolnictwie: Monitoring upraw i ekosystemów",
-     "wiersze": "115-138"
+     "tytul": "5. Medycyna – Poznać Siebie (Smart Wearables)",
+     "wiersze": "142-165"
+    },
+    {
+     "typ": "prezentacja",
+     "qmd": "wyklad_intro_1.qmd",
+     "tytul": "6. Zrównoważone Zastosowanie Zasobów",
+     "wiersze": "169-191"
     }
    ]
   },
   {
    "deck": "00-internet-przyszlosci",
-   "id": "destine",
+   "id": "srodowisko",
    "rodzaj": "tresc",
-   "tytul": "Destination Earth",
-   "origin": "new",
-   "uzasadnienie": "Aktualny przykład cyfrowego bliźniaka uruchomionego w 2024 r."
+   "tytul": "Poszerzenie wiedzy o środowisku",
+   "origin": "adapted",
+   "uzasadnienie": "Nature 4.0 (Valentini 2019) pokazane na przykładach pomiarów ekosystemowych.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_intro_1.qmd",
+    "tytul": "10. Przypadek Studyjny: 'Tree Talker'",
+    "wiersze": "268-293"
+   }
   },
   {
    "deck": "00-internet-przyszlosci",
-   "id": "dane-zmieniają-władzę",
-   "rodzaj": "sekcja",
-   "tytul": "Sekcja: Dane zmieniają władzę",
+   "id": "lancuch",
+   "rodzaj": "tresc",
+   "tytul": "Nie rzecz, lecz pętla",
    "origin": "new",
-   "uzasadnienie": "Przekładka sekcyjna."
+   "uzasadnienie": "Pętla pomiar–model–decyzja–działanie na przykładzie nawadniania."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "pytanie-sala",
+   "rodzaj": "tresc",
+   "tytul": "Pytanie do sali",
+   "origin": "new",
+   "uzasadnienie": "Przejście od utopii do dystopii jako pytanie do dyskusji."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "dystopia",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Dystopia",
+   "origin": "new",
+   "uzasadnienie": "Drugi akt struktury pierwowzoru."
   },
   {
    "deck": "00-internet-przyszlosci",
    "id": "cambridge",
    "rodzaj": "tresc",
-   "tytul": "Cambridge Analytica",
-   "origin": "new",
-   "uzasadnienie": "Zweryfikowane ustalenia FTC oddzielone od tezy o wpływie na wynik wyborów."
-  },
-  {
-   "deck": "00-internet-przyszlosci",
-   "id": "social-credit",
-   "rodzaj": "tresc",
-   "tytul": "Chiński social credit",
-   "origin": "new",
-   "uzasadnienie": "Korekta mitu jednego ogólnokrajowego wyniku obywatela."
+   "tytul": "Ale czy tylko korzyści?",
+   "origin": "adapted",
+   "uzasadnienie": "Cambridge Analytica i system kredytu społecznego z pierwowzoru, w wersji zgodnej z ustaleniami FTC i MERICS.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_intro_2.qmd",
+    "tytul": "1. Ciemna strona mocy: Dobre narzędzia, Złe intencje",
+    "wiersze": "62-87"
+   }
   },
   {
    "deck": "00-internet-przyszlosci",
    "id": "petla-wladzy",
    "rodzaj": "tresc",
-   "tytul": "Pętla danych i władzy",
+   "tytul": "Pętla danych jest pętlą władzy",
    "origin": "new",
    "uzasadnienie": "Model obserwacja–inferencja–klasyfikacja–interwencja."
   },
   {
    "deck": "00-internet-przyszlosci",
-   "id": "literatura-soczewki",
+   "id": "huxley",
    "rodzaj": "tresc",
-   "tytul": "Literatura jako soczewka",
-   "origin": "adapted",
-   "uzasadnienie": "Przywrócono ramę Huxleya i literackie odniesienia do Lema, Dukaja i Naama jako narzędzia analizy konsekwencji.",
+   "tytul": "Cukiereczki dla mózgu",
+   "origin": "retained",
+   "uzasadnienie": "Cytat Huxleya z pierwowzoru, odniesiony do ekonomii uwagi.",
    "zrodlo": {
     "typ": "prezentacja",
     "qmd": "wyklad_intro_2.qmd",
     "tytul": "4. Ucieczka z \"Tu i Teraz\"",
     "wiersze": "141-155"
-   },
-   "zrodla_dodatkowe": [
-    {
-     "typ": "prezentacja",
-     "qmd": "wyklad_intro_2.qmd",
-     "tytul": "9. Literatura do Wstępu i Zakończenie",
-     "wiersze": "269-289"
-    }
-   ]
+   }
   },
   {
    "deck": "00-internet-przyszlosci",
-   "id": "data-act",
-   "rodzaj": "tresc",
-   "tytul": "Data Act",
-   "origin": "new",
-   "uzasadnienie": "Aktualne obowiązki dotyczące danych z połączonych produktów."
-  },
-  {
-   "deck": "00-internet-przyszlosci",
-   "id": "ai-wchodzi-do-świata-fizycznego",
+   "id": "człowiek-i-maszyna",
    "rodzaj": "sekcja",
-   "tytul": "Sekcja: AI w świecie fizycznym",
+   "tytul": "Sekcja: Człowiek i maszyna",
    "origin": "new",
    "uzasadnienie": "Przekładka sekcyjna."
   },
@@ -204,8 +204,8 @@
    "id": "czy-programy",
    "rodzaj": "tresc",
    "tytul": "Czy jesteśmy programami?",
-   "origin": "adapted",
-   "uzasadnienie": "Przywrócono pytanie filozoficzne pierwowzoru i powiązano je z prawem systemu do działania fizycznego.",
+   "origin": "retained",
+   "uzasadnienie": "Cytat Harariego z pierwowzoru i pytanie o prawo systemu do działania.",
    "zrodlo": {
     "typ": "prezentacja",
     "qmd": "wyklad_intro_2.qmd",
@@ -215,9 +215,23 @@
   },
   {
    "deck": "00-internet-przyszlosci",
+   "id": "blue-gene",
+   "rodzaj": "tresc",
+   "tytul": "Ile kosztuje mózg kota?",
+   "origin": "adapted",
+   "uzasadnienie": "Symulacja Blue Gene/P z pierwowzoru, poprawiona na publikację SC'09 (2009) zamiast Blue Brain (2007).",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_intro_2.qmd",
+    "tytul": "2. Sztuczna Inteligencja: Asystent czy Konkurencja?",
+    "wiersze": "91-116"
+   }
+  },
+  {
+   "deck": "00-internet-przyszlosci",
    "id": "ai-fizyczny",
    "rodzaj": "tresc",
-   "tytul": "AI i IoT",
+   "tytul": "AI wychodzi z ekranu",
    "origin": "new",
    "uzasadnienie": "Konsekwencje połączenia predykcji z działaniem fizycznym."
   },
@@ -225,57 +239,75 @@
    "deck": "00-internet-przyszlosci",
    "id": "praca",
    "rodzaj": "tresc",
-   "tytul": "AI i rynek pracy",
-   "origin": "new",
-   "uzasadnienie": "Wyniki ILO 2025 z rozróżnieniem ekspozycji zadań i likwidacji zawodów."
+   "tytul": "Bezużyteczna klasa?",
+   "origin": "adapted",
+   "uzasadnienie": "Ostrzeżenie Harariego z pierwowzoru zestawione z danymi ILO 2025.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_intro_2.qmd",
+    "tytul": "2. Sztuczna Inteligencja: Asystent czy Konkurencja?",
+    "wiersze": "91-116"
+   }
   },
   {
    "deck": "00-internet-przyszlosci",
    "id": "bci",
    "rodzaj": "tresc",
-   "tytul": "BCI",
-   "origin": "new",
-   "uzasadnienie": "Aktualne wyniki neuroprotez mowy i granice interpretacji."
+   "tytul": "Bezpośredni transfer wrażeń?",
+   "origin": "adapted",
+   "uzasadnienie": "Eksperymenty mózg–mózg z pierwowzoru z publikacjami źródłowymi i granicami interpretacji.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_intro_2.qmd",
+    "tytul": "6. Bezpośredni transfer wrażeń (BCI)",
+    "wiersze": "187-210"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "prezentacja",
+     "qmd": "wyklad_intro_2.qmd",
+     "tytul": "7. Interfejs Człowiek-Człowiek (UW, 2013)",
+     "wiersze": "214-237"
+    }
+   ]
   },
   {
    "deck": "00-internet-przyszlosci",
-   "id": "granice-nie-znikają",
+   "id": "rzeczywistość",
    "rodzaj": "sekcja",
-   "tytul": "Sekcja: Granice nie znikają",
+   "tytul": "Sekcja: Rzeczywistość",
    "origin": "new",
-   "uzasadnienie": "Przekładka sekcyjna."
+   "uzasadnienie": "Trzeci akt struktury pierwowzoru."
   },
   {
    "deck": "00-internet-przyszlosci",
    "id": "energia",
    "rodzaj": "tresc",
-   "tytul": "Energia",
+   "tytul": "Energia jest najważniejsza",
+   "origin": "retained",
+   "uzasadnienie": "Rachunek paliwo–człowiek z pierwowzoru, przeliczony w scripts/verify-calc.py.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_intro_2.qmd",
+    "tytul": "8. Podstawowa Blokada: Prawdziwy Koszt Energii",
+    "wiersze": "241-265"
+   }
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "centrum-danych",
+   "rodzaj": "tresc",
+   "tytul": "Optymalizacja ma własny rachunek",
    "origin": "new",
-   "uzasadnienie": "Bilans korzyści i kosztów w pełnym cyklu życia systemu, uzupełniony o dane IEA 2025."
+   "uzasadnienie": "Dane IEA 2025 o zużyciu energii przez centra danych."
   },
   {
    "deck": "00-internet-przyszlosci",
    "id": "botnet",
    "rodzaj": "tresc",
-   "tytul": "IoT jako element botnetu",
+   "tytul": "Twoje urządzenie, cudza broń, czyjś odpad",
    "origin": "new",
-   "uzasadnienie": "Aktualny przypadek Aisuru i ataku 31,4 Tb/s z raportu Cloudflare 2026."
-  },
-  {
-   "deck": "00-internet-przyszlosci",
-   "id": "koniec-wsparcia",
-   "rodzaj": "tresc",
-   "tytul": "Sprzęt działa, usługa znika",
-   "origin": "new",
-   "uzasadnienie": "Przypadek wyłączenia usług chmurowych Wemo w 2026 r. i znaczenie trybu lokalnego."
-  },
-  {
-   "deck": "00-internet-przyszlosci",
-   "id": "prawo",
-   "rodzaj": "tresc",
-   "tytul": "Prawo zmienia backlog",
-   "origin": "new",
-   "uzasadnienie": "Daty Data Act, RED, AI Act po zmianie 2026/1744 i Cyber Resilience Act."
+   "uzasadnienie": "Botnet (Cloudflare 2026), koniec chmury Wemo i elektroodpady."
   },
   {
    "deck": "00-internet-przyszlosci",
@@ -283,7 +315,7 @@
    "rodzaj": "tresc",
    "tytul": "Człowiek nie wygrał dzięki samotnej inteligencji",
    "origin": "adapted",
-   "uzasadnienie": "Przywrócono ramę współpracy z pierwowzoru i zestawiono ją z ryzykiem obserwacji i kontroli.",
+   "uzasadnienie": "Cytat Naama z pierwowzoru w przekładzie własnym.",
    "zrodlo": {
     "typ": "prezentacja",
     "qmd": "wyklad_intro_2.qmd",
@@ -301,51 +333,35 @@
   },
   {
    "deck": "00-internet-przyszlosci",
-   "id": "pytania-projektowe",
+   "id": "pytania",
    "rodzaj": "tresc",
-   "tytul": "Sześć pytań projektowych",
+   "tytul": "Sześć pytań przed wyborem czujnika",
    "origin": "new",
-   "uzasadnienie": "Kryteria przed wyborem czujnika."
+   "uzasadnienie": "Kryteria projektowe; pytania sprawdzające przeniesiono do materiałów prowadzącego."
   },
   {
    "deck": "00-internet-przyszlosci",
    "id": "most",
    "rodzaj": "tresc",
-   "tytul": "Most do modułów 01–07",
+   "tytul": "Mapa kursu",
    "origin": "new",
-   "uzasadnienie": "Powiązanie problemów wykładu 00 z dalszą strukturą kursu."
-  },
-  {
-   "deck": "00-internet-przyszlosci",
-   "id": "przypadek",
-   "rodzaj": "tresc",
-   "tytul": "Przypadek nawadniania",
-   "origin": "new",
-   "uzasadnienie": "Przypadek przewodni łączący decyzję, architekturę i stan bezpieczny."
-  },
-  {
-   "deck": "00-internet-przyszlosci",
-   "id": "pytania",
-   "rodzaj": "tresc",
-   "tytul": "Pytania sprawdzające",
-   "origin": "new",
-   "uzasadnienie": "Pytania sprawdzające wykładu zerowego."
+   "uzasadnienie": "Powiązanie pytań wykładu 00 z modułami 01–07."
   },
   {
    "deck": "00-internet-przyszlosci",
    "id": "podsumowanie",
    "rodzaj": "tresc",
-   "tytul": "Podsumowanie",
+   "tytul": "Utopia, dystopia, rzeczywistość",
    "origin": "new",
-   "uzasadnienie": "Synteza wykładu i przejście do modułu 01."
+   "uzasadnienie": "Synteza wykładu."
   },
   {
    "deck": "00-internet-przyszlosci",
    "id": "literatura",
    "rodzaj": "tresc",
-   "tytul": "Literatura — nie instrukcje, lecz soczewki",
+   "tytul": "Co warto przeczytać",
    "origin": "adapted",
-   "uzasadnienie": "Przywrócono bibliografię filozoficzną i literacką pierwowzoru, korygując tytuł Po piśmie i datę Nowego wspaniałego świata.",
+   "uzasadnienie": "Bibliografia filozoficzna i literacka pierwowzoru.",
    "zrodlo": {
     "typ": "prezentacja",
     "qmd": "wyklad_intro_2.qmd",
@@ -357,17 +373,9 @@
    "deck": "00-internet-przyszlosci",
    "id": "zrodla",
    "rodzaj": "tresc",
-   "tytul": "Źródła: przypadki i badania",
+   "tytul": "Źródła",
    "origin": "new",
-   "uzasadnienie": "Źródła pierwotne i publikacje naukowe."
-  },
-  {
-   "deck": "00-internet-przyszlosci",
-   "id": "zrodla-2",
-   "rodzaj": "tresc",
-   "tytul": "Źródła: standardy, programy i prawo",
-   "origin": "new",
-   "uzasadnienie": "Źródła oficjalne i dokumenty instytucjonalne."
+   "uzasadnienie": "Źródła pierwotne, publikacje naukowe i licencje ilustracji."
   },
   {
    "deck": "01-architektura-i-wymagania",
@@ -2362,13 +2370,6 @@
  ],
  "odrzucone_slajdy_zrodlowe": [
   {
-   "skrot": "i1_05",
-   "qmd": "wyklad_intro_1.qmd",
-   "tytul_zrodlowy": "5. Medycyna – Poznać Siebie (Smart Wearables)",
-   "tytul": "Medycyna – Smart Wearables",
-   "powod": "Przykład aplikacyjny bez związku z zakresem siedmiu modułów; budżet energetyczny urządzenia noszonego omawia moduł 02 na konkretnej płytce. Ilustracja (Oura Ring) bez udokumentowanej licencji."
-  },
-  {
    "skrot": "i1_09",
    "qmd": "wyklad_intro_1.qmd",
    "tytul_zrodlowy": "9. Cykl IoT & AI – To przyszłość, a obecnie?",
@@ -2376,60 +2377,11 @@
    "powod": "Narracja o generacjach 1.0–4.0 nie wnosi kryterium projektowego; jej funkcję („po co mierzymy”) przejął slajd 01#zastosowania."
   },
   {
-   "skrot": "i1_10",
-   "qmd": "wyklad_intro_1.qmd",
-   "tytul_zrodlowy": "10. Przypadek Studyjny: 'Tree Talker'",
-   "tytul": "Przypadek studyjny: Tree Talker",
-   "powod": "Wartościowy przykład autorski, ale dubluje rolę stanowiska pilotażowego jako przypadku przewodniego. Zachowany w notes/ jako materiał do rozwinięcia ustnego; ilustracja bez udokumentowanej licencji."
-  },
-  {
    "skrot": "i1_11",
    "qmd": "wyklad_intro_1.qmd",
    "tytul_zrodlowy": "11. Podsumowanie Wstępu",
    "tytul": "Podsumowanie Wstępu",
    "powod": "Podsumowanie nieistniejącej już części „Wstęp 1”; zastąpione podsumowaniami modułów."
-  },
-  {
-   "skrot": "i2_02",
-   "qmd": "wyklad_intro_2.qmd",
-   "tytul_zrodlowy": "2. Sztuczna Inteligencja: Asystent czy Konkurencja?",
-   "tytul": "Sztuczna inteligencja: asystent czy konkurencja",
-   "powod": "Wątek rynku pracy i „bezużytecznej klasy” wykracza poza zakres kursu inżynierskiego i nie prowadzi do decyzji projektowej."
-  },
-  {
-   "skrot": "i2_03",
-   "qmd": "wyklad_intro_2.qmd",
-   "tytul_zrodlowy": "3. Czy jesteśmy programami?",
-   "tytul": "Czy jesteśmy programami?",
-   "powod": "Dygresja filozoficzna bez konsekwencji technicznej."
-  },
-  {
-   "skrot": "i2_04",
-   "qmd": "wyklad_intro_2.qmd",
-   "tytul_zrodlowy": "4. Ucieczka z \"Tu i Teraz\"",
-   "tytul": "Ucieczka z „Tu i Teraz”",
-   "powod": "Cytat z Huxleya; rama etyczna zachowana w 07#rama w formie zwięzłej."
-  },
-  {
-   "skrot": "i2_05",
-   "qmd": "wyklad_intro_2.qmd",
-   "tytul_zrodlowy": "5. Kierunki rozwoju: Wychodząc z Jaskini",
-   "tytul": "Kierunki rozwoju: wychodząc z jaskini",
-   "powod": "Wątek antropologiczny bez związku z zakresem modułów."
-  },
-  {
-   "skrot": "i2_06",
-   "qmd": "wyklad_intro_2.qmd",
-   "tytul_zrodlowy": "6. Bezpośredni transfer wrażeń (BCI)",
-   "tytul": "Bezpośredni transfer wrażeń (BCI)",
-   "powod": "Eksperyment Nicolelisa — ciekawostka bez konsekwencji dla projektowania systemu IoT."
-  },
-  {
-   "skrot": "i2_07",
-   "qmd": "wyklad_intro_2.qmd",
-   "tytul_zrodlowy": "7. Interfejs Człowiek-Człowiek (UW, 2013)",
-   "tytul": "Interfejs człowiek-człowiek (UW, 2013)",
-   "powod": "Jak wyżej; dodatkowo ilustracja bez udokumentowanej licencji."
   },
   {
    "skrot": "w1_10",
@@ -2453,13 +2405,6 @@
    "powod": "Lista narzędzi wchłonięta: Node-RED do modułu 05, ThingsBoard do 06 wraz ze sprostowaniem o statusie licencyjnym. Osobny slajd powielałby treść."
   },
   {
-   "skrot": "i2_01",
-   "qmd": "wyklad_intro_2.qmd",
-   "tytul_zrodlowy": "1. Ciemna strona mocy: Dobre narzędzia, Złe intencje",
-   "tytul": "Ciemna strona mocy: dobre narzędzia, złe intencje",
-   "powod": "Przykłady (Cambridge Analytica, system kredytu społecznego) dotyczą analityki danych społecznych, nie projektowania systemu IoT. Rolę ramy odpowiedzialności przejął slajd 07#rama, a konkretne konsekwencje projektowe — 07#prywatnosc i 07#obowiazki."
-  },
-  {
    "skrot": "w2_14",
    "qmd": "wyklad_2.qmd",
    "tytul_zrodlowy": "14. Dziękuję za uwagę",
@@ -2468,6 +2413,204 @@
   }
  ],
  "ilustracje_wykorzystane": [
+  {
+   "plik": "iot-urzadzenia.png",
+   "autor": "wykres własny (dane IoT Analytics 2025)",
+   "zrodlo": "scripts/make-figures.py",
+   "licencja": "CC BY 4.0",
+   "slajdy": [
+    "00#skala"
+   ]
+  },
+  {
+   "plik": "energia-auto-czlowiek.png",
+   "autor": "wykres własny",
+   "zrodlo": "scripts/make-figures.py",
+   "licencja": "CC BY 4.0",
+   "slajdy": [
+    "00#energia"
+   ]
+  },
+  {
+   "plik": "lecture00/ziemia-noca.jpg",
+   "autor": "NASA Goddard Space Flight Center",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Black_Marble_-_City_Lights_2012_(8246892319).jpg",
+   "licencja": "domena publiczna",
+   "slajdy": [
+    "00#motto"
+   ]
+  },
+  {
+   "plik": "lecture00/harari.jpg",
+   "autor": "Martin Kraft",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:MKr364740_Yuval_Noah_Harari_(Frankfurter_Buchmesse_2024)_(cropped).jpg",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "00#cele"
+   ]
+  },
+  {
+   "plik": "lecture00/dron-ryz.jpg",
+   "autor": "Christopher Hedreyd, PIA",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:IRRI_BBM_rice_drone_demo_2.jpg",
+   "licencja": "domena publiczna",
+   "slajdy": [
+    "00#profity"
+   ]
+  },
+  {
+   "plik": "lecture00/opaski-fitness.jpg",
+   "autor": "Abas Gemini",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Fitness-trackers-companies-Fitbug-Orb-Jawbone-Up.jpg",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "00#profity"
+   ]
+  },
+  {
+   "plik": "lecture00/deszczownia.jpg",
+   "autor": "Killarnee",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Center-pivot_irrigation_system_-_1.jpg",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "00#profity"
+   ]
+  },
+  {
+   "plik": "lecture00/licznik-energii.jpg",
+   "autor": "277volts",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Aclara_I-210%2B_single_phase_smart_electricity_meter.jpg",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "00#profity"
+   ]
+  },
+  {
+   "plik": "lecture00/kowariancja-wirow.jpg",
+   "autor": "Veedar",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Eddy_Covariance_IRGA_Sonic.jpg",
+   "licencja": "domena publiczna",
+   "slajdy": [
+    "00#srodowisko"
+   ]
+  },
+  {
+   "plik": "lecture00/czujnik-wilgotnosci.jpg",
+   "autor": "P e z i",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Cosmic_Ray_Sensor_for_soil_moisture_measurements-DSC_6642w.jpg",
+   "licencja": "CC BY-SA 3.0 AT",
+   "slajdy": [
+    "00#srodowisko"
+   ]
+  },
+  {
+   "plik": "lecture00/instalacja-czujnikow.jpg",
+   "autor": "UBC Micrometeorology",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Installation_of_soil_sensors.jpg",
+   "licencja": "CC BY 2.0",
+   "slajdy": [
+    "00#srodowisko"
+   ]
+  },
+  {
+   "plik": "lecture00/wylie.jpg",
+   "autor": "Chatham House",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Christopher_Wylie_at_Chatham_House_-_2018_(42624320935).jpg",
+   "licencja": "CC BY 2.0",
+   "slajdy": [
+    "00#cambridge"
+   ]
+  },
+  {
+   "plik": "lecture00/kamery.jpg",
+   "autor": "µKöff",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:2020-04-05_17.18.01_Pole_with_surveillance_cameras_in_Saarbr%C3%BCcken.jpg",
+   "licencja": "CC BY 4.0",
+   "slajdy": [
+    "00#cambridge"
+   ]
+  },
+  {
+   "plik": "lecture00/huxley.jpg",
+   "autor": "Dwight (Shadowland, 1923)",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Aldous_Huxley_(Dwight,_July_1923).jpg",
+   "licencja": "domena publiczna",
+   "slajdy": [
+    "00#huxley"
+   ]
+  },
+  {
+   "plik": "lecture00/blue-gene-p.jpg",
+   "autor": "Argonne National Laboratory",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:IBM_Blue_Gene_P_supercomputer.jpg",
+   "licencja": "CC BY-SA 2.0",
+   "slajdy": [
+    "00#blue-gene"
+   ]
+  },
+  {
+   "plik": "lecture00/robot-papryka.jpg",
+   "autor": "Lozada, Bosland, Barchenger, Haghshenas-Jaryani, Sanogo, Walker",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Robotic_arm_with_a_cutter_end-effector_harvesting_green_chile_peppers_in_an_indoor_setting.jpg",
+   "licencja": "CC BY 4.0",
+   "slajdy": [
+    "00#ai-fizyczny"
+   ]
+  },
+  {
+   "plik": "lecture00/brain-to-brain.jpg",
+   "autor": "C. Grau i in. (PLoS ONE 2014)",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Brain-to-brain_(B2B)_communication_system_overview.jpg",
+   "licencja": "CC BY 4.0",
+   "slajdy": [
+    "00#bci"
+   ]
+  },
+  {
+   "plik": "lecture00/centrum-danych.jpg",
+   "autor": "BalticServers.com",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:BalticServers_data_center.jpg",
+   "licencja": "CC BY-SA 3.0",
+   "slajdy": [
+    "00#centrum-danych"
+   ]
+  },
+  {
+   "plik": "lecture00/wemo.jpg",
+   "autor": "Harborsparrow",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Wemo_smart_plugs_and_switches.jpg",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "00#botnet"
+   ]
+  },
+  {
+   "plik": "lecture00/elektroodpady.jpg",
+   "autor": "AvWijk",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Ewaste-pile.jpg",
+   "licencja": "domena publiczna",
+   "slajdy": [
+    "00#botnet"
+   ]
+  },
+  {
+   "plik": "lecture00/naam.jpg",
+   "autor": "Sebastiaan ter Burg",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Ramez_Naam_at_the_SingularityU_The_Netherlands_Summit_2016_(29025926993)_(cropped).jpg",
+   "licencja": "CC BY 2.0",
+   "slajdy": [
+    "00#koordynacja"
+   ]
+  },
+  {
+   "plik": "lecture00/lem.jpg",
+   "autor": "Wojciech Zemek (archiwum S. Lema)",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:St_Lem_resize.jpg",
+   "licencja": "CC BY-SA 3.0",
+   "slajdy": [
+    "00#literatura"
+   ]
+  },
   {
    "plik": "arduino-nano-esp32-board.png",
    "autor": "Arduino",
@@ -2492,7 +2635,7 @@
    "zrodlo": "https://commons.wikimedia.org/wiki/File:New_water-saving_irrigation_system_tested_at_NAVFAC_EXWC_(8099733341).jpg",
    "licencja": "CC BY 2.0",
    "slajdy": [
-    "00#rolnictwo"
+    "00#lancuch"
    ]
   },
   {
@@ -2546,7 +2689,8 @@
    "zrodlo": "https://commons.wikimedia.org/wiki/File:Axis_ip_dome_cameras.png",
    "licencja": "CC BY-SA 4.0",
    "slajdy": [
-    "07#mirai"
+    "07#mirai",
+    "00#botnet"
    ]
   }
  ],

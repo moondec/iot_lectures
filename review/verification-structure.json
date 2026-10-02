@@ -351,7 +351,7 @@
   {
    "test": "Manifest: dozwolone wartości origin",
    "ok": true,
-   "szczegol": "{'new': 144, 'adapted': 35, 'retained': 8}"
+   "szczegol": "{'new': 133, 'adapted': 39, 'retained': 11}"
   },
   {
    "test": "Slajdy retained/adapted mają wskazane źródło",
@@ -454,9 +454,9 @@
    "szczegol": "[]"
   },
   {
-   "test": "00-internet-przyszlosci.html: 28 slajdów merytorycznych w zakresie 12–28",
+   "test": "00-internet-przyszlosci.html: 24 slajdów merytorycznych w zakresie 12–28",
    "ok": true,
-   "szczegol": "28"
+   "szczegol": "24"
   },
   {
    "test": "01-architektura-i-wymagania.html: 17 slajdów merytorycznych w zakresie 12–28",

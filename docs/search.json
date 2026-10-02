@@ -527,198 +527,170 @@
   {
     "objectID": "slides/00-internet-przyszlosci.html#motto",
     "href": "slides/00-internet-przyszlosci.html#motto",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " Technologia nas wyzwoli?",
-    "text": "Technologia nas wyzwoli?\n\n\nHarari ostrzega, że język przełomowych technologii może pozostawać obcy ludziom, których życie te technologie zmienią.\nParafraza wątku z 21 lekcji na XXI wiek.\n\nPyta też, kto reprezentuje społeczeństwo, gdy inżynierowie, przedsiębiorcy i naukowcy podejmują decyzje o politycznych konsekwencjach.\nParafraza; literatura jest tu soczewką, nie dowodem empirycznym.\n\n\nYuval Noah Harari, 21 lekcji na XXI wiek\n\nPytanie otwierające: czy odpowiedzialność projektanta kończy się tam, gdzie kończy się specyfikacja techniczna?"
+    "title": "Internet przyszłości",
+    "section": "Technologia nas wyzwoli?",
+    "text": "Technologia nas wyzwoli?\n\n???\n\n\n\n„…globalizacja, blockchain, inżynieria genetyczna, sztuczna inteligencja, uczenie maszynowe — prości ludzie zapewne podejrzewają, że żadne z tych pojęć ich nie dotyczy.”\n\n\nYuval Noah Harari, 21 lekcji na XXI wiek. Zdjęcie: NASA Goddard, Black Marble — City Lights 2012, domena publiczna."
   },
   {
     "objectID": "slides/00-internet-przyszlosci.html#cele",
     "href": "slides/00-internet-przyszlosci.html#cele",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " Po co ten wykład",
-    "text": "Po co ten wykład\nPytanie modułu: jak odróżnić obietnicę technologiczną od odpowiedzialnego systemu?\n\n\nCele\n\nRozpoznać, gdzie IoT tworzy wartość, a gdzie tylko produkuje dane.\nOddzielić fakt, demonstrację badawczą i prognozę.\nNazwać społeczne skutki pętli: pomiar → model → decyzja → działanie.\nPrzełożyć te skutki na wymagania techniczne rozwijane w modułach 01–07.\n\n\nDroga\n\nObietnice: środowisko, rolnictwo, energia, zdrowie\nWładza danych: profilowanie, kontrola, prawa użytkownika\nAI i interfejs człowiek–maszyna\nGranice: energia, odporność, prawo\nMost do projektu semestralnego"
+    "title": "Internet przyszłości",
+    "section": " Kto decyduje o przyszłości?",
+    "text": "Kto decyduje o przyszłości?\n\n\n\n\nFot. Martin Kraft, CC BY-SA 4.0\n\n\n\n„Rewolucje dokonujące się w biotechnologii i technologii informacyjnej przeprowadzają inżynierowie, przedsiębiorcy i naukowcy, którzy nie zdają sobie sprawy z politycznych konsekwencji własnych decyzji i z całą pewnością nikogo nie reprezentują.”\n\n\nY. N. Harari, 21 lekcji na XXI wiek\n\n\nTo wy będziecie tymi inżynierami.\nDziś trzy pytania: co obiecuje Internet Rzeczy, co może zabrać i co ogranicza go naprawdę."
   },
   {
     "objectID": "slides/00-internet-przyszlosci.html#skala",
     "href": "slides/00-internet-przyszlosci.html#skala",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " „Przyszłość” już jest infrastrukturą",
-    "text": "„Przyszłość” już jest infrastrukturą\n\n\nSzacunek rynkowy IoT Analytics\n\n18,5 mld aktywnych urządzeń IoT w 2024 r.,\n21,1 mld prognozowanych na koniec 2025 r.,\n39 mld — prognoza na 2030 r.\n\n\n\n\n\n\n\n\n\nNie myl faktu z prognozą\n\n\nTo nie urzędowy spis. Firma analityczna szacuje aktywne połączenia według jawnej metodologii; liczba na 2030 r. jest prognozą, nie wynikiem pomiaru.\n\n\n\n\nWniosek: student nie dodaje „gadżetu przyszłości”, lecz kolejny węzeł do zatłoczonej i atakowanej infrastruktury.\n\n\nIoT Analytics, State of IoT 2025, 28.10.2025, https://iot-analytics.com/number-connected-iot-devices/"
+    "title": "Internet przyszłości",
+    "section": " Przyszłość jest już infrastrukturą",
+    "text": "Przyszłość jest już infrastrukturą\n\n\n\n\nNa każdego mieszkańca Ziemi przypadają już ponad dwa połączone urządzenia.\n\nProjektując czujnik, nie budujemy „gadżetu przyszłości”. Dokładamy kolejny węzeł do zatłoczonej i atakowanej sieci.\n\n\n\nIoT Analytics, State of IoT 2025, 28.10.2025, https://iot-analytics.com/number-connected-iot-devices/"
+  },
+  {
+    "objectID": "slides/00-internet-przyszlosci.html#profity",
+    "href": "slides/00-internet-przyszlosci.html#profity",
+    "title": "Internet przyszłości",
+    "section": " Jasna strona mocy",
+    "text": "Jasna strona mocy\n\n\n\nRolnictwo — dawka tam, gdzie potrzeba\n\n\n\nZdrowie — pomiar ciała przez całą dobę\n\n\n\nWoda — nawadnianie według gleby, nie kalendarza\n\n\n\nEnergia — sieć widzi zużycie na bieżąco\n\n\n\nFot.: Ch. Hedreyd / PIA (domena publiczna); Abas Gemini, Killarnee, 277volts (CC BY-SA 4.0) — Wikimedia Commons"
+  },
+  {
+    "objectID": "slides/00-internet-przyszlosci.html#srodowisko",
+    "href": "slides/00-internet-przyszlosci.html#srodowisko",
+    "title": "Internet przyszłości",
+    "section": " Poszerzenie wiedzy o środowisku",
+    "text": "Poszerzenie wiedzy o środowisku\n\n\n\nKowariancja wirów: 10–20 pomiarów na sekundę, żeby policzyć oddech ekosystemu\n\n\n\nWilgotność gleby mierzona neutronami z promieniowania kosmicznego\n\n\n\nSieć czujników glebowych — dziesiątki punktów zamiast jednego\n\n\n\nNature 4.0: las, pole i torfowisko stają się obserwowalne w sposób ciągły — tak jak hala fabryczna w Przemyśle 4.0.\n\n\nR. Valentini i in. (2019), New tree monitoring systems: from Industry 4.0 to Nature 4.0, doi:10.12899/asr-1847. Fot.: Veedar (domena publiczna); P e z i (CC BY-SA 3.0 AT); UBC Micrometeorology (CC BY 2.0)"
   },
   {
     "objectID": "slides/00-internet-przyszlosci.html#lancuch",
     "href": "slides/00-internet-przyszlosci.html#lancuch",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
+    "title": "Internet przyszłości",
     "section": " Nie „rzecz”, lecz pętla",
-    "text": "Nie „rzecz”, lecz pętla\nIoT zaczyna się wtedy, gdy pomiar zmienia decyzję — a decyzja może zmienić świat fizyczny.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nŚwiat fizycznygleba · maszyna · człowiek\n\n\n\n\n\n\n\nPomiarczujnik · kontekst · czas\n\n\n\n\n\n\n\nModelreguła · statystyka · AI\n\n\n\n\n\n\n\nDecyzjaczłowiek lub automat\n\n\n\n\n\n\n\nDziałaniealarm · dawka · sterowanie\n\n\n\n\n\n\n\n\n\n\nKażde ogniwo może wprowadzić błąd, stronniczość albo opóźnienie. Odpowiedzialność nie kończy się na poprawnym odczycie czujnika."
+    "text": "Nie „rzecz”, lecz pętla\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nŚwiat fizycznygleba · roślina\n\n\n\n\n\n\n\nPomiarwilgotność\n\n\n\n\n\n\n\nModelpróg · prognoza\n\n\n\n\n\n\n\nDecyzjapodlać czy nie?\n\n\n\n\n\n\n\nDziałaniezawór · pompa\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFot. NAVFAC, CC BY 2.0\n\n\nCzujnik ma sens dopiero wtedy, gdy zmienia decyzję — a decyzja otwiera zawór.\nKażde ogniwo może wnieść błąd, stronniczość albo opóźnienie."
   },
   {
-    "objectID": "slides/00-internet-przyszlosci.html#rolnictwo",
-    "href": "slides/00-internet-przyszlosci.html#rolnictwo",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " Agriculture 4.0: od mapy do działania",
-    "text": "Agriculture 4.0: od mapy do działania\n„4.0” nie oznacza jednej technologii. Oznacza połączony proces decyzyjny.\n\n\n\nObserwacja: mikroklimat, wilgotność gleby, obraz, pozycja i stan maszyny.\nIntegracja: wspólny czas, geolokalizacja, jakość i pochodzenie danych.\nWnioskowanie: próg, model agronomiczny albo uczenie maszynowe.\nInterwencja: nawadnianie, dawka, trasa robota lub zalecenie dla operatora.\nOcena: czy efekt uzyskano mniejszym kosztem zasobów i ryzyka?\n\n\n\n\n\n\n\n\nPomiar nie jest jeszcze rezultatem\n\n\nWartość powstaje dopiero wtedy, gdy znane są: odbiorca informacji, decyzja, kryterium działania i koszt pomyłki.\n\n\n\n\n\n\n\nSystem oszczędnego nawadniania podczas testów NAVFAC EXWC. Fot. NAVFAC, Wikimedia Commons, CC BY 2.0.\n\n\n\n\n\n\n\n\nPętla działania\n\n\nCzujnik uzasadnia inwestycję dopiero wtedy, gdy jego pomiar zmienia decyzję o uruchomieniu zaworu lub pompy — i gdy skutek tej decyzji jest sprawdzany."
-  },
-  {
-    "objectID": "slides/00-internet-przyszlosci.html#destine",
-    "href": "slides/00-internet-przyszlosci.html#destine",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " 2024: uruchomiono pierwszą generację DestinE",
-    "text": "2024: uruchomiono pierwszą generację DestinE\n\n\nDestination Earth (DestinE) łączy:\n\nobserwacje satelitarne, IoT i dane społeczno-ekonomiczne,\nmodele wysokiej rozdzielczości i europejskie HPC,\nscenariusze ekstremów pogodowych i adaptacji do zmiany klimatu,\nplatformę usług, Data Lake i silnik cyfrowych bliźniaków.\n\nPierwszą generację systemu uruchomiono 10 czerwca 2024 r.; kolejne fazy mają rozwijać i rozszerzać DestinE do 2030 r.\n\n\n\n\n\n\n\n\nLekcja dla IoT\n\n\nCyfrowy bliźniak nie jest modelem 3D. To utrzymywana relacja między obserwacją, modelem i scenariuszem decyzji — wraz z informacją o niepewności.\n\n\n\n\n\nKomisja Europejska, Destination Earth, https://digital-strategy.ec.europa.eu/en/policies/destination-earth"
+    "objectID": "slides/00-internet-przyszlosci.html#pytanie-sala",
+    "href": "slides/00-internet-przyszlosci.html#pytanie-sala",
+    "title": "Internet przyszłości",
+    "section": " Pytanie do sali",
+    "text": "Pytanie do sali\n\nGdzie w tej pętli kończy się technika,a zaczyna władza?\n\n\nKto wybiera, co mierzymy? Kto pisze model? Kto może wydać polecenie urządzeniu?"
   },
   {
     "objectID": "slides/00-internet-przyszlosci.html#cambridge",
     "href": "slides/00-internet-przyszlosci.html#cambridge",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " Cambridge Analytica: co potwierdzono",
-    "text": "Cambridge Analytica: co potwierdzono\n\n\nFakt udokumentowany przez FTC\nCambridge Analytica i współpracownicy stosowali zwodnicze praktyki przy pozyskiwaniu danych osobowych dziesiątek milionów użytkowników Facebooka do profilowania i targetowania wyborców.\n\nCzego ten fakt sam nie dowodzi\nNie wynika z niego automatycznie, że profilowanie przesądziło konkretny wynik wyborów. Udokumentowane naruszenie prywatności i obietnica skuteczności perswazji to dwie różne tezy.\n\n\n\n\n\n\n\n\nLekcja dla IoT\n\n\nDane zebrane w jednym celu mogą zostać użyte do zupełnie innego modelu i innej interwencji. Zgoda, minimalizacja i ograniczenie celu muszą być częścią architektury.\n\n\n\n\n\nFederal Trade Commission, sprawa 182 3107, https://www.ftc.gov/legal-library/browse/cases-proceedings/182-3107-cambridge-analytica-llc-matter"
-  },
-  {
-    "objectID": "slides/00-internet-przyszlosci.html#social-credit",
-    "href": "slides/00-internet-przyszlosci.html#social-credit",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " Chiński „social credit”: nie jeden wynik dla każdego",
-    "text": "Chiński „social credit”: nie jeden wynik dla każdego\n\n\nPlan Rady Państwa z 2014 r. dotyczył szerokiej infrastruktury wiarygodności: administracji, biznesu, społeczeństwa i sądownictwa.\nBadania opisują wiele systemów publicznych, lokalnych i komercyjnych, rejestry oraz listy podmiotów — nie jeden uniwersalny, ogólnokrajowy wynik punktowy każdego obywatela.\n\nRealne ryzyka pozostają poważne\n\nłączenie danych z różnych kontekstów,\nnieprzejrzyste kryteria i błędne przypisania,\nautomatyczne konsekwencje administracyjne,\ntrudna droga odwołania i efekt mrożący.\n\n\n\nRada Państwa ChRL, plan 2014–2020, https://www.gov.cn/zhengce/content/2014-06/27/content_8913.htm; K. Drinhausen, V. Brussee, MERICS (2021/2022), https://merics.org/en/report/chinas-social-credit-system-2021-fragmentation-towards-integration; G. Kostka (2019) — badanie odbioru społecznego, https://doi.org/10.1177/1461444819826402"
+    "title": "Internet przyszłości",
+    "section": " Ale czy tylko korzyści?",
+    "text": "Ale czy tylko korzyści?\n\n\n\nCambridge Analytica: dane dziesiątek milionów użytkowników Facebooka pozyskane podstępem i użyte do profilowania wyborców (ustalenia FTC).\n\nFot. Chatham House, CC BY 2.0 — Christopher Wylie, sygnalista\n\n\n\n\nChiński „kredyt społeczny”: nie jeden wynik każdego obywatela, lecz wiele rejestrów i czarnych list — z automatycznymi skutkami i trudnym odwołaniem.\n\nFot. µKöff, CC BY 4.0\n\n\n\n\nZagrożenia technologii przyszłości już dzisiejszej: powszechna inwigilacja, propaganda szyta na miarę, sterowanie potrzebami i pragnieniami jednostek."
   },
   {
     "objectID": "slides/00-internet-przyszlosci.html#petla-wladzy",
     "href": "slides/00-internet-przyszlosci.html#petla-wladzy",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
+    "title": "Internet przyszłości",
     "section": " Pętla danych jest pętlą władzy",
-    "text": "Pętla danych jest pętlą władzy\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObserwacjaco mierzymy?\n\n\n\n\n\n\n\nInferencjaco wnioskujemy?\n\n\n\n\n\n\n\nKlasyfikacjajaka grupa?\n\n\n\n\n\n\n\nInterwencjacena · dostęp · alarm\n\n\n\n\n\n\n\nZmiana zachowaniasprzężenie zwrotne\n\n\n\n\n\n\n\n\n\n\n\nBłąd pomiaru może stać się błędem decyzji.\nModel może optymalizować wskaźnik, który nie odpowiada interesowi użytkownika.\nIm bardziej automatyczna interwencja, tym ważniejsze są wyjaśnienie, nadzór i odwołanie."
+    "text": "Pętla danych jest pętlą władzy\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObserwacjaco mierzymy?\n\n\n\n\n\n\n\nInferencjaco wnioskujemy?\n\n\n\n\n\n\n\nKlasyfikacjado jakiej grupy?\n\n\n\n\n\n\n\nInterwencjacena · dostęp · alarm\n\n\n\n\n\n\n\nZmiana zachowania\n\n\n\n\n\n\n\n\n\n\n\nTa sama pętla, która nawadnia pole, może sterować człowiekiem. Dane zebrane w jednym celu łatwo użyć w innym."
   },
   {
-    "objectID": "slides/00-internet-przyszlosci.html#literatura-soczewki",
-    "href": "slides/00-internet-przyszlosci.html#literatura-soczewki",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " Literatura nie przewiduje urządzeń — bada konsekwencje",
-    "text": "Literatura nie przewiduje urządzeń — bada konsekwencje\nHuxley ostrzegał, że ucieczka w rozrywkę i fantazję może osłabiać zdolność społeczeństwa do oporu wobec manipulacji.\n\nParafraza: Aldous Huxley, Brave New World Revisited (1958; pol. Nowy wspaniały świat 30 lat później)\n\n\n\n\nHuxley: przyjemność i rozproszenie mogą być skuteczniejsze od przymusu.\nLem, Powrót z gwiazd: betryzacja ogranicza agresję „dla dobra” ludzi — technicznie bezpieczny świat zawęża doświadczenie i sprawczość.\n\n\n\nDukaj, Po piśmie: medium komunikacji zmienia nie tylko obieg informacji, lecz także sposób myślenia.\nNaam, Nexus · Crux · Apex: połączone umysły obiecują współpracę, ale tworzą nową powierzchnię kontroli."
-  },
-  {
-    "objectID": "slides/00-internet-przyszlosci.html#data-act",
-    "href": "slides/00-internet-przyszlosci.html#data-act",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " 2025: dane z połączonego urządzenia nie są już tylko „u producenta”",
-    "text": "2025: dane z połączonego urządzenia nie są już tylko „u producenta”\nData Act wszedł w życie 11 stycznia 2024 r. i jest stosowany od 12 września 2025 r.\n\n\nUżytkownicy — konsumenci i firmy — uzyskują prawo dostępu do danych wytwarzanych podczas używania połączonych produktów oraz możliwość udostępnienia ich wybranej stronie trzeciej.\n\nDla rolnictwa i przemysłu oznacza to m.in. możliwość użycia danych maszyny do niezależnego serwisu, analizy wydajności i optymalizacji procesu.\n\n\n\n\n\n\n\n\nKonsekwencje architektoniczne\n\n\nEksport, semantyka, jednostki i jakość danych nie są dodatkiem do pulpitu. Art. 3 ust. 1 obejmuje produkty wprowadzane na rynek od 12 września 2026 r.; udostępnianie uwzględnia ochronę tajemnicy przedsiębiorstwa oraz warunki FRAND: sprawiedliwe, rozsądne i niedyskryminacyjne (fair, reasonable and non-discriminatory).\n\n\n\n\n\nKomisja Europejska, Data Act, https://digital-strategy.ec.europa.eu/en/policies/data-act"
+    "objectID": "slides/00-internet-przyszlosci.html#huxley",
+    "href": "slides/00-internet-przyszlosci.html#huxley",
+    "title": "Internet przyszłości",
+    "section": " „Cukiereczki” dla mózgu",
+    "text": "„Cukiereczki” dla mózgu\n\n\n\n\nAldous Huxley, rys. Dwight, 1923 — domena publiczna\n\n\n\n„Jeżeli większość ludzi spędza znaczną część swojego czasu nie tu i teraz (…), ale gdzie indziej, w pozbawionych znaczenia zaświatach sportu i oper mydlanych, mitologii i metafizycznych fantazji, społeczeństwu będzie trudno oprzeć się zakusom tych, którzy chcą nim manipulować.”\n\n\nA. Huxley, Nowy wspaniały świat 30 lat później (1958)\n\n\nHuxley pisał o radiu i kinie. Dziś „zaświaty” mieszczą się w kieszeni i mierzą naszą uwagę co sekundę."
   },
   {
     "objectID": "slides/00-internet-przyszlosci.html#czy-programy",
     "href": "slides/00-internet-przyszlosci.html#czy-programy",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
+    "title": "Internet przyszłości",
     "section": " Czy jesteśmy programami?",
-    "text": "Czy jesteśmy programami?\nTeza eseistyczna Harariego: decyzje i intuicje można opisywać jako działanie biologicznych mechanizmów rozpoznających wzorce, a nie jako przejaw niezależnego, niepodzielnego „ja”.\n\nParafraza wątku z: Yuval Noah Harari, 21 lekcji na XXI wiek. To stanowisko filozoficzne — nie rozstrzygnięty wynik pomiaru.\n\n\n\n\n\n\n\n\nKontrapunkt i pytanie dla projektanta\n\n\nPrzewidywalność statystyczna nie dowodzi braku sprawczości. Jeśli jednak system potrafi przewidywać zachowanie, czy powinien także otrzymać prawo do wywoływania zachowania w świecie fizycznym?"
+    "text": "Czy jesteśmy programami?\n\n„…nasze decyzje w każdej sprawie — od wyboru jedzenia po wybór partnerów — wynikają nie z jakiejś tajemniczej wolnej woli, lecz raczej z miliardów neuronów w ułamku sekundy obliczających prawdopodobieństwa. Osławiona »ludzka intuicja« jest w rzeczywistości »rozpoznawaniem wzorców«.”\n\n\nY. N. Harari, 21 lekcji na XXI wiek — teza eseistyczna, nie wynik pomiaru\n\n\nJeśli system potrafi przewidzieć nasze zachowanie, czy powinien też dostać prawo, by je wywołać — w świecie fizycznym?"
+  },
+  {
+    "objectID": "slides/00-internet-przyszlosci.html#blue-gene",
+    "href": "slides/00-internet-przyszlosci.html#blue-gene",
+    "title": "Internet przyszłości",
+    "section": " Ile kosztuje mózg kota?",
+    "text": "Ile kosztuje mózg kota?\n\n\n\n\nIBM Blue Gene/P, Argonne National Laboratory, CC BY-SA 2.0\n\n\nW 2009 r. superkomputer Blue Gene/P (147 456 procesorów) zasymulował korę o skali mózgu kota:\n\n\n1,6 mldneuronów\n\n\n≈ 9 blnsynaps\n\n\n\n…znacznie wolniej niż żywy mózg, który zużywa około 20 W. Inteligencja w krzemie jest dziś przede wszystkim problemem energii.\n\n\n\nR. Ananthanarayanan i in., The cat is out of the bag, SC’09, doi:10.1145/1654059.1654124"
   },
   {
     "objectID": "slides/00-internet-przyszlosci.html#ai-fizyczny",
     "href": "slides/00-internet-przyszlosci.html#ai-fizyczny",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " AI + IoT: od opisu do działania",
-    "text": "AI + IoT: od opisu do działania\n\n\nAI bez IoT może analizować tekst, obraz lub historię danych.\nIoT bez AI może mierzyć, przesyłać i reagować według jawnej reguły.\n\nPołączenie daje system, który:\n\nobserwuje sytuację,\nszacuje stan albo przyszłość,\nwybiera interwencję,\nuczy się z jej efektu.\n\n\n\n\n\n\n\n\n\nNajważniejsza zmiana\n\n\nBłąd modelu przestaje być tylko błędną odpowiedzią na ekranie. Może stać się ruchem robota, dawką, odmową dostępu albo niewysłanym alarmem."
+    "title": "Internet przyszłości",
+    "section": " AI wychodzi z ekranu",
+    "text": "AI wychodzi z ekranu\n\n\n\n\nLozada i in., robot do zbioru chili, CC BY 4.0\n\n\nAI bez IoT analizuje tekst i obraz.IoT bez AI mierzy i reaguje według jawnej reguły.\n\nRazem: system obserwuje, przewiduje, działa i uczy się z efektu.\n\n\n\n\n\n\n\n\n\nNajważniejsza zmiana\n\n\nBłąd modelu przestaje być złą odpowiedzią na ekranie. Staje się ruchem ramienia, dawką nawozu albo niewysłanym alarmem."
   },
   {
     "objectID": "slides/00-internet-przyszlosci.html#praca",
     "href": "slides/00-internet-przyszlosci.html#praca",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " 2025: ekspozycja zadania to nie likwidacja zawodu",
-    "text": "2025: ekspozycja zadania to nie likwidacja zawodu\nBadanie ILO/NASK wykorzystało reprezentatywną próbę wybraną z 29 753 zadań polskiej klasyfikacji zawodów, ankiety pracowników, ocenę ekspertów i predykcje modelu AI.\n\n\nWynik globalny\n\n1 na 4 pracowników wykonuje zawód z pewnym poziomem ekspozycji na generatywną AI.\n3,3% globalnego zatrudnienia należy do najwyższej kategorii ekspozycji.\n\n\nWniosek autorów\nPonieważ zawody składają się z wielu zadań wymagających udziału człowieka, bardziej prawdopodobna jest transformacja pracy niż proste zastąpienie całych zawodów.\n\n\nILO Working Paper 140, 20.05.2025, https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure"
+    "title": "Internet przyszłości",
+    "section": " Bezużyteczna klasa?",
+    "text": "Bezużyteczna klasa?\n\n\nOstrzeżenie Harariego\n\n„Rewolucja techniczna może niedługo wypchnąć miliardy ludzi z rynku pracy i przyczynić się do powstania ogromnej, nowej, bezużytecznej klasy.”\n\n\nY. N. Harari, 21 lekcji na XXI wiek\n\n\nDane ILO i NASK (2025)\n\n1 na 4 pracujących ma zawód z pewną ekspozycją na generatywną AI,\nw najwyższej kategorii ekspozycji jest 3,3% zatrudnionych.\n\nAutorzy: zawód to wiele zadań, więc bardziej prawdopodobna jest przemiana pracy niż jej zanik.\n\n\nILO Working Paper 140, 20.05.2025, https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure"
   },
   {
     "objectID": "slides/00-internet-przyszlosci.html#bci",
     "href": "slides/00-internet-przyszlosci.html#bci",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " BCI: przełom kliniczny, nie „transfer wiedzy”",
-    "text": "BCI: przełom kliniczny, nie „transfer wiedzy”\n\n\nW 2023 r. inwazyjna neuroproteza mowy dekodowała próbę mówienia u jednej uczestniczki badania klinicznego: mediana 78 słów/min, mediana błędu słów 25%. W 2025 r. pokazano ciągłą syntezę głosu aktualizowaną co 80 ms.\n\nTo potwierdza: możliwość przywracania komunikacji osobom z ciężkim paraliżem.\nNie potwierdza: odczytu dowolnych myśli, przesyłania wiedzy między ludźmi ani dojrzałego produktu powszechnego użytku. W 2016 r. „neural dust” zademonstrowano jako implant 3×1×1 mm w nerwach obwodowych szczura — nie „pył” w mózgu ani produkt konsumencki.\n\n\nMetzger i in. (2023), https://doi.org/10.1038/s41586-023-06443-4; Littlejohn i in. (2025), https://doi.org/10.1038/s41593-025-01905-6; Seo i in. (2016), https://doi.org/10.1016/j.neuron.2016.06.034"
+    "title": "Internet przyszłości",
+    "section": " Bezpośredni transfer wrażeń?",
+    "text": "Bezpośredni transfer wrażeń?\n\n\n\n\nC. Grau i in. (2014), PLoS ONE, CC BY 4.0\n\n\n\n2013: szczur w USA podpowiada szczurowi w Brazylii, którą dźwignię nacisnąć.\n2014: jedno słowo „przesłane” z mózgu do mózgu — Indie → Francja.\n\n\nTo potwierdza: pojedyncze bity przez EEG i stymulację, a w klinice — przywracanie mowy sparaliżowanym.\nNie potwierdza: czytania myśli ani przesyłania wiedzy.\n\n\n\nM. Pais-Vieira i in. (2013), doi:10.1038/srep01319; C. Grau i in. (2014), doi:10.1371/journal.pone.0105225; S. L. Metzger i in. (2023), doi:10.1038/s41586-023-06443-4"
   },
   {
     "objectID": "slides/00-internet-przyszlosci.html#energia",
     "href": "slides/00-internet-przyszlosci.html#energia",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " Energia: optymalizacja ma własny rachunek",
-    "text": "Energia: optymalizacja ma własny rachunek\n\n\nSystem może oszczędzać\n\nwodę, nawóz i paliwo przez dawkowanie,\nenergię przez harmonogram i wykrycie strat,\nczęści przez utrzymanie zależne od stanu.\n\n\nSystem sam zużywa\n\nenergię czujnika, radia, bramy i centrum danych,\nmateriały, baterie i urządzenia,\npracę serwisową oraz aktualizacje.\n\n\nIEA szacuje, że centra danych zużyły w 2024 r. 415 TWh energii elektrycznej — około 1,5% światowego zużycia. Scenariusz bazowy na 2030 r. to około 945 TWh. To prognoza zależna m.in. od tempa wdrażania AI i wzrostu efektywności.\n\n\n\n\n\n\n\nPoprawna granica bilansu\n\n\nPorównujemy cały cykl życia wariantu z IoT i wariantu bez IoT. „Mały czujnik” nie oznacza automatycznie małego systemu; liczą się także transmisja, brzeg, chmura i efekt odbicia.\n\n\n\n\n\nIEA, Energy and AI (2025), https://www.iea.org/reports/energy-and-ai/executive-summary"
+    "title": "Internet przyszłości",
+    "section": " Energia jest najważniejsza",
+    "text": "Energia jest najważniejsza\n\n\n\nBenzyna: 43,2 MJ/kg → 34,56 MJ/l\n\n\n7 l/100 km → 0,672 kWh/km\n\n\nCzłowiek przy ciężkiej pracy: 2500–3000 kcal, czyli 10,5–12,6 MJ na dobę\n\n\n\n\n\nWizje przyszłości często pomijają rachunek energii. Każdy czujnik, nadajnik i serwer też go ma."
+  },
+  {
+    "objectID": "slides/00-internet-przyszlosci.html#centrum-danych",
+    "href": "slides/00-internet-przyszlosci.html#centrum-danych",
+    "title": "Internet przyszłości",
+    "section": " Optymalizacja ma własny rachunek",
+    "text": "Optymalizacja ma własny rachunek\n\n\n\n\nFot. BalticServers.com, CC BY-SA 3.0\n\n\nCentra danych zużyły w 2024 r. ok. 415 TWh — 1,5% światowej energii elektrycznej. Scenariusz na 2030 r.: ok. 945 TWh.\n\nSystem IoT oszczędza wodę, nawóz i paliwo, ale sam zużywa energię czujnika, radia, bramy i chmury.\nPorównujemy cały cykl życia wariantu z IoT i bez niego.\n\n\n\nIEA, Energy and AI (2025), https://www.iea.org/reports/energy-and-ai/executive-summary"
   },
   {
     "objectID": "slides/00-internet-przyszlosci.html#botnet",
     "href": "slides/00-internet-przyszlosci.html#botnet",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " 2026: twoje urządzenie może stać się cudzą bronią",
-    "text": "2026: twoje urządzenie może stać się cudzą bronią\nCloudflare raportuje, że złagodził atak DDoS o szczycie 31,4 Tb/s — największy w jego telemetrii — napędzany m.in. przez masowy botnet Aisuru. Wykorzystywane są przejęte routery, kamery, rejestratory i przystawki konsumenckie.\n\n\nDlaczego IoT jest atrakcyjny dla botnetu\n\nduża liczba podobnych urządzeń,\ndługi czas życia i krótki czas wsparcia,\nwystawione usługi zarządzania,\nsłabe lub współdzielone poświadczenia.\n\n\n\n\n\n\n\n\n\nKonsekwencja\n\n\nNiezabezpieczone urządzenie nie jest tylko ryzykiem właściciela. Może stać się elementem ataku na cudzą infrastrukturę.\n\n\n\n\nWymaganie: bezpieczne ustawienia domyślne, podpisany firmware, aktualizacje i monitoring podatności.\n\n\nCloudflare, 2026 Threat Report, https://blog.cloudflare.com/2026-threat-report/"
-  },
-  {
-    "objectID": "slides/00-internet-przyszlosci.html#koniec-wsparcia",
-    "href": "slides/00-internet-przyszlosci.html#koniec-wsparcia",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " 2026: sprzęt działa, usługa znika",
-    "text": "2026: sprzęt działa, usługa znika\nBelkin zakończył 31 stycznia 2026 r. usługi chmurowe i obsługę aplikacji dla części produktów Wemo. Przestały działać m.in. zdalny dostęp oraz integracje z Alexą i Google Assistant.\nUrządzenia wcześniej skonfigurowane z Apple HomeKit mogą zachować działanie lokalne; produkty oparte na Thread nadal działają przez HomeKit. Produkty zależne od chmury tracą funkcje „smart”, mimo że elektronika fizycznie działa.\n\n\n\n\n\n\n\nWymaganie projektowe\n\n\nZdefiniuj tryb lokalny, eksport danych, stan bezpieczny bez chmury oraz datę i zakres wsparcia. Koniec serwera nie powinien automatycznie oznaczać elektroodpadu.\n\n\n\n\n\nBelkin, Wemo Support Ending — What You Need to Know, aktualizacja 01.2026, https://www.belkin.com/support-article/?articleNum=335419"
-  },
-  {
-    "objectID": "slides/00-internet-przyszlosci.html#prawo",
-    "href": "slides/00-internet-przyszlosci.html#prawo",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " 2024–2028: prawo zmienia backlog produktu",
-    "text": "2024–2028: prawo zmienia backlog produktu\n\n\n\n\n\n\n\n\n\nAkt UE\nKluczowa data\nCo zmienia w systemie IoT\n\n\n\n\nData Act\nstosowany od 12.09.2025\ndostęp użytkownika do danych z produktu, udostępnienie stronie trzeciej, przenoszenie usług danych\n\n\nRED + (UE) 2022/30\ncyberwymogi dla wybranych urządzeń radiowych od 01.08.2025; uchylenie z wejściem CRA 11.12.2027\nochrona sieci, prywatności i przed oszustwami już przed pełnym stosowaniem CRA\n\n\nAI Act — (UE) 2024/1689, zm. (UE) 2026/1744\nzakazy od 02.2025; GPAI od 08.2025; przejrzystość od 08.2026; wysokie ryzyko: 12.2027 / 08.2028\nklasyfikacja ryzyka, dokumentacja, nadzór człowieka, przejrzystość i monitorowanie po wdrożeniu\n\n\nCyber Resilience Act\nraportowanie od 11.09.2026; główne obowiązki od 11.12.2027\nbezpieczeństwo przez cykl życia, obsługa podatności, aktualizacje i zgodność produktu\n\n\n\n\nDaty w tabeli wskazują, od kiedy poszczególne wymagania mają zastosowanie i kiedy system musi być do nich przygotowany.\n\nKomisja Europejska: https://digital-strategy.ec.europa.eu/en/policies/data-act, https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai, https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act, https://single-market-economy.ec.europa.eu/sectors/electrical-and-electronic-engineering-industries-eei/radio-equipment-directive-red_en"
+    "title": "Internet przyszłości",
+    "section": " Twoje urządzenie, cudza broń, czyjś odpad",
+    "text": "Twoje urządzenie, cudza broń, czyjś odpad\n\n\n\nRaport 2026: botnet z przejętych kamer i routerów — atak DDoS 31,4 Tb/s.\n\n\n\n2026: Belkin wyłącza chmurę Wemo — sprzęt działa, „smart” znika.\n\n\n\nKoniec serwera nie może oznaczać elektroodpadu.\n\n\n\nCloudflare, 2026 Threat Report; Belkin, Wemo Support Ending (2026). Fot.: Bungle, Harborsparrow (CC BY-SA 4.0); AvWijk (domena publiczna)"
   },
   {
     "objectID": "slides/00-internet-przyszlosci.html#koordynacja",
     "href": "slides/00-internet-przyszlosci.html#koordynacja",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
+    "title": "Internet przyszłości",
     "section": " Człowiek nie wygrał dzięki samotnej inteligencji",
-    "text": "Człowiek nie wygrał dzięki samotnej inteligencji\nLiteracka soczewka Naama: sieciowa augmentacja może zwiększać zdolność współpracy — a równocześnie tworzyć nową powierzchnię obserwacji i kontroli.\n\nMotyw trylogii Rameza Naama Nexus · Crux · Apex (2012–2015); parafraza, nie wypowiedź autora.\n\nProjektujemy nie tylko przepływ danych, lecz także warunki koordynacji między ludźmi."
-  },
-  {
-    "objectID": "slides/00-internet-przyszlosci.html#pytania-projektowe",
-    "href": "slides/00-internet-przyszlosci.html#pytania-projektowe",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " Sześć pytań przed wyborem czujnika",
-    "text": "Sześć pytań przed wyborem czujnika\n\n\nDecyzja: kto i co zrobi dzięki danym?\nDowód: jak sprawdzimy, że wynik jest lepszy niż bez systemu?\nBłąd: jaki jest koszt fałszywego alarmu i przeoczenia?\nWładza: kto może zobaczyć dane, zmienić model i wydać polecenie?\nAwaria: jaki stan fizyczny jest bezpieczny bez sieci i chmury?\nKoniec życia: kto aktualizuje, eksportuje dane i usuwa urządzenie?\n\n\nJeżeli odpowiedzi nie mieszczą się w wymaganiach, problem nie zniknie w implementacji."
-  },
-  {
-    "objectID": "slides/00-internet-przyszlosci.html#most",
-    "href": "slides/00-internet-przyszlosci.html#most",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " Wykład 0 wyznacza pytania, moduły 01–07 budują odpowiedzi",
-    "text": "Wykład 0 wyznacza pytania, moduły 01–07 budują odpowiedzi\n\n\n\n\n\n\n\n\nPytanie z wykładu 0\nOdpowiedź rozwijana w module\n\n\n\n\nCo budujemy i jak poznamy, że działa?\n01 Architektura i wymagania\n\n\nJak pomiar staje się liczbą i ile kosztuje energetycznie?\n02 Urządzenie, sensory i energia\n\n\nJak dane docierają mimo zaniku łącza i jak wydawać firmware?\n03 Łączność i OTA\n\n\nJak znaczenie danych przechodzi między komponentami?\n04 MQTT i kontrakt danych\n\n\nGdzie walidować, agregować i integrować?\n05 Brzeg, Node-RED i Sheets\n\n\nJak modelować stan, wizualizować i sterować?\n06 ThingsBoard CE\n\n\nJak system zachowuje się przy ataku, awarii i zmianie prawa?\n07 Odporność, bezpieczeństwo i eksploatacja"
-  },
-  {
-    "objectID": "slides/00-internet-przyszlosci.html#przypadek",
-    "href": "slides/00-internet-przyszlosci.html#przypadek",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " Przypadek przewodni: nawadnianie nie zaczyna się od pompy",
-    "text": "Przypadek przewodni: nawadnianie nie zaczyna się od pompy\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npolecenie z ID\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nstan potwierdzony\n\n\n\n\n\n\n\nCzujnikwilgotność · jakość\n\n\n\n\n\n\n\nUrządzenieczas · bufor · energia\n\n\n\n\n\n\n\nBroker / brzegwalidacja · reguły\n\n\n\n\n\n\n\nPlatformastan · alarm · historia\n\n\n\n\n\n\n\nZawór / pompastan bezpieczny\n\n\n\n\n\n\n\n\n\n\nKryterium sukcesu: nie „dane są w chmurze”, lecz roślina otrzymuje właściwą ilość wody, a pojedyncza awaria nie prowadzi do zalania ani przesuszenia."
+    "text": "Człowiek nie wygrał dzięki samotnej inteligencji\n\n\n\n\nRamez Naam, fot. S. ter Burg, CC BY 2.0\n\n\n\n„Ludzkość osiągnęła to, co osiągnęła, nie dzięki sile, pazurom czy zbroi, nawet nie dzięki indywidualnej inteligencji. To zdolność ludzi do koordynowania, wspólnej pracy, wspólnego tworzenia pomysłów i rozwiązań naprawdę ich wyróżnia.”\n\n\nR. Naam, Crux (2013), przekład własny\n\n\nProjektujemy nie tylko przepływ danych, ale też warunki współpracy — albo kontroli."
   },
   {
     "objectID": "slides/00-internet-przyszlosci.html#pytania",
     "href": "slides/00-internet-przyszlosci.html#pytania",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " Pytania sprawdzające",
-    "text": "Pytania sprawdzające\n\n\nCzujnik wilgotności ma błąd systematyczny, a model automatycznie otwiera zawór. W których miejscach pętli można wykryć lub ograniczyć skutek tego błędu?\nProducent ciągnika udostępnia pulpit, ale nie surowe dane maszyny. Jakie wymaganie techniczne i jaki akt UE są tu istotne?\nSystem AI klasyfikuje człowieka, lecz interwencję wykonuje urządzenie IoT. Które wymagania dotyczą modelu, a które urządzenia i jego stanu bezpiecznego?\nKiedy wysłanie pomiaru do chmury jest lepsze od decyzji na brzegu — a kiedy gorsze?"
+    "title": "Internet przyszłości",
+    "section": " Sześć pytań przed wyborem czujnika",
+    "text": "Sześć pytań przed wyborem czujnika\n\n\nDecyzja: kto i co zrobi dzięki danym?\nDowód: skąd będziemy wiedzieć, że jest lepiej niż bez systemu?\nBłąd: ile kosztuje fałszywy alarm, a ile przeoczenie?\nWładza: kto widzi dane, zmienia model i wydaje polecenia?\nAwaria: jaki stan jest bezpieczny bez sieci i chmury?\nKoniec życia: kto aktualizuje, eksportuje dane i usuwa urządzenie?"
+  },
+  {
+    "objectID": "slides/00-internet-przyszlosci.html#most",
+    "href": "slides/00-internet-przyszlosci.html#most",
+    "title": "Internet przyszłości",
+    "section": " Mapa kursu",
+    "text": "Mapa kursu\n\n\n\n\n\n\n\n\nPytanie z dzisiejszego wykładu\nModuł\n\n\n\n\nCo budujemy i jak poznamy, że działa?\n01 Architektura i wymagania\n\n\nIle energii kosztuje pomiar?\n02 Urządzenie, sensory i energia\n\n\nCo, gdy zniknie łącze? Jak bezpiecznie zmienić firmware?\n03 Łączność i OTA\n\n\nJak dane zachowują znaczenie między komponentami?\n04 MQTT i kontrakt danych\n\n\nGdzie walidować i agregować?\n05 Brzeg sieci, Node-RED i Sheets\n\n\nJak modelować stan, wizualizować i sterować?\n06 ThingsBoard CE\n\n\nCo przy ataku, awarii i zmianie prawa?\n07 Odporność, bezpieczeństwo i eksploatacja"
   },
   {
     "objectID": "slides/00-internet-przyszlosci.html#podsumowanie",
     "href": "slides/00-internet-przyszlosci.html#podsumowanie",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " Podsumowanie",
-    "text": "Podsumowanie\n\nInternet przyszłości nie jest katalogiem gadżetów, lecz zbiorem pętli pomiar–decyzja–działanie.\nKorzyści są realne, gdy system poprawia konkretną decyzję i daje się porównać z wariantem bez IoT.\nProfilowanie, AI i automatyczna interwencja zwiększają asymetrię władzy — dlatego potrzebne są cel, nadzór i droga odwołania.\nDemonstracja laboratoryjna nie jest dojrzałym produktem, a ekspozycja zadań na AI nie jest równoznaczna z likwidacją zawodu.\nEnergia, cyberbezpieczeństwo, dostęp do danych i cykl życia są częścią architektury od pierwszego dnia.\nModuły 01–07 zamieniają te zasady w sprawdzalne wymagania i działający system."
+    "title": "Internet przyszłości",
+    "section": " Utopia, dystopia, rzeczywistość",
+    "text": "Utopia, dystopia, rzeczywistość\n\nIoT to nie katalog gadżetów, lecz pętle pomiar → decyzja → działanie.\nTa sama pętla może nawadniać pole i sterować człowiekiem — o tym decyduje projekt.\nAI przenosi błąd z ekranu do świata fizycznego.\nEnergia, bezpieczeństwo i koniec wsparcia są częścią architektury od pierwszego dnia.\n\n\nTechnologia nas nie wyzwoli ani nie zniewoli sama. Zrobią to decyzje projektantów — czyli wasze."
   },
   {
     "objectID": "slides/00-internet-przyszlosci.html#literatura",
     "href": "slides/00-internet-przyszlosci.html#literatura",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " Literatura — nie instrukcje, lecz soczewki",
-    "text": "Literatura — nie instrukcje, lecz soczewki\n\n\n\nYuval Noah Harari, 21 lekcji na XXI wiek; Homo Deus. Krótka historia jutra.\nAldous Huxley, Nowy wspaniały świat (1932); Brave New World Revisited (1958; pol. Nowy wspaniały świat 30 lat później).\nStanisław Lem, Powrót z gwiazd (1961); Summa technologiae (1964).\nJacek Dukaj, Po piśmie (2019).\nRamez Naam, trylogia Nexus · Crux · Apex (2012–2015).\nMark Weiser, „The Computer for the 21st Century” (1991).\n\n\n\n\n\n\n\n\n\nDo dalszej rozmowy\n\n\nKtóra z tych wizji najlepiej opisuje świat urządzeń połączonych: wyzwolenie od ograniczeń, łagodna kontrola, utrata sprawczości, zmiana samego sposobu myślenia czy nowa zdolność współpracy?"
+    "title": "Internet przyszłości",
+    "section": " Co warto przeczytać",
+    "text": "Co warto przeczytać\n\n\n\nY. N. Harari, 21 lekcji na XXI wiek; Homo Deus. Krótka historia jutra\nA. Huxley, Nowy wspaniały świat (1932); Nowy wspaniały świat 30 lat później (1958)\nS. Lem, Powrót z gwiazd (1961); Summa technologiae (1964)\nJ. Dukaj, Po piśmie (2019)\nR. Naam, Nexus · Crux · Apex (2012–2015)\nM. Weiser, „The Computer for the 21st Century” (1991)\n\n\n\n\nStanisław Lem, CC BY-SA 3.0\n\n\n\n\n\n\n\n\n\nDo rozmowy\n\n\nKtóra wizja najlepiej opisuje świat połączonych rzeczy: wyzwolenie, łagodna kontrola czy nowa zdolność współpracy?"
   },
   {
     "objectID": "slides/00-internet-przyszlosci.html#zrodla",
     "href": "slides/00-internet-przyszlosci.html#zrodla",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " Źródła — przypadki i badania",
-    "text": "Źródła — przypadki i badania\n\n\nIoT Analytics, State of IoT 2025: Number of connected IoT devices growing 14% to 21.1 billion globally, 2025, https://iot-analytics.com/number-connected-iot-devices/\nFederal Trade Commission, Cambridge Analytica, LLC, In the Matter of, sprawa 182 3107, https://www.ftc.gov/legal-library/browse/cases-proceedings/182-3107-cambridge-analytica-llc-matter\nRada Państwa ChRL, Plan budowy systemu kredytu społecznego 2014–2020, https://www.gov.cn/zhengce/content/2014-06/27/content_8913.htm\nK. Drinhausen, V. Brussee, China’s Social Credit System in 2021: From fragmentation towards integration, MERICS, aktualizacja 2022, https://merics.org/en/report/chinas-social-credit-system-2021-fragmentation-towards-integration\nG. Kostka, China’s social credit systems and public opinion, 2019, https://doi.org/10.1177/1461444819826402\nILO, Generative AI and Jobs: A Refined Global Index of Occupational Exposure, Working Paper 140, 2025, https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure\nS. L. Metzger i in., A high-performance neuroprosthesis for speech decoding and avatar control, 2023, https://doi.org/10.1038/s41586-023-06443-4\nK. T. Littlejohn i in., A streaming brain-to-voice neuroprosthesis, 2025, https://doi.org/10.1038/s41593-025-01905-6\nD. Seo i in., Wireless Recording in the Peripheral Nervous System with Ultrasonic Neural Dust, 2016, https://doi.org/10.1016/j.neuron.2016.06.034\nJ. Rong i in., Fruit pose recognition and directional orderly grasping strategies for tomato harvesting robots, 2022, https://doi.org/10.1016/j.compag.2022.107430\nCloudflare, 2026 Threat Report, https://blog.cloudflare.com/2026-threat-report/\nBelkin, Wemo Support Ending — What You Need to Know, aktualizacja 2026, https://www.belkin.com/support-article/?articleNum=335419"
-  },
-  {
-    "objectID": "slides/00-internet-przyszlosci.html#zrodla-2",
-    "href": "slides/00-internet-przyszlosci.html#zrodla-2",
-    "title": "Internet przyszłości: obietnice, ryzyka, decyzje",
-    "section": " Źródła — standardy, programy i prawo",
-    "text": "Źródła — standardy, programy i prawo\n\n\nKomisja Europejska, Destination Earth, https://digital-strategy.ec.europa.eu/en/policies/destination-earth\nIEA, Energy and AI, 2025, https://www.iea.org/reports/energy-and-ai/executive-summary\nKomisja Europejska, Data Act, https://digital-strategy.ec.europa.eu/en/policies/data-act\nKomisja Europejska, AI Act, https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai\nKomisja Europejska, Cyber Resilience Act, https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act\nKomisja Europejska, Radio Equipment Directive (RED), https://single-market-economy.ec.europa.eu/sectors/electrical-and-electronic-engineering-industries-eei/radio-equipment-directive-red_en"
+    "title": "Internet przyszłości",
+    "section": " Źródła",
+    "text": "Źródła\n\n\nIoT Analytics, State of IoT 2025, https://iot-analytics.com/number-connected-iot-devices/\nR. Valentini i in., New tree monitoring systems: from Industry 4.0 to Nature 4.0, 2019, doi:10.12899/asr-1847\nFederal Trade Commission, Cambridge Analytica, LLC, sprawa 182 3107, https://www.ftc.gov/legal-library/browse/cases-proceedings/182-3107-cambridge-analytica-llc-matter\nK. Drinhausen, V. Brussee, China’s Social Credit System in 2021, MERICS, https://merics.org/en/report/chinas-social-credit-system-2021-fragmentation-towards-integration\nR. Ananthanarayanan i in., The cat is out of the bag: cortical simulations with 10⁹ neurons, 10¹³ synapses, SC’09, doi:10.1145/1654059.1654124\nILO, Generative AI and Jobs: A Refined Global Index of Occupational Exposure, WP 140, 2025, https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure\nM. Pais-Vieira i in., A brain-to-brain interface for real-time sharing of sensorimotor information, Sci. Rep. 2013, doi:10.1038/srep01319\nC. Grau i in., Conscious brain-to-brain communication in humans using non-invasive technologies, PLoS ONE 2014, doi:10.1371/journal.pone.0105225\nS. L. Metzger i in., A high-performance neuroprosthesis for speech decoding and avatar control, Nature 2023, doi:10.1038/s41586-023-06443-4\nIEA, Energy and AI, 2025, https://www.iea.org/reports/energy-and-ai/executive-summary\nCloudflare, 2026 Threat Report, https://blog.cloudflare.com/2026-threat-report/\nBelkin, Wemo Support Ending, 2026, https://www.belkin.com/support-article/?articleNum=335419\nIlustracje: Wikimedia Commons — autorzy i licencje podane pod każdym zdjęciem; wykresy własne, CC BY 4.0"
   },
   {
     "objectID": "slides/02-urzadzenie-sensory-energia.html#cele",

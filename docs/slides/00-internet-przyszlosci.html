@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="prof. UPP dr hab. inż. Marek Urbaniak">
-  <title>Internet Rzeczy — kurs w ośmiu wykładach – Internet przyszłości: obietnice, ryzyka, decyzje</title>
+  <title>Internet Rzeczy — kurs w ośmiu wykładach – Internet przyszłości</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -35,7 +35,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-473aa4881b8b47397cd8a79d61d637fd.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-be59b4774a18734dda35a4a6f13a6e44.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -139,8 +139,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Internet przyszłości: obietnice, ryzyka, decyzje</h1>
-  <p class="subtitle">Wykład 0 — po co budujemy systemy IoT i za co odpowiada projektant</p>
+  <h1 class="title">Internet przyszłości</h1>
+  <p class="subtitle">Utopia, dystopia, rzeczywistość — technologia o wielu twarzach</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -154,92 +154,118 @@ prof. UPP dr hab. inż. Marek Urbaniak
 </div>
 
 </section>
-<section id="motto" class="slide level2">
-<h2><i class="bi bi-lightbulb"></i> Technologia nas wyzwoli?</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Harari ostrzega, że język przełomowych technologii może pozostawać obcy ludziom, których życie te technologie zmienią.</strong></p>
-<p><em>Parafraza wątku z 21 lekcji na XXI wiek.</em></p>
-</div><div class="column" style="width:50%;">
-<p><strong>Pyta też, kto reprezentuje społeczeństwo, gdy inżynierowie, przedsiębiorcy i naukowcy podejmują decyzje o politycznych konsekwencjach.</strong></p>
-<p><em>Parafraza; literatura jest tu soczewką, nie dowodem empirycznym.</em></p>
-</div></div>
-<div class="zrodlo">
-<p>Yuval Noah Harari, <em>21 lekcji na XXI wiek</em></p>
+<section id="motto" class="slide level2 foto" data-background-image="../assets/img/lecture00/ziemia-noca.jpg" data-background-size="cover" data-background-color="#000" data-background-opacity="0.6">
+<h2>Technologia nas wyzwoli?</h2>
+<div class="wielkie fragment fade-in-then-out" style="color:#ffd166">
+<p>???</p>
 </div>
-<p><span class="lead">Pytanie otwierające: <strong>czy odpowiedzialność projektanta kończy się tam, gdzie kończy się specyfikacja techniczna?</strong></span></p>
+<div class="fragment">
+<div class="cytat">
+<p>„…globalizacja, blockchain, inżynieria genetyczna, sztuczna inteligencja, uczenie maszynowe — prości ludzie zapewne podejrzewają, że żadne z tych pojęć ich nie dotyczy.”</p>
+</div>
+<div class="zrodlo">
+<p>Yuval Noah Harari, <em>21 lekcji na XXI wiek</em>. Zdjęcie: NASA Goddard, <em>Black Marble — City Lights 2012</em>, domena publiczna.</p>
+</div>
+</div>
 </section>
 <section id="cele" class="slide level2">
-<h2><i class="bi bi-compass"></i> Po co ten wykład</h2>
-<p><span class="lead">Pytanie modułu: <strong>jak odróżnić obietnicę technologiczną od odpowiedzialnego systemu?</strong></span></p>
+<h2><i class="bi bi-person-raised-hand"></i> Kto decyduje o przyszłości?</h2>
 <div class="columns">
-<div class="column" style="width:52%;">
-<h3 id="cele-1">Cele</h3>
-<ul>
-<li class="fragment">Rozpoznać, gdzie IoT tworzy wartość, a gdzie tylko produkuje dane.</li>
-<li class="fragment">Oddzielić fakt, demonstrację badawczą i prognozę.</li>
-<li class="fragment">Nazwać społeczne skutki pętli: pomiar → model → decyzja → działanie.</li>
-<li class="fragment">Przełożyć te skutki na wymagania techniczne rozwijane w modułach 01–07.</li>
-</ul>
-</div><div class="column" style="width:48%;">
-<h3 id="droga">Droga</h3>
-<ol type="1">
-<li>Obietnice: środowisko, rolnictwo, energia, zdrowie</li>
-<li>Władza danych: profilowanie, kontrola, prawa użytkownika</li>
-<li>AI i interfejs człowiek–maszyna</li>
-<li>Granice: energia, odporność, prawo</li>
-<li>Most do projektu semestralnego</li>
-</ol>
+<div class="column" style="width:32%;">
+<p><img data-src="../assets/img/lecture00/harari.jpg" class="portret" alt="Yuval Noah Harari podczas Targów Książki we Frankfurcie, 2024."></p>
+<div class="zrodlo">
+<p>Fot. Martin Kraft, CC BY-SA 4.0</p>
+</div>
+</div><div class="column" style="width:68%;">
+<div class="cytat">
+<p>„Rewolucje dokonujące się w biotechnologii i technologii informacyjnej przeprowadzają inżynierowie, przedsiębiorcy i naukowcy, którzy nie zdają sobie sprawy z politycznych konsekwencji własnych decyzji i z całą pewnością nikogo nie reprezentują.”</p>
+</div>
+<div class="zrodlo">
+<p>Y. N. Harari, <em>21 lekcji na XXI wiek</em></p>
+</div>
+<div class="fragment">
+<p><span class="lead">To wy będziecie tymi inżynierami.</span></p>
+<p>Dziś trzy pytania: <strong>co obiecuje</strong> Internet Rzeczy, <strong>co może zabrać</strong> i <strong>co ogranicza</strong> go naprawdę.</p>
+</div>
 </div></div>
 </section>
-<section>
-<section id="przyszłość-jest-już-architekturą" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
-<h1>Przyszłość jest już architekturą</h1>
-<p><span class="lead">Dzisiaj zaprojektowane systemy determinują naszą przyszłość.</span></p>
-</section>
 <section id="skala" class="slide level2">
-<h2><i class="bi bi-diagram-3"></i> „Przyszłość” już jest infrastrukturą</h2>
+<h2><i class="bi bi-graph-up-arrow"></i> Przyszłość jest już infrastrukturą</h2>
 <div class="columns">
-<div class="column" style="width:48%;">
-<p><strong>Szacunek rynkowy IoT Analytics</strong></p>
-<ul>
-<li><strong>18,5 mld</strong> aktywnych urządzeń IoT w 2024 r.,</li>
-<li><strong>21,1 mld</strong> prognozowanych na koniec 2025 r.,</li>
-<li><strong>39 mld</strong> — prognoza na 2030 r.</li>
-</ul>
-</div><div class="column" style="width:52%;">
-<div title="Nie myl faktu z prognozą">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div class="column" style="width:64%;">
+<p><img data-src="../assets/img/iot-urzadzenia.png" alt="Wykres słupkowy: 18,5 mld aktywnych urządzeń IoT w 2024 r. (szacunek), 21,1 mld w 2025 r. i 39 mld w 2030 r. (prognozy)."></p>
+</div><div class="column" style="width:36%;">
+<p>Na każdego mieszkańca Ziemi przypadają już <strong>ponad dwa</strong> połączone urządzenia.</p>
+<div class="fragment">
+<p>Projektując czujnik, nie budujemy „gadżetu przyszłości”. Dokładamy <strong>kolejny węzeł</strong> do zatłoczonej i atakowanej sieci.</p>
 </div>
-<p><strong>Nie myl faktu z prognozą</strong></p>
-</div>
-<div class="callout-content">
-<p>To nie urzędowy spis. Firma analityczna szacuje aktywne połączenia według jawnej metodologii; liczba na 2030 r. jest prognozą, nie wynikiem pomiaru.</p>
-</div>
-</div>
-</div>
-</div>
-<p><strong>Wniosek:</strong> student nie dodaje „gadżetu przyszłości”, lecz kolejny węzeł do zatłoczonej i atakowanej infrastruktury.</p>
 </div></div>
 <div class="zrodlo">
 <p>IoT Analytics, <em>State of IoT 2025</em>, 28.10.2025, <a href="https://iot-analytics.com/number-connected-iot-devices/" class="uri">https://iot-analytics.com/number-connected-iot-devices/</a></p>
 </div>
 </section>
+<section>
+<section id="utopia" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
+<h1>Utopia</h1>
+<p><span class="lead">Co obiecuje świat połączonych rzeczy?</span></p>
+</section>
+<section id="profity" class="slide level2">
+<h2><i class="bi bi-stars"></i> Jasna strona mocy</h2>
+<div class="kafelki">
+<div class="fragment">
+<p><img data-src="../assets/img/lecture00/dron-ryz.jpg" alt="Dron rolniczy nad polem ryżowym podczas pokazu."></p>
+<p><strong>Rolnictwo</strong> — dawka tam, gdzie potrzeba</p>
+</div>
+<div class="fragment">
+<p><img data-src="../assets/img/lecture00/opaski-fitness.jpg" alt="Trzy opaski monitorujące aktywność na nadgarstku."></p>
+<p><strong>Zdrowie</strong> — pomiar ciała przez całą dobę</p>
+</div>
+<div class="fragment">
+<p><img data-src="../assets/img/lecture00/deszczownia.jpg" alt="Deszczownia obrotowa na polu uprawnym."></p>
+<p><strong>Woda</strong> — nawadnianie według gleby, nie kalendarza</p>
+</div>
+<div class="fragment">
+<p><img data-src="../assets/img/lecture00/licznik-energii.jpg" alt="Inteligentny licznik energii elektrycznej na ścianie budynku."></p>
+<p><strong>Energia</strong> — sieć widzi zużycie na bieżąco</p>
+</div>
+</div>
+<div class="zrodlo">
+<p>Fot.: Ch. Hedreyd / PIA (domena publiczna); Abas Gemini, Killarnee, 277volts (CC BY-SA 4.0) — Wikimedia Commons</p>
+</div>
+</section>
+<section id="srodowisko" class="slide level2">
+<h2><i class="bi bi-tree"></i> Poszerzenie wiedzy o środowisku</h2>
+<div class="kafelki">
+<div>
+<p><img data-src="../assets/img/lecture00/kowariancja-wirow.jpg" alt="Anemometr ultradźwiękowy i analizator gazów na maszcie pomiarowym metody kowariancji wirów."></p>
+<p><strong>Kowariancja wirów:</strong> 10–20 pomiarów na sekundę, żeby policzyć oddech ekosystemu</p>
+</div>
+<div class="fragment">
+<p><img data-src="../assets/img/lecture00/czujnik-wilgotnosci.jpg" alt="Czujnik promieniowania kosmicznego do pomiaru wilgotności gleby na polu."></p>
+<p><strong>Wilgotność gleby</strong> mierzona neutronami z promieniowania kosmicznego</p>
+</div>
+<div class="fragment">
+<p><img data-src="../assets/img/lecture00/instalacja-czujnikow.jpg" alt="Kable czujników glebowych wkopane w podłoże przy stacji pomiarowej."></p>
+<p><strong>Sieć czujników glebowych</strong> — dziesiątki punktów zamiast jednego</p>
+</div>
+</div>
+<div class="fragment">
+<p>Nature 4.0: las, pole i torfowisko stają się <strong>obserwowalne w sposób ciągły</strong> — tak jak hala fabryczna w Przemyśle 4.0.</p>
+</div>
+<div class="zrodlo">
+<p>R. Valentini i in. (2019), <em>New tree monitoring systems: from Industry 4.0 to Nature 4.0</em>, doi:10.12899/asr-1847. Fot.: Veedar (domena publiczna); P e z i (CC BY-SA 3.0 AT); UBC Micrometeorology (CC BY 2.0)</p>
+</div>
+</section>
 <section id="lancuch" class="slide level2">
 <h2><i class="bi bi-arrow-repeat"></i> Nie „rzecz”, lecz pętla</h2>
-<p><span class="lead">IoT zaczyna się wtedy, gdy pomiar zmienia decyzję — a decyzja może zmienić świat fizyczny.</span></p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
 <div>
-<svg id="mermaid-figure-1" width="1056" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="flowchart" style="; display: block; margin: auto auto auto auto" viewbox="0 0 1516 206" role="graphics-document document" aria-roledescription="flowchart-v2" height="326">
+<svg id="mermaid-figure-1" width="1056" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="flowchart" style="; display: block; margin: auto auto auto auto" viewbox="0 0 1272.4375 161" role="graphics-document document" aria-roledescription="flowchart-v2" height="250">
 <style>#mermaid-figure-1{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:24px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-figure-1 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-figure-1 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-figure-1 .error-icon{fill:#552222;}#mermaid-figure-1 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-1 .edge-thickness-normal{stroke-width:1px;}#mermaid-figure-1 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-1 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-1 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-figure-1 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-1 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-1 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-1 .marker.cross{stroke:#333333;}#mermaid-figure-1 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:24px;}#mermaid-figure-1 p{margin:0;}#mermaid-figure-1 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-1 .cluster-label text{fill:#333;}#mermaid-figure-1 .cluster-label span{color:#333;}#mermaid-figure-1 .cluster-label span p{background-color:transparent;}#mermaid-figure-1 .label text,#mermaid-figure-1 span{fill:#333;color:#333;}#mermaid-figure-1 .node rect,#mermaid-figure-1 .node circle,#mermaid-figure-1 .node ellipse,#mermaid-figure-1 .node polygon,#mermaid-figure-1 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-1 .rough-node .label text,#mermaid-figure-1 .node .label text,#mermaid-figure-1 .image-shape .label,#mermaid-figure-1 .icon-shape .label{text-anchor:middle;}#mermaid-figure-1 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-figure-1 .rough-node .label,#mermaid-figure-1 .node .label,#mermaid-figure-1 .image-shape .label,#mermaid-figure-1 .icon-shape .label{text-align:center;}#mermaid-figure-1 .node.clickable{cursor:pointer;}#mermaid-figure-1 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaid-figure-1 .arrowheadPath{fill:#333333;}#mermaid-figure-1 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-1 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-1 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-1 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaid-figure-1 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-1 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-figure-1 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-1 .cluster text{fill:#333;}#mermaid-figure-1 .cluster span{color:#333;}#mermaid-figure-1 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-1 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-1 rect.text{fill:none;stroke-width:0;}#mermaid-figure-1 .icon-shape,#mermaid-figure-1 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-1 .icon-shape p,#mermaid-figure-1 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaid-figure-1 .icon-shape rect,#mermaid-figure-1 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-1 .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#mermaid-figure-1 .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#mermaid-figure-1 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-figure-1 .x>*{fill:#e8f2f4!important;stroke:#0b6b78!important;stroke-width:2px!important;color:#0b3b45!important;}#mermaid-figure-1 .x span{fill:#e8f2f4!important;stroke:#0b6b78!important;stroke-width:2px!important;color:#0b3b45!important;}#mermaid-figure-1 .x tspan{fill:#0b3b45!important;}</style>
-<g><marker id="mermaid-1790945562324_flowchart-v2-pointEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790945562324_flowchart-v2-pointStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="4.5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790945562324_flowchart-v2-circleEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="11" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790945562324_flowchart-v2-circleStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="-1" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790945562324_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="12" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790945562324_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="-1" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M268,85.387L272.167,83.989C276.333,82.591,284.667,79.796,292.333,78.398C300,77,307,77,310.5,77L314,77" id="L_S_P_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_S_P_0" data-points="W3sieCI6MjY4LCJ5Ijo4NS4zODcwOTY3NzQxOTM1NX0seyJ4IjoyOTMsInkiOjc3fSx7IngiOjMxOCwieSI6Nzd9XQ==" marker-end="url(#mermaid-1790945562324_flowchart-v2-pointEnd)"></path><path d="M578,77L582.167,77C586.333,77,594.667,77,602.333,77C610,77,617,77,620.5,77L624,77" id="L_P_M_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_P_M_0" data-points="W3sieCI6NTc4LCJ5Ijo3N30seyJ4Ijo2MDMsInkiOjc3fSx7IngiOjYyOCwieSI6Nzd9XQ==" marker-end="url(#mermaid-1790945562324_flowchart-v2-pointEnd)"></path><path d="M888,77L892.167,77C896.333,77,904.667,77,912.333,77C920,77,927,77,930.5,77L934,77" id="L_M_D_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_M_D_0" data-points="W3sieCI6ODg4LCJ5Ijo3N30seyJ4Ijo5MTMsInkiOjc3fSx7IngiOjkzOCwieSI6Nzd9XQ==" marker-end="url(#mermaid-1790945562324_flowchart-v2-pointEnd)"></path><path d="M1198,77L1202.167,77C1206.333,77,1214.667,77,1222.368,78.186C1230.069,79.372,1237.138,81.743,1240.673,82.929L1244.208,84.115" id="L_D_A_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_D_A_0" data-points="W3sieCI6MTE5OCwieSI6Nzd9LHsieCI6MTIyMywieSI6Nzd9LHsieCI6MTI0OCwieSI6ODUuMzg3MDk2Nzc0MTkzNTV9XQ==" marker-end="url(#mermaid-1790945562324_flowchart-v2-pointEnd)"></path><path d="M1248,172.613L1243.833,174.011C1239.667,175.409,1231.333,178.204,1201.333,179.602C1171.333,181,1119.667,181,1068,181C1016.333,181,964.667,181,913,181C861.333,181,809.667,181,758,181C706.333,181,654.667,181,603,181C551.333,181,499.667,181,448,181C396.333,181,344.667,181,315.299,179.814C285.931,178.628,278.862,176.257,275.327,175.071L271.792,173.885" id="L_A_S_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_A_S_0" data-points="W3sieCI6MTI0OCwieSI6MTcyLjYxMjkwMzIyNTgwNjQ2fSx7IngiOjEyMjMsInkiOjE4MX0seyJ4IjoxMDY4LCJ5IjoxODF9LHsieCI6OTEzLCJ5IjoxODF9LHsieCI6NzU4LCJ5IjoxODF9LHsieCI6NjAzLCJ5IjoxODF9LHsieCI6NDQ4LCJ5IjoxODF9LHsieCI6MjkzLCJ5IjoxODF9LHsieCI6MjY4LCJ5IjoxNzIuNjEyOTAzMjI1ODA2NDZ9XQ==" marker-end="url(#mermaid-1790945562324_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" data-id="L_S_P_0" transform="translate(0, 0)"><foreignobject width="0" height="0">
+<g><marker id="mermaid-1790951032825_flowchart-v2-pointEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790951032825_flowchart-v2-pointStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="4.5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790951032825_flowchart-v2-circleEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="11" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790951032825_flowchart-v2-circleStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="-1" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790951032825_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="12" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790951032825_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="-1" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M218.75,67.245L222.917,65.871C227.083,64.497,235.417,61.748,243.083,60.374C250.75,59,257.75,59,261.25,59L264.75,59" id="L_S_P_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_S_P_0" data-points="W3sieCI6MjE4Ljc1LCJ5Ijo2Ny4yNDU0NDU4MjkzMzg0NX0seyJ4IjoyNDMuNzUsInkiOjU5fSx7IngiOjI2OC43NSwieSI6NTl9XQ==" marker-end="url(#mermaid-1790951032825_flowchart-v2-pointEnd)"></path><path d="M440.813,59L444.979,59C449.146,59,457.479,59,465.146,59C472.813,59,479.813,59,483.313,59L486.813,59" id="L_P_M_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_P_M_0" data-points="W3sieCI6NDQwLjgxMjUsInkiOjU5fSx7IngiOjQ2NS44MTI1LCJ5Ijo1OX0seyJ4Ijo0OTAuODEyNSwieSI6NTl9XQ==" marker-end="url(#mermaid-1790951032825_flowchart-v2-pointEnd)"></path><path d="M720.266,59L724.432,59C728.599,59,736.932,59,744.599,59C752.266,59,759.266,59,762.766,59L766.266,59" id="L_M_D_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_M_D_0" data-points="W3sieCI6NzIwLjI2NTYyNSwieSI6NTl9LHsieCI6NzQ1LjI2NTYyNSwieSI6NTl9LHsieCI6NzcwLjI2NTYyNSwieSI6NTl9XQ==" marker-end="url(#mermaid-1790951032825_flowchart-v2-pointEnd)"></path><path d="M995.703,59L999.87,59C1004.036,59,1012.37,59,1020.068,60.13C1027.767,61.26,1034.83,63.521,1038.362,64.651L1041.893,65.781" id="L_D_A_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_D_A_0" data-points="W3sieCI6OTk1LjcwMzEyNSwieSI6NTl9LHsieCI6MTAyMC43MDMxMjUsInkiOjU5fSx7IngiOjEwNDUuNzAzMTI1LCJ5Ijo2Ny4wMDA0NjUxNDMzMjIyOX1d" marker-end="url(#mermaid-1790951032825_flowchart-v2-pointEnd)"></path><path d="M1045.703,137L1041.536,138.333C1037.37,139.666,1029.036,142.333,1001.917,143.667C974.797,145,928.891,145,882.984,145C837.078,145,791.172,145,744.931,145C698.69,145,652.115,145,605.539,145C558.964,145,512.388,145,470.595,145C428.802,145,391.792,145,354.781,145C317.771,145,280.76,145,258.722,143.835C236.683,142.669,229.616,140.338,226.082,139.173L222.549,138.007" id="L_A_S_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_A_S_0" data-points="W3sieCI6MTA0NS43MDMxMjUsInkiOjEzNi45OTk1MzQ4NTY2Nzc3fSx7IngiOjEwMjAuNzAzMTI1LCJ5IjoxNDV9LHsieCI6ODgyLjk4NDM3NSwieSI6MTQ1fSx7IngiOjc0NS4yNjU2MjUsInkiOjE0NX0seyJ4Ijo2MDUuNTM5MDYyNSwieSI6MTQ1fSx7IngiOjQ2NS44MTI1LCJ5IjoxNDV9LHsieCI6MzU0Ljc4MTI1LCJ5IjoxNDV9LHsieCI6MjQzLjc1LCJ5IjoxNDV9LHsieCI6MjE4Ljc1LCJ5IjoxMzYuNzU0NTU0MTcwNjYxNTV9XQ==" marker-end="url(#mermaid-1790951032825_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" data-id="L_S_P_0" transform="translate(0, 0)"><foreignobject width="0" height="0">
 <div class="labelBkg" data-xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;">
 <span class="edgeLabel"></span>
 </div>
@@ -259,43 +285,43 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <div class="labelBkg" data-xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;">
 <span class="edgeLabel"></span>
 </div>
-</foreignobject></g></g></g><g class="nodes"><g class="node default x" id="flowchart-S-0" transform="translate(138, 129)"><rect class="basic label-container" style="fill:#e8f2f4 !important;stroke:#0b6b78 !important;stroke-width:2px !important" x="-130" y="-69" width="260" height="138"></rect><g class="label" style="color:#0b3b45 !important" transform="translate(-100, -54)"><rect></rect><foreignobject width="200" height="108">
-<div style="color: rgb(11, 59, 69) !important; display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
+</foreignobject></g></g></g><g class="nodes"><g class="node default x" id="flowchart-S-0" transform="translate(113.375, 102)"><rect class="basic label-container" style="fill:#e8f2f4 !important;stroke:#0b6b78 !important;stroke-width:2px !important" x="-105.375" y="-51" width="210.75" height="102"></rect><g class="label" style="color:#0b3b45 !important" transform="translate(-75.375, -36)"><rect></rect><foreignobject width="150.75" height="72">
+<div style="color: rgb(11, 59, 69) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
 <span style="color:#0b3b45 !important" class="nodeLabel">
 <p>
-Świat fizyczny<br>gleba · maszyna · człowiek
+Świat fizyczny<br>gleba · roślina
 </p>
 </span>
 </div>
-</foreignobject></g></g><g class="node default x" id="flowchart-P-1" transform="translate(448, 77)"><rect class="basic label-container" style="fill:#e8f2f4 !important;stroke:#0b6b78 !important;stroke-width:2px !important" x="-130" y="-69" width="260" height="138"></rect><g class="label" style="color:#0b3b45 !important" transform="translate(-100, -54)"><rect></rect><foreignobject width="200" height="108">
-<div style="color: rgb(11, 59, 69) !important; display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
+</foreignobject></g></g><g class="node default x" id="flowchart-P-1" transform="translate(354.78125, 59)"><rect class="basic label-container" style="fill:#e8f2f4 !important;stroke:#0b6b78 !important;stroke-width:2px !important" x="-86.03125" y="-51" width="172.0625" height="102"></rect><g class="label" style="color:#0b3b45 !important" transform="translate(-56.03125, -36)"><rect></rect><foreignobject width="112.0625" height="72">
+<div style="color: rgb(11, 59, 69) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
 <span style="color:#0b3b45 !important" class="nodeLabel">
 <p>
-Pomiar<br>czujnik · kontekst · czas
+Pomiar<br>wilgotność
 </p>
 </span>
 </div>
-</foreignobject></g></g><g class="node default x" id="flowchart-M-2" transform="translate(758, 77)"><rect class="basic label-container" style="fill:#e8f2f4 !important;stroke:#0b6b78 !important;stroke-width:2px !important" x="-130" y="-69" width="260" height="138"></rect><g class="label" style="color:#0b3b45 !important" transform="translate(-100, -54)"><rect></rect><foreignobject width="200" height="108">
-<div style="color: rgb(11, 59, 69) !important; display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
+</foreignobject></g></g><g class="node default x" id="flowchart-M-2" transform="translate(605.5390625, 59)"><rect class="basic label-container" style="fill:#e8f2f4 !important;stroke:#0b6b78 !important;stroke-width:2px !important" x="-114.7265625" y="-51" width="229.453125" height="102"></rect><g class="label" style="color:#0b3b45 !important" transform="translate(-84.7265625, -36)"><rect></rect><foreignobject width="169.453125" height="72">
+<div style="color: rgb(11, 59, 69) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
 <span style="color:#0b3b45 !important" class="nodeLabel">
 <p>
-Model<br>reguła · statystyka · AI
+Model<br>próg · prognoza
 </p>
 </span>
 </div>
-</foreignobject></g></g><g class="node default x" id="flowchart-D-3" transform="translate(1068, 77)"><rect class="basic label-container" style="fill:#e8f2f4 !important;stroke:#0b6b78 !important;stroke-width:2px !important" x="-130" y="-69" width="260" height="138"></rect><g class="label" style="color:#0b3b45 !important" transform="translate(-100, -54)"><rect></rect><foreignobject width="200" height="108">
-<div style="color: rgb(11, 59, 69) !important; display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
+</foreignobject></g></g><g class="node default x" id="flowchart-D-3" transform="translate(882.984375, 59)"><rect class="basic label-container" style="fill:#e8f2f4 !important;stroke:#0b6b78 !important;stroke-width:2px !important" x="-112.71875" y="-51" width="225.4375" height="102"></rect><g class="label" style="color:#0b3b45 !important" transform="translate(-82.71875, -36)"><rect></rect><foreignobject width="165.4375" height="72">
+<div style="color: rgb(11, 59, 69) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
 <span style="color:#0b3b45 !important" class="nodeLabel">
 <p>
-Decyzja<br>człowiek lub automat
+Decyzja<br>podlać czy nie?
 </p>
 </span>
 </div>
-</foreignobject></g></g><g class="node default x" id="flowchart-A-4" transform="translate(1378, 129)"><rect class="basic label-container" style="fill:#e8f2f4 !important;stroke:#0b6b78 !important;stroke-width:2px !important" x="-130" y="-69" width="260" height="138"></rect><g class="label" style="color:#0b3b45 !important" transform="translate(-100, -54)"><rect></rect><foreignobject width="200" height="108">
-<div style="color: rgb(11, 59, 69) !important; display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
+</foreignobject></g></g><g class="node default x" id="flowchart-A-4" transform="translate(1155.0703125, 102)"><rect class="basic label-container" style="fill:#e8f2f4 !important;stroke:#0b6b78 !important;stroke-width:2px !important" x="-109.3671875" y="-51" width="218.734375" height="102"></rect><g class="label" style="color:#0b3b45 !important" transform="translate(-79.3671875, -36)"><rect></rect><foreignobject width="158.734375" height="72">
+<div style="color: rgb(11, 59, 69) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
 <span style="color:#0b3b45 !important" class="nodeLabel">
 <p>
-Działanie<br>alarm · dawka · sterowanie
+Działanie<br>zawór · pompa
 </p>
 </span>
 </div>
@@ -306,141 +332,51 @@ Działanie<br>alarm · dawka · sterowanie
 </div>
 </div>
 </div>
-<p><strong>Każde ogniwo może wprowadzić błąd, stronniczość albo opóźnienie.</strong> Odpowiedzialność nie kończy się na poprawnym odczycie czujnika.</p>
-</section>
-<section id="rolnictwo" class="slide level2">
-<h2><i class="bi bi-flower1"></i> Agriculture 4.0: od mapy do działania</h2>
-<p><span class="lead">„4.0” nie oznacza jednej technologii. Oznacza połączony proces decyzyjny.</span></p>
 <div class="columns">
-<div class="column" style="width:55%;">
-<ol type="1">
-<li><strong>Obserwacja:</strong> mikroklimat, wilgotność gleby, obraz, pozycja i stan maszyny.</li>
-<li><strong>Integracja:</strong> wspólny czas, geolokalizacja, jakość i pochodzenie danych.</li>
-<li><strong>Wnioskowanie:</strong> próg, model agronomiczny albo uczenie maszynowe.</li>
-<li><strong>Interwencja:</strong> nawadnianie, dawka, trasa robota lub zalecenie dla operatora.</li>
-<li><strong>Ocena:</strong> czy efekt uzyskano mniejszym kosztem zasobów i ryzyka?</li>
-</ol>
-<div title="Pomiar nie jest jeszcze rezultatem">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Pomiar nie jest jeszcze rezultatem</strong></p>
-</div>
-<div class="callout-content">
-<p>Wartość powstaje dopiero wtedy, gdy znane są: <strong>odbiorca informacji, decyzja, kryterium działania i koszt pomyłki</strong>.</p>
-</div>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:45%;">
-<p><img data-src="../assets/img/irrigation-navfac.jpg" style="width:94.0%" alt="Technicy przy polowej instalacji oszczędnego systemu nawadniania: rurociągi, zawory i aparatura sterująca na trawniku."></p>
+<div class="column" style="width:40%;">
+<p><img data-src="../assets/img/irrigation-navfac.jpg" alt="Technicy przy polowej instalacji oszczędnego systemu nawadniania." height="280"></p>
 <div class="zrodlo">
-<p>System oszczędnego nawadniania podczas testów NAVFAC EXWC. Fot. NAVFAC, <a href="https://commons.wikimedia.org/wiki/File:New_water-saving_irrigation_system_tested_at_NAVFAC_EXWC_(8099733341).jpg">Wikimedia Commons</a>, CC BY 2.0.</p>
+<p>Fot. NAVFAC, CC BY 2.0</p>
 </div>
-<div title="Pętla działania">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Pętla działania</strong></p>
-</div>
-<div class="callout-content">
-<p>Czujnik uzasadnia inwestycję dopiero wtedy, gdy jego pomiar zmienia decyzję o uruchomieniu zaworu lub pompy — i gdy skutek tej decyzji jest sprawdzany.</p>
-</div>
-</div>
-</div>
-</div>
+</div><div class="column fragment" style="width:60%;">
+<p><span class="lead">Czujnik ma sens dopiero wtedy, gdy <strong>zmienia decyzję</strong> — a decyzja otwiera zawór.</span></p>
+<p>Każde ogniwo może wnieść błąd, stronniczość albo opóźnienie.</p>
 </div></div>
 </section>
-<section id="destine" class="slide level2">
-<h2><i class="bi bi-globe-europe-africa"></i> 2024: uruchomiono pierwszą generację DestinE</h2>
-<div class="columns">
-<div class="column" style="width:57%;">
-<p><strong>Destination Earth (DestinE)</strong> łączy:</p>
-<ul>
-<li>obserwacje satelitarne, IoT i dane społeczno-ekonomiczne,</li>
-<li>modele wysokiej rozdzielczości i europejskie HPC,</li>
-<li>scenariusze ekstremów pogodowych i adaptacji do zmiany klimatu,</li>
-<li>platformę usług, Data Lake i silnik cyfrowych bliźniaków.</li>
-</ul>
-<p>Pierwszą generację systemu uruchomiono <strong>10 czerwca 2024 r.</strong>; kolejne fazy mają rozwijać i rozszerzać DestinE do 2030 r.</p>
-</div><div class="column" style="width:43%;">
-<div title="Lekcja dla IoT">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="pytanie-sala" class="slide level2">
+<h2><i class="bi bi-chat-square-quote"></i> Pytanie do sali</h2>
+<div class="wielkie" style="color:#0b3b45; font-size:1.7em">
+<p>Gdzie w tej pętli kończy się technika,<br>a zaczyna władza?</p>
 </div>
-<p><strong>Lekcja dla IoT</strong></p>
+<div class="fragment">
+<p>Kto wybiera, <strong>co mierzymy</strong>? Kto pisze <strong>model</strong>? Kto może <strong>wydać polecenie</strong> urządzeniu?</p>
 </div>
-<div class="callout-content">
-<p>Cyfrowy bliźniak nie jest modelem 3D. To utrzymywana relacja między obserwacją, modelem i scenariuszem decyzji — wraz z informacją o niepewności.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="zrodlo">
-<p>Komisja Europejska, <em>Destination Earth</em>, <a href="https://digital-strategy.ec.europa.eu/en/policies/destination-earth" class="uri">https://digital-strategy.ec.europa.eu/en/policies/destination-earth</a></p>
-</div>
-</div></div>
 </section></section>
 <section>
-<section id="dane-zmieniają-władzę" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
-<h1>Dane zmieniają władzę</h1>
-
+<section id="dystopia" class="title-slide slide level1 sekcja center" data-background-color="#3d1418">
+<h1>Dystopia</h1>
+<p><span class="lead">Dobre pomysły, wspaniałe narzędzia — i ich niecne wykorzystanie.</span></p>
 </section>
 <section id="cambridge" class="slide level2">
-<h2><i class="bi bi-person-vcard"></i> Cambridge Analytica: co potwierdzono</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Fakt udokumentowany przez FTC</strong></p>
-<p>Cambridge Analytica i współpracownicy stosowali zwodnicze praktyki przy pozyskiwaniu danych osobowych <strong>dziesiątek milionów</strong> użytkowników Facebooka do profilowania i targetowania wyborców.</p>
-</div><div class="column" style="width:50%;">
-<p><strong>Czego ten fakt sam nie dowodzi</strong></p>
-<p>Nie wynika z niego automatycznie, że profilowanie przesądziło konkretny wynik wyborów. Udokumentowane naruszenie prywatności i obietnica skuteczności perswazji to dwie różne tezy.</p>
-</div></div>
-<div title="Lekcja dla IoT">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Lekcja dla IoT</strong></p>
-</div>
-<div class="callout-content">
-<p>Dane zebrane w jednym celu mogą zostać użyte do zupełnie innego modelu i innej interwencji. Zgoda, minimalizacja i ograniczenie celu muszą być częścią architektury.</p>
-</div>
-</div>
-</div>
-</div>
+<h2><i class="bi bi-eye"></i> Ale czy tylko korzyści?</h2>
+<div class="kafelki">
+<div>
+<p><img data-src="../assets/img/lecture00/wylie.jpg" alt="Christopher Wylie, sygnalista w sprawie Cambridge Analytica, podczas wystąpienia w Chatham House w 2018 r."></p>
+<p><strong>Cambridge Analytica:</strong> dane dziesiątek milionów użytkowników Facebooka pozyskane podstępem i użyte do profilowania wyborców (ustalenia FTC).</p>
 <div class="zrodlo">
-<p>Federal Trade Commission, sprawa 182 3107, <a href="https://www.ftc.gov/legal-library/browse/cases-proceedings/182-3107-cambridge-analytica-llc-matter" class="uri">https://www.ftc.gov/legal-library/browse/cases-proceedings/182-3107-cambridge-analytica-llc-matter</a></p>
+<p>Fot. Chatham House, CC BY 2.0 — Christopher Wylie, sygnalista</p>
 </div>
-</section>
-<section id="social-credit" class="slide level2">
-<h2><i class="bi bi-list-stars"></i> Chiński „social credit”: nie jeden wynik dla każdego</h2>
-<div class="columns">
-<div class="column" style="width:53%;">
-<p>Plan Rady Państwa z 2014 r. dotyczył szerokiej infrastruktury wiarygodności: administracji, biznesu, społeczeństwa i sądownictwa.</p>
-<p>Badania opisują <strong>wiele</strong> systemów publicznych, lokalnych i komercyjnych, rejestry oraz listy podmiotów — nie jeden uniwersalny, ogólnokrajowy wynik punktowy każdego obywatela.</p>
-</div><div class="column" style="width:47%;">
-<p><strong>Realne ryzyka pozostają poważne</strong></p>
-<ul>
-<li>łączenie danych z różnych kontekstów,</li>
-<li>nieprzejrzyste kryteria i błędne przypisania,</li>
-<li>automatyczne konsekwencje administracyjne,</li>
-<li>trudna droga odwołania i efekt mrożący.</li>
-</ul>
-</div></div>
+</div>
+<div class="fragment">
+<p><img data-src="../assets/img/lecture00/kamery.jpg" alt="Słup z kilkoma kamerami monitoringu miejskiego."></p>
+<p><strong>Chiński „kredyt społeczny”:</strong> nie jeden wynik każdego obywatela, lecz wiele rejestrów i czarnych list — z automatycznymi skutkami i trudnym odwołaniem.</p>
 <div class="zrodlo">
-<p>Rada Państwa ChRL, plan 2014–2020, <a href="https://www.gov.cn/zhengce/content/2014-06/27/content_8913.htm" class="uri">https://www.gov.cn/zhengce/content/2014-06/27/content_8913.htm</a>; K. Drinhausen, V. Brussee, MERICS (2021/2022), <a href="https://merics.org/en/report/chinas-social-credit-system-2021-fragmentation-towards-integration" class="uri">https://merics.org/en/report/chinas-social-credit-system-2021-fragmentation-towards-integration</a>; G. Kostka (2019) — badanie odbioru społecznego, <a href="https://doi.org/10.1177/1461444819826402" class="uri">https://doi.org/10.1177/1461444819826402</a></p>
+<p>Fot. µKöff, CC BY 4.0</p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><span class="lead">Zagrożenia technologii <del>przyszłości</del> <strong>już dzisiejszej</strong>: powszechna inwigilacja, propaganda szyta na miarę, sterowanie potrzebami i pragnieniami jednostek.</span></p>
 </div>
 </section>
 <section id="petla-wladzy" class="slide level2">
@@ -450,9 +386,9 @@ Działanie<br>alarm · dawka · sterowanie
 <div>
 <p></p><figure class=""><p></p>
 <div>
-<svg id="mermaid-figure-3" width="1056" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="flowchart" style="; display: block; margin: auto auto auto auto" viewbox="0 0 1331.03125 180" role="graphics-document document" aria-roledescription="flowchart-v2" height="365">
-<style>#mermaid-figure-3{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:22px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-figure-3 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-figure-3 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-figure-3 .error-icon{fill:#552222;}#mermaid-figure-3 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-3 .edge-thickness-normal{stroke-width:1px;}#mermaid-figure-3 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-3 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-3 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-figure-3 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-3 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-3 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-3 .marker.cross{stroke:#333333;}#mermaid-figure-3 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:22px;}#mermaid-figure-3 p{margin:0;}#mermaid-figure-3 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-3 .cluster-label text{fill:#333;}#mermaid-figure-3 .cluster-label span{color:#333;}#mermaid-figure-3 .cluster-label span p{background-color:transparent;}#mermaid-figure-3 .label text,#mermaid-figure-3 span{fill:#333;color:#333;}#mermaid-figure-3 .node rect,#mermaid-figure-3 .node circle,#mermaid-figure-3 .node ellipse,#mermaid-figure-3 .node polygon,#mermaid-figure-3 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-3 .rough-node .label text,#mermaid-figure-3 .node .label text,#mermaid-figure-3 .image-shape .label,#mermaid-figure-3 .icon-shape .label{text-anchor:middle;}#mermaid-figure-3 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-figure-3 .rough-node .label,#mermaid-figure-3 .node .label,#mermaid-figure-3 .image-shape .label,#mermaid-figure-3 .icon-shape .label{text-align:center;}#mermaid-figure-3 .node.clickable{cursor:pointer;}#mermaid-figure-3 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaid-figure-3 .arrowheadPath{fill:#333333;}#mermaid-figure-3 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-3 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-3 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-3 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaid-figure-3 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-3 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-figure-3 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-3 .cluster text{fill:#333;}#mermaid-figure-3 .cluster span{color:#333;}#mermaid-figure-3 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-3 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-3 rect.text{fill:none;stroke-width:0;}#mermaid-figure-3 .icon-shape,#mermaid-figure-3 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-3 .icon-shape p,#mermaid-figure-3 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaid-figure-3 .icon-shape rect,#mermaid-figure-3 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-3 .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#mermaid-figure-3 .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#mermaid-figure-3 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-figure-3 .n>*{fill:#fdf3f4!important;stroke:#b02a37!important;stroke-width:2px!important;color:#8f2029!important;}#mermaid-figure-3 .n span{fill:#fdf3f4!important;stroke:#b02a37!important;stroke-width:2px!important;color:#8f2029!important;}#mermaid-figure-3 .n tspan{fill:#8f2029!important;}</style>
-<g><marker id="mermaid-1790945562622_flowchart-v2-pointEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790945562622_flowchart-v2-pointStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="4.5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790945562622_flowchart-v2-circleEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="11" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790945562622_flowchart-v2-circleStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="-1" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790945562622_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="12" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790945562622_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="-1" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M203.688,82.625L207.854,80.937C212.021,79.25,220.354,75.875,228.021,74.187C235.688,72.5,242.688,72.5,246.188,72.5L249.688,72.5" id="L_O_I_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_O_I_0" data-points="W3sieCI6MjAzLjY4NzUsInkiOjgyLjYyNDY1MDIxNjIyOTk3fSx7IngiOjIyOC42ODc1LCJ5Ijo3Mi41fSx7IngiOjI1My42ODc1LCJ5Ijo3Mi41fV0=" marker-end="url(#mermaid-1790945562622_flowchart-v2-pointEnd)"></path><path d="M481.203,72.5L485.37,72.5C489.536,72.5,497.87,72.5,505.536,72.5C513.203,72.5,520.203,72.5,523.703,72.5L527.203,72.5" id="L_I_K_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_I_K_0" data-points="W3sieCI6NDgxLjIwMzEyNSwieSI6NzIuNX0seyJ4Ijo1MDYuMjAzMTI1LCJ5Ijo3Mi41fSx7IngiOjUzMS4yMDMxMjUsInkiOjcyLjV9XQ==" marker-end="url(#mermaid-1790945562622_flowchart-v2-pointEnd)"></path><path d="M707.359,72.5L711.526,72.5C715.693,72.5,724.026,72.5,731.693,72.5C739.359,72.5,746.359,72.5,749.859,72.5L753.359,72.5" id="L_K_W_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_K_W_0" data-points="W3sieCI6NzA3LjM1OTM3NSwieSI6NzIuNX0seyJ4Ijo3MzIuMzU5Mzc1LCJ5Ijo3Mi41fSx7IngiOjc1Ny4zNTkzNzUsInkiOjcyLjV9XQ==" marker-end="url(#mermaid-1790945562622_flowchart-v2-pointEnd)"></path><path d="M1017.359,72.5L1021.526,72.5C1025.693,72.5,1034.026,72.5,1041.725,73.65C1049.425,74.8,1056.49,77.1,1060.023,78.25L1063.556,79.4" id="L_W_Z_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_W_Z_0" data-points="W3sieCI6MTAxNy4zNTkzNzUsInkiOjcyLjV9LHsieCI6MTA0Mi4zNTkzNzUsInkiOjcyLjV9LHsieCI6MTA2Ny4zNTkzNzUsInkiOjgwLjYzNzgxMTE3NDE1NTN9XQ==" marker-end="url(#mermaid-1790945562622_flowchart-v2-pointEnd)"></path><path d="M1067.359,163.862L1063.193,165.218C1059.026,166.575,1050.693,169.287,1020.693,170.644C990.693,172,939.026,172,887.359,172C835.693,172,784.026,172,739.346,172C694.667,172,656.974,172,619.281,172C581.589,172,543.896,172,501.923,172C459.951,172,413.698,172,367.445,172C321.193,172,274.94,172,248.265,170.563C221.59,169.126,214.492,166.251,210.944,164.814L207.395,163.377" id="L_Z_O_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_Z_O_0" data-points="W3sieCI6MTA2Ny4zNTkzNzUsInkiOjE2My44NjIxODg4MjU4NDQ3fSx7IngiOjEwNDIuMzU5Mzc1LCJ5IjoxNzJ9LHsieCI6ODg3LjM1OTM3NSwieSI6MTcyfSx7IngiOjczMi4zNTkzNzUsInkiOjE3Mn0seyJ4Ijo2MTkuMjgxMjUsInkiOjE3Mn0seyJ4Ijo1MDYuMjAzMTI1LCJ5IjoxNzJ9LHsieCI6MzY3LjQ0NTMxMjUsInkiOjE3Mn0seyJ4IjoyMjguNjg3NSwieSI6MTcyfSx7IngiOjIwMy42ODc1LCJ5IjoxNjEuODc1MzQ5NzgzNzcwMDV9XQ==" marker-end="url(#mermaid-1790945562622_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" data-id="L_O_I_0" transform="translate(0, 0)"><foreignobject width="0" height="0">
+<svg id="mermaid-figure-2" width="1056" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="flowchart" style="; display: block; margin: auto auto auto auto" viewbox="0 0 1368.984375 180" role="graphics-document document" aria-roledescription="flowchart-v2" height="326">
+<style>#mermaid-figure-2{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:22px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-figure-2 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-figure-2 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-figure-2 .error-icon{fill:#552222;}#mermaid-figure-2 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-2 .edge-thickness-normal{stroke-width:1px;}#mermaid-figure-2 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-2 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-2 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-figure-2 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-2 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-2 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-2 .marker.cross{stroke:#333333;}#mermaid-figure-2 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:22px;}#mermaid-figure-2 p{margin:0;}#mermaid-figure-2 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-2 .cluster-label text{fill:#333;}#mermaid-figure-2 .cluster-label span{color:#333;}#mermaid-figure-2 .cluster-label span p{background-color:transparent;}#mermaid-figure-2 .label text,#mermaid-figure-2 span{fill:#333;color:#333;}#mermaid-figure-2 .node rect,#mermaid-figure-2 .node circle,#mermaid-figure-2 .node ellipse,#mermaid-figure-2 .node polygon,#mermaid-figure-2 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-2 .rough-node .label text,#mermaid-figure-2 .node .label text,#mermaid-figure-2 .image-shape .label,#mermaid-figure-2 .icon-shape .label{text-anchor:middle;}#mermaid-figure-2 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-figure-2 .rough-node .label,#mermaid-figure-2 .node .label,#mermaid-figure-2 .image-shape .label,#mermaid-figure-2 .icon-shape .label{text-align:center;}#mermaid-figure-2 .node.clickable{cursor:pointer;}#mermaid-figure-2 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaid-figure-2 .arrowheadPath{fill:#333333;}#mermaid-figure-2 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-2 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-2 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-2 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaid-figure-2 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-2 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-figure-2 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-2 .cluster text{fill:#333;}#mermaid-figure-2 .cluster span{color:#333;}#mermaid-figure-2 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-2 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-2 rect.text{fill:none;stroke-width:0;}#mermaid-figure-2 .icon-shape,#mermaid-figure-2 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-2 .icon-shape p,#mermaid-figure-2 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaid-figure-2 .icon-shape rect,#mermaid-figure-2 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-2 .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#mermaid-figure-2 .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#mermaid-figure-2 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-figure-2 .n>*{fill:#fdf3f4!important;stroke:#b02a37!important;stroke-width:2px!important;color:#8f2029!important;}#mermaid-figure-2 .n span{fill:#fdf3f4!important;stroke:#b02a37!important;stroke-width:2px!important;color:#8f2029!important;}#mermaid-figure-2 .n tspan{fill:#8f2029!important;}</style>
+<g><marker id="mermaid-1790951032976_flowchart-v2-pointEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790951032976_flowchart-v2-pointStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="4.5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790951032976_flowchart-v2-circleEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="11" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790951032976_flowchart-v2-circleStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="-1" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790951032976_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="12" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790951032976_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="-1" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M203.688,82.625L207.854,80.937C212.021,79.25,220.354,75.875,228.021,74.187C235.688,72.5,242.688,72.5,246.188,72.5L249.688,72.5" id="L_O_I_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_O_I_0" data-points="W3sieCI6MjAzLjY4NzUsInkiOjgyLjYyNDY1MDIxNjIyOTk3fSx7IngiOjIyOC42ODc1LCJ5Ijo3Mi41fSx7IngiOjI1My42ODc1LCJ5Ijo3Mi41fV0=" marker-end="url(#mermaid-1790951032976_flowchart-v2-pointEnd)"></path><path d="M481.203,72.5L485.37,72.5C489.536,72.5,497.87,72.5,505.536,72.5C513.203,72.5,520.203,72.5,523.703,72.5L527.203,72.5" id="L_I_K_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_I_K_0" data-points="W3sieCI6NDgxLjIwMzEyNSwieSI6NzIuNX0seyJ4Ijo1MDYuMjAzMTI1LCJ5Ijo3Mi41fSx7IngiOjUzMS4yMDMxMjUsInkiOjcyLjV9XQ==" marker-end="url(#mermaid-1790951032976_flowchart-v2-pointEnd)"></path><path d="M745.313,72.5L749.479,72.5C753.646,72.5,761.979,72.5,769.646,72.5C777.313,72.5,784.313,72.5,787.813,72.5L791.313,72.5" id="L_K_W_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_K_W_0" data-points="W3sieCI6NzQ1LjMxMjUsInkiOjcyLjV9LHsieCI6NzcwLjMxMjUsInkiOjcyLjV9LHsieCI6Nzk1LjMxMjUsInkiOjcyLjV9XQ==" marker-end="url(#mermaid-1790951032976_flowchart-v2-pointEnd)"></path><path d="M1055.313,72.5L1059.479,72.5C1063.646,72.5,1071.979,72.5,1084.856,75.335C1097.733,78.171,1115.154,83.841,1123.864,86.677L1132.574,89.512" id="L_W_Z_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_W_Z_0" data-points="W3sieCI6MTA1NS4zMTI1LCJ5Ijo3Mi41fSx7IngiOjEwODAuMzEyNSwieSI6NzIuNX0seyJ4IjoxMTM2LjM3Nzk0NDQwOTU0NzgsInkiOjkwLjc1fV0=" marker-end="url(#mermaid-1790951032976_flowchart-v2-pointEnd)"></path><path d="M1136.378,153.75L1127.034,156.792C1117.689,159.833,1099.001,165.917,1063.823,168.958C1028.646,172,976.979,172,925.313,172C873.646,172,821.979,172,774.137,172C726.294,172,682.276,172,638.258,172C594.24,172,550.221,172,505.086,172C459.951,172,413.698,172,367.445,172C321.193,172,274.94,172,248.265,170.563C221.59,169.126,214.492,166.251,210.944,164.814L207.395,163.377" id="L_Z_O_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_Z_O_0" data-points="W3sieCI6MTEzNi4zNzc5NDQ0MDk1NDc4LCJ5IjoxNTMuNzV9LHsieCI6MTA4MC4zMTI1LCJ5IjoxNzJ9LHsieCI6OTI1LjMxMjUsInkiOjE3Mn0seyJ4Ijo3NzAuMzEyNSwieSI6MTcyfSx7IngiOjYzOC4yNTc4MTI1LCJ5IjoxNzJ9LHsieCI6NTA2LjIwMzEyNSwieSI6MTcyfSx7IngiOjM2Ny40NDUzMTI1LCJ5IjoxNzJ9LHsieCI6MjI4LjY4NzUsInkiOjE3Mn0seyJ4IjoyMDMuNjg3NSwieSI6MTYxLjg3NTM0OTc4Mzc3MDA1fV0=" marker-end="url(#mermaid-1790951032976_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" data-id="L_O_I_0" transform="translate(0, 0)"><foreignobject width="0" height="0">
 <div class="labelBkg" data-xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;">
 <span class="edgeLabel"></span>
 </div>
@@ -488,15 +424,15 @@ Inferencja<br>co wnioskujemy?
 </p>
 </span>
 </div>
-</foreignobject></g></g><g class="node default n" id="flowchart-K-2" transform="translate(619.28125, 72.5)"><rect class="basic label-container" style="fill:#fdf3f4 !important;stroke:#b02a37 !important;stroke-width:2px !important" x="-88.078125" y="-48" width="176.15625" height="96"></rect><g class="label" style="color:#8f2029 !important" transform="translate(-58.078125, -33)"><rect></rect><foreignobject width="116.15625" height="66">
+</foreignobject></g></g><g class="node default n" id="flowchart-K-2" transform="translate(638.2578125, 72.5)"><rect class="basic label-container" style="fill:#fdf3f4 !important;stroke:#b02a37 !important;stroke-width:2px !important" x="-107.0546875" y="-48" width="214.109375" height="96"></rect><g class="label" style="color:#8f2029 !important" transform="translate(-77.0546875, -33)"><rect></rect><foreignobject width="154.109375" height="66">
 <div style="color: rgb(143, 32, 41) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
 <span style="color:#8f2029 !important" class="nodeLabel">
 <p>
-Klasyfikacja<br>jaka grupa?
+Klasyfikacja<br>do jakiej grupy?
 </p>
 </span>
 </div>
-</foreignobject></g></g><g class="node default n" id="flowchart-W-3" transform="translate(887.359375, 72.5)"><rect class="basic label-container" style="fill:#fdf3f4 !important;stroke:#b02a37 !important;stroke-width:2px !important" x="-130" y="-64.5" width="260" height="129"></rect><g class="label" style="color:#8f2029 !important" transform="translate(-100, -49.5)"><rect></rect><foreignobject width="200" height="99">
+</foreignobject></g></g><g class="node default n" id="flowchart-W-3" transform="translate(925.3125, 72.5)"><rect class="basic label-container" style="fill:#fdf3f4 !important;stroke:#b02a37 !important;stroke-width:2px !important" x="-130" y="-64.5" width="260" height="129"></rect><g class="label" style="color:#8f2029 !important" transform="translate(-100, -49.5)"><rect></rect><foreignobject width="200" height="99">
 <div style="color: rgb(143, 32, 41) !important; display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
 <span style="color:#8f2029 !important" class="nodeLabel">
 <p>
@@ -504,11 +440,11 @@ Interwencja<br>cena · dostęp · alarm
 </p>
 </span>
 </div>
-</foreignobject></g></g><g class="node default n" id="flowchart-Z-4" transform="translate(1195.1953125, 122.25)"><rect class="basic label-container" style="fill:#fdf3f4 !important;stroke:#b02a37 !important;stroke-width:2px !important" x="-127.8359375" y="-48" width="255.671875" height="96"></rect><g class="label" style="color:#8f2029 !important" transform="translate(-97.8359375, -33)"><rect></rect><foreignobject width="195.671875" height="66">
+</foreignobject></g></g><g class="node default n" id="flowchart-Z-4" transform="translate(1233.1484375, 122.25)"><rect class="basic label-container" style="fill:#fdf3f4 !important;stroke:#b02a37 !important;stroke-width:2px !important" x="-127.8359375" y="-31.5" width="255.671875" height="63"></rect><g class="label" style="color:#8f2029 !important" transform="translate(-97.8359375, -16.5)"><rect></rect><foreignobject width="195.671875" height="33">
 <div style="color: rgb(143, 32, 41) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
 <span style="color:#8f2029 !important" class="nodeLabel">
 <p>
-Zmiana zachowania<br>sprzężenie zwrotne
+Zmiana zachowania
 </p>
 </span>
 </div>
@@ -519,101 +455,87 @@ Zmiana zachowania<br>sprzężenie zwrotne
 </div>
 </div>
 </div>
-<ul>
-<li class="fragment">Błąd pomiaru może stać się błędem decyzji.</li>
-<li class="fragment">Model może optymalizować wskaźnik, który nie odpowiada interesowi użytkownika.</li>
-<li class="fragment">Im bardziej automatyczna interwencja, tym ważniejsze są wyjaśnienie, nadzór i odwołanie.</li>
-</ul>
+<div class="fragment">
+<p><span class="lead">Ta sama pętla, która nawadnia pole, może <strong>sterować człowiekiem</strong>. Dane zebrane w jednym celu łatwo użyć w innym.</span></p>
+</div>
 </section>
-<section id="literatura-soczewki" class="slide level2">
-<h2><i class="bi bi-book"></i> Literatura nie przewiduje urządzeń — bada konsekwencje</h2>
-<p><strong>Huxley ostrzegał, że ucieczka w rozrywkę i fantazję może osłabiać zdolność społeczeństwa do oporu wobec manipulacji.</strong></p>
+<section id="huxley" class="slide level2">
+<h2><i class="bi bi-cup-straw"></i> „Cukiereczki” dla mózgu</h2>
+<div class="columns">
+<div class="column" style="width:28%;">
+<p><img data-src="../assets/img/lecture00/huxley.jpg" class="portret" alt="Karykatura Aldousa Huxleya z 1923 roku."></p>
 <div class="zrodlo">
-<p>Parafraza: Aldous Huxley, <em>Brave New World Revisited</em> (1958; pol. <em>Nowy wspaniały świat 30 lat później</em>)</p>
+<p>Aldous Huxley, rys. Dwight, 1923 — domena publiczna</p>
 </div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><strong>Huxley:</strong> przyjemność i rozproszenie mogą być skuteczniejsze od przymusu.</li>
-<li><strong>Lem, <em>Powrót z gwiazd</em>:</strong> betryzacja ogranicza agresję „dla dobra” ludzi — technicznie bezpieczny świat zawęża doświadczenie i sprawczość.</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<ul>
-<li><strong>Dukaj, <em>Po piśmie</em>:</strong> medium komunikacji zmienia nie tylko obieg informacji, lecz także sposób myślenia.</li>
-<li><strong>Naam, <em>Nexus · Crux · Apex</em>:</strong> połączone umysły obiecują współpracę, ale tworzą nową powierzchnię kontroli.</li>
-</ul>
-</div></div>
-</section>
-<section id="data-act" class="slide level2">
-<h2><i class="bi bi-database-check"></i> 2025: dane z połączonego urządzenia nie są już tylko „u producenta”</h2>
-<p><strong>Data Act</strong> wszedł w życie 11 stycznia 2024 r. i jest stosowany od <strong>12 września 2025 r.</strong></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Użytkownicy — konsumenci i firmy — uzyskują prawo dostępu do danych wytwarzanych podczas używania połączonych produktów oraz możliwość udostępnienia ich wybranej stronie trzeciej.</p>
-</div><div class="column" style="width:50%;">
-<p>Dla rolnictwa i przemysłu oznacza to m.in. możliwość użycia danych maszyny do niezależnego serwisu, analizy wydajności i optymalizacji procesu.</p>
-</div></div>
-<div title="Konsekwencje architektoniczne">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Konsekwencje architektoniczne</strong></p>
-</div>
-<div class="callout-content">
-<p>Eksport, semantyka, jednostki i jakość danych nie są dodatkiem do pulpitu. Art. 3 ust. 1 obejmuje produkty wprowadzane na rynek od <strong>12 września 2026 r.</strong>; udostępnianie uwzględnia ochronę tajemnicy przedsiębiorstwa oraz warunki FRAND: sprawiedliwe, rozsądne i niedyskryminacyjne (<em>fair, reasonable and non-discriminatory</em>).</p>
-</div>
-</div>
-</div>
+</div><div class="column" style="width:72%;">
+<div class="cytat">
+<p>„Jeżeli większość ludzi spędza znaczną część swojego czasu nie tu i teraz (…), ale gdzie indziej, w pozbawionych znaczenia zaświatach sportu i oper mydlanych, mitologii i metafizycznych fantazji, społeczeństwu będzie trudno oprzeć się zakusom tych, którzy chcą nim manipulować.”</p>
 </div>
 <div class="zrodlo">
-<p>Komisja Europejska, <em>Data Act</em>, <a href="https://digital-strategy.ec.europa.eu/en/policies/data-act" class="uri">https://digital-strategy.ec.europa.eu/en/policies/data-act</a></p>
+<p>A. Huxley, <em>Nowy wspaniały świat 30 lat później</em> (1958)</p>
 </div>
+<div class="fragment">
+<p>Huxley pisał o radiu i kinie. Dziś „zaświaty” mieszczą się w kieszeni i <strong>mierzą naszą uwagę co sekundę</strong>.</p>
+</div>
+</div></div>
 </section></section>
 <section>
-<section id="ai-wchodzi-do-świata-fizycznego" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
-<h1>AI wchodzi do świata fizycznego</h1>
-
+<section id="człowiek-i-maszyna" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
+<h1>Człowiek i maszyna</h1>
+<p><span class="lead">Konkurenci czy partnerzy?</span></p>
 </section>
 <section id="czy-programy" class="slide level2">
 <h2><i class="bi bi-braces"></i> Czy jesteśmy programami?</h2>
-<p><strong>Teza eseistyczna Harariego:</strong> decyzje i intuicje można opisywać jako działanie biologicznych mechanizmów rozpoznających wzorce, a nie jako przejaw niezależnego, niepodzielnego „ja”.</p>
+<div class="cytat">
+<p>„…nasze decyzje w każdej sprawie — od wyboru jedzenia po wybór partnerów — wynikają nie z jakiejś tajemniczej wolnej woli, lecz raczej z miliardów neuronów w ułamku sekundy obliczających prawdopodobieństwa. Osławiona »ludzka intuicja« jest w rzeczywistości »rozpoznawaniem wzorców«.”</p>
+</div>
 <div class="zrodlo">
-<p>Parafraza wątku z: Yuval Noah Harari, <em>21 lekcji na XXI wiek</em>. To stanowisko filozoficzne — nie rozstrzygnięty wynik pomiaru.</p>
+<p>Y. N. Harari, <em>21 lekcji na XXI wiek</em> — teza eseistyczna, nie wynik pomiaru</p>
 </div>
-<div title="Kontrapunkt i pytanie dla projektanta">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div class="fragment">
+<p><span class="lead">Jeśli system potrafi <strong>przewidzieć</strong> nasze zachowanie, czy powinien też dostać prawo, by je <strong>wywołać</strong> — w świecie fizycznym?</span></p>
 </div>
-<p><strong>Kontrapunkt i pytanie dla projektanta</strong></p>
+</section>
+<section id="blue-gene" class="slide level2">
+<h2><i class="bi bi-cpu"></i> Ile kosztuje mózg kota?</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p><img data-src="../assets/img/lecture00/blue-gene-p.jpg" alt="Szafy superkomputera IBM Blue Gene/P w hali Argonne National Laboratory."></p>
+<div class="zrodlo">
+<p>IBM Blue Gene/P, Argonne National Laboratory, CC BY-SA 2.0</p>
 </div>
-<div class="callout-content">
-<p>Przewidywalność statystyczna nie dowodzi braku sprawczości. Jeśli jednak system potrafi przewidywać zachowanie, czy powinien także otrzymać prawo do wywoływania zachowania w świecie fizycznym?</p>
+</div><div class="column" style="width:48%;">
+<p>W 2009 r. superkomputer Blue Gene/P (<strong>147 456 procesorów</strong>) zasymulował korę o skali mózgu kota:</p>
+<div class="liczby">
+<div>
+<p><span class="w">1,6 mld</span><span class="o">neuronów</span></p>
+</div>
+<div>
+<p><span class="w">≈ 9 bln</span><span class="o">synaps</span></p>
 </div>
 </div>
+<div class="fragment">
+<p>…znacznie wolniej niż żywy mózg, który zużywa około <strong>20 W</strong>. Inteligencja w krzemie jest dziś przede wszystkim <strong>problemem energii</strong>.</p>
 </div>
+</div></div>
+<div class="zrodlo">
+<p>R. Ananthanarayanan i in., <em>The cat is out of the bag</em>, SC’09, doi:10.1145/1654059.1654124</p>
 </div>
 </section>
 <section id="ai-fizyczny" class="slide level2">
-<h2><i class="bi bi-cpu"></i> AI + IoT: od opisu do działania</h2>
+<h2><i class="bi bi-robot"></i> AI wychodzi z ekranu</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>AI bez IoT</strong> może analizować tekst, obraz lub historię danych.</p>
-<p><strong>IoT bez AI</strong> może mierzyć, przesyłać i reagować według jawnej reguły.</p>
-</div><div class="column" style="width:50%;">
-<p><strong>Połączenie</strong> daje system, który:</p>
-<ul>
-<li>obserwuje sytuację,</li>
-<li>szacuje stan albo przyszłość,</li>
-<li>wybiera interwencję,</li>
-<li>uczy się z jej efektu.</li>
-</ul>
-</div></div>
+<div class="column" style="width:38%;">
+<p><img data-src="../assets/img/lecture00/robot-papryka.jpg" class="portret" alt="Ramię robota z nożem na końcu zbiera zielone papryczki chili w uprawie wewnętrznej."></p>
+<div class="zrodlo">
+<p>Lozada i in., robot do zbioru chili, CC BY 4.0</p>
+</div>
+</div><div class="column" style="width:62%;">
+<p><strong>AI bez IoT</strong> analizuje tekst i obraz.<br><strong>IoT bez AI</strong> mierzy i reaguje według jawnej reguły.</p>
+<div class="fragment">
+<p><strong>Razem:</strong> system obserwuje, przewiduje, <strong>działa</strong> i uczy się z efektu.</p>
+</div>
+<div class="fragment">
 <div title="Najważniejsza zmiana">
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
@@ -624,217 +546,163 @@ Zmiana zachowania<br>sprzężenie zwrotne
 <p><strong>Najważniejsza zmiana</strong></p>
 </div>
 <div class="callout-content">
-<p>Błąd modelu przestaje być tylko błędną odpowiedzią na ekranie. Może stać się ruchem robota, dawką, odmową dostępu albo niewysłanym alarmem.</p>
+<p>Błąd modelu przestaje być złą odpowiedzią na ekranie. Staje się <strong>ruchem ramienia</strong>, dawką nawozu albo niewysłanym alarmem.</p>
 </div>
 </div>
 </div>
 </div>
+</div>
+</div></div>
 </section>
 <section id="praca" class="slide level2">
-<h2><i class="bi bi-people"></i> 2025: ekspozycja zadania to nie likwidacja zawodu</h2>
-<p>Badanie ILO/NASK wykorzystało reprezentatywną próbę wybraną z <strong>29 753 zadań</strong> polskiej klasyfikacji zawodów, ankiety pracowników, ocenę ekspertów i predykcje modelu AI.</p>
+<h2><i class="bi bi-people"></i> Bezużyteczna klasa?</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><strong>Wynik globalny</strong></p>
+<p><strong>Ostrzeżenie Harariego</strong></p>
+<div class="cytat" style="font-size:0.9em">
+<p>„Rewolucja techniczna może niedługo wypchnąć miliardy ludzi z rynku pracy i przyczynić się do powstania ogromnej, nowej, bezużytecznej klasy.”</p>
+</div>
+<div class="zrodlo">
+<p>Y. N. Harari, <em>21 lekcji na XXI wiek</em></p>
+</div>
+</div><div class="column fragment" style="width:50%;">
+<p><strong>Dane ILO i NASK (2025)</strong></p>
 <ul>
-<li>1 na 4 pracowników wykonuje zawód z pewnym poziomem ekspozycji na generatywną AI.</li>
-<li>3,3% globalnego zatrudnienia należy do najwyższej kategorii ekspozycji.</li>
+<li>1 na 4 pracujących ma zawód z pewną <strong>ekspozycją</strong> na generatywną AI,</li>
+<li>w najwyższej kategorii ekspozycji jest <strong>3,3%</strong> zatrudnionych.</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<p><strong>Wniosek autorów</strong></p>
-<p>Ponieważ zawody składają się z wielu zadań wymagających udziału człowieka, bardziej prawdopodobna jest <strong>transformacja pracy</strong> niż proste zastąpienie całych zawodów.</p>
+<p>Autorzy: zawód to wiele zadań, więc bardziej prawdopodobna jest <strong>przemiana pracy</strong> niż jej zanik.</p>
 </div></div>
 <div class="zrodlo">
 <p>ILO Working Paper 140, 20.05.2025, <a href="https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure" class="uri">https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure</a></p>
 </div>
 </section>
 <section id="bci" class="slide level2">
-<h2><i class="bi bi-soundwave"></i> BCI: przełom kliniczny, nie „transfer wiedzy”</h2>
+<h2><i class="bi bi-broadcast"></i> Bezpośredni transfer wrażeń?</h2>
 <div class="columns">
-<div class="column" style="width:54%;">
-<p>W 2023 r. inwazyjna neuroproteza mowy dekodowała próbę mówienia u jednej uczestniczki badania klinicznego: mediana <strong>78 słów/min</strong>, mediana błędu słów <strong>25%</strong>. W 2025 r. pokazano ciągłą syntezę głosu aktualizowaną co <strong>80 ms</strong>.</p>
-</div><div class="column" style="width:46%;">
-<p><strong>To potwierdza:</strong> możliwość przywracania komunikacji osobom z ciężkim paraliżem.</p>
-<p><strong>Nie potwierdza:</strong> odczytu dowolnych myśli, przesyłania wiedzy między ludźmi ani dojrzałego produktu powszechnego użytku. W 2016 r. „neural dust” zademonstrowano jako implant <strong>3×1×1 mm w nerwach obwodowych szczura</strong> — nie „pył” w mózgu ani produkt konsumencki.</p>
+<div class="column" style="width:55%;">
+<p><img data-src="../assets/img/lecture00/brain-to-brain.jpg" alt="Schemat komunikacji mózg–mózg: nadawca z czepkiem EEG w Indiach, przesył przez internet, odbiorca we Francji ze stymulacją TMS."></p>
+<div class="zrodlo">
+<p>C. Grau i in. (2014), PLoS ONE, CC BY 4.0</p>
+</div>
+</div><div class="column" style="width:45%;">
+<ul>
+<li><strong>2013:</strong> szczur w USA podpowiada szczurowi w Brazylii, którą dźwignię nacisnąć.</li>
+<li><strong>2014:</strong> jedno słowo „przesłane” z mózgu do mózgu — Indie → Francja.</li>
+</ul>
+<div class="fragment">
+<p><strong>To potwierdza:</strong> pojedyncze bity przez EEG i stymulację, a w klinice — przywracanie mowy sparaliżowanym.</p>
+<p><strong>Nie potwierdza:</strong> czytania myśli ani przesyłania wiedzy.</p>
+</div>
 </div></div>
 <div class="zrodlo">
-<p>Metzger i in. (2023), <a href="https://doi.org/10.1038/s41586-023-06443-4" class="uri">https://doi.org/10.1038/s41586-023-06443-4</a>; Littlejohn i in. (2025), <a href="https://doi.org/10.1038/s41593-025-01905-6" class="uri">https://doi.org/10.1038/s41593-025-01905-6</a>; Seo i in. (2016), <a href="https://doi.org/10.1016/j.neuron.2016.06.034" class="uri">https://doi.org/10.1016/j.neuron.2016.06.034</a></p>
+<p>M. Pais-Vieira i in. (2013), doi:10.1038/srep01319; C. Grau i in. (2014), doi:10.1371/journal.pone.0105225; S. L. Metzger i in. (2023), doi:10.1038/s41586-023-06443-4</p>
 </div>
 </section></section>
 <section>
-<section id="granice-nie-znikają" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
-<h1>Granice nie znikają</h1>
-
+<section id="rzeczywistość" class="title-slide slide level1 sekcja center" data-background-color="#1d2a31">
+<h1>Rzeczywistość</h1>
+<p><span class="lead">Fizyka, bezpieczeństwo i czas życia nie znikają z żadnej wizji.</span></p>
 </section>
 <section id="energia" class="slide level2">
-<h2><i class="bi bi-lightning-charge"></i> Energia: optymalizacja ma własny rachunek</h2>
+<h2><i class="bi bi-fuel-pump"></i> Energia jest najważniejsza</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>System może oszczędzać</strong></p>
-<ul>
-<li>wodę, nawóz i paliwo przez dawkowanie,</li>
-<li>energię przez harmonogram i wykrycie strat,</li>
-<li>części przez utrzymanie zależne od stanu.</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><strong>System sam zużywa</strong></p>
-<ul>
-<li>energię czujnika, radia, bramy i centrum danych,</li>
-<li>materiały, baterie i urządzenia,</li>
-<li>pracę serwisową oraz aktualizacje.</li>
-</ul>
+<div class="column" style="width:40%;">
+<div class="fragment">
+<p>Benzyna: <strong>43,2 MJ/kg</strong> → 34,56 MJ/l</p>
+</div>
+<div class="fragment">
+<p>7 l/100 km → <strong>0,672 kWh/km</strong></p>
+</div>
+<div class="fragment">
+<p>Człowiek przy ciężkiej pracy: 2500–3000 kcal, czyli <strong>10,5–12,6 MJ na dobę</strong></p>
+</div>
+</div><div class="column fragment" style="width:60%;">
+<p><img data-src="../assets/img/energia-auto-czlowiek.png" alt="Wykres: 5 km jazdy samochodem zużywa 12,1 MJ, tyle co człowiek przez dobę ciężkiej pracy (10,5–12,6 MJ)."></p>
 </div></div>
-<p>IEA szacuje, że centra danych zużyły w 2024 r. <strong>415 TWh</strong> energii elektrycznej — około <strong>1,5%</strong> światowego zużycia. Scenariusz bazowy na 2030 r. to około <strong>945 TWh</strong>. To prognoza zależna m.in. od tempa wdrażania AI i wzrostu efektywności.</p>
-<div title="Poprawna granica bilansu">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div class="fragment">
+<p><span class="lead">Wizje przyszłości często pomijają rachunek energii. Każdy czujnik, nadajnik i serwer też go ma.</span></p>
 </div>
-<p><strong>Poprawna granica bilansu</strong></p>
+</section>
+<section id="centrum-danych" class="slide level2">
+<h2><i class="bi bi-lightning-charge"></i> Optymalizacja ma własny rachunek</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img data-src="../assets/img/lecture00/centrum-danych.jpg" alt="Korytarz centrum danych z rzędami szaf serwerowych podświetlonych na niebiesko."></p>
+<div class="zrodlo">
+<p>Fot. BalticServers.com, CC BY-SA 3.0</p>
 </div>
-<div class="callout-content">
-<p>Porównujemy <strong>cały cykl życia</strong> wariantu z IoT i wariantu bez IoT. „Mały czujnik” nie oznacza automatycznie małego systemu; liczą się także transmisja, brzeg, chmura i efekt odbicia.</p>
+</div><div class="column" style="width:55%;">
+<p><strong>Centra danych</strong> zużyły w 2024 r. ok. <strong>415 TWh</strong> — 1,5% światowej energii elektrycznej. Scenariusz na 2030 r.: ok. <strong>945 TWh</strong>.</p>
+<div class="fragment">
+<p>System IoT oszczędza wodę, nawóz i paliwo, ale sam zużywa energię czujnika, radia, bramy i chmury.</p>
+<p><strong>Porównujemy cały cykl życia</strong> wariantu z IoT i bez niego.</p>
 </div>
-</div>
-</div>
-</div>
+</div></div>
 <div class="zrodlo">
 <p>IEA, <em>Energy and AI</em> (2025), <a href="https://www.iea.org/reports/energy-and-ai/executive-summary" class="uri">https://www.iea.org/reports/energy-and-ai/executive-summary</a></p>
 </div>
 </section>
 <section id="botnet" class="slide level2">
-<h2><i class="bi bi-router"></i> 2026: twoje urządzenie może stać się cudzą bronią</h2>
-<p>Cloudflare raportuje, że złagodził atak DDoS o szczycie <strong>31,4 Tb/s</strong> — największy w jego telemetrii — napędzany m.in. przez masowy botnet Aisuru. Wykorzystywane są przejęte routery, kamery, rejestratory i przystawki konsumenckie.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Dlaczego IoT jest atrakcyjny dla botnetu</strong></p>
-<ul>
-<li>duża liczba podobnych urządzeń,</li>
-<li>długi czas życia i krótki czas wsparcia,</li>
-<li>wystawione usługi zarządzania,</li>
-<li>słabe lub współdzielone poświadczenia.</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div title="Konsekwencja">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<h2><i class="bi bi-shield-exclamation"></i> Twoje urządzenie, cudza broń, czyjś odpad</h2>
+<div class="kafelki">
+<div>
+<p><img data-src="../assets/img/axis-ip-cameras.png" alt="Kopułkowe kamery IP."></p>
+<p><strong>Raport 2026:</strong> botnet z przejętych kamer i routerów — atak DDoS <strong>31,4 Tb/s</strong>.</p>
 </div>
-<p><strong>Konsekwencja</strong></p>
+<div class="fragment">
+<p><img data-src="../assets/img/lecture00/wemo.jpg" alt="Inteligentne gniazdka i przełączniki Wemo."></p>
+<p><strong>2026:</strong> Belkin wyłącza chmurę Wemo — sprzęt działa, „smart” znika.</p>
 </div>
-<div class="callout-content">
-<p>Niezabezpieczone urządzenie nie jest tylko ryzykiem właściciela. Może stać się elementem ataku na cudzą infrastrukturę.</p>
-</div>
-</div>
-</div>
-</div>
-<p><strong>Wymaganie:</strong> bezpieczne ustawienia domyślne, podpisany firmware, aktualizacje i monitoring podatności.</p>
-</div></div>
-<div class="zrodlo">
-<p>Cloudflare, <em>2026 Threat Report</em>, <a href="https://blog.cloudflare.com/2026-threat-report/" class="uri">https://blog.cloudflare.com/2026-threat-report/</a></p>
-</div>
-</section>
-<section id="koniec-wsparcia" class="slide level2">
-<h2><i class="bi bi-cloud-slash"></i> 2026: sprzęt działa, usługa znika</h2>
-<p>Belkin zakończył <strong>31 stycznia 2026 r.</strong> usługi chmurowe i obsługę aplikacji dla części produktów Wemo. Przestały działać m.in. zdalny dostęp oraz integracje z Alexą i Google Assistant.</p>
-<p>Urządzenia wcześniej skonfigurowane z Apple HomeKit mogą zachować działanie lokalne; produkty oparte na Thread nadal działają przez HomeKit. Produkty zależne od chmury tracą funkcje „smart”, mimo że elektronika fizycznie działa.</p>
-<div title="Wymaganie projektowe">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Wymaganie projektowe</strong></p>
-</div>
-<div class="callout-content">
-<p>Zdefiniuj tryb lokalny, eksport danych, stan bezpieczny bez chmury oraz datę i zakres wsparcia. Koniec serwera nie powinien automatycznie oznaczać elektroodpadu.</p>
-</div>
-</div>
+<div class="fragment">
+<p><img data-src="../assets/img/lecture00/elektroodpady.jpg" alt="Stos zużytych urządzeń elektronicznych."></p>
+<p>Koniec serwera <strong>nie może</strong> oznaczać elektroodpadu.</p>
 </div>
 </div>
 <div class="zrodlo">
-<p>Belkin, <em>Wemo Support Ending — What You Need to Know</em>, aktualizacja 01.2026, <a href="https://www.belkin.com/support-article/?articleNum=335419" class="uri">https://www.belkin.com/support-article/?articleNum=335419</a></p>
-</div>
-</section>
-<section id="prawo" class="slide level2">
-<h2><i class="bi bi-bank"></i> 2024–2028: prawo zmienia backlog produktu</h2>
-<div class="tabela-gesta">
-<table class="caption-top">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Akt UE</th>
-<th style="text-align: left;">Kluczowa data</th>
-<th style="text-align: left;">Co zmienia w systemie IoT</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Data Act</strong></td>
-<td style="text-align: left;">stosowany od <strong>12.09.2025</strong></td>
-<td style="text-align: left;">dostęp użytkownika do danych z produktu, udostępnienie stronie trzeciej, przenoszenie usług danych</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>RED + (UE) 2022/30</strong></td>
-<td style="text-align: left;">cyberwymogi dla wybranych urządzeń radiowych od <strong>01.08.2025</strong>; uchylenie z wejściem CRA <strong>11.12.2027</strong></td>
-<td style="text-align: left;">ochrona sieci, prywatności i przed oszustwami już przed pełnym stosowaniem CRA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>AI Act — (UE) 2024/1689, zm. (UE) 2026/1744</strong></td>
-<td style="text-align: left;">zakazy od <strong>02.2025</strong>; GPAI od <strong>08.2025</strong>; przejrzystość od <strong>08.2026</strong>; wysokie ryzyko: <strong>12.2027 / 08.2028</strong></td>
-<td style="text-align: left;">klasyfikacja ryzyka, dokumentacja, nadzór człowieka, przejrzystość i monitorowanie po wdrożeniu</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Cyber Resilience Act</strong></td>
-<td style="text-align: left;">raportowanie od <strong>11.09.2026</strong>; główne obowiązki od <strong>11.12.2027</strong></td>
-<td style="text-align: left;">bezpieczeństwo przez cykl życia, obsługa podatności, aktualizacje i zgodność produktu</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>Daty w tabeli wskazują, od kiedy poszczególne wymagania mają zastosowanie i kiedy system musi być do nich przygotowany.</strong></p>
-<div class="zrodlo">
-<p>Komisja Europejska: <a href="https://digital-strategy.ec.europa.eu/en/policies/data-act" class="uri">https://digital-strategy.ec.europa.eu/en/policies/data-act</a>, <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" class="uri">https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai</a>, <a href="https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act" class="uri">https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act</a>, <a href="https://single-market-economy.ec.europa.eu/sectors/electrical-and-electronic-engineering-industries-eei/radio-equipment-directive-red_en" class="uri">https://single-market-economy.ec.europa.eu/sectors/electrical-and-electronic-engineering-industries-eei/radio-equipment-directive-red_en</a></p>
+<p>Cloudflare, <em>2026 Threat Report</em>; Belkin, <em>Wemo Support Ending</em> (2026). Fot.: Bungle, Harborsparrow (CC BY-SA 4.0); AvWijk (domena publiczna)</p>
 </div>
 </section>
 <section id="koordynacja" class="slide level2">
 <h2><i class="bi bi-people-fill"></i> Człowiek nie wygrał dzięki samotnej inteligencji</h2>
-<p><strong>Literacka soczewka Naama:</strong> sieciowa augmentacja może zwiększać zdolność współpracy — a równocześnie tworzyć nową powierzchnię obserwacji i kontroli.</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="../assets/img/lecture00/naam.jpg" class="portret" alt="Ramez Naam podczas wystąpienia na konferencji w 2016 r."></p>
 <div class="zrodlo">
-<p>Motyw trylogii Rameza Naama <em>Nexus · Crux · Apex</em> (2012–2015); parafraza, nie wypowiedź autora.</p>
+<p>Ramez Naam, fot. S. ter Burg, CC BY 2.0</p>
 </div>
-<p>Projektujemy nie tylko przepływ danych, lecz także <strong>warunki koordynacji między ludźmi</strong>.</p>
+</div><div class="column" style="width:70%;">
+<div class="cytat">
+<p>„Ludzkość osiągnęła to, co osiągnęła, nie dzięki sile, pazurom czy zbroi, nawet nie dzięki indywidualnej inteligencji. To zdolność ludzi do koordynowania, wspólnej pracy, wspólnego tworzenia pomysłów i rozwiązań naprawdę ich wyróżnia.”</p>
+</div>
+<div class="zrodlo">
+<p>R. Naam, <em>Crux</em> (2013), przekład własny</p>
+</div>
+<div class="fragment">
+<p>Projektujemy nie tylko przepływ danych, ale też <strong>warunki współpracy</strong> — albo kontroli.</p>
+</div>
+</div></div>
 </section></section>
 <section>
 <section id="od-wizji-do-projektu" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
 <h1>Od wizji do projektu</h1>
 
 </section>
-<section id="pytania-projektowe" class="slide level2">
+<section id="pytania" class="slide level2">
 <h2><i class="bi bi-question-diamond"></i> Sześć pytań przed wyborem czujnika</h2>
 <div class="pytania">
 <ul>
 <li><strong>Decyzja:</strong> kto i co zrobi dzięki danym?</li>
-<li><strong>Dowód:</strong> jak sprawdzimy, że wynik jest lepszy niż bez systemu?</li>
-<li><strong>Błąd:</strong> jaki jest koszt fałszywego alarmu i przeoczenia?</li>
-<li><strong>Władza:</strong> kto może zobaczyć dane, zmienić model i wydać polecenie?</li>
-<li><strong>Awaria:</strong> jaki stan fizyczny jest bezpieczny bez sieci i chmury?</li>
+<li><strong>Dowód:</strong> skąd będziemy wiedzieć, że jest lepiej niż bez systemu?</li>
+<li><strong>Błąd:</strong> ile kosztuje fałszywy alarm, a ile przeoczenie?</li>
+<li><strong>Władza:</strong> kto widzi dane, zmienia model i wydaje polecenia?</li>
+<li><strong>Awaria:</strong> jaki stan jest bezpieczny bez sieci i chmury?</li>
 <li><strong>Koniec życia:</strong> kto aktualizuje, eksportuje dane i usuwa urządzenie?</li>
 </ul>
 </div>
-<p>Jeżeli odpowiedzi nie mieszczą się w wymaganiach, problem nie zniknie w implementacji.</p>
 </section>
 <section id="most" class="slide level2">
-<h2><i class="bi bi-signpost-split"></i> Wykład 0 wyznacza pytania, moduły 01–07 budują odpowiedzi</h2>
+<h2><i class="bi bi-signpost-split"></i> Mapa kursu</h2>
 <div class="tabela-gesta">
 <table class="caption-top">
 <colgroup>
@@ -843,8 +711,8 @@ Zmiana zachowania<br>sprzężenie zwrotne
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Pytanie z wykładu 0</th>
-<th style="text-align: left;">Odpowiedź rozwijana w module</th>
+<th style="text-align: left;">Pytanie z dzisiejszego wykładu</th>
+<th style="text-align: left;">Moduł</th>
 </tr>
 </thead>
 <tbody>
@@ -853,177 +721,74 @@ Zmiana zachowania<br>sprzężenie zwrotne
 <td style="text-align: left;"><strong>01</strong> Architektura i wymagania</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Jak pomiar staje się liczbą i ile kosztuje energetycznie?</td>
+<td style="text-align: left;">Ile energii kosztuje pomiar?</td>
 <td style="text-align: left;"><strong>02</strong> Urządzenie, sensory i energia</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Jak dane docierają mimo zaniku łącza i jak wydawać firmware?</td>
+<td style="text-align: left;">Co, gdy zniknie łącze? Jak bezpiecznie zmienić firmware?</td>
 <td style="text-align: left;"><strong>03</strong> Łączność i OTA</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Jak znaczenie danych przechodzi między komponentami?</td>
+<td style="text-align: left;">Jak dane zachowują znaczenie między komponentami?</td>
 <td style="text-align: left;"><strong>04</strong> MQTT i kontrakt danych</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Gdzie walidować, agregować i integrować?</td>
-<td style="text-align: left;"><strong>05</strong> Brzeg, Node-RED i Sheets</td>
+<td style="text-align: left;">Gdzie walidować i agregować?</td>
+<td style="text-align: left;"><strong>05</strong> Brzeg sieci, Node-RED i Sheets</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Jak modelować stan, wizualizować i sterować?</td>
 <td style="text-align: left;"><strong>06</strong> ThingsBoard CE</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Jak system zachowuje się przy ataku, awarii i zmianie prawa?</td>
+<td style="text-align: left;">Co przy ataku, awarii i zmianie prawa?</td>
 <td style="text-align: left;"><strong>07</strong> Odporność, bezpieczeństwo i eksploatacja</td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
-<section id="przypadek" class="slide level2">
-<h2><i class="bi bi-moisture"></i> Przypadek przewodni: nawadnianie nie zaczyna się od pompy</h2>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<svg id="mermaid-figure-2" width="1056" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="flowchart" style="; display: block; margin: auto auto auto auto" viewbox="0 0 1536.96875 292.8889465332031" role="graphics-document document" aria-roledescription="flowchart-v2" height="365">
-<style>#mermaid-figure-2{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:24px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-figure-2 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-figure-2 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-figure-2 .error-icon{fill:#552222;}#mermaid-figure-2 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-2 .edge-thickness-normal{stroke-width:1px;}#mermaid-figure-2 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-2 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-2 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-figure-2 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-2 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-2 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-2 .marker.cross{stroke:#333333;}#mermaid-figure-2 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:24px;}#mermaid-figure-2 p{margin:0;}#mermaid-figure-2 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-2 .cluster-label text{fill:#333;}#mermaid-figure-2 .cluster-label span{color:#333;}#mermaid-figure-2 .cluster-label span p{background-color:transparent;}#mermaid-figure-2 .label text,#mermaid-figure-2 span{fill:#333;color:#333;}#mermaid-figure-2 .node rect,#mermaid-figure-2 .node circle,#mermaid-figure-2 .node ellipse,#mermaid-figure-2 .node polygon,#mermaid-figure-2 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-2 .rough-node .label text,#mermaid-figure-2 .node .label text,#mermaid-figure-2 .image-shape .label,#mermaid-figure-2 .icon-shape .label{text-anchor:middle;}#mermaid-figure-2 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-figure-2 .rough-node .label,#mermaid-figure-2 .node .label,#mermaid-figure-2 .image-shape .label,#mermaid-figure-2 .icon-shape .label{text-align:center;}#mermaid-figure-2 .node.clickable{cursor:pointer;}#mermaid-figure-2 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaid-figure-2 .arrowheadPath{fill:#333333;}#mermaid-figure-2 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-2 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-2 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-2 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaid-figure-2 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-2 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-figure-2 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-2 .cluster text{fill:#333;}#mermaid-figure-2 .cluster span{color:#333;}#mermaid-figure-2 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-2 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-2 rect.text{fill:none;stroke-width:0;}#mermaid-figure-2 .icon-shape,#mermaid-figure-2 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-2 .icon-shape p,#mermaid-figure-2 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaid-figure-2 .icon-shape rect,#mermaid-figure-2 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-2 .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#mermaid-figure-2 .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#mermaid-figure-2 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-figure-2 .k>*{fill:#e8f2f4!important;stroke:#0b6b78!important;stroke-width:2px!important;color:#0b3b45!important;}#mermaid-figure-2 .k span{fill:#e8f2f4!important;stroke:#0b6b78!important;stroke-width:2px!important;color:#0b3b45!important;}#mermaid-figure-2 .k tspan{fill:#0b3b45!important;}</style>
-<g><marker id="mermaid-1790945562476_flowchart-v2-pointEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790945562476_flowchart-v2-pointStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="4.5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790945562476_flowchart-v2-circleEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="11" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790945562476_flowchart-v2-circleStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="-1" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790945562476_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="12" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790945562476_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="-1" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M268,182L272.167,182C276.333,182,284.667,182,292.333,182C300,182,307,182,310.5,182L314,182" id="L_C_U_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_C_U_0" data-points="W3sieCI6MjY4LCJ5IjoxODJ9LHsieCI6MjkzLCJ5IjoxODJ9LHsieCI6MzE4LCJ5IjoxODJ9XQ==" marker-end="url(#mermaid-1790945562476_flowchart-v2-pointEnd)"></path><path d="M578,127.774L598.288,119.312C618.576,110.85,659.151,93.925,699.06,85.462C738.969,77,778.211,77,797.832,77L817.453,77" id="L_U_B_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_U_B_0" data-points="W3sieCI6NTc4LCJ5IjoxMjcuNzc0NDk0ODk0NjMzOTN9LHsieCI6Njk5LjcyNjU2MjUsInkiOjc3fSx7IngiOjgyMS40NTMxMjUsInkiOjc3fV0=" marker-end="url(#mermaid-1790945562476_flowchart-v2-pointEnd)"></path><path d="M1066.875,77L1083.716,77C1100.557,77,1134.24,77,1167.255,77C1200.271,77,1232.62,77,1248.794,77L1264.969,77" id="L_B_P_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_B_P_0" data-points="W3sieCI6MTA2Ni44NzUsInkiOjc3fSx7IngiOjExNjcuOTIxODc1LCJ5Ijo3N30seyJ4IjoxMjY4Ljk2ODc1LCJ5Ijo3N31d" marker-end="url(#mermaid-1790945562476_flowchart-v2-pointEnd)"></path><path d="M578,176.836L598.288,176.03C618.576,175.224,659.151,173.612,700.187,177.644C741.222,181.676,782.718,191.353,803.466,196.191L824.214,201.029" id="L_U_A_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_U_A_0" data-points="W3sieCI6NTc4LCJ5IjoxNzYuODM1NjY2MTgwNDQxMzR9LHsieCI6Njk5LjcyNjU2MjUsInkiOjE3Mn0seyJ4Ijo4MjguMTA5Mzc1LCJ5IjoyMDEuOTM3Mzg4MTM2MDI2NTh9XQ==" marker-end="url(#mermaid-1790945562476_flowchart-v2-pointEnd)"></path><path d="M1268.969,98.381L1252.128,101.151C1235.286,103.921,1201.604,109.46,1168.579,109.482C1135.554,109.503,1103.186,104.006,1087.002,101.258L1070.819,98.509" id="L_P_B_0" class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_P_B_0" data-points="W3sieCI6MTI2OC45Njg3NSwieSI6OTguMzgwOTQyNzE5OTU2NzJ9LHsieCI6MTE2Ny45MjE4NzUsInkiOjExNX0seyJ4IjoxMDY2Ljg3NSwieSI6OTcuODM5NTY1NjU3NjIzN31d" marker-end="url(#mermaid-1790945562476_flowchart-v2-pointEnd)"></path><path d="M821.453,114.651L801.165,120.876C780.878,127.101,740.302,139.55,700.389,148.114C660.475,156.678,621.223,161.356,601.598,163.695L581.972,166.034" id="L_B_U_0" class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_B_U_0" data-points="W3sieCI6ODIxLjQ1MzEyNSwieSI6MTE0LjY1MTAxNjM2NDEwMTI1fSx7IngiOjY5OS43MjY1NjI1LCJ5IjoxNTJ9LHsieCI6NTc4LCJ5IjoxNjYuNTA2OTk4NTQxMzIzOTh9XQ==" marker-end="url(#mermaid-1790945562476_flowchart-v2-pointEnd)"></path><path d="M578,206.272L598.288,210.06C618.576,213.848,659.151,221.424,700.169,225.212C741.188,229,782.648,229,803.379,229L824.109,229" id="L_U_A_2" class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_U_A_2" data-points="W3sieCI6NTc4LCJ5IjoyMDYuMjcyMzY4OTUxOTI1NzZ9LHsieCI6Njk5LjcyNjU2MjUsInkiOjIyOX0seyJ4Ijo4MjguMTA5Mzc1LCJ5IjoyMjl9XQ==" marker-end="url(#mermaid-1790945562476_flowchart-v2-pointEnd)"></path><path d="M828.109,247.042L806.712,250.368C785.315,253.694,742.521,260.347,701.468,257.036C660.414,253.726,621.102,240.451,601.446,233.814L581.79,227.177" id="L_A_U_0" class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_A_U_0" data-points="W3sieCI6ODI4LjEwOTM3NSwieSI6MjQ3LjA0MTc0MTI0MjY0ODkyfSx7IngiOjY5OS43MjY1NjI1LCJ5IjoyNjd9LHsieCI6NTc4LCJ5IjoyMjUuODk2ODM3NDY2MjQ4N31d" marker-end="url(#mermaid-1790945562476_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" data-id="L_C_U_0" transform="translate(0, 0)"><foreignobject width="0" height="0">
-<div class="labelBkg" data-xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;">
-<span class="edgeLabel"></span>
-</div>
-</foreignobject></g></g><g class="edgeLabel"><g class="label" data-id="L_U_B_0" transform="translate(0, 0)"><foreignobject width="0" height="0">
-<div class="labelBkg" data-xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;">
-<span class="edgeLabel"></span>
-</div>
-</foreignobject></g></g><g class="edgeLabel"><g class="label" data-id="L_B_P_0" transform="translate(0, 0)"><foreignobject width="0" height="0">
-<div class="labelBkg" data-xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;">
-<span class="edgeLabel"></span>
-</div>
-</foreignobject></g></g><g class="edgeLabel"><g class="label" data-id="L_U_A_0" transform="translate(0, 0)"><foreignobject width="0" height="0">
-<div class="labelBkg" data-xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;">
-<span class="edgeLabel"></span>
-</div>
-</foreignobject></g></g><g class="edgeLabel" transform="translate(1167.87788, 114.99253)"><g class="label" data-id="L_P_B_0" transform="translate(-76.046875, -18)"><foreignobject width="152.09375" height="36">
-<div class="labelBkg" data-xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;">
-<span class="edgeLabel">
-<p>
-polecenie z ID
-</p>
-</span>
-</div>
-</foreignobject></g></g><g class="edgeLabel"><g class="label" data-id="L_B_U_0" transform="translate(0, 0)"><foreignobject width="0" height="0">
-<div class="labelBkg" data-xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;">
-<span class="edgeLabel"></span>
-</div>
-</foreignobject></g></g><g class="edgeLabel"><g class="label" data-id="L_U_A_2" transform="translate(0, 0)"><foreignobject width="0" height="0">
-<div class="labelBkg" data-xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;">
-<span class="edgeLabel"></span>
-</div>
-</foreignobject></g></g><g class="edgeLabel" transform="translate(700.44098, 266.88894)"><g class="label" data-id="L_A_U_0" transform="translate(-96.7265625, -18)"><foreignobject width="193.453125" height="36">
-<div class="labelBkg" data-xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;">
-<span class="edgeLabel">
-<p>
-stan potwierdzony
-</p>
-</span>
-</div>
-</foreignobject></g></g></g><g class="nodes"><g class="node default k" id="flowchart-C-0" transform="translate(138, 182)"><rect class="basic label-container" style="fill:#e8f2f4 !important;stroke:#0b6b78 !important;stroke-width:2px !important" x="-130" y="-69" width="260" height="138"></rect><g class="label" style="color:#0b3b45 !important" transform="translate(-100, -54)"><rect></rect><foreignobject width="200" height="108">
-<div style="color: rgb(11, 59, 69) !important; display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span style="color:#0b3b45 !important" class="nodeLabel">
-<p>
-<b>Czujnik</b><br>wilgotność · jakość
-</p>
-</span>
-</div>
-</foreignobject></g></g><g class="node default k" id="flowchart-U-1" transform="translate(448, 182)"><rect class="basic label-container" style="fill:#e8f2f4 !important;stroke:#0b6b78 !important;stroke-width:2px !important" x="-130" y="-69" width="260" height="138"></rect><g class="label" style="color:#0b3b45 !important" transform="translate(-100, -54)"><rect></rect><foreignobject width="200" height="108">
-<div style="color: rgb(11, 59, 69) !important; display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span style="color:#0b3b45 !important" class="nodeLabel">
-<p>
-<b>Urządzenie</b><br>czas · bufor · energia
-</p>
-</span>
-</div>
-</foreignobject></g></g><g class="node default k" id="flowchart-B-2" transform="translate(944.1640625, 77)"><rect class="basic label-container" style="fill:#e8f2f4 !important;stroke:#0b6b78 !important;stroke-width:2px !important" x="-122.7109375" y="-51" width="245.421875" height="102"></rect><g class="label" style="color:#0b3b45 !important" transform="translate(-92.7109375, -36)"><rect></rect><foreignobject width="185.421875" height="72">
-<div style="color: rgb(11, 59, 69) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span style="color:#0b3b45 !important" class="nodeLabel">
-<p>
-<b>Broker / brzeg</b><br>walidacja · reguły
-</p>
-</span>
-</div>
-</foreignobject></g></g><g class="node default k" id="flowchart-P-3" transform="translate(1398.96875, 77)"><rect class="basic label-container" style="fill:#e8f2f4 !important;stroke:#0b6b78 !important;stroke-width:2px !important" x="-130" y="-69" width="260" height="138"></rect><g class="label" style="color:#0b3b45 !important" transform="translate(-100, -54)"><rect></rect><foreignobject width="200" height="108">
-<div style="color: rgb(11, 59, 69) !important; display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span style="color:#0b3b45 !important" class="nodeLabel">
-<p>
-<b>Platforma</b><br>stan · alarm · historia
-</p>
-</span>
-</div>
-</foreignobject></g></g><g class="node default k" id="flowchart-A-4" transform="translate(944.1640625, 229)"><rect class="basic label-container" style="fill:#e8f2f4 !important;stroke:#0b6b78 !important;stroke-width:2px !important" x="-116.0546875" y="-51" width="232.109375" height="102"></rect><g class="label" style="color:#0b3b45 !important" transform="translate(-86.0546875, -36)"><rect></rect><foreignobject width="172.109375" height="72">
-<div style="color: rgb(11, 59, 69) !important; display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" data-xmlns="http://www.w3.org/1999/xhtml">
-<span style="color:#0b3b45 !important" class="nodeLabel">
-<p>
-<b>Zawór / pompa</b><br>stan bezpieczny
-</p>
-</span>
-</div>
-</foreignobject></g></g></g></g></g>
-</svg>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p><strong>Kryterium sukcesu:</strong> nie „dane są w chmurze”, lecz roślina otrzymuje właściwą ilość wody, a pojedyncza awaria nie prowadzi do zalania ani przesuszenia.</p>
-</section>
-<section id="pytania" class="slide level2">
-<h2><i class="bi bi-question-circle"></i> Pytania sprawdzające</h2>
-<div class="pytania">
-<ul>
-<li>Czujnik wilgotności ma błąd systematyczny, a model automatycznie otwiera zawór. W których miejscach pętli można wykryć lub ograniczyć skutek tego błędu?</li>
-<li>Producent ciągnika udostępnia pulpit, ale nie surowe dane maszyny. Jakie wymaganie techniczne i jaki akt UE są tu istotne?</li>
-<li>System AI klasyfikuje człowieka, lecz interwencję wykonuje urządzenie IoT. Które wymagania dotyczą modelu, a które urządzenia i jego stanu bezpiecznego?</li>
-<li>Kiedy wysłanie pomiaru do chmury jest lepsze od decyzji na brzegu — a kiedy gorsze?</li>
-</ul>
-</div>
-</section>
 <section id="podsumowanie" class="slide level2">
-<h2><i class="bi bi-flag"></i> Podsumowanie</h2>
+<h2><i class="bi bi-flag"></i> Utopia, dystopia, rzeczywistość</h2>
 <ul>
-<li class="fragment">Internet przyszłości nie jest katalogiem gadżetów, lecz zbiorem <strong>pętli pomiar–decyzja–działanie</strong>.</li>
-<li class="fragment">Korzyści są realne, gdy system poprawia konkretną decyzję i daje się porównać z wariantem bez IoT.</li>
-<li class="fragment">Profilowanie, AI i automatyczna interwencja zwiększają asymetrię władzy — dlatego potrzebne są cel, nadzór i droga odwołania.</li>
-<li class="fragment">Demonstracja laboratoryjna nie jest dojrzałym produktem, a ekspozycja zadań na AI nie jest równoznaczna z likwidacją zawodu.</li>
-<li class="fragment">Energia, cyberbezpieczeństwo, dostęp do danych i cykl życia są częścią architektury od pierwszego dnia.</li>
-<li class="fragment">Moduły 01–07 zamieniają te zasady w sprawdzalne wymagania i działający system.</li>
+<li class="fragment">IoT to nie katalog gadżetów, lecz <strong>pętle pomiar → decyzja → działanie</strong>.</li>
+<li class="fragment">Ta sama pętla może nawadniać pole i <strong>sterować człowiekiem</strong> — o tym decyduje projekt.</li>
+<li class="fragment">AI przenosi błąd z ekranu <strong>do świata fizycznego</strong>.</li>
+<li class="fragment">Energia, bezpieczeństwo i koniec wsparcia są częścią architektury <strong>od pierwszego dnia</strong>.</li>
 </ul>
+<div class="fragment">
+<p><span class="lead">Technologia nas nie wyzwoli ani nie zniewoli sama. Zrobią to <strong>decyzje projektantów</strong> — czyli wasze.</span></p>
+</div>
 </section>
 <section id="literatura" class="slide level2">
-<h2><i class="bi bi-bookshelf"></i> Literatura — nie instrukcje, lecz soczewki</h2>
+<h2><i class="bi bi-bookshelf"></i> Co warto przeczytać</h2>
 <div class="columns">
-<div class="column" style="width:55%;">
+<div class="column" style="width:60%;">
 <ol type="1">
-<li>Yuval Noah Harari, <em>21 lekcji na XXI wiek</em>; <em>Homo Deus. Krótka historia jutra</em>.</li>
-<li>Aldous Huxley, <em>Nowy wspaniały świat</em> (1932); <em>Brave New World Revisited</em> (1958; pol. <em>Nowy wspaniały świat 30 lat później</em>).</li>
-<li>Stanisław Lem, <em>Powrót z gwiazd</em> (1961); <em>Summa technologiae</em> (1964).</li>
-<li>Jacek Dukaj, <em>Po piśmie</em> (2019).</li>
-<li>Ramez Naam, trylogia <em>Nexus · Crux · Apex</em> (2012–2015).</li>
-<li>Mark Weiser, „The Computer for the 21st Century” (1991).</li>
+<li>Y. N. Harari, <em>21 lekcji na XXI wiek</em>; <em>Homo Deus. Krótka historia jutra</em></li>
+<li>A. Huxley, <em>Nowy wspaniały świat</em> (1932); <em>Nowy wspaniały świat 30 lat później</em> (1958)</li>
+<li>S. Lem, <em>Powrót z gwiazd</em> (1961); <em>Summa technologiae</em> (1964)</li>
+<li>J. Dukaj, <em>Po piśmie</em> (2019)</li>
+<li>R. Naam, <em>Nexus · Crux · Apex</em> (2012–2015)</li>
+<li>M. Weiser, „The Computer for the 21st Century” (1991)</li>
 </ol>
-</div><div class="column" style="width:45%;">
-<div title="Do dalszej rozmowy">
+</div><div class="column" style="width:18%;">
+<p><img data-src="../assets/img/lecture00/lem.jpg" class="portret" alt="Portret Stanisława Lema."></p>
+<div class="zrodlo">
+<p>Stanisław Lem, CC BY-SA 3.0</p>
+</div>
+</div><div class="column" style="width:22%;">
+<div title="Do rozmowy">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Do dalszej rozmowy</strong></p>
+<p><strong>Do rozmowy</strong></p>
 </div>
 <div class="callout-content">
-<p>Która z tych wizji najlepiej opisuje świat urządzeń połączonych: wyzwolenie od ograniczeń, łagodna kontrola, utrata sprawczości, zmiana samego sposobu myślenia czy nowa zdolność współpracy?</p>
+<p>Która wizja najlepiej opisuje świat połączonych rzeczy: wyzwolenie, łagodna kontrola czy nowa zdolność współpracy?</p>
 </div>
 </div>
 </div>
@@ -1031,34 +796,22 @@ stan potwierdzony
 </div></div>
 </section>
 <section id="zrodla" class="slide level2">
-<h2><i class="bi bi-journal-text"></i> Źródła — przypadki i badania</h2>
-<div style="font-size: 0.50em;">
+<h2><i class="bi bi-journal-text"></i> Źródła</h2>
+<div style="font-size: 0.48em;">
 <ul>
-<li>IoT Analytics, <em>State of IoT 2025: Number of connected IoT devices growing 14% to 21.1 billion globally</em>, 2025, <a href="https://iot-analytics.com/number-connected-iot-devices/" class="uri">https://iot-analytics.com/number-connected-iot-devices/</a></li>
-<li>Federal Trade Commission, <em>Cambridge Analytica, LLC, In the Matter of</em>, sprawa 182 3107, <a href="https://www.ftc.gov/legal-library/browse/cases-proceedings/182-3107-cambridge-analytica-llc-matter" class="uri">https://www.ftc.gov/legal-library/browse/cases-proceedings/182-3107-cambridge-analytica-llc-matter</a></li>
-<li>Rada Państwa ChRL, <em>Plan budowy systemu kredytu społecznego 2014–2020</em>, <a href="https://www.gov.cn/zhengce/content/2014-06/27/content_8913.htm" class="uri">https://www.gov.cn/zhengce/content/2014-06/27/content_8913.htm</a></li>
-<li>K. Drinhausen, V. Brussee, <em>China’s Social Credit System in 2021: From fragmentation towards integration</em>, MERICS, aktualizacja 2022, <a href="https://merics.org/en/report/chinas-social-credit-system-2021-fragmentation-towards-integration" class="uri">https://merics.org/en/report/chinas-social-credit-system-2021-fragmentation-towards-integration</a></li>
-<li>G. Kostka, <em>China’s social credit systems and public opinion</em>, 2019, <a href="https://doi.org/10.1177/1461444819826402" class="uri">https://doi.org/10.1177/1461444819826402</a></li>
-<li>ILO, <em>Generative AI and Jobs: A Refined Global Index of Occupational Exposure</em>, Working Paper 140, 2025, <a href="https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure" class="uri">https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure</a></li>
-<li>S. L. Metzger i in., <em>A high-performance neuroprosthesis for speech decoding and avatar control</em>, 2023, <a href="https://doi.org/10.1038/s41586-023-06443-4" class="uri">https://doi.org/10.1038/s41586-023-06443-4</a></li>
-<li>K. T. Littlejohn i in., <em>A streaming brain-to-voice neuroprosthesis</em>, 2025, <a href="https://doi.org/10.1038/s41593-025-01905-6" class="uri">https://doi.org/10.1038/s41593-025-01905-6</a></li>
-<li>D. Seo i in., <em>Wireless Recording in the Peripheral Nervous System with Ultrasonic Neural Dust</em>, 2016, <a href="https://doi.org/10.1016/j.neuron.2016.06.034" class="uri">https://doi.org/10.1016/j.neuron.2016.06.034</a></li>
-<li>J. Rong i in., <em>Fruit pose recognition and directional orderly grasping strategies for tomato harvesting robots</em>, 2022, <a href="https://doi.org/10.1016/j.compag.2022.107430" class="uri">https://doi.org/10.1016/j.compag.2022.107430</a></li>
-<li>Cloudflare, <em>2026 Threat Report</em>, <a href="https://blog.cloudflare.com/2026-threat-report/" class="uri">https://blog.cloudflare.com/2026-threat-report/</a></li>
-<li>Belkin, <em>Wemo Support Ending — What You Need to Know</em>, aktualizacja 2026, <a href="https://www.belkin.com/support-article/?articleNum=335419" class="uri">https://www.belkin.com/support-article/?articleNum=335419</a></li>
-</ul>
-</div>
-</section>
-<section id="zrodla-2" class="slide level2">
-<h2><i class="bi bi-journal-check"></i> Źródła — standardy, programy i prawo</h2>
-<div style="font-size: 0.50em;">
-<ul>
-<li>Komisja Europejska, <em>Destination Earth</em>, <a href="https://digital-strategy.ec.europa.eu/en/policies/destination-earth" class="uri">https://digital-strategy.ec.europa.eu/en/policies/destination-earth</a></li>
+<li>IoT Analytics, <em>State of IoT 2025</em>, <a href="https://iot-analytics.com/number-connected-iot-devices/" class="uri">https://iot-analytics.com/number-connected-iot-devices/</a></li>
+<li>R. Valentini i in., <em>New tree monitoring systems: from Industry 4.0 to Nature 4.0</em>, 2019, doi:10.12899/asr-1847</li>
+<li>Federal Trade Commission, <em>Cambridge Analytica, LLC</em>, sprawa 182 3107, <a href="https://www.ftc.gov/legal-library/browse/cases-proceedings/182-3107-cambridge-analytica-llc-matter" class="uri">https://www.ftc.gov/legal-library/browse/cases-proceedings/182-3107-cambridge-analytica-llc-matter</a></li>
+<li>K. Drinhausen, V. Brussee, <em>China’s Social Credit System in 2021</em>, MERICS, <a href="https://merics.org/en/report/chinas-social-credit-system-2021-fragmentation-towards-integration" class="uri">https://merics.org/en/report/chinas-social-credit-system-2021-fragmentation-towards-integration</a></li>
+<li>R. Ananthanarayanan i in., <em>The cat is out of the bag: cortical simulations with 10⁹ neurons, 10¹³ synapses</em>, SC’09, doi:10.1145/1654059.1654124</li>
+<li>ILO, <em>Generative AI and Jobs: A Refined Global Index of Occupational Exposure</em>, WP 140, 2025, <a href="https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure" class="uri">https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure</a></li>
+<li>M. Pais-Vieira i in., <em>A brain-to-brain interface for real-time sharing of sensorimotor information</em>, Sci. Rep.&nbsp;2013, doi:10.1038/srep01319</li>
+<li>C. Grau i in., <em>Conscious brain-to-brain communication in humans using non-invasive technologies</em>, PLoS ONE 2014, doi:10.1371/journal.pone.0105225</li>
+<li>S. L. Metzger i in., <em>A high-performance neuroprosthesis for speech decoding and avatar control</em>, Nature 2023, doi:10.1038/s41586-023-06443-4</li>
 <li>IEA, <em>Energy and AI</em>, 2025, <a href="https://www.iea.org/reports/energy-and-ai/executive-summary" class="uri">https://www.iea.org/reports/energy-and-ai/executive-summary</a></li>
-<li>Komisja Europejska, <em>Data Act</em>, <a href="https://digital-strategy.ec.europa.eu/en/policies/data-act" class="uri">https://digital-strategy.ec.europa.eu/en/policies/data-act</a></li>
-<li>Komisja Europejska, <em>AI Act</em>, <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" class="uri">https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai</a></li>
-<li>Komisja Europejska, <em>Cyber Resilience Act</em>, <a href="https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act" class="uri">https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act</a></li>
-<li>Komisja Europejska, <em>Radio Equipment Directive (RED)</em>, <a href="https://single-market-economy.ec.europa.eu/sectors/electrical-and-electronic-engineering-industries-eei/radio-equipment-directive-red_en" class="uri">https://single-market-economy.ec.europa.eu/sectors/electrical-and-electronic-engineering-industries-eei/radio-equipment-directive-red_en</a></li>
+<li>Cloudflare, <em>2026 Threat Report</em>, <a href="https://blog.cloudflare.com/2026-threat-report/" class="uri">https://blog.cloudflare.com/2026-threat-report/</a></li>
+<li>Belkin, <em>Wemo Support Ending</em>, 2026, <a href="https://www.belkin.com/support-article/?articleNum=335419" class="uri">https://www.belkin.com/support-article/?articleNum=335419</a></li>
+<li>Ilustracje: Wikimedia Commons — autorzy i licencje podane pod każdym zdjęciem; wykresy własne, CC BY 4.0</li>
 </ul>
 </div>
 

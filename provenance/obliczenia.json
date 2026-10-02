@@ -109,5 +109,23 @@
   "bity": 12,
   "kroki": 4096,
   "LSB_mV_dla_3V3": 0.806
+ },
+ "paliwo_czlowiek": {
+  "E5_MJ_l": 34.56,
+  "auto_MJ_km": 2.419,
+  "auto_kWh_km": 0.672,
+  "czlowiek_MJ_doba": [
+   10.5,
+   12.6
+  ],
+  "czlowiek_kWh_doba": [
+   2.91,
+   3.49
+  ],
+  "auto_5km_MJ": 12.1,
+  "km_na_dobe_czlowieka": [
+   4.3,
+   5.2
+  ]
  }
 }

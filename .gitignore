@@ -28,3 +28,6 @@ __pycache__/
 *.pyc
 /.tools/
 Thumbs.db
+
+# Images without a confirmed licence: local/Moodle use only, never in the public repo.
+/private/
