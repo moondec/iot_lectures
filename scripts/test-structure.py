@@ -46,9 +46,10 @@ obce = [p for p in glob.glob(f"{DOCS}/*.html")
         if os.path.basename(p) != "index.html" and not przekierowanie(p)]
 spr("Brak dodatkowych stron w katalogu głównym", not obce, str(obce))
 
-# Stare talie nie mogą trafić do publikacji (wolno tylko przekierowania do archiwum/).
+# Stare talie są publikowane tylko w docs/archiwum/; poza nim wolno jedynie przekierowania.
 stare = [p for p in glob.glob(f"{DOCS}/**/*.html", recursive=True)
-         if re.search(r"wyklad_(intro_)?\d", os.path.basename(p)) and not przekierowanie(p)]
+         if re.search(r"wyklad_(intro_)?\d", os.path.basename(p))
+         and not p.replace(os.sep, "/").startswith(f"{DOCS}/archiwum/") and not przekierowanie(p)]
 spr("Brak oryginalnych talii w wyniku", not stare, str(stare))
 
 # --- 2. Slajdy obowiązkowe w każdej talii -------------------------------

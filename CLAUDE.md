@@ -62,12 +62,16 @@ z obecną konfiguracją (motyw `../assets/...` jest względny wobec `slides/`).
 
 ## Publikacja
 
-- Repozytorium jest **publiczne**. GitHub Pages serwuje gałąź `main` od katalogu
-  głównego, więc kurs jest pod https://moondec.github.io/iot_lectures/docs/,
-  a stara wersja pod `/archiwum/`. Każdy push na `main` od razu zmienia stronę.
-- Dawne adresy `docs/wyklad_*.html`, `docs/konspekt.html`, `docs/lectures_en/*` (linkowane
-  z Moodle) to strony przekierowujące do `/archiwum/` z zachowaniem `#/slajdu`. Tworzy je
-  `scripts/legacy-redirects.py` (post-render w `_quarto.yml`); `test-structure.py` je dopuszcza.
+- Repozytorium jest **publiczne**. GitHub Pages serwuje katalog `docs/` gałęzi `main`
+  (sprawdzone 2.10.2026), więc kurs jest pod https://moondec.github.io/iot_lectures/
+  (wykłady: `/slides/0X-….html`), a stara wersja pod `/archiwum/`. Każdy push na `main`
+  od razu zmienia stronę.
+- `archiwum/` i `img/kbig.jpg` są w `project.resources`, więc trafiają do `docs/archiwum/`
+  i `docs/img/`. Dawne adresy (`wyklad_*.html`, `konspekt.html`, `lectures_en/*`, także z
+  przedrostkiem `docs/` z czasów, gdy Pages serwował katalog główny) to strony
+  przekierowujące do `archiwum/` z zachowaniem `#/slajdu`. Tworzy je
+  `scripts/legacy-redirects.py` (post-render); testy je dopuszczają, a `test-links.py`
+  pomija zamrożone `docs/archiwum/`.
 - `.github/workflows/publish.yml` publikuje dodatkowo na gałąź `gh-pages`,
   której Pages obecnie nie używa.
 

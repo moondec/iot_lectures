@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Quarto post-render: keep the old lecture URLs working.
 
-The previous site served its decks from docs/ (e.g. docs/wyklad_1.html#/slide).
-Moodle pages link there, so after the move to archiwum/ each old address gets a
-small page that forwards to the archived copy, keeping the #/slide anchor.
+GitHub Pages publishes docs/ as the site root; the previous site is copied to
+docs/archiwum/. Old decks were linked (e.g. from Moodle) both as
+<site>/wyklad_1.html and, while Pages served the repo root, as
+<site>/docs/wyklad_1.html. Each old address gets a small page that forwards to
+the archived copy, keeping the #/slide anchor.
 """
 import html
 import os
@@ -40,18 +42,20 @@ TEMPLATE = """<!doctype html>
 """
 
 
+def write(dest: Path, target: str) -> None:
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(TEMPLATE.format(target=html.escape(target), target_js=repr(target)), encoding="utf-8")
+
+
 def main() -> None:
     out_dir = Path(os.environ.get("QUARTO_PROJECT_OUTPUT_DIR", "docs"))
-    for page in OLD_PAGES:
-        depth = page.count("/") + 1  # docs/ itself plus any subfolders
-        target = "../" * depth + "archiwum/" + page
-        dest = out_dir / page
-        dest.parent.mkdir(parents=True, exist_ok=True)
-        dest.write_text(
-            TEMPLATE.format(target=html.escape(target), target_js=repr(target)),
-            encoding="utf-8",
-        )
-    print(f"legacy-redirects: {len(OLD_PAGES)} pages")
+    for prefix in ("", "docs/"):
+        for page in OLD_PAGES:
+            rel = prefix + page
+            write(out_dir / rel, "../" * rel.count("/") + "archiwum/" + page)
+    # The former course landing page <site>/docs/ now lives at the site root.
+    write(out_dir / "docs" / "index.html", "../")
+    print(f"legacy-redirects: {2 * len(OLD_PAGES) + 1} pages")
 
 
 if __name__ == "__main__":

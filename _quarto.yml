@@ -16,7 +16,10 @@ project:
   resources:
     - assets/img/**
     - assets/vendor/**
-  # Old deck URLs (docs/wyklad_*.html) forward to archiwum/ — Moodle links to them.
+    # Pages publishes only docs/, so the previous site is copied in as docs/archiwum/.
+    - archiwum/**
+    - img/kbig.jpg  # department logo, referenced by the archived decks as ../img/
+  # Old deck URLs (wyklad_*.html, also under the former /docs/ prefix) forward to archiwum/.
   post-render:
     - scripts/legacy-redirects.py
 

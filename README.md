@@ -177,9 +177,10 @@ komunikacji z komputerem. Stamp-C3U to **nie** Stamp-C3 — różnice opisuje wy
 
 ## Publikacja
 
-* GitHub Pages serwuje gałąź `main` od katalogu głównego — kurs jest pod adresem
-  `https://moondec.github.io/iot_lectures/docs/`, a poprzednia wersja (5 wykładów)
-  pod `/archiwum/`; każde wypchnięcie na `main` od razu zmienia stronę;
+* GitHub Pages serwuje katalog `docs/` gałęzi `main` — kurs jest pod adresem
+  `https://moondec.github.io/iot_lectures/`, a poprzednia wersja (5 wykładów)
+  pod `/archiwum/` (kopiowana do `docs/archiwum/` przy budowaniu); dawne adresy
+  prezentacji przekierowują do archiwum; każde wypchnięcie na `main` od razu zmienia stronę;
 * przebieg `.github/workflows/publish.yml` dodatkowo renderuje projekt (Quarto 1.10.18
   + Chromium) i publikuje go na gałąź `gh-pages`, której Pages obecnie nie używa;
 * repozytorium jest publiczne — dlatego katalog `notes/` jest w `.gitignore`;

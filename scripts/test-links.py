@@ -19,6 +19,9 @@ SPRAWDZAJ_ZEWNETRZNE = "--external" in sys.argv
 
 HTML = sorted(glob.glob(f"{DOCS}/**/*.html", recursive=True))
 HTML = [h for h in HTML if "/site_libs/" not in h]
+# docs/archiwum/ is a frozen copy of the previous site: its unlicensed images were
+# removed on purpose and konspekt_files/ never existed, so it is not checked here.
+HTML = [h for h in HTML if not h.replace(os.sep, "/").startswith(f"{DOCS}/archiwum/")]
 
 lokalne_ok, lokalne_brak, zewnetrzne = [], [], {}
 
