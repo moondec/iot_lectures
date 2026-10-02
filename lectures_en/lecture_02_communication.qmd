@@ -26,7 +26,7 @@ format:
         <style>
         body { background-color: #1a1a1a; }
         .reveal .slide-background-content {
-            background-image: url("../img/iot_tlo_gr.jpg") !important;
+            background-image: url("../img/background-green.jpg") !important;
             background-size: contain !important; 
             background-repeat: no-repeat !important;
             background-position: center center !important;
@@ -215,7 +215,7 @@ Presenting this slide, ask the audience how many Zigbee bulbs should be placed i
 
 ::: {.column width="45%"}
 ::: {.fragment}
-![](../img/lpwan_station.png){width=100%}
+![](../img/zamiennik-brama-lorawan.jpg){width=100%}
 :::
 :::
 :::
@@ -599,7 +599,7 @@ How to maintain data independence and privacy? The answer is systems deployed on
 
 ::: {.column width="50%"}
 ::: {.fragment}
-![](../img/iot_dashboard.png){width=90%}
+![](../img/zamiennik-pulpit.jpg){width=90%}
 :::
 :::
 :::
@@ -684,7 +684,7 @@ Virtual representation of a physical object, system, or entire ecosystem, powere
 :::
 
 ::: {.column width="50%"}
-![](../img/digital_twin_nature.png){width=90%}
+![](../img/zamiennik-lidar-las.jpg){width=90%}
 :::
 :::
 
@@ -715,7 +715,7 @@ The cheap chip paradox – buy fast, plug in immediately, never update.
 ### Mirai Botnet (2016)
 Malicious software (botnet) took control of unsecured IP cameras, carrying out a gigantic DDoS attack on DNS infrastructure (including Twitter, Netflix).
 :::
-![](../img/mirai_map.png){width=70%}
+![](../img/zamiennik-kamery-ip.png){width=70%}
 :::
 :::
 :::

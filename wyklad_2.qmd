@@ -26,7 +26,7 @@ format:
         <style>
         body { background-color: #1a1a1a; }
         .reveal .slide-background-content {
-            background-image: url("../img/iot_tlo_gr.jpg") !important;
+            background-image: url("../img/background-green.jpg") !important;
             background-size: contain !important; 
             background-repeat: no-repeat !important;
             background-position: center center !important;
@@ -217,7 +217,7 @@ Prezentując ten slajd, zapytaj słuchaczy, ile żarówek Zigbee należy umieśc
 
 ::: {.column width="45%"}
 ::: {.fragment}
-![](img/lpwan_station.png){width=100%}
+![](img/zamiennik-brama-lorawan.jpg){width=100%}
 :::
 :::
 :::

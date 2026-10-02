@@ -74,6 +74,29 @@ Poniżej wymieniono wszystko, co pochodzi od osób trzecich, wraz z licencją i 
 
 Licencja **CC BY-SA** jest wzajemna (*share-alike*) i dotyczy wskazanych w tabeli ilustracji Arduino oraz materiałów z Wikimedia Commons. Tekst slajdów pozostaje na CC BY 4.0; przy dalszym rozpowszechnianiu ilustracji obowiązuje ich własna wersja licencji wraz z atrybucją.
 
+## Zamienniki w dawnych wykładach (`img/`, `archiwum/img/`)
+
+Grafiki bez udokumentowanej licencji z poprzedniej wersji kursu zastąpiono plikami `img/zamiennik-*`
+oraz tłami `background-*.jpg`. Autorzy i licencje — jak przy plikach źródłowych powyżej:
+
+| Plik | Kopia pliku | Licencja |
+|:---|:---|:---|
+| `zamiennik-transport.jpg` | Federal Highway Administration — [Portable Speed Sensor And Traffic Camera](https://commons.wikimedia.org/wiki/File:Portable_Speed_Sensor_And_Traffic_Camera_IA_(8424273296).jpg) | **domena publiczna** |
+| `zamiennik-lidar-las.jpg` | Bnurs — [Lidar forestry](https://commons.wikimedia.org/wiki/File:Lidar_forestry.png) | **CC BY-SA 4.0** |
+| `zamiennik-panel-maszyny.jpg` | `assets/img/kurs/panel-maszyny.jpg` | CC BY 2.0 |
+| `zamiennik-pulpit.jpg` | `assets/img/iot-dashboard-aquaculture.jpg` | CC BY-SA 4.0 |
+| `zamiennik-brama-lorawan.jpg` | `assets/img/kerlink-lorawan-gateway.jpg` | CC BY-SA 4.0 |
+| `zamiennik-esp32.jpg` | `assets/img/kurs/esp32-plytka.jpg` | CC BY-SA 4.0 |
+| `zamiennik-kamery-ip.png` | `assets/img/axis-ip-cameras.png` | CC BY-SA 4.0 |
+| `zamiennik-opaski.jpg` | `assets/img/lecture00/opaski-fitness.jpg` | CC BY-SA 4.0 |
+| `zamiennik-deszczownia.jpg` | `assets/img/lecture00/deszczownia.jpg` | CC BY-SA 4.0 |
+| `zamiennik-dron-rolniczy.jpg` | `assets/img/lecture00/dron-ryz.jpg` | domena publiczna |
+| `zamiennik-pomiary-ekosystemu.jpg` | `assets/img/lecture00/kowariancja-wirow.jpg` | domena publiczna |
+| `zamiennik-robot-zbior.jpg` | `assets/img/lecture00/robot-papryka.jpg` | CC BY 4.0 |
+| `zamiennik-mozg-mozg.jpg` | `assets/img/lecture00/brain-to-brain.jpg` | CC BY 4.0 |
+| `zamiennik-eeg.jpg` | `assets/img/lecture00/eeg.jpg` — Chris Hope, [EEG Recording Cap](https://commons.wikimedia.org/wiki/File:EEG_Recording_Cap.jpg) | CC BY 2.0 |
+| `background-blue/green/orange.jpg` | `assets/img/background-*.jpg` (zamiast `iot_tlo_*`) | CC BY 4.0 |
+
 ## Ilustracje świadomie **niewłączone** do repozytorium
 
 **Materiały M5Stack** (zdjęcia i mapy wyprowadzeń Stamp-C3 oraz Stamp-C3U) są objęte

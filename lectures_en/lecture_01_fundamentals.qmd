@@ -26,7 +26,7 @@ format:
         <style>
         body { background-color: #1a1a1a; }
         .reveal .slide-background-content {
-            background-image: url("../img/iot_tlo_or.jpg") !important;
+            background-image: url("../img/background-orange.jpg") !important;
             background-size: contain !important; 
             background-repeat: no-repeat !important;
             background-position: center center !important;
@@ -110,7 +110,7 @@ Understanding, preventing, reacting.
 
 ::: {.column width="40%"}
 ::: {.fragment}
-![](../img/th-1774962466.png){width=100%}
+![](../img/zamiennik-dron-rolniczy.jpg){width=100%}
 :::
 :::
 :::
@@ -137,7 +137,7 @@ A band is not just a watch.
 
 ::: {.column width="50%"}
 ::: {.fragment}
-![](../img/Oura-ring.jpg){height=600px}
+![](../img/zamiennik-opaski.jpg){height=600px}
 :::
 :::
 :::
@@ -161,7 +161,7 @@ Note the Oura Ring. It shows miniaturization. Just over a dozen years ago, 24/7 
 
 ::: {.column width="45%"}
 ::: {.fragment}
-![](../img/IIoT-smart-manufacturing-smart-factory-3751296197.jpg){width=100%}
+![](../img/zamiennik-panel-maszyny.jpg){width=100%}
 :::
 :::
 :::
@@ -519,7 +519,7 @@ Platform selection depends on power consumption and radio profile.
 :::
 
 ::: {.column width="30%"}
-![](../img/mcu_compare.png){width=100%}
+![](../img/zamiennik-esp32.jpg){width=100%}
 :::
 :::
 

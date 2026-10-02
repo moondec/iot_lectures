@@ -25,7 +25,7 @@ format:
         <style>
         body { background-color: #1a1a1a; }
         .reveal .slide-background-content {
-            background-image: url("img/iot_tlo_or.jpg") !important;
+            background-image: url("img/background-orange.jpg") !important;
             background-size: cover !important; 
             background-repeat: no-repeat !important;
             background-position: center center !important;
@@ -173,7 +173,7 @@ Jak technologia pozwala ewoluować samemu gatunkowi.
 
 ::: {.column width="45%"}
 ::: {.fragment}
-![](img/Pasted image 20221117144301.png){width=100%}
+![](img/zamiennik-robot-zbior.jpg){width=100%}
 :::
 :::
 :::
@@ -200,7 +200,7 @@ Idea rodem z Matrixa udowodniona naukowo 10 lat temu.
 
 ::: {.column width="40%"}
 ::: {.fragment}
-![](img/Pasted image 20221117150031.png){width=100%}
+![](img/zamiennik-mozg-mozg.jpg){width=100%}
 :::
 :::
 :::
@@ -227,7 +227,7 @@ Eksperyment, który przekroczył barierę ludzką: *Nieinwazyjny interfejs kompu
 
 ::: {.column width="40%"}
 ::: {.fragment}
-![](img/Pasted image 20221117150512.png){width=100%}
+![](img/zamiennik-eeg.jpg){width=100%}
 :::
 :::
 :::

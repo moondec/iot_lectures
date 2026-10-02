@@ -372,8 +372,8 @@ To ten sam rodzaj ryzyka, który w module 03 widzieliśmy przy operatorze sieci 
 **ThingsBoard 4.4 (29.09.2026) używa licencji Business Source License 1.1** i łączy linie CE/PE w jeden produkt *source-available*. Kod wydania przechodzi na Apache 2.0 po czterech latach. **CE 4.3 LTS** zostaje na Apache 2.0, z poprawkami bezpieczeństwa do 20.07.2027.
 
 ::: {.fragment}
-::: {.callout-important title="Pierwszy krok ćwiczenia"}
-Zapisz **dokładną wersję i licencję instalacji**, na której pracujesz, wraz z **datą sprawdzenia**. Ten zapis jest częścią sprawozdania.
+::: {.callout-important title="Nasze laboratorium: ThingsBoard CE 4.3 LTS"}
+Licencja **Apache 2.0**, poprawki bezpieczeństwa do **20.07.2027**. Zapisz w sprawozdaniu **dokładną wersję** instalacji i **datę sprawdzenia**.
 :::
 :::
 :::
@@ -385,7 +385,7 @@ Zapisz **dokładną wersję i licencję instalacji**, na której pracujesz, wraz
 
 ::: {.columns}
 ::: {.column width="52%"}
-Dla instalacji **starszych niż 4.4** Community Edition i Professional Edition różnią się zakresem funkcji. Od wersji 4.4 linie są scalone w jeden produkt *source-available*.
+Na zajęciach pracujemy na **CE 4.3 LTS**, gdzie Community Edition i Professional Edition różnią się zakresem funkcji. Od wersji 4.4 linie są scalone w jeden produkt *source-available*.
 
 Dlatego instrukcja znaleziona w sieci może opisywać inną wersję, edycję lub licencję niż instalacja używana na zajęciach.
 
@@ -397,7 +397,7 @@ Platforma daje **rozdział logiczny**: dzierżawcy, klienci, profile, uprawnieni
 
 ::: {.column width="48%"}
 ::: {.incremental}
-* Dla wersji < 4.4 (np. 4.3 LTS) materiał PE może opisywać funkcję nieobecną w CE.
+* **Nasza wersja (4.3 LTS):** materiał PE albo 4.4 może opisywać funkcję nieobecną w CE.
 * Dla wersji ≥ 4.4 darmowa licencja obejmuje zastosowania **niekomercyjne, w tym edukację, do 1000 urządzeń**, z pełnym zestawem funkcji; komercyjnie — do 100 urządzeń na jednym serwerze.
 * Program grantowy dotyczy tylko wdrożeń produkcyjnych CE sprzed 29.09.2026.
 * Przed użyciem materiału zapisujemy wersję, licencję i datę sprawdzenia.
@@ -414,7 +414,7 @@ Platforma daje **rozdział logiczny**: dzierżawcy, klienci, profile, uprawnieni
 * **Model płytki i adres IP widnieją jako atrybuty klienta**, nie jako szereg czasowy.
 * Zmiana atrybutu współdzielonego (np. okresu próbkowania) zmienia zachowanie urządzenia **bez ponownego wgrywania firmware**.
 * Przełącznik na pulpicie zmienia stan aktuatora, a pulpit pokazuje **stan potwierdzony przez urządzenie**.
-* **Wersja i licencja instalacji zapisane w sprawozdaniu** wraz z datą sprawdzenia.
+* **Wersja instalacji (CE 4.3 LTS, Apache 2.0) zapisana w sprawozdaniu** wraz z datą sprawdzenia.
 :::
 
 ---

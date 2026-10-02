@@ -474,26 +474,6 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <td style="text-align: left;">operacje, których powtórzenie jest kosztowne</td>
 <td style="text-align: left;">czterofazowa wymiana; największe opóźnienie i zużycie energii</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Retained</strong></td>
-<td style="text-align: left;">stan, który nowy subskrybent musi znać natychmiast</td>
-<td style="text-align: left;">nieaktualny stan „żyje” do nadpisania</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Last Will</strong></td>
-<td style="text-align: left;">wykrycie nieuprzejmego rozłączenia</td>
-<td style="text-align: left;">ustawiany przy <code>CONNECT</code>; <strong>nie zadziała</strong> po <code>DISCONNECT</code> z kodem 0x00 (w MQTT 5 kod 0x04 celowo go wyzwala)</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Keep alive</strong></td>
-<td style="text-align: left;">detekcja martwego łącza TCP</td>
-<td style="text-align: left;">przy braku innego ruchu krótki okres = częstsze <code>PINGREQ</code> = więcej energii; broker rozłącza po 1,5 × keep alive</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Session Expiry</strong> (MQTT 5)</td>
-<td style="text-align: left;">odbiór zaległości po powrocie urządzenia</td>
-<td style="text-align: left;">broker utrzymuje stan sesji — zużycie pamięci serwera</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -518,6 +498,46 @@ prof. UPP dr hab. inż. Marek Urbaniak
 </div>
 </div>
 </div></div>
+</section>
+<section id="mechanizmy" class="slide level2">
+<h2><i class="bi bi-sliders2"></i> Retained, Last Will, keep alive, sesja</h2>
+<p><span class="lead">Cztery mechanizmy obok QoS — każdy rozwiązuje inny problem i ma inny koszt.</span></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Mechanizm</th>
+<th style="text-align: left;">Kiedy stosujesz</th>
+<th style="text-align: left;">Koszt i pułapka</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Retained</strong></td>
+<td style="text-align: left;">stan, który nowy subskrybent musi znać natychmiast</td>
+<td style="text-align: left;">nieaktualny stan „żyje” do nadpisania</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Last Will</strong></td>
+<td style="text-align: left;">wykrycie nieuprzejmego rozłączenia</td>
+<td style="text-align: left;">ustawiany przy <code>CONNECT</code>; <strong>nie zadziała</strong> po <code>DISCONNECT</code> z kodem 0x00 (w MQTT 5 kod 0x04 celowo go wyzwala)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Keep alive</strong></td>
+<td style="text-align: left;">detekcja martwego łącza TCP</td>
+<td style="text-align: left;">przy braku innego ruchu krótki okres = częstsze <code>PINGREQ</code> = więcej energii; broker rozłącza po <strong>1,5 × keep alive</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Session Expiry</strong> (MQTT 5)</td>
+<td style="text-align: left;">odbiór zaległości po powrocie urządzenia</td>
+<td style="text-align: left;">broker utrzymuje stan sesji — zużycie pamięci serwera</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="qos-sekwencja" class="slide level2">
 <h2><i class="bi bi-arrow-left-right"></i> Sekwencja trzech poziomów</h2>

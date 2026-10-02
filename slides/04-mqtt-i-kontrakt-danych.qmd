@@ -201,10 +201,6 @@ Objaw zgłaszany przez użytkownika brzmi: „pompa włącza się sama". Przyczy
 | **QoS 0** — co najwyżej raz | telemetria o wysokiej częstości, gdzie strata próbki jest dopuszczalna | brak potwierdzeń; nie wiesz, czy komunikat dotarł |
 | **QoS 1** — co najmniej raz | stan, zdarzenia, polecenia w prostych układach | możliwe **duplikaty** — odbiorca musi być idempotentny |
 | **QoS 2** — dokładnie raz | operacje, których powtórzenie jest kosztowne | czterofazowa wymiana; największe opóźnienie i zużycie energii |
-| **Retained** | stan, który nowy subskrybent musi znać natychmiast | nieaktualny stan „żyje" do nadpisania |
-| **Last Will** | wykrycie nieuprzejmego rozłączenia | ustawiany przy `CONNECT`; **nie zadziała** po `DISCONNECT` z kodem 0x00 (w MQTT 5 kod 0x04 celowo go wyzwala) |
-| **Keep alive** | detekcja martwego łącza TCP | przy braku innego ruchu krótki okres = częstsze `PINGREQ` = więcej energii; broker rozłącza po 1,5 × keep alive |
-| **Session Expiry** (MQTT 5) | odbiór zaległości po powrocie urządzenia | broker utrzymuje stan sesji — zużycie pamięci serwera |
 :::
 :::
 
@@ -220,6 +216,19 @@ Platforma, której użyjemy w module 06, obsługuje **wyłącznie QoS 0 i 1**. P
 :::
 :::
 :::
+
+---
+
+## <i class="bi bi-sliders2"></i> Retained, Last Will, keep alive, sesja {#mechanizmy}
+
+[Cztery mechanizmy obok QoS — każdy rozwiązuje inny problem i ma inny koszt.]{.lead}
+
+| Mechanizm | Kiedy stosujesz | Koszt i pułapka |
+|:---|:---|:---|
+| **Retained** | stan, który nowy subskrybent musi znać natychmiast | nieaktualny stan „żyje” do nadpisania |
+| **Last Will** | wykrycie nieuprzejmego rozłączenia | ustawiany przy `CONNECT`; **nie zadziała** po `DISCONNECT` z kodem 0x00 (w MQTT 5 kod 0x04 celowo go wyzwala) |
+| **Keep alive** | detekcja martwego łącza TCP | przy braku innego ruchu krótki okres = częstsze `PINGREQ` = więcej energii; broker rozłącza po **1,5 × keep alive** |
+| **Session Expiry** (MQTT 5) | odbiór zaległości po powrocie urządzenia | broker utrzymuje stan sesji — zużycie pamięci serwera |
 
 ---
 

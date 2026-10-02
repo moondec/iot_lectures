@@ -25,7 +25,7 @@ format:
         <style>
         body { background-color: #1a1a1a; }
         .reveal .slide-background-content {
-            background-image: url("img/iot_tlo_gr.jpg") !important;
+            background-image: url("img/background-green.jpg") !important;
             background-size: cover !important; 
             background-repeat: no-repeat !important;
             background-position: center center !important;
@@ -128,7 +128,7 @@ Zrozumienie, zapobieganie, reagowanie.
 
 ::: {.column width="40%"}
 ::: {.fragment}
-![](img/th-1774962466.png){width=100%}
+![](img/zamiennik-dron-rolniczy.jpg){width=100%}
 :::
 :::
 :::
@@ -155,7 +155,7 @@ Opaska nie jest tylko zegarkiem.
 
 ::: {.column width="50%"}
 ::: {.fragment}
-![](img/Oura-ring.jpg){height=600px}
+![](img/zamiennik-opaski.jpg){height=600px}
 :::
 :::
 :::
@@ -173,7 +173,7 @@ Każda kropla wody i każdy Watt zliczony na bieżąco - nawożenie 'Smart'.
 ::: {.columns}
 ::: {.column width="45%"}
 ::: {.fragment}
-![](img/residential-sprinkler-systems-2663960231.jpg){width=100%}
+![](img/zamiennik-deszczownia.jpg){width=100%}
 :::
 :::
 
@@ -205,7 +205,7 @@ System domowych zraszaczy. Jeśli podlewanie załączy się o 4:00 bo taki jest 
 
 ::: {.column width="45%"}
 ::: {.fragment}
-![](img/IIoT-smart-manufacturing-smart-factory-3751296197.jpg){width=100%}
+![](img/zamiennik-panel-maszyny.jpg){width=100%}
 :::
 :::
 :::
@@ -223,7 +223,7 @@ Samojezdne platformy i logistyka naczyń połączonych.
 ::: {.columns}
 ::: {.column width="50%"}
 ::: {.fragment}
-![](img/smart_transportation_781x512-1163925340.jpg){width=100%}
+![](img/zamiennik-transport.jpg){width=100%}
 :::
 :::
 
@@ -283,7 +283,7 @@ Sensory jako "Nature 4.0".
 
 ::: {.column width="40%"}
 ::: {.fragment}
-![](img/Pasted image 20221114223256.png){width=100%}
+![](img/zamiennik-pomiary-ekosystemu.jpg){width=100%}
 :::
 :::
 :::

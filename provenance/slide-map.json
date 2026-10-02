@@ -14,23 +14,23 @@
   "new": "slajd napisany od nowa na podstawie materiałów kursu i źródeł pierwotnych"
  },
  "statystyka": {
-  "slajdow_lacznie": 183,
+  "slajdow_lacznie": 186,
   "wg_origin": {
-   "new": 133,
+   "new": 136,
    "adapted": 39,
    "retained": 11
   },
   "slajdy_merytoryczne_wg_origin": {
    "adapted": 39,
-   "new": 98,
+   "new": 101,
    "retained": 11
   },
   "wg_talii": {
    "00-internet-przyszlosci": 30,
    "01-architektura-i-wymagania": 21,
-   "02-urzadzenie-sensory-energia": 24,
-   "03-lacznosc-i-ota": 24,
-   "04-mqtt-i-kontrakt-danych": 22,
+   "02-urzadzenie-sensory-energia": 25,
+   "03-lacznosc-i-ota": 25,
+   "04-mqtt-i-kontrakt-danych": 23,
    "05-brzeg-node-red-sheets": 18,
    "06-thingsboard-ce": 21,
    "07-odpornosc-bezpieczenstwo-eksploatacja": 23
@@ -935,6 +935,18 @@
   },
   {
    "deck": "02-urzadzenie-sensory-energia",
+   "id": "budzet-wniosek",
+   "rodzaj": "tresc",
+   "tytul": "Ile wytrzyma ogniwo?",
+   "origin": "new",
+   "uzasadnienie": "Wydzielone ze slajdu budzet: wniosek dla płytki zoptymalizowanej i seryjnej (2 mA w uśpieniu).",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-02.html"
+   }
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
    "id": "decyzja-okres",
    "rodzaj": "tresc",
    "tytul": "Okres raportowania jest decyzją",
@@ -1257,6 +1269,18 @@
   },
   {
    "deck": "03-lacznosc-i-ota",
+   "id": "ota-tempo",
+   "rodzaj": "tresc",
+   "tytul": "Tempo wdrożenia jest ograniczone",
+   "origin": "new",
+   "uzasadnienie": "Wydzielone ze slajdu ota-platforma: parametry wysyłki i czas wydania.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-03.html"
+   }
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
    "id": "procedura",
    "rodzaj": "tresc",
    "tytul": "Procedura wydania w pilocie",
@@ -1420,6 +1444,18 @@
      "qmd": "lecture-materials/content/sprostowania-06.html"
     }
    ]
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "mechanizmy",
+   "rodzaj": "tresc",
+   "tytul": "Retained, Last Will, keep alive, sesja",
+   "origin": "new",
+   "uzasadnienie": "Wydzielone z przeładowanego slajdu QoS; doprecyzowane wg MQTT 5 (0x04, 1,5 × keep alive).",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-04.html"
+   }
   },
   {
    "deck": "04-mqtt-i-kontrakt-danych",

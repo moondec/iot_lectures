@@ -456,13 +456,17 @@ Kluczowa własność: **brak zatwierdzenia jest równoważny odrzuceniu** — al
 ## <i class="bi bi-diagram-2"></i> Wydanie zarządzane przez platformę {#ota-platforma}
 
 ::: {.columns}
-::: {.column width="52%"}
+::: {.column width="45%"}
 W ThingsBoard pakiet firmware ma **tytuł, wersję i sumę kontrolną** (domyślnie SHA-256).
 Para tytuł + wersja jest **unikalna w obrębie dzierżawcy** — nie nadpisujemy istniejącej wersji.
 
 Stan aktualizacji ma znaczenie dowodowe, bo część stanów ustawia platforma,
-a część **raportuje samo urządzenie**:
+a część **raportuje samo urządzenie**.
 
+Dzięki temu wiemy, **na którym etapie** utknęła aktualizacja — a nie tylko, że się nie udała.
+:::
+
+::: {.column width="55%"}
 ::: {.tabela-gesta}
 | Stan | Ustawia | Znaczenie |
 |:---|:---|:---|
@@ -476,15 +480,23 @@ a część **raportuje samo urządzenie**:
 | `FAILED` | urządzenie | błąd pobierania, sumy lub zastosowania |
 :::
 :::
+:::
 
-::: {.column width="48%"}
-::: {.callout-note title="Tempo wdrożenia jest ograniczone"}
+---
+
+## <i class="bi bi-hourglass-split"></i> Tempo wdrożenia jest ograniczone {#ota-tempo}
+
+::: {.columns}
+::: {.column width="50%"}
+::: {.callout-note title="Domyślne parametry platformy"}
 Domyślnie platforma wysyła **100 powiadomień na 60 s**
 (`TB_QUEUE_CORE_OTA_PACK_SIZE`, `TB_QUEUE_CORE_OTA_PACK_INTERVAL_MS`).
 :::
 
 $$t_{\text{wydania}} = \left\lceil \frac{n_{\text{urządzeń}}}{100} \right\rceil \cdot 60\ \text{s}$$
+:::
 
+::: {.column width="50%"}
 ::: {.liczby}
 <div><span class="w">60 s</span><span class="o">1–100 urządzeń</span></div>
 <div><span class="w">3 min</span><span class="o">250 urządzeń</span></div>

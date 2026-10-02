@@ -69,6 +69,10 @@ z obecną konfiguracją (motyw `../assets/...` jest względny wobec `slides/`).
 - `review/REJESTR-KOREKT.md` — wewnętrzny rejestr korekt.
 - `Lista_obecnosci.xlsx`, `List.docx` — dane studentów.
 
+## Platforma na zajęciach
+
+- ThingsBoard **CE 4.3 LTS** (Apache 2.0, wsparcie do 20.07.2027), nie 4.4 (BSL).
+
 ## Środowisko lokalne (Windows + WSL Ubuntu 20.04 + Docker)
 
 - **Moodle 4.5.4+** pod http://localhost:8088 (kontener `moodle-lab-web-1`, kod w

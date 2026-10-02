@@ -463,10 +463,35 @@ $$Q_{\text{wym}} = I_{\text{śr}} \cdot t_{\text{życia}}$$
 :::
 
 ::: {.column width="56%"}
+::: {.callout-tip title="Jak czytać wzór"}
+Faza aktywna trwa sekundy, ale przy 120 mA dominuje w średniej. Uśpienie trwa prawie cały okres — więc jego prąd decyduje, gdy okres jest długi.
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-battery"></i> Ile wytrzyma ogniwo? {#budzet-wniosek}
+
+::: {.columns}
+::: {.column width="56%"}
 ![](../assets/img/energia-okres.png){width="100%" fig-alt="Wykres log-log: prąd średni cyklu w funkcji okresu raportowania od 1 do 120 minut, z poziomą linią progu roku pracy z ogniwa 3400 mAh."}
 
 ::: {.fragment}
-**Wniosek:** ogniwo 18650 (≈3400 mAh) wystarczy na **około 10 miesięcy**; rok osiągniemy przy okresie **ok. 18 min** lub dłuższym. Seryjna Nano ESP32 (2 mA w uśpieniu) wyczerpie to samo ogniwo w **ok. 2 miesiące** — prawie niezależnie od okresu. CR2032 odpada: nie dostarczy szczytowego prądu Wi-Fi.
+Płytka zoptymalizowana: ogniwo 18650 (≈3400 mAh) wystarczy na **około 10 miesięcy**; rok osiągniemy przy okresie **ok. 18 min** lub dłuższym.
+:::
+:::
+
+::: {.column width="44%"}
+::: {.liczby}
+<div><span class="w">≈ 10 mies.</span><span class="o">płytka zoptymalizowana, co 15 min</span></div>
+<div><span class="w">≈ 2 mies.</span><span class="o">seryjna Nano ESP32 (2 mA w uśpieniu)</span></div>
+:::
+
+::: {.fragment}
+::: {.callout-warning title="Wniosek dla stanowiska"}
+Seryjna płytka zużywa ogniwo w ok. 2 miesiące **prawie niezależnie od okresu** — liczy się uśpienie, nie raportowanie. **CR2032 odpada**: nie dostarczy szczytowego prądu Wi-Fi.
+:::
 :::
 :::
 :::
