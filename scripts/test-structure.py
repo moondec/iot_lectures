@@ -36,12 +36,19 @@ def tekst(html):
 spr("Liczba talii = 8", len(SLIDES) == 8, f"znaleziono {len(SLIDES)}")
 spr("Strona indeksowa istnieje", os.path.isfile(f"{DOCS}/index.html"))
 
-obce = [p for p in glob.glob(f"{DOCS}/*.html") if os.path.basename(p) != "index.html"]
+def przekierowanie(p):
+    """Stub from scripts/legacy-redirects.py: only forwards an old URL to archiwum/."""
+    t = open(p, encoding="utf-8").read()
+    return len(t) < 2000 and 'http-equiv="refresh"' in t and "archiwum/" in t
+
+
+obce = [p for p in glob.glob(f"{DOCS}/*.html")
+        if os.path.basename(p) != "index.html" and not przekierowanie(p)]
 spr("Brak dodatkowych stron w katalogu głównym", not obce, str(obce))
 
-# Stare talie nie mogą trafić do publikacji.
+# Stare talie nie mogą trafić do publikacji (wolno tylko przekierowania do archiwum/).
 stare = [p for p in glob.glob(f"{DOCS}/**/*.html", recursive=True)
-         if re.search(r"wyklad_(intro_)?\d", os.path.basename(p))]
+         if re.search(r"wyklad_(intro_)?\d", os.path.basename(p)) and not przekierowanie(p)]
 spr("Brak oryginalnych talii w wyniku", not stare, str(stare))
 
 # --- 2. Slajdy obowiązkowe w każdej talii -------------------------------

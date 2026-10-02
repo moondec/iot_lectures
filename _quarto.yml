@@ -16,6 +16,9 @@ project:
   resources:
     - assets/img/**
     - assets/vendor/**
+  # Old deck URLs (docs/wyklad_*.html) forward to archiwum/ — Moodle links to them.
+  post-render:
+    - scripts/legacy-redirects.py
 
 website:
   title: "Internet Rzeczy — kurs w ośmiu wykładach"
