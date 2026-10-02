@@ -96,6 +96,7 @@ oraz tłami `background-*.jpg`. Autorzy i licencje — jak przy plikach źródł
 | `zamiennik-mozg-mozg.jpg` | `assets/img/lecture00/brain-to-brain.jpg` | CC BY 4.0 |
 | `zamiennik-eeg.jpg` | `assets/img/lecture00/eeg.jpg` — Chris Hope, [EEG Recording Cap](https://commons.wikimedia.org/wiki/File:EEG_Recording_Cap.jpg) | CC BY 2.0 |
 | `background-blue/green/orange.jpg` | `assets/img/background-*.jpg` (zamiast `iot_tlo_*`) | CC BY 4.0 |
+| `kbig.jpg` | logo katedry autora kursu, Uniwersytet Przyrodniczy w Poznaniu | znak jednostki — **nie jest objęty licencją CC BY**; użyty za zgodą autora |
 
 ## Ilustracje świadomie **niewłączone** do repozytorium
 
