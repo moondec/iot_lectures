@@ -226,11 +226,13 @@ Nano ESP32 ma Wi-Fi oraz Bluetooth LE na płytce. Raspberry Pi należy do innej 
 
 [Trzy układy z tej rodziny, które spotkamy w materiałach — i dlaczego nie są zamienne.]{.lead}
 
+::: {.tabela-duza}
 | | ESP32 (oryginalny) | **ESP32-S3** | **ESP32-C3** |
 |:---|:---|:---|:---|
 | Rdzeń | Xtensa LX6, 2 rdzenie | **Xtensa LX7, 2 rdzenie**, do 240 MHz | **RISC-V, 1 rdzeń**, do 160 MHz |
 | Na naszym stanowisku | — | Arduino Nano ESP32 | M5Stack Stamp-C3U |
 | Konsekwencja | — | inna numeracja pinów i inne peryferia niż oryginalny ESP32 | **inna architektura** — inny łańcuch narzędzi i inne warianty bibliotek |
+:::
 
 ::: {.fragment}
 ::: {.callout-warning title="Co z tego wynika w praktyce"}
@@ -502,6 +504,7 @@ Seryjna płytka zużywa ogniwo w ok. 2 miesiące **prawie niezależnie od okresu
 
 [Ten sam czujnik, ta sama bateria, płytka zoptymalizowana (0,05 mA w uśpieniu) — a czas pracy różni się o rząd wielkości.]{.lead}
 
+::: {.tabela-duza}
 | Okres raportowania | Prąd średni | Czas z ogniwa 3400 mAh |
 |:---|:---|:---|
 | co 1 min | 6,05 mA | ok. 23 dni |
@@ -509,6 +512,7 @@ Seryjna płytka zużywa ogniwo w ok. 2 miesiące **prawie niezależnie od okresu
 | **co 15 min** | **0,45 mA** | **ok. 10 miesięcy** |
 | co 30 min | 0,25 mA | ok. 1,6 roku |
 | co 60 min | 0,15 mA | ok. 2,6 roku |
+:::
 
 ::: {.fragment}
 Pytanie projektowe nie brzmi „jak często możemy mierzyć", tylko **„jak rzadko wystarczy, żeby decyzja z modułu 01 nadal była podejmowana na czas"**.

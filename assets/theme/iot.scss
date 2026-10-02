@@ -214,6 +214,11 @@ body.tlo-blue .reveal .backgrounds .slide-background:first-child .slide-backgrou
   padding: 0.5em 0.6em;
 }
 
+// Tables with longer cells: the large variant wraps them past the footer.
+.reveal .slides section .tabela-srednia table {
+  font-size: 0.72em;
+}
+
 // Wariant dla tabel gęstych (6+ wierszy albo długie komórki).
 .reveal .tabela-gesta table {
   font-size: 0.5em;

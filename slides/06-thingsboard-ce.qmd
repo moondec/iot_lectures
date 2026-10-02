@@ -72,12 +72,14 @@ Efekt: wersja firmware i adres IP jako szereg czasowy, progi alarmowe zaszyte w 
 
 ## <i class="bi bi-database"></i> Telemetria i trzy zakresy atrybutów {#rodzaje}
 
+::: {.tabela-srednia}
 | Rodzaj | Zapisuje | Historia | Typowa zawartość |
 |:---|:---|:---|:---|
 | **Telemetria** (szereg czasowy) | głównie urządzenie (także reguły, REST) | **tak**, z TTL | temperatura, wilgotność, napięcie zasilania |
 | **Atrybuty klienta** | urządzenie | nie (ostatnia wartość) | wersja firmware, adres IP, model płytki |
 | **Atrybuty współdzielone** | **platforma → urządzenie** | nie | okres próbkowania, progi, wskazanie pakietu OTA |
 | **Atrybuty serwerowe** | platforma i użytkownik; **urządzenie ich nie widzi** | nie | `active`, `lastActivityTime`, `inactivityTimeout`, lokalizacja |
+:::
 
 ::: {.fragment}
 ::: {.callout-important title="Najczęstszy błąd projektowy"}
@@ -165,11 +167,13 @@ ThingsBoard obsługuje na tym styku wyłącznie **QoS 0 i 1**. Projekt nie może
 
 ::: {.columns}
 ::: {.column width="55%"}
+::: {.tabela-duza}
 | Typ | Jak działa | Kiedy stosować |
 |:---|:---|:---|
 | **Access Token** | token jest **nazwą użytkownika** MQTT, hasło pozostaje puste | ćwiczenie, szybki start |
 | **MQTT Basic** | `clientId`, login z hasłem — albo oba naraz | gdy potrzebny jawny `clientId` |
 | **X.509** | certyfikat przy dwustronnym TLS | wdrożenie produkcyjne |
+:::
 
 ::: {.fragment}
 Wybór typu poświadczenia jest decyzją bezpieczeństwa, nie wygody — i zapisujemy go razem z resztą

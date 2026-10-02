@@ -54,7 +54,9 @@ z obecną konfiguracją (motyw `../assets/...` jest względny wobec `slides/`).
 - Grafiki bez potwierdzonej licencji (stockowe, zrzuty, kadry) leżą w `private/` (w `.gitignore`), w tym dawne `img/` i `archiwum/img/` w `private/img/legacy/`. Stare `wyklad_*.qmd`, `lectures_en/` i `archiwum/` odwołują się do nich, więc publicznie wyświetlają się bez tych obrazów.
 - Diagramy Mermaid mają czcionkę `Arial, Liberation Sans` w `themeVariables.fontFamily` (dla sekwencji też `sequence.*FontFamily`): kontener mierzy tekst czcionką Liberation Sans, metrycznie zgodną z Arial w Windows/macOS. Domyślna `trebuchet ms` powodowała wychodzenie tekstu z kafelków w przeglądarce.
 - Element pokazywany razem z punktem listy przyrostowej: `* []{#id}tekst` i `::: {.fragment data-razem-z="id"}` (`assets/vendor/fragment-razem.js`).
-- Krótkie tabele: `::: {.tabela-duza}`.
+- Tabele zajmujące mało miejsca: `::: {.tabela-duza}` (0,86 em), przy dłuższych komórkach
+  `::: {.tabela-srednia}` (0,72 em). `.tabela-gesta` nie działa (przegrywa z regułą motywu
+  dla tabel) — zostawiona, by nie zmieniać mieszczących się slajdów. Po zmianie sprawdź `test-layout.py`.
 - Klasy motywu do slajdów obrazowych: `.foto` (zdjęcie na całym tle), `.cytat`, `.wielkie`,
   `.kafelki` (siatka zdjęć), `img.portret`.
 

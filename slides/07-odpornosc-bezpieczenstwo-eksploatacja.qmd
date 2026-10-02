@@ -180,12 +180,14 @@ Alarm, który nigdy się nie zamknął, wygląda w historii tak samo jak awaria 
 
 ## <i class="bi bi-shield-exclamation"></i> Model zagrożeń — cztery powierzchnie {#model-zagrozen}
 
+::: {.tabela-duza}
 | Powierzchnia | Zagrożenie | Minimalny środek w pilocie |
 |:---|:---|:---|
 | **Urządzenie** | dostęp fizyczny, odczyt pamięci, wgranie obcego firmware | unikalne poświadczenia, podpisany obraz, anti-rollback |
 | **Łącze** | podsłuch, podszycie się, powtórzenie komunikatu | TLS, weryfikacja certyfikatu serwera, identyfikator żądania |
 | **Broker / brzeg** | publikacja w cudzym temacie, zalanie ruchem | ACL per urządzenie, limity, log odrzuceń |
 | **Platforma / dane** | nadmiar uprawnień, wyciek tokenów, nadmierna retencja | role, rotacja tokenów, jawny TTL danych |
+:::
 
 ::: {.fragment}
 Każdy z tych środków pojawił się już wcześniej — anti-rollback w module 03, identyfikator żądania

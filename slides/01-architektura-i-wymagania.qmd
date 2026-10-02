@@ -239,6 +239,7 @@ Telemetria idzie **w górę**, polecenia **w dół**, a decyzja krytyczna czasow
 
 ## <i class="bi bi-signpost-2"></i> Warstwy a moduły tego kursu {#mapa-kursu}
 
+::: {.tabela-duza}
 | Warstwa | Zawartość | Moduł |
 |:---|:---|:---|
 | Percepcja / urządzenie | czujnik, aktuator, firmware, budżet energii | **02** |
@@ -247,6 +248,7 @@ Telemetria idzie **w górę**, polecenia **w dół**, a decyzja krytyczna czasow
 | Brzeg | Node-RED: walidacja, routing, zapis raportowy | **05** |
 | Platforma / aplikacja | ThingsBoard CE: model danych, pulpit, sterowanie | **06** |
 | Przekrojowo | odporność, bezpieczeństwo, eksploatacja | **07** |
+:::
 
 Każdy kolejny moduł domyka jeden poziom tego samego, jednego systemu.
 

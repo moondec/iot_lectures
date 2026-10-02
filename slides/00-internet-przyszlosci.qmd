@@ -517,7 +517,7 @@ Projektujemy nie tylko przepływ danych, ale też **warunki współpracy** — a
 
 ## <i class="bi bi-signpost-split"></i> Mapa kursu {#most}
 
-::: {.tabela-gesta}
+::: {.tabela-duza}
 | Pytanie z dzisiejszego wykładu | Moduł |
 |:---|:---|
 | Co budujemy i jak poznamy, że działa? | **01** Architektura i wymagania |

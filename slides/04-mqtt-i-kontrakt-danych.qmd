@@ -132,12 +132,14 @@ Różnica **41 B na komunikat** wynika wyłącznie z długości tematu. Przy pub
 
 [Temat niesie **kierunek** i **klasę komunikatu**. Jedno i drugie zapisujemy jawnie.]{.lead}
 
+::: {.tabela-duza}
 | Temat | Kto publikuje | `retained` | Zawartość |
 |:---|:---|:---|:---|
 | `lab/{zespol}/{urzadzenie}/telemetry` | **tylko urządzenie** | nie | pomiary okresowe |
 | `lab/{zespol}/{urzadzenie}/state` | **tylko urządzenie** | **tak** | stan i atrybuty: wersja firmware, okres próbkowania, adres |
 | `lab/{zespol}/{urzadzenie}/command` | klient / platforma | **nigdy** | polecenia; urządzenie wyłącznie subskrybuje |
 | `lab/{zespol}/{urzadzenie}/status` | urządzenie (`online` po połączeniu) i broker w jego imieniu (Will `offline`) | **tak** | `online` / `offline` po nieuprzejmym rozłączeniu |
+:::
 
 ::: {.fragment}
 Reguła porządkująca: **kto publikuje, ten nie subskrybuje tego samego tematu**. Złamanie tej zasady
@@ -220,12 +222,14 @@ Platforma, której użyjemy w module 06, obsługuje **wyłącznie QoS 0 i 1**. P
 
 [Cztery mechanizmy obok QoS — każdy rozwiązuje inny problem i ma inny koszt.]{.lead}
 
+::: {.tabela-duza}
 | Mechanizm | Kiedy stosujesz | Koszt i pułapka |
 |:---|:---|:---|
 | **Retained** | stan, który nowy subskrybent musi znać natychmiast | nieaktualny stan „żyje” do nadpisania |
 | **Last Will** | wykrycie nieuprzejmego rozłączenia | ustawiany przy `CONNECT`; **nie zadziała** po `DISCONNECT` z kodem 0x00 (w MQTT 5 kod 0x04 celowo go wyzwala) |
 | **Keep alive** | detekcja martwego łącza TCP | przy braku innego ruchu krótki okres = częstsze `PINGREQ` = więcej energii; broker rozłącza po **1,5 × keep alive** |
 | **Session Expiry** (MQTT 5) | odbiór zaległości po powrocie urządzenia | broker utrzymuje stan sesji — zużycie pamięci serwera |
+:::
 
 ---
 
@@ -487,6 +491,7 @@ AMQP — kolejkowanie między usługami serwerowymi.
 
 ## <i class="bi bi-table"></i> Dobór technologii — zestawienie {#zestawienie}
 
+::: {.tabela-srednia}
 | Warstwa | Technologia | Zastosowanie |
 |:---|:---|:---|
 | **Krótki zasięg** | BLE, Zigbee, Z-Wave | urządzenia noszone, instalacje domowe, czujniki lokalne |
@@ -495,6 +500,7 @@ AMQP — kolejkowanie między usługami serwerowymi.
 | **Protokół aplikacyjny** | CoAP (żądanie/odpowiedź, UDP) | pojedyncze odczyty na mikrokontrolerach |
 | **Protokół aplikacyjny** | HTTP | przede wszystkim bramy i urządzenia ze stałym zasilaniem |
 | **Zaplecze** | AMQP | kolejki między usługami serwerowymi |
+:::
 
 [\* Operator Sigfox 0G (UnaBiz) — przyszłość sieci niepewna; zob. moduł 03.]{style="font-size:0.6em"}
 

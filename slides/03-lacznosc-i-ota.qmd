@@ -375,7 +375,7 @@ Partycja `otadata` ma rozmiar dwóch sektorów flash (0x2000 B) i jest zapisywan
 
 ## <i class="bi bi-gear-wide-connected"></i> Mechanizmy ESP-IDF {#ota-api}
 
-::: {.tabela-gesta}
+::: {.tabela-duza}
 | Mechanizm | Co robi | Konsekwencja dla projektu |
 |:---|:---|:---|
 | `esp_ota_begin` / `esp_ota_write` / `esp_ota_end` | zapis nowego obrazu do wolnej partycji | w trakcie zapisu urządzenie **nadal działa** na starej wersji |
@@ -468,7 +468,7 @@ Dzięki temu wiemy, **na którym etapie** utknęła aktualizacja — a nie tylko
 :::
 
 ::: {.column width="55%"}
-::: {.tabela-gesta}
+::: {.tabela-srednia}
 | Stan | Ustawia | Znaczenie |
 |:---|:---|:---|
 | `QUEUED` | platforma | powiadomienie czeka na wysłanie |

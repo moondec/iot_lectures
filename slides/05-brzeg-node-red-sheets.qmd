@@ -191,6 +191,7 @@ i to jest jedyny cel logowania.
 
 ## <i class="bi bi-file-earmark-spreadsheet"></i> Dwa warianty zapisu {#warianty}
 
+::: {.tabela-srednia}
 | Cecha | **Dydaktyczny:** Apps Script | **Serwerowy:** Sheets API v4 |
 |:---|:---|:---|
 | Kto zapisuje | aplikacja internetowa Apps Script wywołana metodą POST | pośrednik po stronie serwera: Node-RED albo własny backend |
@@ -199,6 +200,7 @@ i to jest jedyny cel logowania.
 | Ryzyko | ujawnienie adresu = prawo zapisu dla każdego, z uprawnieniami właściciela skryptu | klucz konta usługi wymaga bezpiecznego magazynu i rotacji |
 | Kontrola dostępu | ograniczona, po stronie skryptu | pełna: uprawnienia arkusza nadawane kontu usługi |
 | Kiedy dopuszczalny | ćwiczenie laboratoryjne, **dane nieosobowe** | każde użycie poza demonstracją |
+:::
 
 ::: {.callout-warning title="Bezpieczeństwo Apps Script"}
 Adres wdrożenia Apps Script jest sekretem, a nie publicznym endpointem. Kto zna adres, może zapisywać do arkusza. Wariant ten dopuszczamy wyłącznie dla danych nieosobowych w ćwiczeniu; poza laboratorium wymagany jest pośrednik serwerowy z kontem usługi.
