@@ -58,7 +58,7 @@ format:
 ```{mermaid}
 %%| fig-width: 6.6
 %%| fig-height: 9.1
-%%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
+%%{init: {"themeVariables": {"fontSize": "30px", "fontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
 flowchart TD
     A["Anemometr<br>10 Hz"]
     B["Analizator gazu<br>10 Hz"]
@@ -136,7 +136,7 @@ Platforma zapisuje to, co dostanie. Odrzucenie na platformie oznacza, że błęd
 ```{mermaid}
 %%| fig-width: 12
 %%| fig-height: 3.9
-%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
+%%{init: {"themeVariables": {"fontSize": "24px", "fontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}}}%%
 flowchart LR
     M["<b>mqtt in</b><br>subskrypcja telemetrii<br>jawny QoS"]
     J["<b>json</b><br>parsowanie<br>ładunku"]
@@ -258,7 +258,7 @@ Dlatego arkusz otrzymuje dane **zagregowane** i **wsadowo** — jedno żądanie 
 ```{mermaid}
 %%| fig-width: 12
 %%| fig-height: 4.9
-%%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
+%%{init: {"themeVariables": {"fontSize": "30px", "fontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
 flowchart LR
     Z["Zapis wiersza"] --> R{"Odpowiedź"}
     R -- "2xx" --> OK["Gotowe"]

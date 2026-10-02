@@ -204,6 +204,16 @@ body.tlo-blue .reveal .backgrounds .slide-background:first-child .slide-backgrou
   background: #f7fafb;
 }
 
+// Short tables (3–4 rows) that would otherwise use a fraction of the slide.
+.reveal .slides section .tabela-duza table {
+  font-size: 0.86em;
+}
+
+.reveal .slides section .tabela-duza td,
+.reveal .slides section .tabela-duza th {
+  padding: 0.5em 0.6em;
+}
+
 // Wariant dla tabel gęstych (6+ wierszy albo długie komórki).
 .reveal .tabela-gesta table {
   font-size: 0.5em;
@@ -447,6 +457,17 @@ body.media-zoom-open #review-toolbar {
   height: auto;
   display: block;
   margin: 0 auto;
+}
+
+// Diagram text must use the font Mermaid measured at build time: Liberation Sans in
+// the build container is metric-compatible with Arial, so labels fit their boxes on
+// Windows and macOS as well (the default "trebuchet ms" made them overflow).
+.reveal svg[id^="mermaid-figure"] text,
+.reveal svg[id^="mermaid-figure"] tspan,
+.reveal svg[id^="mermaid-figure"] foreignObject div,
+.reveal svg[id^="mermaid-figure"] foreignObject span,
+.reveal svg[id^="mermaid-figure"] foreignObject p {
+  font-family: Arial, "Liberation Sans", Helvetica, sans-serif !important;
 }
 
 .reveal svg .nodeLabel p {

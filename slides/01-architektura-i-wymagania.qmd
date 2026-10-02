@@ -97,15 +97,17 @@ Zmierzono **stan fizyczny rzeczy** i udostępniono go w sieci bez człowieka w �
 ### Termin „Internet of Things" (1999)
 
 ::: {.incremental}
-* Kevin Ashton, Procter & Gamble — problem towaru, którego brakuje na półkach.
+* []{#k-ashton}Kevin Ashton, Procter & Gamble — problem towaru, którego brakuje na półkach.
 * Prezentacja pt. **„The Internet of Things"**.
 * RFID jako klucz do śledzenia towaru bez udziału człowieka.
 * Teza: *komputery wiedzą o świecie tylko to, co im powiemy*.
 :::
 
+::: {.fragment data-razem-z="k-ashton"}
 ![](../assets/img/kurs/rfid-etykieta.jpg){height="190px" fig-alt="Rozebrana etykieta odzieżowa z wtopionym chipem i anteną RFID."}
 
 [Etykieta RFID w metce odzieżowej. Fot. Boevaya mashina, CC BY-SA 4.0]{.zrodlo}
+:::
 :::
 :::
 
@@ -213,7 +215,7 @@ Sujata Tilak, *IIoT System Building Blocks*, [Wikimedia Commons](https://commons
 ```{mermaid}
 %%| fig-width: 11
 %%| fig-height: 3.4
-%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
+%%{init: {"themeVariables": {"fontSize": "24px", "fontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}}}%%
 flowchart LR
     A["<b>Percepcja</b><br>czujnik · aktuator<br>firmware · energia"]
     B["<b>Sieć</b><br>radio · brama<br>transport komunikatów"]
@@ -270,11 +272,13 @@ Każdy kolejny moduł domyka jeden poziom tego samego, jednego systemu.
 
 [Nie mieszamy ich — każda ma inne konsekwencje techniczne.]{.lead}
 
+::: {.tabela-duza}
 | Klasa | Częstość | Czy strata jest dopuszczalna | Konsekwencja projektowa |
 |:---|:---|:---|:---|
 | **Telemetria** (pomiar) | sekundy–minuty | tak, pojedyncza próbka | osobny temat, QoS 0/1, **bez** retained |
 | **Stan i atrybuty** | rzadko, przy zmianie | nie | publikacja **retained** — nowy odbiorca od razu zna stan |
 | **Polecenie** | pojedyncze zdarzenie | nie | potwierdzenie, identyfikator żądania, **idempotencja** |
+:::
 
 ::: {.fragment}
 ::: {.callout-warning title="Pierwsza pułapka, o której wrócimy w module 04"}
@@ -337,7 +341,7 @@ Te pięć pozycji to jednocześnie lista ryzyk projektu. Jeśli któraś jest pu
 ```{mermaid}
 %%| fig-width: 12
 %%| fig-height: 3.0
-%%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 16, "diagramPadding": 4}}}%%
+%%{init: {"themeVariables": {"fontSize": "30px", "fontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 16, "diagramPadding": 4}}}%%
 flowchart LR
     D["Urządzenie<br>Nano ESP32 / Stamp-C3U<br>czujnik + wyjście"]
     W(("Wi-Fi<br>2,4 GHz"))

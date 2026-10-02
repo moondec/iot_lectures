@@ -79,7 +79,7 @@ Wybór **cyfrowy zamiast analogowego** przenosi kondycjonowanie i kalibrację do
 ```{mermaid}
 %%| fig-width: 12
 %%| fig-height: 1.6
-%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
+%%{init: {"themeVariables": {"fontSize": "24px", "fontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}}}%%
 flowchart LR
     P["Przetwornik<br>wielkość fizyczna<br>→ sygnał"]
     K["Kondycjonowanie<br>dzielnik · filtr<br>wzmacniacz"]

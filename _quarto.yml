@@ -109,4 +109,5 @@ format:
           <link rel="stylesheet" href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
           <script src="../assets/vendor/mermaid-desc-shim.js"></script>
           <script src="../assets/vendor/slide-media-zoom.js" defer></script>
+          <script src="../assets/vendor/fragment-razem.js" defer></script>
           <script src="../assets/vendor/review-feedback.js" defer></script>

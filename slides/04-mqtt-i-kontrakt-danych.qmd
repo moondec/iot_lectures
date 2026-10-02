@@ -170,7 +170,7 @@ Pompa, grzałka albo zawór po przerwie w zasilaniu **sama** załącza wyjście 
 ```{mermaid}
 %%| fig-width: 6.8
 %%| fig-height: 3.1
-%%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6}}}%%
+%%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6, "actorFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif", "messageFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif", "noteFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}, "themeVariables": {"fontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}}}%%
 sequenceDiagram
     participant O as Operator
     participant B as Broker
@@ -238,7 +238,7 @@ Platforma, której użyjemy w module 06, obsługuje **wyłącznie QoS 0 i 1**. P
 ```{mermaid}
 %%| fig-width: 4.6
 %%| fig-height: 1.5
-%%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6}}}%%
+%%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6, "actorFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif", "messageFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif", "noteFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}, "themeVariables": {"fontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}}}%%
 sequenceDiagram
     participant C as Czujnik
     participant B as Broker
@@ -252,7 +252,7 @@ sequenceDiagram
 ```{mermaid}
 %%| fig-width: 4.6
 %%| fig-height: 1.8
-%%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6}}}%%
+%%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6, "actorFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif", "messageFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif", "noteFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}, "themeVariables": {"fontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}}}%%
 sequenceDiagram
     participant C as Czujnik
     participant B as Broker
@@ -267,7 +267,7 @@ sequenceDiagram
 ```{mermaid}
 %%| fig-width: 4.6
 %%| fig-height: 2.9
-%%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6}}}%%
+%%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6, "actorFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif", "messageFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif", "noteFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}, "themeVariables": {"fontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}}}%%
 sequenceDiagram
     participant C as Czujnik
     participant B as Broker
@@ -384,7 +384,7 @@ Dzięki temu **QoS 1 z duplikatami przestaje być problemem**, a odpowiedź moż
 ```{mermaid}
 %%| fig-width: 6.6
 %%| fig-height: 5.9
-%%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6}}}%%
+%%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6, "actorFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif", "messageFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif", "noteFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}, "themeVariables": {"fontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}}}%%
 sequenceDiagram
     participant B as Broker
     participant D as ESP32

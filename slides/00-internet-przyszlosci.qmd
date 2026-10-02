@@ -144,7 +144,7 @@ R. Valentini i in. (2019), *New tree monitoring systems: from Industry 4.0 to Na
 ```{mermaid}
 %%| fig-width: 11
 %%| fig-height: 1.5
-%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
+%%{init: {"themeVariables": {"fontSize": "24px", "fontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}}}%%
 flowchart LR
     S["Świat fizyczny<br>gleba · roślina"]
     P["Pomiar<br>wilgotność"]
@@ -219,7 +219,7 @@ Fot. µKöff, CC BY 4.0
 ```{mermaid}
 %%| fig-width: 11
 %%| fig-height: 1.5
-%%{init: {"themeVariables": {"fontSize": "22px"}}}%%
+%%{init: {"themeVariables": {"fontSize": "22px", "fontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}}}%%
 flowchart LR
     O["Obserwacja<br>co mierzymy?"]
     I["Inferencja<br>co wnioskujemy?"]

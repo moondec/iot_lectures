@@ -396,7 +396,7 @@
     "href": "slides/01-architektura-i-wymagania.html#ashton",
     "title": "Architektura systemu IoT i wymagania",
     "section": " Od tostera do RFID",
-    "text": "Od tostera do RFID\n\n\nToster w sieci TCP/IP (1990)\n\nJohn Romkey i Simon Hackett na konferencji Interop: toster sterowany przez SNMP.\nWłączany i wyłączany przez sieć — jedno z pierwszych urządzeń AGD w Internecie.\nRok później dołożono dźwig, który sam wkładał chleb.\n\n\nTermin „Internet of Things” (1999)\n\nKevin Ashton, Procter & Gamble — problem towaru, którego brakuje na półkach.\nPrezentacja pt. „The Internet of Things”.\nRFID jako klucz do śledzenia towaru bez udziału człowieka.\nTeza: komputery wiedzą o świecie tylko to, co im powiemy.\n\n\nEtykieta RFID w metce odzieżowej. Fot. Boevaya mashina, CC BY-SA 4.0"
+    "text": "Od tostera do RFID\n\n\nToster w sieci TCP/IP (1990)\n\nJohn Romkey i Simon Hackett na konferencji Interop: toster sterowany przez SNMP.\nWłączany i wyłączany przez sieć — jedno z pierwszych urządzeń AGD w Internecie.\nRok później dołożono dźwig, który sam wkładał chleb.\n\n\nTermin „Internet of Things” (1999)\n\nKevin Ashton, Procter & Gamble — problem towaru, którego brakuje na półkach.\nPrezentacja pt. „The Internet of Things”.\nRFID jako klucz do śledzenia towaru bez udziału człowieka.\nTeza: komputery wiedzą o świecie tylko to, co im powiemy.\n\n\n\nEtykieta RFID w metce odzieżowej. Fot. Boevaya mashina, CC BY-SA 4.0"
   },
   {
     "objectID": "slides/01-architektura-i-wymagania.html#skala",
@@ -445,7 +445,7 @@
     "href": "slides/01-architektura-i-wymagania.html#klasy",
     "title": "Architektura systemu IoT i wymagania",
     "section": " Trzy klasy komunikatów",
-    "text": "Trzy klasy komunikatów\nNie mieszamy ich — każda ma inne konsekwencje techniczne.\n\n\n\n\n\n\n\n\n\nKlasa\nCzęstość\nCzy strata jest dopuszczalna\nKonsekwencja projektowa\n\n\n\n\nTelemetria (pomiar)\nsekundy–minuty\ntak, pojedyncza próbka\nosobny temat, QoS 0/1, bez retained\n\n\nStan i atrybuty\nrzadko, przy zmianie\nnie\npublikacja retained — nowy odbiorca od razu zna stan\n\n\nPolecenie\npojedyncze zdarzenie\nnie\npotwierdzenie, identyfikator żądania, idempotencja\n\n\n\n\n\n\n\n\n\n\n\nPierwsza pułapka, o której wrócimy w module 04\n\n\nPolecenie opublikowane jako retained zostanie wykonane ponownie przy każdej ponownej subskrypcji — czyli zwykle po każdym restarcie urządzenia. W systemie z pompą albo grzałką ma to konsekwencje fizyczne."
+    "text": "Trzy klasy komunikatów\nNie mieszamy ich — każda ma inne konsekwencje techniczne.\n\n\n\n\n\n\n\n\n\n\nKlasa\nCzęstość\nCzy strata jest dopuszczalna\nKonsekwencja projektowa\n\n\n\n\nTelemetria (pomiar)\nsekundy–minuty\ntak, pojedyncza próbka\nosobny temat, QoS 0/1, bez retained\n\n\nStan i atrybuty\nrzadko, przy zmianie\nnie\npublikacja retained — nowy odbiorca od razu zna stan\n\n\nPolecenie\npojedyncze zdarzenie\nnie\npotwierdzenie, identyfikator żądania, idempotencja\n\n\n\n\n\n\n\n\n\n\n\n\nPierwsza pułapka, o której wrócimy w module 04\n\n\nPolecenie opublikowane jako retained zostanie wykonane ponownie przy każdej ponownej subskrypcji — czyli zwykle po każdym restarcie urządzenia. W systemie z pompą albo grzałką ma to konsekwencje fizyczne."
   },
   {
     "objectID": "slides/01-architektura-i-wymagania.html#kryterium",

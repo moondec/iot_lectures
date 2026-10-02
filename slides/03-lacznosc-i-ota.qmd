@@ -284,7 +284,7 @@ Ten sam rachunek dla czujnika w polu, bez zasilania i bez sterowania, dałby LoR
 ```{mermaid}
 %%| fig-width: 12
 %%| fig-height: 4.4
-%%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
+%%{init: {"themeVariables": {"fontSize": "30px", "fontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
 flowchart LR
     S["Start /<br>utrata łącza"] --> B["Stan<br>bezpieczny"]
     B --> P["Próba połączenia<br>z limitem czasu"]
@@ -350,7 +350,7 @@ Nowy obraz trafia do partycji **nieużywanej w danym rozruchu**. Dopiero po wery
 ```{mermaid}
 %%| fig-width: 7.4
 %%| fig-height: 4.6
-%%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
+%%{init: {"themeVariables": {"fontSize": "30px", "fontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
 flowchart TD
     subgraph F["Pamięć flash"]
       O0["<b>ota_0</b><br>wersja 1.4.2<br><i>działa teraz</i>"]
@@ -396,7 +396,7 @@ Partycja `otadata` ma rozmiar dwóch sektorów flash (0x2000 B) i jest zapisywan
 ```{mermaid}
 %%| fig-width: 11
 %%| fig-height: 3.4
-%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
+%%{init: {"themeVariables": {"fontSize": "24px", "fontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}}}%%
 flowchart LR
     R["Restart<br>na nowej wersji"] --> T["Self-test:<br>czujnik · sieć<br>broker"]
     T -- "wszystko<br>przeszło" --> V["mark_app_valid<br>_cancel_rollback"]
