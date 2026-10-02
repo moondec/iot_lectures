@@ -467,6 +467,10 @@ body.media-zoom-open #review-toolbar {
   max-height: 640px;
 }
 
+.reveal .sredni svg[id^="mermaid-figure"] {
+  max-height: 360px;
+}
+
 .reveal .kompakt svg[id^="mermaid-figure"] {
   max-height: 380px;
 }

@@ -42,6 +42,7 @@ z obecną konfiguracją (motyw `../assets/...` jest względny wobec `slides/`).
 - Po każdym budowaniu: `python3 scripts/build-provenance.py`, `python3 scripts/test-structure.py`
   i `python3 scripts/test-links.py`. Każdy slajd (`#id`) musi mieć wpis w tabeli `MAPA`
   w `scripts/build-provenance.py`.
+- Po zmianie diagramu Mermaid uruchom `python3 scripts/mermaid-aspect.py docs/slides slides/*.qmd` i zbuduj ponownie: ustawia `fig-height` tak, by ramka SVG miała proporcje rysunku (bez pustych pasów). Wysokość ograniczają klasy `.kompakt` (380 px), `.sredni` (360 px), `.mermaid-wysoka` (640 px). Polskie litery w etykietach Mermaid czasem psują się (Windows-1250) — sprawdź wynik `grep -l 'Ä…' docs/slides/*.html`; encje `#261;` nie działają w eksporcie SVG.
 - Liczby z rachunków dopisuj do `scripts/verify-calc.py`, a wykresy do `scripts/make-figures.py`.
 
 ## Ilustracje

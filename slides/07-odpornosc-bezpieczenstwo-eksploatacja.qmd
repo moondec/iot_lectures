@@ -142,7 +142,7 @@ Dokumentacja zaleca, by nie był **krótszy** od progu nieaktywności urządzeni
 
 ```{mermaid}
 %%| fig-width: 12
-%%| fig-height: 2.8
+%%| fig-height: 3.0
 %%{init: {"themeVariables": {"fontSize": "24px"}}}%%
 flowchart LR
     A["Telemetria<br>napływa"] -- "cisza dłuższa<br>niż próg" --> B["Zdarzenie<br>Inactivity"]
@@ -277,26 +277,24 @@ Segmentacja VLAN ogranicza zasięg ataku **tylko wtedy**, gdy ruch między sieci
 ::: {.column width="58%"}
 ::: {.mermaid-wysoka}
 ```{mermaid}
-%%| fig-width: 8.4
-%%| fig-height: 5.1
-%%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
-flowchart LR
-    subgraph B["Biuro"]
-      PC(("Stacja<br>robocza"))
-      DB[("Zasoby<br>sieciowe")]
-    end
-    FW{"Zapora<br><b>odmowa domyślna</b>"}
-    subgraph I["IoT"]
-      S1["Czujnik<br>klimatu"]
-      S2["Kamera"]
-    end
+%%| fig-width: 6
+%%| fig-height: 7.3
+%%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 30, "rankSpacing": 45, "padding": 10, "diagramPadding": 4, "subGraphTitleMargin": {"top": 6, "bottom": 18}}}}%%
+flowchart TB
+    PC["Stacja robocza<br><i>sieć biurowa</i>"]
+    DB[("Zasoby<br><i>sieć biurowa</i>")]
+    FW{{"Zapora<br><b>odmowa domyślna</b>"}}
+    S1["Czujnik klimatu<br><i>segment IoT</i>"]
+    S2["Kamera<br><i>segment IoT</i>"]
     PC --- FW
     DB --- FW
-    FW -. "brak dostępu" .-> S1
-    FW -. "brak dostępu" .-> S2
+    FW -. "brak dostępu" .-x S1
+    FW -. "brak dostępu" .-x S2
     classDef n fill:#e8f2f4,stroke:#0b6b78,stroke-width:2px,color:#0b3b45
     classDef r fill:#fdf3f4,stroke:#b02a37,stroke-width:3px,color:#8f2029
-    class PC,DB,S1,S2 n
+    classDef iot fill:#fff8e6,stroke:#b8860b,stroke-width:2px,color:#6b5200
+    class PC,DB n
+    class S1,S2 iot
     class FW r
 ```
 :::

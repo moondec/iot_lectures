@@ -157,9 +157,10 @@ Polecenie `retained` zostanie więc wykonane ponownie **przy każdym restarcie u
 :::
 
 ::: {.fragment}
+::: {.sredni}
 ```{mermaid}
 %%| fig-width: 6.8
-%%| fig-height: 3.2
+%%| fig-height: 4.0
 %%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6}}}%%
 sequenceDiagram
     participant O as Operator
@@ -173,6 +174,7 @@ sequenceDiagram
     B->>D: {pump:true} (retained!)
     Note over D: pompa startuje SAMA
 ```
+:::
 :::
 :::
 
@@ -240,7 +242,7 @@ Platforma, której użyjemy w module 06, obsługuje **wyłącznie QoS 0 i 1**. P
 
 ```{mermaid}
 %%| fig-width: 4.6
-%%| fig-height: 4.2
+%%| fig-height: 1.5
 %%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6}}}%%
 sequenceDiagram
     participant C as Czujnik
@@ -254,7 +256,7 @@ sequenceDiagram
 
 ```{mermaid}
 %%| fig-width: 4.6
-%%| fig-height: 4.2
+%%| fig-height: 1.8
 %%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6}}}%%
 sequenceDiagram
     participant C as Czujnik
@@ -269,7 +271,7 @@ sequenceDiagram
 
 ```{mermaid}
 %%| fig-width: 4.6
-%%| fig-height: 4.2
+%%| fig-height: 2.9
 %%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6}}}%%
 sequenceDiagram
     participant C as Czujnik
@@ -386,7 +388,7 @@ Dzięki temu **QoS 1 z duplikatami przestaje być problemem**, a odpowiedź moż
 ::: {.column width="50%"}
 ```{mermaid}
 %%| fig-width: 6.6
-%%| fig-height: 3.8
+%%| fig-height: 5.9
 %%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6}}}%%
 sequenceDiagram
     participant B as Broker

@@ -113,7 +113,7 @@ Zmiana okresu próbkowania z 60 s na 300 s to **edycja pola w interfejsie**, nie
 ::: {.column width="48%"}
 ```{mermaid}
 %%| fig-width: 6.4
-%%| fig-height: 3.6
+%%| fig-height: 7.3
 %%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
 flowchart TD
     P["Platforma<br>samplingPeriodSec = 300"]
@@ -198,7 +198,7 @@ Zrzut ekranu z konfiguracją urządzenia to najczęstszy sposób przypadkowego u
 ::: {.column width="48%"}
 ```{mermaid}
 %%| fig-width: 6.6
-%%| fig-height: 4.4
+%%| fig-height: 3.7
 %%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6}}}%%
 sequenceDiagram
     participant U as Pulpit

@@ -78,7 +78,7 @@ Wybór **cyfrowy zamiast analogowego** przenosi kondycjonowanie i kalibrację do
 
 ```{mermaid}
 %%| fig-width: 12
-%%| fig-height: 2.5
+%%| fig-height: 1.5
 %%{init: {"themeVariables": {"fontSize": "24px"}}}%%
 flowchart LR
     P["Przetwornik<br><small>wielkość fizyczna<br>→ sygnał</small>"]

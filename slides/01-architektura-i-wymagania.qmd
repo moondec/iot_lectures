@@ -334,7 +334,7 @@ Te pięć pozycji to jednocześnie lista ryzyk projektu. Jeśli któraś jest pu
 
 ```{mermaid}
 %%| fig-width: 12
-%%| fig-height: 3.2
+%%| fig-height: 3.0
 %%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
 flowchart LR
     D["Urządzenie<br>Nano ESP32 / Stamp-C3U<br>czujnik + wyjście"]

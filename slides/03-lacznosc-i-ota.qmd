@@ -280,9 +280,10 @@ Ten sam rachunek dla czujnika w polu, bez zasilania i bez sterowania, dałby LoR
 :::
 :::
 
+::: {.sredni}
 ```{mermaid}
 %%| fig-width: 12
-%%| fig-height: 2.6
+%%| fig-height: 4.4
 %%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
 flowchart LR
     S["Start /<br>utrata łącza"] --> B["Stan<br>bezpieczny"]
@@ -296,6 +297,7 @@ flowchart LR
     class O,P n
     class B,W r
 ```
+:::
 
 ::: {.fragment}
 **Brak sieci nie zwalnia z odpowiedzialności za wyjście.** Aktuator przechodzi w stan bezpieczny zdefiniowany w module 02 — zanim zaczniemy ponawiać połączenie.
@@ -347,7 +349,7 @@ Nowy obraz trafia do partycji **nieużywanej w danym rozruchu**. Dopiero po wery
 ::: {.column width="54%"}
 ```{mermaid}
 %%| fig-width: 7.4
-%%| fig-height: 4.2
+%%| fig-height: 4.6
 %%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
 flowchart TD
     subgraph F["Pamięć flash"]
@@ -390,9 +392,10 @@ Partycja `otadata` ma rozmiar dwóch sektorów flash (0x2000 B) i jest zapisywan
 
 [Kolejność jest odwrotna do intuicyjnej — i to jest sedno mechanizmu.]{.lead}
 
+::: {.sredni}
 ```{mermaid}
 %%| fig-width: 11
-%%| fig-height: 3.0
+%%| fig-height: 3.4
 %%{init: {"themeVariables": {"fontSize": "24px"}}}%%
 flowchart LR
     R["Restart<br>na nowej wersji"] --> T["Self-test:<br>czujnik · sieć<br>broker"]
@@ -406,6 +409,7 @@ flowchart LR
     class R,T,V,OK n
     class I,P r
 ```
+:::
 
 Pełne nazwy funkcji: `esp_ota_mark_app_valid_cancel_rollback()` oraz
 `esp_ota_mark_app_invalid_rollback_and_reboot()`.

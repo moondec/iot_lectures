@@ -57,7 +57,7 @@ format:
 ::: {.column width="48%"}
 ```{mermaid}
 %%| fig-width: 6.6
-%%| fig-height: 5
+%%| fig-height: 9.7
 %%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
 flowchart TD
     A["Anemometr<br>10 Hz"]
@@ -260,10 +260,10 @@ Dlatego arkusz otrzymuje dane **zagregowane** i **wsadowo** — jedno żądanie 
 :::
 :::
 
-::: {.kompakt}
+::: {.sredni}
 ```{mermaid}
 %%| fig-width: 12
-%%| fig-height: 2.4
+%%| fig-height: 5.1
 %%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
 flowchart LR
     Z["Zapis wiersza"] --> R{"Odpowiedź"}
