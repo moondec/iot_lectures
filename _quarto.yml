@@ -85,7 +85,13 @@ format:
     controls-tutorial: false
     progress: true
     touch: true
-    chalkboard: false
+    # Chalkboard (B) and drawing over slides (C); drawings can be saved with D.
+    chalkboard:
+      buttons: true
+      theme: chalkboard
+    # Lets the theme hide the slide number on the title slide.
+    title-slide-attributes:
+      data-state: slajd-tytulowy
     menu:
       side: left
       width: wide

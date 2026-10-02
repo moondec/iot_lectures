@@ -626,12 +626,19 @@ body.media-zoom-open #review-toolbar {
   color: #6f7c85;
 }
 
+// Quarto's default slide-number style is more specific and leaves white text
+// on a transparent background, so the colours need !important.
 .reveal .slide-number {
-  background: rgba(11, 107, 120, 0.82);
-  color: #fff;
+  background-color: rgba(11, 107, 120, 0.85) !important;
+  color: #fff !important;
   font-size: 0.4em;
   padding: 3px 8px;
   border-radius: 3px;
+}
+
+// The title slide carries data-state="slajd-tytulowy" (see _quarto.yml).
+body.reveal-viewport.slajd-tytulowy .reveal .slide-number {
+  display: none !important;
 }
 
 // --- Slajd tytułowy ------------------------------------------------------

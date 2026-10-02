@@ -42,6 +42,21 @@ scripts/serve.sh 8090          # http://127.0.0.1:8090/
 Wynik trafia do `docs/`. Wszystkie ścieżki są **względne**, więc witryna działa
 zarówno pod adresem głównym, jak i w podkatalogu `/nazwa-repo/`.
 
+### Prowadzenie wykładu: tablica i rysowanie
+
+Przyciski w lewym dolnym rogu albo klawisze:
+
+| Klawisz | Działanie |
+|:--|:--|
+| `B` | tablica (osobna, czysta plansza) — włącz / wyłącz |
+| `C` | rysowanie i notatki bezpośrednio na slajdzie — włącz / wyłącz |
+| `Del` | wyczyść rysunki na bieżącym slajdzie |
+| `D` | pobierz rysunki do pliku JSON (można je później wczytać) |
+| `S` | widok prowadzącego |
+
+Rysunki żyją w przeglądarce i znikają po odświeżeniu strony, chyba że je pobierzesz klawiszem `D`.
+Numer slajdu jest widoczny na wszystkich slajdach poza tytułowym.
+
 ### Zgłaszanie uwag
 
 Do adresu prezentacji dopisz `?review=1`. Możesz wtedy zaznaczyć fragment tekstu,
