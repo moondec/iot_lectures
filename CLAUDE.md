@@ -72,8 +72,8 @@ z obecną konfiguracją (motyw `../assets/...` jest względny wobec `slides/`).
   przekierowujące do `archiwum/` z zachowaniem `#/slajdu`. Tworzy je
   `scripts/legacy-redirects.py` (post-render); testy je dopuszczają, a `test-links.py`
   pomija zamrożone `docs/archiwum/`.
-- `.github/workflows/publish.yml` publikuje dodatkowo na gałąź `gh-pages`,
-  której Pages obecnie nie używa.
+- Nie ma workflow GitHub Actions ani gałęzi `gh-pages` (usunięte 2.10.2026 — nigdy
+  nie działały). `docs/` budujemy lokalnie i commitujemy.
 
 ## Poufność — nie commitować
 

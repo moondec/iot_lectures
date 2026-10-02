@@ -181,8 +181,8 @@ komunikacji z komputerem. Stamp-C3U to **nie** Stamp-C3 — różnice opisuje wy
   `https://moondec.github.io/iot_lectures/`, a poprzednia wersja (5 wykładów)
   pod `/archiwum/` (kopiowana do `docs/archiwum/` przy budowaniu); dawne adresy
   prezentacji przekierowują do archiwum; każde wypchnięcie na `main` od razu zmienia stronę;
-* przebieg `.github/workflows/publish.yml` dodatkowo renderuje projekt (Quarto 1.10.18
-  + Chromium) i publikuje go na gałąź `gh-pages`, której Pages obecnie nie używa;
+* `docs/` budujemy lokalnie (Quarto 1.10.18 + Chromium) i commitujemy — nie ma
+  automatycznego budowania w GitHub Actions;
 * repozytorium jest publiczne — dlatego katalog `notes/` jest w `.gitignore`;
 * nazwa repozytorium GitHub nie jest nigdzie zakładana; wszystkie odnośniki są względne;
 * katalog `docs/` jest śledzony jako podgląd lokalnego budowania.
