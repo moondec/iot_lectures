@@ -43,6 +43,7 @@ z obecną konfiguracją (motyw `../assets/...` jest względny wobec `slides/`).
   i `python3 scripts/test-links.py`. Każdy slajd (`#id`) musi mieć wpis w tabeli `MAPA`
   w `scripts/build-provenance.py`.
 - Po zmianie diagramu Mermaid uruchom `python3 scripts/mermaid-aspect.py docs/slides slides/*.qmd` i zbuduj ponownie: ustawia `fig-height` tak, by ramka SVG miała proporcje rysunku (bez pustych pasów). Wysokość ograniczają klasy `.kompakt` (380 px), `.sredni` (360 px), `.mermaid-wysoka` (640 px). Polskie litery w etykietach Mermaid czasem psują się (Windows-1250) — sprawdź wynik `grep -l 'Ä…' docs/slides/*.html`; encje `#261;` nie działają w eksporcie SVG.
+- Układ slajdów: `uv run --with playwright python scripts/test-layout.py docs OUT 0*.html` (sam uruchamia lokalny serwer; potrzebuje Chromium w QUARTO_CHROMIUM) zgłasza tekst wchodzący na stopkę/przyciski (z zapasem 8 px), wyjście poza krawędź lub kolumnę, przepełnione ramki oraz nakładające się etykiety Mermaid; zrzuty zgłoszonych slajdów trafiają do OUT. Wynik ma być TOTAL 0.
 - Liczby z rachunków dopisuj do `scripts/verify-calc.py`, a wykresy do `scripts/make-figures.py`.
 
 ## Ilustracje

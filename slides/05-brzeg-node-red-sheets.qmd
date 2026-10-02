@@ -57,7 +57,7 @@ format:
 ::: {.column width="48%"}
 ```{mermaid}
 %%| fig-width: 6.6
-%%| fig-height: 9.7
+%%| fig-height: 9.1
 %%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
 flowchart TD
     A["Anemometr<br>10 Hz"]
@@ -68,7 +68,7 @@ flowchart TD
     A --> C
     B --> C
     C -- "średnie 1-min" --> D
-    C -- "strumienie 30-min" --> G
+    C -- "co 30 min" --> G
     classDef n fill:#e8f2f4,stroke:#0b6b78,stroke-width:2px,color:#0b3b45
     class A,B,C,D,G n
 ```
@@ -135,21 +135,21 @@ Platforma zapisuje to, co dostanie. Odrzucenie na platformie oznacza, że błęd
 
 ```{mermaid}
 %%| fig-width: 12
-%%| fig-height: 3.6
+%%| fig-height: 3.9
 %%{init: {"themeVariables": {"fontSize": "24px"}}}%%
 flowchart LR
-    M["<b>mqtt in</b><br><small>subskrypcja telemetrii<br>jawny QoS</small>"]
-    J["<b>json</b><br><small>parsowanie<br>ładunku</small>"]
-    F["<b>function</b><br><small>walidacja: pola, schemat<br>zakres, świeżość</small>"]
+    M["<b>mqtt in</b><br>subskrypcja telemetrii<br>jawny QoS"]
+    J["<b>json</b><br>parsowanie<br>ładunku"]
+    F["<b>function</b><br>walidacja: pola, schemat<br>zakres, świeżość"]
     S{"<b>switch</b><br>routing"}
-    W["<b>zapis</b><br><small>arkusz raportowy</small>"]
-    A["<b>alarm</b><br><small>przekroczenie progu</small>"]
-    L["<b>log odrzuceń</b><br><small>z powodem</small>"]
+    W["<b>zapis</b><br>arkusz raportowy"]
+    A["<b>alarm</b><br>przekroczenie progu"]
+    L["<b>log odrzuceń</b><br>z powodem"]
     M --> J --> F --> S
     S -- "poprawne" --> W
     S -- "próg" --> A
     S -- "odrzucone" --> L
-    C["<b>catch</b><br><small>błędy json i function</small>"]
+    C["<b>catch</b><br>błędy json i function"]
     J -. "błąd parsowania" .-> C
     F -. "wyjątek" .-> C
     C --> L
@@ -158,12 +158,6 @@ flowchart LR
     class M,J,F,S,W n
     class L,A,C r
 ```
-
-![](../assets/img/node-red-example.png){width="72%" fig-alt="Zrzut edytora Node-RED z przepływem połączonych węzłów wejściowych, przetwarzających i wyjściowych."}
-
-::: {.zrodlo}
-1-Byte, *Node-RED Example*, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Node-RED_Example.png), CC BY-SA 4.0.
-:::
 
 ::: {.fragment}
 Dwie zasady konstrukcyjne: komunikat **nieparsowalny trafia na ścieżkę błędu, nie dalej w przepływ**,
@@ -263,13 +257,13 @@ Dlatego arkusz otrzymuje dane **zagregowane** i **wsadowo** — jedno żądanie 
 ::: {.sredni}
 ```{mermaid}
 %%| fig-width: 12
-%%| fig-height: 5.1
+%%| fig-height: 4.9
 %%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
 flowchart LR
     Z["Zapis wiersza"] --> R{"Odpowiedź"}
     R -- "2xx" --> OK["Gotowe"]
     R -- "429 / 5xx" --> B["Kolejka ponowień<br>backoff + jitter"]
-    B -- "kolejna próba" --> Z
+    B --> Z
     B -- "limit wyczerpany" --> L["Log odrzuceń<br>powód + treść"]
     R -- "401" --> T["Odśwież token,<br>ponów raz"]
     T --> Z
@@ -282,7 +276,7 @@ flowchart LR
 :::
 
 ::: {.fragment}
-**Rozróżnienie, które ratuje przepływ:** 429 i 5xx ponawiamy — problem jest przejściowy. Pozostałe 4xx (np. 403, brak uprawnień) nie: ponowienie da ten sam wynik i zatka kolejkę. Wyjątek: 401 — po odświeżeniu tokenu ponawiamy raz.
+**Rozróżnienie:** 429 i 5xx ponawiamy (błąd przejściowy). Inne 4xx, np. 403 — nie: wynik się nie zmieni, a kolejka się zatka. Wyjątek: 401 — odśwież token i ponów raz.
 :::
 
 ---

@@ -103,7 +103,7 @@ Zmierzono **stan fizyczny rzeczy** i udostępniono go w sieci bez człowieka w �
 * Teza: *komputery wiedzą o świecie tylko to, co im powiemy*.
 :::
 
-![](../assets/img/kurs/rfid-etykieta.jpg){height="230px" fig-alt="Rozebrana etykieta odzieżowa z wtopionym chipem i anteną RFID."}
+![](../assets/img/kurs/rfid-etykieta.jpg){height="190px" fig-alt="Rozebrana etykieta odzieżowa z wtopionym chipem i anteną RFID."}
 
 [Etykieta RFID w metce odzieżowej. Fot. Boevaya mashina, CC BY-SA 4.0]{.zrodlo}
 :::
@@ -191,6 +191,10 @@ Jeżeli **nikt nie podejmuje decyzji** na podstawie pomiaru, zbudowaliśmy rejes
 ::: {.fragment}
 Cel projektowy: wymiana routera nie powinna wymagać nowego firmware czujnika (wystarczy ponowna konfiguracja), a zmiana czujnika — zmiany pulpitu.
 :::
+
+::: {.fragment}
+Podział na trzy warstwy jest **modelem dydaktycznym**, który pomaga przypisać odpowiedzialność. Normy opisują więcej warstw — np. ITU-T Y.2060 cztery.
+:::
 :::
 
 ::: {.column width="45%"}
@@ -199,8 +203,6 @@ Cel projektowy: wymiana routera nie powinna wymagać nowego firmware czujnika (w
 ::: {.zrodlo}
 Sujata Tilak, *IIoT System Building Blocks*, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:IIoT_System_Building_Blocks.jpg), CC BY-SA 4.0. Przemysłowy wariant tego samego pomysłu: brzeg · platforma · przedsiębiorstwo.
 :::
-
-Podział na trzy warstwy jest **modelem dydaktycznym**, który pomaga przypisać odpowiedzialność. Normy opisują więcej warstw — np. ITU-T Y.2060 cztery.
 :::
 :::
 
@@ -335,7 +337,7 @@ Te pięć pozycji to jednocześnie lista ryzyk projektu. Jeśli któraś jest pu
 ```{mermaid}
 %%| fig-width: 12
 %%| fig-height: 3.0
-%%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
+%%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 16, "diagramPadding": 4}}}%%
 flowchart LR
     D["Urządzenie<br>Nano ESP32 / Stamp-C3U<br>czujnik + wyjście"]
     W(("Wi-Fi<br>2,4 GHz"))

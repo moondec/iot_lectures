@@ -382,7 +382,6 @@ ILUSTRACJE_WYKORZYSTANE = [
  ("iiot-building-blocks.jpg", "Sujata Tilak, Ascent Intellimation Pvt. Ltd.", "https://commons.wikimedia.org/wiki/File:IIoT_System_Building_Blocks.jpg", "CC BY-SA 4.0", ["01#warstwy"]),
  ("kerlink-lorawan-gateway.jpg", "Fabian Horst", "https://commons.wikimedia.org/wiki/File:2020-10-05_-_Kerlink_LoRaWAN_Gateway_in_Kiel.jpg", "CC BY-SA 4.0", ["03#brama-lorawan"]),
  ("mqtt-broker-listeners.svg", "Ademant", "https://commons.wikimedia.org/wiki/File:MQTT_single_broker_multiple_listener.svg", "CC BY-SA 4.0", ["04#mqtt"]),
- ("node-red-example.png", "1-Byte", "https://commons.wikimedia.org/wiki/File:Node-RED_Example.png", "CC BY-SA 4.0", ["05#przeplyw"]),
  ("iot-dashboard-aquaculture.jpg", "Stephane Malhomme", "https://commons.wikimedia.org/wiki/File:Aquaculture_iot_water_monitoring_solution_pentair_eagle.io.jpg", "CC BY-SA 4.0", ["06#pulpit-przyklad"]),
  ("axis-ip-cameras.png", "Bungle", "https://commons.wikimedia.org/wiki/File:Axis_ip_dome_cameras.png", "CC BY-SA 4.0", ["07#mirai", "00#botnet"]),
 ]

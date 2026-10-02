@@ -278,8 +278,8 @@ Segmentacja VLAN ogranicza zasięg ataku **tylko wtedy**, gdy ruch między sieci
 ::: {.mermaid-wysoka}
 ```{mermaid}
 %%| fig-width: 6
-%%| fig-height: 7.3
-%%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 30, "rankSpacing": 45, "padding": 10, "diagramPadding": 4, "subGraphTitleMargin": {"top": 6, "bottom": 18}}}}%%
+%%| fig-height: 6.8
+%%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 30, "rankSpacing": 45, "padding": 18, "diagramPadding": 4, "subGraphTitleMargin": {"top": 6, "bottom": 18}}}}%%
 flowchart TB
     PC["Stacja robocza<br><i>sieć biurowa</i>"]
     DB[("Zasoby<br><i>sieć biurowa</i>")]

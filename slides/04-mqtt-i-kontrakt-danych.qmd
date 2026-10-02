@@ -149,7 +149,7 @@ daje pętle, których nie widać w logu, bo każdy komunikat z osobna wygląda p
 ## <i class="bi bi-exclamation-triangle-fill"></i> Dlaczego polecenie nigdy nie jest retained {#retained}
 
 ::: {.columns}
-::: {.column width="52%"}
+::: {.column width="50%"}
 Komunikat `retained` jest domyślnie dostarczany **każdemu nowemu subskrybentowi** zaraz po subskrypcji.
 
 ::: {.fragment}
@@ -157,10 +157,19 @@ Polecenie `retained` zostanie więc wykonane ponownie **przy każdym restarcie u
 :::
 
 ::: {.fragment}
-::: {.sredni}
+**Stan** natomiast **musi** być retained — żeby nowy odbiorca (pulpit po odświeżeniu) od razu znał stan urządzenia, bez czekania na kolejny cykl.
+:::
+:::
+
+::: {.column width="50%"}
+::: {.callout-important title="To nie jest błąd teoretyczny"}
+Pompa, grzałka albo zawór po przerwie w zasilaniu **sama** załącza wyjście na podstawie polecenia sprzed godzin. Objaw: „pompa włącza się sama”.
+:::
+
+::: {.fragment}
 ```{mermaid}
 %%| fig-width: 6.8
-%%| fig-height: 4.0
+%%| fig-height: 3.1
 %%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6}}}%%
 sequenceDiagram
     participant O as Operator
@@ -168,25 +177,11 @@ sequenceDiagram
     participant D as ESP32
     O->>B: {pump:true}, retained
     B->>D: {pump:true}
-    Note over D: pompa startuje<br>(decyzja operatora)
-    Note over D: zanik zasilania
-    D->>B: CONNECT + SUBSCRIBE
+    Note over D: pompa startuje
+    D->>B: restart: CONNECT + SUBSCRIBE
     B->>D: {pump:true} (retained!)
     Note over D: pompa startuje SAMA
 ```
-:::
-:::
-:::
-
-::: {.column width="48%"}
-::: {.callout-important title="To nie jest błąd teoretyczny"}
-W systemie z pompą, grzałką albo zaworem ma to **konsekwencje fizyczne**: urządzenie wraca po przerwie w zasilaniu i samo załącza wyjście na podstawie polecenia sprzed godzin.
-
-Objaw zgłaszany przez użytkownika brzmi: „pompa włącza się sama". Przyczyna leży w jednej fladze protokołu.
-:::
-
-::: {.fragment}
-**Stan** natomiast **musi** być retained — po to, żeby nowy odbiorca (pulpit po odświeżeniu) od razu wiedział, w jakim stanie jest urządzenie, nie czekając na kolejny cykl.
 :::
 :::
 :::
@@ -451,7 +446,7 @@ Wildcard `#` dla publikacji objąłby także `command`, dlatego tematy zapisu wy
 :::
 
 ::: {.fragment}
-CoAP ma własny tryb **potwierdzany**: komunikaty *confirmable* korzystają z ACK i retransmisji. Komunikaty *non-confirmable* nie zapewniają takiego potwierdzenia.
+Tryb **potwierdzany**: komunikaty *confirmable* mają ACK i retransmisję; *non-confirmable* — nie.
 :::
 :::
 

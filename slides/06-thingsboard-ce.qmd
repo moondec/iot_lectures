@@ -198,7 +198,7 @@ Zrzut ekranu z konfiguracją urządzenia to najczęstszy sposób przypadkowego u
 ::: {.column width="48%"}
 ```{mermaid}
 %%| fig-width: 6.6
-%%| fig-height: 3.7
+%%| fig-height: 3.3
 %%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6}}}%%
 sequenceDiagram
     participant U as Pulpit
@@ -207,7 +207,7 @@ sequenceDiagram
     U->>P: setSwitch(true)
     P->>D: request/42
     Note over D: wykonaj<br>i zmierz stan
-    D->>P: response/42<br>pump: true
+    D->>P: response/42: pump=true
     P->>U: POTWIERDZONY
 ```
 
