@@ -57,16 +57,16 @@ format:
 ::: {.column width="48%"}
 ```{mermaid}
 %%| fig-width: 6.6
-%%| fig-height: 3.8
-%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
+%%| fig-height: 5
+%%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
 flowchart TD
     A["Anemometr<br>10 Hz"]
     B["Analizator gazu<br>10 Hz"]
     C("Brzeg sieci<br>agregacja · walidacja")
     D[("Platforma<br>szeregi czasowe")]
     G[("Arkusz<br>raport")]
-    A -- "surowy strumień" --> C
-    B -- "surowy strumień" --> C
+    A --> C
+    B --> C
     C -- "średnie 1-min" --> D
     C -- "strumienie 30-min" --> G
     classDef n fill:#e8f2f4,stroke:#0b6b78,stroke-width:2px,color:#0b3b45
@@ -251,42 +251,38 @@ Dlatego arkusz otrzymuje dane **zagregowane** i **wsadowo** — jedno żądanie 
 
 ::: {.columns}
 ::: {.column width="50%"}
-::: {.incremental}
-* **Błąd zapisu nie może kończyć przepływu.** Komunikat wraca do kolejki z rosnącym opóźnieniem, a po wyczerpaniu prób ląduje w logu odrzuceń.
-* **Kolejność wierszy nie jest gwarantowana** przy ponowieniach. Jeżeli ma znaczenie — sortujemy po `ts`, a nie po kolejności wpisu.
-* **Arkusz nie jest bazą telemetryczną.** Ma limit komórek na plik (rzędu **10–20 mln**) i nie ma indeksów czasowych ani wydajnych zapytań. Szeregi czasowe trzymamy w platformie z modułu 06.
-:::
+* **Błąd zapisu nie kończy przepływu** — komunikat wraca do kolejki z rosnącym opóźnieniem, a po limicie prób trafia do logu odrzuceń.
+* **Kolejność wierszy nie jest gwarantowana** — sortujemy po `ts`.
 :::
 
 ::: {.column width="50%"}
-::: {.mermaid-wysoka}
+* **Arkusz nie jest bazą telemetryczną**: limit komórek na plik (rzędu **10–20 mln**), brak indeksów czasowych. Szeregi czasowe trzyma platforma (moduł 06).
+:::
+:::
+
+::: {.kompakt}
 ```{mermaid}
-%%| fig-width: 6.7
-%%| fig-height: 4.3
-%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
-flowchart TD
+%%| fig-width: 12
+%%| fig-height: 2.4
+%%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
+flowchart LR
     Z["Zapis wiersza"] --> R{"Odpowiedź"}
     R -- "2xx" --> OK["Gotowe"]
-    R -- "429 / 5xx" --> B["Kolejka ponowień<br>backoff + jitter · limit prób"]
+    R -- "429 / 5xx" --> B["Kolejka ponowień<br>backoff + jitter"]
     B -- "kolejna próba" --> Z
     B -- "limit wyczerpany" --> L["Log odrzuceń<br>powód + treść"]
-    R -- "401" --> T["Odśwież token<br>ponów raz"]
+    R -- "401" --> T["Odśwież token,<br>ponów raz"]
     T --> Z
     R -- "inne 4xx" --> L
     classDef n fill:#e8f2f4,stroke:#0b6b78,stroke-width:2px,color:#0b3b45
     classDef r fill:#fdf3f4,stroke:#b02a37,stroke-width:2px,color:#8f2029
-    class Z,R,OK n
+    class Z,R,OK,T n
     class B,L r
-    class T n
 ```
-:::
-:::
 :::
 
 ::: {.fragment}
-**Rozróżnienie, które ratuje przepływ:** 429 i 5xx ponawiamy, bo problem jest przejściowy. Pozostałe 4xx
-(np. 403 — brak uprawnień konta usługi do arkusza) ponawiać nie ma sensu; wyjątkiem jest 401 — po odświeżeniu tokenu — ponowienie da ten sam wynik,
-a zatka kolejkę.
+**Rozróżnienie, które ratuje przepływ:** 429 i 5xx ponawiamy — problem jest przejściowy. Pozostałe 4xx (np. 403, brak uprawnień) nie: ponowienie da ten sam wynik i zatka kolejkę. Wyjątek: 401 — po odświeżeniu tokenu ponawiamy raz.
 :::
 
 ---

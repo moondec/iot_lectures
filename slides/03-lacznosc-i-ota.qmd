@@ -269,26 +269,26 @@ Ten sam rachunek dla czujnika w polu, bez zasilania i bez sterowania, dałby LoR
 ## <i class="bi bi-arrow-repeat"></i> Ponowne łączenie z wycofaniem {#reconnect}
 
 ::: {.columns}
-::: {.column width="48%"}
-::: {.incremental}
-* Próba połączenia ma **limit czasu**. Brak limitu zawiesza urządzenie na stałe — to najczęstszy błąd w firmware studenckim.
-* Odstęp między próbami rośnie wykładniczo: 1, 2, 4, 8, 16 s, z **górnym ograniczeniem**.
-* Do odstępu dokładamy **losowy jitter**, żeby cała grupa urządzeń nie wracała do sieci równocześnie po zaniku zasilania.
-* Siła sygnału, adres IP i wersja firmware to **atrybuty**, publikowane przy zmianie — nie telemetria wysyłana w każdym cyklu.
+::: {.column width="50%"}
+* Próba połączenia ma **limit czasu** — bez niego urządzenie zawiesza się na stałe.
+* Odstęp rośnie wykładniczo: 1, 2, 4, 8, 16 s, z **górnym ograniczeniem**.
+:::
+
+::: {.column width="50%"}
+* **Losowy jitter** — grupa urządzeń nie wraca do sieci równocześnie.
+* Siła sygnału, IP, wersja firmware to **atrybuty** wysyłane przy zmianie.
 :::
 :::
 
-::: {.column width="52%"}
-::: {.mermaid-wysoka}
 ```{mermaid}
-%%| fig-width: 7.2
-%%| fig-height: 5.2
-%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
-flowchart TD
-    S["Start / utrata łącza"] --> B["Wyjście w stan bezpieczny"]
-    B --> P{"Próba połączenia<br>z limitem czasu"}
+%%| fig-width: 12
+%%| fig-height: 2.6
+%%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
+flowchart LR
+    S["Start /<br>utrata łącza"] --> B["Stan<br>bezpieczny"]
+    B --> P["Próba połączenia<br>z limitem czasu"]
     P -- "sukces" --> O["Praca normalna<br>publikacja stanu"]
-    P -- "porażka" --> W["Odczekaj<br>min(2ⁿ · t₀, t_max) + jitter"]
+    P -- "porażka" --> W["Odczekaj<br>min(2ⁿ·t₀, t_max) + jitter"]
     W --> P
     O -- "utrata łącza" --> B
     classDef n fill:#e8f2f4,stroke:#0b6b78,stroke-width:2px,color:#0b3b45
@@ -296,9 +296,6 @@ flowchart TD
     class O,P n
     class B,W r
 ```
-:::
-:::
-:::
 
 ::: {.fragment}
 **Brak sieci nie zwalnia z odpowiedzialności za wyjście.** Aktuator przechodzi w stan bezpieczny zdefiniowany w module 02 — zanim zaczniemy ponawiać połączenie.
@@ -351,7 +348,7 @@ Nowy obraz trafia do partycji **nieużywanej w danym rozruchu**. Dopiero po wery
 ```{mermaid}
 %%| fig-width: 7.4
 %%| fig-height: 4.2
-%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
+%%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
 flowchart TD
     subgraph F["Pamięć flash"]
       O0["<b>ota_0</b><br>wersja 1.4.2<br><i>działa teraz</i>"]

@@ -332,12 +332,10 @@ Te pięć pozycji to jednocześnie lista ryzyk projektu. Jeśli któraś jest pu
 
 [Ten sam system rozwijamy przez wszystkie siedem modułów.]{.lead}
 
-::: {.columns}
-::: {.column width="56%"}
 ```{mermaid}
-%%| fig-width: 7.6
-%%| fig-height: 3.4
-%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
+%%| fig-width: 12
+%%| fig-height: 3.2
+%%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
 flowchart LR
     D["Urządzenie<br>Nano ESP32 / Stamp-C3U<br>czujnik + wyjście"]
     W(("Wi-Fi<br>2,4 GHz"))
@@ -348,17 +346,19 @@ flowchart LR
     D --> W --> M
     M --> N --> G
     M --> T
-    T -. "polecenie" .-> M -.-> D
+    T -. "polecenie" .-> M
     classDef k fill:#e8f2f4,stroke:#0b6b78,stroke-width:2px,color:#0b3b45
     class D,M,N,T k
 ```
-:::
 
-::: {.column width="44%"}
+::: {.columns}
+::: {.column width="50%"}
 **Decyzja, którą system ma wesprzeć**
 
 Czy w tej chwili włączyć wyjście wykonawcze — i czy wartość, na podstawie której to robimy, jest wiarygodna.
+:::
 
+::: {.column width="50%"}
 **Co jest założeniem, nie częścią systemu**
 
 sieć budynku · broker · konto usługi arkusza · instalacja platformy

@@ -443,7 +443,7 @@ body.media-zoom-open #review-toolbar {
 .reveal .mermaid svg {
   max-width: 100% !important;
   width: 100%;
-  max-height: 470px;
+  max-height: 560px;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -459,18 +459,12 @@ body.media-zoom-open #review-toolbar {
   white-space: normal !important;
 }
 
-/* Diagramy sekwencji Mermaid nie dziedziczą themeVariables.fontSize. */
-.reveal svg text.actor,
-.reveal svg .actor text,
-.reveal svg .messageText,
-.reveal svg .noteText,
-.reveal svg .loopText,
-.reveal svg .labelText {
-  font-size: 20px !important;
-}
+/* Sequence-diagram font sizes are set in each diagram's init block
+   (sequence.*FontSize) so Mermaid lays out boxes for the real text size;
+   overriding them here in CSS made labels overflow their boxes. */
 
 .reveal .mermaid-wysoka svg[id^="mermaid-figure"] {
-  max-height: 560px;
+  max-height: 640px;
 }
 
 .reveal .kompakt svg[id^="mermaid-figure"] {

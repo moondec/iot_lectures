@@ -114,14 +114,14 @@ Zmiana okresu próbkowania z 60 s na 300 s to **edycja pola w interfejsie**, nie
 ```{mermaid}
 %%| fig-width: 6.4
 %%| fig-height: 3.6
-%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
+%%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
 flowchart TD
-    P["Platforma<br><small>atrybut współdzielony<br>samplingPeriodSec = 300</small>"]
-    D["Urządzenie<br><small>subskrybuje atrybuty</small>"]
-    N["Nowe zachowanie<br><small>bez wgrywania firmware</small>"]
-    P -- "publikacja zmiany" --> D
-    D -- "zapis do pamięci<br>nieulotnej" --> N
-    N -. "potwierdzenie<br>jako atrybut klienta" .-> P
+    P["Platforma<br>samplingPeriodSec = 300"]
+    D["ESP32<br>zapis w NVS"]
+    N["Nowe zachowanie"]
+    P -- "zmiana" --> D
+    D --> N
+    N -. "potwierdzenie" .-> P
     classDef n fill:#e8f2f4,stroke:#0b6b78,stroke-width:2px,color:#0b3b45
     class P,D,N n
 ```
@@ -199,17 +199,16 @@ Zrzut ekranu z konfiguracją urządzenia to najczęstszy sposób przypadkowego u
 ```{mermaid}
 %%| fig-width: 6.6
 %%| fig-height: 4.4
-%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
+%%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6}}}%%
 sequenceDiagram
     participant U as Pulpit
     participant P as Platforma
-    participant D as Urządzenie
+    participant D as ESP32
     U->>P: setSwitch(true)
-    P->>D: rpc/request/42 {method, params}
-    Note over D: sprawdź, czy 42<br>już wykonano
-    Note over D: wykonaj · zmierz<br>rzeczywisty stan wyjścia
-    D->>P: rpc/response/42 {pump: true}
-    P->>U: stan POTWIERDZONY
+    P->>D: request/42
+    Note over D: wykonaj<br>i zmierz stan
+    D->>P: response/42<br>pump: true
+    P->>U: POTWIERDZONY
 ```
 
 ::: {.fragment}

@@ -279,14 +279,14 @@ Segmentacja VLAN ogranicza zasięg ataku **tylko wtedy**, gdy ruch między sieci
 ```{mermaid}
 %%| fig-width: 8.4
 %%| fig-height: 5.1
-%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
-flowchart TD
-    subgraph B["Sieć biurowa / serwery"]
+%%{init: {"themeVariables": {"fontSize": "30px"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 6, "diagramPadding": 4}}}%%
+flowchart LR
+    subgraph B["Biuro"]
       PC(("Stacja<br>robocza"))
       DB[("Zasoby<br>sieciowe")]
     end
     FW{"Zapora<br><b>odmowa domyślna</b>"}
-    subgraph I["Segment IoT"]
+    subgraph I["IoT"]
       S1["Czujnik<br>klimatu"]
       S2["Kamera"]
     end

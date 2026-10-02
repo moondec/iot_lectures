@@ -160,18 +160,18 @@ Polecenie `retained` zostanie więc wykonane ponownie **przy każdym restarcie u
 ```{mermaid}
 %%| fig-width: 6.8
 %%| fig-height: 3.2
-%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
+%%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6}}}%%
 sequenceDiagram
     participant O as Operator
     participant B as Broker
-    participant D as Urządzenie
-    O->>B: PUBLISH command {pump:true} retained
+    participant D as ESP32
+    O->>B: {pump:true}, retained
     B->>D: {pump:true}
-    Note over D: pompa startuje — zgodnie z wolą operatora
+    Note over D: pompa startuje<br>(decyzja operatora)
     Note over D: zanik zasilania
-    D->>B: CONNECT + SUBSCRIBE command
+    D->>B: CONNECT + SUBSCRIBE
     B->>D: {pump:true} (retained!)
-    Note over D: pompa startuje SAMA,<br>bez decyzji człowieka
+    Note over D: pompa startuje SAMA
 ```
 :::
 :::
@@ -234,24 +234,53 @@ Platforma, której użyjemy w module 06, obsługuje **wyłącznie QoS 0 i 1**. P
 
 ## <i class="bi bi-arrow-left-right"></i> Sekwencja trzech poziomów {#qos-sekwencja}
 
+::: {.columns}
+::: {.column width="33%"}
+**QoS 0 — wyślij i zapomnij**
+
 ```{mermaid}
-%%| fig-width: 10
-%%| fig-height: 4.4
-%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
+%%| fig-width: 4.6
+%%| fig-height: 4.2
+%%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6}}}%%
 sequenceDiagram
     participant C as Czujnik
     participant B as Broker
-    Note over C,B: QoS 0 — wyślij i zapomnij
     C->>B: PUBLISH
-    Note over C,B: QoS 1 — co najmniej raz
+```
+:::
+
+::: {.column width="33%"}
+**QoS 1 — co najmniej raz**
+
+```{mermaid}
+%%| fig-width: 4.6
+%%| fig-height: 4.2
+%%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6}}}%%
+sequenceDiagram
+    participant C as Czujnik
+    participant B as Broker
     C->>B: PUBLISH
     B-->>C: PUBACK
-    Note over C,B: QoS 2 — dokładnie raz
+```
+:::
+
+::: {.column width="33%"}
+**QoS 2 — dokładnie raz**
+
+```{mermaid}
+%%| fig-width: 4.6
+%%| fig-height: 4.2
+%%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6}}}%%
+sequenceDiagram
+    participant C as Czujnik
+    participant B as Broker
     C->>B: PUBLISH
     B-->>C: PUBREC
     C->>B: PUBREL
     B-->>C: PUBCOMP
 ```
+:::
+:::
 
 ::: {.fragment}
 Koszt energetyczny rośnie z liczbą wymian: QoS 2 to **cztery pakiety** zamiast jednego, a radio musi
@@ -358,16 +387,16 @@ Dzięki temu **QoS 1 z duplikatami przestaje być problemem**, a odpowiedź moż
 ```{mermaid}
 %%| fig-width: 6.6
 %%| fig-height: 3.8
-%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
+%%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6}}}%%
 sequenceDiagram
     participant B as Broker
-    participant D as Urządzenie
-    B->>D: command req_id=c7f1-0042
-    Note over D: nieznany identyfikator<br>→ wykonaj, zapamiętaj
-    D->>B: response req_id=c7f1-0042, pump=true
-    B->>D: command req_id=c7f1-0042 (duplikat QoS 1)
-    Note over D: znany identyfikator<br>→ NIE wykonuj ponownie
-    D->>B: response req_id=c7f1-0042, pump=true
+    participant D as ESP32
+    B->>D: req_id=0042
+    Note over D: nowy → wykonaj,<br>zapamiętaj
+    D->>B: odp. 0042, pump=true
+    B->>D: req_id=0042 (duplikat)
+    Note over D: znany →<br>NIE wykonuj
+    D->>B: odp. 0042, pump=true
 ```
 
 ::: {.fragment}
