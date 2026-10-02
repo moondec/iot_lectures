@@ -1,0 +1,497 @@
+{
+ "testow": 96,
+ "zaliczonych": 96,
+ "bledow": 0,
+ "talie": [
+  "00-internet-przyszlosci.html",
+  "01-architektura-i-wymagania.html",
+  "02-urzadzenie-sensory-energia.html",
+  "03-lacznosc-i-ota.html",
+  "04-mqtt-i-kontrakt-danych.html",
+  "05-brzeg-node-red-sheets.html",
+  "06-thingsboard-ce.html",
+  "07-odpornosc-bezpieczenstwo-eksploatacja.html"
+ ],
+ "wyniki": [
+  {
+   "test": "Liczba talii = 8",
+   "ok": true,
+   "szczegol": "znaleziono 8"
+  },
+  {
+   "test": "Strona indeksowa istnieje",
+   "ok": true,
+   "szczegol": ""
+  },
+  {
+   "test": "Brak dodatkowych stron w katalogu głównym",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "Brak oryginalnych talii w wyniku",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "00-internet-przyszlosci.html: slajdy obowiązkowe",
+   "ok": true,
+   "szczegol": ""
+  },
+  {
+   "test": "00-internet-przyszlosci.html: podsumowanie / zamknięcie",
+   "ok": true,
+   "szczegol": ""
+  },
+  {
+   "test": "01-architektura-i-wymagania.html: slajdy obowiązkowe",
+   "ok": true,
+   "szczegol": ""
+  },
+  {
+   "test": "01-architektura-i-wymagania.html: podsumowanie / zamknięcie",
+   "ok": true,
+   "szczegol": ""
+  },
+  {
+   "test": "02-urzadzenie-sensory-energia.html: slajdy obowiązkowe",
+   "ok": true,
+   "szczegol": ""
+  },
+  {
+   "test": "02-urzadzenie-sensory-energia.html: podsumowanie / zamknięcie",
+   "ok": true,
+   "szczegol": ""
+  },
+  {
+   "test": "03-lacznosc-i-ota.html: slajdy obowiązkowe",
+   "ok": true,
+   "szczegol": ""
+  },
+  {
+   "test": "03-lacznosc-i-ota.html: podsumowanie / zamknięcie",
+   "ok": true,
+   "szczegol": ""
+  },
+  {
+   "test": "04-mqtt-i-kontrakt-danych.html: slajdy obowiązkowe",
+   "ok": true,
+   "szczegol": ""
+  },
+  {
+   "test": "04-mqtt-i-kontrakt-danych.html: podsumowanie / zamknięcie",
+   "ok": true,
+   "szczegol": ""
+  },
+  {
+   "test": "05-brzeg-node-red-sheets.html: slajdy obowiązkowe",
+   "ok": true,
+   "szczegol": ""
+  },
+  {
+   "test": "05-brzeg-node-red-sheets.html: podsumowanie / zamknięcie",
+   "ok": true,
+   "szczegol": ""
+  },
+  {
+   "test": "06-thingsboard-ce.html: slajdy obowiązkowe",
+   "ok": true,
+   "szczegol": ""
+  },
+  {
+   "test": "06-thingsboard-ce.html: podsumowanie / zamknięcie",
+   "ok": true,
+   "szczegol": ""
+  },
+  {
+   "test": "07-odpornosc-bezpieczenstwo-eksploatacja.html: slajdy obowiązkowe",
+   "ok": true,
+   "szczegol": ""
+  },
+  {
+   "test": "07-odpornosc-bezpieczenstwo-eksploatacja.html: podsumowanie / zamknięcie",
+   "ok": true,
+   "szczegol": ""
+  },
+  {
+   "test": "00-internet-przyszlosci.html: identyfikatory unikalne",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "01-architektura-i-wymagania.html: identyfikatory unikalne",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "02-urzadzenie-sensory-energia.html: identyfikatory unikalne",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "03-lacznosc-i-ota.html: identyfikatory unikalne",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "04-mqtt-i-kontrakt-danych.html: identyfikatory unikalne",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "05-brzeg-node-red-sheets.html: identyfikatory unikalne",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "06-thingsboard-ce.html: identyfikatory unikalne",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "07-odpornosc-bezpieczenstwo-eksploatacja.html: identyfikatory unikalne",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "00-internet-przyszlosci.html: brak aside.notes",
+   "ok": true,
+   "szczegol": "znaleziono 0"
+  },
+  {
+   "test": "01-architektura-i-wymagania.html: brak aside.notes",
+   "ok": true,
+   "szczegol": "znaleziono 0"
+  },
+  {
+   "test": "02-urzadzenie-sensory-energia.html: brak aside.notes",
+   "ok": true,
+   "szczegol": "znaleziono 0"
+  },
+  {
+   "test": "03-lacznosc-i-ota.html: brak aside.notes",
+   "ok": true,
+   "szczegol": "znaleziono 0"
+  },
+  {
+   "test": "04-mqtt-i-kontrakt-danych.html: brak aside.notes",
+   "ok": true,
+   "szczegol": "znaleziono 0"
+  },
+  {
+   "test": "05-brzeg-node-red-sheets.html: brak aside.notes",
+   "ok": true,
+   "szczegol": "znaleziono 0"
+  },
+  {
+   "test": "06-thingsboard-ce.html: brak aside.notes",
+   "ok": true,
+   "szczegol": "znaleziono 0"
+  },
+  {
+   "test": "07-odpornosc-bezpieczenstwo-eksploatacja.html: brak aside.notes",
+   "ok": true,
+   "szczegol": "znaleziono 0"
+  },
+  {
+   "test": "index.html: brak aside.notes",
+   "ok": true,
+   "szczegol": "znaleziono 0"
+  },
+  {
+   "test": "Katalog notes/ poza wynikiem",
+   "ok": true,
+   "szczegol": ""
+  },
+  {
+   "test": "00-internet-przyszlosci.html: brak zaślepek",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "01-architektura-i-wymagania.html: brak zaślepek",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "02-urzadzenie-sensory-energia.html: brak zaślepek",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "03-lacznosc-i-ota.html: brak zaślepek",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "04-mqtt-i-kontrakt-danych.html: brak zaślepek",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "05-brzeg-node-red-sheets.html: brak zaślepek",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "06-thingsboard-ce.html: brak zaślepek",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "07-odpornosc-bezpieczenstwo-eksploatacja.html: brak zaślepek",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "index.html: brak zaślepek",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "00-internet-przyszlosci.html: brak metakomentarzy redakcyjnych",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "01-architektura-i-wymagania.html: brak metakomentarzy redakcyjnych",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "02-urzadzenie-sensory-energia.html: brak metakomentarzy redakcyjnych",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "03-lacznosc-i-ota.html: brak metakomentarzy redakcyjnych",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "04-mqtt-i-kontrakt-danych.html: brak metakomentarzy redakcyjnych",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "05-brzeg-node-red-sheets.html: brak metakomentarzy redakcyjnych",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "06-thingsboard-ce.html: brak metakomentarzy redakcyjnych",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "07-odpornosc-bezpieczenstwo-eksploatacja.html: brak metakomentarzy redakcyjnych",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "index.html: brak metakomentarzy redakcyjnych",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "00-internet-przyszlosci.html: brak sekretów",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "01-architektura-i-wymagania.html: brak sekretów",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "02-urzadzenie-sensory-energia.html: brak sekretów",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "03-lacznosc-i-ota.html: brak sekretów",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "04-mqtt-i-kontrakt-danych.html: brak sekretów",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "05-brzeg-node-red-sheets.html: brak sekretów",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "06-thingsboard-ce.html: brak sekretów",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "07-odpornosc-bezpieczenstwo-eksploatacja.html: brak sekretów",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "index.html: brak sekretów",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "Manifest pokrywa wszystkie wyrenderowane slajdy",
+   "ok": true,
+   "szczegol": "bez wpisu: []"
+  },
+  {
+   "test": "Manifest nie zawiera slajdów nieistniejących",
+   "ok": true,
+   "szczegol": "nadmiarowe: []"
+  },
+  {
+   "test": "Manifest: dozwolone wartości origin",
+   "ok": true,
+   "szczegol": "{'new': 144, 'adapted': 35, 'retained': 8}"
+  },
+  {
+   "test": "Slajdy retained/adapted mają wskazane źródło",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "Brak identycznych długich akapitów w dwóch taliach",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "00-internet-przyszlosci.html: brak ścieżek bezwzględnych",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "01-architektura-i-wymagania.html: brak ścieżek bezwzględnych",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "02-urzadzenie-sensory-energia.html: brak ścieżek bezwzględnych",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "03-lacznosc-i-ota.html: brak ścieżek bezwzględnych",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "04-mqtt-i-kontrakt-danych.html: brak ścieżek bezwzględnych",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "05-brzeg-node-red-sheets.html: brak ścieżek bezwzględnych",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "06-thingsboard-ce.html: brak ścieżek bezwzględnych",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "07-odpornosc-bezpieczenstwo-eksploatacja.html: brak ścieżek bezwzględnych",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "index.html: brak ścieżek bezwzględnych",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "00-internet-przyszlosci.html: skrypty i style lokalne",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "01-architektura-i-wymagania.html: skrypty i style lokalne",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "02-urzadzenie-sensory-energia.html: skrypty i style lokalne",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "03-lacznosc-i-ota.html: skrypty i style lokalne",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "04-mqtt-i-kontrakt-danych.html: skrypty i style lokalne",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "05-brzeg-node-red-sheets.html: skrypty i style lokalne",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "06-thingsboard-ce.html: skrypty i style lokalne",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "07-odpornosc-bezpieczenstwo-eksploatacja.html: skrypty i style lokalne",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "index.html: skrypty i style lokalne",
+   "ok": true,
+   "szczegol": "[]"
+  },
+  {
+   "test": "00-internet-przyszlosci.html: 28 slajdów merytorycznych w zakresie 12–28",
+   "ok": true,
+   "szczegol": "28"
+  },
+  {
+   "test": "01-architektura-i-wymagania.html: 17 slajdów merytorycznych w zakresie 12–28",
+   "ok": true,
+   "szczegol": "17"
+  },
+  {
+   "test": "02-urzadzenie-sensory-energia.html: 20 slajdów merytorycznych w zakresie 12–28",
+   "ok": true,
+   "szczegol": "20"
+  },
+  {
+   "test": "03-lacznosc-i-ota.html: 20 slajdów merytorycznych w zakresie 12–28",
+   "ok": true,
+   "szczegol": "20"
+  },
+  {
+   "test": "04-mqtt-i-kontrakt-danych.html: 18 slajdów merytorycznych w zakresie 12–28",
+   "ok": true,
+   "szczegol": "18"
+  },
+  {
+   "test": "05-brzeg-node-red-sheets.html: 14 slajdów merytorycznych w zakresie 12–28",
+   "ok": true,
+   "szczegol": "14"
+  },
+  {
+   "test": "06-thingsboard-ce.html: 17 slajdów merytorycznych w zakresie 12–28",
+   "ok": true,
+   "szczegol": "17"
+  },
+  {
+   "test": "07-odpornosc-bezpieczenstwo-eksploatacja.html: 18 slajdów merytorycznych w zakresie 12–28",
+   "ok": true,
+   "szczegol": "18"
+  }
+ ]
+}

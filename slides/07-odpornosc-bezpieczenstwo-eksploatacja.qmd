@@ -1,0 +1,542 @@
+---
+title: "Odporność, bezpieczeństwo i eksploatacja"
+subtitle: "Wykład 7 — jak system sam zauważa, że coś przestało działać"
+author: "prof. UPP dr hab. inż. Marek Urbaniak"
+institute: "Wydział Inżynierii Środowiska i Inżynierii Mechanicznej<br>Uniwersytet Przyrodniczy w Poznaniu"
+body-classes: tlo-blue
+format:
+  revealjs:
+    footer: "Internet Rzeczy · Wykład 7 — Odporność, bezpieczeństwo i eksploatacja"
+---
+
+## <i class="bi bi-compass"></i> Po co ten wykład {#cele}
+
+[Pytanie modułu: **skąd system wie, że urządzenie zamilkło — i co się wtedy dzieje?**]{.lead}
+
+::: {.columns}
+::: {.column width="52%"}
+### Cele
+
+::: {.incremental}
+* Skonfigurować wykrycie nieaktywności tak, żeby nie generowało fałszywych alarmów.
+* Zbudować model zagrożeń z czterema powierzchniami ataku i minimalnym środkiem dla każdej.
+* Przeprowadzić powtarzalny plan testów awarii.
+* Nazwać obowiązki, które wychodzą poza kod — retencję, minimalizację i wyjście z systemu.
+:::
+:::
+
+::: {.column width="48%"}
+### Droga
+
+1. Rama: kto odpowiada za skutki
+2. Wykrycie nieaktywności i jego pułapki
+3. Model zagrożeń
+4. Bezpieczeństwo w praktyce
+5. Plan testów awarii
+6. Prywatność, regulacje, wyjście z systemu
+:::
+:::
+
+# Rama {#sekcja-rama .sekcja background-color="#0b3b45"}
+
+## <i class="bi bi-people"></i> Kto tworzy skutki {#rama}
+
+::: {.columns}
+::: {.column width="52%"}
+::: {.callout-note title="Punkt wyjścia" style="font-size: 0.95em;"}
+Rewolucje w technologii informacyjnej przeprowadzają **inżynierowie, przedsiębiorcy i naukowcy**, którzy często nie zdają sobie sprawy z konsekwencji własnych decyzji — i z całą pewnością nikogo nie reprezentują.
+:::
+
+::: {.incremental}
+* Technologia nie ma moralności — jest neutralnym wektorem.
+* To **cel i sposób wdrożenia** decydują, czy ten sam czujnik obecności służy oszczędzaniu energii, czy rejestrowaniu rozkładu dnia mieszkańca.
+* Decyzja, **co mierzyć i jak długo to przechowywać**, jest decyzją inżynierską o takim samym statusie jak dobór czujnika.
+:::
+:::
+
+::: {.column width="48%"}
+::: {.fragment}
+::: {.callout-important title="Dlaczego to jest w module o eksploatacji"}
+Etyka nie jest tu dygresją ani zakończeniem. Umieszczamy ją przy eksploatacji, bo **wszystkie jej konsekwencje ujawniają się po wdrożeniu**: w retencji danych, w zakresie uprawnień, w tym, co zostaje po wyłączeniu systemu.
+
+Projekt, który nie odpowiada na pytanie „jak to wyłączyć, nie niszcząc zapisów", nie jest skończony.
+:::
+:::
+:::
+:::
+
+# Odporność {.sekcja background-color="#0b3b45"}
+
+## <i class="bi bi-activity"></i> Na czym opiera się wykrycie nieaktywności {#nieaktywnosc}
+
+::: {.columns}
+::: {.column width="52%"}
+Usługa stanu urządzenia utrzymuje zestaw atrybutów serwerowych:
+
+| Pole | Typ | Znaczenie |
+|:---|:---|:---|
+| `active` | logiczny | **na tym polu budujemy alarm** |
+| `lastConnectTime` | ms od epoki | ostatnie zestawienie sesji |
+| `lastDisconnectTime` | ms od epoki | ostatnie zamknięcie sesji |
+| `lastActivityTime` | ms od epoki | ostatnia telemetria, atrybut lub RPC |
+| `inactivityAlarmTime` | ms od epoki | ostatnie zdarzenie nieaktywności |
+:::
+
+::: {.column width="48%"}
+::: {.incremental}
+* Domyślny czas bezczynności to **600 s** (`DEFAULT_INACTIVITY_TIMEOUT`); platforma sprawdza urządzenia co **60 s** (`DEFAULT_STATE_CHECK_INTERVAL`).
+* Dla jednego urządzenia próg nadpisujemy atrybutem serwerowym `inactivityTimeout` **w milisekundach** — do szybkiego laboratorium wystarcza `60000`.
+* Usługa emituje cztery zdarzenia: `Connect`, `Disconnect`, `Activity`, `Inactivity`.
+* Dla transportu HTTP i CoAP zdarzenia połączenia pojawiają się **przy każdym żądaniu** — dlatego sensowne jest opieranie się na aktywności i nieaktywności, nie na połączeniu.
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-exclamation-triangle"></i> Pułapka: fałszywy alarm przy zbyt krótkim progu {#pulapka}
+
+::: {.columns}
+::: {.column width="54%"}
+Aktywność jest raportowana do usługi stanu **wsadowo**. Domyślna strategia `LAST` zgłasza tylko
+ostatnią aktywność z okresu o długości `TB_TRANSPORT_SESSIONS_REPORT_TIMEOUT` — domyślnie **3000 ms**.
+
+::: {.fragment}
+Jeżeli próg nieaktywności jest **krótszy** od okresu raportowania, urządzenie publikujące co sekundę
+zostanie **błędnie uznane za nieaktywne**.
+:::
+
+::: {.fragment}
+::: {.callout-tip title="Zasada doboru progu"}
+Próg nieaktywności w sekundach **nie mniejszy** niż okres raportowania aktywności podzielony przez 1000 — z zapasem na realne przerwy między komunikatami.
+
+Dla ustawień domyślnych: minimum **3 s**, praktycznie **60 s** (dwudziestokrotny zapas).
+:::
+:::
+:::
+
+::: {.column width="46%"}
+::: {.callout-warning title="Drugi parametr, o którym się zapomina"}
+`TB_TRANSPORT_SESSIONS_INACTIVITY_TIMEOUT` (domyślnie **300 000 ms**) to **osobny** parametr — timeout sesji transportowej.
+
+Utrzymujemy go **nie krótszym** od progu nieaktywności urządzenia. Inaczej urządzenie zostanie uznane za nieaktywne przy wciąż otwartej sesji, a diagnoza pójdzie w złą stronę: będziemy szukać problemu w sieci, choć przyczyną jest konfiguracja.
+:::
+
+::: {.fragment}
+**Fałszywy alarm jest gorszy niż brak alarmu**, bo uczy operatora ignorowania powiadomień.
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-bell"></i> Alarm i dowód jego zamknięcia {#alarm}
+
+```{mermaid}
+%%| fig-width: 12
+%%| fig-height: 2.8
+%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
+flowchart LR
+    A["Telemetria<br>napływa"] -- "cisza dłuższa<br>niż próg" --> B["Zdarzenie<br>Inactivity"]
+    B --> C["Alarm<br>aktywny"]
+    C --> D["Powiadomienie<br>wysłane RAZ"]
+    C -- "telemetria wraca" --> E["Alarm zamknięty<br>samoczynnie (clear)"]
+    E --> A
+    classDef n fill:#e8f2f4,stroke:#0b6b78,stroke-width:2px,color:#0b3b45
+    classDef r fill:#fdf3f4,stroke:#b02a37,stroke-width:2px,color:#8f2029
+    class A,E n
+    class B,C,D r
+```
+
+::: {.columns}
+::: {.column width="50%"}
+**Dwa wymagania, które łatwo pominąć**
+
+* Powiadomienie wysłane **raz**, nie przy każdym cyklu sprawdzania.
+* Alarm zamyka się **samoczynnie** po powrocie urządzenia — bez ręcznej interwencji operatora.
+:::
+
+::: {.column width="50%"}
+::: {.fragment}
+::: {.callout-note title="Dowód, nie deklaracja"}
+Alarm, który nigdy się nie zamknął, wygląda w historii tak samo jak awaria trwająca do dziś. Test zamknięcia alarmu jest częścią odbioru — nie opcją.
+:::
+:::
+:::
+:::
+
+# Bezpieczeństwo {.sekcja background-color="#0b3b45"}
+
+## <i class="bi bi-shield-exclamation"></i> Model zagrożeń — cztery powierzchnie {#model-zagrozen}
+
+| Powierzchnia | Zagrożenie | Minimalny środek w pilocie |
+|:---|:---|:---|
+| **Urządzenie** | dostęp fizyczny, odczyt pamięci, wgranie obcego firmware | unikalne poświadczenia, podpisany obraz, anti-rollback |
+| **Łącze** | podsłuch, podszycie się, powtórzenie komunikatu | TLS, weryfikacja certyfikatu serwera, identyfikator żądania |
+| **Broker / brzeg** | publikacja w cudzym temacie, zalanie ruchem | ACL per urządzenie, limity, log odrzuceń |
+| **Platforma / dane** | nadmiar uprawnień, wyciek tokenów, nadmierna retencja | role, rotacja tokenów, jawny TTL danych |
+
+::: {.fragment}
+Każdy z tych środków pojawił się już wcześniej — anti-rollback w module 03, identyfikator żądania
+w 04, ACL w 04, log odrzuceń w 05, role i TTL w 06. **Ten slajd nie dokłada nowych mechanizmów;
+porządkuje istniejące według tego, przed czym chronią.**
+:::
+
+---
+
+## <i class="bi bi-bug"></i> Mirai — dwa różne incydenty {#mirai}
+
+::: {.columns}
+::: {.column width="52%"}
+To **dwa osobne incydenty**:
+
+**21 października 2016** — atak na operatora DNS **Dyn**. Objął szerszą klasę urządzeń niż same kamery IP: kamery, rejestratory DVR i routery domowe z **fabrycznymi poświadczeniami**.
+
+**listopad 2016** — wariant Mirai wykorzystujący lukę w interfejsie **TR-064** routerów Deutsche Telekom; pozbawił łączności ok. **900 tys.** klientów.
+
+![](../assets/img/axis-ip-cameras.png){width="48%" fig-alt="Dwie kamery sieciowe Axis: starsza kamera obrotowa i kompaktowa kamera kopułkowa."}
+
+::: {.zrodlo}
+Kamery sieciowe Axis 212PTZ i M3005-V. Fot. Bungle, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Axis_ip_dome_cameras.png), CC BY-SA 4.0. Pomniejszono.
+:::
+:::
+
+::: {.column width="48%"}
+**Mechanizm, który zadziałał**
+
+::: {.incremental}
+* Fabryczne, niezmienione hasła w urządzeniach dostępnych z internetu.
+* Brak aktualizacji przez cały okres eksploatacji.
+* Urządzenie, które nie ma właściciela odpowiedzialnego za jego bezpieczeństwo.
+:::
+
+::: {.fragment}
+::: {.callout-important title="Różnica wobec ataku na serwer WWW"}
+W IoT atakujący może przejąć kontrolę nad **fizycznymi zaworami i przekaźnikami** albo zafałszować krytyczne odczyty środowiskowe. Skutek nie kończy się na niedostępności usługi.
+:::
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-cpu"></i> „Brak mocy na kryptografię" — to już nieprawda {#kryptografia}
+
+::: {.columns}
+::: {.column width="50%"}
+**ESP32-S3 i ESP32-C3 mają akceleratory AES i SHA**; ESP-IDF obsługuje TLS. Układy wspierają też secure boot i szyfrowanie flash — **to nie znaczy, że są włączone**.
+
+Wymagają konfiguracji, zarządzania kluczami i podpisywania obrazów. Przed zmianą **eFuse** sprawdź rewizję układu oraz procedurę Espressif: część ustawień jest nieodwracalna.
+
+**Na naszym sprzęcie TLS jest wykonalny**, ale nadal wymaga budżetu RAM i energii.
+:::
+
+::: {.column width="50%"}
+**X.509 to format certyfikatu, nie algorytm:**
+
+* **X.509** — struktura certyfikatu,
+* **RSA, ECDSA** — algorytmy,
+* **TLS** — protokół, który ich używa.
+
+::: {.fragment}
+Certyfikat CA wgrany do urządzenia jest **częścią firmware** — a zatem podlega aktualizacji OTA i wygasa razem z łańcuchem zaufania.
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-diagram-3"></i> Obrona warstwowa {#defence}
+
+::: {.columns}
+::: {.column width="42%"}
+::: {.incremental}
+1. **Tożsamość** — osobne poświadczenia dla każdego urządzenia, certyfikaty X.509 przy TLS/DTLS.
+2. **Aktualizacje OTA** — zdalne łatanie podatności przez cały cykl życia.
+3. **Segmentacja sieci** — oddzielenie czujników od sieci biurowej.
+4. **Secure boot** — blokada uruchomienia nieautoryzowanego kodu.
+:::
+
+::: {.fragment}
+Segmentacja VLAN ogranicza zasięg ataku **tylko wtedy**, gdy ruch między sieciami przechodzi przez zaporę z regułami **odmowy domyślnej**. Sam podział na VLAN-y bez polityki filtrowania nie zapewnia izolacji.
+:::
+:::
+
+::: {.column width="58%"}
+::: {.mermaid-wysoka}
+```{mermaid}
+%%| fig-width: 8.4
+%%| fig-height: 5.1
+%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
+flowchart TD
+    subgraph B["Sieć biurowa / serwery"]
+      PC(("Stacja<br>robocza"))
+      DB[("Zasoby<br>sieciowe")]
+    end
+    FW{"Zapora<br><b>odmowa domyślna</b>"}
+    subgraph I["Segment IoT"]
+      S1["Czujnik<br>klimatu"]
+      S2["Kamera"]
+    end
+    PC --- FW
+    DB --- FW
+    FW -. "brak dostępu" .-> S1
+    FW -. "brak dostępu" .-> S2
+    classDef n fill:#e8f2f4,stroke:#0b6b78,stroke-width:2px,color:#0b3b45
+    classDef r fill:#fdf3f4,stroke:#b02a37,stroke-width:3px,color:#8f2029
+    class PC,DB,S1,S2 n
+    class FW r
+```
+:::
+:::
+:::
+
+# Eksploatacja {.sekcja background-color="#0b3b45"}
+
+## <i class="bi bi-clipboard-check"></i> Plan testów awarii {#testy-awarii}
+
+[Powtarzalny, nie improwizowany. Pięć scenariuszy z jawnym oczekiwanym zachowaniem.]{.lead}
+
+::: {.tabela-gesta}
+| Scenariusz | Czynność | Oczekiwane zachowanie |
+|:---|:---|:---|
+| **Utrata sieci** | odłącz punkt dostępowy | aktuator w stanie bezpiecznym · ponowienia z wycofaniem · alarm nieaktywności po ustalonym progu · powiadomienie wysłane **raz** |
+| **Powrót sieci** | włącz punkt dostępowy | alarm zamyka się **samoczynnie** · telemetria wraca bez interwencji · stan platformy zgodny ze stanem urządzenia |
+| **Zanik zasilania** | odetnij i przywróć zasilanie | urządzenie startuje w stanie bezpiecznym i **nie wykonuje zaległego polecenia** (dowód, że polecenia nie są `retained`) |
+| **Awaria czujnika** | rozłącz czujnik | odczyt odrzucony przez walidację · licznik odrzuceń **z powodem** · brak fałszywej wartości w arkuszu i na pulpicie |
+| **Nieudana aktualizacja** | wydaj obraz z błędną sumą kontrolną | stan `FAILED` i powrót do wersji poprzedniej (moduł 03) |
+:::
+
+::: {.fragment}
+Każdy scenariusz sprawdza mechanizm z innego modułu. To jest właściwy moment, żeby zobaczyć, że
+siedem wykładów opisywało **jeden system**, a nie siedem tematów.
+:::
+
+---
+
+## <i class="bi bi-envelope-exclamation"></i> Higiena testu powiadomień {#higiena}
+
+::: {.columns}
+::: {.column width="50%"}
+::: {.incremental}
+* W testach używamy wyłącznie adresów w domenie **`.invalid`** albo lokalnego serwera przechwytującego pocztę.
+* **Nie wysyłamy wiadomości testowych na adresy rzeczywiste** — ani własne, ani cudze.
+* Łańcuch reguł importujemy do **osobnego łańcucha**, nigdy do łańcucha głównego (root).
+:::
+:::
+
+::: {.column width="50%"}
+::: {.callout-warning title="Dlaczego osobny łańcuch"}
+Błąd w regule umieszczonej w łańcuchu głównym **zatrzymuje przetwarzanie całej dzierżawy** — także dla urządzeń, które z tą regułą nie mają nic wspólnego.
+
+Objaw: „platforma przestała odbierać telemetrię", przyczyna: jedna źle skonfigurowana reguła powiadomień w cudzym ćwiczeniu.
+:::
+
+::: {.fragment}
+Domena `.invalid` jest zarezerwowana przez IETF właśnie do takich zastosowań — adres w niej **nigdy** nie będzie istniał.
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-eye"></i> Prywatność: dane pośrednie {#prywatnosc}
+
+::: {.columns}
+::: {.column width="52%"}
+::: {.incremental}
+* **Licznik energii** mierzący zużycie co 10 sekund pozwala odczytać z profilu poboru, kiedy ktoś włącza czajnik, wychodzi z domu i wraca.
+* **Zabawki z mikrofonem** wysyłające nieszyfrowane nagrania do chmur w obcych jurysdykcjach bywały wycofywane z rynku europejskiego.
+* **Opaski aktywności** profilujące puls mogą posłużyć do różnicowania składki ubezpieczeniowej.
+:::
+
+::: {.fragment}
+::: {.callout-important title="Dane osobowe pośrednie"}
+Szereg czasowy zużycia energii albo obecności w pomieszczeniu pozwala odtworzyć rozkład dnia konkretnej osoby. Anonimowość „bo to tylko liczby" jest **złudzeniem projektanta**, nie właściwością danych.
+:::
+:::
+:::
+
+::: {.column width="48%"}
+**Minimalizacja jako wymaganie, nie deklaracja**
+
+::: {.incremental}
+* Zbieramy to, co potrzebne do **decyzji opisanej w module 01**.
+* Każde dodatkowe pole wymaga **uzasadnienia i terminu retencji**.
+* Filozofia „zbieramy wszystko, bo składowanie jest tanie" przenosi koszt z budżetu na ryzyko prawne — koszt nie znika.
+:::
+
+::: {.fragment}
+Pytanie kontrolne do każdego pola w kontrakcie danych z modułu 04: *jaką decyzję podejmiemy inaczej, mając to pole?*
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-file-earmark-text"></i> Obowiązki, które wychodzą poza kod {#obowiazki}
+
+::: {.columns}
+::: {.column width="52%"}
+**Cyber Resilience Act — stan faktyczny**
+
+**Rozporządzenie (UE) 2024/2847 — Cyber Resilience Act:**
+
+* **10 grudnia 2024** — wejście w życie,
+* **11 września 2026** — obowiązek raportowania aktywnie wykorzystywanych podatności,
+* **11 grudnia 2027** — zasadnicza część wymagań.
+
+::: {.fragment}
+Produkt z elementami cyfrowymi wprowadzany na rynek UE musi mieć zapewnione wsparcie bezpieczeństwa
+— a więc **mechanizm OTA przestaje być udogodnieniem i staje się wymogiem**.
+:::
+:::
+
+::: {.column width="48%"}
+**Dokumentacja wyjścia**
+
+::: {.incremental}
+* Jak **wyeksportować** dane w formacie nadającym się do dalszego użycia.
+* Jak **wyłączyć system, nie niszcząc zapisów**.
+* Kto przejmuje odpowiedzialność za dane po zakończeniu projektu.
+:::
+
+::: {.fragment}
+::: {.callout-note title="To część projektu, nie czynność po projekcie"}
+Projekt semestralny, którego nie da się wyłączyć bez utraty danych, jest niekompletny — niezależnie od tego, jak dobrze działa pulpit.
+:::
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-battery-charging"></i> Koszt energii jako rama zamykająca {#koszt-energii}
+
+::: {.columns}
+::: {.column width="55%"}
+::: {.incremental}
+* Dorosły człowiek przy ciężkiej pracy zużywa około **3000 kcal** dziennie — to **12,6 MJ**, czyli **3,5 kWh**.
+* Samochód potrzebuje około **2,5 MJ na kilometr**.
+* Stąd: przejechanie **5 km** samochodem uwalnia ładunek energetyczny porównywalny z całodobowym zapotrzebowaniem organizmu jednego człowieka.
+* Ludzki mózg wykonuje operacje, których nie powtórzy żadna serwerownia, pobierając **około 20 W**.
+:::
+
+::: {.fragment}
+Systemy komputerowe są prądożerne na wzór aut. Dlatego budżet energii z modułu 02 nie jest ćwiczeniem
+rachunkowym — jest jedynym miejscem, gdzie ten koszt staje się widoczny na etapie projektu.
+:::
+:::
+
+::: {.column width="45%"}
+::: {.liczby}
+<div><span class="w">12,6 MJ</span><span class="o">dobowe zapotrzebowanie człowieka</span></div>
+<div><span class="w">5 km</span><span class="o">tyle samo energii w samochodzie</span></div>
+<div><span class="w">20 W</span><span class="o">pobór mózgu</span></div>
+:::
+
+::: {.zrodlo}
+Przeliczenie: 3000 kcal × 4184 J/kcal = 12,55 MJ = 3,49 kWh. Wartości są poglądowe i zależą od osoby oraz pojazdu.
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-scales"></i> Bilans: korzyści i wyzwania {#bilans}
+
+::: {.columns}
+::: {.column width="50%"}
+### Korzyści
+
+::: {.incremental}
+* **Rolnictwo precyzyjne** — dawka wody i nawozu z pomiaru, nie z harmonogramu.
+* **Przewidywanie awarii** — czujniki drgań chronią maszyny, zanim łożysko się zatrze.
+* **Edge AI** — modele uczenia maszynowego działające bezpośrednio na mikrokontrolerze, bez łączności z chmurą.
+:::
+:::
+
+::: {.column width="50%"}
+### Wyzwania
+
+::: {.incremental}
+* **Odpady elektroniczne** — miliardy urządzeń z baterią niemożliwą do wymiany, zaklejonych w obudowie.
+* **Pozyskiwanie energii z otoczenia** — konieczność odejścia od ogniw jednorazowych.
+* **Własność danych** — kto jest właścicielem danych generowanych przez rzeczy w cudzym domu.
+:::
+:::
+:::
+
+::: {.fragment}
+Podawane dla 6G „opóźnienia sub-milisekundowe" są **celami badawczymi**, a nie parametrami wdrożonego standardu. Prace normalizacyjne 3GPP nad 6G nadal trwają.
+:::
+
+---
+
+## <i class="bi bi-question-circle"></i> Pytania sprawdzające {#pytania}
+
+::: {.pytania}
+* Urządzenie publikuje telemetrię co sekundę, a próg nieaktywności ustawiono na 2 s, „żeby alarm był szybki". W logu pojawiają się alarmy mimo działającego urządzenia. Wyjaśnij mechanizm i podaj najmniejszy bezpieczny próg dla domyślnych ustawień.
+* Zespół wykonał cztery z pięciu testów awarii, pomijając scenariusz nieudanej aktualizacji, bo „OTA działało przy wgrywaniu". Wskaż, czego ten pominięty test dowodzi, a czego udane wgranie nie dowodzi.
+* System mierzy obecność w salach laboratoryjnych, żeby sterować wentylacją. Kolega proponuje zwiększyć częstość z 5 min na 10 s, „bo dane się przydadzą". Podaj argument techniczny i argument prawny przeciw tej zmianie.
+:::
+
+---
+
+## <i class="bi bi-flag-fill"></i> Zamknięcie cyklu {#zamkniecie}
+
+::: {.callout-note icon=false appearance="simple" style="font-size: 1.35em; text-align: center;"}
+Internet Rzeczy zbudowali inżynierowie, którzy chcieli zaoszczędzić sobie chodzenia po schodach po napój.<br>
+Dziś ta sama filozofia steruje instalacjami, uprawami i systemami, od których zależy czyjeś bezpieczeństwo.
+:::
+
+::: {.columns}
+::: {.column width="55%"}
+**Siedem modułów, jeden system**
+
+Zaczęliśmy od pytania, jaką decyzję ma wesprzeć pomiar. Skończyliśmy na pytaniu, jak wyłączyć system,
+nie niszcząc zapisów. Pomiędzy — urządzenie, łącze, kontrakt, brzeg, platforma.
+Żaden z tych elementów nie działa sam.
+:::
+
+::: {.column width="45%"}
+::: {.fragment}
+::: {.callout-important title="Pytanie na koniec" style="font-size: 1.1em;"}
+Jaką inteligentną rzecz zaprojektujesz — i **komu odpowiesz** za to, co ona zmierzy?
+:::
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-journal-text"></i> Źródła i dalsza lektura {#zrodla}
+
+::: {.columns}
+::: {.column width="55%"}
+::: {style="font-size: 0.62em;"}
+* ThingsBoard, *Device Connectivity Status* — atrybuty stanu, próg nieaktywności, zdarzenia, strategia raportowania aktywności: <https://thingsboard.io/docs/user-guide/device-connectivity-status/>
+* ThingsBoard, *Device Profiles* — alarmy i reguły: <https://thingsboard.io/docs/user-guide/device-profiles/>
+* Rozporządzenie (UE) 2024/2847 — *Cyber Resilience Act*: <https://eur-lex.europa.eu/eli/reg/2024/2847/oj>
+* ENISA, *Guidelines for Securing the Internet of Things*: <https://www.enisa.europa.eu/publications/guidelines-for-securing-the-internet-of-things>
+* OWASP, *Internet of Things Project*: <https://owasp.org/www-project-internet-of-things/>
+* Espressif, *Secure Boot V2* dla ESP32-S3: <https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/security/secure-boot-v2.html>
+* CISA, alert TA16-288A — analiza botnetu Mirai: <https://www.cisa.gov/news-events/alerts/2016/10/14/heightened-ddos-threat-posed-mirai-and-other-botnets>
+* IETF RFC 6761 — zarezerwowane domeny specjalnego przeznaczenia (`.invalid`): <https://www.rfc-editor.org/rfc/rfc6761>
+:::
+:::
+
+::: {.column width="45%"}
+::: {.callout-note title="Lektura uzupełniająca" style="font-size: 0.8em;"}
+* Yuval Noah Harari, *21 lekcji na XXI wiek*
+* Yuval Noah Harari, *Homo Deus. Krótka historia jutra* (2015)
+* Aldous Huxley, *Nowy wspaniały świat* (1931)
+* Jacek Dukaj, *Po piśmie* (2019)
+* Ramez Naam, trylogia *Nexus · Crux · Apex*
+:::
+
+::: {.zrodlo}
+Pozycje literackie stanowią tło do dyskusji o skutkach społecznych, nie źródła techniczne.
+:::
+:::
+:::

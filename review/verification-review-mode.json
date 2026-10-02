@@ -1,0 +1,115 @@
+{
+  "backgrounds": [
+    {
+      "deck": "00-internet-przyszlosci",
+      "class": "tlo-blue",
+      "image": "background-blue.jpg",
+      "ok": true
+    },
+    {
+      "deck": "01-architektura-i-wymagania",
+      "class": "tlo-orange",
+      "image": "background-orange.jpg",
+      "ok": true
+    },
+    {
+      "deck": "02-urzadzenie-sensory-energia",
+      "class": "tlo-orange",
+      "image": "background-orange.jpg",
+      "ok": true
+    },
+    {
+      "deck": "03-lacznosc-i-ota",
+      "class": "tlo-green",
+      "image": "background-green.jpg",
+      "ok": true
+    },
+    {
+      "deck": "04-mqtt-i-kontrakt-danych",
+      "class": "tlo-green",
+      "image": "background-green.jpg",
+      "ok": true
+    },
+    {
+      "deck": "05-brzeg-node-red-sheets",
+      "class": "tlo-green",
+      "image": "background-green.jpg",
+      "ok": true
+    },
+    {
+      "deck": "06-thingsboard-ce",
+      "class": "tlo-blue",
+      "image": "background-blue.jpg",
+      "ok": true
+    },
+    {
+      "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+      "class": "tlo-blue",
+      "image": "background-blue.jpg",
+      "ok": true
+    }
+  ],
+  "contrast": [
+    {
+      "deck": "00-internet-przyszlosci",
+      "brightText": [],
+      "sectionProblems": [],
+      "ok": true
+    },
+    {
+      "deck": "01-architektura-i-wymagania",
+      "brightText": [],
+      "sectionProblems": [],
+      "ok": true
+    },
+    {
+      "deck": "02-urzadzenie-sensory-energia",
+      "brightText": [],
+      "sectionProblems": [],
+      "ok": true
+    },
+    {
+      "deck": "03-lacznosc-i-ota",
+      "brightText": [],
+      "sectionProblems": [],
+      "ok": true
+    },
+    {
+      "deck": "04-mqtt-i-kontrakt-danych",
+      "brightText": [],
+      "sectionProblems": [],
+      "ok": true
+    },
+    {
+      "deck": "05-brzeg-node-red-sheets",
+      "brightText": [],
+      "sectionProblems": [],
+      "ok": true
+    },
+    {
+      "deck": "06-thingsboard-ce",
+      "brightText": [],
+      "sectionProblems": [],
+      "ok": true
+    },
+    {
+      "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+      "brightText": [],
+      "sectionProblems": [],
+      "ok": true
+    }
+  ],
+  "zoom": {
+    "opened": true,
+    "closed_with_escape": true,
+    "ok": true
+  },
+  "review": {
+    "record_ok": true,
+    "persisted": true,
+    "cleared": true,
+    "ok": true
+  },
+  "errors": [],
+  "ok": true
+}

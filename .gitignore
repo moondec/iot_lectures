@@ -12,3 +12,19 @@
 # Sensitive files
 Lista_obecnosci.xlsx
 List.docx
+
+# Lecturer notes contain answers to review questions; the repo is public.
+/notes/
+# Internal correction log, meant to stay with the lecturer (see README).
+/review/REJESTR-KOREKT.md
+
+# Generated test artifacts (scripts/test-*.py)
+/review/screenshots/
+/review/*.log
+
+# Local tooling
+.venv/
+__pycache__/
+*.pyc
+/.tools/
+Thumbs.db

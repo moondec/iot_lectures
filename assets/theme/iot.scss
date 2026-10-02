@@ -1,0 +1,592 @@
+/*-- scss:defaults --*/
+// Wspólny motyw siedmiu wykładów IoT.
+// Zachowuje charakter prezentacji źródłowych (ciemne otoczenie, jasny slajd,
+// format 16:9, czytelna typografia bezszeryfowa) bez zależności od CDN.
+
+$font-family-sans-serif: "Source Sans Pro", -apple-system, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, sans-serif !default;
+$font-family-monospace: "Source Code Pro", "DejaVu Sans Mono", Menlo, Consolas,
+  monospace !default;
+
+$presentation-font-size-root: 34px !default;
+$presentation-line-height: 1.36 !default;
+
+// Paleta: głęboka zieleń/morze jako akcent wiodący, ceglany jako ostrzeżenie.
+$body-bg: #ffffff !default;
+$body-color: #1f2933 !default;
+$link-color: #0b6b78 !default;
+$selection-bg: #cfe9ec !default;
+
+$presentation-heading-font: $font-family-sans-serif !default;
+$presentation-heading-color: #0b3b45 !default;
+$presentation-heading-font-weight: 600 !default;
+$presentation-h1-font-size: 1.85em !default;
+$presentation-h2-font-size: 1.32em !default;
+$presentation-h3-font-size: 1.08em !default;
+
+$code-block-font-size: 0.56em !default;
+$code-color: #8a2846 !default;
+
+/*-- scss:mixins --*/
+
+/*-- scss:rules --*/
+
+// --- Otoczenie slajdu ----------------------------------------------------
+// Źródłowe prezentacje używały ciemnego tła wokół jasnego slajdu; utrzymujemy
+// ten kontrast gradientem, bez fotografii o nieudokumentowanej licencji.
+body.reveal-viewport {
+  background: #12181c;
+  background-image: radial-gradient(
+    ellipse at 50% 0%,
+    #1d2a31 0%,
+    #12181c 68%
+  );
+}
+
+.reveal .slide-background-content {
+  background-color: #ffffff;
+}
+
+// Oryginalne tła z repozytorium moondec/iot_lectures. Kolory odpowiadają
+// trzem dawnym częściom kursu: pomarańczowej, zielonej i niebieskiej.
+// Biała warstwa o kryciu 78% rozjaśnia tapetę bez zmiany kontrastu tekstu.
+body.tlo-orange .reveal .slide-background-content,
+body.tlo-green .reveal .slide-background-content,
+body.tlo-blue .reveal .slide-background-content {
+  background-color: #ffffff !important;
+  background-size: 100% 100%, contain !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-position: center center, center center !important;
+  opacity: 1 !important;
+}
+
+body.tlo-orange .reveal .slide-background-content {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
+    url("../../../../assets/img/background-orange.jpg") !important;
+}
+
+body.tlo-green .reveal .slide-background-content {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
+    url("../../../../assets/img/background-green.jpg") !important;
+}
+
+body.tlo-blue .reveal .slide-background-content {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
+    url("../../../../assets/img/background-blue.jpg") !important;
+}
+
+// Przekładki sekcyjne mają jawnie ciemne tło i białą typografię — tapeta nie może
+// ich rozjaśniać, bo zniknąłby kontrast tekstu.
+body.tlo-orange .reveal .backgrounds .slide-background.sekcja .slide-background-content,
+body.tlo-green .reveal .backgrounds .slide-background.sekcja .slide-background-content,
+body.tlo-blue .reveal .backgrounds .slide-background.sekcja .slide-background-content {
+  background-image: none !important;
+  background-color: transparent !important;
+  opacity: 1 !important;
+}
+
+// Slajd tytułowy pozostaje biały — tak jak w prezentacjach źródłowych.
+body.tlo-orange .reveal .backgrounds .slide-background:first-child .slide-background-content,
+body.tlo-green .reveal .backgrounds .slide-background:first-child .slide-background-content,
+body.tlo-blue .reveal .backgrounds .slide-background:first-child .slide-background-content {
+  background-image: none !important;
+  background-color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+// --- Typografia ----------------------------------------------------------
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  letter-spacing: -0.005em;
+  text-transform: none;
+  line-height: 1.16;
+}
+
+.reveal h2 {
+  border-bottom: 3px solid #0b6b78;
+  padding-bottom: 0.22em;
+  margin-bottom: 0.5em;
+}
+
+// Nagłówek sekcji (slajd tytułowy rozdziału) — odwrócony kontrast.
+.reveal section.sekcja {
+  h1,
+  h2 {
+    color: #ffffff;
+    border-bottom: none;
+  }
+  p {
+    color: #cfe0e4;
+  }
+  .lead {
+    color: #f4fafb;
+  }
+}
+
+.reveal .slides section {
+  text-align: left;
+}
+
+.reveal p,
+.reveal li {
+  line-height: 1.38;
+}
+
+.reveal ul,
+.reveal ol {
+  margin-bottom: 0.35em;
+}
+
+.reveal li {
+  margin-bottom: 0.2em;
+}
+
+// Akapit prowadzący pod nagłówkiem — jedna myśl na slajdzie.
+.reveal .lead {
+  font-size: 0.92em;
+  color: #445560;
+  margin-top: -0.25em;
+  margin-bottom: 0.65em;
+}
+
+// --- Ikony (bootstrap-icons, lokalnie) -----------------------------------
+.reveal h2 i.bi,
+.reveal h3 i.bi {
+  color: #0b6b78;
+  margin-right: 0.28em;
+  font-size: 0.86em;
+  vertical-align: baseline;
+}
+
+// --- Tabele --------------------------------------------------------------
+// Najczęstsza przyczyna wycieku treści poza slajd: zbyt duża tabela.
+// Skalujemy je w dół i pozwalamy zawijać komórki.
+// Motyw reveal.js dostarczany przez Quarto ustawia tabelom margines poziomy
+// (8 px). Przy `width: 100%` sumuje się on z szerokością rodzica i wypycha
+// tabelę poza prawą krawędź slajdu — zerujemy go selektorem o wyższej
+// szczegółowości.
+.reveal .slides section table,
+.reveal table {
+  font-size: 0.62em;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  border-collapse: collapse;
+  margin: 0.35em 0;
+  margin-left: 0;
+  margin-right: 0;
+  table-layout: fixed;
+}
+
+.reveal table th {
+  background: #e8f2f4;
+  color: #0b3b45;
+  font-weight: 600;
+  border-bottom: 2px solid #0b6b78;
+  padding: 0.3em 0.45em;
+  text-align: left;
+}
+
+.reveal table td {
+  padding: 0.28em 0.45em;
+  border-bottom: 1px solid #dfe5e8;
+  vertical-align: top;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.reveal table tr:nth-child(even) td {
+  background: #f7fafb;
+}
+
+// Wariant dla tabel gęstych (6+ wierszy albo długie komórki).
+.reveal .tabela-gesta table {
+  font-size: 0.5em;
+}
+
+// --- Kod -----------------------------------------------------------------
+.reveal pre {
+  box-shadow: none;
+  border: 1px solid #d8e0e3;
+  border-radius: 4px;
+  width: 100%;
+  margin: 0.3em 0;
+}
+
+.reveal pre code {
+  padding: 0.7em 0.9em;
+  max-height: 520px;
+  background: #fbfcfd;
+}
+
+.reveal code {
+  background: #f1f5f6;
+  padding: 0.04em 0.24em;
+  border-radius: 3px;
+  font-size: 0.92em;
+}
+
+.reveal pre code .co {
+  font-style: normal;
+}
+
+// --- Bloki wyróżnione (callout) -----------------------------------------
+.reveal .callout {
+  font-size: 0.8em;
+  margin: 0.4em 0;
+  border-left-width: 5px;
+}
+
+.reveal .callout .callout-title {
+  padding: 0.26em 0.6em;
+}
+
+.reveal .callout .callout-body-container {
+  padding: 0.4em 0.7em;
+}
+
+.reveal .callout p:last-child {
+  margin-bottom: 0;
+}
+
+// --- Kolumny -------------------------------------------------------------
+// Bez `gap`: szerokości kolumn sumują się do 100%, więc dodatkowy odstęp
+// wypychał najszersze tabele poza prawą krawędź slajdu. Odstęp robimy
+// wewnętrznym marginesem, który nie powiększa sumy szerokości.
+.reveal .columns {
+  gap: 0;
+  align-items: flex-start;
+}
+
+.reveal .columns > .column {
+  box-sizing: border-box;
+  padding-right: 0.55em;
+  padding-left: 0.55em;
+  min-width: 0;
+}
+
+.reveal .columns > .column:first-child {
+  padding-left: 0;
+}
+
+.reveal .columns > .column:last-child {
+  padding-right: 0;
+}
+
+// Quarto nadaje bezpośrednim dzieciom kolumny margines poziomy (0,25–0,5 rem)
+// jako rynnę między kolumnami. Dla elementów o szerokości 100% — tabel, bloków
+// kodu i rysunków — margines sumuje się z ich szerokością i wypycha treść poza
+// prawą krawędź slajdu. Zerujemy go dla tych elementów; rynnę zapewnia
+// padding kolumny ustawiony wyżej.
+.reveal .columns > .column > table,
+.reveal .columns > .column:last-child > table,
+.reveal .columns > .column > pre,
+.reveal .columns > .column:last-child > pre,
+.reveal .columns > .column > .cell,
+.reveal .columns > .column:last-child > .cell,
+.reveal .columns > .column > .tabela-gesta,
+.reveal .columns > .column:last-child > .tabela-gesta {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.reveal .columns > .column > *:first-child {
+  margin-top: 0;
+}
+
+// --- Obrazy --------------------------------------------------------------
+.reveal img {
+  max-height: 560px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 3px;
+}
+
+.reveal figure img {
+  margin: 0 auto;
+  display: block;
+}
+
+// Grafiki i diagramy można powiększyć jednym kliknięciem podczas wykładu.
+.reveal .slides section img,
+.reveal .slides section svg[id^="mermaid-figure"],
+.reveal .slides section svg.flowchart,
+.reveal .slides section .mermaid svg {
+  cursor: zoom-in;
+}
+
+.media-zoom-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 15, 20, 0.94);
+  padding: 3vh 3vw 6vh;
+  cursor: zoom-out;
+}
+
+.media-zoom-overlay > img,
+.media-zoom-overlay > svg {
+  width: auto !important;
+  height: auto !important;
+  max-width: 94vw !important;
+  max-height: 88vh !important;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.55);
+}
+
+.media-zoom-hint {
+  position: fixed;
+  bottom: 1.2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font: 16px/1.3 $font-family-sans-serif;
+  opacity: 0.85;
+}
+
+// Pasek aktywny tylko po wejściu z parametrem ?review=1.
+#review-toolbar {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 9500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 9px;
+  border: 1px solid #9bb8be;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.22);
+  color: #17333a;
+  font: 14px/1.2 $font-family-sans-serif;
+}
+
+#review-toolbar .review-label {
+  font-weight: 700;
+  color: #0b3b45;
+}
+
+#review-toolbar button {
+  border: 1px solid #0b6b78;
+  border-radius: 4px;
+  background: #f4fbfc;
+  color: #0b3b45;
+  padding: 5px 8px;
+  cursor: pointer;
+  font: inherit;
+}
+
+#review-toolbar button:hover,
+#review-toolbar button:focus-visible {
+  background: #dceff2;
+  outline: 2px solid #78aeb7;
+}
+
+#review-toolbar .review-count {
+  color: #52666c;
+  white-space: nowrap;
+}
+
+body.media-zoom-open #review-toolbar {
+  display: none;
+}
+
+.reveal figcaption,
+.reveal .zrodlo {
+  font-size: 0.5em;
+  color: #67757e;
+  line-height: 1.3;
+  margin-top: 0.3em;
+}
+
+.reveal .zrodlo a {
+  color: #4d7f88;
+}
+
+// --- Diagramy mermaid ----------------------------------------------------
+// Bez transformacji scale() — źródłowe prezentacje używały scale(1.7)–scale(3.5),
+// co wypychało diagram poza obszar slajdu.
+.reveal .cell,
+.reveal .cell-output-display {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 100%;
+}
+
+.reveal pre.mermaid,
+.reveal .mermaid {
+  background: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+}
+
+// Diagramy renderowane do SVG na etapie budowania (mermaid-format: svg) mają
+// poprawną geometrię i własny rozmiar naturalny wynikający z fig-width.
+// Nie narzucamy szerokości 100%: przy diagramach sekwencji (wysoki, wąski
+// viewBox) rozciągnięcie do pełnej szerokości dawało wysokość kilku tysięcy
+// pikseli. Ograniczamy się do limitów i wyśrodkowania.
+.reveal svg.flowchart,
+.reveal svg[id^="mermaid-figure"],
+.reveal pre.mermaid svg,
+.reveal .mermaid svg {
+  max-width: 100% !important;
+  width: 100%;
+  max-height: 470px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.reveal svg .nodeLabel p {
+  margin: 0 !important;
+  line-height: 1.22 !important;
+}
+
+.reveal svg foreignObject > div {
+  line-height: 1.22 !important;
+  white-space: normal !important;
+}
+
+/* Diagramy sekwencji Mermaid nie dziedziczą themeVariables.fontSize. */
+.reveal svg text.actor,
+.reveal svg .actor text,
+.reveal svg .messageText,
+.reveal svg .noteText,
+.reveal svg .loopText,
+.reveal svg .labelText {
+  font-size: 20px !important;
+}
+
+.reveal .mermaid-wysoka svg[id^="mermaid-figure"] {
+  max-height: 560px;
+}
+
+.reveal .kompakt svg[id^="mermaid-figure"] {
+  max-height: 380px;
+}
+
+// --- Elementy pomocnicze -------------------------------------------------
+.reveal .pytania {
+  counter-reset: pyt;
+  list-style: none;
+  padding-left: 0;
+}
+
+.reveal .pytania > li {
+  counter-increment: pyt;
+  padding: 0.3em 0 0.3em 2.3em;
+  position: relative;
+  margin-bottom: 0.35em;
+}
+
+.reveal .pytania > li::before {
+  content: counter(pyt);
+  position: absolute;
+  left: 0;
+  top: 0.24em;
+  width: 1.55em;
+  height: 1.55em;
+  line-height: 1.55em;
+  text-align: center;
+  border-radius: 50%;
+  background: #0b6b78;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.82em;
+}
+
+// Zestaw liczb kluczowych.
+.reveal .liczby {
+  display: flex;
+  gap: 0.7em;
+  margin: 0.5em 0;
+  flex-wrap: wrap;
+}
+
+.reveal .liczby > div {
+  flex: 1 1 0;
+  min-width: 140px;
+  background: #f0f6f7;
+  border-top: 4px solid #0b6b78;
+  padding: 0.45em 0.6em;
+  border-radius: 0 0 4px 4px;
+}
+
+.reveal .liczby .w {
+  display: block;
+  font-size: 1.28em;
+  font-weight: 700;
+  color: #0b3b45;
+  line-height: 1.16;
+}
+
+.reveal .liczby .o {
+  display: block;
+  font-size: 0.62em;
+  color: #51626c;
+  line-height: 1.26;
+  margin-top: 0.15em;
+}
+
+// --- Stopka i numeracja --------------------------------------------------
+.reveal .footer {
+  font-size: 0.42em;
+  color: #6f7c85;
+}
+
+.reveal .slide-number {
+  background: rgba(11, 107, 120, 0.82);
+  color: #fff;
+  font-size: 0.4em;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+// --- Slajd tytułowy ------------------------------------------------------
+#title-slide {
+  text-align: left;
+
+  .title {
+    color: #0b3b45;
+    font-size: 1.7em;
+    line-height: 1.12;
+    margin-bottom: 0.12em;
+  }
+
+  .subtitle {
+    color: #0b6b78;
+    font-size: 0.92em;
+    margin-bottom: 0.9em;
+  }
+
+  .author,
+  .quarto-title-author-name {
+    font-size: 0.78em;
+    color: #24323b;
+    margin-bottom: 0.1em;
+  }
+
+  .institute,
+  .quarto-title-affiliation {
+    font-size: 0.6em;
+    color: #51626c;
+    line-height: 1.4;
+  }
+
+  .date {
+    font-size: 0.58em;
+    color: #67757e;
+  }
+}

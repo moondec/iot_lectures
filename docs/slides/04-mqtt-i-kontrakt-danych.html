@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="pl"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-3419ea62b3ca2d77d3d547f86109e84e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
+
+  <meta name="author" content="prof. UPP dr hab. inż. Marek Urbaniak">
+  <title>Internet Rzeczy — kurs w ośmiu wykładach – MQTT i kontrakt danych</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #767676;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #767676;  padding-left: 4px; }
+    div.sourceCode
+      { color: #545454; background-color: #fefefe; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #545454; } /* Normal */
+    code span.al { color: #7928a1; } /* Alert */
+    code span.an { color: #696969; } /* Annotation */
+    code span.at { color: #a55a00; } /* Attribute */
+    code span.bn { color: #7928a1; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #d91e18; } /* ControlFlow */
+    code span.ch { color: #008000; } /* Char */
+    code span.cn { color: #d91e18; } /* Constant */
+    code span.co { color: #696969; } /* Comment */
+    code span.cv { color: #696969; font-style: italic; } /* CommentVar */
+    code span.do { color: #696969; font-style: italic; } /* Documentation */
+    code span.dt { color: #7928a1; } /* DataType */
+    code span.dv { color: #7928a1; } /* DecVal */
+    code span.er { color: #7928a1; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #a55a00; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #696969; } /* Information */
+    code span.kw { color: #d91e18; } /* Keyword */
+    code span.op { color: #00769e; } /* Operator */
+    code span.ot { color: #d91e18; } /* Other */
+    code span.pp { color: #7928a1; } /* Preprocessor */
+    code span.sc { color: #00769e; } /* SpecialChar */
+    code span.ss { color: #008000; } /* SpecialString */
+    code span.st { color: #008000; } /* String */
+    code span.va { color: #a55a00; } /* Variable */
+    code span.vs { color: #008000; } /* VerbatimString */
+    code span.wa { color: #696969; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-473aa4881b8b47397cd8a79d61d637fd.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="../site_libs/quarto-diagram/mermaid-postprocess-shim.js"></script>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <script src="../assets/vendor/mermaid-desc-shim.js"></script>
+  <script src="../assets/vendor/slide-media-zoom.js" defer=""></script>
+  <script src="../assets/vendor/review-feedback.js" defer=""></script>
+</head>
+<body class="tlo-green quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">MQTT i kontrakt danych</h1>
+  <p class="subtitle">Wykład 4 — protokół to za mało, potrzebna jest umowa</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+prof. UPP dr hab. inż. Marek Urbaniak
+</div>
+        <p class="quarto-title-affiliation">
+            Wydział Inżynierii Środowiska i Inżynierii Mechanicznej<br>Uniwersytet Przyrodniczy w Poznaniu
+          </p>
+    </div>
+</div>
+
+</section>
+<section id="cele" class="slide level2">
+<h2><i class="bi bi-compass"></i> Po co ten wykład</h2>
+<p><span class="lead">Pytanie modułu: <strong>jak zapisać umowę między urządzeniem, brokerem i odbiorcami, żeby dało się ją później zmienić bez zatrzymywania systemu?</strong></span></p>
+<div class="columns">
+<div class="column" style="width:52%;">
+<h3 id="cele-1">Cele</h3>
+<ul>
+<li class="fragment">Uzasadnić wybór pub/sub zamiast żądanie–odpowiedź.</li>
+<li class="fragment">Zaprojektować drzewo tematów z jawnym kierunkiem i regułą <code>retained</code>.</li>
+<li class="fragment">Dobrać QoS świadomie — wraz z jego kosztem.</li>
+<li class="fragment">Zapisać <strong>samoopisujący się ładunek</strong> i uczynić polecenia idempotentnymi.</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<h3 id="droga">Droga</h3>
+<ol type="1">
+<li>Dlaczego HTTP nie pasuje do węzła</li>
+<li>MQTT: broker, tematy, faktyczny narzut</li>
+<li>QoS, retained, Last Will, keep alive</li>
+<li>Kontrakt danych i jego wersjonowanie</li>
+<li>Zamknięcie dostępu do brokera</li>
+<li>Test odbioru kontraktu</li>
+</ol>
+</div></div>
+</section>
+<section>
+<section id="protokół" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
+<h1>Protokół</h1>
+
+</section>
+<section id="http" class="slide level2">
+<h2><i class="bi bi-x-octagon"></i> Dlaczego HTTP nie pasuje</h2>
+<div class="columns">
+<div class="column" style="width:56%;">
+<ul>
+<li class="fragment"><strong>Narzut nagłówków</strong> — nagłówki HTTP potrafią zająć więcej bajtów niż sama wartość „temperatura = 22,5 °C”.</li>
+<li class="fragment"><strong>Model żądanie–odpowiedź</strong> — architektura synchroniczna: czujnik czeka na potwierdzenie z włączonym, prądożernym radiem.</li>
+<li class="fragment"><strong>Brak natywnej asynchroniczności i rozgłaszania</strong> — każdy odbiorca musi indywidualnie odpytywać serwer, a urządzenie nie ma jak otrzymać polecenia bez odpytywania.</li>
+</ul>
+<div class="fragment">
+<p>Skala problemu: mediana strony głównej to około <strong>2,6–2,9 MB</strong> (HTTP Archive, 2025). ESP32-S3 ma 512 kB SRAM — około <strong>pięć razy mniej niż jedna strona</strong>, jeszcze zanim wydzielimy pamięć na program, stos i TLS.</p>
+</div>
+</div><div class="column" style="width:44%;">
+<div title="To nie znaczy „HTTP jest zły”">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>To nie znaczy „HTTP jest zły”</strong></p>
+</div>
+<div class="callout-content">
+<p>HTTP jest właściwym wyborem tam, gdzie jest stałe zasilanie i model żądanie–odpowiedź pasuje do zadania: bramy, panele administracyjne, interfejsy serwerowe.</p>
+<p>Problemem nie jest protokół, tylko jego użycie w roli, do której go nie projektowano.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="mqtt" class="slide level2">
+<h2><i class="bi bi-envelope-paper"></i> MQTT: publikacja i subskrypcja</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<ul>
+<li class="fragment">Czujnik nie łączy się z odbiorcą danych. Publikuje komunikat do <strong>brokera</strong> pod określonym <strong>tematem</strong>.</li>
+<li class="fragment">Broker filtruje i rozsyła komunikaty do wszystkich zainteresowanych subskrybentów.</li>
+<li class="fragment">Klienci <strong>nie wiedzą o swoim istnieniu</strong> — znają tylko brokera.</li>
+<li class="fragment">Protokół jest asynchroniczny i zaprojektowany pod niestabilne łącza.</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<p><img data-src="../assets/img/mqtt-broker-listeners.svg" style="width:96.0%" alt="Schemat MQTT: wielu nadawców publikuje komunikaty do jednego brokera, który przekazuje je wielu subskrybentom."></p>
+<div class="zrodlo">
+<p>Ademant, <em>MQTT single broker multiple listener</em>, <a href="https://commons.wikimedia.org/wiki/File:MQTT_single_broker_multiple_listener.svg">Wikimedia Commons</a>, CC BY-SA 4.0.</p>
+</div>
+</div></div>
+<p>Protokół powstał w 1999 r. we współpracy <strong>Andy’ego Stanforda-Clarka (IBM)</strong> i <strong>Arlena Nippera</strong> (wówczas Arcom Control Systems). MQTT jest dziś standardem <strong>OASIS</strong>: wersja 3.1.1 (2014) została również opublikowana jako <strong>ISO/IEC 20922:2016</strong>, a wersja 5.0 jako standard OASIS w 2019 r.</p>
+</section>
+<section id="naglowek" class="slide level2">
+<h2><i class="bi bi-rulers"></i> „Nagłówek MQTT to 2 bajty” — ile naprawdę</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Dwa bajty to <strong>minimalny rozmiar nagłówka stałego</strong>: jeden bajt typu pakietu i flag oraz co najmniej jeden bajt pola <code>Remaining Length</code>, kodowanego jako liczba zmiennobajtowa <strong>o długości 1–4 bajtów</strong>.</p>
+<p>Do tego dochodzi nagłówek zmienny — przede wszystkim <strong>nazwa tematu</strong> i identyfikator pakietu — a w MQTT 5.0 jeszcze właściwości.</p>
+<p>Realny narzut pakietu <code>PUBLISH</code> zależy więc głównie od <strong>długości nazwy tematu</strong>. Binarny jest nagłówek MQTT; format ładunku (np. JSON, CBOR lub Protobuf) określa osobny kontrakt danych.</p>
+</div><div class="column" style="width:50%;">
+<p>Ten sam pusty ładunek, dwa drzewa tematów:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Temat</th>
+<th style="text-align: left;">Długość</th>
+<th style="text-align: left;">Pakiet <code>PUBLISH</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>lab/z1/d1/t</code></td>
+<td style="text-align: left;">11 zn.</td>
+<td style="text-align: left;"><strong>17 B</strong> (QoS 1)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>laboratorium/zespol-1/</code><br><code>urzadzenie-1/telemetria/pomiar</code></td>
+<td style="text-align: left;">52 zn.</td>
+<td style="text-align: left;"><strong>58 B</strong> (QoS 1)</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>Różnica <strong>41 B na komunikat</strong> wynika wyłącznie z długości tematu. Przy publikacji co 10 s przez 365 dni to <strong>129,3 MB rocznie</strong> (123,3 MiB) dodatkowych bajtów <code>PUBLISH</code>. Bez ACK, TCP/IP i TLS; czasu pracy radia nie wyliczymy z samej liczby bajtów.</p>
+</div>
+<div class="fragment">
+<p><strong>Wniosek:</strong> segmenty tematu mają być <strong>krótkie, ale znaczące</strong>. Nie skracamy do szumu (<code>a/b/c</code>), nie rozdymamy do zdania.</p>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="tematy-i-niezawodność" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
+<h1>Tematy i niezawodność</h1>
+
+</section>
+<section id="tematy" class="slide level2">
+<h2><i class="bi bi-folder2-open"></i> Drzewo tematów pilota</h2>
+<p><span class="lead">Temat niesie <strong>kierunek</strong> i <strong>klasę komunikatu</strong>. Jedno i drugie zapisujemy jawnie.</span></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Temat</th>
+<th style="text-align: left;">Kto publikuje</th>
+<th style="text-align: left;"><code>retained</code></th>
+<th style="text-align: left;">Zawartość</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>lab/{zespol}/{urzadzenie}/telemetry</code></td>
+<td style="text-align: left;"><strong>tylko urządzenie</strong></td>
+<td style="text-align: left;">nie</td>
+<td style="text-align: left;">pomiary okresowe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>lab/{zespol}/{urzadzenie}/state</code></td>
+<td style="text-align: left;"><strong>tylko urządzenie</strong></td>
+<td style="text-align: left;"><strong>tak</strong></td>
+<td style="text-align: left;">stan i atrybuty: wersja firmware, okres próbkowania, adres</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>lab/{zespol}/{urzadzenie}/command</code></td>
+<td style="text-align: left;">klient / platforma</td>
+<td style="text-align: left;"><strong>nigdy</strong></td>
+<td style="text-align: left;">polecenia; urządzenie wyłącznie subskrybuje</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>lab/{zespol}/{urzadzenie}/status</code></td>
+<td style="text-align: left;">broker (Last Will)</td>
+<td style="text-align: left;"><strong>tak</strong></td>
+<td style="text-align: left;"><code>offline</code> po nieuprzejmym rozłączeniu</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>Reguła porządkująca: <strong>kto publikuje, ten nie subskrybuje tego samego tematu</strong>. Złamanie tej zasady daje pętle, których nie widać w logu, bo każdy komunikat z osobna wygląda poprawnie.</p>
+</div>
+</section>
+<section id="retained" class="slide level2">
+<h2><i class="bi bi-exclamation-triangle-fill"></i> Dlaczego polecenie nigdy nie jest retained</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p>Komunikat <code>retained</code> jest dostarczany <strong>każdemu nowemu subskrybentowi</strong> zaraz po subskrypcji.</p>
+<div class="fragment">
+<p>Polecenie <code>retained</code> zostanie więc wykonane ponownie <strong>przy każdym restarcie urządzenia</strong>.</p>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg id="mermaid-figure-1" width="653" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; display: block; margin: auto auto auto auto" viewbox="-50 -10 986 511" role="graphics-document document" aria-roledescription="sequence" height="307">
+<g><rect x="661" y="425" fill="#eaeaea" stroke="#666" width="150" height="65" name="D" rx="3" ry="3" class="actor actor-bottom"></rect><text x="736" y="457.5" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400;"><tspan x="736" dy="0">Urządzenie</tspan></text></g><g><rect x="344" y="425" fill="#eaeaea" stroke="#666" width="150" height="65" name="B" rx="3" ry="3" class="actor actor-bottom"></rect><text x="419" y="457.5" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400;"><tspan x="419" dy="0">Broker</tspan></text></g><g><rect x="0" y="425" fill="#eaeaea" stroke="#666" width="150" height="65" name="O" rx="3" ry="3" class="actor actor-bottom"></rect><text x="75" y="457.5" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400;"><tspan x="75" dy="0">Operator</tspan></text></g><g><line id="actor2" x1="736" y1="65" x2="736" y2="425" class="actor-line 200" stroke-width="0.5px" stroke="#999" name="D"></line><g id="root-2"><rect x="661" y="0" fill="#eaeaea" stroke="#666" width="150" height="65" name="D" rx="3" ry="3" class="actor actor-top"></rect><text x="736" y="32.5" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400;"><tspan x="736" dy="0">Urządzenie</tspan></text></g></g><g><line id="actor1" x1="419" y1="65" x2="419" y2="425" class="actor-line 200" stroke-width="0.5px" stroke="#999" name="B"></line><g id="root-1"><rect x="344" y="0" fill="#eaeaea" stroke="#666" width="150" height="65" name="B" rx="3" ry="3" class="actor actor-top"></rect><text x="419" y="32.5" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400;"><tspan x="419" dy="0">Broker</tspan></text></g></g><g><line id="actor0" x1="75" y1="65" x2="75" y2="425" class="actor-line 200" stroke-width="0.5px" stroke="#999" name="O"></line><g id="root-0"><rect x="0" y="0" fill="#eaeaea" stroke="#666" width="150" height="65" name="O" rx="3" ry="3" class="actor actor-top"></rect><text x="75" y="32.5" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400;"><tspan x="75" dy="0">Operator</tspan></text></g></g><style>#mermaid-figure-1{font-family:“trebuchet ms”,verdana,arial,sans-serif;font-size:24px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-figure-1 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-figure-1 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-figure-1 .error-icon{fill:#552222;}#mermaid-figure-1 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-1 .edge-thickness-normal{stroke-width:1px;}#mermaid-figure-1 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-1 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-1 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-figure-1 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-1 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-1 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-1 .marker.cross{stroke:#333333;}#mermaid-figure-1 svg{font-family:“trebuchet ms”,verdana,arial,sans-serif;font-size:24px;}#mermaid-figure-1 p{margin:0;}#mermaid-figure-1 .actor{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-figure-1 text.actor>tspan{fill:black;stroke:none;}#mermaid-figure-1 .actor-line{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);}#mermaid-figure-1 .innerArc{stroke-width:1.5;stroke-dasharray:none;}#mermaid-figure-1 .messageLine0{stroke-width:1.5;stroke-dasharray:none;stroke:#333;}#mermaid-figure-1 .messageLine1{stroke-width:1.5;stroke-dasharray:2,2;stroke:#333;}#mermaid-figure-1 #mermaid-figure-1-arrowhead path{fill:#333;stroke:#333;}#mermaid-figure-1 .sequenceNumber{fill:white;}#mermaid-figure-1 #mermaid-figure-1-sequencenumber{fill:#333;}#mermaid-figure-1 #mermaid-figure-1-crosshead path{fill:#333;stroke:#333;}#mermaid-figure-1 .messageText{fill:#333;stroke:none;}#mermaid-figure-1 .labelBox{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-figure-1 .labelText,#mermaid-figure-1 .labelText>tspan{fill:black;stroke:none;}#mermaid-figure-1 .loopText,#mermaid-figure-1 .loopText>tspan{fill:black;stroke:none;}#mermaid-figure-1 .loopLine{stroke-width:2px;stroke-dasharray:2,2;stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);}#mermaid-figure-1 .note{stroke:#aaaa33;fill:#fff5ad;}#mermaid-figure-1 .noteText,#mermaid-figure-1 .noteText>tspan{fill:black;stroke:none;}#mermaid-figure-1 .activation0{fill:#f4f4f4;stroke:#666;}#mermaid-figure-1 .activation1{fill:#f4f4f4;stroke:#666;}#mermaid-figure-1 .activation2{fill:#f4f4f4;stroke:#666;}#mermaid-figure-1 .actorPopupMenu{position:absolute;}#mermaid-figure-1 .actorPopupMenuPanel{position:absolute;fill:#ECECFF;box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);filter:drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));}#mermaid-figure-1 .actor-man line{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-figure-1 .actor-man circle,#mermaid-figure-1 line{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;stroke-width:2px;}#mermaid-figure-1 :root{–mermaid-font-family:“trebuchet ms”,verdana,arial,sans-serif;}</style><g></g><defs><symbol id="mermaid-figure-1-computer" width="24" height="24"><path transform="scale(.5)" d="M2 2v13h20v-13h-20zm18 11h-16v-9h16v9zm-10.228 6l.466-1h3.524l.467 1h-4.457zm14.228 3h-24l2-6h2.104l-1.33 4h18.45l-1.297-4h2.073l2 6zm-5-10h-14v-7h14v7z"></path></symbol></defs><defs><symbol id="mermaid-figure-1-database" fill-rule="evenodd" clip-rule="evenodd"><path transform="scale(.5)" d="M12.258.001l.256.004.255.005.253.008.251.01.249.012.247.015.246.016.242.019.241.02.239.023.236.024.233.027.231.028.229.031.225.032.223.034.22.036.217.038.214.04.211.041.208.043.205.045.201.046.198.048.194.05.191.051.187.053.183.054.18.056.175.057.172.059.168.06.163.061.16.063.155.064.15.066.074.033.073.033.071.034.07.034.069.035.068.035.067.035.066.035.064.036.064.036.062.036.06.036.06.037.058.037.058.037.055.038.055.038.053.038.052.038.051.039.05.039.048.039.047.039.045.04.044.04.043.04.041.04.04.041.039.041.037.041.036.041.034.041.033.042.032.042.03.042.029.042.027.042.026.043.024.043.023.043.021.043.02.043.018.044.017.043.015.044.013.044.012.044.011.045.009.044.007.045.006.045.004.045.002.045.001.045v17l-.001.045-.002.045-.004.045-.006.045-.007.045-.009.044-.011.045-.012.044-.013.044-.015.044-.017.043-.018.044-.02.043-.021.043-.023.043-.024.043-.026.043-.027.042-.029.042-.03.042-.032.042-.033.042-.034.041-.036.041-.037.041-.039.041-.04.041-.041.04-.043.04-.044.04-.045.04-.047.039-.048.039-.05.039-.051.039-.052.038-.053.038-.055.038-.055.038-.058.037-.058.037-.06.037-.06.036-.062.036-.064.036-.064.036-.066.035-.067.035-.068.035-.069.035-.07.034-.071.034-.073.033-.074.033-.15.066-.155.064-.16.063-.163.061-.168.06-.172.059-.175.057-.18.056-.183.054-.187.053-.191.051-.194.05-.198.048-.201.046-.205.045-.208.043-.211.041-.214.04-.217.038-.22.036-.223.034-.225.032-.229.031-.231.028-.233.027-.236.024-.239.023-.241.02-.242.019-.246.016-.247.015-.249.012-.251.01-.253.008-.255.005-.256.004-.258.001-.258-.001-.256-.004-.255-.005-.253-.008-.251-.01-.249-.012-.247-.015-.245-.016-.243-.019-.241-.02-.238-.023-.236-.024-.234-.027-.231-.028-.228-.031-.226-.032-.223-.034-.22-.036-.217-.038-.214-.04-.211-.041-.208-.043-.204-.045-.201-.046-.198-.048-.195-.05-.19-.051-.187-.053-.184-.054-.179-.056-.176-.057-.172-.059-.167-.06-.164-.061-.159-.063-.155-.064-.151-.066-.074-.033-.072-.033-.072-.034-.07-.034-.069-.035-.068-.035-.067-.035-.066-.035-.064-.036-.063-.036-.062-.036-.061-.036-.06-.037-.058-.037-.057-.037-.056-.038-.055-.038-.053-.038-.052-.038-.051-.039-.049-.039-.049-.039-.046-.039-.046-.04-.044-.04-.043-.04-.041-.04-.04-.041-.039-.041-.037-.041-.036-.041-.034-.041-.033-.042-.032-.042-.03-.042-.029-.042-.027-.042-.026-.043-.024-.043-.023-.043-.021-.043-.02-.043-.018-.044-.017-.043-.015-.044-.013-.044-.012-.044-.011-.045-.009-.044-.007-.045-.006-.045-.004-.045-.002-.045-.001-.045v-17l.001-.045.002-.045.004-.045.006-.045.007-.045.009-.044.011-.045.012-.044.013-.044.015-.044.017-.043.018-.044.02-.043.021-.043.023-.043.024-.043.026-.043.027-.042.029-.042.03-.042.032-.042.033-.042.034-.041.036-.041.037-.041.039-.041.04-.041.041-.04.043-.04.044-.04.046-.04.046-.039.049-.039.049-.039.051-.039.052-.038.053-.038.055-.038.056-.038.057-.037.058-.037.06-.037.061-.036.062-.036.063-.036.064-.036.066-.035.067-.035.068-.035.069-.035.07-.034.072-.034.072-.033.074-.033.151-.066.155-.064.159-.063.164-.061.167-.06.172-.059.176-.057.179-.056.184-.054.187-.053.19-.051.195-.05.198-.048.201-.046.204-.045.208-.043.211-.041.214-.04.217-.038.22-.036.223-.034.226-.032.228-.031.231-.028.234-.027.236-.024.238-.023.241-.02.243-.019.245-.016.247-.015.249-.012.251-.01.253-.008.255-.005.256-.004.258-.001.258.001zm-9.258 20.499v.01l.001.021.003.021.004.022.005.021.006.022.007.022.009.023.01.022.011.023.012.023.013.023.015.023.016.024.017.023.018.024.019.024.021.024.022.025.023.024.024.025.052.049.056.05.061.051.066.051.07.051.075.051.079.052.084.052.088.052.092.052.097.052.102.051.105.052.11.052.114.051.119.051.123.051.127.05.131.05.135.05.139.048.144.049.147.047.152.047.155.047.16.045.163.045.167.043.171.043.176.041.178.041.183.039.187.039.19.037.194.035.197.035.202.033.204.031.209.03.212.029.216.027.219.025.222.024.226.021.23.02.233.018.236.016.24.015.243.012.246.01.249.008.253.005.256.004.259.001.26-.001.257-.004.254-.005.25-.008.247-.011.244-.012.241-.014.237-.016.233-.018.231-.021.226-.021.224-.024.22-.026.216-.027.212-.028.21-.031.205-.031.202-.034.198-.034.194-.036.191-.037.187-.039.183-.04.179-.04.175-.042.172-.043.168-.044.163-.045.16-.046.155-.046.152-.047.148-.048.143-.049.139-.049.136-.05.131-.05.126-.05.123-.051.118-.052.114-.051.11-.052.106-.052.101-.052.096-.052.092-.052.088-.053.083-.051.079-.052.074-.052.07-.051.065-.051.06-.051.056-.05.051-.05.023-.024.023-.025.021-.024.02-.024.019-.024.018-.024.017-.024.015-.023.014-.024.013-.023.012-.023.01-.023.01-.022.008-.022.006-.022.006-.022.004-.022.004-.021.001-.021.001-.021v-4.127l-.077.055-.08.053-.083.054-.085.053-.087.052-.09.052-.093.051-.095.05-.097.05-.1.049-.102.049-.105.048-.106.047-.109.047-.111.046-.114.045-.115.045-.118.044-.12.043-.122.042-.124.042-.126.041-.128.04-.13.04-.132.038-.134.038-.135.037-.138.037-.139.035-.142.035-.143.034-.144.033-.147.032-.148.031-.15.03-.151.03-.153.029-.154.027-.156.027-.158.026-.159.025-.161.024-.162.023-.163.022-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.011-.178.01-.179.008-.179.008-.181.006-.182.005-.182.004-.184.003-.184.002h-.37l-.184-.002-.184-.003-.182-.004-.182-.005-.181-.006-.179-.008-.179-.008-.178-.01-.176-.011-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.022-.162-.023-.161-.024-.159-.025-.157-.026-.156-.027-.155-.027-.153-.029-.151-.03-.15-.03-.148-.031-.146-.032-.145-.033-.143-.034-.141-.035-.14-.035-.137-.037-.136-.037-.134-.038-.132-.038-.13-.04-.128-.04-.126-.041-.124-.042-.122-.042-.12-.044-.117-.043-.116-.045-.113-.045-.112-.046-.109-.047-.106-.047-.105-.048-.102-.049-.1-.049-.097-.05-.095-.05-.093-.052-.09-.051-.087-.052-.085-.053-.083-.054-.08-.054-.077-.054v4.127zm0-5.654v.011l.001.021.003.021.004.021.005.022.006.022.007.022.009.022.01.022.011.023.012.023.013.023.015.024.016.023.017.024.018.024.019.024.021.024.022.024.023.025.024.024.052.05.056.05.061.05.066.051.07.051.075.052.079.051.084.052.088.052.092.052.097.052.102.052.105.052.11.051.114.051.119.052.123.05.127.051.131.05.135.049.139.049.144.048.147.048.152.047.155.046.16.045.163.045.167.044.171.042.176.042.178.04.183.04.187.038.19.037.194.036.197.034.202.033.204.032.209.03.212.028.216.027.219.025.222.024.226.022.23.02.233.018.236.016.24.014.243.012.246.01.249.008.253.006.256.003.259.001.26-.001.257-.003.254-.006.25-.008.247-.01.244-.012.241-.015.237-.016.233-.018.231-.02.226-.022.224-.024.22-.025.216-.027.212-.029.21-.03.205-.032.202-.033.198-.035.194-.036.191-.037.187-.039.183-.039.179-.041.175-.042.172-.043.168-.044.163-.045.16-.045.155-.047.152-.047.148-.048.143-.048.139-.05.136-.049.131-.05.126-.051.123-.051.118-.051.114-.052.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.051.07-.052.065-.051.06-.05.056-.051.051-.049.023-.025.023-.024.021-.025.02-.024.019-.024.018-.024.017-.024.015-.023.014-.023.013-.024.012-.022.01-.023.01-.023.008-.022.006-.022.006-.022.004-.021.004-.022.001-.021.001-.021v-4.139l-.077.054-.08.054-.083.054-.085.052-.087.053-.09.051-.093.051-.095.051-.097.05-.1.049-.102.049-.105.048-.106.047-.109.047-.111.046-.114.045-.115.044-.118.044-.12.044-.122.042-.124.042-.126.041-.128.04-.13.039-.132.039-.134.038-.135.037-.138.036-.139.036-.142.035-.143.033-.144.033-.147.033-.148.031-.15.03-.151.03-.153.028-.154.028-.156.027-.158.026-.159.025-.161.024-.162.023-.163.022-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.011-.178.009-.179.009-.179.007-.181.007-.182.005-.182.004-.184.003-.184.002h-.37l-.184-.002-.184-.003-.182-.004-.182-.005-.181-.007-.179-.007-.179-.009-.178-.009-.176-.011-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.022-.162-.023-.161-.024-.159-.025-.157-.026-.156-.027-.155-.028-.153-.028-.151-.03-.15-.03-.148-.031-.146-.033-.145-.033-.143-.033-.141-.035-.14-.036-.137-.036-.136-.037-.134-.038-.132-.039-.13-.039-.128-.04-.126-.041-.124-.042-.122-.043-.12-.043-.117-.044-.116-.044-.113-.046-.112-.046-.109-.046-.106-.047-.105-.048-.102-.049-.1-.049-.097-.05-.095-.051-.093-.051-.09-.051-.087-.053-.085-.052-.083-.054-.08-.054-.077-.054v4.139zm0-5.666v.011l.001.02.003.022.004.021.005.022.006.021.007.022.009.023.01.022.011.023.012.023.013.023.015.023.016.024.017.024.018.023.019.024.021.025.022.024.023.024.024.025.052.05.056.05.061.05.066.051.07.051.075.052.079.051.084.052.088.052.092.052.097.052.102.052.105.051.11.052.114.051.119.051.123.051.127.05.131.05.135.05.139.049.144.048.147.048.152.047.155.046.16.045.163.045.167.043.171.043.176.042.178.04.183.04.187.038.19.037.194.036.197.034.202.033.204.032.209.03.212.028.216.027.219.025.222.024.226.021.23.02.233.018.236.017.24.014.243.012.246.01.249.008.253.006.256.003.259.001.26-.001.257-.003.254-.006.25-.008.247-.01.244-.013.241-.014.237-.016.233-.018.231-.02.226-.022.224-.024.22-.025.216-.027.212-.029.21-.03.205-.032.202-.033.198-.035.194-.036.191-.037.187-.039.183-.039.179-.041.175-.042.172-.043.168-.044.163-.045.16-.045.155-.047.152-.047.148-.048.143-.049.139-.049.136-.049.131-.051.126-.05.123-.051.118-.052.114-.051.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.052.07-.051.065-.051.06-.051.056-.05.051-.049.023-.025.023-.025.021-.024.02-.024.019-.024.018-.024.017-.024.015-.023.014-.024.013-.023.012-.023.01-.022.01-.023.008-.022.006-.022.006-.022.004-.022.004-.021.001-.021.001-.021v-4.153l-.077.054-.08.054-.083.053-.085.053-.087.053-.09.051-.093.051-.095.051-.097.05-.1.049-.102.048-.105.048-.106.048-.109.046-.111.046-.114.046-.115.044-.118.044-.12.043-.122.043-.124.042-.126.041-.128.04-.13.039-.132.039-.134.038-.135.037-.138.036-.139.036-.142.034-.143.034-.144.033-.147.032-.148.032-.15.03-.151.03-.153.028-.154.028-.156.027-.158.026-.159.024-.161.024-.162.023-.163.023-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.01-.178.01-.179.009-.179.007-.181.006-.182.006-.182.004-.184.003-.184.001-.185.001-.185-.001-.184-.001-.184-.003-.182-.004-.182-.006-.181-.006-.179-.007-.179-.009-.178-.01-.176-.01-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.023-.162-.023-.161-.024-.159-.024-.157-.026-.156-.027-.155-.028-.153-.028-.151-.03-.15-.03-.148-.032-.146-.032-.145-.033-.143-.034-.141-.034-.14-.036-.137-.036-.136-.037-.134-.038-.132-.039-.13-.039-.128-.041-.126-.041-.124-.041-.122-.043-.12-.043-.117-.044-.116-.044-.113-.046-.112-.046-.109-.046-.106-.048-.105-.048-.102-.048-.1-.05-.097-.049-.095-.051-.093-.051-.09-.052-.087-.052-.085-.053-.083-.053-.08-.054-.077-.054v4.153zm8.74-8.179l-.257.004-.254.005-.25.008-.247.011-.244.012-.241.014-.237.016-.233.018-.231.021-.226.022-.224.023-.22.026-.216.027-.212.028-.21.031-.205.032-.202.033-.198.034-.194.036-.191.038-.187.038-.183.04-.179.041-.175.042-.172.043-.168.043-.163.045-.16.046-.155.046-.152.048-.148.048-.143.048-.139.049-.136.05-.131.05-.126.051-.123.051-.118.051-.114.052-.11.052-.106.052-.101.052-.096.052-.092.052-.088.052-.083.052-.079.052-.074.051-.07.052-.065.051-.06.05-.056.05-.051.05-.023.025-.023.024-.021.024-.02.025-.019.024-.018.024-.017.023-.015.024-.014.023-.013.023-.012.023-.01.023-.01.022-.008.022-.006.023-.006.021-.004.022-.004.021-.001.021-.001.021.001.021.001.021.004.021.004.022.006.021.006.023.008.022.01.022.01.023.012.023.013.023.014.023.015.024.017.023.018.024.019.024.02.025.021.024.023.024.023.025.051.05.056.05.06.05.065.051.07.052.074.051.079.052.083.052.088.052.092.052.096.052.101.052.106.052.11.052.114.052.118.051.123.051.126.051.131.05.136.05.139.049.143.048.148.048.152.048.155.046.16.046.163.045.168.043.172.043.175.042.179.041.183.04.187.038.191.038.194.036.198.034.202.033.205.032.21.031.212.028.216.027.22.026.224.023.226.022.231.021.233.018.237.016.241.014.244.012.247.011.25.008.254.005.257.004.26.001.26-.001.257-.004.254-.005.25-.008.247-.011.244-.012.241-.014.237-.016.233-.018.231-.021.226-.022.224-.023.22-.026.216-.027.212-.028.21-.031.205-.032.202-.033.198-.034.194-.036.191-.038.187-.038.183-.04.179-.041.175-.042.172-.043.168-.043.163-.045.16-.046.155-.046.152-.048.148-.048.143-.048.139-.049.136-.05.131-.05.126-.051.123-.051.118-.051.114-.052.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.051.07-.052.065-.051.06-.05.056-.05.051-.05.023-.025.023-.024.021-.024.02-.025.019-.024.018-.024.017-.023.015-.024.014-.023.013-.023.012-.023.01-.023.01-.022.008-.022.006-.023.006-.021.004-.022.004-.021.001-.021.001-.021-.001-.021-.001-.021-.004-.021-.004-.022-.006-.021-.006-.023-.008-.022-.01-.022-.01-.023-.012-.023-.013-.023-.014-.023-.015-.024-.017-.023-.018-.024-.019-.024-.02-.025-.021-.024-.023-.024-.023-.025-.051-.05-.056-.05-.06-.05-.065-.051-.07-.052-.074-.051-.079-.052-.083-.052-.088-.052-.092-.052-.096-.052-.101-.052-.106-.052-.11-.052-.114-.052-.118-.051-.123-.051-.126-.051-.131-.05-.136-.05-.139-.049-.143-.048-.148-.048-.152-.048-.155-.046-.16-.046-.163-.045-.168-.043-.172-.043-.175-.042-.179-.041-.183-.04-.187-.038-.191-.038-.194-.036-.198-.034-.202-.033-.205-.032-.21-.031-.212-.028-.216-.027-.22-.026-.224-.023-.226-.022-.231-.021-.233-.018-.237-.016-.241-.014-.244-.012-.247-.011-.25-.008-.254-.005-.257-.004-.26-.001-.26.001z"></path></symbol></defs><defs><symbol id="mermaid-figure-1-clock" width="24" height="24"><path transform="scale(.5)" d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.848 12.459c.202.038.202.333.001.372-1.907.361-6.045 1.111-6.547 1.111-.719 0-1.301-.582-1.301-1.301 0-.512.77-5.447 1.125-7.445.034-.192.312-.181.343.014l.985 6.238 5.394 1.011z"></path></symbol></defs><defs><marker id="mermaid-figure-1-arrowhead" refx="7.9" refy="5" markerunits="userSpaceOnUse" markerwidth="12" markerheight="12" orient="auto-start-reverse"><path d="M -1 0 L 10 5 L 0 10 z"></path></marker></defs><defs><marker id="mermaid-figure-1-crosshead" markerwidth="15" markerheight="8" orient="auto" refx="4" refy="4.5"><path fill="none" stroke="#000000" stroke-width="1pt" d="M 1,2 L 6,7 M 6,2 L 1,7" style="stroke-dasharray: 0, 0;"></path></marker></defs><defs><marker id="mermaid-figure-1-filled-head" refx="15.5" refy="7" markerwidth="20" markerheight="28" orient="auto"><path d="M 18,7 L9,13 L14,7 L9,1 Z"></path></marker></defs><defs><marker id="mermaid-figure-1-sequencenumber" refx="15" refy="15" markerwidth="60" markerheight="40" orient="auto"><circle cx="15" cy="15" r="6"></circle></marker></defs><g><rect x="586" y="167" fill="#EDF2AE" stroke="#666" width="300" height="37" class="note"></rect><text x="736" y="172" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-size: 16px; font-weight: 400;"><tspan x="736">pompa startuje — zgodnie z wolą operatora</tspan></text></g><g><rect x="661" y="214" fill="#EDF2AE" stroke="#666" width="150" height="37" class="note"></rect><text x="736" y="219" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-size: 16px; font-weight: 400;"><tspan x="736">zanik zasilania</tspan></text></g><g><rect x="651.5" y="351" fill="#EDF2AE" stroke="#666" width="169" height="54" class="note"></rect><text x="736" y="356" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-size: 16px; font-weight: 400;"><tspan x="736">pompa startuje SAMA,</tspan></text><text x="736" y="373" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-size: 16px; font-weight: 400;"><tspan x="736">bez decyzji człowieka</tspan></text></g><text x="246" y="80" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-size: 16px; font-weight: 400;">PUBLISH command {pump:true} retained</text><line x1="76" y1="111" x2="415" y2="111" class="messageLine0" stroke-width="2" stroke="none" marker-end="url(#mermaid-figure-1-arrowhead)" style="fill: none;"></line><text x="576" y="126" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-size: 16px; font-weight: 400;">{pump:true}</text><line x1="420" y1="157" x2="732" y2="157" class="messageLine0" stroke-width="2" stroke="none" marker-end="url(#mermaid-figure-1-arrowhead)" style="fill: none;"></line><text x="579" y="266" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-size: 16px; font-weight: 400;">CONNECT + SUBSCRIBE command</text><line x1="735" y1="295" x2="423" y2="295" class="messageLine0" stroke-width="2" stroke="none" marker-end="url(#mermaid-figure-1-arrowhead)" style="fill: none;"></line><text x="576" y="310" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-size: 16px; font-weight: 400;">{pump:true} (retained!)</text><line x1="420" y1="341" x2="732" y2="341" class="messageLine0" stroke-width="2" stroke="none" marker-end="url(#mermaid-figure-1-arrowhead)" style="fill: none;"></line>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:48%;">
+<div title="To nie jest błąd teoretyczny">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>To nie jest błąd teoretyczny</strong></p>
+</div>
+<div class="callout-content">
+<p>W systemie z pompą, grzałką albo zaworem ma to <strong>konsekwencje fizyczne</strong>: urządzenie wraca po przerwie w zasilaniu i samo załącza wyjście na podstawie polecenia sprzed godzin.</p>
+<p>Objaw zgłaszany przez użytkownika brzmi: „pompa włącza się sama”. Przyczyna leży w jednej fladze protokołu.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><strong>Stan</strong> natomiast <strong>musi</strong> być retained — po to, żeby nowy odbiorca (pulpit po odświeżeniu) od razu wiedział, w jakim stanie jest urządzenie, nie czekając na kolejny cykl.</p>
+</div>
+</div></div>
+</section>
+<section id="qos" class="slide level2">
+<h2><i class="bi bi-shield-check"></i> QoS i jego koszt</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="tabela-gesta">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Mechanizm</th>
+<th style="text-align: left;">Kiedy stosujesz</th>
+<th style="text-align: left;">Koszt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>QoS 0</strong> — co najwyżej raz</td>
+<td style="text-align: left;">telemetria o wysokiej częstości, gdzie strata próbki jest dopuszczalna</td>
+<td style="text-align: left;">brak potwierdzeń; nie wiesz, czy komunikat dotarł</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>QoS 1</strong> — co najmniej raz</td>
+<td style="text-align: left;">stan, zdarzenia, polecenia w prostych układach</td>
+<td style="text-align: left;">możliwe <strong>duplikaty</strong> — odbiorca musi być idempotentny</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>QoS 2</strong> — dokładnie raz</td>
+<td style="text-align: left;">operacje, których powtórzenie jest kosztowne</td>
+<td style="text-align: left;">czterofazowa wymiana; największe opóźnienie i zużycie energii</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Retained</strong></td>
+<td style="text-align: left;">stan, który nowy subskrybent musi znać natychmiast</td>
+<td style="text-align: left;">nieaktualny stan „żyje” do nadpisania</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Last Will</strong></td>
+<td style="text-align: left;">wykrycie nieuprzejmego rozłączenia</td>
+<td style="text-align: left;">ustawiany przy <code>CONNECT</code>; <strong>nie zadziała</strong> po poprawnym <code>DISCONNECT</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Keep alive</strong></td>
+<td style="text-align: left;">detekcja martwego łącza TCP</td>
+<td style="text-align: left;">krótki okres = częstsze <code>PINGREQ</code> = więcej energii</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Session Expiry</strong> (MQTT 5)</td>
+<td style="text-align: left;">odbiór zaległości po powrocie urządzenia</td>
+<td style="text-align: left;">broker utrzymuje stan sesji — zużycie pamięci serwera</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:45%;">
+<p>Specyfikacja opisuje trzy poziomy jako: <em>co najwyżej raz</em>, <em>co najmniej raz</em> i <em>dokładnie raz</em>. <strong>Żaden poziom nie gwarantuje dostarczenia przy trwale przerwanym łączu</strong> — określa semantykę dostarczenia po ponownym zestawieniu sesji.</p>
+<div class="fragment">
+<div title="I jeszcze jedno ograniczenie">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>I jeszcze jedno ograniczenie</strong></p>
+</div>
+<div class="callout-content">
+<p>Platforma, której użyjemy w module 06, obsługuje <strong>wyłącznie QoS 0 i 1</strong>. Projekt nie może zakładać semantyki „dokładnie raz” na styku z platformą — <strong>idempotencja odbiornika jest obowiązkowa</strong>, a nie opcjonalna.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="qos-sekwencja" class="slide level2">
+<h2><i class="bi bi-arrow-left-right"></i> Sekwencja trzech poziomów</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg id="mermaid-figure-3" width="960" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; display: block; margin: auto auto auto auto" viewbox="-50 -10 450 620" role="graphics-document document" aria-roledescription="sequence" height="422">
+<g><rect x="200" y="534" fill="#eaeaea" stroke="#666" width="150" height="65" name="B" rx="3" ry="3" class="actor actor-bottom"></rect><text x="275" y="566.5" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400;"><tspan x="275" dy="0">Broker</tspan></text></g><g><rect x="0" y="534" fill="#eaeaea" stroke="#666" width="150" height="65" name="C" rx="3" ry="3" class="actor actor-bottom"></rect><text x="75" y="566.5" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400;"><tspan x="75" dy="0">Czujnik</tspan></text></g><g><line id="actor1" x1="275" y1="65" x2="275" y2="534" class="actor-line 200" stroke-width="0.5px" stroke="#999" name="B"></line><g id="root-1"><rect x="200" y="0" fill="#eaeaea" stroke="#666" width="150" height="65" name="B" rx="3" ry="3" class="actor actor-top"></rect><text x="275" y="32.5" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400;"><tspan x="275" dy="0">Broker</tspan></text></g></g><g><line id="actor0" x1="75" y1="65" x2="75" y2="534" class="actor-line 200" stroke-width="0.5px" stroke="#999" name="C"></line><g id="root-0"><rect x="0" y="0" fill="#eaeaea" stroke="#666" width="150" height="65" name="C" rx="3" ry="3" class="actor actor-top"></rect><text x="75" y="32.5" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400;"><tspan x="75" dy="0">Czujnik</tspan></text></g></g><style>#mermaid-figure-3{font-family:“trebuchet ms”,verdana,arial,sans-serif;font-size:24px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-figure-3 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-figure-3 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-figure-3 .error-icon{fill:#552222;}#mermaid-figure-3 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-3 .edge-thickness-normal{stroke-width:1px;}#mermaid-figure-3 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-3 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-3 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-figure-3 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-3 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-3 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-3 .marker.cross{stroke:#333333;}#mermaid-figure-3 svg{font-family:“trebuchet ms”,verdana,arial,sans-serif;font-size:24px;}#mermaid-figure-3 p{margin:0;}#mermaid-figure-3 .actor{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-figure-3 text.actor>tspan{fill:black;stroke:none;}#mermaid-figure-3 .actor-line{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);}#mermaid-figure-3 .innerArc{stroke-width:1.5;stroke-dasharray:none;}#mermaid-figure-3 .messageLine0{stroke-width:1.5;stroke-dasharray:none;stroke:#333;}#mermaid-figure-3 .messageLine1{stroke-width:1.5;stroke-dasharray:2,2;stroke:#333;}#mermaid-figure-3 #mermaid-figure-3-arrowhead path{fill:#333;stroke:#333;}#mermaid-figure-3 .sequenceNumber{fill:white;}#mermaid-figure-3 #mermaid-figure-3-sequencenumber{fill:#333;}#mermaid-figure-3 #mermaid-figure-3-crosshead path{fill:#333;stroke:#333;}#mermaid-figure-3 .messageText{fill:#333;stroke:none;}#mermaid-figure-3 .labelBox{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-figure-3 .labelText,#mermaid-figure-3 .labelText>tspan{fill:black;stroke:none;}#mermaid-figure-3 .loopText,#mermaid-figure-3 .loopText>tspan{fill:black;stroke:none;}#mermaid-figure-3 .loopLine{stroke-width:2px;stroke-dasharray:2,2;stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);}#mermaid-figure-3 .note{stroke:#aaaa33;fill:#fff5ad;}#mermaid-figure-3 .noteText,#mermaid-figure-3 .noteText>tspan{fill:black;stroke:none;}#mermaid-figure-3 .activation0{fill:#f4f4f4;stroke:#666;}#mermaid-figure-3 .activation1{fill:#f4f4f4;stroke:#666;}#mermaid-figure-3 .activation2{fill:#f4f4f4;stroke:#666;}#mermaid-figure-3 .actorPopupMenu{position:absolute;}#mermaid-figure-3 .actorPopupMenuPanel{position:absolute;fill:#ECECFF;box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);filter:drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));}#mermaid-figure-3 .actor-man line{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-figure-3 .actor-man circle,#mermaid-figure-3 line{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;stroke-width:2px;}#mermaid-figure-3 :root{–mermaid-font-family:“trebuchet ms”,verdana,arial,sans-serif;}</style><g></g><defs><symbol id="mermaid-figure-3-computer" width="24" height="24"><path transform="scale(.5)" d="M2 2v13h20v-13h-20zm18 11h-16v-9h16v9zm-10.228 6l.466-1h3.524l.467 1h-4.457zm14.228 3h-24l2-6h2.104l-1.33 4h18.45l-1.297-4h2.073l2 6zm-5-10h-14v-7h14v7z"></path></symbol></defs><defs><symbol id="mermaid-figure-3-database" fill-rule="evenodd" clip-rule="evenodd"><path transform="scale(.5)" d="M12.258.001l.256.004.255.005.253.008.251.01.249.012.247.015.246.016.242.019.241.02.239.023.236.024.233.027.231.028.229.031.225.032.223.034.22.036.217.038.214.04.211.041.208.043.205.045.201.046.198.048.194.05.191.051.187.053.183.054.18.056.175.057.172.059.168.06.163.061.16.063.155.064.15.066.074.033.073.033.071.034.07.034.069.035.068.035.067.035.066.035.064.036.064.036.062.036.06.036.06.037.058.037.058.037.055.038.055.038.053.038.052.038.051.039.05.039.048.039.047.039.045.04.044.04.043.04.041.04.04.041.039.041.037.041.036.041.034.041.033.042.032.042.03.042.029.042.027.042.026.043.024.043.023.043.021.043.02.043.018.044.017.043.015.044.013.044.012.044.011.045.009.044.007.045.006.045.004.045.002.045.001.045v17l-.001.045-.002.045-.004.045-.006.045-.007.045-.009.044-.011.045-.012.044-.013.044-.015.044-.017.043-.018.044-.02.043-.021.043-.023.043-.024.043-.026.043-.027.042-.029.042-.03.042-.032.042-.033.042-.034.041-.036.041-.037.041-.039.041-.04.041-.041.04-.043.04-.044.04-.045.04-.047.039-.048.039-.05.039-.051.039-.052.038-.053.038-.055.038-.055.038-.058.037-.058.037-.06.037-.06.036-.062.036-.064.036-.064.036-.066.035-.067.035-.068.035-.069.035-.07.034-.071.034-.073.033-.074.033-.15.066-.155.064-.16.063-.163.061-.168.06-.172.059-.175.057-.18.056-.183.054-.187.053-.191.051-.194.05-.198.048-.201.046-.205.045-.208.043-.211.041-.214.04-.217.038-.22.036-.223.034-.225.032-.229.031-.231.028-.233.027-.236.024-.239.023-.241.02-.242.019-.246.016-.247.015-.249.012-.251.01-.253.008-.255.005-.256.004-.258.001-.258-.001-.256-.004-.255-.005-.253-.008-.251-.01-.249-.012-.247-.015-.245-.016-.243-.019-.241-.02-.238-.023-.236-.024-.234-.027-.231-.028-.228-.031-.226-.032-.223-.034-.22-.036-.217-.038-.214-.04-.211-.041-.208-.043-.204-.045-.201-.046-.198-.048-.195-.05-.19-.051-.187-.053-.184-.054-.179-.056-.176-.057-.172-.059-.167-.06-.164-.061-.159-.063-.155-.064-.151-.066-.074-.033-.072-.033-.072-.034-.07-.034-.069-.035-.068-.035-.067-.035-.066-.035-.064-.036-.063-.036-.062-.036-.061-.036-.06-.037-.058-.037-.057-.037-.056-.038-.055-.038-.053-.038-.052-.038-.051-.039-.049-.039-.049-.039-.046-.039-.046-.04-.044-.04-.043-.04-.041-.04-.04-.041-.039-.041-.037-.041-.036-.041-.034-.041-.033-.042-.032-.042-.03-.042-.029-.042-.027-.042-.026-.043-.024-.043-.023-.043-.021-.043-.02-.043-.018-.044-.017-.043-.015-.044-.013-.044-.012-.044-.011-.045-.009-.044-.007-.045-.006-.045-.004-.045-.002-.045-.001-.045v-17l.001-.045.002-.045.004-.045.006-.045.007-.045.009-.044.011-.045.012-.044.013-.044.015-.044.017-.043.018-.044.02-.043.021-.043.023-.043.024-.043.026-.043.027-.042.029-.042.03-.042.032-.042.033-.042.034-.041.036-.041.037-.041.039-.041.04-.041.041-.04.043-.04.044-.04.046-.04.046-.039.049-.039.049-.039.051-.039.052-.038.053-.038.055-.038.056-.038.057-.037.058-.037.06-.037.061-.036.062-.036.063-.036.064-.036.066-.035.067-.035.068-.035.069-.035.07-.034.072-.034.072-.033.074-.033.151-.066.155-.064.159-.063.164-.061.167-.06.172-.059.176-.057.179-.056.184-.054.187-.053.19-.051.195-.05.198-.048.201-.046.204-.045.208-.043.211-.041.214-.04.217-.038.22-.036.223-.034.226-.032.228-.031.231-.028.234-.027.236-.024.238-.023.241-.02.243-.019.245-.016.247-.015.249-.012.251-.01.253-.008.255-.005.256-.004.258-.001.258.001zm-9.258 20.499v.01l.001.021.003.021.004.022.005.021.006.022.007.022.009.023.01.022.011.023.012.023.013.023.015.023.016.024.017.023.018.024.019.024.021.024.022.025.023.024.024.025.052.049.056.05.061.051.066.051.07.051.075.051.079.052.084.052.088.052.092.052.097.052.102.051.105.052.11.052.114.051.119.051.123.051.127.05.131.05.135.05.139.048.144.049.147.047.152.047.155.047.16.045.163.045.167.043.171.043.176.041.178.041.183.039.187.039.19.037.194.035.197.035.202.033.204.031.209.03.212.029.216.027.219.025.222.024.226.021.23.02.233.018.236.016.24.015.243.012.246.01.249.008.253.005.256.004.259.001.26-.001.257-.004.254-.005.25-.008.247-.011.244-.012.241-.014.237-.016.233-.018.231-.021.226-.021.224-.024.22-.026.216-.027.212-.028.21-.031.205-.031.202-.034.198-.034.194-.036.191-.037.187-.039.183-.04.179-.04.175-.042.172-.043.168-.044.163-.045.16-.046.155-.046.152-.047.148-.048.143-.049.139-.049.136-.05.131-.05.126-.05.123-.051.118-.052.114-.051.11-.052.106-.052.101-.052.096-.052.092-.052.088-.053.083-.051.079-.052.074-.052.07-.051.065-.051.06-.051.056-.05.051-.05.023-.024.023-.025.021-.024.02-.024.019-.024.018-.024.017-.024.015-.023.014-.024.013-.023.012-.023.01-.023.01-.022.008-.022.006-.022.006-.022.004-.022.004-.021.001-.021.001-.021v-4.127l-.077.055-.08.053-.083.054-.085.053-.087.052-.09.052-.093.051-.095.05-.097.05-.1.049-.102.049-.105.048-.106.047-.109.047-.111.046-.114.045-.115.045-.118.044-.12.043-.122.042-.124.042-.126.041-.128.04-.13.04-.132.038-.134.038-.135.037-.138.037-.139.035-.142.035-.143.034-.144.033-.147.032-.148.031-.15.03-.151.03-.153.029-.154.027-.156.027-.158.026-.159.025-.161.024-.162.023-.163.022-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.011-.178.01-.179.008-.179.008-.181.006-.182.005-.182.004-.184.003-.184.002h-.37l-.184-.002-.184-.003-.182-.004-.182-.005-.181-.006-.179-.008-.179-.008-.178-.01-.176-.011-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.022-.162-.023-.161-.024-.159-.025-.157-.026-.156-.027-.155-.027-.153-.029-.151-.03-.15-.03-.148-.031-.146-.032-.145-.033-.143-.034-.141-.035-.14-.035-.137-.037-.136-.037-.134-.038-.132-.038-.13-.04-.128-.04-.126-.041-.124-.042-.122-.042-.12-.044-.117-.043-.116-.045-.113-.045-.112-.046-.109-.047-.106-.047-.105-.048-.102-.049-.1-.049-.097-.05-.095-.05-.093-.052-.09-.051-.087-.052-.085-.053-.083-.054-.08-.054-.077-.054v4.127zm0-5.654v.011l.001.021.003.021.004.021.005.022.006.022.007.022.009.022.01.022.011.023.012.023.013.023.015.024.016.023.017.024.018.024.019.024.021.024.022.024.023.025.024.024.052.05.056.05.061.05.066.051.07.051.075.052.079.051.084.052.088.052.092.052.097.052.102.052.105.052.11.051.114.051.119.052.123.05.127.051.131.05.135.049.139.049.144.048.147.048.152.047.155.046.16.045.163.045.167.044.171.042.176.042.178.04.183.04.187.038.19.037.194.036.197.034.202.033.204.032.209.03.212.028.216.027.219.025.222.024.226.022.23.02.233.018.236.016.24.014.243.012.246.01.249.008.253.006.256.003.259.001.26-.001.257-.003.254-.006.25-.008.247-.01.244-.012.241-.015.237-.016.233-.018.231-.02.226-.022.224-.024.22-.025.216-.027.212-.029.21-.03.205-.032.202-.033.198-.035.194-.036.191-.037.187-.039.183-.039.179-.041.175-.042.172-.043.168-.044.163-.045.16-.045.155-.047.152-.047.148-.048.143-.048.139-.05.136-.049.131-.05.126-.051.123-.051.118-.051.114-.052.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.051.07-.052.065-.051.06-.05.056-.051.051-.049.023-.025.023-.024.021-.025.02-.024.019-.024.018-.024.017-.024.015-.023.014-.023.013-.024.012-.022.01-.023.01-.023.008-.022.006-.022.006-.022.004-.021.004-.022.001-.021.001-.021v-4.139l-.077.054-.08.054-.083.054-.085.052-.087.053-.09.051-.093.051-.095.051-.097.05-.1.049-.102.049-.105.048-.106.047-.109.047-.111.046-.114.045-.115.044-.118.044-.12.044-.122.042-.124.042-.126.041-.128.04-.13.039-.132.039-.134.038-.135.037-.138.036-.139.036-.142.035-.143.033-.144.033-.147.033-.148.031-.15.03-.151.03-.153.028-.154.028-.156.027-.158.026-.159.025-.161.024-.162.023-.163.022-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.011-.178.009-.179.009-.179.007-.181.007-.182.005-.182.004-.184.003-.184.002h-.37l-.184-.002-.184-.003-.182-.004-.182-.005-.181-.007-.179-.007-.179-.009-.178-.009-.176-.011-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.022-.162-.023-.161-.024-.159-.025-.157-.026-.156-.027-.155-.028-.153-.028-.151-.03-.15-.03-.148-.031-.146-.033-.145-.033-.143-.033-.141-.035-.14-.036-.137-.036-.136-.037-.134-.038-.132-.039-.13-.039-.128-.04-.126-.041-.124-.042-.122-.043-.12-.043-.117-.044-.116-.044-.113-.046-.112-.046-.109-.046-.106-.047-.105-.048-.102-.049-.1-.049-.097-.05-.095-.051-.093-.051-.09-.051-.087-.053-.085-.052-.083-.054-.08-.054-.077-.054v4.139zm0-5.666v.011l.001.02.003.022.004.021.005.022.006.021.007.022.009.023.01.022.011.023.012.023.013.023.015.023.016.024.017.024.018.023.019.024.021.025.022.024.023.024.024.025.052.05.056.05.061.05.066.051.07.051.075.052.079.051.084.052.088.052.092.052.097.052.102.052.105.051.11.052.114.051.119.051.123.051.127.05.131.05.135.05.139.049.144.048.147.048.152.047.155.046.16.045.163.045.167.043.171.043.176.042.178.04.183.04.187.038.19.037.194.036.197.034.202.033.204.032.209.03.212.028.216.027.219.025.222.024.226.021.23.02.233.018.236.017.24.014.243.012.246.01.249.008.253.006.256.003.259.001.26-.001.257-.003.254-.006.25-.008.247-.01.244-.013.241-.014.237-.016.233-.018.231-.02.226-.022.224-.024.22-.025.216-.027.212-.029.21-.03.205-.032.202-.033.198-.035.194-.036.191-.037.187-.039.183-.039.179-.041.175-.042.172-.043.168-.044.163-.045.16-.045.155-.047.152-.047.148-.048.143-.049.139-.049.136-.049.131-.051.126-.05.123-.051.118-.052.114-.051.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.052.07-.051.065-.051.06-.051.056-.05.051-.049.023-.025.023-.025.021-.024.02-.024.019-.024.018-.024.017-.024.015-.023.014-.024.013-.023.012-.023.01-.022.01-.023.008-.022.006-.022.006-.022.004-.022.004-.021.001-.021.001-.021v-4.153l-.077.054-.08.054-.083.053-.085.053-.087.053-.09.051-.093.051-.095.051-.097.05-.1.049-.102.048-.105.048-.106.048-.109.046-.111.046-.114.046-.115.044-.118.044-.12.043-.122.043-.124.042-.126.041-.128.04-.13.039-.132.039-.134.038-.135.037-.138.036-.139.036-.142.034-.143.034-.144.033-.147.032-.148.032-.15.03-.151.03-.153.028-.154.028-.156.027-.158.026-.159.024-.161.024-.162.023-.163.023-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.01-.178.01-.179.009-.179.007-.181.006-.182.006-.182.004-.184.003-.184.001-.185.001-.185-.001-.184-.001-.184-.003-.182-.004-.182-.006-.181-.006-.179-.007-.179-.009-.178-.01-.176-.01-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.023-.162-.023-.161-.024-.159-.024-.157-.026-.156-.027-.155-.028-.153-.028-.151-.03-.15-.03-.148-.032-.146-.032-.145-.033-.143-.034-.141-.034-.14-.036-.137-.036-.136-.037-.134-.038-.132-.039-.13-.039-.128-.041-.126-.041-.124-.041-.122-.043-.12-.043-.117-.044-.116-.044-.113-.046-.112-.046-.109-.046-.106-.048-.105-.048-.102-.048-.1-.05-.097-.049-.095-.051-.093-.051-.09-.052-.087-.052-.085-.053-.083-.053-.08-.054-.077-.054v4.153zm8.74-8.179l-.257.004-.254.005-.25.008-.247.011-.244.012-.241.014-.237.016-.233.018-.231.021-.226.022-.224.023-.22.026-.216.027-.212.028-.21.031-.205.032-.202.033-.198.034-.194.036-.191.038-.187.038-.183.04-.179.041-.175.042-.172.043-.168.043-.163.045-.16.046-.155.046-.152.048-.148.048-.143.048-.139.049-.136.05-.131.05-.126.051-.123.051-.118.051-.114.052-.11.052-.106.052-.101.052-.096.052-.092.052-.088.052-.083.052-.079.052-.074.051-.07.052-.065.051-.06.05-.056.05-.051.05-.023.025-.023.024-.021.024-.02.025-.019.024-.018.024-.017.023-.015.024-.014.023-.013.023-.012.023-.01.023-.01.022-.008.022-.006.023-.006.021-.004.022-.004.021-.001.021-.001.021.001.021.001.021.004.021.004.022.006.021.006.023.008.022.01.022.01.023.012.023.013.023.014.023.015.024.017.023.018.024.019.024.02.025.021.024.023.024.023.025.051.05.056.05.06.05.065.051.07.052.074.051.079.052.083.052.088.052.092.052.096.052.101.052.106.052.11.052.114.052.118.051.123.051.126.051.131.05.136.05.139.049.143.048.148.048.152.048.155.046.16.046.163.045.168.043.172.043.175.042.179.041.183.04.187.038.191.038.194.036.198.034.202.033.205.032.21.031.212.028.216.027.22.026.224.023.226.022.231.021.233.018.237.016.241.014.244.012.247.011.25.008.254.005.257.004.26.001.26-.001.257-.004.254-.005.25-.008.247-.011.244-.012.241-.014.237-.016.233-.018.231-.021.226-.022.224-.023.22-.026.216-.027.212-.028.21-.031.205-.032.202-.033.198-.034.194-.036.191-.038.187-.038.183-.04.179-.041.175-.042.172-.043.168-.043.163-.045.16-.046.155-.046.152-.048.148-.048.143-.048.139-.049.136-.05.131-.05.126-.051.123-.051.118-.051.114-.052.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.051.07-.052.065-.051.06-.05.056-.05.051-.05.023-.025.023-.024.021-.024.02-.025.019-.024.018-.024.017-.023.015-.024.014-.023.013-.023.012-.023.01-.023.01-.022.008-.022.006-.023.006-.021.004-.022.004-.021.001-.021.001-.021-.001-.021-.001-.021-.004-.021-.004-.022-.006-.021-.006-.023-.008-.022-.01-.022-.01-.023-.012-.023-.013-.023-.014-.023-.015-.024-.017-.023-.018-.024-.019-.024-.02-.025-.021-.024-.023-.024-.023-.025-.051-.05-.056-.05-.06-.05-.065-.051-.07-.052-.074-.051-.079-.052-.083-.052-.088-.052-.092-.052-.096-.052-.101-.052-.106-.052-.11-.052-.114-.052-.118-.051-.123-.051-.126-.051-.131-.05-.136-.05-.139-.049-.143-.048-.148-.048-.152-.048-.155-.046-.16-.046-.163-.045-.168-.043-.172-.043-.175-.042-.179-.041-.183-.04-.187-.038-.191-.038-.194-.036-.198-.034-.202-.033-.205-.032-.21-.031-.212-.028-.216-.027-.22-.026-.224-.023-.226-.022-.231-.021-.233-.018-.237-.016-.241-.014-.244-.012-.247-.011-.25-.008-.254-.005-.257-.004-.26-.001-.26.001z"></path></symbol></defs><defs><symbol id="mermaid-figure-3-clock" width="24" height="24"><path transform="scale(.5)" d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.848 12.459c.202.038.202.333.001.372-1.907.361-6.045 1.111-6.547 1.111-.719 0-1.301-.582-1.301-1.301 0-.512.77-5.447 1.125-7.445.034-.192.312-.181.343.014l.985 6.238 5.394 1.011z"></path></symbol></defs><defs><marker id="mermaid-figure-3-arrowhead" refx="7.9" refy="5" markerunits="userSpaceOnUse" markerwidth="12" markerheight="12" orient="auto-start-reverse"><path d="M -1 0 L 10 5 L 0 10 z"></path></marker></defs><defs><marker id="mermaid-figure-3-crosshead" markerwidth="15" markerheight="8" orient="auto" refx="4" refy="4.5"><path fill="none" stroke="#000000" stroke-width="1pt" d="M 1,2 L 6,7 M 6,2 L 1,7" style="stroke-dasharray: 0, 0;"></path></marker></defs><defs><marker id="mermaid-figure-3-filled-head" refx="15.5" refy="7" markerwidth="20" markerheight="28" orient="auto"><path d="M 18,7 L9,13 L14,7 L9,1 Z"></path></marker></defs><defs><marker id="mermaid-figure-3-sequencenumber" refx="15" refy="15" markerwidth="60" markerheight="40" orient="auto"><circle cx="15" cy="15" r="6"></circle></marker></defs><g><rect x="50" y="75" fill="#EDF2AE" stroke="#666" width="250" height="37" class="note"></rect><text x="175" y="80" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-size: 16px; font-weight: 400;"><tspan x="175">QoS 0 — wyślij i zapomnij</tspan></text></g><g><rect x="50" y="166" fill="#EDF2AE" stroke="#666" width="250" height="37" class="note"></rect><text x="175" y="171" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-size: 16px; font-weight: 400;"><tspan x="175">QoS 1 — co najmniej raz</tspan></text></g><g><rect x="50" y="301" fill="#EDF2AE" stroke="#666" width="250" height="37" class="note"></rect><text x="175" y="306" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-size: 16px; font-weight: 400;"><tspan x="175">QoS 2 — dokładnie raz</tspan></text></g><text x="174" y="127" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-size: 16px; font-weight: 400;">PUBLISH</text><line x1="76" y1="156" x2="271" y2="156" class="messageLine0" stroke-width="2" stroke="none" marker-end="url(#mermaid-figure-3-arrowhead)" style="fill: none;"></line><text x="174" y="218" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-size: 16px; font-weight: 400;">PUBLISH</text><line x1="76" y1="247" x2="271" y2="247" class="messageLine0" stroke-width="2" stroke="none" marker-end="url(#mermaid-figure-3-arrowhead)" style="fill: none;"></line><text x="177" y="262" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-size: 16px; font-weight: 400;">PUBACK</text><line x1="274" y1="291" x2="79" y2="291" class="messageLine1" stroke-width="2" stroke="none" marker-end="url(#mermaid-figure-3-arrowhead)" style="stroke-dasharray: 3, 3; fill: none;"></line><text x="174" y="353" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-size: 16px; font-weight: 400;">PUBLISH</text><line x1="76" y1="382" x2="271" y2="382" class="messageLine0" stroke-width="2" stroke="none" marker-end="url(#mermaid-figure-3-arrowhead)" style="fill: none;"></line><text x="177" y="397" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-size: 16px; font-weight: 400;">PUBREC</text><line x1="274" y1="426" x2="79" y2="426" class="messageLine1" stroke-width="2" stroke="none" marker-end="url(#mermaid-figure-3-arrowhead)" style="stroke-dasharray: 3, 3; fill: none;"></line><text x="174" y="441" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-size: 16px; font-weight: 400;">PUBREL</text><line x1="76" y1="470" x2="271" y2="470" class="messageLine0" stroke-width="2" stroke="none" marker-end="url(#mermaid-figure-3-arrowhead)" style="fill: none;"></line><text x="177" y="485" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-size: 16px; font-weight: 400;">PUBCOMP</text><line x1="274" y1="514" x2="79" y2="514" class="messageLine1" stroke-width="2" stroke="none" marker-end="url(#mermaid-figure-3-arrowhead)" style="stroke-dasharray: 3, 3; fill: none;"></line>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Koszt energetyczny rośnie z liczbą wymian: QoS 2 to <strong>cztery pakiety</strong> zamiast jednego, a radio musi pozostać włączone przez cały czas wymiany.</p>
+</div>
+</section></section>
+<section>
+<section id="kontrakt-danych" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
+<h1>Kontrakt danych</h1>
+
+</section>
+<section id="kontrakt" class="slide level2">
+<h2><i class="bi bi-file-earmark-code"></i> Samoopisujący się ładunek</h2>
+<div class="columns">
+<div class="column" style="width:46%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"schema"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"ts"</span><span class="fu">:</span> <span class="st">"2026-09-30T09:20:03Z"</span><span class="fu">,</span></span>
+<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"device"</span><span class="fu">:</span> <span class="st">"iot-lab-01"</span><span class="fu">,</span></span>
+<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"fw"</span><span class="fu">:</span> <span class="st">"1.4.2"</span><span class="fu">,</span></span>
+<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"temperature_c"</span><span class="fu">:</span> <span class="fl">22.5</span><span class="fu">,</span></span>
+<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"humidity_pct"</span><span class="fu">:</span> <span class="dv">61</span><span class="fu">,</span></span>
+<span id="cb1-8"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"pump"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb1-9"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"seq"</span><span class="fu">:</span> <span class="dv">10472</span></span>
+<span id="cb1-10"><a aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ten komunikat da się zinterpretować <strong>bez dokumentacji obok</strong>. To jest cel.</p>
+</div><div class="column" style="width:54%;">
+<ul>
+<li class="fragment"><strong><code>schema</code></strong> — numer wersji kontraktu. Bez niego nie da się wprowadzić zmiany bez przestoju wszystkich odbiorców.</li>
+<li class="fragment"><strong><code>ts</code></strong> — czas w <strong>UTC</strong>, ISO 8601 ze strefą. Czas lokalny w telemetrii jest źródłem błędów na przełomie czasu zimowego i letniego: godzina 02:30 występuje dwa razy albo wcale.</li>
+<li class="fragment"><strong>Jednostka jest częścią nazwy pola</strong> (<code>_c</code>, <code>_pct</code>) — odbiorca nie musi zgadywać ani pytać.</li>
+<li class="fragment"><strong><code>seq</code></strong> — licznik rosnący; pozwala wykryć lukę w strumieniu bez porównywania znaczników czasu i wykryć duplikat z QoS 1.</li>
+<li class="fragment"><strong><code>device</code>, <code>fw</code></strong> — identyfikacja źródła, przydatna przy diagnozie „która partia urządzeń psuje dane”.</li>
+</ul>
+</div></div>
+</section>
+<section id="wersjonowanie" class="slide level2">
+<h2><i class="bi bi-diagram-2"></i> Wersjonowanie kontraktu</h2>
+<p><span class="lead">Zmiana kontraktu po wdrożeniu wymaga aktualizacji wszystkich stron. Pole <code>schema</code> pozwala zrobić to etapami.</span></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Zmiana zgodna wstecz</strong> — dodanie pola</p>
+<ul>
+<li class="fragment">Urządzenie wysyła nowe pole, <code>schema</code> bez zmian.</li>
+<li class="fragment">Starzy odbiorcy ignorują nieznane pole, nowi z niego korzystają.</li>
+</ul>
+<p><strong>Zmiana niezgodna</strong> — inne znaczenie albo jednostka</p>
+<ul>
+<li class="fragment">Podnosimy <code>schema</code> do 2.</li>
+<li class="fragment">Odbiorca odrzuca nieobsługiwaną wersję <strong>z powodem</strong>, zamiast interpretować ją błędnie.</li>
+<li class="fragment">W okresie przejściowym publikujemy w obu wersjach albo aktualizujemy urządzenia przez OTA (moduł 03).</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div title="Najgorszy wariant">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Najgorszy wariant</strong></p>
+</div>
+<div class="callout-content">
+<p>Zmiana jednostki z °C na dziesiąte części °C <strong>bez</strong> podniesienia <code>schema</code>.</p>
+<p>Odbiorca nadal parsuje komunikat poprawnie, wykresy się rysują, alarmy działają — a wszystkie wartości są dziesięciokrotnie za duże. Błąd ujawni się dopiero wtedy, gdy ktoś spojrzy na wykres.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Dlatego jednostka jest w <strong>nazwie pola</strong>: zmiana jednostki wymusza zmianę nazwy, a ta jest widoczna natychmiast.</p>
+</div>
+</div></div>
+</section>
+<section id="idempotencja" class="slide level2">
+<h2><i class="bi bi-arrow-clockwise"></i> Idempotencja polecenia</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Polecenie zawiera <strong>identyfikator żądania</strong>. Urządzenie zapamiętuje ostatnie wykonane identyfikatory i ignoruje powtórzenia.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"schema"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb2-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"req_id"</span><span class="fu">:</span> <span class="st">"c7f1-0042"</span><span class="fu">,</span></span>
+<span id="cb2-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"method"</span><span class="fu">:</span> <span class="st">"setPump"</span><span class="fu">,</span></span>
+<span id="cb2-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"params"</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">"on"</span><span class="fu">:</span> <span class="kw">true</span> <span class="fu">}</span></span>
+<span id="cb2-6"><a aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<p>Dzięki temu <strong>QoS 1 z duplikatami przestaje być problemem</strong>, a odpowiedź może być bezpiecznie wysłana ponownie.</p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg id="mermaid-figure-2" width="634" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; display: block; margin: auto auto auto auto" viewbox="-50 -10 636 483" role="graphics-document document" aria-roledescription="sequence" height="365">
+<g><rect x="364" y="397" fill="#eaeaea" stroke="#666" width="150" height="65" name="D" rx="3" ry="3" class="actor actor-bottom"></rect><text x="439" y="429.5" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400;"><tspan x="439" dy="0">Urządzenie</tspan></text></g><g><rect x="0" y="397" fill="#eaeaea" stroke="#666" width="150" height="65" name="B" rx="3" ry="3" class="actor actor-bottom"></rect><text x="75" y="429.5" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400;"><tspan x="75" dy="0">Broker</tspan></text></g><g><line id="actor1" x1="439" y1="65" x2="439" y2="397" class="actor-line 200" stroke-width="0.5px" stroke="#999" name="D"></line><g id="root-1"><rect x="364" y="0" fill="#eaeaea" stroke="#666" width="150" height="65" name="D" rx="3" ry="3" class="actor actor-top"></rect><text x="439" y="32.5" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400;"><tspan x="439" dy="0">Urządzenie</tspan></text></g></g><g><line id="actor0" x1="75" y1="65" x2="75" y2="397" class="actor-line 200" stroke-width="0.5px" stroke="#999" name="B"></line><g id="root-0"><rect x="0" y="0" fill="#eaeaea" stroke="#666" width="150" height="65" name="B" rx="3" ry="3" class="actor actor-top"></rect><text x="75" y="32.5" dominant-baseline="central" alignment-baseline="central" class="actor actor-box" style="text-anchor: middle; font-size: 16px; font-weight: 400;"><tspan x="75" dy="0">Broker</tspan></text></g></g><style>#mermaid-figure-2{font-family:“trebuchet ms”,verdana,arial,sans-serif;font-size:24px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-figure-2 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-figure-2 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-figure-2 .error-icon{fill:#552222;}#mermaid-figure-2 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-2 .edge-thickness-normal{stroke-width:1px;}#mermaid-figure-2 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-2 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-2 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-figure-2 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-2 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-2 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-2 .marker.cross{stroke:#333333;}#mermaid-figure-2 svg{font-family:“trebuchet ms”,verdana,arial,sans-serif;font-size:24px;}#mermaid-figure-2 p{margin:0;}#mermaid-figure-2 .actor{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-figure-2 text.actor>tspan{fill:black;stroke:none;}#mermaid-figure-2 .actor-line{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);}#mermaid-figure-2 .innerArc{stroke-width:1.5;stroke-dasharray:none;}#mermaid-figure-2 .messageLine0{stroke-width:1.5;stroke-dasharray:none;stroke:#333;}#mermaid-figure-2 .messageLine1{stroke-width:1.5;stroke-dasharray:2,2;stroke:#333;}#mermaid-figure-2 #mermaid-figure-2-arrowhead path{fill:#333;stroke:#333;}#mermaid-figure-2 .sequenceNumber{fill:white;}#mermaid-figure-2 #mermaid-figure-2-sequencenumber{fill:#333;}#mermaid-figure-2 #mermaid-figure-2-crosshead path{fill:#333;stroke:#333;}#mermaid-figure-2 .messageText{fill:#333;stroke:none;}#mermaid-figure-2 .labelBox{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-figure-2 .labelText,#mermaid-figure-2 .labelText>tspan{fill:black;stroke:none;}#mermaid-figure-2 .loopText,#mermaid-figure-2 .loopText>tspan{fill:black;stroke:none;}#mermaid-figure-2 .loopLine{stroke-width:2px;stroke-dasharray:2,2;stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);}#mermaid-figure-2 .note{stroke:#aaaa33;fill:#fff5ad;}#mermaid-figure-2 .noteText,#mermaid-figure-2 .noteText>tspan{fill:black;stroke:none;}#mermaid-figure-2 .activation0{fill:#f4f4f4;stroke:#666;}#mermaid-figure-2 .activation1{fill:#f4f4f4;stroke:#666;}#mermaid-figure-2 .activation2{fill:#f4f4f4;stroke:#666;}#mermaid-figure-2 .actorPopupMenu{position:absolute;}#mermaid-figure-2 .actorPopupMenuPanel{position:absolute;fill:#ECECFF;box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);filter:drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));}#mermaid-figure-2 .actor-man line{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid-figure-2 .actor-man circle,#mermaid-figure-2 line{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;stroke-width:2px;}#mermaid-figure-2 :root{–mermaid-font-family:“trebuchet ms”,verdana,arial,sans-serif;}</style><g></g><defs><symbol id="mermaid-figure-2-computer" width="24" height="24"><path transform="scale(.5)" d="M2 2v13h20v-13h-20zm18 11h-16v-9h16v9zm-10.228 6l.466-1h3.524l.467 1h-4.457zm14.228 3h-24l2-6h2.104l-1.33 4h18.45l-1.297-4h2.073l2 6zm-5-10h-14v-7h14v7z"></path></symbol></defs><defs><symbol id="mermaid-figure-2-database" fill-rule="evenodd" clip-rule="evenodd"><path transform="scale(.5)" d="M12.258.001l.256.004.255.005.253.008.251.01.249.012.247.015.246.016.242.019.241.02.239.023.236.024.233.027.231.028.229.031.225.032.223.034.22.036.217.038.214.04.211.041.208.043.205.045.201.046.198.048.194.05.191.051.187.053.183.054.18.056.175.057.172.059.168.06.163.061.16.063.155.064.15.066.074.033.073.033.071.034.07.034.069.035.068.035.067.035.066.035.064.036.064.036.062.036.06.036.06.037.058.037.058.037.055.038.055.038.053.038.052.038.051.039.05.039.048.039.047.039.045.04.044.04.043.04.041.04.04.041.039.041.037.041.036.041.034.041.033.042.032.042.03.042.029.042.027.042.026.043.024.043.023.043.021.043.02.043.018.044.017.043.015.044.013.044.012.044.011.045.009.044.007.045.006.045.004.045.002.045.001.045v17l-.001.045-.002.045-.004.045-.006.045-.007.045-.009.044-.011.045-.012.044-.013.044-.015.044-.017.043-.018.044-.02.043-.021.043-.023.043-.024.043-.026.043-.027.042-.029.042-.03.042-.032.042-.033.042-.034.041-.036.041-.037.041-.039.041-.04.041-.041.04-.043.04-.044.04-.045.04-.047.039-.048.039-.05.039-.051.039-.052.038-.053.038-.055.038-.055.038-.058.037-.058.037-.06.037-.06.036-.062.036-.064.036-.064.036-.066.035-.067.035-.068.035-.069.035-.07.034-.071.034-.073.033-.074.033-.15.066-.155.064-.16.063-.163.061-.168.06-.172.059-.175.057-.18.056-.183.054-.187.053-.191.051-.194.05-.198.048-.201.046-.205.045-.208.043-.211.041-.214.04-.217.038-.22.036-.223.034-.225.032-.229.031-.231.028-.233.027-.236.024-.239.023-.241.02-.242.019-.246.016-.247.015-.249.012-.251.01-.253.008-.255.005-.256.004-.258.001-.258-.001-.256-.004-.255-.005-.253-.008-.251-.01-.249-.012-.247-.015-.245-.016-.243-.019-.241-.02-.238-.023-.236-.024-.234-.027-.231-.028-.228-.031-.226-.032-.223-.034-.22-.036-.217-.038-.214-.04-.211-.041-.208-.043-.204-.045-.201-.046-.198-.048-.195-.05-.19-.051-.187-.053-.184-.054-.179-.056-.176-.057-.172-.059-.167-.06-.164-.061-.159-.063-.155-.064-.151-.066-.074-.033-.072-.033-.072-.034-.07-.034-.069-.035-.068-.035-.067-.035-.066-.035-.064-.036-.063-.036-.062-.036-.061-.036-.06-.037-.058-.037-.057-.037-.056-.038-.055-.038-.053-.038-.052-.038-.051-.039-.049-.039-.049-.039-.046-.039-.046-.04-.044-.04-.043-.04-.041-.04-.04-.041-.039-.041-.037-.041-.036-.041-.034-.041-.033-.042-.032-.042-.03-.042-.029-.042-.027-.042-.026-.043-.024-.043-.023-.043-.021-.043-.02-.043-.018-.044-.017-.043-.015-.044-.013-.044-.012-.044-.011-.045-.009-.044-.007-.045-.006-.045-.004-.045-.002-.045-.001-.045v-17l.001-.045.002-.045.004-.045.006-.045.007-.045.009-.044.011-.045.012-.044.013-.044.015-.044.017-.043.018-.044.02-.043.021-.043.023-.043.024-.043.026-.043.027-.042.029-.042.03-.042.032-.042.033-.042.034-.041.036-.041.037-.041.039-.041.04-.041.041-.04.043-.04.044-.04.046-.04.046-.039.049-.039.049-.039.051-.039.052-.038.053-.038.055-.038.056-.038.057-.037.058-.037.06-.037.061-.036.062-.036.063-.036.064-.036.066-.035.067-.035.068-.035.069-.035.07-.034.072-.034.072-.033.074-.033.151-.066.155-.064.159-.063.164-.061.167-.06.172-.059.176-.057.179-.056.184-.054.187-.053.19-.051.195-.05.198-.048.201-.046.204-.045.208-.043.211-.041.214-.04.217-.038.22-.036.223-.034.226-.032.228-.031.231-.028.234-.027.236-.024.238-.023.241-.02.243-.019.245-.016.247-.015.249-.012.251-.01.253-.008.255-.005.256-.004.258-.001.258.001zm-9.258 20.499v.01l.001.021.003.021.004.022.005.021.006.022.007.022.009.023.01.022.011.023.012.023.013.023.015.023.016.024.017.023.018.024.019.024.021.024.022.025.023.024.024.025.052.049.056.05.061.051.066.051.07.051.075.051.079.052.084.052.088.052.092.052.097.052.102.051.105.052.11.052.114.051.119.051.123.051.127.05.131.05.135.05.139.048.144.049.147.047.152.047.155.047.16.045.163.045.167.043.171.043.176.041.178.041.183.039.187.039.19.037.194.035.197.035.202.033.204.031.209.03.212.029.216.027.219.025.222.024.226.021.23.02.233.018.236.016.24.015.243.012.246.01.249.008.253.005.256.004.259.001.26-.001.257-.004.254-.005.25-.008.247-.011.244-.012.241-.014.237-.016.233-.018.231-.021.226-.021.224-.024.22-.026.216-.027.212-.028.21-.031.205-.031.202-.034.198-.034.194-.036.191-.037.187-.039.183-.04.179-.04.175-.042.172-.043.168-.044.163-.045.16-.046.155-.046.152-.047.148-.048.143-.049.139-.049.136-.05.131-.05.126-.05.123-.051.118-.052.114-.051.11-.052.106-.052.101-.052.096-.052.092-.052.088-.053.083-.051.079-.052.074-.052.07-.051.065-.051.06-.051.056-.05.051-.05.023-.024.023-.025.021-.024.02-.024.019-.024.018-.024.017-.024.015-.023.014-.024.013-.023.012-.023.01-.023.01-.022.008-.022.006-.022.006-.022.004-.022.004-.021.001-.021.001-.021v-4.127l-.077.055-.08.053-.083.054-.085.053-.087.052-.09.052-.093.051-.095.05-.097.05-.1.049-.102.049-.105.048-.106.047-.109.047-.111.046-.114.045-.115.045-.118.044-.12.043-.122.042-.124.042-.126.041-.128.04-.13.04-.132.038-.134.038-.135.037-.138.037-.139.035-.142.035-.143.034-.144.033-.147.032-.148.031-.15.03-.151.03-.153.029-.154.027-.156.027-.158.026-.159.025-.161.024-.162.023-.163.022-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.011-.178.01-.179.008-.179.008-.181.006-.182.005-.182.004-.184.003-.184.002h-.37l-.184-.002-.184-.003-.182-.004-.182-.005-.181-.006-.179-.008-.179-.008-.178-.01-.176-.011-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.022-.162-.023-.161-.024-.159-.025-.157-.026-.156-.027-.155-.027-.153-.029-.151-.03-.15-.03-.148-.031-.146-.032-.145-.033-.143-.034-.141-.035-.14-.035-.137-.037-.136-.037-.134-.038-.132-.038-.13-.04-.128-.04-.126-.041-.124-.042-.122-.042-.12-.044-.117-.043-.116-.045-.113-.045-.112-.046-.109-.047-.106-.047-.105-.048-.102-.049-.1-.049-.097-.05-.095-.05-.093-.052-.09-.051-.087-.052-.085-.053-.083-.054-.08-.054-.077-.054v4.127zm0-5.654v.011l.001.021.003.021.004.021.005.022.006.022.007.022.009.022.01.022.011.023.012.023.013.023.015.024.016.023.017.024.018.024.019.024.021.024.022.024.023.025.024.024.052.05.056.05.061.05.066.051.07.051.075.052.079.051.084.052.088.052.092.052.097.052.102.052.105.052.11.051.114.051.119.052.123.05.127.051.131.05.135.049.139.049.144.048.147.048.152.047.155.046.16.045.163.045.167.044.171.042.176.042.178.04.183.04.187.038.19.037.194.036.197.034.202.033.204.032.209.03.212.028.216.027.219.025.222.024.226.022.23.02.233.018.236.016.24.014.243.012.246.01.249.008.253.006.256.003.259.001.26-.001.257-.003.254-.006.25-.008.247-.01.244-.012.241-.015.237-.016.233-.018.231-.02.226-.022.224-.024.22-.025.216-.027.212-.029.21-.03.205-.032.202-.033.198-.035.194-.036.191-.037.187-.039.183-.039.179-.041.175-.042.172-.043.168-.044.163-.045.16-.045.155-.047.152-.047.148-.048.143-.048.139-.05.136-.049.131-.05.126-.051.123-.051.118-.051.114-.052.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.051.07-.052.065-.051.06-.05.056-.051.051-.049.023-.025.023-.024.021-.025.02-.024.019-.024.018-.024.017-.024.015-.023.014-.023.013-.024.012-.022.01-.023.01-.023.008-.022.006-.022.006-.022.004-.021.004-.022.001-.021.001-.021v-4.139l-.077.054-.08.054-.083.054-.085.052-.087.053-.09.051-.093.051-.095.051-.097.05-.1.049-.102.049-.105.048-.106.047-.109.047-.111.046-.114.045-.115.044-.118.044-.12.044-.122.042-.124.042-.126.041-.128.04-.13.039-.132.039-.134.038-.135.037-.138.036-.139.036-.142.035-.143.033-.144.033-.147.033-.148.031-.15.03-.151.03-.153.028-.154.028-.156.027-.158.026-.159.025-.161.024-.162.023-.163.022-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.011-.178.009-.179.009-.179.007-.181.007-.182.005-.182.004-.184.003-.184.002h-.37l-.184-.002-.184-.003-.182-.004-.182-.005-.181-.007-.179-.007-.179-.009-.178-.009-.176-.011-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.022-.162-.023-.161-.024-.159-.025-.157-.026-.156-.027-.155-.028-.153-.028-.151-.03-.15-.03-.148-.031-.146-.033-.145-.033-.143-.033-.141-.035-.14-.036-.137-.036-.136-.037-.134-.038-.132-.039-.13-.039-.128-.04-.126-.041-.124-.042-.122-.043-.12-.043-.117-.044-.116-.044-.113-.046-.112-.046-.109-.046-.106-.047-.105-.048-.102-.049-.1-.049-.097-.05-.095-.051-.093-.051-.09-.051-.087-.053-.085-.052-.083-.054-.08-.054-.077-.054v4.139zm0-5.666v.011l.001.02.003.022.004.021.005.022.006.021.007.022.009.023.01.022.011.023.012.023.013.023.015.023.016.024.017.024.018.023.019.024.021.025.022.024.023.024.024.025.052.05.056.05.061.05.066.051.07.051.075.052.079.051.084.052.088.052.092.052.097.052.102.052.105.051.11.052.114.051.119.051.123.051.127.05.131.05.135.05.139.049.144.048.147.048.152.047.155.046.16.045.163.045.167.043.171.043.176.042.178.04.183.04.187.038.19.037.194.036.197.034.202.033.204.032.209.03.212.028.216.027.219.025.222.024.226.021.23.02.233.018.236.017.24.014.243.012.246.01.249.008.253.006.256.003.259.001.26-.001.257-.003.254-.006.25-.008.247-.01.244-.013.241-.014.237-.016.233-.018.231-.02.226-.022.224-.024.22-.025.216-.027.212-.029.21-.03.205-.032.202-.033.198-.035.194-.036.191-.037.187-.039.183-.039.179-.041.175-.042.172-.043.168-.044.163-.045.16-.045.155-.047.152-.047.148-.048.143-.049.139-.049.136-.049.131-.051.126-.05.123-.051.118-.052.114-.051.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.052.07-.051.065-.051.06-.051.056-.05.051-.049.023-.025.023-.025.021-.024.02-.024.019-.024.018-.024.017-.024.015-.023.014-.024.013-.023.012-.023.01-.022.01-.023.008-.022.006-.022.006-.022.004-.022.004-.021.001-.021.001-.021v-4.153l-.077.054-.08.054-.083.053-.085.053-.087.053-.09.051-.093.051-.095.051-.097.05-.1.049-.102.048-.105.048-.106.048-.109.046-.111.046-.114.046-.115.044-.118.044-.12.043-.122.043-.124.042-.126.041-.128.04-.13.039-.132.039-.134.038-.135.037-.138.036-.139.036-.142.034-.143.034-.144.033-.147.032-.148.032-.15.03-.151.03-.153.028-.154.028-.156.027-.158.026-.159.024-.161.024-.162.023-.163.023-.165.021-.166.02-.167.019-.169.018-.169.017-.171.016-.173.015-.173.014-.175.013-.175.012-.177.01-.178.01-.179.009-.179.007-.181.006-.182.006-.182.004-.184.003-.184.001-.185.001-.185-.001-.184-.001-.184-.003-.182-.004-.182-.006-.181-.006-.179-.007-.179-.009-.178-.01-.176-.01-.176-.012-.175-.013-.173-.014-.172-.015-.171-.016-.17-.017-.169-.018-.167-.019-.166-.02-.165-.021-.163-.023-.162-.023-.161-.024-.159-.024-.157-.026-.156-.027-.155-.028-.153-.028-.151-.03-.15-.03-.148-.032-.146-.032-.145-.033-.143-.034-.141-.034-.14-.036-.137-.036-.136-.037-.134-.038-.132-.039-.13-.039-.128-.041-.126-.041-.124-.041-.122-.043-.12-.043-.117-.044-.116-.044-.113-.046-.112-.046-.109-.046-.106-.048-.105-.048-.102-.048-.1-.05-.097-.049-.095-.051-.093-.051-.09-.052-.087-.052-.085-.053-.083-.053-.08-.054-.077-.054v4.153zm8.74-8.179l-.257.004-.254.005-.25.008-.247.011-.244.012-.241.014-.237.016-.233.018-.231.021-.226.022-.224.023-.22.026-.216.027-.212.028-.21.031-.205.032-.202.033-.198.034-.194.036-.191.038-.187.038-.183.04-.179.041-.175.042-.172.043-.168.043-.163.045-.16.046-.155.046-.152.048-.148.048-.143.048-.139.049-.136.05-.131.05-.126.051-.123.051-.118.051-.114.052-.11.052-.106.052-.101.052-.096.052-.092.052-.088.052-.083.052-.079.052-.074.051-.07.052-.065.051-.06.05-.056.05-.051.05-.023.025-.023.024-.021.024-.02.025-.019.024-.018.024-.017.023-.015.024-.014.023-.013.023-.012.023-.01.023-.01.022-.008.022-.006.023-.006.021-.004.022-.004.021-.001.021-.001.021.001.021.001.021.004.021.004.022.006.021.006.023.008.022.01.022.01.023.012.023.013.023.014.023.015.024.017.023.018.024.019.024.02.025.021.024.023.024.023.025.051.05.056.05.06.05.065.051.07.052.074.051.079.052.083.052.088.052.092.052.096.052.101.052.106.052.11.052.114.052.118.051.123.051.126.051.131.05.136.05.139.049.143.048.148.048.152.048.155.046.16.046.163.045.168.043.172.043.175.042.179.041.183.04.187.038.191.038.194.036.198.034.202.033.205.032.21.031.212.028.216.027.22.026.224.023.226.022.231.021.233.018.237.016.241.014.244.012.247.011.25.008.254.005.257.004.26.001.26-.001.257-.004.254-.005.25-.008.247-.011.244-.012.241-.014.237-.016.233-.018.231-.021.226-.022.224-.023.22-.026.216-.027.212-.028.21-.031.205-.032.202-.033.198-.034.194-.036.191-.038.187-.038.183-.04.179-.041.175-.042.172-.043.168-.043.163-.045.16-.046.155-.046.152-.048.148-.048.143-.048.139-.049.136-.05.131-.05.126-.051.123-.051.118-.051.114-.052.11-.052.106-.052.101-.052.096-.052.092-.052.088-.052.083-.052.079-.052.074-.051.07-.052.065-.051.06-.05.056-.05.051-.05.023-.025.023-.024.021-.024.02-.025.019-.024.018-.024.017-.023.015-.024.014-.023.013-.023.012-.023.01-.023.01-.022.008-.022.006-.023.006-.021.004-.022.004-.021.001-.021.001-.021-.001-.021-.001-.021-.004-.021-.004-.022-.006-.021-.006-.023-.008-.022-.01-.022-.01-.023-.012-.023-.013-.023-.014-.023-.015-.024-.017-.023-.018-.024-.019-.024-.02-.025-.021-.024-.023-.024-.023-.025-.051-.05-.056-.05-.06-.05-.065-.051-.07-.052-.074-.051-.079-.052-.083-.052-.088-.052-.092-.052-.096-.052-.101-.052-.106-.052-.11-.052-.114-.052-.118-.051-.123-.051-.126-.051-.131-.05-.136-.05-.139-.049-.143-.048-.148-.048-.152-.048-.155-.046-.16-.046-.163-.045-.168-.043-.172-.043-.175-.042-.179-.041-.183-.04-.187-.038-.191-.038-.194-.036-.198-.034-.202-.033-.205-.032-.21-.031-.212-.028-.216-.027-.22-.026-.224-.023-.226-.022-.231-.021-.233-.018-.237-.016-.241-.014-.244-.012-.247-.011-.25-.008-.254-.005-.257-.004-.26-.001-.26.001z"></path></symbol></defs><defs><symbol id="mermaid-figure-2-clock" width="24" height="24"><path transform="scale(.5)" d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.848 12.459c.202.038.202.333.001.372-1.907.361-6.045 1.111-6.547 1.111-.719 0-1.301-.582-1.301-1.301 0-.512.77-5.447 1.125-7.445.034-.192.312-.181.343.014l.985 6.238 5.394 1.011z"></path></symbol></defs><defs><marker id="mermaid-figure-2-arrowhead" refx="7.9" refy="5" markerunits="userSpaceOnUse" markerwidth="12" markerheight="12" orient="auto-start-reverse"><path d="M -1 0 L 10 5 L 0 10 z"></path></marker></defs><defs><marker id="mermaid-figure-2-crosshead" markerwidth="15" markerheight="8" orient="auto" refx="4" refy="4.5"><path fill="none" stroke="#000000" stroke-width="1pt" d="M 1,2 L 6,7 M 6,2 L 1,7" style="stroke-dasharray: 0, 0;"></path></marker></defs><defs><marker id="mermaid-figure-2-filled-head" refx="15.5" refy="7" markerwidth="20" markerheight="28" orient="auto"><path d="M 18,7 L9,13 L14,7 L9,1 Z"></path></marker></defs><defs><marker id="mermaid-figure-2-sequencenumber" refx="15" refy="15" markerwidth="60" markerheight="40" orient="auto"><circle cx="15" cy="15" r="6"></circle></marker></defs><g><rect x="353" y="121" fill="#EDF2AE" stroke="#666" width="172" height="54" class="note"></rect><text x="439" y="126" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-size: 16px; font-weight: 400;"><tspan x="439">nieznany identyfikator</tspan></text><text x="439" y="143" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-size: 16px; font-weight: 400;"><tspan x="439">→ wykonaj, zapamiętaj</tspan></text></g><g><rect x="342" y="277" fill="#EDF2AE" stroke="#666" width="194" height="54" class="note"></rect><text x="439" y="282" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-size: 16px; font-weight: 400;"><tspan x="439">znany identyfikator</tspan></text><text x="439" y="299" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="noteText" dy="1em" style="font-size: 16px; font-weight: 400;"><tspan x="439">→ NIE wykonuj ponownie</tspan></text></g><text x="256" y="80" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-size: 16px; font-weight: 400;">command req_id=c7f1-0042</text><line x1="76" y1="111" x2="435" y2="111" class="messageLine0" stroke-width="2" stroke="none" marker-end="url(#mermaid-figure-2-arrowhead)" style="fill: none;"></line><text x="259" y="190" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-size: 16px; font-weight: 400;">response req_id=c7f1-0042, pump=true</text><line x1="438" y1="221" x2="79" y2="221" class="messageLine0" stroke-width="2" stroke="none" marker-end="url(#mermaid-figure-2-arrowhead)" style="fill: none;"></line><text x="256" y="236" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-size: 16px; font-weight: 400;">command req_id=c7f1-0042 (duplikat QoS 1)</text><line x1="76" y1="267" x2="435" y2="267" class="messageLine0" stroke-width="2" stroke="none" marker-end="url(#mermaid-figure-2-arrowhead)" style="fill: none;"></line><text x="259" y="346" text-anchor="middle" dominant-baseline="middle" alignment-baseline="middle" class="messageText" dy="1em" style="font-size: 16px; font-weight: 400;">response req_id=c7f1-0042, pump=true</text><line x1="438" y1="377" x2="79" y2="377" class="messageLine0" stroke-width="2" stroke="none" marker-end="url(#mermaid-figure-2-arrowhead)" style="fill: none;"></line>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Odpowiedź wysyłamy <strong>za każdym razem</strong> — powtórzenie odpowiedzi jest nieszkodliwe, a jej brak wygląda jak awaria.</p>
+</div>
+</div></div>
+</section>
+<section id="dostep" class="slide level2">
+<h2><i class="bi bi-lock"></i> Zamknięcie dostępu do brokera</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<ul>
+<li class="fragment"><strong>Unikalny identyfikator klienta.</strong> Dwa urządzenia z tym samym <code>ClientID</code> wzajemnie się rozłączają — objaw wygląda dokładnie jak „niestabilna sieć” i potrafi kosztować dzień diagnozy.</li>
+<li class="fragment"><strong>Osobne konto dla każdego urządzenia</strong>; dostęp anonimowy wyłączony.</li>
+<li class="fragment"><strong>Listy kontroli dostępu (ACL)</strong> ograniczają każdemu urządzeniu prawo publikacji do własnego poddrzewa i prawo subskrypcji do własnego tematu poleceń.</li>
+<li class="fragment"><strong>TLS na porcie 8883</strong> z weryfikacją certyfikatu serwera po stronie urządzenia. Wgrany certyfikat CA jest częścią firmware — i podlega aktualizacji OTA.</li>
+<li class="fragment"><strong>Sekrety nie trafiają</strong> do repozytorium ani do zrzutów ekranu w sprawozdaniu.</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<p>Prefiks <code>dev/</code>, <code>test/</code> lub <code>prod/</code> <strong>porządkuje nazwy, ale nie zapewnia izolacji</strong>. Izolację daje osobny broker albo ACL z osobnymi poświadczeniami.</p>
+<div class="fragment">
+<div title="Minimalna reguła ACL dla urządzenia">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Minimalna reguła ACL dla urządzenia</strong></p>
+</div>
+<div class="callout-content">
+<p>publikacja: <code>lab/z1/d1/telemetry</code>, <code>lab/z1/d1/state</code>, <code>lab/z1/d1/status</code> · subskrypcja: <code>lab/z1/d1/command</code></p>
+<p>Wildcard <code>#</code> dla publikacji objąłby także <code>command</code>, dlatego tematy zapisu wyliczamy jawnie. Urządzenie nie ma powodu czytać cudzej telemetrii ani publikować poleceń.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="coap-amqp" class="slide level2">
+<h2><i class="bi bi-arrow-left-right"></i> CoAP i AMQP — kiedy nie MQTT</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="coap">CoAP</h3>
+<ul>
+<li class="fragment">Odpowiednik HTTP (GET, POST, PUT) oparty na <strong>UDP</strong> — lżejszy i szybszy.</li>
+<li class="fragment">Wbudowane wsparcie DTLS.</li>
+<li class="fragment">Sprawdza się tam, gdzie MQTT jest „za dużo”: mikrokontroler, który po prostu odpowiada na pytanie „podaj aktualną temperaturę”, bez stałego połączenia z brokerem.</li>
+</ul>
+<div class="fragment">
+<p>CoAP ma własny tryb <strong>potwierdzany</strong>: komunikaty <em>confirmable</em> korzystają z ACK i retransmisji. Komunikaty <em>non-confirmable</em> nie zapewniają takiego potwierdzenia.</p>
+</div>
+</div><div class="column" style="width:50%;">
+<h3 id="amqp">AMQP</h3>
+<ul>
+<li class="fragment">Rozbudowany system kolejek dla środowisk korporacyjnych i finansowych.</li>
+<li class="fragment">Zbyt ciężki dla mikrokontrolera — jego miejsce jest <strong>na zapleczu</strong>, między serwerami (np. RabbitMQ).</li>
+<li class="fragment">W architekturze IoT pojawia się za platformą, nie przed nią.</li>
+</ul>
+<div class="fragment">
+<div title="Reguła wyboru">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Reguła wyboru</strong></p>
+</div>
+<div class="callout-content">
+<p>MQTT — strumień telemetrii i polecenia do wielu odbiorców. CoAP — pojedyncze zapytanie o bieżącą wartość. AMQP — kolejkowanie między usługami serwerowymi.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="test-odbioru" class="slide level2">
+<h2><i class="bi bi-clipboard-check"></i> Test odbioru kontraktu</h2>
+<p><span class="lead">Kontrakt nieprzetestowany jest dokumentem, nie umową. Pięć dowodów:</span></p>
+<div class="pytania">
+<ul>
+<li>Publikacja telemetrii widoczna w subskrypcji <code>mosquitto_sub</code> <strong>z jawnie podanym QoS</strong>.</li>
+<li>Nowy subskrybent otrzymuje stan <strong>natychmiast po podłączeniu</strong> — dowód działania <code>retained</code>.</li>
+<li>Polecenie wykonane <strong>raz</strong>, mimo dwukrotnej publikacji z tym samym identyfikatorem żądania — dowód idempotencji.</li>
+<li>Odłączenie zasilania urządzenia skutkuje pojawieniem się <code>offline</code> w temacie <code>status</code> w czasie zgodnym z <code>keep alive</code> — dowód działania Last Will.</li>
+<li>Po przywróceniu zasilania stan i telemetria wracają <strong>bez ręcznej interwencji</strong> — i pompa <strong>nie</strong> włącza się sama.</li>
+</ul>
+</div>
+</section>
+<section id="zestawienie" class="slide level2">
+<h2><i class="bi bi-table"></i> Dobór technologii — zestawienie</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Warstwa</th>
+<th style="text-align: left;">Technologia</th>
+<th style="text-align: left;">Zastosowanie</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Krótki zasięg</strong></td>
+<td style="text-align: left;">BLE, Zigbee, Z-Wave</td>
+<td style="text-align: left;">urządzenia noszone, instalacje domowe, czujniki lokalne</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Daleki zasięg</strong></td>
+<td style="text-align: left;">LoRaWAN, NB-IoT, Sigfox 0G</td>
+<td style="text-align: left;">rolnictwo, monitoring środowiskowy, infrastruktura miejska</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Protokół aplikacyjny</strong></td>
+<td style="text-align: left;"><strong>MQTT</strong> (pub/sub)</td>
+<td style="text-align: left;">strumień telemetrii, polecenia, wielu odbiorców</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Protokół aplikacyjny</strong></td>
+<td style="text-align: left;">CoAP (żądanie/odpowiedź, UDP)</td>
+<td style="text-align: left;">pojedyncze odczyty na mikrokontrolerach</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Protokół aplikacyjny</strong></td>
+<td style="text-align: left;">HTTP</td>
+<td style="text-align: left;">wyłącznie bramy i serwery ze stałym zasilaniem</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>Zasada porządkująca cały ten wykład i poprzedni: <strong>im dalej chcesz przesłać dane, tym mniej ich przesyłasz i tym dłużej urządzenie przeżyje</strong> — a im mniej przesyłasz, tym ważniejsze, żeby każdy przesłany bajt był jednoznaczny.</p>
+</div>
+</section>
+<section id="pytania" class="slide level2">
+<h2><i class="bi bi-question-circle"></i> Pytania sprawdzające</h2>
+<div class="pytania">
+<ul>
+<li>Operator zgłasza: „po każdej przerwie w prądzie wentylator sam rusza na pełnych obrotach”. Wskaż, która decyzja projektowa w drzewie tematów to powoduje, i podaj poprawkę.</li>
+<li>Zespół zmienia jednostkę pola z °C na dziesiąte części stopnia i zostawia nazwę <code>temperature_c</code> oraz <code>schema: 1</code>. Wymień dwa różne momenty, w których ten błąd może zostać wykryty, i powiedz, ile danych zdąży się do tego czasu zepsuć przy raportowaniu co 10 s.</li>
+<li>Na styku z platformą dostępne są tylko QoS 0 i 1. Zaprojektuj obsługę polecenia „otwórz zawór na 30 sekund” tak, żeby dwukrotne dostarczenie tego samego komunikatu nie wydłużyło otwarcia do minuty.</li>
+</ul>
+</div>
+</section>
+<section id="podsumowanie" class="slide level2">
+<h2><i class="bi bi-flag"></i> Podsumowanie i przejście</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>Co zostaje z tego modułu</strong></p>
+<ul>
+<li class="fragment">Narzut MQTT zależy głównie od <strong>długości nazwy tematu</strong>, nie od stałych 2 bajtów.</li>
+<li class="fragment">Stan jest <code>retained</code>, polecenie <strong>nigdy</strong>.</li>
+<li class="fragment">QoS 2 oznacza „dokładnie raz”, nie „na pewno dotrze” — a na styku z platformą i tak go nie ma.</li>
+<li class="fragment">Ładunek opisuje sam siebie: <code>schema</code>, czas w UTC, jednostka w nazwie pola, licznik <code>seq</code>.</li>
+<li class="fragment">Idempotencja polecenia jest obowiązkowa, nie opcjonalna.</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div title="Moduł 05 — brzeg sieci">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Moduł 05 — brzeg sieci</strong></p>
+</div>
+<div class="callout-content">
+<p>Umowa jest zapisana. Teraz ktoś musi jej <strong>pilnować</strong>: sprawdzić, czy komunikat jest zgodny z kontraktem, odrzucić to, czego nie wolno zapisać, i przekazać dalej resztę — z jawnym powodem każdego odrzucenia.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="zrodla" class="slide level2">
+<h2><i class="bi bi-journal-text"></i> Źródła</h2>
+<div style="font-size: 0.7em;">
+<ul>
+<li>HTTP Archive, <em>Web Almanac 2025 — Page Weight</em> (mediany rozmiaru stron): <a href="https://almanac.httparchive.org/en/2025/page-weight" class="uri">https://almanac.httparchive.org/en/2025/page-weight</a></li>
+<li>OASIS, <em>MQTT Version 5.0</em> — struktura pakietu, QoS, retained, Will Message, Session Expiry Interval: <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html" class="uri">https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html</a></li>
+<li>OASIS, <em>MQTT Version 3.1.1</em> (= ISO/IEC 20922:2016): <a href="https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html" class="uri">https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html</a></li>
+<li>Eclipse Mosquitto — konfiguracja brokera, ACL i TLS: <a href="https://mosquitto.org/man/mosquitto-conf-5.html" class="uri">https://mosquitto.org/man/mosquitto-conf-5.html</a></li>
+<li>IETF RFC 7252 — <em>The Constrained Application Protocol (CoAP)</em>: <a href="https://www.rfc-editor.org/rfc/rfc7252" class="uri">https://www.rfc-editor.org/rfc/rfc7252</a></li>
+<li>OASIS, <em>AMQP 1.0</em>: <a href="https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-overview-v1.0-os.html" class="uri">https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-overview-v1.0-os.html</a></li>
+<li>IETF RFC 3339 / ISO 8601 — zapis znacznika czasu: <a href="https://www.rfc-editor.org/rfc/rfc3339" class="uri">https://www.rfc-editor.org/rfc/rfc3339</a></li>
+</ul>
+</div>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p>Internet Rzeczy · Wykład 4 — MQTT i kontrakt danych</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"width":"wide"},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 7.0e-2,
+
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 0.2,
+
+        maxScale: 2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Skopiowano!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Skopiowano!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+                // target, if specified
+                link.setAttribute("target", "_blank");
+                if (link.getAttribute("rel") === null) {
+                  link.setAttribute("rel", "noopener");
+                }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

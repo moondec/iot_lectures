@@ -1,0 +1,70 @@
+/* Strona indeksowa — lekkie dopasowanie do palety prezentacji. */
+
+:root {
+  --iot-accent: #0b6b78;
+  --iot-dark: #0b3b45;
+}
+
+body {
+  color: #1f2933;
+}
+
+h1.title {
+  color: var(--iot-dark);
+  font-weight: 650;
+}
+
+p.subtitle {
+  color: var(--iot-accent);
+  font-size: 1.05rem;
+}
+
+h2 {
+  color: var(--iot-dark);
+  border-bottom: 2px solid var(--iot-accent);
+  padding-bottom: 0.2rem;
+  margin-top: 2rem;
+  font-size: 1.45rem;
+}
+
+main table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem;
+}
+
+main table th {
+  background: #e8f2f4;
+  color: var(--iot-dark);
+  border-bottom: 2px solid var(--iot-accent);
+  padding: 0.5rem 0.65rem;
+  text-align: left;
+}
+
+main table td {
+  padding: 0.5rem 0.65rem;
+  border-bottom: 1px solid #e2e8ea;
+  vertical-align: top;
+}
+
+main table td:first-child {
+  font-weight: 700;
+  color: var(--iot-accent);
+  width: 3.2rem;
+  white-space: nowrap;
+}
+
+main table tr:nth-child(even) td {
+  background: #f8fbfb;
+}
+
+main a {
+  color: var(--iot-accent);
+}
+
+code {
+  color: #8a2846;
+  background: #f1f5f6;
+  padding: 0.05em 0.28em;
+  border-radius: 3px;
+}

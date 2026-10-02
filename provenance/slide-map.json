@@ -1,0 +1,2615 @@
+{
+ "opis": "Mapa pochodzenia slajdów kursu IoT w ośmiu wykładach.",
+ "zrodlo": {
+  "repozytorium": "https://github.com/moondec/iot_lectures.git",
+  "commit": "c62ccf6174fea4db9d0c0bfefef174fca4b0f709",
+  "galaz": "main",
+  "data_odczytu": "2026-09-30",
+  "licencja": "CC BY 4.0",
+  "materialy_kursu": "moodle-lab/course-source/frontend/{lecture-materials,unified-materials}"
+ },
+ "legenda_origin": {
+  "retained": "slajd przeniesiony z zachowaniem tezy i większości treści",
+  "adapted": "slajd przeniesiony, lecz przeredagowany: skrót, korekta faktograficzna lub scalenie",
+  "new": "slajd napisany od nowa na podstawie materiałów kursu i źródeł pierwotnych"
+ },
+ "statystyka": {
+  "slajdow_lacznie": 187,
+  "wg_origin": {
+   "new": 144,
+   "adapted": 35,
+   "retained": 8
+  },
+  "slajdy_merytoryczne_wg_origin": {
+   "adapted": 35,
+   "new": 109,
+   "retained": 8
+  },
+  "wg_talii": {
+   "00-internet-przyszlosci": 34,
+   "01-architektura-i-wymagania": 21,
+   "02-urzadzenie-sensory-energia": 24,
+   "03-lacznosc-i-ota": 24,
+   "04-mqtt-i-kontrakt-danych": 22,
+   "05-brzeg-node-red-sheets": 18,
+   "06-thingsboard-ce": 21,
+   "07-odpornosc-bezpieczenstwo-eksploatacja": 23
+  }
+ },
+ "slajdy": [
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "title-slide",
+   "rodzaj": "tytulowy",
+   "tytul": "Slajd tytułowy",
+   "origin": "new",
+   "uzasadnienie": "Nowy nagłówek wykładu zerowego."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "motto",
+   "rodzaj": "tresc",
+   "tytul": "Technologia nas wyzwoli?",
+   "origin": "adapted",
+   "uzasadnienie": "Przywrócono filozoficzne otwarcie pierwowzoru i pytanie o odpowiedzialność projektanta.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_intro_1.qmd",
+    "tytul": "1. Technologia was wyzwoli?",
+    "wiersze": "62-74"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "prezentacja",
+     "qmd": "wyklad_intro_1.qmd",
+     "tytul": "2. Kto tworzy \"przyszłość\"?",
+     "wiersze": "78-91"
+    }
+   ]
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "cele",
+   "rodzaj": "tresc",
+   "tytul": "Po co ten wykład",
+   "origin": "new",
+   "uzasadnienie": "Cele i plan wykładu zerowego."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "przyszłość-jest-już-architekturą",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Przyszłość jest już architekturą",
+   "origin": "new",
+   "uzasadnienie": "Przekładka wyjaśnia, że dzisiaj zaprojektowane systemy determinują naszą przyszłość."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "skala",
+   "rodzaj": "tresc",
+   "tytul": "Przyszłość już jest infrastrukturą",
+   "origin": "new",
+   "uzasadnienie": "Szacunek IoT Analytics 2025 z jawnym rozróżnieniem estymacji i prognozy."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "lancuch",
+   "rodzaj": "tresc",
+   "tytul": "Nie rzecz, lecz pętla",
+   "origin": "new",
+   "uzasadnienie": "Nowa rama wiążąca pomiar, model, decyzję i działanie."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "rolnictwo",
+   "rodzaj": "tresc",
+   "tytul": "Agriculture 4.0",
+   "origin": "adapted",
+   "uzasadnienie": "Proces decyzyjny od obserwacji do oceny efektu; włączono warunek wartości z usuniętego osobnego slajdu korzyści.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_intro_1.qmd",
+    "tytul": "3. Jasna strona mocy (Profity z IoT)",
+    "wiersze": "97-111"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "prezentacja",
+     "qmd": "wyklad_intro_1.qmd",
+     "tytul": "4. IoT w Rolnictwie: Monitoring upraw i ekosystemów",
+     "wiersze": "115-138"
+    }
+   ]
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "destine",
+   "rodzaj": "tresc",
+   "tytul": "Destination Earth",
+   "origin": "new",
+   "uzasadnienie": "Aktualny przykład cyfrowego bliźniaka uruchomionego w 2024 r."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "dane-zmieniają-władzę",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Dane zmieniają władzę",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "cambridge",
+   "rodzaj": "tresc",
+   "tytul": "Cambridge Analytica",
+   "origin": "new",
+   "uzasadnienie": "Zweryfikowane ustalenia FTC oddzielone od tezy o wpływie na wynik wyborów."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "social-credit",
+   "rodzaj": "tresc",
+   "tytul": "Chiński social credit",
+   "origin": "new",
+   "uzasadnienie": "Korekta mitu jednego ogólnokrajowego wyniku obywatela."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "petla-wladzy",
+   "rodzaj": "tresc",
+   "tytul": "Pętla danych i władzy",
+   "origin": "new",
+   "uzasadnienie": "Model obserwacja–inferencja–klasyfikacja–interwencja."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "literatura-soczewki",
+   "rodzaj": "tresc",
+   "tytul": "Literatura jako soczewka",
+   "origin": "adapted",
+   "uzasadnienie": "Przywrócono ramę Huxleya i literackie odniesienia do Lema, Dukaja i Naama jako narzędzia analizy konsekwencji.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_intro_2.qmd",
+    "tytul": "4. Ucieczka z \"Tu i Teraz\"",
+    "wiersze": "141-155"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "prezentacja",
+     "qmd": "wyklad_intro_2.qmd",
+     "tytul": "9. Literatura do Wstępu i Zakończenie",
+     "wiersze": "269-289"
+    }
+   ]
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "data-act",
+   "rodzaj": "tresc",
+   "tytul": "Data Act",
+   "origin": "new",
+   "uzasadnienie": "Aktualne obowiązki dotyczące danych z połączonych produktów."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "ai-wchodzi-do-świata-fizycznego",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: AI w świecie fizycznym",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "czy-programy",
+   "rodzaj": "tresc",
+   "tytul": "Czy jesteśmy programami?",
+   "origin": "adapted",
+   "uzasadnienie": "Przywrócono pytanie filozoficzne pierwowzoru i powiązano je z prawem systemu do działania fizycznego.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_intro_2.qmd",
+    "tytul": "3. Czy jesteśmy programami?",
+    "wiersze": "120-137"
+   }
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "ai-fizyczny",
+   "rodzaj": "tresc",
+   "tytul": "AI i IoT",
+   "origin": "new",
+   "uzasadnienie": "Konsekwencje połączenia predykcji z działaniem fizycznym."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "praca",
+   "rodzaj": "tresc",
+   "tytul": "AI i rynek pracy",
+   "origin": "new",
+   "uzasadnienie": "Wyniki ILO 2025 z rozróżnieniem ekspozycji zadań i likwidacji zawodów."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "bci",
+   "rodzaj": "tresc",
+   "tytul": "BCI",
+   "origin": "new",
+   "uzasadnienie": "Aktualne wyniki neuroprotez mowy i granice interpretacji."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "granice-nie-znikają",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Granice nie znikają",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "energia",
+   "rodzaj": "tresc",
+   "tytul": "Energia",
+   "origin": "new",
+   "uzasadnienie": "Bilans korzyści i kosztów w pełnym cyklu życia systemu, uzupełniony o dane IEA 2025."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "botnet",
+   "rodzaj": "tresc",
+   "tytul": "IoT jako element botnetu",
+   "origin": "new",
+   "uzasadnienie": "Aktualny przypadek Aisuru i ataku 31,4 Tb/s z raportu Cloudflare 2026."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "koniec-wsparcia",
+   "rodzaj": "tresc",
+   "tytul": "Sprzęt działa, usługa znika",
+   "origin": "new",
+   "uzasadnienie": "Przypadek wyłączenia usług chmurowych Wemo w 2026 r. i znaczenie trybu lokalnego."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "prawo",
+   "rodzaj": "tresc",
+   "tytul": "Prawo zmienia backlog",
+   "origin": "new",
+   "uzasadnienie": "Daty Data Act, RED, AI Act po zmianie 2026/1744 i Cyber Resilience Act."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "koordynacja",
+   "rodzaj": "tresc",
+   "tytul": "Człowiek nie wygrał dzięki samotnej inteligencji",
+   "origin": "adapted",
+   "uzasadnienie": "Przywrócono ramę współpracy z pierwowzoru i zestawiono ją z ryzykiem obserwacji i kontroli.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_intro_2.qmd",
+    "tytul": "5. Kierunki rozwoju: Wychodząc z Jaskini",
+    "wiersze": "161-183"
+   }
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "od-wizji-do-projektu",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Od wizji do projektu",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "pytania-projektowe",
+   "rodzaj": "tresc",
+   "tytul": "Sześć pytań projektowych",
+   "origin": "new",
+   "uzasadnienie": "Kryteria przed wyborem czujnika."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "most",
+   "rodzaj": "tresc",
+   "tytul": "Most do modułów 01–07",
+   "origin": "new",
+   "uzasadnienie": "Powiązanie problemów wykładu 00 z dalszą strukturą kursu."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "przypadek",
+   "rodzaj": "tresc",
+   "tytul": "Przypadek nawadniania",
+   "origin": "new",
+   "uzasadnienie": "Przypadek przewodni łączący decyzję, architekturę i stan bezpieczny."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "pytania",
+   "rodzaj": "tresc",
+   "tytul": "Pytania sprawdzające",
+   "origin": "new",
+   "uzasadnienie": "Pytania sprawdzające wykładu zerowego."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "podsumowanie",
+   "rodzaj": "tresc",
+   "tytul": "Podsumowanie",
+   "origin": "new",
+   "uzasadnienie": "Synteza wykładu i przejście do modułu 01."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "literatura",
+   "rodzaj": "tresc",
+   "tytul": "Literatura — nie instrukcje, lecz soczewki",
+   "origin": "adapted",
+   "uzasadnienie": "Przywrócono bibliografię filozoficzną i literacką pierwowzoru, korygując tytuł Po piśmie i datę Nowego wspaniałego świata.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_intro_2.qmd",
+    "tytul": "9. Literatura do Wstępu i Zakończenie",
+    "wiersze": "269-289"
+   }
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "zrodla",
+   "rodzaj": "tresc",
+   "tytul": "Źródła: przypadki i badania",
+   "origin": "new",
+   "uzasadnienie": "Źródła pierwotne i publikacje naukowe."
+  },
+  {
+   "deck": "00-internet-przyszlosci",
+   "id": "zrodla-2",
+   "rodzaj": "tresc",
+   "tytul": "Źródła: standardy, programy i prawo",
+   "origin": "new",
+   "uzasadnienie": "Źródła oficjalne i dokumenty instytucjonalne."
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "title-slide",
+   "rodzaj": "tytulowy",
+   "tytul": "Slajd tytułowy",
+   "origin": "new",
+   "uzasadnienie": "Nowy nagłówek modułu; usunięto hotlinki logotypów uczelni obecne we wszystkich taliach źródłowych."
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "cele",
+   "rodzaj": "tresc",
+   "tytul": "Po co ten wykład",
+   "origin": "new",
+   "uzasadnienie": "Talie źródłowe nie miały slajdu celów. Dodano cele i plan drogi, wymagane przez strukturę kursu.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-01.html"
+   }
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "skąd-się-to-wzięło",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Skąd się to wzięło",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna; zastępuje numerowane „Rozdział I/II” ze starej struktury."
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "geneza",
+   "rodzaj": "tresc",
+   "tytul": "Od punktu do punktu",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano oś czasu. Poprawiono datowanie komputera Thorpa: koncepcja 1955, realizacja 1960–61.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_1.qmd",
+    "tytul": "1. Ewolucja: Od punktu do punktu",
+    "wiersze": "63-77"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-01.html"
+    }
+   ]
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "coke",
+   "rodzaj": "tresc",
+   "tytul": "Mit założycielski: pragnienie",
+   "origin": "retained",
+   "uzasadnienie": "Zachowano narrację o automacie CMU; notatkę prowadzącego przeniesiono do treści slajdu jako opis mechanizmu.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_1.qmd",
+    "tytul": "2. Mit Założycielski: Pragnienie",
+    "wiersze": "81-108"
+   }
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "ashton",
+   "rodzaj": "tresc",
+   "tytul": "Kevin Ashton",
+   "origin": "retained",
+   "uzasadnienie": "Zachowano dwa wątki (toster Romkeya, RFID Ashtona) bez zmian merytorycznych.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_1.qmd",
+    "tytul": "3. Kevin Ashton i Toster (Lata 90.)",
+    "wiersze": "112-140"
+   }
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "skala",
+   "rodzaj": "tresc",
+   "tytul": "Skala zjawiska",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano tezę i wykres. Poprawiono atrybucję: Cisco IBSG (Evans 2011), nie Annual Internet Report; dodano zastrzeżenie o charakterze szacunku.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_1.qmd",
+    "tytul": "3. Moment Zwrotny: Skala zjawiska",
+    "wiersze": "144-175"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-01.html"
+    }
+   ]
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "zastosowania",
+   "rodzaj": "tresc",
+   "tytul": "Po co to robimy",
+   "origin": "adapted",
+   "uzasadnienie": "Pięć slajdów aplikacyjnych ze wstępu skondensowano w jeden przegląd, podporządkowany tezie modułu: wymagania wynikają z decyzji, nie z listy czujników.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_intro_1.qmd",
+    "tytul": "3. Jasna strona mocy (Profity z IoT)",
+    "wiersze": "97-111"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "prezentacja",
+     "qmd": "wyklad_intro_1.qmd",
+     "tytul": "4. IoT w Rolnictwie: Monitoring upraw i ekosystemów",
+     "wiersze": "115-138"
+    },
+    {
+     "typ": "prezentacja",
+     "qmd": "wyklad_intro_1.qmd",
+     "tytul": "6. Zrównoważone Zastosowanie Zasobów",
+     "wiersze": "169-191"
+    },
+    {
+     "typ": "prezentacja",
+     "qmd": "wyklad_intro_1.qmd",
+     "tytul": "7. Przemysł 4.0: Monitoring Procesów",
+     "wiersze": "195-215"
+    },
+    {
+     "typ": "prezentacja",
+     "qmd": "wyklad_intro_1.qmd",
+     "tytul": "8. Komunikacja wektorowa",
+     "wiersze": "219-241"
+    }
+   ]
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "model-odniesienia",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Model odniesienia",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "warstwy",
+   "rodzaj": "tresc",
+   "tytul": "Trzy warstwy",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano model trójwarstwowy. Usunięto błędne stwierdzenie o standaryzacji przez IEEE; dodano odniesienie do IEEE 2413-2019 i ISO/IEC/IEEE 42010.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_1.qmd",
+    "tytul": "4. Architektura Systemów IoT",
+    "wiersze": "181-196"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-01.html"
+    }
+   ]
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "przeplyw",
+   "rodzaj": "tresc",
+   "tytul": "Przepływ w pionie",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano ideę diagramu. Usunięto trzystopniowe fragmenty i transform scale(3.5), który wypychał diagram poza slajd; dodano kierunek poleceń i reakcję lokalną.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_1.qmd",
+    "tytul": "5. Schemat przepływu",
+    "wiersze": "200-254"
+   }
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "mapa-kursu",
+   "rodzaj": "tresc",
+   "tytul": "Warstwy a moduły kursu",
+   "origin": "new",
+   "uzasadnienie": "Nowa tabela wiążąca warstwy z siedmioma modułami — spoiwo nowej struktury, nieobecne w taliach źródłowych.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-01.html"
+   }
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "od-narracji-do-wymagań",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Od narracji do wymagań",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "granica",
+   "rodzaj": "tresc",
+   "tytul": "Granica systemu — cztery pytania",
+   "origin": "new",
+   "uzasadnienie": "Temat nieobecny w prezentacjach źródłowych; przeniesiony z materiałów uzupełniających kursu.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-01.html"
+   }
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "klasy",
+   "rodzaj": "tresc",
+   "tytul": "Trzy klasy komunikatów",
+   "origin": "new",
+   "uzasadnienie": "Nowa tabela klas komunikatów; zapowiada regułę retained rozwiniętą w module 04.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-01.html"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/uzupelnienie-04.html"
+    }
+   ]
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "kryterium",
+   "rodzaj": "tresc",
+   "tytul": "Kryterium akceptacji jest liczbą",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd metodyczny z materiałów uzupełniających.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-01.html"
+   }
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "zalozenia",
+   "rodzaj": "tresc",
+   "tytul": "Lista założeń",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; lista założeń oddawana razem z architekturą.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-01.html"
+   }
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "stanowisko",
+   "rodzaj": "tresc",
+   "tytul": "Przypadek: stanowisko pilotażowe",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd wprowadzający przypadek laboratoryjny wspólny dla siedmiu modułów.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-01.html"
+   }
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "pytania",
+   "rodzaj": "tresc",
+   "tytul": "Pytania sprawdzające",
+   "origin": "new",
+   "uzasadnienie": "Nowe pytania sprawdzające; talie źródłowe ich nie zawierały."
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "podsumowanie",
+   "rodzaj": "tresc",
+   "tytul": "Podsumowanie i przejście",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano funkcję podsumowania. Usunięto odwołanie do nieaktualnej struktury „wykład 1 z 3” i dodano przejście do modułu 02.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_1.qmd",
+    "tytul": "14. Podsumowanie",
+    "wiersze": "449-462"
+   }
+  },
+  {
+   "deck": "01-architektura-i-wymagania",
+   "id": "zrodla",
+   "rodzaj": "tresc",
+   "tytul": "Źródła",
+   "origin": "new",
+   "uzasadnienie": "Nowy wykaz źródeł; talie źródłowe nie miały slajdu bibliograficznego."
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "title-slide",
+   "rodzaj": "tytulowy",
+   "tytul": "Slajd tytułowy",
+   "origin": "new",
+   "uzasadnienie": "Nowy nagłówek modułu."
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "cele",
+   "rodzaj": "tresc",
+   "tytul": "Po co ten wykład",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd celów.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-02.html"
+   }
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "percepcja-zmysły-i-mięśnie",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Percepcja",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "czujniki",
+   "rodzaj": "tresc",
+   "tytul": "Czym system czuje",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano klasyfikację czujników i ostrzeżenie o środowisku. Dodano podział ze względu na rodzaj wyjścia (analogowe / cyfrowe) jako przygotowanie do slajdu o ADC.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_1.qmd",
+    "tytul": "6. Warstwa Percepcji: Zmysły maszyny",
+    "wiersze": "258-285"
+   }
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "lancuch",
+   "rodzaj": "tresc",
+   "tytul": "Łańcuch pomiarowy",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd z materiałów uzupełniających; pięć ogniw od przetwornika do walidacji lokalnej.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-02.html"
+   }
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "adc",
+   "rodzaj": "tresc",
+   "tytul": "Rozdzielczość to nie dokładność",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; sprostowanie do materiałów źródłowych, które nie rozdzielały tych pojęć. Liczby z scripts/verify-calc.py.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-02.html"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-02.html"
+    }
+   ]
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "aktuatory",
+   "rodzaj": "tresc",
+   "tytul": "Aktuatory i pętla sterowania",
+   "origin": "retained",
+   "uzasadnienie": "Zachowano typologię i ostrzeżenie o ryzyku twardym; pętlę sterowania uzupełniono o pomiar potwierdzający.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_1.qmd",
+    "tytul": "7. Warstwa Percepcji: Aktuatory",
+    "wiersze": "289-304"
+   }
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "stan-bezpieczny",
+   "rodzaj": "tresc",
+   "tytul": "Stan bezpieczny wyjścia",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; temat nieobecny w prezentacjach źródłowych, kluczowy dla planu testów w module 07.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-02.html"
+   }
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "płytki-stanowiska",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Płytki stanowiska",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "platformy",
+   "rodzaj": "tresc",
+   "tytul": "Klasy platform",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano podział MCU / SBC. Sprostowano dwa stwierdzenia: brak radia nie jest cechą marki Arduino, a Raspberry Pi nie jest „przestarzałe”.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_1.qmd",
+    "tytul": "10. Platformy sprzętowe jako kamień węgielny",
+    "wiersze": "354-383"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-02.html"
+    }
+   ]
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "rodzina",
+   "rodzaj": "tresc",
+   "tytul": "„ESP32” to rodzina, nie układ",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; sprostowanie do slajdu porównawczego, który traktował ESP32 jako jeden model.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/sprostowania-02.html"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "unified-materials/content/cm178__lesson_page51__contents.html"
+    }
+   ]
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "nano-esp32",
+   "rodzaj": "tresc",
+   "tytul": "Arduino Nano ESP32 (ABX00083)",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; potwierdzona płytka stanowiska, dane z instrukcji producenta. Ilustracje Arduino na CC BY-SA 4.0.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "unified-materials/content/cm178__lesson_page51__contents.html"
+   }
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "nano-listwa",
+   "rodzaj": "tresc",
+   "tytul": "Nano ESP32 — co jest na listwie",
+   "origin": "new",
+   "uzasadnienie": "Nowa tabela wyprowadzeń z oficjalnego pinoutu ABX00083.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "unified-materials/content/cm178__lesson_page51__contents.html"
+   }
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "stamp-c3u",
+   "rodzaj": "tresc",
+   "tytul": "M5Stack Stamp-C3U (C122-B)",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; druga potwierdzona płytka. Ilustracji M5Stack nie redystrybuujemy (all rights reserved) — podano odnośnik do dokumentacji producenta.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "unified-materials/content/cm178__lesson_page51__contents.html"
+   }
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "c3-vs-c3u",
+   "rodzaj": "tresc",
+   "tytul": "Stamp-C3 a Stamp-C3U",
+   "origin": "new",
+   "uzasadnienie": "Nowa tabela różnic oparta na faktach z dokumentacji; przeciwdziała myleniu wariantów.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "unified-materials/content/cm178__lesson_page51__contents.html"
+   }
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "strapping",
+   "rodzaj": "tresc",
+   "tytul": "Piny strapping",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; dane za dokumentacją Espressif, wraz z przykładem sprzecznego zapisu u producenta.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "unified-materials/content/cm178__lesson_page51__contents.html"
+   }
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "prad-pinu",
+   "rodzaj": "tresc",
+   "tytul": "Prąd wyprowadzenia: limit, nie prąd pracy",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; sprostowanie błędu „40 mA to bezpieczny prąd zalecany” obecnego w starszych materiałach.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-02.html"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "unified-materials/content/cm178__lesson_page51__contents.html"
+    }
+   ]
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "energia",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Energia",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "deep-sleep",
+   "rodzaj": "tresc",
+   "tytul": "Deep sleep",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano wyjaśnienie paradygmatu. Dodano sprostowanie: wartości 7 µA i 240 µA dotyczą samego SoC, nie całej płytki.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_1.qmd",
+    "tytul": "11. \"Deep Sleep\" - czyli kompromis Mocy",
+    "wiersze": "387-399"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-02.html"
+    }
+   ]
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "budzet",
+   "rodzaj": "tresc",
+   "tytul": "Budżet energii to rachunek",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; wzór i wykres własny wygenerowany przez scripts/make-figures.py.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-02.html"
+   }
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "decyzja-okres",
+   "rodzaj": "tresc",
+   "tytul": "Okres raportowania jest decyzją",
+   "origin": "new",
+   "uzasadnienie": "Nowa tabela; wszystkie wartości z scripts/verify-calc.py.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-02.html"
+   }
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "pytania",
+   "rodzaj": "tresc",
+   "tytul": "Pytania sprawdzające",
+   "origin": "new",
+   "uzasadnienie": "Nowe pytania sprawdzające."
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "podsumowanie",
+   "rodzaj": "tresc",
+   "tytul": "Podsumowanie i przejście",
+   "origin": "new",
+   "uzasadnienie": "Nowe podsumowanie modułu i zapowiedź modułu 03."
+  },
+  {
+   "deck": "02-urzadzenie-sensory-energia",
+   "id": "zrodla",
+   "rodzaj": "tresc",
+   "tytul": "Źródła",
+   "origin": "new",
+   "uzasadnienie": "Nowy wykaz źródeł pierwotnych (Arduino, u-blox, M5Stack, Espressif)."
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "title-slide",
+   "rodzaj": "tytulowy",
+   "tytul": "Slajd tytułowy",
+   "origin": "new",
+   "uzasadnienie": "Nowy nagłówek modułu."
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "cele",
+   "rodzaj": "tresc",
+   "tytul": "Po co ten wykład",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd celów.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-03.html"
+   }
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "fizyczne-granice",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Fizyczne granice",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "trojkat",
+   "rodzaj": "tresc",
+   "tytul": "Trójkąt niemożliwy",
+   "origin": "retained",
+   "uzasadnienie": "Zachowano tezę i wykres autorski scatter_triangle.png.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_2.qmd",
+    "tytul": "1. Problem Komunikacji M2M",
+    "wiersze": "63-95"
+   }
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "wifi",
+   "rodzaj": "tresc",
+   "tytul": "Wi-Fi",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano bilans zalet i wad. Dodano powiązanie z doborem dla stanowiska i przypomnienie o braku pasma 5 GHz na obu płytkach.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_2.qmd",
+    "tytul": "2. Wi-Fi (IEEE 802.11)",
+    "wiersze": "101-127"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/uzupelnienie-03.html"
+    }
+   ]
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "ble-mesh",
+   "rodzaj": "tresc",
+   "tytul": "Bluetooth LE i sieci kratowe",
+   "origin": "adapted",
+   "uzasadnienie": "Scalono dwa slajdy źródłowe. Dodano warunek „samoleczenia” sieci mesh i aktualną nazwę organizacji (Connectivity Standards Alliance, Matter).",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_2.qmd",
+    "tytul": "3. Bluetooth i rewolucja BLE (Low Energy)",
+    "wiersze": "131-157"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "prezentacja",
+     "qmd": "wyklad_2.qmd",
+     "tytul": "4. Zigbee i Z-Wave: Inżynieria Roju (Mesh)",
+     "wiersze": "161-198"
+    },
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-03.html"
+    }
+   ]
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "lpwan",
+   "rodzaj": "tresc",
+   "tytul": "LPWAN",
+   "origin": "retained",
+   "uzasadnienie": "Zachowano opis i wykres bąbelkowy; scalono ze slajdem porównawczym, by uniknąć powtórzenia.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_2.qmd",
+    "tytul": "5. LPWAN: Telemetria na kilometry",
+    "wiersze": "204-227"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "prezentacja",
+     "qmd": "wyklad_2.qmd",
+     "tytul": "6. Porównanie technologii radiowych",
+     "wiersze": "231-251"
+    }
+   ]
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "lora-nbiot",
+   "rodzaj": "tresc",
+   "tytul": "LoRaWAN a NB-IoT",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano zestawienie. Sprostowano „darmowe pasmo 868 MHz” (regulowane, duty cycle) i status NB-IoT (3GPP Rel. 13, własna warstwa radiowa).",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_2.qmd",
+    "tytul": "7. LoRaWAN vs NB-IoT",
+    "wiersze": "255-296"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-03.html"
+    }
+   ]
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "brama-lorawan",
+   "rodzaj": "tresc",
+   "tytul": "Brama LoRaWAN to infrastruktura",
+   "origin": "adapted",
+   "uzasadnienie": "Dodano fotografię rzeczywistej bramy i rozdzielono role węzła radiowego, bramy i serwera sieciowego.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_1.qmd",
+    "tytul": "8. Brama brzegu sieci (Edge Gateway)",
+    "wiersze": "308-332"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "prezentacja",
+     "qmd": "wyklad_2.qmd",
+     "tytul": "7. LoRaWAN vs NB-IoT",
+     "wiersze": "255-296"
+    }
+   ]
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "sigfox",
+   "rodzaj": "tresc",
+   "tytul": "Sigfox",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano parametry. Dodano zmianę właściciela (UnaBiz, Sigfox 0G) i ryzyko operatora jako parametr projektowy.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_2.qmd",
+    "tytul": "8. Sigfox: ultralekkie wiadomości jako usługa",
+    "wiersze": "300-313"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-03.html"
+    }
+   ]
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "cztery-liczby",
+   "rodzaj": "tresc",
+   "tytul": "Metodyka doboru — cztery liczby",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd metodyczny; zamienia porównanie technologii w powtarzalną procedurę.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-03.html"
+   }
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "łącze-które-się-podnosi",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Łącze",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "reconnect",
+   "rodzaj": "tresc",
+   "tytul": "Ponowne łączenie z wycofaniem",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; temat nieobecny w prezentacjach źródłowych.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-03.html"
+   }
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "bufor",
+   "rodzaj": "tresc",
+   "tytul": "Buforowanie w czasie awarii",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; trzy warunki poprawnego buforowania plus pułapka znacznika czasu.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-03.html"
+   }
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "wydanie-firmware",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Wydanie firmware",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "ota-co-to",
+   "rodzaj": "tresc",
+   "tytul": "OTA to nie nadpisanie firmware",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; wypełnia lukę odnotowaną w mapowaniu modułów (OTA nie występował w żadnej z pięciu talii źródłowych).",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-03.html"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-03.html"
+    }
+   ]
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "ota-api",
+   "rodzaj": "tresc",
+   "tytul": "Mechanizmy ESP-IDF",
+   "origin": "new",
+   "uzasadnienie": "Nowa tabela mechanizmów OTA z dokumentacji Espressif.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-03.html"
+   }
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "self-test",
+   "rodzaj": "tresc",
+   "tytul": "Self-test i wycofanie",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; kolejność dowód → zatwierdzenie jako sedno mechanizmu.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-03.html"
+   }
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "ota-granice",
+   "rodzaj": "tresc",
+   "tytul": "Czego OTA nie gwarantuje",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd napisany, by nie formułować fałszywych obietnic o niezawodności aktualizacji."
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "ota-platforma",
+   "rodzaj": "tresc",
+   "tytul": "Wydanie zarządzane przez platformę",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; stany pakietu i tempo wdrożenia, liczby z scripts/verify-calc.py.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-03.html"
+   }
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "procedura",
+   "rodzaj": "tresc",
+   "tytul": "Procedura wydania w pilocie",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; sześciopunktowa procedura z kryterium zaliczenia.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-03.html"
+   }
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "pytania",
+   "rodzaj": "tresc",
+   "tytul": "Pytania sprawdzające",
+   "origin": "new",
+   "uzasadnienie": "Nowe pytania sprawdzające."
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "podsumowanie",
+   "rodzaj": "tresc",
+   "tytul": "Podsumowanie i przejście",
+   "origin": "new",
+   "uzasadnienie": "Nowe podsumowanie i zapowiedź modułu 04."
+  },
+  {
+   "deck": "03-lacznosc-i-ota",
+   "id": "zrodla",
+   "rodzaj": "tresc",
+   "tytul": "Źródła",
+   "origin": "new",
+   "uzasadnienie": "Nowy wykaz źródeł pierwotnych."
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "title-slide",
+   "rodzaj": "tytulowy",
+   "tytul": "Slajd tytułowy",
+   "origin": "new",
+   "uzasadnienie": "Nowy nagłówek modułu."
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "cele",
+   "rodzaj": "tresc",
+   "tytul": "Po co ten wykład",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd celów.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-04.html"
+   }
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "protokół",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Protokół",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "http",
+   "rodzaj": "tresc",
+   "tytul": "Dlaczego HTTP nie pasuje",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano trzy argumenty. Usunięto diagram porównawczy o zmyślonych rozmiarach pakietów na rzecz rachunku na slajdzie „Nagłówek MQTT”; dodano zastrzeżenie, że problemem jest rola, nie protokół.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_2.qmd",
+    "tytul": "9. Dlaczego protokół HTTP nie pasuje do IoT?",
+    "wiersze": "319-358"
+   }
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "mqtt",
+   "rodzaj": "tresc",
+   "tytul": "MQTT: publikacja i subskrypcja",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano opis pub/sub i diagram. Sprostowano autorstwo (Stanford-Clark i Nipper) oraz status normalizacyjny (OASIS, ISO/IEC 20922:2016).",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_2.qmd",
+    "tytul": "10. MQTT: Lekki, binarny standard IoT",
+    "wiersze": "362-401"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-04.html"
+    }
+   ]
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "naglowek",
+   "rodzaj": "tresc",
+   "tytul": "Ile naprawdę waży nagłówek",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; sprostowanie do „nagłówek MQTT to 2 bajty”. Rozmiary pakietów policzone w scripts/verify-calc.py.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/sprostowania-04.html"
+   }
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "tematy-i-niezawodność",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Tematy i niezawodność",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "tematy",
+   "rodzaj": "tresc",
+   "tytul": "Drzewo tematów pilota",
+   "origin": "new",
+   "uzasadnienie": "Nowa tabela; konkretne drzewo tematów z kierunkiem i regułą retained.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-04.html"
+   }
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "retained",
+   "rodzaj": "tresc",
+   "tytul": "Dlaczego polecenie nigdy nie jest retained",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd z diagramem sekwencji; konsekwencja fizyczna błędu projektowego.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-04.html"
+   }
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "qos",
+   "rodzaj": "tresc",
+   "tytul": "QoS i jego koszt",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano poziomy QoS i LWT. Sprostowano „QoS 2 gwarantuje dostarczenie”; dodano kolumnę kosztu oraz ograniczenie platformy do QoS 0/1.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_2.qmd",
+    "tytul": "11. MQTT: Tematy, QoS i „Ostatnia Wola\"",
+    "wiersze": "405-453"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-04.html"
+    },
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-06.html"
+    }
+   ]
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "qos-sekwencja",
+   "rodzaj": "tresc",
+   "tytul": "Sekwencja trzech poziomów",
+   "origin": "retained",
+   "uzasadnienie": "Zachowano diagram sekwencji ze źródła; usunięto transform scale(1.7) powodujący wyjście poza slajd.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_2.qmd",
+    "tytul": "11. MQTT: Tematy, QoS i „Ostatnia Wola\"",
+    "wiersze": "405-453"
+   }
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "kontrakt-danych",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Kontrakt danych",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "kontrakt",
+   "rodzaj": "tresc",
+   "tytul": "Samoopisujący się ładunek",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; schemat komunikatu JSON z materiałów uzupełniających.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-04.html"
+   }
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "wersjonowanie",
+   "rodzaj": "tresc",
+   "tytul": "Wersjonowanie kontraktu",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; zmiana zgodna i niezgodna wstecz.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-04.html"
+   }
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "idempotencja",
+   "rodzaj": "tresc",
+   "tytul": "Idempotencja polecenia",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd z diagramem sekwencji.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-04.html"
+   }
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "dostep",
+   "rodzaj": "tresc",
+   "tytul": "Zamknięcie dostępu do brokera",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; ACL, TLS, unikalny ClientID. Sprostowano separację środowisk przez prefiks.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-04.html"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-04.html"
+    }
+   ]
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "coap-amqp",
+   "rodzaj": "tresc",
+   "tytul": "CoAP i AMQP",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano zestawienie. Sprostowano „bez gwarancji dostarczenia” dla CoAP (tryb confirmable).",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_2.qmd",
+    "tytul": "12. CoAP i AMQP",
+    "wiersze": "457-480"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-04.html"
+    }
+   ]
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "test-odbioru",
+   "rodzaj": "tresc",
+   "tytul": "Test odbioru kontraktu",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; pięć dowodów działania kontraktu.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-04.html"
+   }
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "zestawienie",
+   "rodzaj": "tresc",
+   "tytul": "Dobór technologii",
+   "origin": "retained",
+   "uzasadnienie": "Zachowano tabelę podsumowującą; zaktualizowano nazwę Sigfox 0G.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_2.qmd",
+    "tytul": "13. Podsumowanie: Dobór technologii",
+    "wiersze": "484-499"
+   }
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "pytania",
+   "rodzaj": "tresc",
+   "tytul": "Pytania sprawdzające",
+   "origin": "new",
+   "uzasadnienie": "Nowe pytania sprawdzające."
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "podsumowanie",
+   "rodzaj": "tresc",
+   "tytul": "Podsumowanie i przejście",
+   "origin": "new",
+   "uzasadnienie": "Nowe podsumowanie i zapowiedź modułu 05."
+  },
+  {
+   "deck": "04-mqtt-i-kontrakt-danych",
+   "id": "zrodla",
+   "rodzaj": "tresc",
+   "tytul": "Źródła",
+   "origin": "new",
+   "uzasadnienie": "Nowy wykaz źródeł pierwotnych (OASIS, RFC, Mosquitto)."
+  },
+  {
+   "deck": "05-brzeg-node-red-sheets",
+   "id": "title-slide",
+   "rodzaj": "tytulowy",
+   "tytul": "Slajd tytułowy",
+   "origin": "new",
+   "uzasadnienie": "Nowy nagłówek modułu."
+  },
+  {
+   "deck": "05-brzeg-node-red-sheets",
+   "id": "cele",
+   "rodzaj": "tresc",
+   "tytul": "Po co ten wykład",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd celów.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-05.html"
+   }
+  },
+  {
+   "deck": "05-brzeg-node-red-sheets",
+   "id": "brzeg-sieci",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Brzeg sieci",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "05-brzeg-node-red-sheets",
+   "id": "redukcja",
+   "rodzaj": "tresc",
+   "tytul": "Od gigabajtów do wiedzy",
+   "origin": "retained",
+   "uzasadnienie": "Zachowano tezę i diagram redukcji danych; usunięto transform scale(2) i dodano gałąź zapisu raportowego.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_3.qmd",
+    "tytul": "1. Od gigabajtów do wiedzy",
+    "wiersze": "63-110"
+   }
+  },
+  {
+   "deck": "05-brzeg-node-red-sheets",
+   "id": "brama",
+   "rodzaj": "tresc",
+   "tytul": "Brama brzegowa — cztery zadania",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano definicję bramy i pojęcie latency. Rozszerzono z samej agregacji na cztery zadania, zgodnie ze sprostowaniem.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_1.qmd",
+    "tytul": "8. Brama brzegu sieci (Edge Gateway)",
+    "wiersze": "308-332"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-05.html"
+    }
+   ]
+  },
+  {
+   "deck": "05-brzeg-node-red-sheets",
+   "id": "jakosc",
+   "rodzaj": "tresc",
+   "tytul": "Piąte zadanie: jakość danych",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; sprostowanie do opisu Node-RED jako „kleju” bez odpowiedzialności.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/sprostowania-05.html"
+   }
+  },
+  {
+   "deck": "05-brzeg-node-red-sheets",
+   "id": "przepływ",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Przepływ",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "05-brzeg-node-red-sheets",
+   "id": "przeplyw",
+   "rodzaj": "tresc",
+   "tytul": "Node-RED węzeł po węźle",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; konkretny przepływ z jawną ścieżką błędu.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-05.html"
+   }
+  },
+  {
+   "deck": "05-brzeg-node-red-sheets",
+   "id": "walidacja",
+   "rodzaj": "tresc",
+   "tytul": "Minimalny zestaw reguł walidacji",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; pięć reguł i wymóg logowania powodu odrzucenia.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-05.html"
+   }
+  },
+  {
+   "deck": "05-brzeg-node-red-sheets",
+   "id": "zapis-do-arkusza",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Zapis do arkusza",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "05-brzeg-node-red-sheets",
+   "id": "warianty",
+   "rodzaj": "tresc",
+   "tytul": "Dwa warianty zapisu",
+   "origin": "new",
+   "uzasadnienie": "Nowa tabela; Apps Script a Sheets API v4, wraz ze sprostowaniem o adresie wdrożenia jako sekrecie.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-05.html"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-05.html"
+    }
+   ]
+  },
+  {
+   "deck": "05-brzeg-node-red-sheets",
+   "id": "limity",
+   "rodzaj": "tresc",
+   "tytul": "Limity Google Sheets API",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; limity z dokumentacji Google, wykres własny z scripts/make-figures.py.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-05.html"
+   }
+  },
+  {
+   "deck": "05-brzeg-node-red-sheets",
+   "id": "ponowienia",
+   "rodzaj": "tresc",
+   "tytul": "Ponowienia i granice arkusza",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; rozróżnienie błędów ponawialnych i nieponawialnych.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-05.html"
+   }
+  },
+  {
+   "deck": "05-brzeg-node-red-sheets",
+   "id": "autoryzacja",
+   "rodzaj": "tresc",
+   "tytul": "Autoryzacja i błędy eksportu",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; procedura konta usługi i tabela kodów odpowiedzi.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-05.html"
+   }
+  },
+  {
+   "deck": "05-brzeg-node-red-sheets",
+   "id": "test-odbioru",
+   "rodzaj": "tresc",
+   "tytul": "Test odbioru przepływu",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; pięć dowodów działania przepływu.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-05.html"
+   }
+  },
+  {
+   "deck": "05-brzeg-node-red-sheets",
+   "id": "pytania",
+   "rodzaj": "tresc",
+   "tytul": "Pytania sprawdzające",
+   "origin": "new",
+   "uzasadnienie": "Nowe pytania sprawdzające."
+  },
+  {
+   "deck": "05-brzeg-node-red-sheets",
+   "id": "podsumowanie",
+   "rodzaj": "tresc",
+   "tytul": "Podsumowanie i przejście",
+   "origin": "new",
+   "uzasadnienie": "Nowe podsumowanie i zapowiedź modułu 06."
+  },
+  {
+   "deck": "05-brzeg-node-red-sheets",
+   "id": "zrodla",
+   "rodzaj": "tresc",
+   "tytul": "Źródła",
+   "origin": "new",
+   "uzasadnienie": "Nowy wykaz źródeł pierwotnych (Google, Node-RED)."
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "title-slide",
+   "rodzaj": "tytulowy",
+   "tytul": "Slajd tytułowy",
+   "origin": "new",
+   "uzasadnienie": "Nowy nagłówek modułu."
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "cele",
+   "rodzaj": "tresc",
+   "tytul": "Po co ten wykład",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd celów.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-06.html"
+   }
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "model-danych",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Model danych",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "model-najpierw",
+   "rodzaj": "tresc",
+   "tytul": "Wykres jest ostatni",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; sprostowanie do traktowania platformy jako „dashboardu w chmurze”.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-06.html"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-06.html"
+    }
+   ]
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "rodzaje",
+   "rodzaj": "tresc",
+   "tytul": "Trzy rodzaje danych",
+   "origin": "new",
+   "uzasadnienie": "Nowa tabela; telemetria a cztery kategorie atrybutów.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-06.html"
+   }
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "wspoldzielone",
+   "rodzaj": "tresc",
+   "tytul": "Atrybuty współdzielone",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; konfiguracja bez ponownego wgrywania firmware.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-06.html"
+   }
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "styk-z-urządzeniem",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Styk z urządzeniem",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "tematy",
+   "rodzaj": "tresc",
+   "tytul": "Kontrakt tematów MQTT platformy",
+   "origin": "new",
+   "uzasadnienie": "Nowa tabela tematów standardowych i skróconych; sprostowanie o braku QoS 2.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-06.html"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-06.html"
+    }
+   ]
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "poswiadczenia",
+   "rodzaj": "tresc",
+   "tytul": "Poświadczenia urządzenia",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; trzy typy poświadczeń i ostrzeżenie o tokenie jako sekrecie.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-06.html"
+   }
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "rpc",
+   "rodzaj": "tresc",
+   "tytul": "Sterowanie zwrotne: RPC",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd z diagramem sekwencji; stan potwierdzony wobec żądanego.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-06.html"
+   }
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "pulpit",
+   "rodzaj": "tresc",
+   "tytul": "Od telemetrii do pulpitu",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; co pulpit powinien pokazywać i czego nie zastąpi.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-06.html"
+   }
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "pulpit-przyklad",
+   "rodzaj": "tresc",
+   "tytul": "Pulpit ma pokazywać stan, nie tylko wykres",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd wizualny; przykład pulpitu środowiskowego służy do rozróżnienia stanu bieżącego, kontekstu i alarmu.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-06.html"
+   }
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "kontekst-i-ryzyko",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Kontekst i ryzyko",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "bliźniak",
+   "rodzaj": "tresc",
+   "tytul": "Cyfrowy bliźniak",
+   "origin": "adapted",
+   "uzasadnienie": "Scalono dwa slajdy źródłowe z dwóch różnych talii w jedno omówienie, zgodnie ze sprostowaniem o powtórzeniu. Dodano zastrzeżenie, że to nie wizualizacja 3D.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_3.qmd",
+    "tytul": "6. Cyfrowe Bliźniaki (Digital Twins)",
+    "wiersze": "231-251"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "prezentacja",
+     "qmd": "wyklad_1.qmd",
+     "tytul": "12. Digital Twins (Cyfrowy Bliźniak)",
+     "wiersze": "403-427"
+    },
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-06.html"
+    }
+   ]
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "smart-city",
+   "rodzaj": "tresc",
+   "tytul": "Zastosowania w skali miasta",
+   "origin": "adapted",
+   "uzasadnienie": "Scalono dwa slajdy o Smart City. Usunięto konkretne wartości procentowe jako danych pomiarowych; dodano zastrzeżenie o poglądowym charakterze liczb.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_3.qmd",
+    "tytul": "4. Barcelona: Pionierzy „miasta jako komputera\"",
+    "wiersze": "173-198"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "prezentacja",
+     "qmd": "wyklad_3.qmd",
+     "tytul": "5. Smart City i Przemysł 4.0 (IIoT)",
+     "wiersze": "202-227"
+    },
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-01.html"
+    }
+   ]
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "ryzyko",
+   "rodzaj": "tresc",
+   "tytul": "Ryzyko dostawcy i licencji",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano przypadek Google IoT Core. Uściślono daty (ogłoszenie 2022-08, wyłączenie 2023-08-16) i dodano ryzyko zmiany licencji oprogramowania lokalnego.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_3.qmd",
+    "tytul": "2. Platformy korporacyjne (PaaS)",
+    "wiersze": "116-141"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-06.html"
+    }
+   ]
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "ce-pe",
+   "rodzaj": "tresc",
+   "tytul": "CE a PE",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; sprostowanie o „fizycznej izolacji środowisk” i ostrzeżenie przed materiałami dotyczącymi PE.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-06.html"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-06.html"
+    }
+   ]
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "test-odbioru",
+   "rodzaj": "tresc",
+   "tytul": "Test odbioru modułu",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; pięć dowodów.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-06.html"
+   }
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "pytania",
+   "rodzaj": "tresc",
+   "tytul": "Pytania sprawdzające",
+   "origin": "new",
+   "uzasadnienie": "Nowe pytania sprawdzające."
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "podsumowanie",
+   "rodzaj": "tresc",
+   "tytul": "Podsumowanie i przejście",
+   "origin": "new",
+   "uzasadnienie": "Nowe podsumowanie i zapowiedź modułu 07."
+  },
+  {
+   "deck": "06-thingsboard-ce",
+   "id": "zrodla",
+   "rodzaj": "tresc",
+   "tytul": "Źródła",
+   "origin": "new",
+   "uzasadnienie": "Nowy wykaz źródeł pierwotnych (ThingsBoard, Google Cloud)."
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "title-slide",
+   "rodzaj": "tytulowy",
+   "tytul": "Slajd tytułowy",
+   "origin": "new",
+   "uzasadnienie": "Nowy nagłówek modułu."
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "cele",
+   "rodzaj": "tresc",
+   "tytul": "Po co ten wykład",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd celów.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-07.html"
+   }
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "sekcja-rama",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Rama",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "rama",
+   "rodzaj": "tresc",
+   "tytul": "Kto tworzy skutki",
+   "origin": "adapted",
+   "uzasadnienie": "Scalono dwa slajdy otwierające wstęp w jedną ramę odpowiedzialności. Zgodnie ze sprostowaniem umieszczono ją przy eksploatacji jako decyzję inżynierską, nie dygresję.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_intro_1.qmd",
+    "tytul": "1. Technologia was wyzwoli?",
+    "wiersze": "62-74"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "prezentacja",
+     "qmd": "wyklad_intro_1.qmd",
+     "tytul": "2. Kto tworzy \"przyszłość\"?",
+     "wiersze": "78-91"
+    },
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-07.html"
+    }
+   ]
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "odporność",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Odporność",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "nieaktywnosc",
+   "rodzaj": "tresc",
+   "tytul": "Wykrycie nieaktywności",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; atrybuty stanu urządzenia i parametry progu.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-07.html"
+   }
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "pulapka",
+   "rodzaj": "tresc",
+   "tytul": "Pułapka fałszywego alarmu",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; zależność progu od okresu raportowania aktywności, liczby z scripts/verify-calc.py.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-07.html"
+   }
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "alarm",
+   "rodzaj": "tresc",
+   "tytul": "Alarm i dowód jego zamknięcia",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; wymóg pojedynczego powiadomienia i samoczynnego zamknięcia.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-07.html"
+   }
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "bezpieczeństwo",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Bezpieczeństwo",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "model-zagrozen",
+   "rodzaj": "tresc",
+   "tytul": "Model zagrożeń",
+   "origin": "new",
+   "uzasadnienie": "Nowa tabela czterech powierzchni ataku; porządkuje mechanizmy wprowadzone w modułach 03–06.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-07.html"
+   }
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "mirai",
+   "rodzaj": "tresc",
+   "tytul": "Mirai — dwa incydenty",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano przypadek. Rozdzielono dwa łączone wcześniej incydenty (Dyn 2016-10-21, TR-064 Deutsche Telekom 2016-11). Usunięto mapę o nieudokumentowanym pochodzeniu.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_3.qmd",
+    "tytul": "7. Gdy „rzeczy\" stają się bronią DDoS",
+    "wiersze": "257-285"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-07.html"
+    }
+   ]
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "kryptografia",
+   "rodzaj": "tresc",
+   "tytul": "Brak mocy na kryptografię to nieprawda",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; dwa sprostowania — akceleratory sprzętowe w ESP32-S3/C3 oraz X.509 jako format, nie algorytm.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/sprostowania-07.html"
+   }
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "defence",
+   "rodzaj": "tresc",
+   "tytul": "Obrona warstwowa",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano cztery warstwy i diagram segmentacji. Sprostowano, że VLAN bez polityki odmowy domyślnej nie izoluje; usunięto transform scale(1.7).",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_3.qmd",
+    "tytul": "8. Dobre praktyki bezpieczeństwa (Defence in Depth)",
+    "wiersze": "289-337"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-07.html"
+    }
+   ]
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "eksploatacja",
+   "rodzaj": "sekcja",
+   "tytul": "Sekcja: Eksploatacja",
+   "origin": "new",
+   "uzasadnienie": "Przekładka sekcyjna."
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "testy-awarii",
+   "rodzaj": "tresc",
+   "tytul": "Plan testów awarii",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; pięć scenariuszy wiążących mechanizmy ze wszystkich modułów.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-07.html"
+   }
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "higiena",
+   "rodzaj": "tresc",
+   "tytul": "Higiena testu powiadomień",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; domena .invalid i osobny łańcuch reguł.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-07.html"
+   }
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "prywatnosc",
+   "rodzaj": "tresc",
+   "tytul": "Prywatność: dane pośrednie",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano trzy przykłady profilowania. Dodano pojęcie danych osobowych pośrednich i wymóg minimalizacji.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_3.qmd",
+    "tytul": "9. Prywatność w epoce mikrofonów zawsze włączonych",
+    "wiersze": "341-353"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/uzupelnienie-07.html"
+    }
+   ]
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "obowiazki",
+   "rodzaj": "tresc",
+   "tytul": "Obowiązki poza kodem",
+   "origin": "new",
+   "uzasadnienie": "Nowy slajd; aktualne daty Cyber Resilience Act i dokumentacja wyjścia z systemu.",
+   "zrodlo": {
+    "typ": "material-kursu",
+    "qmd": "lecture-materials/content/uzupelnienie-07.html"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-07.html"
+    }
+   ]
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "koszt-energii",
+   "rodzaj": "tresc",
+   "tytul": "Koszt energii jako rama",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano porównanie człowiek / samochód. Przeliczenie zweryfikowane w scripts/verify-calc.py; powiązane z budżetem energii z modułu 02.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_intro_2.qmd",
+    "tytul": "8. Podstawowa Blokada: Prawdziwy Koszt Energii",
+    "wiersze": "241-265"
+   }
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "bilans",
+   "rodzaj": "tresc",
+   "tytul": "Bilans korzyści i wyzwań",
+   "origin": "adapted",
+   "uzasadnienie": "Scalono bilans i slajd o przyszłości. Dodano sprostowanie: opóźnienia sub-milisekundowe 6G to cele badawcze, nie parametry wdrożonego standardu.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_3.qmd",
+    "tytul": "10. Bilans korzyści i wyzwań na nową dekadę",
+    "wiersze": "359-383"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "prezentacja",
+     "qmd": "wyklad_3.qmd",
+     "tytul": "11. Przyszłość: 6G i nowe paradygmaty",
+     "wiersze": "387-399"
+    },
+    {
+     "typ": "material-kursu",
+     "qmd": "lecture-materials/content/sprostowania-07.html"
+    }
+   ]
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "pytania",
+   "rodzaj": "tresc",
+   "tytul": "Pytania sprawdzające",
+   "origin": "new",
+   "uzasadnienie": "Nowe pytania sprawdzające."
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "zamkniecie",
+   "rodzaj": "tresc",
+   "tytul": "Zamknięcie cyklu",
+   "origin": "adapted",
+   "uzasadnienie": "Zachowano puentę o automacie z napojami i pytanie do audytorium. Rozszerzono pytanie o odpowiedzialność; dołączono listę lektur ze wstępu części 2.",
+   "zrodlo": {
+    "typ": "prezentacja",
+    "qmd": "wyklad_3.qmd",
+    "tytul": "12. Zakończenie cyklu wykładów",
+    "wiersze": "403-423"
+   },
+   "zrodla_dodatkowe": [
+    {
+     "typ": "prezentacja",
+     "qmd": "wyklad_intro_2.qmd",
+     "tytul": "9. Literatura do Wstępu i Zakończenie",
+     "wiersze": "269-289"
+    }
+   ]
+  },
+  {
+   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "id": "zrodla",
+   "rodzaj": "tresc",
+   "tytul": "Źródła i dalsza lektura",
+   "origin": "new",
+   "uzasadnienie": "Nowy wykaz źródeł pierwotnych oraz lektura uzupełniająca."
+  }
+ ],
+ "odrzucone_slajdy_zrodlowe": [
+  {
+   "skrot": "i1_05",
+   "qmd": "wyklad_intro_1.qmd",
+   "tytul_zrodlowy": "5. Medycyna – Poznać Siebie (Smart Wearables)",
+   "tytul": "Medycyna – Smart Wearables",
+   "powod": "Przykład aplikacyjny bez związku z zakresem siedmiu modułów; budżet energetyczny urządzenia noszonego omawia moduł 02 na konkretnej płytce. Ilustracja (Oura Ring) bez udokumentowanej licencji."
+  },
+  {
+   "skrot": "i1_09",
+   "qmd": "wyklad_intro_1.qmd",
+   "tytul_zrodlowy": "9. Cykl IoT & AI – To przyszłość, a obecnie?",
+   "tytul": "Cykl IoT & AI — cztery generacje",
+   "powod": "Narracja o generacjach 1.0–4.0 nie wnosi kryterium projektowego; jej funkcję („po co mierzymy”) przejął slajd 01#zastosowania."
+  },
+  {
+   "skrot": "i1_10",
+   "qmd": "wyklad_intro_1.qmd",
+   "tytul_zrodlowy": "10. Przypadek Studyjny: 'Tree Talker'",
+   "tytul": "Przypadek studyjny: Tree Talker",
+   "powod": "Wartościowy przykład autorski, ale dubluje rolę stanowiska pilotażowego jako przypadku przewodniego. Zachowany w notes/ jako materiał do rozwinięcia ustnego; ilustracja bez udokumentowanej licencji."
+  },
+  {
+   "skrot": "i1_11",
+   "qmd": "wyklad_intro_1.qmd",
+   "tytul_zrodlowy": "11. Podsumowanie Wstępu",
+   "tytul": "Podsumowanie Wstępu",
+   "powod": "Podsumowanie nieistniejącej już części „Wstęp 1”; zastąpione podsumowaniami modułów."
+  },
+  {
+   "skrot": "i2_02",
+   "qmd": "wyklad_intro_2.qmd",
+   "tytul_zrodlowy": "2. Sztuczna Inteligencja: Asystent czy Konkurencja?",
+   "tytul": "Sztuczna inteligencja: asystent czy konkurencja",
+   "powod": "Wątek rynku pracy i „bezużytecznej klasy” wykracza poza zakres kursu inżynierskiego i nie prowadzi do decyzji projektowej."
+  },
+  {
+   "skrot": "i2_03",
+   "qmd": "wyklad_intro_2.qmd",
+   "tytul_zrodlowy": "3. Czy jesteśmy programami?",
+   "tytul": "Czy jesteśmy programami?",
+   "powod": "Dygresja filozoficzna bez konsekwencji technicznej."
+  },
+  {
+   "skrot": "i2_04",
+   "qmd": "wyklad_intro_2.qmd",
+   "tytul_zrodlowy": "4. Ucieczka z \"Tu i Teraz\"",
+   "tytul": "Ucieczka z „Tu i Teraz”",
+   "powod": "Cytat z Huxleya; rama etyczna zachowana w 07#rama w formie zwięzłej."
+  },
+  {
+   "skrot": "i2_05",
+   "qmd": "wyklad_intro_2.qmd",
+   "tytul_zrodlowy": "5. Kierunki rozwoju: Wychodząc z Jaskini",
+   "tytul": "Kierunki rozwoju: wychodząc z jaskini",
+   "powod": "Wątek antropologiczny bez związku z zakresem modułów."
+  },
+  {
+   "skrot": "i2_06",
+   "qmd": "wyklad_intro_2.qmd",
+   "tytul_zrodlowy": "6. Bezpośredni transfer wrażeń (BCI)",
+   "tytul": "Bezpośredni transfer wrażeń (BCI)",
+   "powod": "Eksperyment Nicolelisa — ciekawostka bez konsekwencji dla projektowania systemu IoT."
+  },
+  {
+   "skrot": "i2_07",
+   "qmd": "wyklad_intro_2.qmd",
+   "tytul_zrodlowy": "7. Interfejs Człowiek-Człowiek (UW, 2013)",
+   "tytul": "Interfejs człowiek-człowiek (UW, 2013)",
+   "powod": "Jak wyżej; dodatkowo ilustracja bez udokumentowanej licencji."
+  },
+  {
+   "skrot": "w1_10",
+   "qmd": "wyklad_1.qmd",
+   "tytul_zrodlowy": "9. Od pomysłu do wdrożenia",
+   "tytul": "Od pomysłu do wdrożenia",
+   "powod": "Teza o obniżeniu bariery wejścia wchłonięta przez 02#platformy; osobny slajd nie wnosił kryterium wyboru."
+  },
+  {
+   "skrot": "w1_14",
+   "qmd": "wyklad_1.qmd",
+   "tytul_zrodlowy": "13. Zestawienie: Arduino vs ESP vs Raspberry Pi",
+   "tytul": "Zestawienie Arduino vs ESP vs Raspberry Pi",
+   "powod": "Tabela zbudowana na nieaktualnych założeniach (Arduino bez radia, Raspberry Pi „przestarzałe”). Zastąpiona przez 02#platformy i 02#rodzina, opartymi na płytkach stanowiska."
+  },
+  {
+   "skrot": "w3_03",
+   "qmd": "wyklad_3.qmd",
+   "tytul_zrodlowy": "3. Narzędzia otwartoźródłowe",
+   "tytul": "Narzędzia otwartoźródłowe",
+   "powod": "Lista narzędzi wchłonięta: Node-RED do modułu 05, ThingsBoard do 06 wraz ze sprostowaniem o statusie licencyjnym. Osobny slajd powielałby treść."
+  },
+  {
+   "skrot": "i2_01",
+   "qmd": "wyklad_intro_2.qmd",
+   "tytul_zrodlowy": "1. Ciemna strona mocy: Dobre narzędzia, Złe intencje",
+   "tytul": "Ciemna strona mocy: dobre narzędzia, złe intencje",
+   "powod": "Przykłady (Cambridge Analytica, system kredytu społecznego) dotyczą analityki danych społecznych, nie projektowania systemu IoT. Rolę ramy odpowiedzialności przejął slajd 07#rama, a konkretne konsekwencje projektowe — 07#prywatnosc i 07#obowiazki."
+  },
+  {
+   "skrot": "w2_14",
+   "qmd": "wyklad_2.qmd",
+   "tytul_zrodlowy": "14. Dziękuję za uwagę",
+   "tytul": "Dziękuję za uwagę (zapowiedź wykładu 3)",
+   "powod": "Slajd czysto organizacyjny, zapowiadający nieaktualną strukturę trzech wykładów. Każdy moduł ma własne podsumowanie z przejściem do kolejnego."
+  }
+ ],
+ "ilustracje_wykorzystane": [
+  {
+   "plik": "arduino-nano-esp32-board.png",
+   "autor": "Arduino",
+   "zrodlo": "https://docs.arduino.cc/hardware/nano-esp32/",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "02#nano-esp32"
+   ]
+  },
+  {
+   "plik": "arduino-nano-esp32-pinout.png",
+   "autor": "Arduino",
+   "zrodlo": "https://docs.arduino.cc/resources/pinouts/ABX00083-full-pinout.pdf",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "02#nano-listwa"
+   ]
+  },
+  {
+   "plik": "irrigation-navfac.jpg",
+   "autor": "NAVFAC",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:New_water-saving_irrigation_system_tested_at_NAVFAC_EXWC_(8099733341).jpg",
+   "licencja": "CC BY 2.0",
+   "slajdy": [
+    "00#rolnictwo"
+   ]
+  },
+  {
+   "plik": "iiot-building-blocks.jpg",
+   "autor": "Sujata Tilak, Ascent Intellimation Pvt. Ltd.",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:IIoT_System_Building_Blocks.jpg",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "01#warstwy"
+   ]
+  },
+  {
+   "plik": "kerlink-lorawan-gateway.jpg",
+   "autor": "Fabian Horst",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:2020-10-05_-_Kerlink_LoRaWAN_Gateway_in_Kiel.jpg",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "03#brama-lorawan"
+   ]
+  },
+  {
+   "plik": "mqtt-broker-listeners.svg",
+   "autor": "Ademant",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:MQTT_single_broker_multiple_listener.svg",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "04#mqtt"
+   ]
+  },
+  {
+   "plik": "node-red-example.png",
+   "autor": "1-Byte",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Node-RED_Example.png",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "05#przeplyw"
+   ]
+  },
+  {
+   "plik": "iot-dashboard-aquaculture.jpg",
+   "autor": "Stephane Malhomme",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Aquaculture_iot_water_monitoring_solution_pentair_eagle.io.jpg",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "06#pulpit-przyklad"
+   ]
+  },
+  {
+   "plik": "axis-ip-cameras.png",
+   "autor": "Bungle",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Axis_ip_dome_cameras.png",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "07#mirai"
+   ]
+  }
+ ],
+ "ilustracje_wykluczone": [
+  {
+   "plik": "img/Oura-ring.jpg",
+   "powod": "Brak udokumentowanego źródła i licencji."
+  },
+  {
+   "plik": "img/IIoT-smart-manufacturing-smart-factory-3751296197.jpg",
+   "powod": "Zdjęcie stockowe bez udokumentowanej licencji."
+  },
+  {
+   "plik": "img/residential-sprinkler-systems-2663960231.jpg",
+   "powod": "Zdjęcie stockowe bez udokumentowanej licencji."
+  },
+  {
+   "plik": "img/smart_transportation_781x512-1163925340.jpg",
+   "powod": "Zdjęcie stockowe bez udokumentowanej licencji."
+  },
+  {
+   "plik": "img/th-1774962466.png",
+   "powod": "Brak udokumentowanego źródła."
+  },
+  {
+   "plik": "img/Pasted image 2022*.png",
+   "powod": "Zrzuty ekranu i ilustracje o nieustalonym pochodzeniu (14 plików użytych w taliach źródłowych)."
+  },
+  {
+   "plik": "img/mirai_map.png",
+   "powod": "Mapa bez wskazania autora i źródła danych; treść przeniesiona do tekstu slajdu 07#mirai."
+  },
+  {
+   "plik": "img/iot_dashboard.png",
+   "powod": "Zrzut ekranu bez wskazania wersji i licencji oprogramowania."
+  },
+  {
+   "plik": "img/digital_twin_nature.png",
+   "powod": "Brak udokumentowanego źródła."
+  },
+  {
+   "plik": "img/mcu_compare.png",
+   "powod": "Brak udokumentowanego źródła; zastąpione tabelami opartymi na dokumentacji producentów."
+  },
+  {
+   "plik": "img/lpwan_station.png",
+   "powod": "Brak udokumentowanego źródła."
+  },
+  {
+   "plik": "img/iot_tlo_gr.jpg, iot_tlo_or.jpg, iot_tlo_bl.jpg",
+   "powod": "Tła fotograficzne bez udokumentowanej licencji; charakter wizualny odtworzony w assets/theme/iot.scss."
+  },
+  {
+   "plik": "img/kbig.jpg",
+   "powod": "Logotyp o nieustalonym statusie praw; slajd tytułowy nie zawiera logotypów."
+  },
+  {
+   "plik": "logo up.poznan.pl, logo wisim.up.poznan.pl",
+   "powod": "Hotlinki do serwerów uczelni — usunięte zgodnie z wymogiem eliminacji łamanych odnośników do logotypów."
+  },
+  {
+   "plik": "m5stamp-c3-board.png, m5stamp-c3-pinmap.png, m5stamp-c3u-board.png, m5stamp-c3u-pinmap.png",
+   "powod": "Materiały M5Stack Technology Co., Ltd. — all rights reserved. Nie redystrybuujemy ich w repozytorium przeznaczonym do publikacji; w slajdzie 02#stamp-c3u podano odnośnik do dokumentacji producenta, a tabela wyprowadzeń została zestawiona z faktów."
+  }
+ ]
+}

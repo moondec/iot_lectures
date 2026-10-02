@@ -1,0 +1,277 @@
+{
+ "base": "/iot-course-slides",
+ "port": 8098,
+ "talie": [
+  {
+   "talia": "00-internet-przyszlosci",
+   "widoki": [
+    {
+     "widok": "pulpit",
+     "szerokosc": 1440,
+     "wysokosc": 810,
+     "slajdow_reveal": 34,
+     "stanow_odwiedzonych": 47,
+     "slajdow_unikalnych": 34,
+     "przepelnienia": [],
+     "obrazy_niezaladowane": [],
+     "mermaid_bez_svg": [],
+     "slajdy_puste": [],
+     "bledy_js": [],
+     "zle_zadania": []
+    },
+    {
+     "widok": "osadzone",
+     "szerokosc": 800,
+     "wysokosc": 600,
+     "slajdow_reveal": 34,
+     "stanow_odwiedzonych": 47,
+     "slajdow_unikalnych": 34,
+     "przepelnienia": [],
+     "obrazy_niezaladowane": [],
+     "mermaid_bez_svg": [],
+     "slajdy_puste": [],
+     "bledy_js": [],
+     "zle_zadania": []
+    }
+   ]
+  },
+  {
+   "talia": "01-architektura-i-wymagania",
+   "widoki": [
+    {
+     "widok": "pulpit",
+     "szerokosc": 1440,
+     "wysokosc": 810,
+     "slajdow_reveal": 21,
+     "stanow_odwiedzonych": 64,
+     "slajdow_unikalnych": 21,
+     "przepelnienia": [],
+     "obrazy_niezaladowane": [],
+     "mermaid_bez_svg": [],
+     "slajdy_puste": [],
+     "bledy_js": [],
+     "zle_zadania": []
+    },
+    {
+     "widok": "osadzone",
+     "szerokosc": 800,
+     "wysokosc": 600,
+     "slajdow_reveal": 21,
+     "stanow_odwiedzonych": 64,
+     "slajdow_unikalnych": 21,
+     "przepelnienia": [],
+     "obrazy_niezaladowane": [],
+     "mermaid_bez_svg": [],
+     "slajdy_puste": [],
+     "bledy_js": [],
+     "zle_zadania": []
+    }
+   ]
+  },
+  {
+   "talia": "02-urzadzenie-sensory-energia",
+   "widoki": [
+    {
+     "widok": "pulpit",
+     "szerokosc": 1440,
+     "wysokosc": 810,
+     "slajdow_reveal": 24,
+     "stanow_odwiedzonych": 62,
+     "slajdow_unikalnych": 24,
+     "przepelnienia": [],
+     "obrazy_niezaladowane": [],
+     "mermaid_bez_svg": [],
+     "slajdy_puste": [],
+     "bledy_js": [],
+     "zle_zadania": []
+    },
+    {
+     "widok": "osadzone",
+     "szerokosc": 800,
+     "wysokosc": 600,
+     "slajdow_reveal": 24,
+     "stanow_odwiedzonych": 62,
+     "slajdow_unikalnych": 24,
+     "przepelnienia": [],
+     "obrazy_niezaladowane": [],
+     "mermaid_bez_svg": [],
+     "slajdy_puste": [],
+     "bledy_js": [],
+     "zle_zadania": []
+    }
+   ]
+  },
+  {
+   "talia": "03-lacznosc-i-ota",
+   "widoki": [
+    {
+     "widok": "pulpit",
+     "szerokosc": 1440,
+     "wysokosc": 810,
+     "slajdow_reveal": 23,
+     "stanow_odwiedzonych": 87,
+     "slajdow_unikalnych": 23,
+     "przepelnienia": [],
+     "obrazy_niezaladowane": [],
+     "mermaid_bez_svg": [],
+     "slajdy_puste": [],
+     "bledy_js": [],
+     "zle_zadania": []
+    },
+    {
+     "widok": "osadzone",
+     "szerokosc": 800,
+     "wysokosc": 600,
+     "slajdow_reveal": 23,
+     "stanow_odwiedzonych": 87,
+     "slajdow_unikalnych": 23,
+     "przepelnienia": [],
+     "obrazy_niezaladowane": [],
+     "mermaid_bez_svg": [],
+     "slajdy_puste": [],
+     "bledy_js": [],
+     "zle_zadania": []
+    }
+   ]
+  },
+  {
+   "talia": "04-mqtt-i-kontrakt-danych",
+   "widoki": [
+    {
+     "widok": "pulpit",
+     "szerokosc": 1440,
+     "wysokosc": 810,
+     "slajdow_reveal": 22,
+     "stanow_odwiedzonych": 75,
+     "slajdow_unikalnych": 22,
+     "przepelnienia": [],
+     "obrazy_niezaladowane": [],
+     "mermaid_bez_svg": [],
+     "slajdy_puste": [],
+     "bledy_js": [],
+     "zle_zadania": []
+    },
+    {
+     "widok": "osadzone",
+     "szerokosc": 800,
+     "wysokosc": 600,
+     "slajdow_reveal": 22,
+     "stanow_odwiedzonych": 75,
+     "slajdow_unikalnych": 22,
+     "przepelnienia": [],
+     "obrazy_niezaladowane": [],
+     "mermaid_bez_svg": [],
+     "slajdy_puste": [],
+     "bledy_js": [],
+     "zle_zadania": []
+    }
+   ]
+  },
+  {
+   "talia": "05-brzeg-node-red-sheets",
+   "widoki": [
+    {
+     "widok": "pulpit",
+     "szerokosc": 1440,
+     "wysokosc": 810,
+     "slajdow_reveal": 18,
+     "stanow_odwiedzonych": 51,
+     "slajdow_unikalnych": 18,
+     "przepelnienia": [],
+     "obrazy_niezaladowane": [],
+     "mermaid_bez_svg": [],
+     "slajdy_puste": [],
+     "bledy_js": [],
+     "zle_zadania": []
+    },
+    {
+     "widok": "osadzone",
+     "szerokosc": 800,
+     "wysokosc": 600,
+     "slajdow_reveal": 18,
+     "stanow_odwiedzonych": 51,
+     "slajdow_unikalnych": 18,
+     "przepelnienia": [],
+     "obrazy_niezaladowane": [],
+     "mermaid_bez_svg": [],
+     "slajdy_puste": [],
+     "bledy_js": [],
+     "zle_zadania": []
+    }
+   ]
+  },
+  {
+   "talia": "06-thingsboard-ce",
+   "widoki": [
+    {
+     "widok": "pulpit",
+     "szerokosc": 1440,
+     "wysokosc": 810,
+     "slajdow_reveal": 20,
+     "stanow_odwiedzonych": 79,
+     "slajdow_unikalnych": 20,
+     "przepelnienia": [],
+     "obrazy_niezaladowane": [],
+     "mermaid_bez_svg": [],
+     "slajdy_puste": [],
+     "bledy_js": [],
+     "zle_zadania": []
+    },
+    {
+     "widok": "osadzone",
+     "szerokosc": 800,
+     "wysokosc": 600,
+     "slajdow_reveal": 20,
+     "stanow_odwiedzonych": 79,
+     "slajdow_unikalnych": 20,
+     "przepelnienia": [],
+     "obrazy_niezaladowane": [],
+     "mermaid_bez_svg": [],
+     "slajdy_puste": [],
+     "bledy_js": [],
+     "zle_zadania": []
+    }
+   ]
+  },
+  {
+   "talia": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "widoki": [
+    {
+     "widok": "pulpit",
+     "szerokosc": 1440,
+     "wysokosc": 810,
+     "slajdow_reveal": 23,
+     "stanow_odwiedzonych": 81,
+     "slajdow_unikalnych": 23,
+     "przepelnienia": [],
+     "obrazy_niezaladowane": [],
+     "mermaid_bez_svg": [],
+     "slajdy_puste": [],
+     "bledy_js": [],
+     "zle_zadania": []
+    },
+    {
+     "widok": "osadzone",
+     "szerokosc": 800,
+     "wysokosc": 600,
+     "slajdow_reveal": 23,
+     "stanow_odwiedzonych": 81,
+     "slajdow_unikalnych": 23,
+     "przepelnienia": [],
+     "obrazy_niezaladowane": [],
+     "mermaid_bez_svg": [],
+     "slajdy_puste": [],
+     "bledy_js": [],
+     "zle_zadania": []
+    }
+   ]
+  }
+ ],
+ "podsumowanie": {
+  "talii": 8,
+  "slajdow_lacznie": 185,
+  "stanow_lacznie": 546,
+  "problemow": 0,
+  "problemy": []
+ }
+}

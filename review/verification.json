@@ -1,0 +1,388 @@
+{
+ "projekt": "iot-course-slides",
+ "opis": "Osiem prezentacji Quarto/reveal.js — wynik weryfikacji.",
+ "budowanie": {
+  "quarto": "1.10.18",
+  "mermaid_format": "svg (render po stronie budowania)",
+  "output_dir": "docs",
+  "sciezki": "wyłącznie względne"
+ },
+ "zrodlo": {
+  "repozytorium": "https://github.com/moondec/iot_lectures.git",
+  "commit": "c62ccf6174fea4db9d0c0bfefef174fca4b0f709",
+  "galaz": "main",
+  "data_odczytu": "2026-09-30",
+  "licencja": "CC BY 4.0",
+  "materialy_kursu": "moodle-lab/course-source/frontend/{lecture-materials,unified-materials}"
+ },
+ "talie": [
+  {
+   "plik": "00-internet-przyszlosci.html",
+   "tytul": "Internet przyszłości: obietnice, ryzyka, decyzje",
+   "sekcji_html": 34,
+   "slajdy_merytoryczne": 28,
+   "przekladki_sekcyjne": 5,
+   "diagramow_mermaid": 3,
+   "tabel": 2,
+   "obrazow": 0,
+   "bajtow": 108778,
+   "sha256": "9c99d48af9733ec0984500987c7dedc0efdbd4974a17f5c7fe71b8de632142b2"
+  },
+  {
+   "plik": "01-architektura-i-wymagania.html",
+   "tytul": "Architektura systemu IoT i wymagania",
+   "sekcji_html": 21,
+   "slajdy_merytoryczne": 17,
+   "przekladki_sekcyjne": 3,
+   "diagramow_mermaid": 2,
+   "tabel": 2,
+   "obrazow": 1,
+   "bajtow": 78722,
+   "sha256": "a154c0ea7cf9d4ed1d253652e6e7ed3093f4fff72ac7c9fdd9cce1b55c69aaaf"
+  },
+  {
+   "plik": "02-urzadzenie-sensory-energia.html",
+   "tytul": "Urządzenie, sensory i energia",
+   "sekcji_html": 24,
+   "slajdy_merytoryczne": 20,
+   "przekladki_sekcyjne": 3,
+   "diagramow_mermaid": 1,
+   "tabel": 7,
+   "obrazow": 3,
+   "bajtow": 71865,
+   "sha256": "795db350619975e526cc1edb027b074b7e0f6405960b6628dca659f1ea9ba743"
+  },
+  {
+   "plik": "03-lacznosc-i-ota.html",
+   "tytul": "Łączność sieciowa i aktualizacje OTA",
+   "sekcji_html": 23,
+   "slajdy_merytoryczne": 19,
+   "przekladki_sekcyjne": 3,
+   "diagramow_mermaid": 3,
+   "tabel": 2,
+   "obrazow": 2,
+   "bajtow": 97272,
+   "sha256": "795846dde09dcab4e8c1bf9f4ddd3b23b561f2c4e0079e8a4ac9ae1a16e3fa0e"
+  },
+  {
+   "plik": "04-mqtt-i-kontrakt-danych.html",
+   "tytul": "MQTT i kontrakt danych",
+   "sekcji_html": 22,
+   "slajdy_merytoryczne": 18,
+   "przekladki_sekcyjne": 3,
+   "diagramow_mermaid": 4,
+   "tabel": 4,
+   "obrazow": 0,
+   "bajtow": 143267,
+   "sha256": "1db40ffc4106092033160e1259442b58c30d0be157d49fded95c01081531f5ff"
+  },
+  {
+   "plik": "05-brzeg-node-red-sheets.html",
+   "tytul": "Brzeg sieci, Node-RED i zapis do Google Sheets",
+   "sekcji_html": 18,
+   "slajdy_merytoryczne": 14,
+   "przekladki_sekcyjne": 3,
+   "diagramow_mermaid": 3,
+   "tabel": 3,
+   "obrazow": 1,
+   "bajtow": 128902,
+   "sha256": "5232188641efc95c6bb5e62e6dbcce80b17dc64f8da750cb3011e18ff2ce9af3"
+  },
+  {
+   "plik": "06-thingsboard-ce.html",
+   "tytul": "ThingsBoard CE — telemetria, pulpity i sterowanie",
+   "sekcji_html": 20,
+   "slajdy_merytoryczne": 16,
+   "przekladki_sekcyjne": 3,
+   "diagramow_mermaid": 2,
+   "tabel": 3,
+   "obrazow": 0,
+   "bajtow": 82983,
+   "sha256": "256f7e99f4b1f66b865ee750a7c797c20c83f65f7092d3375065085ba4d0f37d"
+  },
+  {
+   "plik": "07-odpornosc-bezpieczenstwo-eksploatacja.html",
+   "tytul": "Odporność, bezpieczeństwo i eksploatacja",
+   "sekcji_html": 23,
+   "slajdy_merytoryczne": 18,
+   "przekladki_sekcyjne": 4,
+   "diagramow_mermaid": 2,
+   "tabel": 3,
+   "obrazow": 0,
+   "bajtow": 85529,
+   "sha256": "104428ee016b8fa96d023558261d12a043cd989c16918a0ee63e993bff881625"
+  }
+ ],
+ "sumy": {
+  "talii": 8,
+  "sekcji_html_lacznie": 185,
+  "slajdow_merytorycznych": 150,
+  "przekladek_sekcyjnych": 27,
+  "diagramow_mermaid": 20,
+  "tabel": 26,
+  "obrazow": 7
+ },
+ "pochodzenie": {
+  "wg_origin_wszystkie": {
+   "new": 149,
+   "adapted": 28,
+   "retained": 8
+  },
+  "wg_origin_merytoryczne": {
+   "new": 114,
+   "adapted": 28,
+   "retained": 8
+  },
+  "slajdow_zrodlowych_ogolem": 61,
+  "slajdow_zrodlowych_wykorzystanych": 46,
+  "slajdow_zrodlowych_odrzuconych": 15,
+  "ilustracji_wykluczonych": 15
+ },
+ "testy": {
+  "strukturalne": {
+   "testow": 96,
+   "zaliczonych": 96,
+   "bledow": 0
+  },
+  "odnosniki": {
+   "lokalnych_ok": 297,
+   "lokalnych_brak": 0,
+   "zewnetrznych": 70,
+   "zewnetrznych_ok": 50,
+   "zewnetrznych_przekierowania": [
+    {
+     "url": "https://docs.m5stack.com/en/core/stamp_c3",
+     "url_koncowy": "https://docs.m5stack.com/en/core/Stamp-C3",
+     "status": 200
+    },
+    {
+     "url": "https://docs.m5stack.com/en/core/stamp_c3u",
+     "url_koncowy": "https://docs.m5stack.com/en/core/Stamp-C3U",
+     "status": 200
+    },
+    {
+     "url": "https://doi.org/10.1016/j.compag.2022.107430",
+     "url_koncowy": "https://linkinghub.elsevier.com/retrieve/pii/S0168169922007384",
+     "status": 200
+    },
+    {
+     "url": "https://doi.org/10.1016/j.neuron.2016.06.034",
+     "url_koncowy": "https://linkinghub.elsevier.com/retrieve/pii/S0896627316303440",
+     "status": 200
+    },
+    {
+     "url": "https://doi.org/10.1038/s41586-023-06443-4",
+     "url_koncowy": "https://www.nature.com/articles/s41586-023-06443-4?error=cookies_not_supported&code=d058def8-f4f9-43fb-b587-af0e67210acf",
+     "status": 200
+    },
+    {
+     "url": "https://doi.org/10.1038/s41593-025-01905-6",
+     "url_koncowy": "https://www.nature.com/articles/s41593-025-01905-6?error=cookies_not_supported&code=dd3af119-d3eb-4524-8a87-4c7265bc3d51",
+     "status": 200
+    },
+    {
+     "url": "https://owasp.org/www-project-internet-of-things/",
+     "url_koncowy": "https://owasp.org/projects/internet-of-things",
+     "status": 200
+    },
+    {
+     "url": "https://thingsboard.io/docs/reference/mqtt-api/",
+     "url_koncowy": "https://thingsboard.io/docs/reference/mqtt-api/getting-connected/",
+     "status": 200
+    },
+    {
+     "url": "https://thingsboard.io/docs/user-guide/attributes/",
+     "url_koncowy": "https://thingsboard.io/docs/user-guide/digital-twins/attributes/",
+     "status": 200
+    },
+    {
+     "url": "https://thingsboard.io/docs/user-guide/device-connectivity-status/",
+     "url_koncowy": "https://thingsboard.io/docs/user-guide/connectivity-status/",
+     "status": 200
+    },
+    {
+     "url": "https://thingsboard.io/docs/user-guide/rpc/",
+     "url_koncowy": "https://thingsboard.io/docs/user-guide/command-and-control/",
+     "status": 200
+    },
+    {
+     "url": "https://thingsboard.io/docs/user-guide/telemetry/",
+     "url_koncowy": "https://thingsboard.io/docs/user-guide/digital-twins/time-series-data/",
+     "status": 200
+    },
+    {
+     "url": "https://www.epfl.ch/research/domains/bluebrain/",
+     "url_koncowy": "https://bbp.epfl.ch/bbp/research/domains/bluebrain/",
+     "status": 200
+    },
+    {
+     "url": "https://www.etsi.org/standards",
+     "url_koncowy": "https://www.etsi.org/standards/",
+     "status": 200
+    },
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc3339",
+     "url_koncowy": "https://www.rfc-editor.org/info/rfc3339/",
+     "status": 200
+    },
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc6761",
+     "url_koncowy": "https://www.rfc-editor.org/info/rfc6761/",
+     "status": 200
+    },
+    {
+     "url": "https://www.rfc-editor.org/rfc/rfc7252",
+     "url_koncowy": "https://www.rfc-editor.org/info/rfc7252/",
+     "status": 200
+    }
+   ],
+   "zewnetrznych_404": [],
+   "zewnetrznych_403_lub_timeout": [
+    {
+     "url": "https://doi.org/10.1145/1654059.1654124",
+     "status": 403,
+     "kategoria": "blokada-bota"
+    },
+    {
+     "url": "https://doi.org/10.1177/1461444819826402",
+     "status": 403,
+     "kategoria": "blokada-bota"
+    },
+    {
+     "url": "https://www.iso.org/standard/74393.html",
+     "status": 403,
+     "kategoria": "blokada-bota"
+    }
+   ]
+  },
+  "przegladarka_root": {
+   "base": "/",
+   "slajdow": 185,
+   "stanow_z_fragmentami": 546,
+   "widokow": 16,
+   "problemow": 0,
+   "problemy": []
+  },
+  "przegladarka_podkatalog": {
+   "base": "/iot-course-slides",
+   "slajdow": 185,
+   "stanow_z_fragmentami": 546,
+   "widokow": 16,
+   "problemow": 0,
+   "problemy": []
+  }
+ },
+ "obliczenia": {
+  "energia_15min": {
+   "I_akt_mA": 120.0,
+   "t_akt_s": 3.0,
+   "I_sleep_mA": 0.05,
+   "T_s": 900,
+   "I_sr_mA": 0.4498,
+   "Q_rok_mAh": 3940.5,
+   "CR2032_h": 489.1,
+   "CR2032_dni": 20.4,
+   "18650_h": 7558.4,
+   "18650_miesiecy": 10.3
+  },
+  "energia_okres": {
+   "1min": 6.0475,
+   "5min": 1.2495,
+   "15min": 0.4498,
+   "30min": 0.2499,
+   "60min": 0.15
+  },
+  "energia_okres_czas_3400mAh": {
+   "1min": {
+    "dni": 23.4,
+    "miesiace_30_44d": 0.8,
+    "lata_365d": 0.06
+   },
+   "5min": {
+    "dni": 113.4,
+    "miesiace_30_44d": 3.7,
+    "lata_365d": 0.31
+   },
+   "15min": {
+    "dni": 314.9,
+    "miesiace_30_44d": 10.3,
+    "lata_365d": 0.86
+   },
+   "30min": {
+    "dni": 566.9,
+    "miesiace_30_44d": 18.6,
+    "lata_365d": 1.55
+   },
+   "60min": {
+    "dni": 944.7,
+    "miesiace_30_44d": 31.0,
+    "lata_365d": 2.59
+   }
+  },
+  "energia_prog_rok_18650_mA": 0.3881,
+  "sprostowanie_019": {
+   "wartosc_w_materiale_mA": 0.19,
+   "wartosc_wyliczona_mA": 0.4498,
+   "zgodna": false,
+   "komentarz": "0,19 mA nie wynika z podanych danych wejsciowych; poprawna wartosc ~0,45 mA"
+  },
+  "sheets": {
+   "limit_user_min": 60,
+   "limit_proj_min": 300,
+   "raport_1s_zapisow_min": 60,
+   "procent_limitu_uzytkownika_przy_1s": 100.0,
+   "urzadzen_na_limit_uzytkownika_przy_1s": 1.0,
+   "agregacja_1min_urzadzen": 60,
+   "agregacja_1min_urzadzen_projekt": 300
+  },
+  "ota_tempo": {
+   "pack_size": 100,
+   "interval_ms": 60000,
+   "gorne_s_dla_1": 60.0,
+   "gorne_s_dla_100": 60.0,
+   "gorne_s_dla_240": 180.0,
+   "gorne_s_dla_250": 180.0,
+   "gorne_min_dla_1000": 10.0,
+   "srednie_s_dla_240": 144.0
+  },
+  "nieaktywnosc": {
+   "report_timeout_ms": 3000,
+   "min_prog_s": 3.0,
+   "domyslny_prog_s": 600,
+   "interwal_sprawdzania_s": 60,
+   "prog_laboratoryjny_ms": 60000,
+   "prog_laboratoryjny_s": 60,
+   "session_inactivity_timeout_ms": 300000,
+   "zapas_krotnosc": 20.0
+  },
+  "energia_rama": {
+   "kcal_dzien": 3000.0,
+   "MJ_dzien": 12.55,
+   "kWh_dzien": 3.49,
+   "auto_MJ_na_km": 2.5,
+   "km_rownowazne_dobie": 5.0,
+   "mozg_W": 20
+  },
+  "mqtt_naglowek": {
+   "min_fixed_header_B": 2,
+   "krotki_temat": "lab/z1/d1/t",
+   "krotki_temat_len": 11,
+   "dlugi_temat": "laboratorium/zespol-1/urzadzenie-1/telemetria/pomiar",
+   "dlugi_temat_len": 52,
+   "publish_krotki_qos1_pusty_B": 17,
+   "publish_dlugi_qos1_pusty_B": 58,
+   "roznica_B": 41,
+   "okres_publikacji_s": 10,
+   "dni_roku": 365,
+   "komunikaty_rocznie": 3153600,
+   "roczny_dodatkowy_publish_B": 129297600,
+   "roczny_dodatkowy_publish_MB": 129.3,
+   "roczny_dodatkowy_publish_MiB": 123.3
+  },
+  "adc": {
+   "bity": 12,
+   "kroki": 4096,
+   "LSB_mV_dla_3V3": 0.806
+  }
+ }
+}

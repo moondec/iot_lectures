@@ -1,0 +1,503 @@
+---
+title: "MQTT i kontrakt danych"
+subtitle: "Wykład 4 — protokół to za mało, potrzebna jest umowa"
+author: "prof. UPP dr hab. inż. Marek Urbaniak"
+institute: "Wydział Inżynierii Środowiska i Inżynierii Mechanicznej<br>Uniwersytet Przyrodniczy w Poznaniu"
+body-classes: tlo-green
+format:
+  revealjs:
+    footer: "Internet Rzeczy · Wykład 4 — MQTT i kontrakt danych"
+---
+
+## <i class="bi bi-compass"></i> Po co ten wykład {#cele}
+
+[Pytanie modułu: **jak zapisać umowę między urządzeniem, brokerem i odbiorcami, żeby dało się ją później zmienić bez zatrzymywania systemu?**]{.lead}
+
+::: {.columns}
+::: {.column width="52%"}
+### Cele
+
+::: {.incremental}
+* Uzasadnić wybór pub/sub zamiast żądanie–odpowiedź.
+* Zaprojektować drzewo tematów z jawnym kierunkiem i regułą `retained`.
+* Dobrać QoS świadomie — wraz z jego kosztem.
+* Zapisać **samoopisujący się ładunek** i uczynić polecenia idempotentnymi.
+:::
+:::
+
+::: {.column width="48%"}
+### Droga
+
+1. Dlaczego HTTP nie pasuje do węzła
+2. MQTT: broker, tematy, faktyczny narzut
+3. QoS, retained, Last Will, keep alive
+4. Kontrakt danych i jego wersjonowanie
+5. Zamknięcie dostępu do brokera
+6. Test odbioru kontraktu
+:::
+:::
+
+# Protokół {.sekcja background-color="#0b3b45"}
+
+## <i class="bi bi-x-octagon"></i> Dlaczego HTTP nie pasuje {#http}
+
+::: {.columns}
+::: {.column width="56%"}
+::: {.incremental}
+* **Narzut nagłówków** — nagłówki HTTP potrafią zająć więcej bajtów niż sama wartość „temperatura = 22,5 °C".
+* **Model żądanie–odpowiedź** — architektura synchroniczna: czujnik czeka na potwierdzenie z włączonym, prądożernym radiem.
+* **Brak natywnej asynchroniczności i rozgłaszania** — każdy odbiorca musi indywidualnie odpytywać serwer, a urządzenie nie ma jak otrzymać polecenia bez odpytywania.
+:::
+
+::: {.fragment}
+Skala problemu: mediana strony głównej to około **2,6–2,9 MB** (HTTP Archive, 2025). ESP32-S3 ma 512 kB SRAM — około **pięć razy mniej niż jedna strona**, jeszcze zanim wydzielimy pamięć na program, stos i TLS.
+:::
+:::
+
+::: {.column width="44%"}
+::: {.callout-note title="To nie znaczy „HTTP jest zły”"}
+HTTP jest właściwym wyborem tam, gdzie jest stałe zasilanie i model żądanie–odpowiedź pasuje do zadania: bramy, panele administracyjne, interfejsy serwerowe.
+
+Problemem nie jest protokół, tylko jego użycie w roli, do której go nie projektowano.
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-envelope-paper"></i> MQTT: publikacja i subskrypcja {#mqtt}
+
+::: {.columns}
+::: {.column width="52%"}
+::: {.incremental}
+* Czujnik nie łączy się z odbiorcą danych. Publikuje komunikat do **brokera** pod określonym **tematem**.
+* Broker filtruje i rozsyła komunikaty do wszystkich zainteresowanych subskrybentów.
+* Klienci **nie wiedzą o swoim istnieniu** — znają tylko brokera.
+* Protokół jest asynchroniczny i zaprojektowany pod niestabilne łącza.
+:::
+:::
+
+::: {.column width="48%"}
+![](../assets/img/mqtt-broker-listeners.svg){width="96%" fig-alt="Schemat MQTT: wielu nadawców publikuje komunikaty do jednego brokera, który przekazuje je wielu subskrybentom."}
+
+::: {.zrodlo}
+Ademant, *MQTT single broker multiple listener*, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:MQTT_single_broker_multiple_listener.svg), CC BY-SA 4.0.
+:::
+:::
+:::
+
+Protokół powstał w 1999 r. we współpracy **Andy'ego Stanforda-Clarka (IBM)** i **Arlena Nippera** (wówczas Arcom Control Systems). MQTT jest dziś standardem **OASIS**: wersja 3.1.1 (2014) została również opublikowana jako **ISO/IEC 20922:2016**, a wersja 5.0 jako standard OASIS w 2019 r.
+
+---
+
+## <i class="bi bi-rulers"></i> „Nagłówek MQTT to 2 bajty" — ile naprawdę {#naglowek}
+
+::: {.columns}
+::: {.column width="50%"}
+Dwa bajty to **minimalny rozmiar nagłówka stałego**: jeden bajt typu pakietu i flag oraz co najmniej jeden bajt pola `Remaining Length`, kodowanego jako liczba zmiennobajtowa **o długości 1–4 bajtów**.
+
+Do tego dochodzi nagłówek zmienny — przede wszystkim **nazwa tematu** i identyfikator pakietu — a w MQTT 5.0 jeszcze właściwości.
+
+Realny narzut pakietu `PUBLISH` zależy więc głównie od **długości nazwy tematu**. Binarny jest nagłówek MQTT; format ładunku (np. JSON, CBOR lub Protobuf) określa osobny kontrakt danych.
+:::
+
+::: {.column width="50%"}
+Ten sam pusty ładunek, dwa drzewa tematów:
+
+| Temat | Długość | Pakiet `PUBLISH` |
+|:---|:---|:---|
+| `lab/z1/d1/t` | 11 zn. | **17 B** (QoS 1) |
+| `laboratorium/zespol-1/`<br>`urzadzenie-1/telemetria/pomiar` | 52 zn. | **58 B** (QoS 1) |
+
+::: {.fragment}
+Różnica **41 B na komunikat** wynika wyłącznie z długości tematu. Przy publikacji co 10 s przez 365 dni to **129,3 MB rocznie**
+(123,3 MiB) dodatkowych bajtów `PUBLISH`. Bez ACK, TCP/IP i TLS; czasu pracy radia nie wyliczymy z samej liczby bajtów.
+:::
+
+::: {.fragment}
+**Wniosek:** segmenty tematu mają być **krótkie, ale znaczące**. Nie skracamy do szumu (`a/b/c`), nie rozdymamy do zdania.
+:::
+:::
+:::
+
+# Tematy i niezawodność {.sekcja background-color="#0b3b45"}
+
+## <i class="bi bi-folder2-open"></i> Drzewo tematów pilota {#tematy}
+
+[Temat niesie **kierunek** i **klasę komunikatu**. Jedno i drugie zapisujemy jawnie.]{.lead}
+
+| Temat | Kto publikuje | `retained` | Zawartość |
+|:---|:---|:---|:---|
+| `lab/{zespol}/{urzadzenie}/telemetry` | **tylko urządzenie** | nie | pomiary okresowe |
+| `lab/{zespol}/{urzadzenie}/state` | **tylko urządzenie** | **tak** | stan i atrybuty: wersja firmware, okres próbkowania, adres |
+| `lab/{zespol}/{urzadzenie}/command` | klient / platforma | **nigdy** | polecenia; urządzenie wyłącznie subskrybuje |
+| `lab/{zespol}/{urzadzenie}/status` | broker (Last Will) | **tak** | `offline` po nieuprzejmym rozłączeniu |
+
+::: {.fragment}
+Reguła porządkująca: **kto publikuje, ten nie subskrybuje tego samego tematu**. Złamanie tej zasady
+daje pętle, których nie widać w logu, bo każdy komunikat z osobna wygląda poprawnie.
+:::
+
+---
+
+## <i class="bi bi-exclamation-triangle-fill"></i> Dlaczego polecenie nigdy nie jest retained {#retained}
+
+::: {.columns}
+::: {.column width="52%"}
+Komunikat `retained` jest dostarczany **każdemu nowemu subskrybentowi** zaraz po subskrypcji.
+
+::: {.fragment}
+Polecenie `retained` zostanie więc wykonane ponownie **przy każdym restarcie urządzenia**.
+:::
+
+::: {.fragment}
+```{mermaid}
+%%| fig-width: 6.8
+%%| fig-height: 3.2
+%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
+sequenceDiagram
+    participant O as Operator
+    participant B as Broker
+    participant D as Urządzenie
+    O->>B: PUBLISH command {pump:true} retained
+    B->>D: {pump:true}
+    Note over D: pompa startuje — zgodnie z wolą operatora
+    Note over D: zanik zasilania
+    D->>B: CONNECT + SUBSCRIBE command
+    B->>D: {pump:true} (retained!)
+    Note over D: pompa startuje SAMA,<br>bez decyzji człowieka
+```
+:::
+:::
+
+::: {.column width="48%"}
+::: {.callout-important title="To nie jest błąd teoretyczny"}
+W systemie z pompą, grzałką albo zaworem ma to **konsekwencje fizyczne**: urządzenie wraca po przerwie w zasilaniu i samo załącza wyjście na podstawie polecenia sprzed godzin.
+
+Objaw zgłaszany przez użytkownika brzmi: „pompa włącza się sama". Przyczyna leży w jednej fladze protokołu.
+:::
+
+::: {.fragment}
+**Stan** natomiast **musi** być retained — po to, żeby nowy odbiorca (pulpit po odświeżeniu) od razu wiedział, w jakim stanie jest urządzenie, nie czekając na kolejny cykl.
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-shield-check"></i> QoS i jego koszt {#qos}
+
+::: {.columns}
+::: {.column width="55%"}
+::: {.tabela-gesta}
+| Mechanizm | Kiedy stosujesz | Koszt |
+|:---|:---|:---|
+| **QoS 0** — co najwyżej raz | telemetria o wysokiej częstości, gdzie strata próbki jest dopuszczalna | brak potwierdzeń; nie wiesz, czy komunikat dotarł |
+| **QoS 1** — co najmniej raz | stan, zdarzenia, polecenia w prostych układach | możliwe **duplikaty** — odbiorca musi być idempotentny |
+| **QoS 2** — dokładnie raz | operacje, których powtórzenie jest kosztowne | czterofazowa wymiana; największe opóźnienie i zużycie energii |
+| **Retained** | stan, który nowy subskrybent musi znać natychmiast | nieaktualny stan „żyje" do nadpisania |
+| **Last Will** | wykrycie nieuprzejmego rozłączenia | ustawiany przy `CONNECT`; **nie zadziała** po poprawnym `DISCONNECT` |
+| **Keep alive** | detekcja martwego łącza TCP | krótki okres = częstsze `PINGREQ` = więcej energii |
+| **Session Expiry** (MQTT 5) | odbiór zaległości po powrocie urządzenia | broker utrzymuje stan sesji — zużycie pamięci serwera |
+:::
+:::
+
+::: {.column width="45%"}
+Specyfikacja opisuje trzy poziomy jako: *co najwyżej raz*, *co najmniej raz* i *dokładnie raz*. **Żaden poziom nie gwarantuje dostarczenia przy trwale przerwanym łączu** — określa semantykę dostarczenia po ponownym zestawieniu sesji.
+
+::: {.fragment}
+::: {.callout-warning title="I jeszcze jedno ograniczenie"}
+Platforma, której użyjemy w module 06, obsługuje **wyłącznie QoS 0 i 1**. Projekt nie może zakładać semantyki „dokładnie raz" na styku z platformą — **idempotencja odbiornika jest obowiązkowa**, a nie opcjonalna.
+:::
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-arrow-left-right"></i> Sekwencja trzech poziomów {#qos-sekwencja}
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 4.4
+%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
+sequenceDiagram
+    participant C as Czujnik
+    participant B as Broker
+    Note over C,B: QoS 0 — wyślij i zapomnij
+    C->>B: PUBLISH
+    Note over C,B: QoS 1 — co najmniej raz
+    C->>B: PUBLISH
+    B-->>C: PUBACK
+    Note over C,B: QoS 2 — dokładnie raz
+    C->>B: PUBLISH
+    B-->>C: PUBREC
+    C->>B: PUBREL
+    B-->>C: PUBCOMP
+```
+
+::: {.fragment}
+Koszt energetyczny rośnie z liczbą wymian: QoS 2 to **cztery pakiety** zamiast jednego, a radio musi
+pozostać włączone przez cały czas wymiany.
+:::
+
+# Kontrakt danych {.sekcja background-color="#0b3b45"}
+
+## <i class="bi bi-file-earmark-code"></i> Samoopisujący się ładunek {#kontrakt}
+
+::: {.columns}
+::: {.column width="46%"}
+```json
+{
+  "schema": 1,
+  "ts": "2026-09-30T09:20:03Z",
+  "device": "iot-lab-01",
+  "fw": "1.4.2",
+  "temperature_c": 22.5,
+  "humidity_pct": 61,
+  "pump": false,
+  "seq": 10472
+}
+```
+
+Ten komunikat da się zinterpretować **bez dokumentacji obok**. To jest cel.
+:::
+
+::: {.column width="54%"}
+::: {.incremental}
+* **`schema`** — numer wersji kontraktu. Bez niego nie da się wprowadzić zmiany bez przestoju wszystkich odbiorców.
+* **`ts`** — czas w **UTC**, ISO 8601 ze strefą. Czas lokalny w telemetrii jest źródłem błędów na przełomie czasu zimowego i letniego: godzina 02:30 występuje dwa razy albo wcale.
+* **Jednostka jest częścią nazwy pola** (`_c`, `_pct`) — odbiorca nie musi zgadywać ani pytać.
+* **`seq`** — licznik rosnący; pozwala wykryć lukę w strumieniu bez porównywania znaczników czasu i wykryć duplikat z QoS 1.
+* **`device`, `fw`** — identyfikacja źródła, przydatna przy diagnozie „która partia urządzeń psuje dane".
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-diagram-2"></i> Wersjonowanie kontraktu {#wersjonowanie}
+
+[Zmiana kontraktu po wdrożeniu wymaga aktualizacji wszystkich stron. Pole `schema` pozwala zrobić to etapami.]{.lead}
+
+::: {.columns}
+::: {.column width="50%"}
+**Zmiana zgodna wstecz** — dodanie pola
+
+::: {.incremental}
+* Urządzenie wysyła nowe pole, `schema` bez zmian.
+* Starzy odbiorcy ignorują nieznane pole, nowi z niego korzystają.
+:::
+
+**Zmiana niezgodna** — inne znaczenie albo jednostka
+
+::: {.incremental}
+* Podnosimy `schema` do 2.
+* Odbiorca odrzuca nieobsługiwaną wersję **z powodem**, zamiast interpretować ją błędnie.
+* W okresie przejściowym publikujemy w obu wersjach albo aktualizujemy urządzenia przez OTA (moduł 03).
+:::
+:::
+
+::: {.column width="50%"}
+::: {.callout-warning title="Najgorszy wariant"}
+Zmiana jednostki z °C na dziesiąte części °C **bez** podniesienia `schema`.
+
+Odbiorca nadal parsuje komunikat poprawnie, wykresy się rysują, alarmy działają — a wszystkie wartości są dziesięciokrotnie za duże. Błąd ujawni się dopiero wtedy, gdy ktoś spojrzy na wykres.
+:::
+
+::: {.fragment}
+Dlatego jednostka jest w **nazwie pola**: zmiana jednostki wymusza zmianę nazwy, a ta jest widoczna natychmiast.
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-arrow-clockwise"></i> Idempotencja polecenia {#idempotencja}
+
+::: {.columns}
+::: {.column width="50%"}
+Polecenie zawiera **identyfikator żądania**. Urządzenie zapamiętuje ostatnie wykonane identyfikatory
+i ignoruje powtórzenia.
+
+```json
+{
+  "schema": 1,
+  "req_id": "c7f1-0042",
+  "method": "setPump",
+  "params": { "on": true }
+}
+```
+
+::: {.fragment}
+Dzięki temu **QoS 1 z duplikatami przestaje być problemem**, a odpowiedź może być bezpiecznie wysłana ponownie.
+:::
+:::
+
+::: {.column width="50%"}
+```{mermaid}
+%%| fig-width: 6.6
+%%| fig-height: 3.8
+%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
+sequenceDiagram
+    participant B as Broker
+    participant D as Urządzenie
+    B->>D: command req_id=c7f1-0042
+    Note over D: nieznany identyfikator<br>→ wykonaj, zapamiętaj
+    D->>B: response req_id=c7f1-0042, pump=true
+    B->>D: command req_id=c7f1-0042 (duplikat QoS 1)
+    Note over D: znany identyfikator<br>→ NIE wykonuj ponownie
+    D->>B: response req_id=c7f1-0042, pump=true
+```
+
+::: {.fragment}
+Odpowiedź wysyłamy **za każdym razem** — powtórzenie odpowiedzi jest nieszkodliwe, a jej brak wygląda jak awaria.
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-lock"></i> Zamknięcie dostępu do brokera {#dostep}
+
+::: {.columns}
+::: {.column width="52%"}
+::: {.incremental}
+* **Unikalny identyfikator klienta.** Dwa urządzenia z tym samym `ClientID` wzajemnie się rozłączają — objaw wygląda dokładnie jak „niestabilna sieć" i potrafi kosztować dzień diagnozy.
+* **Osobne konto dla każdego urządzenia**; dostęp anonimowy wyłączony.
+* **Listy kontroli dostępu (ACL)** ograniczają każdemu urządzeniu prawo publikacji do własnego poddrzewa i prawo subskrypcji do własnego tematu poleceń.
+* **TLS na porcie 8883** z weryfikacją certyfikatu serwera po stronie urządzenia. Wgrany certyfikat CA jest częścią firmware — i podlega aktualizacji OTA.
+* **Sekrety nie trafiają** do repozytorium ani do zrzutów ekranu w sprawozdaniu.
+:::
+:::
+
+::: {.column width="48%"}
+Prefiks `dev/`, `test/` lub `prod/` **porządkuje nazwy, ale nie zapewnia izolacji**. Izolację daje osobny broker albo ACL z osobnymi poświadczeniami.
+
+::: {.fragment}
+::: {.callout-note title="Minimalna reguła ACL dla urządzenia"}
+publikacja: `lab/z1/d1/telemetry`, `lab/z1/d1/state`, `lab/z1/d1/status` · subskrypcja: `lab/z1/d1/command`
+
+Wildcard `#` dla publikacji objąłby także `command`, dlatego tematy zapisu wyliczamy jawnie. Urządzenie nie ma powodu czytać cudzej telemetrii ani publikować poleceń.
+:::
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-arrow-left-right"></i> CoAP i AMQP — kiedy nie MQTT {#coap-amqp}
+
+::: {.columns}
+::: {.column width="50%"}
+### CoAP
+
+::: {.incremental}
+* Odpowiednik HTTP (GET, POST, PUT) oparty na **UDP** — lżejszy i szybszy.
+* Wbudowane wsparcie DTLS.
+* Sprawdza się tam, gdzie MQTT jest „za dużo": mikrokontroler, który po prostu odpowiada na pytanie „podaj aktualną temperaturę", bez stałego połączenia z brokerem.
+:::
+
+::: {.fragment}
+CoAP ma własny tryb **potwierdzany**: komunikaty *confirmable* korzystają z ACK i retransmisji. Komunikaty *non-confirmable* nie zapewniają takiego potwierdzenia.
+:::
+:::
+
+::: {.column width="50%"}
+### AMQP
+
+::: {.incremental}
+* Rozbudowany system kolejek dla środowisk korporacyjnych i finansowych.
+* Zbyt ciężki dla mikrokontrolera — jego miejsce jest **na zapleczu**, między serwerami (np. RabbitMQ).
+* W architekturze IoT pojawia się za platformą, nie przed nią.
+:::
+
+::: {.fragment}
+::: {.callout-note title="Reguła wyboru"}
+MQTT — strumień telemetrii i polecenia do wielu odbiorców.
+CoAP — pojedyncze zapytanie o bieżącą wartość.
+AMQP — kolejkowanie między usługami serwerowymi.
+:::
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-clipboard-check"></i> Test odbioru kontraktu {#test-odbioru}
+
+[Kontrakt nieprzetestowany jest dokumentem, nie umową. Pięć dowodów:]{.lead}
+
+::: {.pytania}
+* Publikacja telemetrii widoczna w subskrypcji `mosquitto_sub` **z jawnie podanym QoS**.
+* Nowy subskrybent otrzymuje stan **natychmiast po podłączeniu** — dowód działania `retained`.
+* Polecenie wykonane **raz**, mimo dwukrotnej publikacji z tym samym identyfikatorem żądania — dowód idempotencji.
+* Odłączenie zasilania urządzenia skutkuje pojawieniem się `offline` w temacie `status` w czasie zgodnym z `keep alive` — dowód działania Last Will.
+* Po przywróceniu zasilania stan i telemetria wracają **bez ręcznej interwencji** — i pompa **nie** włącza się sama.
+:::
+
+---
+
+## <i class="bi bi-table"></i> Dobór technologii — zestawienie {#zestawienie}
+
+| Warstwa | Technologia | Zastosowanie |
+|:---|:---|:---|
+| **Krótki zasięg** | BLE, Zigbee, Z-Wave | urządzenia noszone, instalacje domowe, czujniki lokalne |
+| **Daleki zasięg** | LoRaWAN, NB-IoT, Sigfox 0G | rolnictwo, monitoring środowiskowy, infrastruktura miejska |
+| **Protokół aplikacyjny** | **MQTT** (pub/sub) | strumień telemetrii, polecenia, wielu odbiorców |
+| **Protokół aplikacyjny** | CoAP (żądanie/odpowiedź, UDP) | pojedyncze odczyty na mikrokontrolerach |
+| **Protokół aplikacyjny** | HTTP | wyłącznie bramy i serwery ze stałym zasilaniem |
+
+::: {.fragment}
+Zasada porządkująca cały ten wykład i poprzedni: **im dalej chcesz przesłać dane, tym mniej ich
+przesyłasz i tym dłużej urządzenie przeżyje** — a im mniej przesyłasz, tym ważniejsze, żeby każdy
+przesłany bajt był jednoznaczny.
+:::
+
+---
+
+## <i class="bi bi-question-circle"></i> Pytania sprawdzające {#pytania}
+
+::: {.pytania}
+* Operator zgłasza: „po każdej przerwie w prądzie wentylator sam rusza na pełnych obrotach". Wskaż, która decyzja projektowa w drzewie tematów to powoduje, i podaj poprawkę.
+* Zespół zmienia jednostkę pola z °C na dziesiąte części stopnia i zostawia nazwę `temperature_c` oraz `schema: 1`. Wymień dwa różne momenty, w których ten błąd może zostać wykryty, i powiedz, ile danych zdąży się do tego czasu zepsuć przy raportowaniu co 10 s.
+* Na styku z platformą dostępne są tylko QoS 0 i 1. Zaprojektuj obsługę polecenia „otwórz zawór na 30 sekund" tak, żeby dwukrotne dostarczenie tego samego komunikatu nie wydłużyło otwarcia do minuty.
+:::
+
+---
+
+## <i class="bi bi-flag"></i> Podsumowanie i przejście {#podsumowanie}
+
+::: {.columns}
+::: {.column width="55%"}
+**Co zostaje z tego modułu**
+
+::: {.incremental}
+* Narzut MQTT zależy głównie od **długości nazwy tematu**, nie od stałych 2 bajtów.
+* Stan jest `retained`, polecenie **nigdy**.
+* QoS 2 oznacza „dokładnie raz", nie „na pewno dotrze" — a na styku z platformą i tak go nie ma.
+* Ładunek opisuje sam siebie: `schema`, czas w UTC, jednostka w nazwie pola, licznik `seq`.
+* Idempotencja polecenia jest obowiązkowa, nie opcjonalna.
+:::
+:::
+
+::: {.column width="45%"}
+::: {.callout-note title="Moduł 05 — brzeg sieci"}
+Umowa jest zapisana. Teraz ktoś musi jej **pilnować**: sprawdzić, czy komunikat jest zgodny z kontraktem, odrzucić to, czego nie wolno zapisać, i przekazać dalej resztę — z jawnym powodem każdego odrzucenia.
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-journal-text"></i> Źródła {#zrodla}
+
+::: {style="font-size: 0.7em;"}
+* HTTP Archive, *Web Almanac 2025 — Page Weight* (mediany rozmiaru stron): <https://almanac.httparchive.org/en/2025/page-weight>
+* OASIS, *MQTT Version 5.0* — struktura pakietu, QoS, retained, Will Message, Session Expiry Interval: <https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html>
+* OASIS, *MQTT Version 3.1.1* (= ISO/IEC 20922:2016): <https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html>
+* Eclipse Mosquitto — konfiguracja brokera, ACL i TLS: <https://mosquitto.org/man/mosquitto-conf-5.html>
+* IETF RFC 7252 — *The Constrained Application Protocol (CoAP)*: <https://www.rfc-editor.org/rfc/rfc7252>
+* OASIS, *AMQP 1.0*: <https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-overview-v1.0-os.html>
+* IETF RFC 3339 / ISO 8601 — zapis znacznika czasu: <https://www.rfc-editor.org/rfc/rfc3339>
+:::

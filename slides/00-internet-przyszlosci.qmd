@@ -1,0 +1,617 @@
+---
+title: "Internet przyszłości: obietnice, ryzyka, decyzje"
+subtitle: "Wykład 0 — po co budujemy systemy IoT i za co odpowiada projektant"
+author: "prof. UPP dr hab. inż. Marek Urbaniak"
+institute: "Wydział Inżynierii Środowiska i Inżynierii Mechanicznej<br>Uniwersytet Przyrodniczy w Poznaniu"
+body-classes: tlo-blue
+format:
+  revealjs:
+    footer: "Internet Rzeczy · Wykład 0 — Internet przyszłości"
+---
+
+## <i class="bi bi-lightbulb"></i> Technologia nas wyzwoli? {#motto}
+
+::: {.columns}
+::: {.column width="50%"}
+**Harari ostrzega, że język przełomowych technologii może pozostawać obcy ludziom, których życie te technologie zmienią.**
+
+_Parafraza wątku z 21 lekcji na XXI wiek._
+:::
+
+::: {.column width="50%"}
+**Pyta też, kto reprezentuje społeczeństwo, gdy inżynierowie, przedsiębiorcy i naukowcy podejmują decyzje o politycznych konsekwencjach.**
+
+_Parafraza; literatura jest tu soczewką, nie dowodem empirycznym._
+:::
+:::
+
+::: {.zrodlo}
+Yuval Noah Harari, *21 lekcji na XXI wiek*
+:::
+
+[Pytanie otwierające: **czy odpowiedzialność projektanta kończy się tam, gdzie kończy się specyfikacja techniczna?**]{.lead}
+
+---
+
+## <i class="bi bi-compass"></i> Po co ten wykład {#cele}
+
+[Pytanie modułu: **jak odróżnić obietnicę technologiczną od odpowiedzialnego systemu?**]{.lead}
+
+::: {.columns}
+::: {.column width="52%"}
+### Cele
+
+::: {.incremental}
+* Rozpoznać, gdzie IoT tworzy wartość, a gdzie tylko produkuje dane.
+* Oddzielić fakt, demonstrację badawczą i prognozę.
+* Nazwać społeczne skutki pętli: pomiar → model → decyzja → działanie.
+* Przełożyć te skutki na wymagania techniczne rozwijane w modułach 01–07.
+:::
+:::
+
+::: {.column width="48%"}
+### Droga
+
+1. Obietnice: środowisko, rolnictwo, energia, zdrowie
+2. Władza danych: profilowanie, kontrola, prawa użytkownika
+3. AI i interfejs człowiek–maszyna
+4. Granice: energia, odporność, prawo
+5. Most do projektu semestralnego
+:::
+:::
+
+# Przyszłość jest już architekturą {.sekcja background-color="#0b3b45"}
+
+[Dzisiaj zaprojektowane systemy determinują naszą przyszłość.]{.lead}
+
+## <i class="bi bi-diagram-3"></i> „Przyszłość” już jest infrastrukturą {#skala}
+
+::: {.columns}
+::: {.column width="48%"}
+**Szacunek rynkowy IoT Analytics**
+
+* **18,5 mld** aktywnych urządzeń IoT w 2024 r.,
+* **21,1 mld** prognozowanych na koniec 2025 r.,
+* **39 mld** — prognoza na 2030 r.
+:::
+
+::: {.column width="52%"}
+::: {.callout-important title="Nie myl faktu z prognozą"}
+To nie urzędowy spis. Firma analityczna szacuje aktywne połączenia według jawnej metodologii; liczba na 2030 r. jest prognozą, nie wynikiem pomiaru.
+:::
+
+**Wniosek:** student nie dodaje „gadżetu przyszłości”, lecz kolejny węzeł do zatłoczonej i atakowanej infrastruktury.
+:::
+:::
+
+::: {.zrodlo}
+IoT Analytics, *State of IoT 2025*, 28.10.2025, <https://iot-analytics.com/number-connected-iot-devices/>
+:::
+
+---
+
+## <i class="bi bi-arrow-repeat"></i> Nie „rzecz”, lecz pętla {#lancuch}
+
+[IoT zaczyna się wtedy, gdy pomiar zmienia decyzję — a decyzja może zmienić świat fizyczny.]{.lead}
+
+```{mermaid}
+%%| fig-width: 11
+%%| fig-height: 3.4
+%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
+flowchart LR
+    S["Świat fizyczny<br>gleba · maszyna · człowiek"]
+    P["Pomiar<br>czujnik · kontekst · czas"]
+    M["Model<br>reguła · statystyka · AI"]
+    D["Decyzja<br>człowiek lub automat"]
+    A["Działanie<br>alarm · dawka · sterowanie"]
+    S --> P --> M --> D --> A --> S
+    classDef x fill:#e8f2f4,stroke:#0b6b78,stroke-width:2px,color:#0b3b45
+    class S,P,M,D,A x
+```
+
+**Każde ogniwo może wprowadzić błąd, stronniczość albo opóźnienie.** Odpowiedzialność nie kończy się na poprawnym odczycie czujnika.
+
+---
+
+## <i class="bi bi-flower1"></i> Agriculture 4.0: od mapy do działania {#rolnictwo}
+
+[„4.0” nie oznacza jednej technologii. Oznacza połączony proces decyzyjny.]{.lead}
+
+::: {.columns}
+::: {.column width="55%"}
+1. **Obserwacja:** mikroklimat, wilgotność gleby, obraz, pozycja i stan maszyny.
+2. **Integracja:** wspólny czas, geolokalizacja, jakość i pochodzenie danych.
+3. **Wnioskowanie:** próg, model agronomiczny albo uczenie maszynowe.
+4. **Interwencja:** nawadnianie, dawka, trasa robota lub zalecenie dla operatora.
+5. **Ocena:** czy efekt uzyskano mniejszym kosztem zasobów i ryzyka?
+
+::: {.callout-important title="Pomiar nie jest jeszcze rezultatem"}
+Wartość powstaje dopiero wtedy, gdy znane są: **odbiorca informacji, decyzja, kryterium działania i koszt pomyłki**.
+:::
+:::
+
+::: {.column width="45%"}
+![](../assets/img/irrigation-navfac.jpg){width="94%" fig-alt="Technicy przy polowej instalacji oszczędnego systemu nawadniania: rurociągi, zawory i aparatura sterująca na trawniku."}
+
+::: {.zrodlo}
+System oszczędnego nawadniania podczas testów NAVFAC EXWC. Fot. NAVFAC, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:New_water-saving_irrigation_system_tested_at_NAVFAC_EXWC_(8099733341).jpg), CC BY 2.0.
+:::
+
+::: {.callout-note title="Pętla działania"}
+Czujnik uzasadnia inwestycję dopiero wtedy, gdy jego pomiar zmienia decyzję o uruchomieniu zaworu lub pompy — i gdy skutek tej decyzji jest sprawdzany.
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-globe-europe-africa"></i> 2024: uruchomiono pierwszą generację DestinE {#destine}
+
+::: {.columns}
+::: {.column width="57%"}
+**Destination Earth (DestinE)** łączy:
+
+* obserwacje satelitarne, IoT i dane społeczno-ekonomiczne,
+* modele wysokiej rozdzielczości i europejskie HPC,
+* scenariusze ekstremów pogodowych i adaptacji do zmiany klimatu,
+* platformę usług, Data Lake i silnik cyfrowych bliźniaków.
+
+Pierwszą generację systemu uruchomiono **10 czerwca 2024 r.**; kolejne fazy mają rozwijać i rozszerzać DestinE do 2030 r.
+:::
+
+::: {.column width="43%"}
+::: {.callout-tip title="Lekcja dla IoT"}
+Cyfrowy bliźniak nie jest modelem 3D. To utrzymywana relacja między obserwacją, modelem i scenariuszem decyzji — wraz z informacją o niepewności.
+:::
+
+::: {.zrodlo}
+Komisja Europejska, *Destination Earth*, <https://digital-strategy.ec.europa.eu/en/policies/destination-earth>
+:::
+:::
+:::
+
+# Dane zmieniają władzę {.sekcja background-color="#0b3b45"}
+
+## <i class="bi bi-person-vcard"></i> Cambridge Analytica: co potwierdzono {#cambridge}
+
+::: {.columns}
+::: {.column width="50%"}
+**Fakt udokumentowany przez FTC**
+
+Cambridge Analytica i współpracownicy stosowali zwodnicze praktyki przy pozyskiwaniu danych osobowych **dziesiątek milionów** użytkowników Facebooka do profilowania i targetowania wyborców.
+:::
+
+::: {.column width="50%"}
+**Czego ten fakt sam nie dowodzi**
+
+Nie wynika z niego automatycznie, że profilowanie przesądziło konkretny wynik wyborów. Udokumentowane naruszenie prywatności i obietnica skuteczności perswazji to dwie różne tezy.
+:::
+:::
+
+::: {.callout-important title="Lekcja dla IoT"}
+Dane zebrane w jednym celu mogą zostać użyte do zupełnie innego modelu i innej interwencji. Zgoda, minimalizacja i ograniczenie celu muszą być częścią architektury.
+:::
+
+::: {.zrodlo}
+Federal Trade Commission, sprawa 182 3107, <https://www.ftc.gov/legal-library/browse/cases-proceedings/182-3107-cambridge-analytica-llc-matter>
+:::
+
+---
+
+## <i class="bi bi-list-stars"></i> Chiński „social credit”: nie jeden wynik dla każdego {#social-credit}
+
+::: {.columns}
+::: {.column width="53%"}
+Plan Rady Państwa z 2014 r. dotyczył szerokiej infrastruktury wiarygodności: administracji, biznesu, społeczeństwa i sądownictwa.
+
+Badania opisują **wiele** systemów publicznych, lokalnych i komercyjnych, rejestry oraz listy podmiotów — nie jeden uniwersalny, ogólnokrajowy wynik punktowy każdego obywatela.
+:::
+
+::: {.column width="47%"}
+**Realne ryzyka pozostają poważne**
+
+* łączenie danych z różnych kontekstów,
+* nieprzejrzyste kryteria i błędne przypisania,
+* automatyczne konsekwencje administracyjne,
+* trudna droga odwołania i efekt mrożący.
+:::
+:::
+
+::: {.zrodlo}
+Rada Państwa ChRL, plan 2014–2020, <https://www.gov.cn/zhengce/content/2014-06/27/content_8913.htm>; K. Drinhausen, V. Brussee, MERICS (2021/2022), <https://merics.org/en/report/chinas-social-credit-system-2021-fragmentation-towards-integration>; G. Kostka (2019) — badanie odbioru społecznego, <https://doi.org/10.1177/1461444819826402>
+:::
+
+---
+
+## <i class="bi bi-diagram-3"></i> Pętla danych jest pętlą władzy {#petla-wladzy}
+
+```{mermaid}
+%%| fig-width: 11
+%%| fig-height: 3.8
+%%{init: {"themeVariables": {"fontSize": "22px"}}}%%
+flowchart LR
+    O["Obserwacja<br>co mierzymy?"]
+    I["Inferencja<br>co wnioskujemy?"]
+    K["Klasyfikacja<br>jaka grupa?"]
+    W["Interwencja<br>cena · dostęp · alarm"]
+    Z["Zmiana zachowania<br>sprzężenie zwrotne"]
+    O --> I --> K --> W --> Z --> O
+    classDef n fill:#fdf3f4,stroke:#b02a37,stroke-width:2px,color:#8f2029
+    class O,I,K,W,Z n
+```
+
+::: {.incremental}
+* Błąd pomiaru może stać się błędem decyzji.
+* Model może optymalizować wskaźnik, który nie odpowiada interesowi użytkownika.
+* Im bardziej automatyczna interwencja, tym ważniejsze są wyjaśnienie, nadzór i odwołanie.
+:::
+
+---
+
+## <i class="bi bi-book"></i> Literatura nie przewiduje urządzeń — bada konsekwencje {#literatura-soczewki}
+
+**Huxley ostrzegał, że ucieczka w rozrywkę i fantazję może osłabiać zdolność społeczeństwa do oporu wobec manipulacji.**
+
+::: {.zrodlo}
+Parafraza: Aldous Huxley, *Brave New World Revisited* (1958; pol. *Nowy wspaniały świat 30 lat później*)
+:::
+
+::: {.columns}
+::: {.column width="50%"}
+* **Huxley:** przyjemność i rozproszenie mogą być skuteczniejsze od przymusu.
+* **Lem, *Powrót z gwiazd*:** betryzacja ogranicza agresję „dla dobra” ludzi — technicznie bezpieczny świat zawęża doświadczenie i sprawczość.
+:::
+
+::: {.column width="50%"}
+* **Dukaj, *Po piśmie*:** medium komunikacji zmienia nie tylko obieg informacji, lecz także sposób myślenia.
+* **Naam, *Nexus · Crux · Apex*:** połączone umysły obiecują współpracę, ale tworzą nową powierzchnię kontroli.
+:::
+:::
+
+---
+
+## <i class="bi bi-database-check"></i> 2025: dane z połączonego urządzenia nie są już tylko „u producenta” {#data-act}
+
+**Data Act** wszedł w życie 11 stycznia 2024 r. i jest stosowany od **12 września 2025 r.**
+
+::: {.columns}
+::: {.column width="50%"}
+Użytkownicy — konsumenci i firmy — uzyskują prawo dostępu do danych wytwarzanych podczas używania połączonych produktów oraz możliwość udostępnienia ich wybranej stronie trzeciej.
+:::
+
+::: {.column width="50%"}
+Dla rolnictwa i przemysłu oznacza to m.in. możliwość użycia danych maszyny do niezależnego serwisu, analizy wydajności i optymalizacji procesu.
+:::
+:::
+
+::: {.callout-note title="Konsekwencje architektoniczne"}
+Eksport, semantyka, jednostki i jakość danych nie są dodatkiem do pulpitu. Art. 3 ust. 1 obejmuje produkty wprowadzane na rynek od **12 września 2026 r.**; udostępnianie uwzględnia ochronę tajemnicy przedsiębiorstwa oraz warunki FRAND: sprawiedliwe, rozsądne i niedyskryminacyjne (*fair, reasonable and non-discriminatory*).
+:::
+
+::: {.zrodlo}
+Komisja Europejska, *Data Act*, <https://digital-strategy.ec.europa.eu/en/policies/data-act>
+:::
+
+# AI wchodzi do świata fizycznego {.sekcja background-color="#0b3b45"}
+
+## <i class="bi bi-braces"></i> Czy jesteśmy programami? {#czy-programy}
+
+**Teza eseistyczna Harariego:** decyzje i intuicje można opisywać jako działanie biologicznych mechanizmów rozpoznających wzorce, a nie jako przejaw niezależnego, niepodzielnego „ja”.
+
+::: {.zrodlo}
+Parafraza wątku z: Yuval Noah Harari, *21 lekcji na XXI wiek*. To stanowisko filozoficzne — nie rozstrzygnięty wynik pomiaru.
+:::
+
+::: {.callout-note title="Kontrapunkt i pytanie dla projektanta"}
+Przewidywalność statystyczna nie dowodzi braku sprawczości. Jeśli jednak system potrafi przewidywać zachowanie, czy powinien także otrzymać prawo do wywoływania zachowania w świecie fizycznym?
+:::
+
+---
+
+## <i class="bi bi-cpu"></i> AI + IoT: od opisu do działania {#ai-fizyczny}
+
+::: {.columns}
+::: {.column width="50%"}
+**AI bez IoT** może analizować tekst, obraz lub historię danych.
+
+**IoT bez AI** może mierzyć, przesyłać i reagować według jawnej reguły.
+:::
+
+::: {.column width="50%"}
+**Połączenie** daje system, który:
+
+* obserwuje sytuację,
+* szacuje stan albo przyszłość,
+* wybiera interwencję,
+* uczy się z jej efektu.
+:::
+:::
+
+::: {.callout-warning title="Najważniejsza zmiana"}
+Błąd modelu przestaje być tylko błędną odpowiedzią na ekranie. Może stać się ruchem robota, dawką, odmową dostępu albo niewysłanym alarmem.
+:::
+
+---
+
+## <i class="bi bi-people"></i> 2025: ekspozycja zadania to nie likwidacja zawodu {#praca}
+
+Badanie ILO/NASK wykorzystało reprezentatywną próbę wybraną z **29 753 zadań** polskiej klasyfikacji zawodów, ankiety pracowników, ocenę ekspertów i predykcje modelu AI.
+
+::: {.columns}
+::: {.column width="50%"}
+**Wynik globalny**
+
+* 1 na 4 pracowników wykonuje zawód z pewnym poziomem ekspozycji na generatywną AI.
+* 3,3% globalnego zatrudnienia należy do najwyższej kategorii ekspozycji.
+:::
+
+::: {.column width="50%"}
+**Wniosek autorów**
+
+Ponieważ zawody składają się z wielu zadań wymagających udziału człowieka, bardziej prawdopodobna jest **transformacja pracy** niż proste zastąpienie całych zawodów.
+:::
+:::
+
+::: {.zrodlo}
+ILO Working Paper 140, 20.05.2025, <https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure>
+:::
+
+---
+
+## <i class="bi bi-soundwave"></i> BCI: przełom kliniczny, nie „transfer wiedzy” {#bci}
+
+::: {.columns}
+::: {.column width="54%"}
+W 2023 r. inwazyjna neuroproteza mowy dekodowała próbę mówienia u jednej uczestniczki badania klinicznego: mediana **78 słów/min**, mediana błędu słów **25%**. W 2025 r. pokazano ciągłą syntezę głosu aktualizowaną co **80 ms**.
+:::
+
+::: {.column width="46%"}
+**To potwierdza:** możliwość przywracania komunikacji osobom z ciężkim paraliżem.
+
+**Nie potwierdza:** odczytu dowolnych myśli, przesyłania wiedzy między ludźmi ani dojrzałego produktu powszechnego użytku. W 2016 r. „neural dust” zademonstrowano jako implant **3×1×1 mm w nerwach obwodowych szczura** — nie „pył” w mózgu ani produkt konsumencki.
+:::
+:::
+
+::: {.zrodlo}
+Metzger i in. (2023), <https://doi.org/10.1038/s41586-023-06443-4>; Littlejohn i in. (2025), <https://doi.org/10.1038/s41593-025-01905-6>; Seo i in. (2016), <https://doi.org/10.1016/j.neuron.2016.06.034>
+:::
+
+# Granice nie znikają {.sekcja background-color="#0b3b45"}
+
+## <i class="bi bi-lightning-charge"></i> Energia: optymalizacja ma własny rachunek {#energia}
+
+::: {.columns}
+::: {.column width="50%"}
+**System może oszczędzać**
+
+* wodę, nawóz i paliwo przez dawkowanie,
+* energię przez harmonogram i wykrycie strat,
+* części przez utrzymanie zależne od stanu.
+:::
+
+::: {.column width="50%"}
+**System sam zużywa**
+
+* energię czujnika, radia, bramy i centrum danych,
+* materiały, baterie i urządzenia,
+* pracę serwisową oraz aktualizacje.
+:::
+:::
+
+IEA szacuje, że centra danych zużyły w 2024 r. **415 TWh** energii elektrycznej — około **1,5%** światowego zużycia. Scenariusz bazowy na 2030 r. to około **945 TWh**. To prognoza zależna m.in. od tempa wdrażania AI i wzrostu efektywności.
+
+::: {.callout-tip title="Poprawna granica bilansu"}
+Porównujemy **cały cykl życia** wariantu z IoT i wariantu bez IoT. „Mały czujnik” nie oznacza automatycznie małego systemu; liczą się także transmisja, brzeg, chmura i efekt odbicia.
+:::
+
+::: {.zrodlo}
+IEA, *Energy and AI* (2025), <https://www.iea.org/reports/energy-and-ai/executive-summary>
+:::
+
+---
+
+## <i class="bi bi-router"></i> 2026: twoje urządzenie może stać się cudzą bronią {#botnet}
+
+Cloudflare raportuje, że złagodził atak DDoS o szczycie **31,4 Tb/s** — największy w jego telemetrii — napędzany m.in. przez masowy botnet Aisuru. Wykorzystywane są przejęte routery, kamery, rejestratory i przystawki konsumenckie.
+
+::: {.columns}
+::: {.column width="50%"}
+**Dlaczego IoT jest atrakcyjny dla botnetu**
+
+* duża liczba podobnych urządzeń,
+* długi czas życia i krótki czas wsparcia,
+* wystawione usługi zarządzania,
+* słabe lub współdzielone poświadczenia.
+:::
+
+::: {.column width="50%"}
+::: {.callout-important title="Konsekwencja"}
+Niezabezpieczone urządzenie nie jest tylko ryzykiem właściciela. Może stać się elementem ataku na cudzą infrastrukturę.
+:::
+
+**Wymaganie:** bezpieczne ustawienia domyślne, podpisany firmware, aktualizacje i monitoring podatności.
+:::
+:::
+
+::: {.zrodlo}
+Cloudflare, *2026 Threat Report*, <https://blog.cloudflare.com/2026-threat-report/>
+:::
+
+---
+
+## <i class="bi bi-cloud-slash"></i> 2026: sprzęt działa, usługa znika {#koniec-wsparcia}
+
+Belkin zakończył **31 stycznia 2026 r.** usługi chmurowe i obsługę aplikacji dla części produktów Wemo. Przestały działać m.in. zdalny dostęp oraz integracje z Alexą i Google Assistant.
+
+Urządzenia wcześniej skonfigurowane z Apple HomeKit mogą zachować działanie lokalne; produkty oparte na Thread nadal działają przez HomeKit. Produkty zależne od chmury tracą funkcje „smart”, mimo że elektronika fizycznie działa.
+
+::: {.callout-tip title="Wymaganie projektowe"}
+Zdefiniuj tryb lokalny, eksport danych, stan bezpieczny bez chmury oraz datę i zakres wsparcia. Koniec serwera nie powinien automatycznie oznaczać elektroodpadu.
+:::
+
+::: {.zrodlo}
+Belkin, *Wemo Support Ending — What You Need to Know*, aktualizacja 01.2026, <https://www.belkin.com/support-article/?articleNum=335419>
+:::
+
+---
+
+## <i class="bi bi-bank"></i> 2024–2028: prawo zmienia backlog produktu {#prawo}
+
+::: {.tabela-gesta}
+| Akt UE | Kluczowa data | Co zmienia w systemie IoT |
+|:---|:---|:---|
+| **Data Act** | stosowany od **12.09.2025** | dostęp użytkownika do danych z produktu, udostępnienie stronie trzeciej, przenoszenie usług danych |
+| **RED + (UE) 2022/30** | cyberwymogi dla wybranych urządzeń radiowych od **01.08.2025**; uchylenie z wejściem CRA **11.12.2027** | ochrona sieci, prywatności i przed oszustwami już przed pełnym stosowaniem CRA |
+| **AI Act — (UE) 2024/1689, zm. (UE) 2026/1744** | zakazy od **02.2025**; GPAI od **08.2025**; przejrzystość od **08.2026**; wysokie ryzyko: **12.2027 / 08.2028** | klasyfikacja ryzyka, dokumentacja, nadzór człowieka, przejrzystość i monitorowanie po wdrożeniu |
+| **Cyber Resilience Act** | raportowanie od **11.09.2026**; główne obowiązki od **11.12.2027** | bezpieczeństwo przez cykl życia, obsługa podatności, aktualizacje i zgodność produktu |
+:::
+
+**Daty w tabeli wskazują, od kiedy poszczególne wymagania mają zastosowanie i kiedy system musi być do nich przygotowany.**
+
+::: {.zrodlo}
+Komisja Europejska: <https://digital-strategy.ec.europa.eu/en/policies/data-act>, <https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai>, <https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act>, <https://single-market-economy.ec.europa.eu/sectors/electrical-and-electronic-engineering-industries-eei/radio-equipment-directive-red_en>
+:::
+
+---
+
+## <i class="bi bi-people-fill"></i> Człowiek nie wygrał dzięki samotnej inteligencji {#koordynacja}
+
+**Literacka soczewka Naama:** sieciowa augmentacja może zwiększać zdolność współpracy — a równocześnie tworzyć nową powierzchnię obserwacji i kontroli.
+
+::: {.zrodlo}
+Motyw trylogii Rameza Naama *Nexus · Crux · Apex* (2012–2015); parafraza, nie wypowiedź autora.
+:::
+
+Projektujemy nie tylko przepływ danych, lecz także **warunki koordynacji między ludźmi**.
+
+# Od wizji do projektu {.sekcja background-color="#0b3b45"}
+
+## <i class="bi bi-question-diamond"></i> Sześć pytań przed wyborem czujnika {#pytania-projektowe}
+
+::: {.pytania}
+* **Decyzja:** kto i co zrobi dzięki danym?
+* **Dowód:** jak sprawdzimy, że wynik jest lepszy niż bez systemu?
+* **Błąd:** jaki jest koszt fałszywego alarmu i przeoczenia?
+* **Władza:** kto może zobaczyć dane, zmienić model i wydać polecenie?
+* **Awaria:** jaki stan fizyczny jest bezpieczny bez sieci i chmury?
+* **Koniec życia:** kto aktualizuje, eksportuje dane i usuwa urządzenie?
+:::
+
+Jeżeli odpowiedzi nie mieszczą się w wymaganiach, problem nie zniknie w implementacji.
+
+---
+
+## <i class="bi bi-signpost-split"></i> Wykład 0 wyznacza pytania, moduły 01–07 budują odpowiedzi {#most}
+
+::: {.tabela-gesta}
+| Pytanie z wykładu 0 | Odpowiedź rozwijana w module |
+|:---|:---|
+| Co budujemy i jak poznamy, że działa? | **01** Architektura i wymagania |
+| Jak pomiar staje się liczbą i ile kosztuje energetycznie? | **02** Urządzenie, sensory i energia |
+| Jak dane docierają mimo zaniku łącza i jak wydawać firmware? | **03** Łączność i OTA |
+| Jak znaczenie danych przechodzi między komponentami? | **04** MQTT i kontrakt danych |
+| Gdzie walidować, agregować i integrować? | **05** Brzeg, Node-RED i Sheets |
+| Jak modelować stan, wizualizować i sterować? | **06** ThingsBoard CE |
+| Jak system zachowuje się przy ataku, awarii i zmianie prawa? | **07** Odporność, bezpieczeństwo i eksploatacja |
+:::
+
+---
+
+## <i class="bi bi-moisture"></i> Przypadek przewodni: nawadnianie nie zaczyna się od pompy {#przypadek}
+
+```{mermaid}
+%%| fig-width: 11
+%%| fig-height: 3.8
+%%{init: {"themeVariables": {"fontSize": "24px"}}}%%
+flowchart LR
+    C["<b>Czujnik</b><br>wilgotność · jakość"]
+    U["<b>Urządzenie</b><br>czas · bufor · energia"]
+    B["<b>Broker / brzeg</b><br>walidacja · reguły"]
+    P["<b>Platforma</b><br>stan · alarm · historia"]
+    A["<b>Zawór / pompa</b><br>stan bezpieczny"]
+    C --> U --> B --> P
+    U --> A
+    P -. "polecenie z ID" .-> B -.-> U -.-> A
+    A -. "stan potwierdzony" .-> U
+    classDef k fill:#e8f2f4,stroke:#0b6b78,stroke-width:2px,color:#0b3b45
+    class C,U,B,P,A k
+```
+
+**Kryterium sukcesu:** nie „dane są w chmurze”, lecz roślina otrzymuje właściwą ilość wody, a pojedyncza awaria nie prowadzi do zalania ani przesuszenia.
+
+---
+
+## <i class="bi bi-question-circle"></i> Pytania sprawdzające {#pytania}
+
+::: {.pytania}
+* Czujnik wilgotności ma błąd systematyczny, a model automatycznie otwiera zawór. W których miejscach pętli można wykryć lub ograniczyć skutek tego błędu?
+* Producent ciągnika udostępnia pulpit, ale nie surowe dane maszyny. Jakie wymaganie techniczne i jaki akt UE są tu istotne?
+* System AI klasyfikuje człowieka, lecz interwencję wykonuje urządzenie IoT. Które wymagania dotyczą modelu, a które urządzenia i jego stanu bezpiecznego?
+* Kiedy wysłanie pomiaru do chmury jest lepsze od decyzji na brzegu — a kiedy gorsze?
+:::
+
+---
+
+## <i class="bi bi-flag"></i> Podsumowanie {#podsumowanie}
+
+::: {.incremental}
+* Internet przyszłości nie jest katalogiem gadżetów, lecz zbiorem **pętli pomiar–decyzja–działanie**.
+* Korzyści są realne, gdy system poprawia konkretną decyzję i daje się porównać z wariantem bez IoT.
+* Profilowanie, AI i automatyczna interwencja zwiększają asymetrię władzy — dlatego potrzebne są cel, nadzór i droga odwołania.
+* Demonstracja laboratoryjna nie jest dojrzałym produktem, a ekspozycja zadań na AI nie jest równoznaczna z likwidacją zawodu.
+* Energia, cyberbezpieczeństwo, dostęp do danych i cykl życia są częścią architektury od pierwszego dnia.
+* Moduły 01–07 zamieniają te zasady w sprawdzalne wymagania i działający system.
+:::
+
+---
+
+## <i class="bi bi-bookshelf"></i> Literatura — nie instrukcje, lecz soczewki {#literatura}
+
+::: {.columns}
+::: {.column width="55%"}
+1. Yuval Noah Harari, *21 lekcji na XXI wiek*; *Homo Deus. Krótka historia jutra*.
+2. Aldous Huxley, *Nowy wspaniały świat* (1932); *Brave New World Revisited* (1958; pol. *Nowy wspaniały świat 30 lat później*).
+3. Stanisław Lem, *Powrót z gwiazd* (1961); *Summa technologiae* (1964).
+4. Jacek Dukaj, *Po piśmie* (2019).
+5. Ramez Naam, trylogia *Nexus · Crux · Apex* (2012–2015).
+6. Mark Weiser, „The Computer for the 21st Century” (1991).
+:::
+
+::: {.column width="45%"}
+::: {.callout-note title="Do dalszej rozmowy"}
+Która z tych wizji najlepiej opisuje świat urządzeń połączonych: wyzwolenie od ograniczeń, łagodna kontrola, utrata sprawczości, zmiana samego sposobu myślenia czy nowa zdolność współpracy?
+:::
+:::
+:::
+
+---
+
+## <i class="bi bi-journal-text"></i> Źródła — przypadki i badania {#zrodla}
+
+::: {style="font-size: 0.50em;"}
+* IoT Analytics, *State of IoT 2025: Number of connected IoT devices growing 14% to 21.1 billion globally*, 2025, <https://iot-analytics.com/number-connected-iot-devices/>
+* Federal Trade Commission, *Cambridge Analytica, LLC, In the Matter of*, sprawa 182 3107, <https://www.ftc.gov/legal-library/browse/cases-proceedings/182-3107-cambridge-analytica-llc-matter>
+* Rada Państwa ChRL, *Plan budowy systemu kredytu społecznego 2014–2020*, <https://www.gov.cn/zhengce/content/2014-06/27/content_8913.htm>
+* K. Drinhausen, V. Brussee, *China’s Social Credit System in 2021: From fragmentation towards integration*, MERICS, aktualizacja 2022, <https://merics.org/en/report/chinas-social-credit-system-2021-fragmentation-towards-integration>
+* G. Kostka, *China’s social credit systems and public opinion*, 2019, <https://doi.org/10.1177/1461444819826402>
+* ILO, *Generative AI and Jobs: A Refined Global Index of Occupational Exposure*, Working Paper 140, 2025, <https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure>
+* S. L. Metzger i in., *A high-performance neuroprosthesis for speech decoding and avatar control*, 2023, <https://doi.org/10.1038/s41586-023-06443-4>
+* K. T. Littlejohn i in., *A streaming brain-to-voice neuroprosthesis*, 2025, <https://doi.org/10.1038/s41593-025-01905-6>
+* D. Seo i in., *Wireless Recording in the Peripheral Nervous System with Ultrasonic Neural Dust*, 2016, <https://doi.org/10.1016/j.neuron.2016.06.034>
+* J. Rong i in., *Fruit pose recognition and directional orderly grasping strategies for tomato harvesting robots*, 2022, <https://doi.org/10.1016/j.compag.2022.107430>
+* Cloudflare, *2026 Threat Report*, <https://blog.cloudflare.com/2026-threat-report/>
+* Belkin, *Wemo Support Ending — What You Need to Know*, aktualizacja 2026, <https://www.belkin.com/support-article/?articleNum=335419>
+:::
+
+---
+
+## <i class="bi bi-journal-check"></i> Źródła — standardy, programy i prawo {#zrodla-2}
+
+::: {style="font-size: 0.50em;"}
+* Komisja Europejska, *Destination Earth*, <https://digital-strategy.ec.europa.eu/en/policies/destination-earth>
+* IEA, *Energy and AI*, 2025, <https://www.iea.org/reports/energy-and-ai/executive-summary>
+* Komisja Europejska, *Data Act*, <https://digital-strategy.ec.europa.eu/en/policies/data-act>
+* Komisja Europejska, *AI Act*, <https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai>
+* Komisja Europejska, *Cyber Resilience Act*, <https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act>
+* Komisja Europejska, *Radio Equipment Directive (RED)*, <https://single-market-economy.ec.europa.eu/sectors/electrical-and-electronic-engineering-industries-eei/radio-equipment-directive-red_en>
+:::

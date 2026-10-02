@@ -1,0 +1,113 @@
+{
+ "energia_15min": {
+  "I_akt_mA": 120.0,
+  "t_akt_s": 3.0,
+  "I_sleep_mA": 0.05,
+  "T_s": 900,
+  "I_sr_mA": 0.4498,
+  "Q_rok_mAh": 3940.5,
+  "CR2032_h": 489.1,
+  "CR2032_dni": 20.4,
+  "18650_h": 7558.4,
+  "18650_miesiecy": 10.3
+ },
+ "energia_okres": {
+  "1min": 6.0475,
+  "5min": 1.2495,
+  "15min": 0.4498,
+  "30min": 0.2499,
+  "60min": 0.15
+ },
+ "energia_okres_czas_3400mAh": {
+  "1min": {
+   "dni": 23.4,
+   "miesiace_30_44d": 0.8,
+   "lata_365d": 0.06
+  },
+  "5min": {
+   "dni": 113.4,
+   "miesiace_30_44d": 3.7,
+   "lata_365d": 0.31
+  },
+  "15min": {
+   "dni": 314.9,
+   "miesiace_30_44d": 10.3,
+   "lata_365d": 0.86
+  },
+  "30min": {
+   "dni": 566.9,
+   "miesiace_30_44d": 18.6,
+   "lata_365d": 1.55
+  },
+  "60min": {
+   "dni": 944.7,
+   "miesiace_30_44d": 31.0,
+   "lata_365d": 2.59
+  }
+ },
+ "energia_prog_rok_18650_mA": 0.3881,
+ "sprostowanie_019": {
+  "wartosc_w_materiale_mA": 0.19,
+  "wartosc_wyliczona_mA": 0.4498,
+  "zgodna": false,
+  "komentarz": "0,19 mA nie wynika z podanych danych wejsciowych; poprawna wartosc ~0,45 mA"
+ },
+ "sheets": {
+  "limit_user_min": 60,
+  "limit_proj_min": 300,
+  "raport_1s_zapisow_min": 60,
+  "procent_limitu_uzytkownika_przy_1s": 100.0,
+  "urzadzen_na_limit_uzytkownika_przy_1s": 1.0,
+  "agregacja_1min_urzadzen": 60,
+  "agregacja_1min_urzadzen_projekt": 300
+ },
+ "ota_tempo": {
+  "pack_size": 100,
+  "interval_ms": 60000,
+  "gorne_s_dla_1": 60.0,
+  "gorne_s_dla_100": 60.0,
+  "gorne_s_dla_240": 180.0,
+  "gorne_s_dla_250": 180.0,
+  "gorne_min_dla_1000": 10.0,
+  "srednie_s_dla_240": 144.0
+ },
+ "nieaktywnosc": {
+  "report_timeout_ms": 3000,
+  "min_prog_s": 3.0,
+  "domyslny_prog_s": 600,
+  "interwal_sprawdzania_s": 60,
+  "prog_laboratoryjny_ms": 60000,
+  "prog_laboratoryjny_s": 60,
+  "session_inactivity_timeout_ms": 300000,
+  "zapas_krotnosc": 20.0
+ },
+ "energia_rama": {
+  "kcal_dzien": 3000.0,
+  "MJ_dzien": 12.55,
+  "kWh_dzien": 3.49,
+  "auto_MJ_na_km": 2.5,
+  "km_rownowazne_dobie": 5.0,
+  "mozg_W": 20
+ },
+ "mqtt_naglowek": {
+  "min_fixed_header_B": 2,
+  "krotki_temat": "lab/z1/d1/t",
+  "krotki_temat_len": 11,
+  "dlugi_temat": "laboratorium/zespol-1/urzadzenie-1/telemetria/pomiar",
+  "dlugi_temat_len": 52,
+  "publish_krotki_qos1_pusty_B": 17,
+  "publish_dlugi_qos1_pusty_B": 58,
+  "roznica_B": 41,
+  "okres_publikacji_s": 10,
+  "dni_roku": 365,
+  "komunikaty_rocznie": 3153600,
+  "roczny_dodatkowy_publish_B": 129297600,
+  "roczny_dodatkowy_publish_MB": 129.3,
+  "roczny_dodatkowy_publish_MiB": 123.3
+ },
+ "adc": {
+  "bity": 12,
+  "kroki": 4096,
+  "LSB_mV_dla_3V3": 0.806
+ }
+}

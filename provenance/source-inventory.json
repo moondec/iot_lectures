@@ -1,0 +1,489 @@
+{
+ "wyklad_intro_1": {
+  "slides": [
+   {
+    "line": 60,
+    "level": 1,
+    "title": "Złudzenia i Rzeczywistość",
+    "anchor": "złudzenia-i-rzeczywistość"
+   },
+   {
+    "line": 62,
+    "level": 2,
+    "title": "1. Technologia was wyzwoli?",
+    "anchor": "1.-technologia-was-wyzwoli"
+   },
+   {
+    "line": 78,
+    "level": 2,
+    "title": "2. Kto tworzy \"przyszłość\"?",
+    "anchor": "2.-kto-tworzy-przyszłość"
+   },
+   {
+    "line": 95,
+    "level": 1,
+    "title": "Nowe Perspektywy Danych",
+    "anchor": "nowe-perspektywy-danych"
+   },
+   {
+    "line": 97,
+    "level": 2,
+    "title": "3. Jasna strona mocy (Profity z IoT)",
+    "anchor": "3.-jasna-strona-mocy-profity-z-iot"
+   },
+   {
+    "line": 115,
+    "level": 2,
+    "title": "4. IoT w Rolnictwie: Monitoring upraw i ekosystemów",
+    "anchor": "4.-iot-w-rolnictwie-monitoring-upraw-i-ekosystemów"
+   },
+   {
+    "line": 142,
+    "level": 2,
+    "title": "5. Medycyna – Poznać Siebie (Smart Wearables)",
+    "anchor": "5.-medycyna-poznać-siebie-smart-wearables"
+   },
+   {
+    "line": 169,
+    "level": 2,
+    "title": "6. Zrównoważone Zastosowanie Zasobów",
+    "anchor": "6.-zrównoważone-zastosowanie-zasobów"
+   },
+   {
+    "line": 195,
+    "level": 2,
+    "title": "7. Przemysł 4.0: Monitoring Procesów",
+    "anchor": "7.-przemysł-4.0-monitoring-procesów"
+   },
+   {
+    "line": 219,
+    "level": 2,
+    "title": "8. Komunikacja wektorowa",
+    "anchor": "8.-komunikacja-wektorowa"
+   },
+   {
+    "line": 245,
+    "level": 2,
+    "title": "9. Cykl IoT & AI – To przyszłość, a obecnie?",
+    "anchor": "9.-cykl-iot-ai-to-przyszłość-a-obecnie"
+   },
+   {
+    "line": 268,
+    "level": 2,
+    "title": "10. Przypadek Studyjny: 'Tree Talker'",
+    "anchor": "10.-przypadek-studyjny-tree-talker"
+   },
+   {
+    "line": 297,
+    "level": 2,
+    "title": "11. Podsumowanie Wstępu",
+    "anchor": "11.-podsumowanie-wstępu"
+   }
+  ],
+  "n": 13
+ },
+ "wyklad_intro_2": {
+  "slides": [
+   {
+    "line": 60,
+    "level": 1,
+    "title": "Cyfrowe Cienie",
+    "anchor": "cyfrowe-cienie"
+   },
+   {
+    "line": 62,
+    "level": 2,
+    "title": "1. Ciemna strona mocy: Dobre narzędzia, Złe intencje",
+    "anchor": "1.-ciemna-strona-mocy-dobre-narzędzia-złe-intencje"
+   },
+   {
+    "line": 91,
+    "level": 2,
+    "title": "2. Sztuczna Inteligencja: Asystent czy Konkurencja?",
+    "anchor": "2.-sztuczna-inteligencja-asystent-czy-konkurencja"
+   },
+   {
+    "line": 120,
+    "level": 2,
+    "title": "3. Czy jesteśmy programami?",
+    "anchor": "3.-czy-jesteśmy-programami"
+   },
+   {
+    "line": 141,
+    "level": 2,
+    "title": "4. Ucieczka z \"Tu i Teraz\"",
+    "anchor": "4.-ucieczka-z-tu-i-teraz"
+   },
+   {
+    "line": 159,
+    "level": 1,
+    "title": "Nowe Perspektywy Gatunku",
+    "anchor": "nowe-perspektywy-gatunku"
+   },
+   {
+    "line": 161,
+    "level": 2,
+    "title": "5. Kierunki rozwoju: Wychodząc z Jaskini",
+    "anchor": "5.-kierunki-rozwoju-wychodząc-z-jaskini"
+   },
+   {
+    "line": 187,
+    "level": 2,
+    "title": "6. Bezpośredni transfer wrażeń (BCI)",
+    "anchor": "6.-bezpośredni-transfer-wrażeń-bci"
+   },
+   {
+    "line": 214,
+    "level": 2,
+    "title": "7. Interfejs Człowiek-Człowiek (University of Washington, 2013)",
+    "anchor": "7.-interfejs-człowiek-człowiek-university-of-washington-2013"
+   },
+   {
+    "line": 241,
+    "level": 2,
+    "title": "8. Podstawowa Blokada: Prawdziwy Koszt Energii",
+    "anchor": "8.-podstawowa-blokada-prawdziwy-koszt-energii"
+   },
+   {
+    "line": 269,
+    "level": 2,
+    "title": "9. Literatura do Wstępu i Zakończenie",
+    "anchor": "9.-literatura-do-wstępu-i-zakończenie"
+   }
+  ],
+  "n": 11
+ },
+ "wyklad_1": {
+  "slides": [
+   {
+    "line": 61,
+    "level": 1,
+    "title": "Prolog: Pragnienie, które zrodziło cyfrowy ekosystem",
+    "anchor": "prolog-pragnienie-które-zrodziło-cyfrowy-ekosystem"
+   },
+   {
+    "line": 63,
+    "level": 2,
+    "title": "1. Ewolucja: Od punktu do punktu",
+    "anchor": "1.-ewolucja-od-punktu-do-punktu"
+   },
+   {
+    "line": 81,
+    "level": 2,
+    "title": "2. Mit Założycielski: Pragnienie",
+    "anchor": "2.-mit-założycielski-pragnienie"
+   },
+   {
+    "line": 112,
+    "level": 2,
+    "title": "3. Kevin Ashton i Toster (Lata 90.)",
+    "anchor": "3.-kevin-ashton-i-toster-lata-90."
+   },
+   {
+    "line": 144,
+    "level": 2,
+    "title": "3. Moment Zwrotny: Skala zjawiska",
+    "anchor": "3.-moment-zwrotny-skala-zjawiska"
+   },
+   {
+    "line": 179,
+    "level": 1,
+    "title": "Rozdział I: Anatomia „Cyfrowej Rzeczy”",
+    "anchor": "rozdział-i-anatomia-cyfrowej-rzeczy"
+   },
+   {
+    "line": 181,
+    "level": 2,
+    "title": "4. Architektura Systemów IoT",
+    "anchor": "4.-architektura-systemów-iot"
+   },
+   {
+    "line": 200,
+    "level": 2,
+    "title": "5. Schemat przepływu",
+    "anchor": "5.-schemat-przepływu"
+   },
+   {
+    "line": 258,
+    "level": 2,
+    "title": "6. Warstwa Percepcji: Zmysły maszyny",
+    "anchor": "6.-warstwa-percepcji-zmysły-maszyny"
+   },
+   {
+    "line": 289,
+    "level": 2,
+    "title": "7. Warstwa Percepcji: Aktuatory",
+    "anchor": "7.-warstwa-percepcji-aktuatory"
+   },
+   {
+    "line": 308,
+    "level": 2,
+    "title": "8. Brama brzegu sieci (Edge Gateway)",
+    "anchor": "8.-brama-brzegu-sieci-edge-gateway"
+   },
+   {
+    "line": 336,
+    "level": 1,
+    "title": "Rozdział II: Narzędzia Twórców – Prototypowanie",
+    "anchor": "rozdział-ii-narzędzia-twórców-prototypowanie"
+   },
+   {
+    "line": 338,
+    "level": 2,
+    "title": "9. Od pomysłu do wdrożenia",
+    "anchor": "9.-od-pomysłu-do-wdrożenia"
+   },
+   {
+    "line": 354,
+    "level": 2,
+    "title": "10. Platformy sprzętowe jako kamień węgielny",
+    "anchor": "10.-platformy-sprzętowe-jako-kamień-węgielny"
+   },
+   {
+    "line": 387,
+    "level": 2,
+    "title": "11. \"Deep Sleep\" - czyli kompromis Mocy",
+    "anchor": "11.-deep-sleep---czyli-kompromis-mocy"
+   },
+   {
+    "line": 403,
+    "level": 2,
+    "title": "12. Digital Twins (Cyfrowy Bliźniak)",
+    "anchor": "12.-digital-twins-cyfrowy-bliźniak"
+   },
+   {
+    "line": 431,
+    "level": 2,
+    "title": "13. Zestawienie: Arduino vs ESP vs Raspberry Pi",
+    "anchor": "13.-zestawienie-arduino-vs-esp-vs-raspberry-pi"
+   },
+   {
+    "line": 449,
+    "level": 2,
+    "title": "14. Podsumowanie",
+    "anchor": "14.-podsumowanie"
+   }
+  ],
+  "n": 18
+ },
+ "wyklad_2": {
+  "slides": [
+   {
+    "line": 61,
+    "level": 1,
+    "title": "Prolog: Fizyka, Energia i Wieża Babel",
+    "anchor": "prolog-fizyka-energia-i-wieża-babel"
+   },
+   {
+    "line": 63,
+    "level": 2,
+    "title": "1. Problem Komunikacji M2M",
+    "anchor": "1.-problem-komunikacji-m2m"
+   },
+   {
+    "line": 99,
+    "level": 1,
+    "title": "Rozdział I: Komunikacja na Wyciągnięcie Ręki",
+    "anchor": "rozdział-i-komunikacja-na-wyciągnięcie-ręki"
+   },
+   {
+    "line": 101,
+    "level": 2,
+    "title": "2. Wi-Fi (IEEE 802.11): Przekleństwo i Błogosławieństwo",
+    "anchor": "2.-wi-fi-ieee-802.11-przekleństwo-i-błogosławieństwo"
+   },
+   {
+    "line": 131,
+    "level": 2,
+    "title": "3. Bluetooth i rewolucja BLE (Low Energy)",
+    "anchor": "3.-bluetooth-i-rewolucja-ble-low-energy"
+   },
+   {
+    "line": 161,
+    "level": 2,
+    "title": "4. Zigbee i Z-Wave: Inżynieria Roju (Mesh)",
+    "anchor": "4.-zigbee-i-z-wave-inżynieria-roju-mesh"
+   },
+   {
+    "line": 202,
+    "level": 1,
+    "title": "Rozdział II: Komunikacja Dalekiego Zasięgu",
+    "anchor": "rozdział-ii-komunikacja-dalekiego-zasięgu"
+   },
+   {
+    "line": 204,
+    "level": 2,
+    "title": "5. LPWAN: Telemetria na kilometry",
+    "anchor": "5.-lpwan-telemetria-na-kilometry"
+   },
+   {
+    "line": 231,
+    "level": 2,
+    "title": "6. Porównanie technologii radiowych",
+    "anchor": "6.-porównanie-technologii-radiowych"
+   },
+   {
+    "line": 255,
+    "level": 2,
+    "title": "7. LoRaWAN vs NB-IoT: Prywatna sieć czy abonament?",
+    "anchor": "7.-lorawan-vs-nb-iot-prywatna-sieć-czy-abonament"
+   },
+   {
+    "line": 300,
+    "level": 2,
+    "title": "8. Sigfox: ultralekkie wiadomości jako usługa",
+    "anchor": "8.-sigfox-ultralekkie-wiadomości-jako-usługa"
+   },
+   {
+    "line": 317,
+    "level": 1,
+    "title": "Rozdział III: Protokoły Warstwy Aplikacji",
+    "anchor": "rozdział-iii-protokoły-warstwy-aplikacji"
+   },
+   {
+    "line": 319,
+    "level": 2,
+    "title": "9. Dlaczego protokół HTTP nie pasuje do IoT?",
+    "anchor": "9.-dlaczego-protokół-http-nie-pasuje-do-iot"
+   },
+   {
+    "line": 362,
+    "level": 2,
+    "title": "10. MQTT: Lekki, binarny standard IoT",
+    "anchor": "10.-mqtt-lekki-binarny-standard-iot"
+   },
+   {
+    "line": 405,
+    "level": 2,
+    "title": "11. MQTT: Tematy, QoS i „Ostatnia Wola\"",
+    "anchor": "11.-mqtt-tematy-qos-i-ostatnia-wola"
+   },
+   {
+    "line": 457,
+    "level": 2,
+    "title": "12. CoAP i AMQP: Alternatywy dla specyficznych scenariuszy",
+    "anchor": "12.-coap-i-amqp-alternatywy-dla-specyficznych-scenariuszy"
+   },
+   {
+    "line": 484,
+    "level": 2,
+    "title": "13. Podsumowanie: Dobór technologii",
+    "anchor": "13.-podsumowanie-dobór-technologii"
+   },
+   {
+    "line": 503,
+    "level": 2,
+    "title": "14. Dziękuję za uwagę",
+    "anchor": "14.-dziękuję-za-uwagę"
+   }
+  ],
+  "n": 18
+ },
+ "wyklad_3": {
+  "slides": [
+   {
+    "line": 61,
+    "level": 1,
+    "title": "Prolog: Gdzie trafiają sny maszyn?",
+    "anchor": "prolog-gdzie-trafiają-sny-maszyn"
+   },
+   {
+    "line": 63,
+    "level": 2,
+    "title": "1. Od gigabajtów do wiedzy",
+    "anchor": "1.-od-gigabajtów-do-wiedzy"
+   },
+   {
+    "line": 114,
+    "level": 1,
+    "title": "Rozdział I: Potęga Ekosystemu IT",
+    "anchor": "rozdział-i-potęga-ekosystemu-it"
+   },
+   {
+    "line": 116,
+    "level": 2,
+    "title": "2. Platformy korporacyjne (PaaS)",
+    "anchor": "2.-platformy-korporacyjne-paas"
+   },
+   {
+    "line": 145,
+    "level": 2,
+    "title": "3. Narzędzia otwartoźródłowe: niezależność twórców",
+    "anchor": "3.-narzędzia-otwartoźródłowe-niezależność-twórców"
+   },
+   {
+    "line": 171,
+    "level": 1,
+    "title": "Rozdział II: Żywe Organizmy – Smart City",
+    "anchor": "rozdział-ii-żywe-organizmy-smart-city"
+   },
+   {
+    "line": 173,
+    "level": 2,
+    "title": "4. Barcelona: Pionierzy „miasta jako komputera\"",
+    "anchor": "4.-barcelona-pionierzy-miasta-jako-komputera"
+   },
+   {
+    "line": 202,
+    "level": 2,
+    "title": "5. Smart City i Przemysł 4.0 (IIoT)",
+    "anchor": "5.-smart-city-i-przemysł-4.0-iiot"
+   },
+   {
+    "line": 231,
+    "level": 2,
+    "title": "6. Cyfrowe Bliźniaki (Digital Twins)",
+    "anchor": "6.-cyfrowe-bliźniaki-digital-twins"
+   },
+   {
+    "line": 255,
+    "level": 1,
+    "title": "Rozdział III: Cienie IoT – Bezpieczeństwo",
+    "anchor": "rozdział-iii-cienie-iot-bezpieczeństwo"
+   },
+   {
+    "line": 257,
+    "level": 2,
+    "title": "7. Gdy „rzeczy\" stają się bronią DDoS",
+    "anchor": "7.-gdy-rzeczy-stają-się-bronią-ddos"
+   },
+   {
+    "line": 289,
+    "level": 2,
+    "title": "8. Dobre praktyki bezpieczeństwa (Defence in Depth)",
+    "anchor": "8.-dobre-praktyki-bezpieczeństwa-defence-in-depth"
+   },
+   {
+    "line": 341,
+    "level": 2,
+    "title": "9. Prywatność w epoce mikrofonów zawsze włączonych",
+    "anchor": "9.-prywatność-w-epoce-mikrofonów-zawsze-włączonych"
+   },
+   {
+    "line": 357,
+    "level": 1,
+    "title": "Epilog: Podsumowanie Trylogii o Rzeczach",
+    "anchor": "epilog-podsumowanie-trylogii-o-rzeczach"
+   },
+   {
+    "line": 359,
+    "level": 2,
+    "title": "10. Bilans korzyści i wyzwań na nową dekadę",
+    "anchor": "10.-bilans-korzyści-i-wyzwań-na-nową-dekadę"
+   },
+   {
+    "line": 387,
+    "level": 2,
+    "title": "11. Przyszłość: 6G i nowe paradygmaty",
+    "anchor": "11.-przyszłość-6g-i-nowe-paradygmaty"
+   },
+   {
+    "line": 403,
+    "level": 2,
+    "title": "12. Zakończenie cyklu wykładów",
+    "anchor": "12.-zakończenie-cyklu-wykładów"
+   }
+  ],
+  "n": 17
+ }
+}

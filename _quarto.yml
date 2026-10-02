@@ -1,42 +1,106 @@
 project:
   type: website
   output-dir: docs
+  # Renderujemy wyłącznie stronę indeksową i osiem wykładów.
+  # notes/ (materiały prowadzącego), scripts/, provenance/ i review/ są poza renderem.
+  render:
+    - index.qmd
+    - slides/00-internet-przyszlosci.qmd
+    - slides/01-architektura-i-wymagania.qmd
+    - slides/02-urzadzenie-sensory-energia.qmd
+    - slides/03-lacznosc-i-ota.qmd
+    - slides/04-mqtt-i-kontrakt-danych.qmd
+    - slides/05-brzeg-node-red-sheets.qmd
+    - slides/06-thingsboard-ce.qmd
+    - slides/07-odpornosc-bezpieczenstwo-eksploatacja.qmd
+  resources:
+    - assets/img/**
+    - assets/vendor/**
 
 website:
-  title: "Wykłady IoT"
+  title: "Internet Rzeczy — kurs w ośmiu wykładach"
+  description: "Materiały wykładowe: konsekwencje Internetu przyszłości, architektura, urządzenie, łączność i OTA, MQTT, brzeg sieci, platforma, eksploatacja."
+  search: false
+  page-navigation: false
   navbar:
+    title: "IoT — osiem wykładów"
+    background: "#0b3b45"
     left:
       - text: "Start"
         file: index.qmd
-      - text: "Program"
-        file: konspekt.qmd
-      - text: "Wstęp 1"
-        file: wyklad_intro_1.qmd
-      - text: "Wstęp 2"
-        file: wyklad_intro_2.qmd
-      - text: "Wykład 1"
-        file: wyklad_1.qmd
-      - text: "Wykład 2"
-        file: wyklad_2.qmd
-      - text: "Wykład 3"
-        file: wyklad_3.qmd
-  page-footer: 
-    left: "© 2026 Marek Urbaniak"
-    right: "Licencja: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode.pl)"
+      - text: "00 Internet przyszłości"
+        file: slides/00-internet-przyszlosci.qmd
+      - text: "01 Architektura"
+        file: slides/01-architektura-i-wymagania.qmd
+      - text: "02 Urządzenie"
+        file: slides/02-urzadzenie-sensory-energia.qmd
+      - text: "03 Łączność i OTA"
+        file: slides/03-lacznosc-i-ota.qmd
+      - text: "04 MQTT"
+        file: slides/04-mqtt-i-kontrakt-danych.qmd
+      - text: "05 Brzeg sieci"
+        file: slides/05-brzeg-node-red-sheets.qmd
+      - text: "06 ThingsBoard"
+        file: slides/06-thingsboard-ce.qmd
+      - text: "07 Eksploatacja"
+        file: slides/07-odpornosc-bezpieczenstwo-eksploatacja.qmd
+  page-footer:
+    left: "© 2026 Marek Urbaniak · Uniwersytet Przyrodniczy w Poznaniu"
+    right: "Tekst i slajdy: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.pl). Ilustracje — patrz THIRD_PARTY_NOTICES.md"
+
+lang: pl
+
+# Wyłączamy składnię cytowań Pandoca (`@identyfikator`). Kurs nie korzysta
+# z bibliografii BibTeX — źródła podajemy jako zwykłe odnośniki. Bez tego
+# wyłączenia reguły `@keyframes` wewnątrz arkusza stylów osadzonego w SVG
+# diagramów mermaid są interpretowane jako cytowania, co rozrywa element <svg>
+# i wysypuje jego zawartość do dokumentu (slajd rozciąga się na tysiące pikseli).
+from: markdown-citations
+
+# Diagramy mermaid renderujemy do statycznego SVG na etapie budowania.
+# Renderowanie po stronie przeglądarki daje błędny układ: reveal.js ukrywa
+# nieaktywne slajdy (display:none), więc mermaid mierzy etykiety jako zerowe
+# i tekst wychodzi poza obrys węzła. Wymaga przeglądarki — patrz README
+# (zmienna QUARTO_CHROMIUM).
+mermaid-format: svg
 
 format:
   revealjs:
-    theme: default
+    theme: [default, ../assets/theme/iot.scss]
     width: 1600
     height: 900
-    margin: 0.1
+    margin: 0.07
+    min-scale: 0.2
+    max-scale: 2.0
     center: false
-    navigation-mode: linear
-    controls-layout: edges
-    controls-tutorial: false
+    slide-number: c/t
+    show-slide-number: all
     hash: true
     history: true
     transition: slide
     background-transition: none
-    pdf-separate-fragments: false
-    lang: pl
+    navigation-mode: linear
+    controls: true
+    controls-layout: edges
+    controls-tutorial: false
+    progress: true
+    touch: true
+    chalkboard: false
+    menu:
+      side: left
+      width: wide
+    highlight-style: a11y
+    code-overflow: wrap
+    code-line-numbers: false
+    link-external-newwindow: true
+    link-external-icon: false
+    embed-resources: false
+    # Notatki prowadzącego nie trafiają do publicznego HTML — trzymamy je
+    # w katalogu notes/, wyłączonym z renderowania (patrz notes/POLITYKA.md).
+    include-in-header:
+      - text: |
+          <link rel="icon" href="data:,">
+          <link rel="stylesheet" href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+          <script src="../assets/vendor/mermaid-desc-shim.js"></script>
+          <script src="../assets/vendor/slide-media-zoom.js" defer></script>
+          <script src="../assets/vendor/review-feedback.js" defer></script>

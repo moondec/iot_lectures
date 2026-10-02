@@ -13,6 +13,13 @@ jobs:
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          # Pinned to the version the slides were built and tested with.
+          version: 1.10.18
+
+      # mermaid-format: svg renders diagrams at build time and needs a headless browser.
+      - name: Install Chromium for Mermaid
+        run: quarto install chromium --no-prompt
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2

@@ -1,21 +1,56 @@
 ---
-  title: "Wykłady IoT - Materiały Dydaktyczne"
+title: "Internet Rzeczy — kurs w ośmiu wykładach"
+subtitle: "Materiały wykładowe · prof. UPP dr hab. inż. Marek Urbaniak"
+format:
+  html:
+    theme: cosmo
+    toc: false
+    css: assets/theme/index.css
 ---
 
-::: {.callout-tip appearance="simple"}
-Materiały udostępnione na licencji [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/legalcode.pl).
+::: {.callout-note appearance="simple"}
+Osiem samodzielnych prezentacji `reveal.js`. Wykład 00 ustawia społeczną i technologiczną ramę kursu,
+a moduły 01–07 prowadzą od architektury do eksploatacji. Każda prezentacja ma cele, spójną sekwencję
+od pojęcia do zastosowania, pytania sprawdzające, podsumowanie i wykaz źródeł. Nawigacja w prezentacji:
+**strzałki**, `Esc` — widok siatki, `F` — pełny ekran, `?` — skróty.
+Kliknięcie grafiki lub diagramu powiększa go na cały ekran.
 :::
 
-Witaj w repozytorium materiałów do wykładu z Internetu Rzeczy (IoT). Poniżej znajdziesz linki do poszczególnych prezentacji:
+## Wykłady
 
-### Wprowadzenie
-* [Przyszłość Internetu - Część 1](wyklad_intro_1.html)
-* [Zagrożenia i Nowe Horyzonty - Część 2](wyklad_intro_2.html)
+| | Wykład | Zakres |
+|:--|:--|:--|
+| **00** | [Internet przyszłości: obietnice, ryzyka, decyzje](slides/00-internet-przyszlosci.html) | społeczne i technologiczne konsekwencje IoT, AI, prawa do danych, energia, odpowiedzialność projektanta |
+| **01** | [Architektura systemu IoT i wymagania](slides/01-architektura-i-wymagania.html) | model odniesienia, granica systemu, klasy komunikatów, kryterium odbioru |
+| **02** | [Urządzenie, sensory i energia](slides/02-urzadzenie-sensory-energia.html) | łańcuch pomiarowy, Arduino Nano ESP32, M5Stack Stamp-C3U, stan bezpieczny, budżet energii |
+| **03** | [Łączność sieciowa i aktualizacje OTA](slides/03-lacznosc-i-ota.html) | dobór radia, ponowne łączenie, partycje OTA, rollback, wydanie firmware |
+| **04** | [MQTT i kontrakt danych](slides/04-mqtt-i-kontrakt-danych.html) | pub/sub, tematy, QoS, retained, LWT, samoopisujący się ładunek, idempotencja |
+| **05** | [Brzeg sieci, Node-RED i Google Sheets](slides/05-brzeg-node-red-sheets.html) | walidacja na brzegu, routing, limity API, ponowienia, agregacja |
+| **06** | [ThingsBoard CE — telemetria i sterowanie](slides/06-thingsboard-ce.html) | model danych, atrybuty, pulpit, RPC z potwierdzeniem, CE vs PE |
+| **07** | [Odporność, bezpieczeństwo i eksploatacja](slides/07-odpornosc-bezpieczenstwo-eksploatacja.html) | wykrycie nieaktywności, model zagrożeń, plan testów awarii, obowiązki prawne |
 
-### Wykłady Główne
-* [Wykład 1: Narodziny Nowego Świata](wyklad_1.html)
-* [Wykład 2: Język Rzeczy (Komunikacja)](wyklad_2.html)
-* [Wykład 3: Mózg w Chmurze i jego Cienie](wyklad_3.html)
+## Tryb recenzji
 
-### Program Kursu
-* [Konspekt / Sylabus](konspekt.html)
+Otwórz dowolną prezentację z parametrem `?review=1`, zaznacz tekst i wybierz
+**💬 Dodaj uwagę**. Komentarze można następnie skopiować jako Markdown lub pobrać jako
+Markdown i JSON. Przykład: [recenzuj wykład 01](slides/01-architektura-i-wymagania.html?review=1).
+
+## Jak czytać te materiały
+
+Wykłady tworzą jedną ścieżkę: wykład 00 wyjaśnia, dlaczego decyzje o danych, energii,
+automatyzacji i odpowiedzialności muszą wejść do architektury; moduł 01 wyznacza granice systemu,
+moduły 02–06 domykają kolejne warstwy tego samego stanowiska, a moduł 07 przechodzi przez całość
+przekrojowo — od wykrycia awarii po obowiązki, które wychodzą poza kod.
+
+Liczby na slajdach są **dydaktyczne**, nie pomiarowe.
+
+## Sprzęt stanowiska
+
+Kurs pracuje na dwóch potwierdzonych płytkach: **Arduino Nano ESP32 (ABX00083)** z układem
+ESP32-S3 oraz **M5Stack Stamp-C3U (SKU C122-B)** z układem ESP32-C3. Nie są one zamienne —
+różni je architektura rdzenia, numeracja wyprowadzeń i sposób komunikacji z komputerem.
+Szczegóły w wykładzie 02.
+
+## Licencja
+
+Tekst i slajdy: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.pl).
