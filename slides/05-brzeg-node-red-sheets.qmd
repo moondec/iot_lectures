@@ -18,7 +18,7 @@ format:
 ### Cele
 
 ::: {.incremental}
-* Wymienić cztery zadania brzegu sieci, nie tylko agregację.
+* Wymienić pięć zadań brzegu sieci, nie tylko agregację.
 * Zbudować przepływ z jawną ścieżką błędu i logiem powodów odrzucenia.
 * Dobrać wariant zapisu do arkusza świadomie — wraz z konsekwencją dla bezpieczeństwa.
 * Policzyć częstość zapisu wobec limitów interfejsu, zanim powstanie przepływ.
@@ -29,7 +29,7 @@ format:
 ### Droga
 
 1. Od surowych danych do wiedzy
-2. Brama brzegowa i jej cztery zadania
+2. Brama brzegowa i jej pięć zadań
 3. Przepływ Node-RED węzeł po węźle
 4. Reguły walidacji i log odrzuceń
 5. Dwa warianty zapisu do arkusza
@@ -37,17 +37,20 @@ format:
 :::
 :::
 
-# Brzeg sieci {.sekcja background-color="#0b3b45"}
+# Brzeg sieci {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/raspberry-przelacznik.jpg" background-size="cover"}
+
+
+[Fot. RAIL P, CC0]{.zrodlo}
 
 ## <i class="bi bi-funnel"></i> Od gigabajtów do wiedzy {#redukcja}
 
 ::: {.columns}
 ::: {.column width="52%"}
 ::: {.incremental}
-* Pojedynczy czujnik temperatury w chłodni jest bezwartościowy.
+* Pojedynczy czujnik temperatury w chłodni to mało danych i prosta decyzja.
 * Dziesięć tysięcy czujników w stu magazynach, raportujących co minutę, to już problem składowania i filtrowania.
 * Pytanie nie brzmi „gdzie to zmieścić", tylko **„co z tego jest potrzebne do decyzji"**.
-* Redukcja następuje **najbliżej źródła**, bo to najtańsze miejsce.
+* Redukcja następuje **blisko źródła**, bo tam najtaniej oszczędzić łącze i zapis.
 :::
 :::
 
@@ -64,8 +67,8 @@ flowchart TD
     G[("Arkusz<br>raport")]
     A -- "surowy strumień" --> C
     B -- "surowy strumień" --> C
-    C -- "bloki 30-minutowe" --> D
-    C -- "1 wiersz/min" --> G
+    C -- "średnie 1-min" --> D
+    C -- "strumienie 30-min" --> G
     classDef n fill:#e8f2f4,stroke:#0b6b78,stroke-width:2px,color:#0b3b45
     class A,B,C,D,G n
 ```
@@ -74,7 +77,7 @@ flowchart TD
 
 ---
 
-## <i class="bi bi-router"></i> Brama brzegowa — cztery zadania {#brama}
+## <i class="bi bi-router"></i> Brama brzegowa — pięć zadań {#brama}
 
 ::: {.columns}
 ::: {.column width="50%"}
@@ -83,17 +86,19 @@ flowchart TD
 2. **Buforowanie przy braku łącza** — pomiary nie giną, gdy sieć nadrzędna zniknie.
 3. **Tłumaczenie protokołów** — radio lokalne po jednej stronie, IP po drugiej.
 4. **Reagowanie lokalne** — gdy decyzja nie może czekać na odpowiedź z chmury.
+5. **Decyzja o jakości danych** — co wolno zapisać (następny slajd).
 :::
 :::
 
 ::: {.column width="50%"}
 ::: {.callout-warning title="Latency"}
-Czas przejścia danych od urządzenia do chmury i z powrotem z komendą bywa krytyczny. Dlatego inteligencję przesuwa się bliżej brzegu — nie dla mody, tylko dlatego, że prasa hydrauliczna nie zatrzyma się przez łącze o opóźnieniu 300 ms.
+Czas przejścia danych od urządzenia do chmury i z powrotem z komendą bywa krytyczny. Dlatego inteligencję przesuwa się bliżej brzegu — nie dla mody, tylko dlatego, że zawór czy wentylator nie może czekać na łącze o opóźnieniu 300 ms. Funkcje **bezpieczeństwa maszyn** i tak realizuje osobny układ (np. sterownik bezpieczeństwa wg ISO 13849), nie brama.
 :::
 
-::: {.fragment}
-Brzeg sieci nie ogranicza się do filtrowania i przesyłania średnich. Odpowiada również za walidację, routing, reakcję lokalną i kontrolowane odrzucanie danych; w architekturze pilota kluczowa jest decyzja o jakości danych opisana na następnym slajdzie.
-:::
+![](../assets/img/kurs/raspberry-pi.jpg){height="230px" fig-alt="Raspberry Pi 4 — typowy komputer jednopłytkowy w roli bramy brzegowej."}
+
+[Raspberry Pi jako brama brzegowa. Fot. Laserlicht, CC BY-SA 4.0]{.zrodlo}
+
 :::
 :::
 
@@ -121,7 +126,10 @@ Platforma zapisuje to, co dostanie. Odrzucenie na platformie oznacza, że błęd
 :::
 :::
 
-# Przepływ {.sekcja background-color="#0b3b45"}
+# Przepływ {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/kable-splatane.jpg" background-size="cover"}
+
+
+[Fot. Kim Scarborough, CC BY-SA 2.0]{.zrodlo}
 
 ## <i class="bi bi-diagram-3"></i> Node-RED — węzeł po węźle {#przeplyw}
 
@@ -141,11 +149,14 @@ flowchart LR
     S -- "poprawne" --> W
     S -- "próg" --> A
     S -- "odrzucone" --> L
-    J -. "nieparsowalne" .-> L
+    C["<b>catch</b><br><small>błędy json i function</small>"]
+    J -. "błąd parsowania" .-> C
+    F -. "wyjątek" .-> C
+    C --> L
     classDef n fill:#e8f2f4,stroke:#0b6b78,stroke-width:2px,color:#0b3b45
     classDef r fill:#fdf3f4,stroke:#b02a37,stroke-width:2px,color:#8f2029
     class M,J,F,S,W n
-    class L,A r
+    class L,A,C r
 ```
 
 ![](../assets/img/node-red-example.png){width="72%" fig-alt="Zrzut edytora Node-RED z przepływem połączonych węzłów wejściowych, przetwarzających i wyjściowych."}
@@ -167,7 +178,7 @@ a dla jednego strumienia wybieramy **jeden** wariant zapisu — nigdy dwa naraz.
 * **`schema` zgodne z obsługiwaną wersją** — inaczej odrzucenie z powodem „nieobsługiwana wersja schematu".
 * **Każde pole wymagane obecne i o właściwym typie** — `"22.5"` jako tekst to nie to samo co `22.5`.
 * **Wartość w zakresie fizycznym czujnika**, nie w zakresie typu danych. `-40…+85 °C`, a nie „cokolwiek, co zmieści się w `float`".
-* **Znacznik czasu nie starszy niż podwójny okres raportowania i nie z przyszłości.**
+* **Znacznik czasu nie z przyszłości i nie starszy niż maksymalny czas buforowania** — pomiar dosłany z bufora jest poprawny; do alarmu bierzemy tylko świeże (≤ 2 okresy raportowania).
 * **Licznik `seq` nie powtarza wartości sprzed chwili** — wykrycie duplikatu z QoS 1.
 :::
 
@@ -179,7 +190,10 @@ i to jest jedyny cel logowania.
 :::
 :::
 
-# Zapis do arkusza {.sekcja background-color="#0b3b45"}
+# Zapis do arkusza {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/sterownia-nasa.jpg" background-size="cover"}
+
+
+[Fot. NASA Glenn Research Center, domena publiczna]{.zrodlo}
 
 ## <i class="bi bi-file-earmark-spreadsheet"></i> Dwa warianty zapisu {#warianty}
 
@@ -187,8 +201,8 @@ i to jest jedyny cel logowania.
 |:---|:---|:---|
 | Kto zapisuje | aplikacja internetowa Apps Script wywołana metodą POST | pośrednik po stronie serwera: Node-RED albo własny backend |
 | Interfejs | `doPost(e)` → walidacja → `appendRow` | `spreadsheets.values.append` w REST API v4 |
-| Uwierzytelnianie | **adres URL wdrożenia pełni funkcję sekretu** | konto usługi i token OAuth 2.0 |
-| Ryzyko | ujawnienie adresu = prawo zapisu dla każdego | klucz konta usługi wymaga bezpiecznego magazynu i rotacji |
+| Uwierzytelnianie | przy dostępie „Anyone” **adres URL wdrożenia pełni funkcję sekretu** | konto usługi i token OAuth 2.0 |
+| Ryzyko | ujawnienie adresu = prawo zapisu dla każdego, z uprawnieniami właściciela skryptu | klucz konta usługi wymaga bezpiecznego magazynu i rotacji |
 | Kontrola dostępu | ograniczona, po stronie skryptu | pełna: uprawnienia arkusza nadawane kontu usługi |
 | Kiedy dopuszczalny | ćwiczenie laboratoryjne, **dane nieosobowe** | każde użycie poza demonstracją |
 
@@ -202,7 +216,7 @@ Adres wdrożenia Apps Script jest sekretem, a nie publicznym endpointem. Kto zna
 
 ::: {.columns}
 ::: {.column width="44%"}
-Interfejs Google Sheets API v4 ma limity odnawiane **co minutę**:
+Interfejs Google Sheets API v4 ma limity **żądań** odnawiane **co minutę** (Apps Script ma własne, inne limity):
 
 | Rodzaj | Na projekt | Na użytkownika<br>w projekcie |
 |:---|:---|:---|
@@ -216,7 +230,7 @@ z **wykładniczym wycofaniem**.
 
 ::: {.fragment}
 ::: {.callout-warning title="Rachunek, który zmienia projekt"}
-Urządzenie raportujące **co sekundę** to 60 zapisów na minutę — **cały limit użytkownika na jeden czujnik**.
+Urządzenie raportujące **co sekundę** to 60 żądań zapisu na minutę — **cały limit użytkownika na jeden czujnik**. Konto usługi to jeden „użytkownik”: wszystkie urządzenia za nim dzielą ten sam limit.
 :::
 :::
 :::
@@ -225,7 +239,7 @@ Urządzenie raportujące **co sekundę** to 60 zapisów na minutę — **cały l
 ![](../assets/img/sheets-limit.png){width="100%" fig-alt="Wykres słupkowy w skali logarytmicznej: liczba zapisów do arkusza na minutę dla czterech strategii, z linią limitu 60 zapisów na minutę."}
 
 ::: {.fragment}
-Dlatego arkusz otrzymuje dane **zagregowane** — np. jeden wiersz na minutę — a nie każdy komunikat.
+Dlatego arkusz otrzymuje dane **zagregowane** i **wsadowo** — jedno żądanie `append` może dopisać wiele wierszy — a nie każdy komunikat osobno.
 **Agregacja to zadanie brzegu, nie arkusza.**
 :::
 :::
@@ -240,7 +254,7 @@ Dlatego arkusz otrzymuje dane **zagregowane** — np. jeden wiersz na minutę �
 ::: {.incremental}
 * **Błąd zapisu nie może kończyć przepływu.** Komunikat wraca do kolejki z rosnącym opóźnieniem, a po wyczerpaniu prób ląduje w logu odrzuceń.
 * **Kolejność wierszy nie jest gwarantowana** przy ponowieniach. Jeżeli ma znaczenie — sortujemy po `ts`, a nie po kolejności wpisu.
-* **Arkusz nie jest bazą telemetryczną.** Ma limit komórek i nie obsługuje zapytań po zakresie czasu. Szeregi czasowe trzymamy w platformie z modułu 06.
+* **Arkusz nie jest bazą telemetryczną.** Ma limit komórek na plik (rzędu **10–20 mln**) i nie ma indeksów czasowych ani wydajnych zapytań. Szeregi czasowe trzymamy w platformie z modułu 06.
 :::
 :::
 
@@ -256,11 +270,14 @@ flowchart TD
     R -- "429 / 5xx" --> B["Kolejka ponowień<br>backoff + jitter · limit prób"]
     B -- "kolejna próba" --> Z
     B -- "limit wyczerpany" --> L["Log odrzuceń<br>powód + treść"]
+    R -- "401" --> T["Odśwież token<br>ponów raz"]
+    T --> Z
     R -- "inne 4xx" --> L
     classDef n fill:#e8f2f4,stroke:#0b6b78,stroke-width:2px,color:#0b3b45
     classDef r fill:#fdf3f4,stroke:#b02a37,stroke-width:2px,color:#8f2029
     class Z,R,OK n
     class B,L r
+    class T n
 ```
 :::
 :::
@@ -268,7 +285,7 @@ flowchart TD
 
 ::: {.fragment}
 **Rozróżnienie, które ratuje przepływ:** 429 i 5xx ponawiamy, bo problem jest przejściowy. Pozostałe 4xx
-(np. 403 — brak uprawnień konta usługi do arkusza) ponawiać nie ma sensu — ponowienie da ten sam wynik,
+(np. 403 — brak uprawnień konta usługi do arkusza) ponawiać nie ma sensu; wyjątkiem jest 401 — po odświeżeniu tokenu — ponowienie da ten sam wynik,
 a zatka kolejkę.
 :::
 
@@ -281,10 +298,10 @@ a zatka kolejkę.
 **Konto usługi — co trzeba zrobić**
 
 ::: {.incremental}
-1. Włączyć Google Sheets API (i Drive API, jeśli tworzymy arkusze) w projekcie.
-2. Utworzyć konto usługi i pobrać klucz w formacie JSON.
-3. **Udostępnić arkusz adresowi e-mail konta usługi** — to krok pomijany najczęściej.
-4. W przepływie podać identyfikator arkusza z adresu URL i zakres.
+1. Włączyć Sheets API. Arkusz zakłada **człowiek** — konto usługi nie ma miejsca na Dysku.
+2. Utworzyć konto usługi i klucz JSON (w nowych organizacjach bywa **zablokowane** polityką).
+3. **Udostępnić arkusz e-mailowi konta usługi** — krok pomijany najczęściej.
+4. W przepływie podać ID arkusza i zakres.
 :::
 :::
 
@@ -295,16 +312,14 @@ a zatka kolejkę.
 |:---|:---|
 | **401** | token wygasł albo jest nieprawidłowy |
 | **403** | arkusz **nieudostępniony** kontu usługi, albo API nie włączone w projekcie |
-| **404** | zły identyfikator arkusza lub nazwa zakresu |
+| **404** | zły identyfikator arkusza |
 | **429** | przekroczony limit — ponów z wycofaniem |
-| **400** | zakres niezgodny z kształtem danych |
+| **400** | błędna składnia zakresu, nazwa karty albo `valueInputOption` |
 :::
 :::
 
 ::: {.callout-important title="Higiena sekretów w sprawozdaniu"}
-Klucz konta usługi i adres wdrożenia Apps Script **nie występują** w eksporcie przepływu oddawanym
-jako sprawozdanie, w zrzutach ekranu ani w repozytorium. Przed oddaniem eksportu sprawdzamy plik
-pod kątem pól poświadczeń — Node-RED potrafi je zapisać razem z konfiguracją węzła.
+Klucz konta usługi i adres Apps Script **nie trafiają** do eksportu przepływu, zrzutów ani repozytorium. Node-RED pomija pola poświadczeń, ale **nie chroni** sekretu wpisanego w URL, kod `function` czy zwykłą właściwość węzła.
 :::
 
 ---
@@ -324,7 +339,7 @@ pod kątem pól poświadczeń — Node-RED potrafi je zapisać razem z konfigura
 ## <i class="bi bi-question-circle"></i> Pytania sprawdzające {#pytania}
 
 ::: {.pytania}
-* Zespół podłączył urządzenie raportujące co sekundę wprost do arkusza i po kilku minutach zapisy przestały się pojawiać, a w logu są kody 429. Wskaż, dlaczego zwiększenie liczby ponowień pogorszy sytuację, i podaj poprawkę architektoniczną.
+* Zespół podłączył przez Sheets API trzy urządzenia raportujące co sekundę, wszystkie przez jedno konto usługi; po chwili zapisy przestały się pojawiać, a w logu są kody 429. Wskaż, dlaczego zwiększenie liczby ponowień pogorszy sytuację, i podaj poprawkę architektoniczną.
 * W arkuszu jest wiersz z temperaturą 512 °C i znacznikiem czasu sprzed tygodnia. Które dwie reguły walidacji zostały pominięte i w którym węźle przepływu powinny były zadziałać?
 * Przepływ zapisuje jednocześnie przez Apps Script i przez konto usługi, „dla pewności". Podaj dwa konkretne problemy, jakie to powoduje — jeden dotyczący danych, drugi bezpieczeństwa.
 :::
@@ -338,11 +353,11 @@ pod kątem pól poświadczeń — Node-RED potrafi je zapisać razem z konfigura
 **Co zostaje z tego modułu**
 
 ::: {.incremental}
-* Brzeg ma cztery zadania, a w naszym pilocie piąte jest najważniejsze: **decyzja o jakości danych**.
+* Brzeg ma pięć zadań, a w naszym pilocie najważniejsze jest piąte: **decyzja o jakości danych**.
 * Komunikat nieparsowalny idzie na ścieżkę błędu, nie dalej w przepływ.
 * Każde odrzucenie ma **powód** zapisany w logu.
 * Adres wdrożenia Apps Script jest sekretem.
-* 60 zapisów na minutę to cały limit użytkownika — dlatego brzeg agreguje.
+* 60 żądań zapisu na minutę to cały limit użytkownika — dlatego brzeg agreguje i wysyła wsadowo.
 * Arkusz jest warstwą raportową, nie bazą telemetryczną.
 :::
 :::
@@ -362,6 +377,9 @@ Dane, które przeszły walidację, trafiają do platformy. Zaczniemy nie od wykr
 * Google, *Usage limits* dla Google Sheets API — limity odczytu i zapisu, kod 429, wycofanie wykładnicze: <https://developers.google.com/workspace/sheets/api/limits>
 * Google, `spreadsheets.values.append` (REST, Sheets API v4): <https://developers.google.com/workspace/sheets/api/reference/rest/v4/spreadsheets.values/append>
 * Google Apps Script — obsługa żądań HTTP w aplikacji internetowej (`doPost`): <https://developers.google.com/apps-script/guides/web>
-* Node-RED — budowa i struktura komunikatu, obsługa błędów: <https://nodered.org/docs/user-guide/messages>
+* Node-RED — budowa i struktura komunikatu: <https://nodered.org/docs/user-guide/messages>
+* Node-RED — obsługa błędów (węzeł `catch`): <https://nodered.org/docs/user-guide/handling-errors>
+* Google Apps Script — limity usług: <https://developers.google.com/apps-script/guides/services/quotas>
+* Google Cloud — domyślne polityki organizacji (blokada kluczy kont usług): <https://cloud.google.com/resource-manager/docs/secure-by-default-organizations>
 * Node-RED — węzły MQTT: <https://cookbook.nodered.org/mqtt/>
 :::

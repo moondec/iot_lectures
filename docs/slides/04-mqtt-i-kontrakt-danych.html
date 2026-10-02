@@ -101,7 +101,7 @@
     code span.vs { color: #008000; } /* VerbatimString */
     code span.wa { color: #696969; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-be59b4774a18734dda35a4a6f13a6e44.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-b14bb2b6d13b9688d52a6d9ae23c2bf3.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -245,9 +245,9 @@ prof. UPP dr hab. inż. Marek Urbaniak
 </div></div>
 </section>
 <section>
-<section id="protokół" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
+<section id="protokół" class="title-slide slide level1 sekcja foto center" data-background-color="#0b3b45" data-background-image="../assets/img/kurs/sortownia-poczty.jpg" data-background-size="cover">
 <h1>Protokół</h1>
-
+<p><span class="zrodlo">Fot. Archives New Zealand, CC BY-SA 2.0</span></p>
 </section>
 <section id="http" class="slide level2">
 <h2><i class="bi bi-x-octagon"></i> Dlaczego HTTP nie pasuje</h2>
@@ -255,11 +255,11 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <div class="column" style="width:56%;">
 <ul>
 <li class="fragment"><strong>Narzut nagłówków</strong> — nagłówki HTTP potrafią zająć więcej bajtów niż sama wartość „temperatura = 22,5 °C”.</li>
-<li class="fragment"><strong>Model żądanie–odpowiedź</strong> — architektura synchroniczna: czujnik czeka na potwierdzenie z włączonym, prądożernym radiem.</li>
-<li class="fragment"><strong>Brak natywnej asynchroniczności i rozgłaszania</strong> — każdy odbiorca musi indywidualnie odpytywać serwer, a urządzenie nie ma jak otrzymać polecenia bez odpytywania.</li>
+<li class="fragment"><strong>Model żądanie–odpowiedź</strong> — każda wymiana zaczyna się od klienta; nowe połączenie TLS to kilka dodatkowych wymian z włączonym, prądożernym radiem.</li>
+<li class="fragment"><strong>Brak natywnej asynchroniczności i rozgłaszania</strong> — każdy odbiorca musi indywidualnie odpytywać serwer, a urządzenie nie otrzyma polecenia bez stałego połączenia albo odpytywania.</li>
 </ul>
 <div class="fragment">
-<p>Skala problemu: mediana strony głównej to około <strong>2,6–2,9 MB</strong> (HTTP Archive, 2025). ESP32-S3 ma 512 kB SRAM — około <strong>pięć razy mniej niż jedna strona</strong>, jeszcze zanim wydzielimy pamięć na program, stos i TLS.</p>
+<p>Dla skali: samo zestawienie sesji TLS i nagłówki HTTP to zwykle <strong>setki bajtów do kilku kB</strong> na żądanie — przy ładunku rzędu kilkudziesięciu bajtów. Utrzymane połączenie MQTT płaci ten koszt raz.</p>
 </div>
 </div><div class="column" style="width:44%;">
 <div title="To nie znaczy „HTTP jest zły”">
@@ -303,10 +303,10 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Dwa bajty to <strong>minimalny rozmiar nagłówka stałego</strong>: jeden bajt typu pakietu i flag oraz co najmniej jeden bajt pola <code>Remaining Length</code>, kodowanego jako liczba zmiennobajtowa <strong>o długości 1–4 bajtów</strong>.</p>
-<p>Do tego dochodzi nagłówek zmienny — przede wszystkim <strong>nazwa tematu</strong> i identyfikator pakietu — a w MQTT 5.0 jeszcze właściwości.</p>
+<p>Do tego dochodzi nagłówek zmienny — przede wszystkim <strong>nazwa tematu</strong>, a przy QoS &gt; 0 identyfikator pakietu — w MQTT 5.0 jeszcze właściwości (co najmniej 1 B). MQTT 5 pozwala zastąpić długi temat <strong>aliasem</strong> (Topic Alias), liczbą o długości 2 B.</p>
 <p>Realny narzut pakietu <code>PUBLISH</code> zależy więc głównie od <strong>długości nazwy tematu</strong>. Binarny jest nagłówek MQTT; format ładunku (np. JSON, CBOR lub Protobuf) określa osobny kontrakt danych.</p>
 </div><div class="column" style="width:50%;">
-<p>Ten sam pusty ładunek, dwa drzewa tematów:</p>
+<p>Ten sam pusty ładunek, dwa drzewa tematów (MQTT 3.1.1):</p>
 <table class="caption-top">
 <colgroup>
 <col style="width: 33%">
@@ -342,9 +342,9 @@ prof. UPP dr hab. inż. Marek Urbaniak
 </div></div>
 </section></section>
 <section>
-<section id="tematy-i-niezawodność" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
+<section id="tematy-i-niezawodność" class="title-slide slide level1 sekcja foto center" data-background-color="#0b3b45" data-background-image="../assets/img/kurs/panel-krosowy.jpg" data-background-size="cover">
 <h1>Tematy i niezawodność</h1>
-
+<p><span class="zrodlo">Fot. Dsimic, CC BY-SA 4.0</span></p>
 </section>
 <section id="tematy" class="slide level2">
 <h2><i class="bi bi-folder2-open"></i> Drzewo tematów pilota</h2>
@@ -385,9 +385,9 @@ prof. UPP dr hab. inż. Marek Urbaniak
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>lab/{zespol}/{urzadzenie}/status</code></td>
-<td style="text-align: left;">broker (Last Will)</td>
+<td style="text-align: left;">urządzenie (<code>online</code> po połączeniu) i broker w jego imieniu (Will <code>offline</code>)</td>
 <td style="text-align: left;"><strong>tak</strong></td>
-<td style="text-align: left;"><code>offline</code> po nieuprzejmym rozłączeniu</td>
+<td style="text-align: left;"><code>online</code> / <code>offline</code> po nieuprzejmym rozłączeniu</td>
 </tr>
 </tbody>
 </table>
@@ -399,9 +399,9 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <h2><i class="bi bi-exclamation-triangle-fill"></i> Dlaczego polecenie nigdy nie jest retained</h2>
 <div class="columns">
 <div class="column" style="width:52%;">
-<p>Komunikat <code>retained</code> jest dostarczany <strong>każdemu nowemu subskrybentowi</strong> zaraz po subskrypcji.</p>
+<p>Komunikat <code>retained</code> jest domyślnie dostarczany <strong>każdemu nowemu subskrybentowi</strong> zaraz po subskrypcji.</p>
 <div class="fragment">
-<p>Polecenie <code>retained</code> zostanie więc wykonane ponownie <strong>przy każdym restarcie urządzenia</strong>.</p>
+<p>Polecenie <code>retained</code> zostanie więc wykonane ponownie <strong>przy każdym restarcie urządzenia</strong>, które po połączeniu znów subskrybuje temat poleceń. Usunięcie: publikacja <strong>pustego ładunku</strong> z flagą retain.</p>
 </div>
 <div class="fragment">
 <div class="cell" data-layout-align="default">
@@ -482,12 +482,12 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <tr class="odd">
 <td style="text-align: left;"><strong>Last Will</strong></td>
 <td style="text-align: left;">wykrycie nieuprzejmego rozłączenia</td>
-<td style="text-align: left;">ustawiany przy <code>CONNECT</code>; <strong>nie zadziała</strong> po poprawnym <code>DISCONNECT</code></td>
+<td style="text-align: left;">ustawiany przy <code>CONNECT</code>; <strong>nie zadziała</strong> po <code>DISCONNECT</code> z kodem 0x00 (w MQTT 5 kod 0x04 celowo go wyzwala)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Keep alive</strong></td>
 <td style="text-align: left;">detekcja martwego łącza TCP</td>
-<td style="text-align: left;">krótki okres = częstsze <code>PINGREQ</code> = więcej energii</td>
+<td style="text-align: left;">przy braku innego ruchu krótki okres = częstsze <code>PINGREQ</code> = więcej energii; broker rozłącza po 1,5 × keep alive</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>Session Expiry</strong> (MQTT 5)</td>
@@ -498,7 +498,8 @@ prof. UPP dr hab. inż. Marek Urbaniak
 </table>
 </div>
 </div><div class="column" style="width:45%;">
-<p>Specyfikacja opisuje trzy poziomy jako: <em>co najwyżej raz</em>, <em>co najmniej raz</em> i <em>dokładnie raz</em>. <strong>Żaden poziom nie gwarantuje dostarczenia przy trwale przerwanym łączu</strong> — określa semantykę dostarczenia po ponownym zestawieniu sesji.</p>
+<p>Specyfikacja opisuje trzy poziomy jako: <em>co najwyżej raz</em>, <em>co najmniej raz</em> i <em>dokładnie raz</em>. <strong>Żaden poziom nie gwarantuje dostarczenia przy trwale przerwanym łączu.</strong> Zaległe QoS 1 i 2 są dostarczane po powrocie tylko przy zachowanej sesji (Clean Session = 0, w MQTT 5 Session Expiry &gt; 0).</p>
+<p>QoS działa <strong>na jednym odcinku</strong>: subskrybent dostaje min(QoS publikacji, QoS subskrypcji).</p>
 <div class="fragment">
 <div title="I jeszcze jedno ograniczenie">
 <div class="callout callout-warning callout-titled callout-style-default">
@@ -538,9 +539,9 @@ prof. UPP dr hab. inż. Marek Urbaniak
 </div>
 </section></section>
 <section>
-<section id="kontrakt-danych" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
+<section id="kontrakt-danych" class="title-slide slide level1 sekcja foto center" data-background-color="#0b3b45" data-background-image="../assets/img/kurs/panel-sterowania.jpg" data-background-size="cover">
 <h1>Kontrakt danych</h1>
-
+<p><span class="zrodlo">Fot. Shixart1985, CC BY 2.0</span></p>
 </section>
 <section id="kontrakt" class="slide level2">
 <h2><i class="bi bi-file-earmark-code"></i> Samoopisujący się ładunek</h2>
@@ -562,7 +563,7 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <li class="fragment"><strong><code>schema</code></strong> — numer wersji kontraktu. Bez niego nie da się wprowadzić zmiany bez przestoju wszystkich odbiorców.</li>
 <li class="fragment"><strong><code>ts</code></strong> — czas w <strong>UTC</strong>, ISO 8601 ze strefą. Czas lokalny w telemetrii jest źródłem błędów na przełomie czasu zimowego i letniego: godzina 02:30 występuje dwa razy albo wcale.</li>
 <li class="fragment"><strong>Jednostka jest częścią nazwy pola</strong> (<code>_c</code>, <code>_pct</code>) — odbiorca nie musi zgadywać ani pytać.</li>
-<li class="fragment"><strong><code>seq</code></strong> — licznik rosnący; pozwala wykryć lukę w strumieniu bez porównywania znaczników czasu i wykryć duplikat z QoS 1.</li>
+<li class="fragment"><strong><code>seq</code></strong> — licznik rosnący; pozwala wykryć lukę i duplikat z QoS 1. Po restarcie licznik się zeruje — dlatego przechowujemy go nieulotnie albo łączymy z identyfikatorem rozruchu.</li>
 <li class="fragment"><strong><code>device</code>, <code>fw</code></strong> — identyfikacja źródła, przydatna przy diagnozie „która partia urządzeń psuje dane”.</li>
 </ul>
 </div></div>
@@ -575,7 +576,7 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <p><strong>Zmiana zgodna wstecz</strong> — dodanie pola</p>
 <ul>
 <li class="fragment">Urządzenie wysyła nowe pole, <code>schema</code> bez zmian.</li>
-<li class="fragment">Starzy odbiorcy ignorują nieznane pole, nowi z niego korzystają.</li>
+<li class="fragment">Starzy odbiorcy ignorują nieznane pole — o ile kontrakt nakazuje tolerancyjny parser — nowi z niego korzystają.</li>
 </ul>
 <p><strong>Zmiana niezgodna</strong> — inne znaczenie albo jednostka</p>
 <ul>
@@ -595,13 +596,13 @@ prof. UPP dr hab. inż. Marek Urbaniak
 </div>
 <div class="callout-content">
 <p>Zmiana jednostki z °C na dziesiąte części °C <strong>bez</strong> podniesienia <code>schema</code>.</p>
-<p>Odbiorca nadal parsuje komunikat poprawnie, wykresy się rysują, alarmy działają — a wszystkie wartości są dziesięciokrotnie za duże. Błąd ujawni się dopiero wtedy, gdy ktoś spojrzy na wykres.</p>
+<p>Odbiorca nadal parsuje komunikat poprawnie i wykresy się rysują — ale wartości są dziesięciokrotnie za duże. Alarmy progowe zaczynają się wyzwalać fałszywie, a historia zostaje wymieszana z danymi w innej jednostce.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="fragment">
-<p>Dlatego jednostka jest w <strong>nazwie pola</strong>: zmiana jednostki wymusza zmianę nazwy, a ta jest widoczna natychmiast.</p>
+<p>Jednostka w <strong>nazwie pola</strong> pomaga człowiekowi, ale niczego nie wymusza. Wymusza dopiero <strong>walidacja schematu</strong> (np. JSON Schema z dopuszczalnym zakresem) na brzegu — moduł 05. Standardowy zapis jednostek: SenML, RFC 8428.</p>
 </div>
 </div></div>
 </section>
@@ -609,7 +610,7 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <h2><i class="bi bi-arrow-clockwise"></i> Idempotencja polecenia</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>Polecenie zawiera <strong>identyfikator żądania</strong>. Urządzenie zapamiętuje ostatnie wykonane identyfikatory i ignoruje powtórzenia.</p>
+<p>Polecenie zawiera <strong>identyfikator żądania</strong>. Urządzenie zapamiętuje ostatnie wykonane identyfikatory — <strong>nieulotnie</strong>, bo broker może ponowić komunikat po restarcie — i ignoruje powtórzenia.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"schema"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
 <span id="cb2-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="dt">"req_id"</span><span class="fu">:</span> <span class="st">"c7f1-0042"</span><span class="fu">,</span></span>
@@ -677,8 +678,9 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <div class="column" style="width:50%;">
 <h3 id="coap">CoAP</h3>
 <ul>
-<li class="fragment">Odpowiednik HTTP (GET, POST, PUT) oparty na <strong>UDP</strong> — lżejszy i szybszy.</li>
-<li class="fragment">Wbudowane wsparcie DTLS.</li>
+<li class="fragment">Odpowiednik HTTP (GET, POST, PUT, DELETE) oparty na <strong>UDP</strong> — lżejszy i szybszy.</li>
+<li class="fragment">Zabezpieczenie przez powiązanie z DTLS (<code>coaps</code>, port 5684).</li>
+<li class="fragment">Rozszerzenie <strong>Observe</strong> (RFC 7641) pozwala subskrybować zmiany zasobu.</li>
 <li class="fragment">Sprawdza się tam, gdzie MQTT jest „za dużo”: mikrokontroler, który po prostu odpowiada na pytanie „podaj aktualną temperaturę”, bez stałego połączenia z brokerem.</li>
 </ul>
 <div class="fragment">
@@ -688,7 +690,7 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <h3 id="amqp">AMQP</h3>
 <ul>
 <li class="fragment">Rozbudowany system kolejek dla środowisk korporacyjnych i finansowych.</li>
-<li class="fragment">Zbyt ciężki dla mikrokontrolera — jego miejsce jest <strong>na zapleczu</strong>, między serwerami (np. RabbitMQ).</li>
+<li class="fragment">Zbyt ciężki dla mikrokontrolera — jego miejsce jest <strong>na zapleczu</strong>, między serwerami (np. RabbitMQ, natywnie AMQP 1.0 od wersji 4).</li>
 <li class="fragment">W architekturze IoT pojawia się za platformą, nie przed nią.</li>
 </ul>
 <div class="fragment">
@@ -702,7 +704,7 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <p><strong>Reguła wyboru</strong></p>
 </div>
 <div class="callout-content">
-<p>MQTT — strumień telemetrii i polecenia do wielu odbiorców. CoAP — pojedyncze zapytanie o bieżącą wartość. AMQP — kolejkowanie między usługami serwerowymi.</p>
+<p>MQTT — strumień telemetrii i polecenia do wielu odbiorców. CoAP — zapytanie o bieżącą wartość lub obserwacja jednego zasobu. AMQP — kolejkowanie między usługami serwerowymi.</p>
 </div>
 </div>
 </div>
@@ -718,7 +720,7 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <li>Publikacja telemetrii widoczna w subskrypcji <code>mosquitto_sub</code> <strong>z jawnie podanym QoS</strong>.</li>
 <li>Nowy subskrybent otrzymuje stan <strong>natychmiast po podłączeniu</strong> — dowód działania <code>retained</code>.</li>
 <li>Polecenie wykonane <strong>raz</strong>, mimo dwukrotnej publikacji z tym samym identyfikatorem żądania — dowód idempotencji.</li>
-<li>Odłączenie zasilania urządzenia skutkuje pojawieniem się <code>offline</code> w temacie <code>status</code> w czasie zgodnym z <code>keep alive</code> — dowód działania Last Will.</li>
+<li>Odłączenie zasilania urządzenia skutkuje pojawieniem się <code>offline</code> w temacie <code>status</code> po czasie nie dłuższym niż ok. <strong>1,5 × keep alive</strong> (plus Will Delay Interval w MQTT 5) — dowód działania Last Will.</li>
 <li>Po przywróceniu zasilania stan i telemetria wracają <strong>bez ręcznej interwencji</strong> — i pompa <strong>nie</strong> włącza się sama.</li>
 </ul>
 </div>
@@ -746,7 +748,7 @@ prof. UPP dr hab. inż. Marek Urbaniak
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Daleki zasięg</strong></td>
-<td style="text-align: left;">LoRaWAN, NB-IoT, Sigfox 0G</td>
+<td style="text-align: left;">LoRaWAN, NB-IoT, LTE-M, Sigfox 0G*</td>
 <td style="text-align: left;">rolnictwo, monitoring środowiskowy, infrastruktura miejska</td>
 </tr>
 <tr class="odd">
@@ -762,10 +764,16 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <tr class="odd">
 <td style="text-align: left;"><strong>Protokół aplikacyjny</strong></td>
 <td style="text-align: left;">HTTP</td>
-<td style="text-align: left;">wyłącznie bramy i serwery ze stałym zasilaniem</td>
+<td style="text-align: left;">przede wszystkim bramy i urządzenia ze stałym zasilaniem</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Zaplecze</strong></td>
+<td style="text-align: left;">AMQP</td>
+<td style="text-align: left;">kolejki między usługami serwerowymi</td>
 </tr>
 </tbody>
 </table>
+<p><span style="font-size:0.6em">* Operator Sigfox 0G (UnaBiz) — przyszłość sieci niepewna; zob. moduł 03.</span></p>
 <div class="fragment">
 <p>Zasada porządkująca cały ten wykład i poprzedni: <strong>im dalej chcesz przesłać dane, tym mniej ich przesyłasz i tym dłużej urządzenie przeżyje</strong> — a im mniej przesyłasz, tym ważniejsze, żeby każdy przesłany bajt był jednoznaczny.</p>
 </div>
@@ -814,13 +822,14 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <h2><i class="bi bi-journal-text"></i> Źródła</h2>
 <div style="font-size: 0.7em;">
 <ul>
-<li>HTTP Archive, <em>Web Almanac 2025 — Page Weight</em> (mediany rozmiaru stron): <a href="https://almanac.httparchive.org/en/2025/page-weight" class="uri">https://almanac.httparchive.org/en/2025/page-weight</a></li>
 <li>OASIS, <em>MQTT Version 5.0</em> — struktura pakietu, QoS, retained, Will Message, Session Expiry Interval: <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html" class="uri">https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html</a></li>
 <li>OASIS, <em>MQTT Version 3.1.1</em> (= ISO/IEC 20922:2016): <a href="https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html" class="uri">https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html</a></li>
 <li>Eclipse Mosquitto — konfiguracja brokera, ACL i TLS: <a href="https://mosquitto.org/man/mosquitto-conf-5.html" class="uri">https://mosquitto.org/man/mosquitto-conf-5.html</a></li>
 <li>IETF RFC 7252 — <em>The Constrained Application Protocol (CoAP)</em>: <a href="https://www.rfc-editor.org/rfc/rfc7252" class="uri">https://www.rfc-editor.org/rfc/rfc7252</a></li>
 <li>OASIS, <em>AMQP 1.0</em>: <a href="https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-overview-v1.0-os.html" class="uri">https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-overview-v1.0-os.html</a></li>
 <li>IETF RFC 3339 / ISO 8601 — zapis znacznika czasu: <a href="https://www.rfc-editor.org/rfc/rfc3339" class="uri">https://www.rfc-editor.org/rfc/rfc3339</a></li>
+<li>IETF RFC 8428 — <em>Sensor Measurement Lists (SenML)</em>: <a href="https://www.rfc-editor.org/rfc/rfc8428" class="uri">https://www.rfc-editor.org/rfc/rfc8428</a></li>
+<li>IETF RFC 7641 — <em>Observing Resources in CoAP</em>: <a href="https://www.rfc-editor.org/rfc/rfc7641" class="uri">https://www.rfc-editor.org/rfc/rfc7641</a></li>
 </ul>
 </div>
 

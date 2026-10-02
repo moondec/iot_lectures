@@ -110,6 +110,12 @@
   "kroki": 4096,
   "LSB_mV_dla_3V3": 0.806
  },
+ "energia_plytka_seryjna": {
+  "I_sleep_mA": 2.0,
+  "I_sr_15min_mA": 2.393,
+  "18650_dni": 59.2,
+  "okres_dla_roku_18650_min": 17.7
+ },
  "paliwo_czlowiek": {
   "E5_MJ_l": 34.56,
   "auto_MJ_km": 2.419,

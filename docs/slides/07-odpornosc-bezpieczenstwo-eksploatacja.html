@@ -35,7 +35,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-be59b4774a18734dda35a4a6f13a6e44.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-b14bb2b6d13b9688d52a6d9ae23c2bf3.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -179,25 +179,26 @@ prof. UPP dr hab. inż. Marek Urbaniak
 </div></div>
 </section>
 <section>
-<section id="sekcja-rama" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
+<section id="sekcja-rama" class="title-slide slide level1 sekcja foto center" data-background-color="#0b3b45" data-background-image="../assets/img/lecture00/ziemia-noca.jpg" data-background-size="cover">
 <h1>Rama</h1>
-
+<p><span class="zrodlo">Fot. NASA Goddard, domena publiczna</span></p>
 </section>
 <section id="rama" class="slide level2">
 <h2><i class="bi bi-people"></i> Kto tworzy skutki</h2>
 <div class="columns">
 <div class="column" style="width:52%;">
-<div title="Punkt wyjścia" style="font-size: 0.95em;">
+<div title="Wracamy do wykładu 0" style="font-size: 0.95em;">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Punkt wyjścia</strong></p>
+<p><strong>Wracamy do wykładu 0</strong></p>
 </div>
 <div class="callout-content">
-<p>Rewolucje w technologii informacyjnej przeprowadzają <strong>inżynierowie, przedsiębiorcy i naukowcy</strong>, którzy często nie zdają sobie sprawy z konsekwencji własnych decyzji — i z całą pewnością nikogo nie reprezentują.</p>
+<p>Harari: rewolucje w biotechnologii i infotechnologii przeprowadzają <strong>inżynierowie, przedsiębiorcy i naukowcy</strong>, nieświadomi <strong>politycznych</strong> konsekwencji swoich decyzji. Po siedmiu modułach to zdanie dotyczy już nas.</p>
+<p><span class="zrodlo">Y. N. Harari, <em>21 lekcji na XXI wiek</em> (2018)</span></p>
 </div>
 </div>
 </div>
@@ -229,9 +230,9 @@ prof. UPP dr hab. inż. Marek Urbaniak
 </div></div>
 </section></section>
 <section>
-<section id="odporność" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
+<section id="odporność" class="title-slide slide level1 sekcja foto center" data-background-color="#0b3b45" data-background-image="../assets/img/kurs/oscyloskop.jpg" data-background-size="cover">
 <h1>Odporność</h1>
-
+<p><span class="zrodlo">Fot. Jrmlhermitte, CC BY-SA 4.0</span></p>
 </section>
 <section id="nieaktywnosc" class="slide level2">
 <h2><i class="bi bi-activity"></i> Na czym opiera się wykrycie nieaktywności</h2>
@@ -294,7 +295,7 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <div class="column" style="width:54%;">
 <p>Aktywność jest raportowana do usługi stanu <strong>wsadowo</strong>. Domyślna strategia <code>LAST</code> zgłasza tylko ostatnią aktywność z okresu o długości <code>TB_TRANSPORT_SESSIONS_REPORT_TIMEOUT</code> — domyślnie <strong>3000 ms</strong>.</p>
 <div class="fragment">
-<p>Jeżeli próg nieaktywności jest <strong>krótszy</strong> od okresu raportowania, urządzenie publikujące co sekundę zostanie <strong>błędnie uznane za nieaktywne</strong>.</p>
+<p>Jeżeli próg nieaktywności <strong>nie jest dłuższy</strong> od okresu raportowania, urządzenie publikujące co sekundę zostanie <strong>błędnie uznane za nieaktywne</strong>.</p>
 </div>
 <div class="fragment">
 <div title="Zasada doboru progu">
@@ -307,8 +308,8 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <p><strong>Zasada doboru progu</strong></p>
 </div>
 <div class="callout-content">
-<p>Próg nieaktywności w sekundach <strong>nie mniejszy</strong> niż okres raportowania aktywności podzielony przez 1000 — z zapasem na realne przerwy między komunikatami.</p>
-<p>Dla ustawień domyślnych: minimum <strong>3 s</strong>, praktycznie <strong>60 s</strong> (dwudziestokrotny zapas).</p>
+<p>Próg nieaktywności <strong>dłuższy</strong> niż okres raportowania aktywności — z zapasem na realne przerwy między komunikatami.</p>
+<p>Dla ustawień domyślnych: <strong>więcej niż 3 s</strong>, praktycznie <strong>60 s</strong> (dwudziestokrotny zapas).</p>
 </div>
 </div>
 </div>
@@ -326,7 +327,7 @@ prof. UPP dr hab. inż. Marek Urbaniak
 </div>
 <div class="callout-content">
 <p><code>TB_TRANSPORT_SESSIONS_INACTIVITY_TIMEOUT</code> (domyślnie <strong>300 000 ms</strong>) to <strong>osobny</strong> parametr — timeout sesji transportowej.</p>
-<p>Utrzymujemy go <strong>nie krótszym</strong> od progu nieaktywności urządzenia. Inaczej urządzenie zostanie uznane za nieaktywne przy wciąż otwartej sesji, a diagnoza pójdzie w złą stronę: będziemy szukać problemu w sieci, choć przyczyną jest konfiguracja.</p>
+<p>Dokumentacja zaleca, by nie był <strong>krótszy</strong> od progu nieaktywności urządzenia — a wartości domyślne same tę zasadę łamią (300 s &lt; 600 s). Przy niezgodności zdarzenia sesji i aktywności rozjeżdżają się, a diagnoza idzie w złą stronę: szukamy problemu w sieci, choć przyczyną jest konfiguracja.</p>
 </div>
 </div>
 </div>
@@ -345,7 +346,7 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <div>
 <svg id="mermaid-figure-1" width="1152" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="flowchart" style="; display: block; margin: auto auto auto auto" viewbox="0 0 1228.953125 306" role="graphics-document document" aria-roledescription="flowchart-v2" height="269">
 <style>#mermaid-figure-1{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:24px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-figure-1 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-figure-1 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-figure-1 .error-icon{fill:#552222;}#mermaid-figure-1 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-1 .edge-thickness-normal{stroke-width:1px;}#mermaid-figure-1 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-1 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-1 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-figure-1 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-1 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-1 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-1 .marker.cross{stroke:#333333;}#mermaid-figure-1 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:24px;}#mermaid-figure-1 p{margin:0;}#mermaid-figure-1 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-1 .cluster-label text{fill:#333;}#mermaid-figure-1 .cluster-label span{color:#333;}#mermaid-figure-1 .cluster-label span p{background-color:transparent;}#mermaid-figure-1 .label text,#mermaid-figure-1 span{fill:#333;color:#333;}#mermaid-figure-1 .node rect,#mermaid-figure-1 .node circle,#mermaid-figure-1 .node ellipse,#mermaid-figure-1 .node polygon,#mermaid-figure-1 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-1 .rough-node .label text,#mermaid-figure-1 .node .label text,#mermaid-figure-1 .image-shape .label,#mermaid-figure-1 .icon-shape .label{text-anchor:middle;}#mermaid-figure-1 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-figure-1 .rough-node .label,#mermaid-figure-1 .node .label,#mermaid-figure-1 .image-shape .label,#mermaid-figure-1 .icon-shape .label{text-align:center;}#mermaid-figure-1 .node.clickable{cursor:pointer;}#mermaid-figure-1 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaid-figure-1 .arrowheadPath{fill:#333333;}#mermaid-figure-1 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-1 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-1 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-1 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaid-figure-1 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-1 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-figure-1 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-1 .cluster text{fill:#333;}#mermaid-figure-1 .cluster span{color:#333;}#mermaid-figure-1 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-1 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-1 rect.text{fill:none;stroke-width:0;}#mermaid-figure-1 .icon-shape,#mermaid-figure-1 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-1 .icon-shape p,#mermaid-figure-1 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaid-figure-1 .icon-shape rect,#mermaid-figure-1 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-1 .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#mermaid-figure-1 .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#mermaid-figure-1 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-figure-1 .n>*{fill:#e8f2f4!important;stroke:#0b6b78!important;stroke-width:2px!important;color:#0b3b45!important;}#mermaid-figure-1 .n span{fill:#e8f2f4!important;stroke:#0b6b78!important;stroke-width:2px!important;color:#0b3b45!important;}#mermaid-figure-1 .n tspan{fill:#0b3b45!important;}#mermaid-figure-1 .r>*{fill:#fdf3f4!important;stroke:#b02a37!important;stroke-width:2px!important;color:#8f2029!important;}#mermaid-figure-1 .r span{fill:#fdf3f4!important;stroke:#b02a37!important;stroke-width:2px!important;color:#8f2029!important;}#mermaid-figure-1 .r tspan{fill:#8f2029!important;}</style>
-<g><marker id="mermaid-1790951039146_flowchart-v2-pointEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790951039146_flowchart-v2-pointStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="4.5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790951039146_flowchart-v2-circleEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="11" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790951039146_flowchart-v2-circleStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="-1" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790951039146_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="12" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790951039146_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="-1" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M178.719,112.999L194.78,107.166C210.841,101.333,242.964,89.666,274.419,83.833C305.875,78,336.664,78,352.059,78L367.453,78" id="L_A_B_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_A_B_0" data-points="W3sieCI6MTc4LjcxODc1LCJ5IjoxMTIuOTk4OTI1MjM5NjcxNTV9LHsieCI6Mjc1LjA4NTkzNzUsInkiOjc4fSx7IngiOjM3MS40NTMxMjUsInkiOjc4fV0=" marker-end="url(#mermaid-1790951039146_flowchart-v2-pointEnd)"></path><path d="M538.188,78L542.354,78C546.521,78,554.854,78,562.521,78C570.188,78,577.188,78,580.688,78L584.188,78" id="L_B_C_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_B_C_0" data-points="W3sieCI6NTM4LjE4NzUsInkiOjc4fSx7IngiOjU2My4xODc1LCJ5Ijo3OH0seyJ4Ijo1ODguMTg3NSwieSI6Nzh9XQ==" marker-end="url(#mermaid-1790951039146_flowchart-v2-pointEnd)"></path><path d="M734.891,70.522L753.729,68.602C772.568,66.682,810.245,62.841,850.358,60.92C890.471,59,933.021,59,954.296,59L975.57,59" id="L_C_D_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_C_D_0" data-points="W3sieCI6NzM0Ljg5MDYyNSwieSI6NzAuNTIyNDg4MTU4NjExNzJ9LHsieCI6ODQ3LjkyMTg3NSwieSI6NTl9LHsieCI6OTc5LjU3MDMxMjUsInkiOjU5fV0=" marker-end="url(#mermaid-1790951039146_flowchart-v2-pointEnd)"></path><path d="M734.891,111.452L753.729,120.043C772.568,128.635,810.245,145.817,847.279,159.35C884.312,172.883,920.703,182.765,938.898,187.706L957.093,192.648" id="L_C_E_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_C_E_0" data-points="W3sieCI6NzM0Ljg5MDYyNSwieSI6MTExLjQ1MjAyNjY1ODg0MjI3fSx7IngiOjg0Ny45MjE4NzUsInkiOjE2M30seyJ4Ijo5NjAuOTUzMTI1LCJ5IjoxOTMuNjk1ODk4MTYxMjQ0N31d" marker-end="url(#mermaid-1790951039146_flowchart-v2-pointEnd)"></path><path d="M960.953,239.163L942.115,240.636C923.276,242.109,885.599,245.054,835.697,246.527C785.794,248,723.667,248,676.211,248C628.755,248,595.971,248,561.518,248C527.065,248,490.943,248,442.926,248C394.909,248,334.997,248,289.559,239.139C244.121,230.279,213.156,212.558,197.673,203.697L182.19,194.837" id="L_E_A_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_E_A_0" data-points="W3sieCI6OTYwLjk1MzEyNSwieSI6MjM5LjE2MzMwMjA0NDQ5MDE3fSx7IngiOjg0Ny45MjE4NzUsInkiOjI0OH0seyJ4Ijo2NjEuNTM5MDYyNSwieSI6MjQ4fSx7IngiOjU2My4xODc1LCJ5IjoyNDh9LHsieCI6NDU0LjgyMDMxMjUsInkiOjI0OH0seyJ4IjoyNzUuMDg1OTM3NSwieSI6MjQ4fSx7IngiOjE3OC43MTg3NSwieSI6MTkyLjg1MDE3ODQxMDIxNDU0fV0=" marker-end="url(#mermaid-1790951039146_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel" transform="translate(275.0859375, 78)"><g class="label" data-id="L_A_B_0" transform="translate(-71.3671875, -36)"><foreignobject width="142.734375" height="72">
+<g><marker id="mermaid-1790953334485_flowchart-v2-pointEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790953334485_flowchart-v2-pointStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="4.5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790953334485_flowchart-v2-circleEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="11" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790953334485_flowchart-v2-circleStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="-1" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790953334485_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="12" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790953334485_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="-1" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M178.719,112.999L194.78,107.166C210.841,101.333,242.964,89.666,274.419,83.833C305.875,78,336.664,78,352.059,78L367.453,78" id="L_A_B_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_A_B_0" data-points="W3sieCI6MTc4LjcxODc1LCJ5IjoxMTIuOTk4OTI1MjM5NjcxNTV9LHsieCI6Mjc1LjA4NTkzNzUsInkiOjc4fSx7IngiOjM3MS40NTMxMjUsInkiOjc4fV0=" marker-end="url(#mermaid-1790953334485_flowchart-v2-pointEnd)"></path><path d="M538.188,78L542.354,78C546.521,78,554.854,78,562.521,78C570.188,78,577.188,78,580.688,78L584.188,78" id="L_B_C_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_B_C_0" data-points="W3sieCI6NTM4LjE4NzUsInkiOjc4fSx7IngiOjU2My4xODc1LCJ5Ijo3OH0seyJ4Ijo1ODguMTg3NSwieSI6Nzh9XQ==" marker-end="url(#mermaid-1790953334485_flowchart-v2-pointEnd)"></path><path d="M734.891,70.522L753.729,68.602C772.568,66.682,810.245,62.841,850.358,60.92C890.471,59,933.021,59,954.296,59L975.57,59" id="L_C_D_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_C_D_0" data-points="W3sieCI6NzM0Ljg5MDYyNSwieSI6NzAuNTIyNDg4MTU4NjExNzJ9LHsieCI6ODQ3LjkyMTg3NSwieSI6NTl9LHsieCI6OTc5LjU3MDMxMjUsInkiOjU5fV0=" marker-end="url(#mermaid-1790953334485_flowchart-v2-pointEnd)"></path><path d="M734.891,111.452L753.729,120.043C772.568,128.635,810.245,145.817,847.279,159.35C884.312,172.883,920.703,182.765,938.898,187.706L957.093,192.648" id="L_C_E_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_C_E_0" data-points="W3sieCI6NzM0Ljg5MDYyNSwieSI6MTExLjQ1MjAyNjY1ODg0MjI3fSx7IngiOjg0Ny45MjE4NzUsInkiOjE2M30seyJ4Ijo5NjAuOTUzMTI1LCJ5IjoxOTMuNjk1ODk4MTYxMjQ0N31d" marker-end="url(#mermaid-1790953334485_flowchart-v2-pointEnd)"></path><path d="M960.953,239.163L942.115,240.636C923.276,242.109,885.599,245.054,835.697,246.527C785.794,248,723.667,248,676.211,248C628.755,248,595.971,248,561.518,248C527.065,248,490.943,248,442.926,248C394.909,248,334.997,248,289.559,239.139C244.121,230.279,213.156,212.558,197.673,203.697L182.19,194.837" id="L_E_A_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_E_A_0" data-points="W3sieCI6OTYwLjk1MzEyNSwieSI6MjM5LjE2MzMwMjA0NDQ5MDE3fSx7IngiOjg0Ny45MjE4NzUsInkiOjI0OH0seyJ4Ijo2NjEuNTM5MDYyNSwieSI6MjQ4fSx7IngiOjU2My4xODc1LCJ5IjoyNDh9LHsieCI6NDU0LjgyMDMxMjUsInkiOjI0OH0seyJ4IjoyNzUuMDg1OTM3NSwieSI6MjQ4fSx7IngiOjE3OC43MTg3NSwieSI6MTkyLjg1MDE3ODQxMDIxNDU0fV0=" marker-end="url(#mermaid-1790953334485_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel" transform="translate(275.0859375, 78)"><g class="label" data-id="L_A_B_0" transform="translate(-71.3671875, -36)"><foreignobject width="142.734375" height="72">
 <div class="labelBkg" data-xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;">
 <span class="edgeLabel">
 <p>
@@ -448,9 +449,9 @@ Alarm zamknięty<br>samoczynnie (clear)
 </div></div>
 </section></section>
 <section>
-<section id="bezpieczeństwo" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
+<section id="bezpieczeństwo" class="title-slide slide level1 sekcja foto center" data-background-color="#0b3b45" data-background-image="../assets/img/kurs/klodka.jpg" data-background-size="cover">
 <h1>Bezpieczeństwo</h1>
-
+<p><span class="zrodlo">Fot. Lacz02, CC BY-SA 4.0</span></p>
 </section>
 <section id="model-zagrozen" class="slide level2">
 <h2><i class="bi bi-shield-exclamation"></i> Model zagrożeń — cztery powierzchnie</h2>
@@ -499,16 +500,17 @@ Alarm zamknięty<br>samoczynnie (clear)
 <div class="columns">
 <div class="column" style="width:52%;">
 <p>To <strong>dwa osobne incydenty</strong>:</p>
-<p><strong>21 października 2016</strong> — atak na operatora DNS <strong>Dyn</strong>. Objął szerszą klasę urządzeń niż same kamery IP: kamery, rejestratory DVR i routery domowe z <strong>fabrycznymi poświadczeniami</strong>.</p>
-<p><strong>listopad 2016</strong> — wariant Mirai wykorzystujący lukę w interfejsie <strong>TR-064</strong> routerów Deutsche Telekom; pozbawił łączności ok. <strong>900 tys.</strong> klientów.</p>
-<p><img data-src="../assets/img/axis-ip-cameras.png" style="width:48.0%" alt="Dwie kamery sieciowe Axis: starsza kamera obrotowa i kompaktowa kamera kopułkowa."></p>
+<p><strong>Wrzesień–październik 2016</strong> — Mirai: kamery, rejestratory DVR i routery z <strong>fabrycznymi hasłami</strong>. Atak na blog Krebsa (~620 Gb/s), OVH (~1 Tb/s), a <strong>21 października</strong> na operatora DNS <strong>Dyn</strong>.</p>
+<p><strong>Listopad 2016</strong> — wariant Mirai atakujący interfejs zarządzania <strong>TR-064/TR-069</strong> (port 7547), bez łamania haseł. Routery Deutsche Telekom <strong>zawieszały się przy próbach infekcji</strong> — ok. <strong>900 tys.</strong> klientów bez łączności.</p>
+<p><img data-src="../assets/img/axis-ip-cameras.png" alt="Dwie kamery sieciowe Axis: starsza kamera obrotowa i kompaktowa kamera kopułkowa." height="190"></p>
 <div class="zrodlo">
-<p>Kamery sieciowe Axis 212PTZ i M3005-V. Fot. Bungle, <a href="https://commons.wikimedia.org/wiki/File:Axis_ip_dome_cameras.png">Wikimedia Commons</a>, CC BY-SA 4.0. Pomniejszono.</p>
+<p>Zdjęcie poglądowe (kamery Axis); Mirai atakował głównie tanie kamery i DVR innych producentów. Fot. Bungle, CC BY-SA 4.0.</p>
 </div>
 </div><div class="column" style="width:48%;">
-<p><strong>Mechanizm, który zadziałał</strong></p>
+<p><strong>Mechanizmy, które zadziałały</strong></p>
 <ul>
-<li class="fragment">Fabryczne, niezmienione hasła w urządzeniach dostępnych z internetu.</li>
+<li class="fragment">Dyn: fabryczne, niezmienione hasła w urządzeniach dostępnych z internetu.</li>
+<li class="fragment">Deutsche Telekom: interfejs zarządzania wystawiony do internetu.</li>
 <li class="fragment">Brak aktualizacji przez cały okres eksploatacji.</li>
 <li class="fragment">Urządzenie, które nie ma właściciela odpowiedzialnego za jego bezpieczeństwo.</li>
 </ul>
@@ -572,7 +574,7 @@ Alarm zamknięty<br>samoczynnie (clear)
 <div>
 <svg id="mermaid-figure-2" width="806" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="flowchart" style="; display: block; margin: auto auto auto auto" viewbox="0 0 418.75 813.5986938476562" role="graphics-document document" aria-roledescription="flowchart-v2" height="490">
 <style>#mermaid-figure-2{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:24px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-figure-2 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-figure-2 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-figure-2 .error-icon{fill:#552222;}#mermaid-figure-2 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-2 .edge-thickness-normal{stroke-width:1px;}#mermaid-figure-2 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-2 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-2 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-figure-2 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-2 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-2 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-2 .marker.cross{stroke:#333333;}#mermaid-figure-2 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:24px;}#mermaid-figure-2 p{margin:0;}#mermaid-figure-2 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-2 .cluster-label text{fill:#333;}#mermaid-figure-2 .cluster-label span{color:#333;}#mermaid-figure-2 .cluster-label span p{background-color:transparent;}#mermaid-figure-2 .label text,#mermaid-figure-2 span{fill:#333;color:#333;}#mermaid-figure-2 .node rect,#mermaid-figure-2 .node circle,#mermaid-figure-2 .node ellipse,#mermaid-figure-2 .node polygon,#mermaid-figure-2 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-2 .rough-node .label text,#mermaid-figure-2 .node .label text,#mermaid-figure-2 .image-shape .label,#mermaid-figure-2 .icon-shape .label{text-anchor:middle;}#mermaid-figure-2 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-figure-2 .rough-node .label,#mermaid-figure-2 .node .label,#mermaid-figure-2 .image-shape .label,#mermaid-figure-2 .icon-shape .label{text-align:center;}#mermaid-figure-2 .node.clickable{cursor:pointer;}#mermaid-figure-2 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaid-figure-2 .arrowheadPath{fill:#333333;}#mermaid-figure-2 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-2 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-2 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-2 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaid-figure-2 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-2 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-figure-2 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-2 .cluster text{fill:#333;}#mermaid-figure-2 .cluster span{color:#333;}#mermaid-figure-2 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-2 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-2 rect.text{fill:none;stroke-width:0;}#mermaid-figure-2 .icon-shape,#mermaid-figure-2 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-2 .icon-shape p,#mermaid-figure-2 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaid-figure-2 .icon-shape rect,#mermaid-figure-2 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-2 .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#mermaid-figure-2 .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#mermaid-figure-2 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-figure-2 .n>*{fill:#e8f2f4!important;stroke:#0b6b78!important;stroke-width:2px!important;color:#0b3b45!important;}#mermaid-figure-2 .n span{fill:#e8f2f4!important;stroke:#0b6b78!important;stroke-width:2px!important;color:#0b3b45!important;}#mermaid-figure-2 .n tspan{fill:#0b3b45!important;}#mermaid-figure-2 .r>*{fill:#fdf3f4!important;stroke:#b02a37!important;stroke-width:3px!important;color:#8f2029!important;}#mermaid-figure-2 .r span{fill:#fdf3f4!important;stroke:#b02a37!important;stroke-width:3px!important;color:#8f2029!important;}#mermaid-figure-2 .r tspan{fill:#8f2029!important;}</style>
-<g><marker id="mermaid-1790951039292_flowchart-v2-pointEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790951039292_flowchart-v2-pointStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="4.5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790951039292_flowchart-v2-circleEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="11" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790951039292_flowchart-v2-circleStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="-1" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790951039292_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="12" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790951039292_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="-1" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"><g class="cluster" id="I" data-look="classic"><rect style="" x="8" y="653.5986785888672" width="402.75" height="152"></rect><g class="cluster-label" transform="translate(140.671875, 653.5986785888672)"><foreignobject width="137.40625" height="36">
+<g><marker id="mermaid-1790953334632_flowchart-v2-pointEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790953334632_flowchart-v2-pointStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="4.5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790953334632_flowchart-v2-circleEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="11" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790953334632_flowchart-v2-circleStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="-1" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790953334632_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="12" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790953334632_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="-1" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"><g class="cluster" id="I" data-look="classic"><rect style="" x="8" y="653.5986785888672" width="402.75" height="152"></rect><g class="cluster-label" transform="translate(140.671875, 653.5986785888672)"><foreignobject width="137.40625" height="36">
 <div data-xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;">
 <span class="nodeLabel">
 <p>
@@ -588,7 +590,7 @@ Sieć biurowa / serwery
 </p>
 </span>
 </div>
-</foreignobject></g></g></g><g class="edgePaths"><path d="M131.18,143.995L131.18,149.929C131.18,155.863,131.18,167.731,131.18,177.831C131.18,187.932,131.18,196.265,135.997,212.591C140.814,228.917,150.449,253.236,155.266,265.395L160.083,277.554" id="L_PC_FW_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_PC_FW_0" data-points="W3sieCI6MTMxLjE3OTY4NzUsInkiOjE0My45OTQ2NTE3OTQ0MzM2fSx7IngiOjEzMS4xNzk2ODc1LCJ5IjoxNzkuNTk4Njc4NTg4ODY3Mn0seyJ4IjoxMzEuMTc5Njg3NSwieSI6MjA0LjU5ODY3ODU4ODg2NzJ9LHsieCI6MTYwLjA4MzQyMzYxOTEyMzE1LCJ5IjoyNzcuNTU0MzE3NDY5NzQ0MDN9XQ=="></path><path d="M284.898,154.599L284.898,158.765C284.898,162.932,284.898,171.265,284.898,179.599C284.898,187.932,284.898,196.265,280.081,212.591C275.264,228.917,265.629,253.236,260.812,265.395L255.995,277.554" id="L_DB_FW_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_DB_FW_0" data-points="W3sieCI6Mjg0Ljg5ODQzNzUsInkiOjE1NC41OTg2Nzg1ODg4NjcyfSx7IngiOjI4NC44OTg0Mzc1LCJ5IjoxNzkuNTk4Njc4NTg4ODY3Mn0seyJ4IjoyODQuODk4NDM3NSwieSI6MjA0LjU5ODY3ODU4ODg2NzJ9LHsieCI6MjU1Ljk5NDcwMTM4MDg3Njg1LCJ5IjoyNzcuNTU0MzE3NDY5NzQ0MDN9XQ=="></path><path d="M155.482,515.041L148.293,530.968C141.105,546.894,126.728,578.746,119.54,601.839C112.352,624.932,112.352,639.265,112.352,649.932C112.352,660.599,112.352,667.599,112.352,671.099L112.352,674.599" id="L_FW_S1_0" class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_FW_S1_0" data-points="W3sieCI6MTU1LjQ4MTg4MTkxOTA1MzQyLCJ5Ijo1MTUuMDQxNDk4MDA3OTIwNn0seyJ4IjoxMTIuMzUxNTYyNSwieSI6NjEwLjU5ODY3ODU4ODg2NzJ9LHsieCI6MTEyLjM1MTU2MjUsInkiOjY1My41OTg2Nzg1ODg4NjcyfSx7IngiOjExMi4zNTE1NjI1LCJ5Ijo2NzguNTk4Njc4NTg4ODY3Mn1d" marker-end="url(#mermaid-1790951039292_flowchart-v2-pointEnd)"></path><path d="M260.596,515.041L267.785,530.968C274.973,546.894,289.35,578.746,296.538,601.839C303.727,624.932,303.727,639.265,303.727,652.932C303.727,666.599,303.727,679.599,303.727,686.099L303.727,692.599" id="L_FW_S2_0" class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_FW_S2_0" data-points="W3sieCI6MjYwLjU5NjI0MzA4MDk0NjYsInkiOjUxNS4wNDE0OTgwMDc5MjA2fSx7IngiOjMwMy43MjY1NjI1LCJ5Ijo2MTAuNTk4Njc4NTg4ODY3Mn0seyJ4IjozMDMuNzI2NTYyNSwieSI6NjUzLjU5ODY3ODU4ODg2NzJ9LHsieCI6MzAzLjcyNjU2MjUsInkiOjY5Ni41OTg2Nzg1ODg4NjcyfV0=" marker-end="url(#mermaid-1790951039292_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" data-id="L_PC_FW_0" transform="translate(0, 0)"><foreignobject width="0" height="0">
+</foreignobject></g></g></g><g class="edgePaths"><path d="M131.18,143.995L131.18,149.929C131.18,155.863,131.18,167.731,131.18,177.831C131.18,187.932,131.18,196.265,135.997,212.591C140.814,228.917,150.449,253.236,155.266,265.395L160.083,277.554" id="L_PC_FW_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_PC_FW_0" data-points="W3sieCI6MTMxLjE3OTY4NzUsInkiOjE0My45OTQ2NTE3OTQ0MzM2fSx7IngiOjEzMS4xNzk2ODc1LCJ5IjoxNzkuNTk4Njc4NTg4ODY3Mn0seyJ4IjoxMzEuMTc5Njg3NSwieSI6MjA0LjU5ODY3ODU4ODg2NzJ9LHsieCI6MTYwLjA4MzQyMzYxOTEyMzE1LCJ5IjoyNzcuNTU0MzE3NDY5NzQ0MDN9XQ=="></path><path d="M284.898,154.599L284.898,158.765C284.898,162.932,284.898,171.265,284.898,179.599C284.898,187.932,284.898,196.265,280.081,212.591C275.264,228.917,265.629,253.236,260.812,265.395L255.995,277.554" id="L_DB_FW_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_DB_FW_0" data-points="W3sieCI6Mjg0Ljg5ODQzNzUsInkiOjE1NC41OTg2Nzg1ODg4NjcyfSx7IngiOjI4NC44OTg0Mzc1LCJ5IjoxNzkuNTk4Njc4NTg4ODY3Mn0seyJ4IjoyODQuODk4NDM3NSwieSI6MjA0LjU5ODY3ODU4ODg2NzJ9LHsieCI6MjU1Ljk5NDcwMTM4MDg3Njg1LCJ5IjoyNzcuNTU0MzE3NDY5NzQ0MDN9XQ=="></path><path d="M155.482,515.041L148.293,530.968C141.105,546.894,126.728,578.746,119.54,601.839C112.352,624.932,112.352,639.265,112.352,649.932C112.352,660.599,112.352,667.599,112.352,671.099L112.352,674.599" id="L_FW_S1_0" class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_FW_S1_0" data-points="W3sieCI6MTU1LjQ4MTg4MTkxOTA1MzQyLCJ5Ijo1MTUuMDQxNDk4MDA3OTIwNn0seyJ4IjoxMTIuMzUxNTYyNSwieSI6NjEwLjU5ODY3ODU4ODg2NzJ9LHsieCI6MTEyLjM1MTU2MjUsInkiOjY1My41OTg2Nzg1ODg4NjcyfSx7IngiOjExMi4zNTE1NjI1LCJ5Ijo2NzguNTk4Njc4NTg4ODY3Mn1d" marker-end="url(#mermaid-1790953334632_flowchart-v2-pointEnd)"></path><path d="M260.596,515.041L267.785,530.968C274.973,546.894,289.35,578.746,296.538,601.839C303.727,624.932,303.727,639.265,303.727,652.932C303.727,666.599,303.727,679.599,303.727,686.099L303.727,692.599" id="L_FW_S2_0" class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_FW_S2_0" data-points="W3sieCI6MjYwLjU5NjI0MzA4MDk0NjYsInkiOjUxNS4wNDE0OTgwMDc5MjA2fSx7IngiOjMwMy43MjY1NjI1LCJ5Ijo2MTAuNTk4Njc4NTg4ODY3Mn0seyJ4IjozMDMuNzI2NTYyNSwieSI6NjUzLjU5ODY3ODU4ODg2NzJ9LHsieCI6MzAzLjcyNjU2MjUsInkiOjY5Ni41OTg2Nzg1ODg4NjcyfV0=" marker-end="url(#mermaid-1790953334632_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" data-id="L_PC_FW_0" transform="translate(0, 0)"><foreignobject width="0" height="0">
 <div class="labelBkg" data-xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;">
 <span class="edgeLabel"></span>
 </div>
@@ -663,9 +665,9 @@ Kamera
 </div></div>
 </section></section>
 <section>
-<section id="eksploatacja" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
+<section id="eksploatacja" class="title-slide slide level1 sekcja foto center" data-background-color="#0b3b45" data-background-image="../assets/img/kurs/panel-maszyny.jpg" data-background-size="cover">
 <h1>Eksploatacja</h1>
-
+<p><span class="zrodlo">Fot. Shixart1985, CC BY 2.0</span></p>
 </section>
 <section id="testy-awarii" class="slide level2">
 <h2><i class="bi bi-clipboard-check"></i> Plan testów awarii</h2>
@@ -707,8 +709,8 @@ Kamera
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>Nieudana aktualizacja</strong></td>
-<td style="text-align: left;">wydaj obraz z błędną sumą kontrolną</td>
-<td style="text-align: left;">stan <code>FAILED</code> i powrót do wersji poprzedniej (moduł 03)</td>
+<td style="text-align: left;">wydaj obraz z błędną sumą, potem obraz, który nie przejdzie self-testu</td>
+<td style="text-align: left;"><code>FAILED</code> i stara wersja; potem automatyczne wycofanie po restarcie (moduł 03)</td>
 </tr>
 </tbody>
 </table>
@@ -737,7 +739,7 @@ Kamera
 <p><strong>Dlaczego osobny łańcuch</strong></p>
 </div>
 <div class="callout-content">
-<p>Błąd w regule umieszczonej w łańcuchu głównym <strong>zatrzymuje przetwarzanie całej dzierżawy</strong> — także dla urządzeń, które z tą regułą nie mają nic wspólnego.</p>
+<p>Błąd w regule umieszczonej w łańcuchu głównym <strong>może zablokować lub zakłócić przetwarzanie dla całej dzierżawy</strong> — także dla urządzeń, które z tą regułą nie mają nic wspólnego.</p>
 <p>Objaw: „platforma przestała odbierać telemetrię”, przyczyna: jedna źle skonfigurowana reguła powiadomień w cudzym ćwiczeniu.</p>
 </div>
 </div>
@@ -754,7 +756,7 @@ Kamera
 <div class="column" style="width:52%;">
 <ul>
 <li class="fragment"><strong>Licznik energii</strong> mierzący zużycie co 10 sekund pozwala odczytać z profilu poboru, kiedy ktoś włącza czajnik, wychodzi z domu i wraca.</li>
-<li class="fragment"><strong>Zabawki z mikrofonem</strong> wysyłające nieszyfrowane nagrania do chmur w obcych jurysdykcjach bywały wycofywane z rynku europejskiego.</li>
+<li class="fragment"><strong>Lalka My Friend Cayla</strong> z mikrofonem i niezabezpieczonym Bluetooth — zakazana w Niemczech (2017); dziecięcy zegarek Safe-KID-One wycofany z rynku UE (2019).</li>
 <li class="fragment"><strong>Opaski aktywności</strong> profilujące puls mogą posłużyć do różnicowania składki ubezpieczeniowej.</li>
 </ul>
 <div class="fragment">
@@ -790,15 +792,15 @@ Kamera
 <h2><i class="bi bi-file-earmark-text"></i> Obowiązki, które wychodzą poza kod</h2>
 <div class="columns">
 <div class="column" style="width:52%;">
-<p><strong>Cyber Resilience Act — stan faktyczny</strong></p>
-<p><strong>Rozporządzenie (UE) 2024/2847 — Cyber Resilience Act:</strong></p>
+<p><strong>Cyber Resilience Act — rozporządzenie (UE) 2024/2847</strong></p>
 <ul>
-<li><strong>10 grudnia 2024</strong> — wejście w życie,</li>
-<li><strong>11 września 2026</strong> — obowiązek raportowania aktywnie wykorzystywanych podatności,</li>
-<li><strong>11 grudnia 2027</strong> — zasadnicza część wymagań.</li>
+<li><strong>10.12.2024</strong> — wejście w życie,</li>
+<li><strong>od 11.09.2026 obowiązuje</strong> zgłaszanie do CSIRT i ENISA aktywnie wykorzystywanych podatności i poważnych incydentów (24 h / 72 h / raport końcowy),</li>
+<li><strong>11.12.2027</strong> — zasadnicza część wymagań.</li>
 </ul>
+<p><strong>Już dziś</strong> urządzenia radiowe (jak ESP32) obejmuje akt delegowany RED <strong>(UE) 2022/30</strong> — od <strong>01.08.2025</strong>, normy <strong>EN 18031-1/2/3</strong>.</p>
 <div class="fragment">
-<p>Produkt z elementami cyfrowymi wprowadzany na rynek UE musi mieć zapewnione wsparcie bezpieczeństwa — a więc <strong>mechanizm OTA przestaje być udogodnieniem i staje się wymogiem</strong>.</p>
+<p>Produkt wprowadzany na rynek UE musi dostawać <strong>aktualizacje bezpieczeństwa przez cały okres wsparcia</strong> (co najmniej 5 lat, chyba że produkt żyje krócej). CRA nie nakazuje wprost OTA — ale w praktyce dla urządzeń sieciowych to właśnie OTA.</p>
 </div>
 </div><div class="column" style="width:48%;">
 <p><strong>Dokumentacja wyjścia</strong></p>
@@ -830,14 +832,13 @@ Kamera
 <h2><i class="bi bi-battery-charging"></i> Koszt energii jako rama zamykająca</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
+<p>Wracamy do rachunku z wykładu 0:</p>
+<p><img data-src="../assets/img/energia-auto-czlowiek.png" style="width:96.0%" alt="Wykres: 5 km jazdy samochodem spalinowym zużywa 12,1 MJ, tyle co człowiek przez dobę ciężkiej pracy."></p>
 <ul>
-<li class="fragment">Dorosły człowiek przy ciężkiej pracy zużywa około <strong>3000 kcal</strong> dziennie — to <strong>12,6 MJ</strong>, czyli <strong>3,5 kWh</strong>.</li>
-<li class="fragment">Samochód potrzebuje około <strong>2,5 MJ na kilometr</strong>.</li>
-<li class="fragment">Stąd: przejechanie <strong>5 km</strong> samochodem uwalnia ładunek energetyczny porównywalny z całodobowym zapotrzebowaniem organizmu jednego człowieka.</li>
-<li class="fragment">Ludzki mózg wykonuje operacje, których nie powtórzy żadna serwerownia, pobierając <strong>około 20 W</strong>.</li>
+<li class="fragment">Mózg człowieka pobiera <strong>około 20 W</strong>; serwer z akceleratorem AI — setki watów do kilowatów.</li>
 </ul>
 <div class="fragment">
-<p>Systemy komputerowe są prądożerne na wzór aut. Dlatego budżet energii z modułu 02 nie jest ćwiczeniem rachunkowym — jest jedynym miejscem, gdzie ten koszt staje się widoczny na etapie projektu.</p>
+<p>Dlatego budżet energii z modułu 02 nie jest ćwiczeniem rachunkowym — jest miejscem, gdzie ten koszt staje się widoczny na etapie projektu.</p>
 </div>
 </div><div class="column" style="width:45%;">
 <div class="liczby">
@@ -845,14 +846,14 @@ Kamera
 <span class="w">12,6 MJ</span><span class="o">dobowe zapotrzebowanie człowieka</span>
 </div>
 <div>
-<span class="w">5 km</span><span class="o">tyle samo energii w samochodzie</span>
+<span class="w">5 km</span><span class="o">tyle samo energii w samochodzie spalinowym (7 l/100 km)</span>
 </div>
 <div>
 <span class="w">20 W</span><span class="o">pobór mózgu</span>
 </div>
 </div>
 <div class="zrodlo">
-<p>Przeliczenie: 3000 kcal × 4184 J/kcal = 12,55 MJ = 3,49 kWh. Wartości są poglądowe i zależą od osoby oraz pojazdu.</p>
+<p>Przeliczenie: 3000 kcal × 4184 J/kcal = 12,55 MJ = 3,49 kWh. Samochód elektryczny zużywa ok. 0,6 MJ/km. Wartości poglądowe.</p>
 </div>
 </div></div>
 </section>
@@ -894,7 +895,7 @@ Kamera
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Internet Rzeczy zbudowali inżynierowie, którzy chcieli zaoszczędzić sobie chodzenia po schodach po napój.<br> Dziś ta sama filozofia steruje instalacjami, uprawami i systemami, od których zależy czyjeś bezpieczeństwo.</p>
+<p>Jedną z pierwszych rzeczy w sieci był automat z colą, bo inżynierowie z CMU nie chcieli chodzić na próżno.<br> Dziś ta sama filozofia steruje instalacjami, uprawami i systemami, od których zależy czyjeś bezpieczeństwo.</p>
 </div>
 </div>
 </div>
@@ -931,7 +932,9 @@ Kamera
 <ul>
 <li>ThingsBoard, <em>Device Connectivity Status</em> — atrybuty stanu, próg nieaktywności, zdarzenia, strategia raportowania aktywności: <a href="https://thingsboard.io/docs/user-guide/device-connectivity-status/" class="uri">https://thingsboard.io/docs/user-guide/device-connectivity-status/</a></li>
 <li>ThingsBoard, <em>Device Profiles</em> — alarmy i reguły: <a href="https://thingsboard.io/docs/user-guide/device-profiles/" class="uri">https://thingsboard.io/docs/user-guide/device-profiles/</a></li>
-<li>Rozporządzenie (UE) 2024/2847 — <em>Cyber Resilience Act</em>: <a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj" class="uri">https://eur-lex.europa.eu/eli/reg/2024/2847/oj</a></li>
+<li>Rozporządzenie (UE) 2024/2847 — <em>Cyber Resilience Act</em>: <a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj" class="uri">https://eur-lex.europa.eu/eli/reg/2024/2847/oj</a>; obowiązki raportowe: <a href="https://digital-strategy.ec.europa.eu/en/policies/cra-reporting" class="uri">https://digital-strategy.ec.europa.eu/en/policies/cra-reporting</a></li>
+<li>Rozporządzenie delegowane (UE) 2022/30 (RED, cyberbezpieczeństwo urządzeń radiowych): <a href="https://eur-lex.europa.eu/eli/reg_del/2022/30/oj" class="uri">https://eur-lex.europa.eu/eli/reg_del/2022/30/oj</a></li>
+<li>B. Krebs, <em>New Mirai Worm Knocks 900K Germans Offline</em>: <a href="https://krebsonsecurity.com/2016/11/new-mirai-worm-knocks-900k-germans-offline/" class="uri">https://krebsonsecurity.com/2016/11/new-mirai-worm-knocks-900k-germans-offline/</a></li>
 <li>ENISA, <em>Guidelines for Securing the Internet of Things</em>: <a href="https://www.enisa.europa.eu/publications/guidelines-for-securing-the-internet-of-things" class="uri">https://www.enisa.europa.eu/publications/guidelines-for-securing-the-internet-of-things</a></li>
 <li>OWASP, <em>Internet of Things Project</em>: <a href="https://owasp.org/www-project-internet-of-things/" class="uri">https://owasp.org/www-project-internet-of-things/</a></li>
 <li>Espressif, <em>Secure Boot V2</em> dla ESP32-S3: <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/security/secure-boot-v2.html" class="uri">https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/security/secure-boot-v2.html</a></li>
@@ -953,7 +956,7 @@ Kamera
 <ul>
 <li>Yuval Noah Harari, <em>21 lekcji na XXI wiek</em></li>
 <li>Yuval Noah Harari, <em>Homo Deus. Krótka historia jutra</em> (2015)</li>
-<li>Aldous Huxley, <em>Nowy wspaniały świat</em> (1931)</li>
+<li>Aldous Huxley, <em>Nowy wspaniały świat</em> (1932)</li>
 <li>Jacek Dukaj, <em>Po piśmie</em> (2019)</li>
 <li>Ramez Naam, trylogia <em>Nexus · Crux · Apex</em></li>
 </ul>

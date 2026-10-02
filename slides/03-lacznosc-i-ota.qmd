@@ -37,7 +37,10 @@ format:
 :::
 :::
 
-# Fizyczne granice {.sekcja background-color="#0b3b45"}
+# Fizyczne granice {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/maszty.jpg" background-size="cover"}
+
+
+[Fot. CEphoto, Uwe Aranas, CC BY-SA 3.0]{.zrodlo}
 
 ## <i class="bi bi-triangle"></i> Trójkąt niemożliwy {#trojkat}
 
@@ -61,7 +64,7 @@ Komunikacja maszyna–maszyna opiera się na kompromisach nieznanych w świecie 
 :::
 
 ::: {.column width="50%"}
-![](../assets/img/scatter_triangle.png){width="97%" fig-alt="Wykres punktowy rozmieszczający technologie radiowe względem zasięgu, przepustowości i poboru energii — ilustracja trójkąta kompromisów."}
+![](../assets/img/zasieg-przepustowosc.png){width="100%" fig-alt="Wykres zakresów w skali logarytmicznej: Wi-Fi, BLE i Zigbee na krótkim zasięgu z dużą przepustowością, LTE-M i NB-IoT na kilometrach z setkami kb/s, LoRaWAN i Sigfox na kilometrach z kilobitami lub setkami bitów na sekundę."}
 :::
 :::
 
@@ -73,19 +76,23 @@ Komunikacja maszyna–maszyna opiera się na kompromisach nieznanych w świecie 
 ::: {.column width="58%"}
 ::: {.incremental}
 * **Zalety:** duża przepustowość, infrastruktura w każdym budynku, natywna integracja z IP.
-* **Wady:** wyszukiwanie sieci i zestawianie połączenia pochłaniają setki mA, zanim prześlemy jedną wartość wilgotności.
+* **Wady:** wyszukiwanie sieci i zestawienie połączenia to kilka sekund z prądem rzędu **100 mA i więcej** (szczytowo 200–300 mA przy nadawaniu), zanim prześlemy jedną wartość wilgotności.
 * Pasmo 2,4 GHz w gęstej zabudowie jest zatłoczone — degradacja jakości połączenia bywa główną przyczyną „niestabilności" przypisywanej urządzeniu.
-* **Rola w IoT:** tam, gdzie jest stałe zasilanie — bramy, urządzenia AGD, asystenci głosowi. Rzadko jako radio węzła bateryjnego.
+* **Rola w IoT:** tam, gdzie jest stałe zasilanie — bramy, urządzenia AGD, asystenci głosowi. Rzadko jako radio węzła bateryjnego; zmieniają to Wi-Fi 6 (TWT) i Wi-Fi HaLow (802.11ah, sub-GHz).
 :::
 :::
 
 ::: {.column width="42%"}
+![](../assets/img/kurs/router-wifi.jpg){height="220px" fig-alt="Domowy router Wi-Fi z przezroczystą obudową i widoczną płytką."}
+
+[Fot. Florian838, CC BY 4.0]{.zrodlo}
+
 ::: {.callout-note title="Dlaczego to wybór naszego stanowiska"}
 Urządzenie pilotażowe ma **stałe zasilanie** i wymaga **sterowania zwrotnego** z małym opóźnieniem. W tym układzie Wi-Fi 2,4 GHz jest wnioskiem, nie przyzwyczajeniem — ale procedurę doboru i tak wykonujemy jawnie.
 :::
 
 ::: {.fragment}
-Obie płytki stanowiska obsługują wyłącznie **2,4 GHz**. Punkt dostępowy pracujący tylko w 5 GHz jest dla nich niewidoczny.
+Obie płytki stanowiska (ESP32-S3 i ESP32-C3) obsługują wyłącznie **2,4 GHz**. Punkt dostępowy pracujący tylko w 5 GHz jest dla nich niewidoczny.
 :::
 :::
 :::
@@ -99,15 +106,15 @@ Obie płytki stanowiska obsługują wyłącznie **2,4 GHz**. Punkt dostępowy pr
 ### Bluetooth Low Energy
 
 ::: {.incremental}
-* **Classic** projektowano dla ciągłego strumienia (audio) — radio aktywne cały czas.
+* **Classic** projektowano dla ciągłego strumienia (audio) i utrzymywanego połączenia.
 * **BLE** (od Bluetooth 4.0): urządzenie śpi, nadaje kilka pakietów w milisekundy, wraca do uśpienia.
-* Pobór spada nawet stukrotnie; ogniwo CR2032 wystarcza na lata.
-* Zastosowania: opaski, tagi lokalizacyjne, czujniki w zasięgu kilkunastu metrów.
+* Średni pobór spada o rzędy wielkości; ogniwo CR2032 może wystarczyć na lata.
+* Zastosowania: opaski, tagi lokalizacyjne, czujniki w zasięgu kilkunastu–kilkudziesięciu metrów w budynku (BLE 5 Coded PHY — więcej).
 :::
 :::
 
 ::: {.column width="50%"}
-### Zigbee i Z-Wave — topologia kratowa
+### Zigbee, Thread i Z-Wave — topologia kratowa
 
 ::: {.incremental}
 * Urządzenia zasilane z sieci (gniazdka, żarówki) pracują jednocześnie jako routery, przekazując pakiety słabych czujników bateryjnych.
@@ -121,7 +128,7 @@ Sieć odtworzy trasę tylko wtedy, gdy istnieje alternatywny węzeł-router **za
 :::
 
 ::: {.fragment}
-Zigbee Alliance działa od 2021 r. jako **Connectivity Standards Alliance**. Zigbee korzysta z warstwy fizycznej i MAC IEEE 802.15.4; interoperacyjność urządzeń domowych adresuje dziś standard **Matter**.
+Zigbee i **Thread** korzystają z tego samego radia IEEE 802.15.4; Thread przenosi IPv6. Standard **Matter** (Connectivity Standards Alliance, dawniej Zigbee Alliance) działa po IP: przez Wi-Fi, Thread i Ethernet — urządzenia Zigbee dołącza tylko przez **mosty**. Kratową siatkę ma też **Bluetooth Mesh**.
 :::
 
 ---
@@ -133,18 +140,18 @@ Zigbee Alliance działa od 2021 r. jako **Connectivity Standards Alliance**. Zig
 **Low Power Wide Area Network** — zasięg kupiony za przepustowość.
 
 ::: {.incremental}
-* Dostępna przepustowość spada z megabitów na sekundę do **kilkuset bitów na sekundę**, a ładunek pojedynczego komunikatu bywa ograniczony do kilkudziesięciu bajtów.
+* Przepustowość: od **~100 b/s** (Sigfox) przez pojedyncze **kb/s** (LoRaWAN) do **setek kb/s** (NB-IoT, LTE-M); ładunek komunikatu bywa ograniczony do kilkunastu–kilkudziesięciu bajtów.
 * Żywotność ogniwa: 5–10 lat (np. litowo-tionylowego).
 * Zasięg: kilkanaście kilometrów w terenie otwartym.
-* Służy **wyłącznie** telemetrii. Czujnik wilgotności gleby — tak. Kamera — wykluczona.
+* Służy **przede wszystkim** telemetrii. Czujnik wilgotności gleby — tak. Strumień z kamery — nie; pojedyncze zdjęcie przez LTE-M — wyjątkowo.
 :::
 :::
 
 ::: {.column width="48%"}
-![](../assets/img/protocol_bubble.png){width="100%" fig-alt="Wykres bąbelkowy technologii radiowych: oś pozioma to zasięg, oś pionowa przepustowość w skali logarytmicznej, wielkość bąbla oznacza pobór energii."}
+![](../assets/img/kurs/stacja-czujnikowa.jpg){width="100%" fig-alt="Przenośna automatyczna stacja meteorologiczna na statywie w terenie, z panelem słonecznym i anteną."}
 
 ::: {.zrodlo}
-Oś X — dystans, oś Y — przepustowość (skala logarytmiczna), średnica bąbla — względny pobór energii. Wartości poglądowe.
+Zdalna automatyczna stacja pomiarowa — typowy węzeł bez gniazdka i bez Wi-Fi. Fot. NOAA, domena publiczna.
 :::
 :::
 :::
@@ -158,10 +165,10 @@ Oś X — dystans, oś Y — przepustowość (skala logarytmiczna), średnica b�
 ### LoRa / LoRaWAN
 
 ::: {.incremental}
-* **LoRa** — warstwa fizyczna, opatentowana modulacja CSS, odporna na zakłócenia.
-* **LoRaWAN** — otwarty protokół sieciowy; można postawić własną bramę.
-* The Things Network: społecznościowe pokrycie bez opłat.
-* Słabsza penetracja gęstej zabudowy miejskiej.
+* **LoRa** — modulacja CSS (Semtech), odporna na zakłócenia.
+* **LoRaWAN** — otwarty protokół; można postawić własną bramę.
+* The Things Network: bez opłat, *Fair Use* **30 s nadawania i 10 komunikatów w dół na dobę**.
+* Słabsza niż NB-IoT penetracja piwnic.
 :::
 :::
 
@@ -177,8 +184,10 @@ Oś X — dystans, oś Y — przepustowość (skala logarytmiczna), średnica b�
 :::
 :::
 
-* Pasmo 868 MHz jest regulowanym pasmem ISM/SRD: korzystanie nie wymaga indywidualnej opłaty licencyjnej, ale podlega ograniczeniom mocy i **współczynnika wypełnienia** (typowo 1%).
-* NB-IoT ma własną warstwę radiową. Nie obsługuje przełączania między stacjami w trybie połączonym; mobilność obsługuje LTE-M.
+::: {style="font-size:0.82em"}
+* Pasmo 863–870 MHz (SRD) jest bez opłat, ale z limitem **współczynnika wypełnienia** zależnym od podpasma: 0,1%, **1%** (kanały LoRaWAN) albo 10%. 1% = najwyżej 36 s nadawania na godzinę.
+* NB-IoT nie przełącza stacji w trybie połączonym; mobilność obsługuje LTE-M.
+:::
 
 ---
 
@@ -215,14 +224,14 @@ Model „sieć jako usługa": operator dostarcza łączność, użytkownik nie b
 
 ::: {.incremental}
 * Maksymalnie **140 komunikatów na dobę** z jednego urządzenia.
-* Ładunek: **12 bajtów** w górę.
+* Ładunek: **12 bajtów** w górę; w dół 8 bajtów, najwyżej 4 razy na dobę.
 * Architektura silnie asymetryczna — bardzo ograniczona transmisja zwrotna.
 * Idealny do potwierdzenia „jestem sprawny"; nieprzydatny do sterowania.
 :::
 :::
 
 ::: {.column width="48%"}
-Spółka Sigfox została przejęta w 2022 r.; sieć jest dziś rozwijana jako **Sigfox 0G przez UnaBiz**. Przy doborze technologii na lata **ryzyko operatora jest parametrem projektowym** — tak samo jak zasięg.
+Spółka Sigfox została przejęta w 2022 r. przez UnaBiz; sieć działa jako **Sigfox 0G**, a francuska spółka operatora weszła w 2025 r. w sądową restrukturyzację. Przy doborze technologii na lata **ryzyko operatora jest parametrem projektowym** — tak samo jak zasięg.
 
 ::: {.fragment}
 To ten sam rodzaj ryzyka, który w module 06 zobaczymy przy platformach chmurowych. Pytanie brzmi zawsze tak samo: *co robimy, gdy dostawca zamknie usługę?*
@@ -252,7 +261,10 @@ Ten sam rachunek dla czujnika w polu, bez zasilania i bez sterowania, dałby LoR
 :::
 :::
 
-# Łącze, które się podnosi {.sekcja background-color="#0b3b45"}
+# Łącze, które się podnosi {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/przelacznik.jpg" background-size="cover"}
+
+
+[Fot. Raysonho, CC0]{.zrodlo}
 
 ## <i class="bi bi-arrow-repeat"></i> Ponowne łączenie z wycofaniem {#reconnect}
 
@@ -316,7 +328,10 @@ Rozwiązania: zegar RTC z podtrzymaniem, synchronizacja po odzyskaniu sieci i ko
 :::
 :::
 
-# Wydanie firmware {.sekcja background-color="#0b3b45"}
+# Wydanie firmware {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/szafa-sieciowa.jpg" background-size="cover"}
+
+
+[Fot. Shixart1985, CC BY 2.0]{.zrodlo}
 
 ## <i class="bi bi-arrow-down-circle"></i> OTA to nie „nadpisanie firmware" {#ota-co-to}
 
@@ -388,7 +403,7 @@ flowchart LR
     T -- "cokolwiek<br>zawiodło" --> I["mark_app_invalid<br>_rollback_and_reboot"]
     V --> OK["Wersja<br>zatwierdzona"]
     I --> P["Powrót do wersji<br>poprzedniej"]
-    T -. "brak reakcji" .-> P
+    T -. "zawieszenie →<br>watchdog → reset" .-> P
     classDef n fill:#e8f2f4,stroke:#0b6b78,stroke-width:2px,color:#0b3b45
     classDef r fill:#fdf3f4,stroke:#b02a37,stroke-width:2px,color:#8f2029
     class R,T,V,OK n
@@ -399,9 +414,7 @@ Pełne nazwy funkcji: `esp_ota_mark_app_valid_cancel_rollback()` oraz
 `esp_ota_mark_app_invalid_rollback_and_reboot()`.
 
 ::: {.fragment}
-Kluczowa własność: **brak zatwierdzenia jest równoważny odrzuceniu**. Jeśli nowa wersja zawiesi się
-przed wywołaniem funkcji zatwierdzającej, bootloader i tak wróci do poprzedniej — bez udziału człowieka
-i bez połączenia z siecią.
+Kluczowa własność: **brak zatwierdzenia jest równoważny odrzuceniu** — ale dopiero przy **następnym rozruchu**. Zawieszona wersja nic sama nie wycofa: self-test potrzebuje limitu czasu, a watchdog musi wymuszać **reset** (w ESP-IDF Task WDT domyślnie tylko loguje). Wtedy bootloader wraca do poprzedniej wersji bez udziału człowieka i bez sieci.
 :::
 
 ---
@@ -427,7 +440,7 @@ i bez połączenia z siecią.
 
 ::: {.incremental}
 * **Że nowa wersja jest poprawna** — self-test sprawdza tylko to, co w nim napisano.
-* **Że da się wycofać po zatwierdzeniu** — po `mark_app_valid` powrót wymaga kolejnego wydania.
+* **Że wycofanie po zatwierdzeniu będzie automatyczne** — po `mark_app_valid` powrót wymaga jawnej akcji: polecenia przełączenia partycji albo nowego wydania.
 * **Że obraz pochodzi od nas** — to zapewnia podpis i secure boot.
 * **Że aktualizacja dotrze do urządzenia offline** — ono zostaje na starej wersji dowolnie długo.
 :::
@@ -445,7 +458,7 @@ i bez połączenia z siecią.
 ::: {.columns}
 ::: {.column width="52%"}
 W ThingsBoard pakiet firmware ma **tytuł, wersję i sumę kontrolną** (domyślnie SHA-256).
-Tytuł i wersja są **niezmienne w obrębie dzierżawcy** — nie nadpisujemy istniejącej wersji.
+Para tytuł + wersja jest **unikalna w obrębie dzierżawcy** — nie nadpisujemy istniejącej wersji.
 
 Stan aktualizacji ma znaczenie dowodowe, bo część stanów ustawia platforma,
 a część **raportuje samo urządzenie**:
@@ -492,12 +505,12 @@ Wartości są **konserwatywnym górnym ograniczeniem dla pełnych okien wysyłki
 * **Suma SHA-256** pliku `.bin`; klucz podpisu przechowywany poza platformą i poza katalogiem roboczym CI.
 * **Niezmienny tytuł, semantyczna wersja** — nigdy nie nadpisujemy istniejącej wersji.
 * **Najpierw jedno urządzenie `canary`**, dopiero potem przypisanie do profilu.
-* **Celowe zepsucie aktualizacji** (obraz z nieprawidłową sumą) i udokumentowanie powrotu do wersji poprzedniej.
+* **Dwa celowe błędy:** (a) obraz z nieprawidłową sumą → stan `FAILED`, urządzenie zostaje na starej wersji; (b) poprawny obraz, który **nie przechodzi self-testu** (np. zły adres brokera) → automatyczne wycofanie.
 :::
 
 ::: {.fragment}
 ::: {.callout-important title="Kryterium zaliczenia"}
-Bez ostatniego punktu ćwiczenie nie jest zaliczone. Mechanizm wycofania, którego nigdy nie wywołano, jest założeniem — nie zabezpieczeniem.
+Bez ostatniego punktu — obu przypadków — ćwiczenie nie jest zaliczone. Mechanizm wycofania, którego nigdy nie wywołano, jest założeniem — nie zabezpieczeniem.
 :::
 :::
 
@@ -506,7 +519,7 @@ Bez ostatniego punktu ćwiczenie nie jest zaliczone. Mechanizm wycofania, które
 ## <i class="bi bi-question-circle"></i> Pytania sprawdzające {#pytania}
 
 ::: {.pytania}
-* Urządzenie pobrało nowy obraz, zapisało go, przestawiło partycję rozruchową i zrestartowało się. Po starcie nie łączy się z brokerem, ale poza tym działa i nie zawiesza się. Co się stanie po kolejnym restarcie, jeżeli firmware **nie wywołał** funkcji zatwierdzającej — i dlaczego to jest zachowanie pożądane?
+* Urządzenie pobrało nowy obraz, zapisało go, przestawiło partycję rozruchową i zrestartowało się. Po starcie nie łączy się z brokerem, ale poza tym działa i nie zawiesza się. Co się stanie, jeśli nic go nie zrestartuje, a co po kolejnym restarcie, jeżeli firmware **nie wywołał** funkcji zatwierdzającej? Co trzeba dodać do self-testu, żeby powrót był pewny?
 * Zespół chce wydać poprawkę dla 240 urządzeń i zapowiada operatorowi „aktualizacja zajmie minutę". Policz rzeczywisty czas przy domyślnych parametrach platformy i wskaż, co poza tempem wysyłki może ten czas wydłużyć.
 * Czujnik ma pracować w polu przez sezon, zasilany z ogniwa, i raportować raz na godzinę. Zastosuj cztery liczby doboru technologii i uzasadnij, dlaczego Wi-Fi jest tu złym wyborem, mimo że płytka je obsługuje.
 :::
@@ -543,7 +556,8 @@ Bez ostatniego punktu ćwiczenie nie jest zaliczone. Mechanizm wycofania, które
 * Espressif, *Over The Air Updates (OTA)* dla ESP32-S3 — partycje, rollback, anti-rollback: <https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/api-reference/system/ota.html>
 * Espressif, *Partition Tables*: <https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/api-guides/partition-tables.html>
 * ThingsBoard, *OTA Updates* — pakiety, suma kontrolna, stany aktualizacji, tempo wdrożenia: <https://thingsboard.io/docs/user-guide/ota-updates/>
-* ETSI EN 300 220-2 — urządzenia krótkiego zasięgu 25–1000 MHz (moc, współczynnik wypełnienia); dostęp przez portal ETSI po numerze normy: <https://www.etsi.org/standards>
+* ETSI EN 300 220-2 V3.2.1 — urządzenia krótkiego zasięgu 25–1000 MHz (moc, współczynnik wypełnienia): <https://www.etsi.org/standards>
+* The Things Network — *Duty cycle* i *Fair Use Policy*: <https://www.thethingsnetwork.org/docs/lorawan/duty-cycle/>
 * LoRa Alliance — specyfikacja LoRaWAN i parametry regionalne: <https://resources.lora-alliance.org/technical-specifications>
 * 3GPP Release 13 — wprowadzenie NB-IoT (2016).
 * UnaBiz — sieć Sigfox 0G po przejęciu: <https://www.unabiz.com/>

@@ -37,7 +37,10 @@ format:
 :::
 :::
 
-# Protokół {.sekcja background-color="#0b3b45"}
+# Protokół {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/sortownia-poczty.jpg" background-size="cover"}
+
+
+[Fot. Archives New Zealand, CC BY-SA 2.0]{.zrodlo}
 
 ## <i class="bi bi-x-octagon"></i> Dlaczego HTTP nie pasuje {#http}
 
@@ -45,12 +48,12 @@ format:
 ::: {.column width="56%"}
 ::: {.incremental}
 * **Narzut nagłówków** — nagłówki HTTP potrafią zająć więcej bajtów niż sama wartość „temperatura = 22,5 °C".
-* **Model żądanie–odpowiedź** — architektura synchroniczna: czujnik czeka na potwierdzenie z włączonym, prądożernym radiem.
-* **Brak natywnej asynchroniczności i rozgłaszania** — każdy odbiorca musi indywidualnie odpytywać serwer, a urządzenie nie ma jak otrzymać polecenia bez odpytywania.
+* **Model żądanie–odpowiedź** — każda wymiana zaczyna się od klienta; nowe połączenie TLS to kilka dodatkowych wymian z włączonym, prądożernym radiem.
+* **Brak natywnej asynchroniczności i rozgłaszania** — każdy odbiorca musi indywidualnie odpytywać serwer, a urządzenie nie otrzyma polecenia bez stałego połączenia albo odpytywania.
 :::
 
 ::: {.fragment}
-Skala problemu: mediana strony głównej to około **2,6–2,9 MB** (HTTP Archive, 2025). ESP32-S3 ma 512 kB SRAM — około **pięć razy mniej niż jedna strona**, jeszcze zanim wydzielimy pamięć na program, stos i TLS.
+Dla skali: samo zestawienie sesji TLS i nagłówki HTTP to zwykle **setki bajtów do kilku kB** na żądanie — przy ładunku rzędu kilkudziesięciu bajtów. Utrzymane połączenie MQTT płaci ten koszt raz.
 :::
 :::
 
@@ -96,13 +99,13 @@ Protokół powstał w 1999 r. we współpracy **Andy'ego Stanforda-Clarka (IBM)*
 ::: {.column width="50%"}
 Dwa bajty to **minimalny rozmiar nagłówka stałego**: jeden bajt typu pakietu i flag oraz co najmniej jeden bajt pola `Remaining Length`, kodowanego jako liczba zmiennobajtowa **o długości 1–4 bajtów**.
 
-Do tego dochodzi nagłówek zmienny — przede wszystkim **nazwa tematu** i identyfikator pakietu — a w MQTT 5.0 jeszcze właściwości.
+Do tego dochodzi nagłówek zmienny — przede wszystkim **nazwa tematu**, a przy QoS > 0 identyfikator pakietu — w MQTT 5.0 jeszcze właściwości (co najmniej 1 B). MQTT 5 pozwala zastąpić długi temat **aliasem** (Topic Alias), liczbą o długości 2 B.
 
 Realny narzut pakietu `PUBLISH` zależy więc głównie od **długości nazwy tematu**. Binarny jest nagłówek MQTT; format ładunku (np. JSON, CBOR lub Protobuf) określa osobny kontrakt danych.
 :::
 
 ::: {.column width="50%"}
-Ten sam pusty ładunek, dwa drzewa tematów:
+Ten sam pusty ładunek, dwa drzewa tematów (MQTT 3.1.1):
 
 | Temat | Długość | Pakiet `PUBLISH` |
 |:---|:---|:---|
@@ -120,7 +123,10 @@ Różnica **41 B na komunikat** wynika wyłącznie z długości tematu. Przy pub
 :::
 :::
 
-# Tematy i niezawodność {.sekcja background-color="#0b3b45"}
+# Tematy i niezawodność {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/panel-krosowy.jpg" background-size="cover"}
+
+
+[Fot. Dsimic, CC BY-SA 4.0]{.zrodlo}
 
 ## <i class="bi bi-folder2-open"></i> Drzewo tematów pilota {#tematy}
 
@@ -131,7 +137,7 @@ Różnica **41 B na komunikat** wynika wyłącznie z długości tematu. Przy pub
 | `lab/{zespol}/{urzadzenie}/telemetry` | **tylko urządzenie** | nie | pomiary okresowe |
 | `lab/{zespol}/{urzadzenie}/state` | **tylko urządzenie** | **tak** | stan i atrybuty: wersja firmware, okres próbkowania, adres |
 | `lab/{zespol}/{urzadzenie}/command` | klient / platforma | **nigdy** | polecenia; urządzenie wyłącznie subskrybuje |
-| `lab/{zespol}/{urzadzenie}/status` | broker (Last Will) | **tak** | `offline` po nieuprzejmym rozłączeniu |
+| `lab/{zespol}/{urzadzenie}/status` | urządzenie (`online` po połączeniu) i broker w jego imieniu (Will `offline`) | **tak** | `online` / `offline` po nieuprzejmym rozłączeniu |
 
 ::: {.fragment}
 Reguła porządkująca: **kto publikuje, ten nie subskrybuje tego samego tematu**. Złamanie tej zasady
@@ -144,10 +150,10 @@ daje pętle, których nie widać w logu, bo każdy komunikat z osobna wygląda p
 
 ::: {.columns}
 ::: {.column width="52%"}
-Komunikat `retained` jest dostarczany **każdemu nowemu subskrybentowi** zaraz po subskrypcji.
+Komunikat `retained` jest domyślnie dostarczany **każdemu nowemu subskrybentowi** zaraz po subskrypcji.
 
 ::: {.fragment}
-Polecenie `retained` zostanie więc wykonane ponownie **przy każdym restarcie urządzenia**.
+Polecenie `retained` zostanie więc wykonane ponownie **przy każdym restarcie urządzenia**, które po połączeniu znów subskrybuje temat poleceń. Usunięcie: publikacja **pustego ładunku** z flagą retain.
 :::
 
 ::: {.fragment}
@@ -196,14 +202,16 @@ Objaw zgłaszany przez użytkownika brzmi: „pompa włącza się sama". Przyczy
 | **QoS 1** — co najmniej raz | stan, zdarzenia, polecenia w prostych układach | możliwe **duplikaty** — odbiorca musi być idempotentny |
 | **QoS 2** — dokładnie raz | operacje, których powtórzenie jest kosztowne | czterofazowa wymiana; największe opóźnienie i zużycie energii |
 | **Retained** | stan, który nowy subskrybent musi znać natychmiast | nieaktualny stan „żyje" do nadpisania |
-| **Last Will** | wykrycie nieuprzejmego rozłączenia | ustawiany przy `CONNECT`; **nie zadziała** po poprawnym `DISCONNECT` |
-| **Keep alive** | detekcja martwego łącza TCP | krótki okres = częstsze `PINGREQ` = więcej energii |
+| **Last Will** | wykrycie nieuprzejmego rozłączenia | ustawiany przy `CONNECT`; **nie zadziała** po `DISCONNECT` z kodem 0x00 (w MQTT 5 kod 0x04 celowo go wyzwala) |
+| **Keep alive** | detekcja martwego łącza TCP | przy braku innego ruchu krótki okres = częstsze `PINGREQ` = więcej energii; broker rozłącza po 1,5 × keep alive |
 | **Session Expiry** (MQTT 5) | odbiór zaległości po powrocie urządzenia | broker utrzymuje stan sesji — zużycie pamięci serwera |
 :::
 :::
 
 ::: {.column width="45%"}
-Specyfikacja opisuje trzy poziomy jako: *co najwyżej raz*, *co najmniej raz* i *dokładnie raz*. **Żaden poziom nie gwarantuje dostarczenia przy trwale przerwanym łączu** — określa semantykę dostarczenia po ponownym zestawieniu sesji.
+Specyfikacja opisuje trzy poziomy jako: *co najwyżej raz*, *co najmniej raz* i *dokładnie raz*. **Żaden poziom nie gwarantuje dostarczenia przy trwale przerwanym łączu.** Zaległe QoS 1 i 2 są dostarczane po powrocie tylko przy zachowanej sesji (Clean Session = 0, w MQTT 5 Session Expiry > 0).
+
+QoS działa **na jednym odcinku**: subskrybent dostaje min(QoS publikacji, QoS subskrypcji).
 
 ::: {.fragment}
 ::: {.callout-warning title="I jeszcze jedno ograniczenie"}
@@ -241,7 +249,10 @@ Koszt energetyczny rośnie z liczbą wymian: QoS 2 to **cztery pakiety** zamiast
 pozostać włączone przez cały czas wymiany.
 :::
 
-# Kontrakt danych {.sekcja background-color="#0b3b45"}
+# Kontrakt danych {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/panel-sterowania.jpg" background-size="cover"}
+
+
+[Fot. Shixart1985, CC BY 2.0]{.zrodlo}
 
 ## <i class="bi bi-file-earmark-code"></i> Samoopisujący się ładunek {#kontrakt}
 
@@ -268,7 +279,7 @@ Ten komunikat da się zinterpretować **bez dokumentacji obok**. To jest cel.
 * **`schema`** — numer wersji kontraktu. Bez niego nie da się wprowadzić zmiany bez przestoju wszystkich odbiorców.
 * **`ts`** — czas w **UTC**, ISO 8601 ze strefą. Czas lokalny w telemetrii jest źródłem błędów na przełomie czasu zimowego i letniego: godzina 02:30 występuje dwa razy albo wcale.
 * **Jednostka jest częścią nazwy pola** (`_c`, `_pct`) — odbiorca nie musi zgadywać ani pytać.
-* **`seq`** — licznik rosnący; pozwala wykryć lukę w strumieniu bez porównywania znaczników czasu i wykryć duplikat z QoS 1.
+* **`seq`** — licznik rosnący; pozwala wykryć lukę i duplikat z QoS 1. Po restarcie licznik się zeruje — dlatego przechowujemy go nieulotnie albo łączymy z identyfikatorem rozruchu.
 * **`device`, `fw`** — identyfikacja źródła, przydatna przy diagnozie „która partia urządzeń psuje dane".
 :::
 :::
@@ -286,7 +297,7 @@ Ten komunikat da się zinterpretować **bez dokumentacji obok**. To jest cel.
 
 ::: {.incremental}
 * Urządzenie wysyła nowe pole, `schema` bez zmian.
-* Starzy odbiorcy ignorują nieznane pole, nowi z niego korzystają.
+* Starzy odbiorcy ignorują nieznane pole — o ile kontrakt nakazuje tolerancyjny parser — nowi z niego korzystają.
 :::
 
 **Zmiana niezgodna** — inne znaczenie albo jednostka
@@ -302,11 +313,11 @@ Ten komunikat da się zinterpretować **bez dokumentacji obok**. To jest cel.
 ::: {.callout-warning title="Najgorszy wariant"}
 Zmiana jednostki z °C na dziesiąte części °C **bez** podniesienia `schema`.
 
-Odbiorca nadal parsuje komunikat poprawnie, wykresy się rysują, alarmy działają — a wszystkie wartości są dziesięciokrotnie za duże. Błąd ujawni się dopiero wtedy, gdy ktoś spojrzy na wykres.
+Odbiorca nadal parsuje komunikat poprawnie i wykresy się rysują — ale wartości są dziesięciokrotnie za duże. Alarmy progowe zaczynają się wyzwalać fałszywie, a historia zostaje wymieszana z danymi w innej jednostce.
 :::
 
 ::: {.fragment}
-Dlatego jednostka jest w **nazwie pola**: zmiana jednostki wymusza zmianę nazwy, a ta jest widoczna natychmiast.
+Jednostka w **nazwie pola** pomaga człowiekowi, ale niczego nie wymusza. Wymusza dopiero **walidacja schematu** (np. JSON Schema z dopuszczalnym zakresem) na brzegu — moduł 05. Standardowy zapis jednostek: SenML, RFC 8428.
 :::
 :::
 :::
@@ -318,7 +329,7 @@ Dlatego jednostka jest w **nazwie pola**: zmiana jednostki wymusza zmianę nazwy
 ::: {.columns}
 ::: {.column width="50%"}
 Polecenie zawiera **identyfikator żądania**. Urządzenie zapamiętuje ostatnie wykonane identyfikatory
-i ignoruje powtórzenia.
+— **nieulotnie**, bo broker może ponowić komunikat po restarcie — i ignoruje powtórzenia.
 
 ```json
 {
@@ -393,8 +404,9 @@ Wildcard `#` dla publikacji objąłby także `command`, dlatego tematy zapisu wy
 ### CoAP
 
 ::: {.incremental}
-* Odpowiednik HTTP (GET, POST, PUT) oparty na **UDP** — lżejszy i szybszy.
-* Wbudowane wsparcie DTLS.
+* Odpowiednik HTTP (GET, POST, PUT, DELETE) oparty na **UDP** — lżejszy i szybszy.
+* Zabezpieczenie przez powiązanie z DTLS (`coaps`, port 5684).
+* Rozszerzenie **Observe** (RFC 7641) pozwala subskrybować zmiany zasobu.
 * Sprawdza się tam, gdzie MQTT jest „za dużo": mikrokontroler, który po prostu odpowiada na pytanie „podaj aktualną temperaturę", bez stałego połączenia z brokerem.
 :::
 
@@ -408,14 +420,14 @@ CoAP ma własny tryb **potwierdzany**: komunikaty *confirmable* korzystają z AC
 
 ::: {.incremental}
 * Rozbudowany system kolejek dla środowisk korporacyjnych i finansowych.
-* Zbyt ciężki dla mikrokontrolera — jego miejsce jest **na zapleczu**, między serwerami (np. RabbitMQ).
+* Zbyt ciężki dla mikrokontrolera — jego miejsce jest **na zapleczu**, między serwerami (np. RabbitMQ, natywnie AMQP 1.0 od wersji 4).
 * W architekturze IoT pojawia się za platformą, nie przed nią.
 :::
 
 ::: {.fragment}
 ::: {.callout-note title="Reguła wyboru"}
 MQTT — strumień telemetrii i polecenia do wielu odbiorców.
-CoAP — pojedyncze zapytanie o bieżącą wartość.
+CoAP — zapytanie o bieżącą wartość lub obserwacja jednego zasobu.
 AMQP — kolejkowanie między usługami serwerowymi.
 :::
 :::
@@ -432,7 +444,7 @@ AMQP — kolejkowanie między usługami serwerowymi.
 * Publikacja telemetrii widoczna w subskrypcji `mosquitto_sub` **z jawnie podanym QoS**.
 * Nowy subskrybent otrzymuje stan **natychmiast po podłączeniu** — dowód działania `retained`.
 * Polecenie wykonane **raz**, mimo dwukrotnej publikacji z tym samym identyfikatorem żądania — dowód idempotencji.
-* Odłączenie zasilania urządzenia skutkuje pojawieniem się `offline` w temacie `status` w czasie zgodnym z `keep alive` — dowód działania Last Will.
+* Odłączenie zasilania urządzenia skutkuje pojawieniem się `offline` w temacie `status` po czasie nie dłuższym niż ok. **1,5 × keep alive** (plus Will Delay Interval w MQTT 5) — dowód działania Last Will.
 * Po przywróceniu zasilania stan i telemetria wracają **bez ręcznej interwencji** — i pompa **nie** włącza się sama.
 :::
 
@@ -443,10 +455,13 @@ AMQP — kolejkowanie między usługami serwerowymi.
 | Warstwa | Technologia | Zastosowanie |
 |:---|:---|:---|
 | **Krótki zasięg** | BLE, Zigbee, Z-Wave | urządzenia noszone, instalacje domowe, czujniki lokalne |
-| **Daleki zasięg** | LoRaWAN, NB-IoT, Sigfox 0G | rolnictwo, monitoring środowiskowy, infrastruktura miejska |
+| **Daleki zasięg** | LoRaWAN, NB-IoT, LTE-M, Sigfox 0G* | rolnictwo, monitoring środowiskowy, infrastruktura miejska |
 | **Protokół aplikacyjny** | **MQTT** (pub/sub) | strumień telemetrii, polecenia, wielu odbiorców |
 | **Protokół aplikacyjny** | CoAP (żądanie/odpowiedź, UDP) | pojedyncze odczyty na mikrokontrolerach |
-| **Protokół aplikacyjny** | HTTP | wyłącznie bramy i serwery ze stałym zasilaniem |
+| **Protokół aplikacyjny** | HTTP | przede wszystkim bramy i urządzenia ze stałym zasilaniem |
+| **Zaplecze** | AMQP | kolejki między usługami serwerowymi |
+
+[\* Operator Sigfox 0G (UnaBiz) — przyszłość sieci niepewna; zob. moduł 03.]{style="font-size:0.6em"}
 
 ::: {.fragment}
 Zasada porządkująca cały ten wykład i poprzedni: **im dalej chcesz przesłać dane, tym mniej ich
@@ -493,11 +508,12 @@ Umowa jest zapisana. Teraz ktoś musi jej **pilnować**: sprawdzić, czy komunik
 ## <i class="bi bi-journal-text"></i> Źródła {#zrodla}
 
 ::: {style="font-size: 0.7em;"}
-* HTTP Archive, *Web Almanac 2025 — Page Weight* (mediany rozmiaru stron): <https://almanac.httparchive.org/en/2025/page-weight>
 * OASIS, *MQTT Version 5.0* — struktura pakietu, QoS, retained, Will Message, Session Expiry Interval: <https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html>
 * OASIS, *MQTT Version 3.1.1* (= ISO/IEC 20922:2016): <https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html>
 * Eclipse Mosquitto — konfiguracja brokera, ACL i TLS: <https://mosquitto.org/man/mosquitto-conf-5.html>
 * IETF RFC 7252 — *The Constrained Application Protocol (CoAP)*: <https://www.rfc-editor.org/rfc/rfc7252>
 * OASIS, *AMQP 1.0*: <https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-overview-v1.0-os.html>
 * IETF RFC 3339 / ISO 8601 — zapis znacznika czasu: <https://www.rfc-editor.org/rfc/rfc3339>
+* IETF RFC 8428 — *Sensor Measurement Lists (SenML)*: <https://www.rfc-editor.org/rfc/rfc8428>
+* IETF RFC 7641 — *Observing Resources in CoAP*: <https://www.rfc-editor.org/rfc/rfc7641>
 :::

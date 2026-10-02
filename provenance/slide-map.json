@@ -2414,12 +2414,266 @@
  ],
  "ilustracje_wykorzystane": [
   {
+   "plik": "kurs/kasa-kody.jpg",
+   "autor": "U.S. Navy photo by Photographer’s Mate 1st Class Michael W. Pendergrass.",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:US_Navy_020813-N-3235P-532_A_Navy_family_unloads_their_shopping_cart_while_purchasing_groceries_at_the_Navy_Commissary_located_just_outside_Naval_Air_Station_Oceana.jpg",
+   "licencja": "domena publiczna",
+   "slajdy": [
+    "01#skąd-się-to-wzięło"
+   ]
+  },
+  {
+   "plik": "kurs/operatorzy.jpg",
+   "autor": "PEO ACWA",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Blue_Grass_Chemical_Agent-Destruction_Pilot_Plant_Control_Room_Operators_(33545979468).jpg",
+   "licencja": "CC BY 2.0",
+   "slajdy": [
+    "01#model-odniesienia"
+   ]
+  },
+  {
+   "plik": "kurs/stacja-meteo-antarktyda.jpg",
+   "autor": "William M. Connolley",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:IMG_0430-aws-rothera_1200x900.jpg",
+   "licencja": "CC BY-SA 3.0",
+   "slajdy": [
+    "01#od-narracji-do-wymagań"
+   ]
+  },
+  {
+   "plik": "kurs/rfid-etykieta.jpg",
+   "autor": "Boevaya mashina",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:RFID_tag_in_textile_label_disassembled.jpg",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "01#ashton"
+   ]
+  },
+  {
+   "plik": "kurs/lutowanie.jpg",
+   "autor": "Aisart",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Soldering_a_0805.jpg",
+   "licencja": "CC BY-SA 3.0",
+   "slajdy": [
+    "02#percepcja-zmysły-i-mięśnie"
+   ]
+  },
+  {
+   "plik": "kurs/pcb-smd.jpg",
+   "autor": "wdwd",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:SMD_circuit_on_a_wave_soldered_PCB.JPG",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "02#płytki-stanowiska"
+   ]
+  },
+  {
+   "plik": "kurs/ogniwa.jpg",
+   "autor": "Mk2010",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:18650_Li-ion_%26_Panasonic_CR123A_20121116.jpg",
+   "licencja": "CC BY-SA 3.0",
+   "slajdy": [
+    "02#energia"
+   ]
+  },
+  {
+   "plik": "kurs/esp32-plytka.jpg",
+   "autor": "Edwiyanto",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:ESP32_Dev_Board.jpg",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "02#platformy"
+   ]
+  },
+  {
+   "plik": "kurs/raspberry-pi.jpg",
+   "autor": "Laserlicht",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Raspberry_Pi_4_Model_B_-_Top.jpg",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "02#platformy",
+    "05#brama"
+   ]
+  },
+  {
+   "plik": "kurs/multimetr-prad.jpg",
+   "autor": "Christiankral",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Fluke_multimeter_DC_current.jpg",
+   "licencja": "CC BY 4.0",
+   "slajdy": [
+    "02#deep-sleep"
+   ]
+  },
+  {
+   "plik": "kurs/maszty.jpg",
+   "autor": "CEphoto, Uwe Aranas",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Lahad-Datu_Sabah_Mount-Silam-Telecommunication-towers-01.jpg",
+   "licencja": "CC BY-SA 3.0",
+   "slajdy": [
+    "03#fizyczne-granice"
+   ]
+  },
+  {
+   "plik": "kurs/przelacznik.jpg",
+   "autor": "Raysonho @ Open Grid Scheduler / Grid Engine",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:EthernetSwitch.jpg",
+   "licencja": "CC0",
+   "slajdy": [
+    "03#łącze-które-się-podnosi"
+   ]
+  },
+  {
+   "plik": "kurs/szafa-sieciowa.jpg",
+   "autor": "Shixart1985",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Network_equipment_and_cables_organized_in_a_server_rack_at_a_modern_office_environment_during_the_afternoon.jpg",
+   "licencja": "CC BY 2.0",
+   "slajdy": [
+    "03#wydanie-firmware"
+   ]
+  },
+  {
+   "plik": "kurs/router-wifi.jpg",
+   "autor": "Florian838",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:TP-Link_WR841ND_WiFi_router_transparent.png",
+   "licencja": "CC BY 4.0",
+   "slajdy": [
+    "03#wifi"
+   ]
+  },
+  {
+   "plik": "kurs/stacja-czujnikowa.jpg",
+   "autor": "NOAA",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:PHOTO-IMETs-traiining-Incident-Remote-Automatic-Weather-Station-2023.jpg",
+   "licencja": "domena publiczna",
+   "slajdy": [
+    "03#lpwan"
+   ]
+  },
+  {
+   "plik": "kurs/sortownia-poczty.jpg",
+   "autor": "Archives New Zealand from New Zealand",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:General_Post_Office_mail_sorting_room,_Wellington_c.1900s.jpg",
+   "licencja": "CC BY-SA 2.0",
+   "slajdy": [
+    "04#protokół"
+   ]
+  },
+  {
+   "plik": "kurs/panel-krosowy.jpg",
+   "autor": "Dsimic",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:19-inch_rackmount_Ethernet_switches_and_patch_panels.jpg",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "04#tematy-i-niezawodność"
+   ]
+  },
+  {
+   "plik": "kurs/panel-sterowania.jpg",
+   "autor": "Shixart1985",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Control_panel_displays_settings_and_data_for_industrial_equipment.jpg",
+   "licencja": "CC BY 2.0",
+   "slajdy": [
+    "04#kontrakt-danych"
+   ]
+  },
+  {
+   "plik": "kurs/raspberry-przelacznik.jpg",
+   "autor": "RAIL P (RAIL.PHOTOGRAPHY)",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Raspberry_Pi_4_on_a_network_switch.jpg",
+   "licencja": "CC0",
+   "slajdy": [
+    "05#brzeg-sieci"
+   ]
+  },
+  {
+   "plik": "kurs/kable-splatane.jpg",
+   "autor": "Kim Scarborough from Chicago, IL",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Server_Rack_with_Spaghetti-Like_Mass_of_Network_Cables.jpg",
+   "licencja": "CC BY-SA 2.0",
+   "slajdy": [
+    "05#przepływ"
+   ]
+  },
+  {
+   "plik": "kurs/sterownia-nasa.jpg",
+   "autor": "NASA Glenn Research Center",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Operators_in_the_Plum_Brook_Reactor_Facility_Control_Room_(GRC-1970-C-00860).jpg",
+   "licencja": "domena publiczna",
+   "slajdy": [
+    "05#zapis-do-arkusza"
+   ]
+  },
+  {
+   "plik": "kurs/monitory-diagnostyczne.jpg",
+   "autor": "Siarhei Besarab",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Diagnostic_monitors_in_the_control_room_of_Wendelstein_7-X.jpg",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "06#model-danych"
+   ]
+  },
+  {
+   "plik": "kurs/panel-robota.jpg",
+   "autor": "Artem Svetlov from Moscow, Russia",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%B0%D0%BD%D0%B5%D0%BB%D1%8C_%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%BE%D0%BC_(14660763727).jpg",
+   "licencja": "CC BY 2.0",
+   "slajdy": [
+    "06#styk-z-urządzeniem"
+   ]
+  },
+  {
+   "plik": "kurs/turbina-serwis.jpg",
+   "autor": "U.S. Department of Energy from United States",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Wind_turbine_maintenance_(51689968067).jpg",
+   "licencja": "domena publiczna",
+   "slajdy": [
+    "06#kontekst-i-ryzyko"
+   ]
+  },
+  {
+   "plik": "kurs/oscyloskop.jpg",
+   "autor": "Jrmlhermitte",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Oscilloscope_with_a_Doppler_radar_signal.jpg",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "07#odporność"
+   ]
+  },
+  {
+   "plik": "kurs/klodka.jpg",
+   "autor": "Lacz02",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Padlock_with_chain.jpg",
+   "licencja": "CC BY-SA 4.0",
+   "slajdy": [
+    "07#bezpieczeństwo"
+   ]
+  },
+  {
+   "plik": "kurs/panel-maszyny.jpg",
+   "autor": "Shixart1985",
+   "zrodlo": "https://commons.wikimedia.org/wiki/File:Worker_interacts_with_machine_control_panel_in_a_manufacturing_facility.jpg",
+   "licencja": "CC BY 2.0",
+   "slajdy": [
+    "07#eksploatacja"
+   ]
+  },
+  {
+   "plik": "zasieg-przepustowosc.png",
+   "autor": "wykres własny",
+   "zrodlo": "scripts/make-figures.py",
+   "licencja": "CC BY 4.0",
+   "slajdy": [
+    "03#trojkat"
+   ]
+  },
+  {
    "plik": "iot-urzadzenia.png",
    "autor": "wykres własny (dane IoT Analytics 2025)",
    "zrodlo": "scripts/make-figures.py",
    "licencja": "CC BY 4.0",
    "slajdy": [
-    "00#skala"
+    "00#skala",
+    "01#skala"
    ]
   },
   {
@@ -2428,7 +2682,8 @@
    "zrodlo": "scripts/make-figures.py",
    "licencja": "CC BY 4.0",
    "slajdy": [
-    "00#energia"
+    "00#energia",
+    "07#koszt-energii"
    ]
   },
   {
@@ -2437,7 +2692,8 @@
    "zrodlo": "https://commons.wikimedia.org/wiki/File:Black_Marble_-_City_Lights_2012_(8246892319).jpg",
    "licencja": "domena publiczna",
    "slajdy": [
-    "00#motto"
+    "00#motto",
+    "07#rama"
    ]
   },
   {

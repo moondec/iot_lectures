@@ -174,6 +174,22 @@ out["adc"] = {
 assert out["adc"]["kroki"] == 4096
 assert out["adc"]["LSB_mV_dla_3V3"] == 0.806
 
+# --- 8b. Seryjna płytka w uśpieniu i próg roku pracy (wykład 02) -------
+# Seryjna Nano ESP32 w deep sleep: ok. 2 mA (dioda zasilania, przetwornica,
+# PSRAM); pomiary użytkowników, nie dane producenta.
+I_SLEEP_PLYTKA = 2.0                           # mA
+isr_plytka = i_sr(I_ACT, T_ACT, I_SLEEP_PLYTKA, T_CYCLE)
+prog_rok = LI18650 / (24 * 365)                # mA dla roku z 3400 mAh
+T_rok = (I_ACT * T_ACT - I_SLEEP * T_ACT) / (prog_rok - I_SLEEP)
+out["energia_plytka_seryjna"] = {
+    "I_sleep_mA": I_SLEEP_PLYTKA,
+    "I_sr_15min_mA": round(isr_plytka, 3),
+    "18650_dni": round(LI18650 / isr_plytka / 24, 1),
+    "okres_dla_roku_18650_min": round(T_rok / 60, 1),
+}
+assert out["energia_plytka_seryjna"]["I_sr_15min_mA"] == 2.393
+assert out["energia_plytka_seryjna"]["okres_dla_roku_18650_min"] == 17.7
+
 # --- 9. Paliwo a dobowa energia człowieka (wykład 00) ------------------
 # Rachunek z prezentacji źródłowej „Internet przyszłości” (2022).
 E5_MJ_KG, E5_KG_L = 43.2, 0.80                 # wartość opałowa, gęstość benzyny

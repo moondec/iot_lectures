@@ -29,7 +29,7 @@ format:
 ### Droga
 
 1. Dlaczego nie zaczynamy od wykresu
-2. Trzy rodzaje danych w platformie
+2. Telemetria i trzy zakresy atrybutów
 3. Tematy, porty, poświadczenia
 4. Pulpit i sterowanie przez RPC
 5. Cyfrowy bliźniak — jedno omówienie
@@ -37,7 +37,10 @@ format:
 :::
 :::
 
-# Model danych {.sekcja background-color="#0b3b45"}
+# Model danych {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/monitory-diagnostyczne.jpg" background-size="cover"}
+
+
+[Fot. Siarhei Besarab, CC BY-SA 4.0]{.zrodlo}
 
 ## <i class="bi bi-layout-text-window"></i> Wykres jest ostatni, nie pierwszy {#model-najpierw}
 
@@ -60,27 +63,29 @@ Wykres jest **ostatnim elementem łańcucha**. Najpierw powstaje model danych �
 ::: {.callout-warning title="Kolejność, która nie działa"}
 Zaczynamy od pulpitu, dobieramy widget, a potem dopasowujemy do niego dane z urządzenia.
 
-Efekt: wersja firmware i adres IP jako szereg czasowy, progi alarmowe zaszyte w widgecie zamiast w profilu urządzenia, i zmiana okresu próbkowania wymagająca ponownego wgrania firmware.
+Efekt: wersja firmware i adres IP jako szereg czasowy, progi alarmowe zaszyte w widgecie zamiast w regułach alarmowych, i zmiana okresu próbkowania wymagająca ponownego wgrania firmware.
 :::
 :::
 :::
 
 ---
 
-## <i class="bi bi-database"></i> Trzy rodzaje danych — cztery kategorie zapisu {#rodzaje}
+## <i class="bi bi-database"></i> Telemetria i trzy zakresy atrybutów {#rodzaje}
 
 | Rodzaj | Zapisuje | Historia | Typowa zawartość |
 |:---|:---|:---|:---|
-| **Telemetria** (szereg czasowy) | urządzenie | **tak**, z TTL | temperatura, wilgotność, napięcie zasilania |
+| **Telemetria** (szereg czasowy) | głównie urządzenie (także reguły, REST) | **tak**, z TTL | temperatura, wilgotność, napięcie zasilania |
 | **Atrybuty klienta** | urządzenie | nie (ostatnia wartość) | wersja firmware, adres IP, model płytki |
 | **Atrybuty współdzielone** | **platforma → urządzenie** | nie | okres próbkowania, progi, wskazanie pakietu OTA |
-| **Atrybuty serwerowe** | platforma (wewnętrznie) | nie | `active`, `lastActivityTime`, `inactivityTimeout` |
+| **Atrybuty serwerowe** | platforma i użytkownik; **urządzenie ich nie widzi** | nie | `active`, `lastActivityTime`, `inactivityTimeout`, lokalizacja |
 
 ::: {.fragment}
 ::: {.callout-important title="Najczęstszy błąd projektowy"}
 Wysyłanie wersji firmware i adresu IP **jako telemetrii**. Powstaje wtedy szereg czasowy tysięcy
 identycznych wartości, który zajmuje miejsce i niczego nie wnosi. **To są atrybuty** — to samo
 rozróżnienie, które wprowadziliśmy w module 03 przy sile sygnału i adresie IP.
+
+**Wyjątek:** wbudowane OTA platformy oczekuje stanu aktualizacji (`fw_state`, `current_fw_version`) jako **telemetrii** — tu historia przejść ma wartość.
 :::
 :::
 
@@ -91,7 +96,7 @@ rozróżnienie, które wprowadziliśmy w module 03 przy sile sygnału i adresie 
 ::: {.columns}
 ::: {.column width="52%"}
 Atrybut współdzielony to kanał **z platformy do urządzenia**, przeznaczony dla wartości, które
-zmieniają się rzadko i mają przeżyć restart.
+zmieniają się rzadko i mają przeżyć restart. Subskrypcja dostarcza tylko **zmiany** — po starcie urządzenie samo **pobiera** bieżące wartości (`attributes/request`).
 
 ::: {.incremental}
 * okres próbkowania,
@@ -127,7 +132,10 @@ Urządzenie **potwierdza** przyjętą wartość jako atrybut klienta. Bez tego n
 :::
 :::
 
-# Styk z urządzeniem {.sekcja background-color="#0b3b45"}
+# Styk z urządzeniem {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/panel-robota.jpg" background-size="cover"}
+
+
+[Fot. Artem Svetlov, CC BY 2.0]{.zrodlo}
 
 ## <i class="bi bi-signpost-split"></i> Kontrakt tematów MQTT platformy {#tematy}
 
@@ -135,7 +143,8 @@ Urządzenie **potwierdza** przyjętą wartość jako atrybut klienta. Bez tego n
 |:---|:---|:---|:---|
 | Telemetria | `v1/devices/me/telemetry` | `v2/t` | urządzenie → platforma |
 | Atrybuty klienta | `v1/devices/me/attributes` | `v2/a` | urządzenie → platforma |
-| Atrybuty współdzielone | `v1/devices/me/attributes` | `v2/a` | platforma → urządzenie (subskrypcja) |
+| Atrybuty współdzielone | `v1/devices/me/attributes` | `v2/a` | platforma → urządzenie (subskrypcja zmian) |
+| Pobranie atrybutów po starcie | `v1/devices/me/attributes/request/$id` | `v2/a/req/$id` | urządzenie → platforma, odpowiedź w `…/response/$id` |
 | Żądanie RPC | `v1/devices/me/rpc/request/+` | `v2/r/req/+` | platforma → urządzenie |
 | Odpowiedź urządzenia | `v1/devices/me/rpc/response/$id` | `v2/r/res/$id` | urządzenie → platforma |
 
@@ -159,7 +168,7 @@ ThingsBoard obsługuje na tym styku wyłącznie **QoS 0 i 1**. Projekt nie może
 | Typ | Jak działa | Kiedy stosować |
 |:---|:---|:---|
 | **Access Token** | token jest **nazwą użytkownika** MQTT, hasło pozostaje puste | ćwiczenie, szybki start |
-| **MQTT Basic** | własny `clientId`, login i hasło | gdy potrzebny jawny `clientId` |
+| **MQTT Basic** | `clientId`, login z hasłem — albo oba naraz | gdy potrzebny jawny `clientId` |
 | **X.509** | certyfikat przy dwustronnym TLS | wdrożenie produkcyjne |
 
 ::: {.fragment}
@@ -202,21 +211,21 @@ sequenceDiagram
     D->>P: rpc/response/42 {pump: true}
     P->>U: stan POTWIERDZONY
 ```
+
+::: {.fragment}
+::: {.callout-note title="Istota sterowania, które można audytować"}
+Przełącznik ze stanem żądanym kłamie, gdy urządzenie nie odpowiedziało. Ze stanem potwierdzonym **mówi prawdę albo nic** — i to drugie też jest informacją.
+:::
+:::
 :::
 
 ::: {.column width="52%"}
 ::: {.incremental}
 1. Pulpit wysyła żądanie z **metodą** (np. `setSwitch`) i parametrami.
 2. Urządzenie odbiera je w temacie żądań z identyfikatorem `$id`.
-3. Wykonuje polecenie **idempotentnie** — powtórzenie tego samego `$id` nie wykonuje akcji ponownie.
+3. Wykonuje je **idempotentnie** — najlepiej polecenie „ustaw stan = X”, nie „przełącz”, bo `$id` może się powtórzyć po restarcie.
 4. Publikuje odpowiedź w temacie odpowiedzi z **tym samym `$id`** i podaje **rzeczywisty stan wyjścia**.
-5. Pulpit pokazuje stan **potwierdzony przez urządzenie**, nie stan żądany przez operatora.
-:::
-
-::: {.fragment}
-::: {.callout-note title="To rozróżnienie jest istotą sterowania, które można audytować"}
-Przełącznik pokazujący stan żądany kłamie zawsze, gdy urządzenie nie odpowiedziało. Przełącznik pokazujący stan potwierdzony **mówi prawdę albo nie mówi nic** — i to drugie jest informacją.
-:::
+5. Pulpit pokazuje stan **potwierdzony**. Wymaga to RPC **dwukierunkowego**; jednokierunkowe kończy się na wysłaniu. Trwałe RPC ma statusy i ponowienia.
 :::
 :::
 :::
@@ -233,7 +242,7 @@ Przełącznik pokazujący stan żądany kłamie zawsze, gdy urządzenie nie odpo
 * Wartość bieżącą **wraz z jej wiekiem** — „22,5 °C sprzed 4 s" znaczy co innego niż „22,5 °C sprzed dwóch godzin".
 * Stan wyjścia **potwierdzony przez urządzenie**.
 * Wersję firmware jako **atrybut**, nie punkt na wykresie.
-* Stan łączności — pole `active` z atrybutów serwerowych.
+* Stan łączności — `active` i `lastActivityTime` z atrybutów serwerowych (`active` zmienia się dopiero po `inactivityTimeout`, domyślnie 600 s).
 :::
 :::
 
@@ -241,7 +250,7 @@ Przełącznik pokazujący stan żądany kłamie zawsze, gdy urządzenie nie odpo
 **Czego pulpit nie zastąpi**
 
 ::: {.incremental}
-* **Reguł w profilu urządzenia** — próg zaszyty w widgecie działa tylko wtedy, gdy ktoś patrzy na ekran.
+* **Reguł alarmowych** (od wersji 4.3 przypinanych do profilu albo do encji) — próg zaszyty w widgecie działa tylko wtedy, gdy ktoś patrzy na ekran.
 * **Retencji danych** — TTL telemetrii jest ustawieniem platformy, nie właściwością wykresu.
 * **Dowodu** — zrzut pulpitu nie jest zapisem zdarzenia. Zapisem jest telemetria i log alarmów.
 :::
@@ -250,7 +259,7 @@ Przełącznik pokazujący stan żądany kłamie zawsze, gdy urządzenie nie odpo
 
 ::: {.fragment}
 ::: {.callout-tip title="Test, który warto wykonać na każdym pulpicie"}
-Odłącz urządzenie i popatrz na pulpit przez minutę. Jeżeli wygląda tak samo jak przy działającym
+Odłącz urządzenie i popatrz na pulpit przez minutę. Jeżeli wiek ostatniego pomiaru nie rośnie i wszystko wygląda tak samo jak przy działającym
 urządzeniu — pulpit jest źle zaprojektowany.
 :::
 :::
@@ -281,7 +290,10 @@ Ten układ przenosimy do ThingsBoard, ale budujemy go z własnych widgetów i en
 :::
 :::
 
-# Kontekst i ryzyko {.sekcja background-color="#0b3b45"}
+# Kontekst i ryzyko {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/turbina-serwis.jpg" background-size="cover"}
+
+
+[Fot. U.S. Department of Energy, domena publiczna]{.zrodlo}
 
 ## <i class="bi bi-boxes"></i> Cyfrowy bliźniak {#bliźniak}
 
@@ -357,7 +369,7 @@ To ten sam rodzaj ryzyka, który w module 03 widzieliśmy przy operatorze sieci 
 ::: {.column width="50%"}
 **Oprogramowanie lokalne też zmienia licencję**
 
-**ThingsBoard 4.4 używa licencji Business Source License 1.1 (BSL 1.1)** i łączy wcześniejsze linie CE/PE w jeden produkt *source-available*. Kod wydania przechodzi na Apache 2.0 po czterech latach; wcześniejsze wydania CE pozostają na swoich dotychczasowych licencjach.
+**ThingsBoard 4.4 (29.09.2026) używa licencji Business Source License 1.1** i łączy linie CE/PE w jeden produkt *source-available*. Kod wydania przechodzi na Apache 2.0 po czterech latach. **CE 4.3 LTS** zostaje na Apache 2.0, z poprawkami bezpieczeństwa do 20.07.2027.
 
 ::: {.fragment}
 ::: {.callout-important title="Pierwszy krok ćwiczenia"}
@@ -377,17 +389,19 @@ Dla instalacji **starszych niż 4.4** Community Edition i Professional Edition r
 
 Dlatego instrukcja znaleziona w sieci może opisywać inną wersję, edycję lub licencję niż instalacja używana na zajęciach.
 
-::: {.incremental}
-* Dla wersji < 4.4 materiał PE może opisywać funkcję nieobecną w CE.
-* Dla wersji ≥ 4.4 trzeba sprawdzić bieżące warunki BSL i program grantowy.
-* Przed użyciem materiału zapisujemy wersję, licencję i datę sprawdzenia.
+::: {.callout-note title="Rozdział a izolacja"}
+Platforma daje **rozdział logiczny**: dzierżawcy, klienci, profile, uprawnienia. **Izolacja fizyczna** to decyzja wdrożeniowa — osobne instalacje albo bazy danych.
 :::
+
 :::
 
 ::: {.column width="48%"}
-Platforma udostępnia **rozdział logiczny** przez dzierżawców, klientów, profile urządzeń i uprawnienia.
-
-**Izolacja fizyczna jest decyzją wdrożeniową** — wymaga osobnych instalacji albo osobnych baz danych.
+::: {.incremental}
+* Dla wersji < 4.4 (np. 4.3 LTS) materiał PE może opisywać funkcję nieobecną w CE.
+* Dla wersji ≥ 4.4 darmowa licencja obejmuje zastosowania **niekomercyjne, w tym edukację, do 1000 urządzeń**, z pełnym zestawem funkcji; komercyjnie — do 100 urządzeń na jednym serwerze.
+* Program grantowy dotyczy tylko wdrożeń produkcyjnych CE sprzed 29.09.2026.
+* Przed użyciem materiału zapisujemy wersję, licencję i datę sprawdzenia.
+:::
 :::
 :::
 
@@ -397,7 +411,7 @@ Platforma udostępnia **rozdział logiczny** przez dzierżawców, klientów, pro
 
 ::: {.pytania}
 * Urządzenie widoczne w platformie, telemetria napływa i jest widoczna na wykresie.
-* **Wersja firmware widnieje jako atrybut klienta**, nie jako szereg czasowy.
+* **Model płytki i adres IP widnieją jako atrybuty klienta**, nie jako szereg czasowy.
 * Zmiana atrybutu współdzielonego (np. okresu próbkowania) zmienia zachowanie urządzenia **bez ponownego wgrywania firmware**.
 * Przełącznik na pulpicie zmienia stan aktuatora, a pulpit pokazuje **stan potwierdzony przez urządzenie**.
 * **Wersja i licencja instalacji zapisane w sprawozdaniu** wraz z datą sprawdzenia.
@@ -425,7 +439,7 @@ Platforma udostępnia **rozdział logiczny** przez dzierżawców, klientów, pro
 * Platforma to najpierw **model danych**, dopiero potem pulpit.
 * Telemetria ma historię, atrybuty mają ostatnią wartość — pomylenie ich kosztuje miejsce i sens.
 * Atrybuty współdzielone pozwalają zmieniać konfigurację **bez wydania firmware**.
-* QoS 2 nie istnieje na styku z platformą; idempotencja jest obowiązkowa.
+* Platforma gwarantuje na styku MQTT najwyżej QoS 1; idempotencja jest obowiązkowa.
 * Pulpit pokazuje **stan potwierdzony**, nie żądany.
 * Wersja i licencja instalacji to zapis w sprawozdaniu, nie ciekawostka.
 :::
@@ -445,7 +459,9 @@ System działa i da się nim sterować. Ostatni moduł przechodzi przez całoś�
 ::: {style="font-size: 0.7em;"}
 * ThingsBoard, *MQTT API* — tematy standardowe i skrócone, porty, wersje protokołu, QoS, typy poświadczeń: <https://thingsboard.io/docs/reference/mqtt-api/>
 * ThingsBoard, *Telemetry*: <https://thingsboard.io/docs/user-guide/telemetry/> oraz *Attributes*: <https://thingsboard.io/docs/user-guide/attributes/>
-* ThingsBoard, *RPC*: <https://thingsboard.io/docs/user-guide/rpc/>
+* ThingsBoard, *RPC* — jedno- i dwukierunkowe, trwałe RPC: <https://thingsboard.io/docs/user-guide/rpc/>
+* ThingsBoard, *Device connectivity status* — `active`, `inactivityTimeout`: <https://thingsboard.io/docs/user-guide/device-connectivity-status/>
+* ThingsBoard 4.3 — *Alarm Rules 2.0*: <https://thingsboard.io/blog/thingsboard-4-3-alarm-rules-2-0-enhanced-calculated-fields-api-keys-and-more/>
 * ThingsBoard, *Dashboards*: <https://thingsboard.io/docs/user-guide/dashboards/>
 * ThingsBoard, informacja o scaleniu produktu i licencji BSL 1.1 od wersji 4.4: <https://thingsboard.io/blog/one-thingsboard-source-available/> oraz *Community Grant Program*: <https://thingsboard.io/community-grant-program/>
 * Google Cloud, archiwalne *IoT Core release notes* — komunikat o wyłączeniu 16 sierpnia 2023 r. (kopia oficjalnej strony z 18 sierpnia 2022 r.): <https://web.archive.org/web/20220818025528id_/https://cloud.google.com/iot/docs/release-notes>

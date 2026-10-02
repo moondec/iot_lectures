@@ -35,7 +35,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-be59b4774a18734dda35a4a6f13a6e44.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-b14bb2b6d13b9688d52a6d9ae23c2bf3.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -178,9 +178,9 @@ prof. UPP dr hab. inż. Marek Urbaniak
 </div></div>
 </section>
 <section>
-<section id="percepcja-zmysły-i-mięśnie" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
+<section id="percepcja-zmysły-i-mięśnie" class="title-slide slide level1 sekcja foto center" data-background-color="#0b3b45" data-background-image="../assets/img/kurs/lutowanie.jpg" data-background-size="cover">
 <h1>Percepcja: zmysły i mięśnie</h1>
-
+<p><span class="zrodlo">Fot. Aisart, CC BY-SA 3.0</span></p>
 </section>
 <section id="czujniki" class="slide level2">
 <h2><i class="bi bi-eye"></i> Czym system „czuje”</h2>
@@ -188,10 +188,11 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <div class="column" style="width:58%;">
 <ul>
 <li class="fragment"><strong>Wielkości mierzone:</strong> temperatura, wilgotność, natężenie światła, gazy (CO₂, VOC), ciśnienie, przyspieszenie i drgania, położenie.</li>
-<li class="fragment"><strong>Podział ze względu na zasilanie detekcji:</strong>
+<li class="fragment"><strong>Podział ze względu na zasadę działania:</strong>
 <ul>
-<li class="fragment"><em>pasywne</em> — nie potrzebują energii do samej detekcji (fotorezystor, termistor),</li>
-<li class="fragment"><em>aktywne</em> — emitują sygnał i mierzą odpowiedź (ultradźwięki, lidar).</li>
+<li class="fragment"><em>generacyjne</em> — same wytwarzają sygnał (termopara, piezo),</li>
+<li class="fragment"><em>parametryczne</em> — zmieniają np. rezystancję i wymagają prądu pobudzenia (termistor, fotorezystor),</li>
+<li class="fragment"><em>aktywne</em> w sensie teledetekcji — emitują falę i mierzą odpowiedź (ultradźwięki, lidar).</li>
 </ul></li>
 <li class="fragment"><strong>Podział ze względu na wyjście:</strong>
 <ul>
@@ -224,7 +225,7 @@ prof. UPP dr hab. inż. Marek Urbaniak
 </section>
 <section id="lancuch" class="slide level2">
 <h2><i class="bi bi-arrow-right-circle"></i> Łańcuch pomiarowy</h2>
-<p><span class="lead">Pięć ogniw. Większość błędów powstaje w drugim, a ujawnia się w piątym.</span></p>
+<p><span class="lead">Pięć ogniw. Błąd z kondycjonowania często ujawnia się dopiero przy walidacji.</span></p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -232,7 +233,7 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <div>
 <svg id="mermaid-figure-1" width="1152" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="flowchart" style="; display: block; margin: auto auto auto auto" viewbox="0 0 1326.90625 142" role="graphics-document document" aria-roledescription="flowchart-v2" height="240">
 <style>#mermaid-figure-1{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:24px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-figure-1 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-figure-1 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-figure-1 .error-icon{fill:#552222;}#mermaid-figure-1 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-1 .edge-thickness-normal{stroke-width:1px;}#mermaid-figure-1 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-1 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-1 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-figure-1 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-1 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-1 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-1 .marker.cross{stroke:#333333;}#mermaid-figure-1 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:24px;}#mermaid-figure-1 p{margin:0;}#mermaid-figure-1 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-1 .cluster-label text{fill:#333;}#mermaid-figure-1 .cluster-label span{color:#333;}#mermaid-figure-1 .cluster-label span p{background-color:transparent;}#mermaid-figure-1 .label text,#mermaid-figure-1 span{fill:#333;color:#333;}#mermaid-figure-1 .node rect,#mermaid-figure-1 .node circle,#mermaid-figure-1 .node ellipse,#mermaid-figure-1 .node polygon,#mermaid-figure-1 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-1 .rough-node .label text,#mermaid-figure-1 .node .label text,#mermaid-figure-1 .image-shape .label,#mermaid-figure-1 .icon-shape .label{text-anchor:middle;}#mermaid-figure-1 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-figure-1 .rough-node .label,#mermaid-figure-1 .node .label,#mermaid-figure-1 .image-shape .label,#mermaid-figure-1 .icon-shape .label{text-align:center;}#mermaid-figure-1 .node.clickable{cursor:pointer;}#mermaid-figure-1 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaid-figure-1 .arrowheadPath{fill:#333333;}#mermaid-figure-1 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-1 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-1 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-1 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaid-figure-1 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-1 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-figure-1 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-1 .cluster text{fill:#333;}#mermaid-figure-1 .cluster span{color:#333;}#mermaid-figure-1 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-1 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-1 rect.text{fill:none;stroke-width:0;}#mermaid-figure-1 .icon-shape,#mermaid-figure-1 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-1 .icon-shape p,#mermaid-figure-1 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaid-figure-1 .icon-shape rect,#mermaid-figure-1 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-1 .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#mermaid-figure-1 .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#mermaid-figure-1 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-figure-1 .n>*{fill:#e8f2f4!important;stroke:#0b6b78!important;stroke-width:2px!important;color:#0b3b45!important;}#mermaid-figure-1 .n span{fill:#e8f2f4!important;stroke:#0b6b78!important;stroke-width:2px!important;color:#0b3b45!important;}#mermaid-figure-1 .n tspan{fill:#0b3b45!important;}#mermaid-figure-1 .r>*{fill:#fdf3f4!important;stroke:#b02a37!important;stroke-width:2px!important;color:#8f2029!important;}#mermaid-figure-1 .r span{fill:#fdf3f4!important;stroke:#b02a37!important;stroke-width:2px!important;color:#8f2029!important;}#mermaid-figure-1 .r tspan{fill:#8f2029!important;}</style>
-<g><marker id="mermaid-1790951034482_flowchart-v2-pointEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790951034482_flowchart-v2-pointStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="4.5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790951034482_flowchart-v2-circleEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="11" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790951034482_flowchart-v2-circleStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="-1" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790951034482_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="12" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790951034482_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="-1" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M221.391,71L225.557,71C229.724,71,238.057,71,245.724,71C253.391,71,260.391,71,263.891,71L267.391,71" id="L_P_K_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_P_K_0" data-points="W3sieCI6MjIxLjM5MDYyNSwieSI6NzF9LHsieCI6MjQ2LjM5MDYyNSwieSI6NzF9LHsieCI6MjcxLjM5MDYyNSwieSI6NzF9XQ==" marker-end="url(#mermaid-1790951034482_flowchart-v2-pointEnd)"></path><path d="M519.531,71L523.698,71C527.865,71,536.198,71,543.865,71C551.531,71,558.531,71,562.031,71L565.531,71" id="L_K_A_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_K_A_0" data-points="W3sieCI6NTE5LjUzMTI1LCJ5Ijo3MX0seyJ4Ijo1NDQuNTMxMjUsInkiOjcxfSx7IngiOjU2OS41MzEyNSwieSI6NzF9XQ==" marker-end="url(#mermaid-1790951034482_flowchart-v2-pointEnd)"></path><path d="M742.953,71L747.12,71C751.286,71,759.62,71,767.286,71C774.953,71,781.953,71,785.453,71L788.953,71" id="L_A_C_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_A_C_0" data-points="W3sieCI6NzQyLjk1MzEyNSwieSI6NzF9LHsieCI6NzY3Ljk1MzEyNSwieSI6NzF9LHsieCI6NzkyLjk1MzEyNSwieSI6NzF9XQ==" marker-end="url(#mermaid-1790951034482_flowchart-v2-pointEnd)"></path><path d="M1023.031,71L1027.198,71C1031.365,71,1039.698,71,1047.365,71C1055.031,71,1062.031,71,1065.531,71L1069.031,71" id="L_C_W_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_C_W_0" data-points="W3sieCI6MTAyMy4wMzEyNSwieSI6NzF9LHsieCI6MTA0OC4wMzEyNSwieSI6NzF9LHsieCI6MTA3My4wMzEyNSwieSI6NzF9XQ==" marker-end="url(#mermaid-1790951034482_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" data-id="L_P_K_0" transform="translate(0, 0)"><foreignobject width="0" height="0">
+<g><marker id="mermaid-1790953329676_flowchart-v2-pointEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790953329676_flowchart-v2-pointStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="4.5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790953329676_flowchart-v2-circleEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="11" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790953329676_flowchart-v2-circleStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="-1" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790953329676_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="12" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790953329676_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="-1" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M221.391,71L225.557,71C229.724,71,238.057,71,245.724,71C253.391,71,260.391,71,263.891,71L267.391,71" id="L_P_K_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_P_K_0" data-points="W3sieCI6MjIxLjM5MDYyNSwieSI6NzF9LHsieCI6MjQ2LjM5MDYyNSwieSI6NzF9LHsieCI6MjcxLjM5MDYyNSwieSI6NzF9XQ==" marker-end="url(#mermaid-1790953329676_flowchart-v2-pointEnd)"></path><path d="M519.531,71L523.698,71C527.865,71,536.198,71,543.865,71C551.531,71,558.531,71,562.031,71L565.531,71" id="L_K_A_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_K_A_0" data-points="W3sieCI6NTE5LjUzMTI1LCJ5Ijo3MX0seyJ4Ijo1NDQuNTMxMjUsInkiOjcxfSx7IngiOjU2OS41MzEyNSwieSI6NzF9XQ==" marker-end="url(#mermaid-1790953329676_flowchart-v2-pointEnd)"></path><path d="M742.953,71L747.12,71C751.286,71,759.62,71,767.286,71C774.953,71,781.953,71,785.453,71L788.953,71" id="L_A_C_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_A_C_0" data-points="W3sieCI6NzQyLjk1MzEyNSwieSI6NzF9LHsieCI6NzY3Ljk1MzEyNSwieSI6NzF9LHsieCI6NzkyLjk1MzEyNSwieSI6NzF9XQ==" marker-end="url(#mermaid-1790953329676_flowchart-v2-pointEnd)"></path><path d="M1023.031,71L1027.198,71C1031.365,71,1039.698,71,1047.365,71C1055.031,71,1062.031,71,1065.531,71L1069.031,71" id="L_C_W_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_C_W_0" data-points="W3sieCI6MTAyMy4wMzEyNSwieSI6NzF9LHsieCI6MTA0OC4wMzEyNSwieSI6NzF9LHsieCI6MTA3My4wMzEyNSwieSI6NzF9XQ==" marker-end="url(#mermaid-1790953329676_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" data-id="L_P_K_0" transform="translate(0, 0)"><foreignobject width="0" height="0">
 <div class="labelBkg" data-xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;">
 <span class="edgeLabel"></span>
 </div>
@@ -304,7 +305,7 @@ Walidacja lokalna<br><small>zakres fizyczny<br>licznik odrzuceń</small>
 <div class="columns">
 <div class="column" style="width:48%;">
 <p><strong>Rozdzielczość</strong> — liczba kroków, na jakie przetwornik dzieli zakres.</p>
-<p>Dla 12 bitów i zakresu 3,3 V:</p>
+<p>Dla 12 bitów i zakresu 3,3 V (rachunkowo; ADC ESP32-S3 mierzy efektywnie do ok. 2,9 V):</p>
 <div class="liczby">
 <div>
 <span class="w">4096</span><span class="o">kroków (2¹²)</span>
@@ -315,7 +316,7 @@ Walidacja lokalna<br><small>zakres fizyczny<br>licznik odrzuceń</small>
 </div>
 <p>To mówi, jak <strong>drobno</strong> odczytujemy — nie mówi, jak <strong>blisko prawdy</strong> jesteśmy.</p>
 </div><div class="column" style="width:52%;">
-<p>Rozdzielczość przetwornika nie jest dokładnością pomiaru. Przetwornik SAR w ESP32-S3 ma znaną nieliniowość i wymaga kalibracji; deklarowane 12 bitów nie przekłada się na 12 bitów dokładności. Gdy pomiar ma spełniać wymaganie dokładności, wybieramy czujnik z interfejsem cyfrowym zamiast walczyć z torem analogowym.</p>
+<p>Rozdzielczość przetwornika nie jest dokładnością pomiaru. Krok to <strong>0,81 mV</strong>, a błąd przetwornika SAR w ESP32-S3 po kalibracji to według producenta <strong>±50 mV</strong> — około 60 kroków. Gdy pomiar ma spełniać wymaganie dokładności, wybieramy czujnik z interfejsem cyfrowym zamiast walczyć z torem analogowym.</p>
 <div class="fragment">
 <p><strong>Dryft zera jest zjawiskiem, nie usterką.</strong> Zapisujemy datę kalibracji razem z wynikiem — inaczej po pół roku nie odróżnimy zmiany w świecie od zmiany w czujniku.</p>
 </div>
@@ -386,7 +387,7 @@ Walidacja lokalna<br><small>zakres fizyczny<br>licznik odrzuceń</small>
 </div><div class="column" style="width:54%;">
 <p><strong>Trzy zdarzenia do przetestowania</strong></p>
 <ol type="1">
-<li class="fragment"><strong>Reset procesora</strong> — stan wyjścia ustawiamy jawnie w firmware, <strong>przed</strong> inicjalizacją Wi-Fi. Domyślny stan pinu po resecie nie jest częścią specyfikacji.</li>
+<li class="fragment"><strong>Reset procesora</strong> — stan pinu po resecie opisuje datasheet, ale to nie jest <em>nasz</em> stan bezpieczny, a przy starcie zdarzają się krótkie impulsy. Stan bezpieczny gwarantuje <strong>sprzęt</strong> (rezystor ściągający na wejściu stopnia mocy); firmware ustawia go jawnie <strong>przed</strong> inicjalizacją Wi-Fi.</li>
 <li class="fragment"><strong>Zanik i powrót zasilania</strong> — urządzenie startuje w stanie bezpiecznym i nie wykonuje zaległego polecenia.</li>
 <li class="fragment"><strong>Utrata łączności dłuższa niż tolerancja</strong> — przejście do stanu bezpiecznego jest wymaganiem, nie efektem ubocznym.</li>
 </ol>
@@ -396,9 +397,9 @@ Walidacja lokalna<br><small>zakres fizyczny<br>licznik odrzuceń</small>
 </div></div>
 </section></section>
 <section>
-<section id="płytki-stanowiska" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
+<section id="płytki-stanowiska" class="title-slide slide level1 sekcja foto center" data-background-color="#0b3b45" data-background-image="../assets/img/kurs/pcb-smd.jpg" data-background-size="cover">
 <h1>Płytki stanowiska</h1>
-
+<p><span class="zrodlo">Fot. wdwd, CC BY-SA 4.0</span></p>
 </section>
 <section id="platformy" class="slide level2">
 <h2><i class="bi bi-motherboard"></i> Klasy platform — i po co je rozróżniać</h2>
@@ -409,9 +410,13 @@ Walidacja lokalna<br><small>zakres fizyczny<br>licznik odrzuceń</small>
 </div><div class="column" style="width:33%;">
 <h3 id="system-on-chip-z-radiem">System on Chip z radiem</h3>
 <p>MCU z Wi-Fi i Bluetooth LE w jednym układzie. To klasa obu płytek naszego stanowiska.</p>
+<p><img data-src="../assets/img/kurs/esp32-plytka.jpg" alt="Płytka deweloperska ESP32 wpięta w płytkę stykową." height="260"></p>
+<p><span class="zrodlo">Fot. Edwiyanto, CC BY-SA 4.0</span></p>
 </div><div class="column" style="width:33%;">
 <h3 id="komputer-jednopłytkowy-sbc">Komputer jednopłytkowy (SBC)</h3>
 <p>Pełny system operacyjny, stałe zasilanie. Rola: <strong>brzeg sieci</strong> — broker, Node-RED, bufor.</p>
+<p><img data-src="../assets/img/kurs/raspberry-pi.jpg" alt="Komputer jednopłytkowy Raspberry Pi 4 widziany z góry." height="260"></p>
+<p><span class="zrodlo">Raspberry Pi 4. Fot. Laserlicht, CC BY-SA 4.0</span></p>
 </div></div>
 <p>Nano ESP32 ma Wi-Fi oraz Bluetooth LE na płytce. Raspberry Pi należy do innej klasy urządzeń; kryterium wyboru stanowią rola w architekturze i budżet energii, a nie etykieta „nowoczesności”.</p>
 </section>
@@ -449,7 +454,7 @@ Walidacja lokalna<br><small>zakres fizyczny<br>licznik odrzuceń</small>
 <tr class="odd">
 <td style="text-align: left;">Konsekwencja</td>
 <td style="text-align: left;">—</td>
-<td style="text-align: left;">inna numeracja pinów i inne peryferia niż LX6</td>
+<td style="text-align: left;">inna numeracja pinów i inne peryferia niż oryginalny ESP32</td>
 <td style="text-align: left;"><strong>inna architektura</strong> — inny łańcuch narzędzi i inne warianty bibliotek</td>
 </tr>
 </tbody>
@@ -530,8 +535,8 @@ Walidacja lokalna<br><small>zakres fizyczny<br>licznik odrzuceń</small>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Temperatura</td>
-<td style="text-align: left;">−40…+105 °C</td>
-<td style="text-align: left;">montaż zewnętrzny to kwestia obudowy</td>
+<td style="text-align: left;">−40…+65 °C (moduł z 8 MB PSRAM)</td>
+<td style="text-align: left;">instrukcja Arduino podaje więcej — wiążący jest moduł u-blox</td>
 </tr>
 </tbody>
 </table>
@@ -609,13 +614,13 @@ Walidacja lokalna<br><small>zakres fizyczny<br>licznik odrzuceń</small>
 <td style="text-align: left;">ADC tor 1</td>
 <td style="text-align: left;">A0–A3</td>
 <td style="text-align: left;">1–4</td>
-<td style="text-align: left;">wejścia 0–3,3 V</td>
+<td style="text-align: left;">pin znosi 3,3 V, pomiar do ok. 2,9 V</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">ADC tor 2</td>
 <td style="text-align: left;">A4–A7</td>
 <td style="text-align: left;">11–14</td>
-<td style="text-align: left;">A4/A5 współdzielone z I²C</td>
+<td style="text-align: left;">współdzielone z I²C i z Wi-Fi — odczyt może się nie udać</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Piny strapping</td>
@@ -719,7 +724,7 @@ Walidacja lokalna<br><small>zakres fizyczny<br>licznik odrzuceń</small>
 <td style="text-align: left;">Komunikacja z komputerem</td>
 <td style="text-align: left;">przez układ <strong>CH9102</strong></td>
 <td style="text-align: left;"><strong>wbudowany USB-Serial/JTAG</strong> układu ESP32-C3</td>
-<td style="text-align: left;">C3 wymaga sterownika; C3U nie (USB CDC domyślnie wyłączone)</td>
+<td style="text-align: left;">C3 wymaga sterownika; w C3U włącz <em>USB CDC On Boot</em>, inaczej <code>Serial</code> nie wyjdzie przez USB</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">USB</td>
@@ -737,7 +742,7 @@ Walidacja lokalna<br><small>zakres fizyczny<br>licznik odrzuceń</small>
 <td style="text-align: left;">Wejścia analogowe</td>
 <td style="text-align: left;">G0, G1, G4, G5</td>
 <td style="text-align: left;">G0, G1, <strong>G3</strong>, G4, G5</td>
-<td style="text-align: left;">G0–G4 to tor ADC1, G5 to ADC2</td>
+<td style="text-align: left;">G0–G4 to tor ADC1; G5 to ADC2 — na C3 niestabilny, nie używać</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Masa</td>
@@ -799,7 +804,7 @@ Walidacja lokalna<br><small>zakres fizyczny<br>licznik odrzuceń</small>
 <p><strong>Wniosek praktyczny</strong></p>
 </div>
 <div class="callout-content">
-<p>Te wyprowadzenia zostawiamy wolne albo podłączamy do nich układy, które w chwili startu są w stanie wysokiej impedancji.</p>
+<p>Te wyprowadzenia zostawiamy wolne albo podłączamy do nich układy, które w chwili startu są w stanie wysokiej impedancji (wyjątek: GPIO3 w S3 przy ustawionym eFuse JTAG).</p>
 <p>Przycisków i czujników z twardym stanem początkowym tam <strong>nie wieszamy</strong> — objaw wygląda jak „płytka nie startuje”, a przyczyną jest element trzymający pin przy masie.</p>
 </div>
 </div>
@@ -828,16 +833,16 @@ Walidacja lokalna<br><small>zakres fizyczny<br>licznik odrzuceń</small>
 <h2><i class="bi bi-lightning-charge"></i> Prąd wyprowadzenia: limit, nie prąd pracy</h2>
 <div class="columns">
 <div class="column" style="width:52%;">
-<p>Instrukcja Arduino dla ABX00083 podaje <strong>wartości graniczne</strong>:</p>
+<p>Instrukcja Arduino dla ABX00083 podaje wydajność prądową pinu:</p>
 <div class="liczby">
 <div>
-<span class="w">40 mA</span><span class="o">prąd źródłowy — maksimum wg Arduino</span>
+<span class="w">40 mA</span><span class="o">prąd źródłowy</span>
 </div>
 <div>
-<span class="w">28 mA</span><span class="o">prąd odbiornikowy — maksimum wg Arduino</span>
+<span class="w">28 mA</span><span class="o">prąd odbiornikowy</span>
 </div>
 </div>
-<p>Nie przenosimy dodatkowych limitów między układami rodziny ESP32: dokumentacja <strong>ESP32-S3</strong> nie powtarza noty <code>≈29 mA</code> znanej z datasheetu oryginalnego ESP32 (LX6).</p>
+<p>W datasheecie ESP32-S3 to wartości <strong>typowe</strong>, przy maksymalnej sile wyjścia i spadku napięcia do 2,64 V — domyślna siła wyjścia w ESP-IDF jest niższa.</p>
 <div class="fragment">
 <p>Obciążenia indukcyjne — przekaźnik, zawór, silnik — <strong>zawsze</strong> przez stopień mocy z diodą gaszącą i osobnym zasilaniem.</p>
 </div>
@@ -852,7 +857,7 @@ Walidacja lokalna<br><small>zakres fizyczny<br>licznik odrzuceń</small>
 <p><strong>Granica, nie punkt pracy</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>40 mA jest wartością graniczną, której nie wolno przekroczyć</strong> — nie prądem, na który wolno projektować. Dobieramy obciążenie z zapasem i uwzględniamy warunki elektryczne układu.</p>
+<p><strong>40 mA to wydajność w warunkach katalogowych</strong> — nie prąd, na który wolno projektować. Dobieramy obciążenie z zapasem i uwzględniamy warunki elektryczne układu.</p>
 </div>
 </div>
 </div>
@@ -860,19 +865,19 @@ Walidacja lokalna<br><small>zakres fizyczny<br>licznik odrzuceń</small>
 </div></div>
 </section></section>
 <section>
-<section id="energia" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
+<section id="energia" class="title-slide slide level1 sekcja foto center" data-background-color="#0b3b45" data-background-image="../assets/img/kurs/ogniwa.jpg" data-background-size="cover">
 <h1>Energia</h1>
-
+<p><span class="zrodlo">Fot. Mk2010, CC BY-SA 3.0</span></p>
 </section>
 <section id="deep-sleep" class="slide level2">
 <h2><i class="bi bi-battery-half"></i> Deep sleep — na czym polega kompromis</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
-<li class="fragment">Moduł Wi-Fi pobiera setki miliamperów na samo wyszukanie sieci i zestawienie połączenia TCP/IP.</li>
+<li class="fragment">Moduł Wi-Fi pobiera przy nadawaniu szczytowo ponad 300 mA, średnio ok. 100 mA, przez kilka sekund wyszukiwania sieci i zestawiania połączenia.</li>
 <li class="fragment">Paradygmat: <strong>obudź się → zmierz → nadaj → uśpij</strong>, wszystko w ułamku sekundy.</li>
 <li class="fragment">W deep sleep procesor odcina sobie zasilanie, zostawiając minimalny zegar RTC do wybudzenia.</li>
-<li class="fragment">Postęp nie wziął się z pojemności ogniw — przez czterdzieści lat poprawiono ją symbolicznie. Wziął się z agresywnego zarządzania poborem.</li>
+<li class="fragment">Pojemność ogniw od 1991 r. wzrosła ok. trzykrotnie; pobór w uśpieniu spadł o kilka rzędów wielkości. Postęp dało przede wszystkim <strong>zarządzanie poborem</strong>.</li>
 </ul>
 </div><div class="column" style="width:45%;">
 <div title="Dane katalogowe a cała płytka">
@@ -885,12 +890,14 @@ Walidacja lokalna<br><small>zakres fizyczny<br>licznik odrzuceń</small>
 <p><strong>Dane katalogowe a cała płytka</strong></p>
 </div>
 <div class="callout-content">
-<p>Wartości <strong>7 µA</strong> i <strong>240 µA</strong> z dokumentacji dotyczą <strong>samego układu ESP32-S3</strong>. Diody LED, stabilizator i mostek USB zwiększają pobór całej płytki w uśpieniu.</p>
+<p>Wartości <strong>7 µA</strong> i <strong>240 µA</strong> z dokumentacji dotyczą <strong>samego układu ESP32-S3</strong> (z 8 MB PSRAM light sleep to ok. 380 µA). Dioda zasilania, przetwornica i pamięci podnoszą pobór seryjnej Nano ESP32 w deep sleep do ok. <strong>2 mA</strong>.</p>
 <p>Budżet energii liczymy <strong>z pomiaru na stanowisku</strong>; dane katalogowe służą do sprawdzenia, czy pomiar jest sensowny.</p>
 </div>
 </div>
 </div>
 </div>
+<p><img data-src="../assets/img/kurs/multimetr-prad.jpg" alt="Multimetr w trybie pomiaru prądu stałego z podłączonymi przewodami." height="300"></p>
+<p><span class="zrodlo">Pomiar prądu multimetrem. Fot. Christiankral, CC BY 4.0</span></p>
 </div></div>
 </section>
 <section id="budzet" class="slide level2">
@@ -900,7 +907,7 @@ Walidacja lokalna<br><small>zakres fizyczny<br>licznik odrzuceń</small>
 <p>Dla cyklu o okresie <span class="math inline">\(T\)</span> z czasem aktywności <span class="math inline">\(t\)</span>:</p>
 <p><span class="math display">\[I_{\text{śr}} = \frac{I_{\text{akt}} \cdot t + I_{\text{sleep}} \cdot (T-t)}{T}\]</span></p>
 <p><span class="math display">\[Q_{\text{wym}} = I_{\text{śr}} \cdot t_{\text{życia}}\]</span></p>
-<p><strong>Przykład dydaktyczny</strong> — pomiar co 15 min, faza aktywna 3 s przy 120 mA (Wi-Fi + TLS + publikacja), uśpienie całej płytki 0,05 mA:</p>
+<p><strong>Przykład dydaktyczny</strong> — pomiar co 15 min, faza aktywna 3 s przy 120 mA (Wi-Fi + TLS + publikacja), uśpienie <strong>płytki zoptymalizowanej</strong> (własne PCB) 0,05 mA; prąd liczony po stronie ogniwa, sprawność przetwornicy pominięta:</p>
 <div class="liczby">
 <div>
 <span class="w">0,45 mA</span><span class="o">prąd średni</span>
@@ -912,13 +919,13 @@ Walidacja lokalna<br><small>zakres fizyczny<br>licznik odrzuceń</small>
 </div><div class="column" style="width:56%;">
 <p><img data-src="../assets/img/energia-okres.png" style="width:100.0%" alt="Wykres log-log: prąd średni cyklu w funkcji okresu raportowania od 1 do 120 minut, z poziomą linią progu roku pracy z ogniwa 3400 mAh."></p>
 <div class="fragment">
-<p><strong>Wniosek:</strong> ogniwo CR2032 (≈220 mAh) wystarczy na <strong>około 20 dni</strong>. Pojedyncze ogniwo 18650 (≈3400 mAh) — na <strong>około 10 miesięcy</strong>. Roku pracy z jednego 18650 nie osiągniemy przy raportowaniu co 15 minut; osiągniemy go dopiero przy okresie rzędu 20–30 minut albo krótszej fazie aktywnej.</p>
+<p><strong>Wniosek:</strong> ogniwo 18650 (≈3400 mAh) wystarczy na <strong>około 10 miesięcy</strong>; rok osiągniemy przy okresie <strong>ok. 18 min</strong> lub dłuższym. Seryjna Nano ESP32 (2 mA w uśpieniu) wyczerpie to samo ogniwo w <strong>ok. 2 miesiące</strong> — prawie niezależnie od okresu. CR2032 odpada: nie dostarczy szczytowego prądu Wi-Fi.</p>
 </div>
 </div></div>
 </section>
 <section id="decyzja-okres" class="slide level2">
 <h2><i class="bi bi-clipboard-check"></i> Okres raportowania jest decyzją</h2>
-<p><span class="lead">Ta sama płytka, ten sam czujnik, ta sama bateria — a czas pracy różni się o rząd wielkości.</span></p>
+<p><span class="lead">Ten sam czujnik, ta sama bateria, płytka zoptymalizowana (0,05 mA w uśpieniu) — a czas pracy różni się o rząd wielkości.</span></p>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -978,7 +985,7 @@ Walidacja lokalna<br><small>zakres fizyczny<br>licznik odrzuceń</small>
 <li class="fragment">Wartość wysyłana do systemu ma jednostkę w nazwie i jest przeliczona przez urządzenie.</li>
 <li class="fragment">Rozdzielczość ADC nie jest dokładnością pomiaru.</li>
 <li class="fragment">Stan bezpieczny wyjścia to decyzja zapisana przed implementacją i sprawdzana w trzech scenariuszach.</li>
-<li class="fragment">40 mA na pinie to granica, nie prąd pracy.</li>
+<li class="fragment">40 mA na pinie to wydajność katalogowa, nie prąd pracy.</li>
 <li class="fragment">Okres raportowania jest decyzją energetyczną — i da się ją policzyć.</li>
 </ul>
 </div><div class="column" style="width:45%;">
@@ -1007,9 +1014,12 @@ Walidacja lokalna<br><small>zakres fizyczny<br>licznik odrzuceń</small>
 <li>Arduino, strona produktu i pinout Nano ESP32: <a href="https://docs.arduino.cc/hardware/nano-esp32/" class="uri">https://docs.arduino.cc/hardware/nano-esp32/</a></li>
 <li>u-blox, moduł NORA-W10 series (NORA-W106-10B): <a href="https://www.u-blox.com/en/product/nora-w10-series" class="uri">https://www.u-blox.com/en/product/nora-w10-series</a></li>
 <li>M5Stack, dokumentacja Stamp-C3U (SKU C122-B): <a href="https://docs.m5stack.com/en/core/stamp_c3u" class="uri">https://docs.m5stack.com/en/core/stamp_c3u</a> oraz Stamp-C3 (C056-B): <a href="https://docs.m5stack.com/en/core/stamp_c3" class="uri">https://docs.m5stack.com/en/core/stamp_c3</a></li>
-<li>Espressif, <em>ADC Oneshot Mode</em> dla ESP32-S3: <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/api-reference/peripherals/adc_oneshot.html" class="uri">https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/api-reference/peripherals/adc_oneshot.html</a></li>
+<li>Espressif, <em>ESP32-S3 Datasheet</em> v2.2 — charakterystyki DC, ADC, pobór prądu: <a href="https://documentation.espressif.com/esp32-s3_datasheet_en.pdf" class="uri">https://documentation.espressif.com/esp32-s3_datasheet_en.pdf</a></li>
+<li>u-blox, <em>NORA-W10 Data Sheet</em> — zakres temperatur modułu: <a href="https://content.u-blox.com/sites/default/files/documents/NORA-W10_DataSheet_UBX-21036702.pdf" class="uri">https://content.u-blox.com/sites/default/files/documents/NORA-W10_DataSheet_UBX-21036702.pdf</a></li>
+<li>Espressif, <em>ADC Oneshot Mode</em> dla ESP32-S3 i ESP32-C3: <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/api-reference/peripherals/adc/adc_oneshot.html" class="uri">https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/api-reference/peripherals/adc/adc_oneshot.html</a></li>
 <li>Espressif, <em>Sleep Modes</em>: <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/api-reference/system/sleep_modes.html" class="uri">https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/api-reference/system/sleep_modes.html</a></li>
-<li>Espressif, <em>GPIO &amp; RTC GPIO</em> — piny strapping dla ESP32-S3 i ESP32-C3.</li>
+<li>Espressif, <em>GPIO &amp; RTC GPIO</em> — piny strapping dla ESP32-S3 i ESP32-C3: <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/api-reference/peripherals/gpio.html" class="uri">https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/api-reference/peripherals/gpio.html</a></li>
+<li>Pomiary poboru seryjnej Nano ESP32 w deep sleep (społeczność): <a href="https://forum.arduino.cc/t/power-hungry-in-deep-sleep/1204775" class="uri">https://forum.arduino.cc/t/power-hungry-in-deep-sleep/1204775</a></li>
 </ul>
 </div>
 

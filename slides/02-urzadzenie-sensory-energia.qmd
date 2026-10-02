@@ -36,7 +36,10 @@ format:
 :::
 :::
 
-# Percepcja: zmysły i mięśnie {.sekcja background-color="#0b3b45"}
+# Percepcja: zmysły i mięśnie {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/lutowanie.jpg" background-size="cover"}
+
+
+[Fot. Aisart, CC BY-SA 3.0]{.zrodlo}
 
 ## <i class="bi bi-eye"></i> Czym system „czuje" {#czujniki}
 
@@ -44,9 +47,10 @@ format:
 ::: {.column width="58%"}
 ::: {.incremental}
 * **Wielkości mierzone:** temperatura, wilgotność, natężenie światła, gazy (CO₂, VOC), ciśnienie, przyspieszenie i drgania, położenie.
-* **Podział ze względu na zasilanie detekcji:**
-  * *pasywne* — nie potrzebują energii do samej detekcji (fotorezystor, termistor),
-  * *aktywne* — emitują sygnał i mierzą odpowiedź (ultradźwięki, lidar).
+* **Podział ze względu na zasadę działania:**
+  * *generacyjne* — same wytwarzają sygnał (termopara, piezo),
+  * *parametryczne* — zmieniają np. rezystancję i wymagają prądu pobudzenia (termistor, fotorezystor),
+  * *aktywne* w sensie teledetekcji — emitują falę i mierzą odpowiedź (ultradźwięki, lidar).
 * **Podział ze względu na wyjście:**
   * *analogowe* — napięcie do przetworzenia przez ADC,
   * *cyfrowe* — gotowa wartość przez I²C, SPI lub 1-Wire.
@@ -70,7 +74,7 @@ Wybór **cyfrowy zamiast analogowego** przenosi kondycjonowanie i kalibrację do
 
 ## <i class="bi bi-arrow-right-circle"></i> Łańcuch pomiarowy {#lancuch}
 
-[Pięć ogniw. Większość błędów powstaje w drugim, a ujawnia się w piątym.]{.lead}
+[Pięć ogniw. Błąd z kondycjonowania często ujawnia się dopiero przy walidacji.]{.lead}
 
 ```{mermaid}
 %%| fig-width: 12
@@ -102,7 +106,7 @@ nie jest surową liczbą z ADC. Przeliczenie wykonuje urządzenie, bo tylko ono 
 ::: {.column width="48%"}
 **Rozdzielczość** — liczba kroków, na jakie przetwornik dzieli zakres.
 
-Dla 12 bitów i zakresu 3,3 V:
+Dla 12 bitów i zakresu 3,3 V (rachunkowo; ADC ESP32-S3 mierzy efektywnie do ok. 2,9 V):
 
 ::: {.liczby}
 <div><span class="w">4096</span><span class="o">kroków (2¹²)</span></div>
@@ -113,7 +117,7 @@ To mówi, jak **drobno** odczytujemy — nie mówi, jak **blisko prawdy** jeste�
 :::
 
 ::: {.column width="52%"}
-Rozdzielczość przetwornika nie jest dokładnością pomiaru. Przetwornik SAR w ESP32-S3 ma znaną nieliniowość i wymaga kalibracji; deklarowane 12 bitów nie przekłada się na 12 bitów dokładności. Gdy pomiar ma spełniać wymaganie dokładności, wybieramy czujnik z interfejsem cyfrowym zamiast walczyć z torem analogowym.
+Rozdzielczość przetwornika nie jest dokładnością pomiaru. Krok to **0,81 mV**, a błąd przetwornika SAR w ESP32-S3 po kalibracji to według producenta **±50 mV** — około 60 kroków. Gdy pomiar ma spełniać wymaganie dokładności, wybieramy czujnik z interfejsem cyfrowym zamiast walczyć z torem analogowym.
 
 
 ::: {.fragment}
@@ -168,7 +172,7 @@ Nie ma jednej odpowiedzi — jest decyzja projektowa, którą trzeba zapisać.
 **Trzy zdarzenia do przetestowania**
 
 ::: {.incremental}
-1. **Reset procesora** — stan wyjścia ustawiamy jawnie w firmware, **przed** inicjalizacją Wi-Fi. Domyślny stan pinu po resecie nie jest częścią specyfikacji.
+1. **Reset procesora** — stan pinu po resecie opisuje datasheet, ale to nie jest *nasz* stan bezpieczny, a przy starcie zdarzają się krótkie impulsy. Stan bezpieczny gwarantuje **sprzęt** (rezystor ściągający na wejściu stopnia mocy); firmware ustawia go jawnie **przed** inicjalizacją Wi-Fi.
 2. **Zanik i powrót zasilania** — urządzenie startuje w stanie bezpiecznym i nie wykonuje zaległego polecenia.
 3. **Utrata łączności dłuższa niż tolerancja** — przejście do stanu bezpiecznego jest wymaganiem, nie efektem ubocznym.
 :::
@@ -179,7 +183,10 @@ Nie ma jednej odpowiedzi — jest decyzja projektowa, którą trzeba zapisać.
 :::
 :::
 
-# Płytki stanowiska {.sekcja background-color="#0b3b45"}
+# Płytki stanowiska {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/pcb-smd.jpg" background-size="cover"}
+
+
+[Fot. wdwd, CC BY-SA 4.0]{.zrodlo}
 
 ## <i class="bi bi-motherboard"></i> Klasy platform — i po co je rozróżniać {#platformy}
 
@@ -194,12 +201,20 @@ Brak systemu operacyjnego albo RTOS. Pobór liczony w mikroamperach w uśpieniu.
 ### System on Chip z radiem
 
 MCU z Wi-Fi i Bluetooth LE w jednym układzie. To klasa obu płytek naszego stanowiska.
+
+![](../assets/img/kurs/esp32-plytka.jpg){height="260px" fig-alt="Płytka deweloperska ESP32 wpięta w płytkę stykową."}
+
+[Fot. Edwiyanto, CC BY-SA 4.0]{.zrodlo}
 :::
 
 ::: {.column width="33%"}
 ### Komputer jednopłytkowy (SBC)
 
 Pełny system operacyjny, stałe zasilanie. Rola: **brzeg sieci** — broker, Node-RED, bufor.
+
+![](../assets/img/kurs/raspberry-pi.jpg){height="260px" fig-alt="Komputer jednopłytkowy Raspberry Pi 4 widziany z góry."}
+
+[Raspberry Pi 4. Fot. Laserlicht, CC BY-SA 4.0]{.zrodlo}
 :::
 :::
 
@@ -215,7 +230,7 @@ Nano ESP32 ma Wi-Fi oraz Bluetooth LE na płytce. Raspberry Pi należy do innej 
 |:---|:---|:---|:---|
 | Rdzeń | Xtensa LX6, 2 rdzenie | **Xtensa LX7, 2 rdzenie**, do 240 MHz | **RISC-V, 1 rdzeń**, do 160 MHz |
 | Na naszym stanowisku | — | Arduino Nano ESP32 | M5Stack Stamp-C3U |
-| Konsekwencja | — | inna numeracja pinów i inne peryferia niż LX6 | **inna architektura** — inny łańcuch narzędzi i inne warianty bibliotek |
+| Konsekwencja | — | inna numeracja pinów i inne peryferia niż oryginalny ESP32 | **inna architektura** — inny łańcuch narzędzi i inne warianty bibliotek |
 
 ::: {.fragment}
 ::: {.callout-warning title="Co z tego wynika w praktyce"}
@@ -249,7 +264,7 @@ Materiał Arduino, licencja [CC BY-SA 4.0](https://creativecommons.org/licenses/
 | Zasilanie | USB-C 4,8–5,5 V albo VIN 6–21 V | brak osobnego pinu 5 V na listwie |
 | Radio | Wi-Fi 2,4 GHz, Bluetooth LE | **brak pasma 5 GHz** — punkt dostępowy musi dawać 2,4 GHz |
 | Uśpienie | 7 µA deep sleep, 240 µA light sleep | **dane samego układu SoC**, nie płytki |
-| Temperatura | −40…+105 °C | montaż zewnętrzny to kwestia obudowy |
+| Temperatura | −40…+65 °C (moduł z 8 MB PSRAM) | instrukcja Arduino podaje więcej — wiążący jest moduł u-blox |
 :::
 :::
 
@@ -278,8 +293,8 @@ Ryc. — oficjalny pinout ABX00083 (aktualizacja 5.12.2023).
 | UART0 | D0/RX0, D1/TX0 | 44, 43 | linia TX0 ma szeregowy rezystor 499 Ω |
 | I²C | A4 = SDA, A5 = SCL | 11, 12 | **te same piny co ADC2_CH0/CH1** |
 | SPI | D13/D12/D11 | 48, 47, 38 | linię CS wybiera program |
-| ADC tor 1 | A0–A3 | 1–4 | wejścia 0–3,3 V |
-| ADC tor 2 | A4–A7 | 11–14 | A4/A5 współdzielone z I²C |
+| ADC tor 1 | A0–A3 | 1–4 | pin znosi 3,3 V, pomiar do ok. 2,9 V |
+| ADC tor 2 | A4–A7 | 11–14 | współdzielone z I²C i z Wi-Fi — odczyt może się nie udać |
 | Piny strapping | B0, B1, A2 | 46, 0, 3 | stan przy resecie wybiera tryb rozruchu |
 :::
 :::
@@ -329,10 +344,10 @@ Tabela na następnym slajdzie zestawia najważniejsze różnice na podstawie dok
 |:---|:---|:---|:---|
 | Liczba GPIO na listwie | 13 | **14** | cała różnica to dodatkowe wyprowadzenie **G3** |
 | Skrajny górny pin lewej listwy | GND | **G3** | ten sam fizyczny otwór, inna funkcja — sprawdź nadruk |
-| Komunikacja z komputerem | przez układ **CH9102** | **wbudowany USB-Serial/JTAG** układu ESP32-C3 | C3 wymaga sterownika; C3U nie (USB CDC domyślnie wyłączone) |
+| Komunikacja z komputerem | przez układ **CH9102** | **wbudowany USB-Serial/JTAG** układu ESP32-C3 | C3 wymaga sterownika; w C3U włącz *USB CDC On Boot*, inaczej `Serial` nie wyjdzie przez USB |
 | USB | G18 = D−, G19 = D+ + CH9102 | G18 = D−, G19 = D+, bez pośrednika | — |
 | Przycisk użytkownika | G3 (nie na listwie) | **G9** (na listwie, pin strapping) | przytrzymanie G9 przy zasilaniu → tryb wgrywania |
-| Wejścia analogowe | G0, G1, G4, G5 | G0, G1, **G3**, G4, G5 | G0–G4 to tor ADC1, G5 to ADC2 |
+| Wejścia analogowe | G0, G1, G4, G5 | G0, G1, **G3**, G4, G5 | G0–G4 to tor ADC1; G5 to ADC2 — na C3 niestabilny, nie używać |
 | Masa | GND × 4 | GND × 3 | konsekwencja wyprowadzenia G3 |
 | Piny strapping | G2, G8, G9 | G2, G8, G9 | na listwie dostępne G8 i G9 |
 :::
@@ -357,7 +372,7 @@ Stamp-C3 i Stamp-C3U nie różnią się liczbą sprzętowych UART układu ESP32-
 
 ::: {.column width="48%"}
 ::: {.callout-warning title="Wniosek praktyczny"}
-Te wyprowadzenia zostawiamy wolne albo podłączamy do nich układy, które w chwili startu są w stanie wysokiej impedancji.
+Te wyprowadzenia zostawiamy wolne albo podłączamy do nich układy, które w chwili startu są w stanie wysokiej impedancji (wyjątek: GPIO3 w S3 przy ustawionym eFuse JTAG).
 
 Przycisków i czujników z twardym stanem początkowym tam **nie wieszamy** — objaw wygląda jak „płytka nie startuje", a przyczyną jest element trzymający pin przy masie.
 :::
@@ -376,14 +391,14 @@ Tabela specyfikacji Stamp-C3U u producenta wymienia wyprowadzenie „G22". Ukła
 
 ::: {.columns}
 ::: {.column width="52%"}
-Instrukcja Arduino dla ABX00083 podaje **wartości graniczne**:
+Instrukcja Arduino dla ABX00083 podaje wydajność prądową pinu:
 
 ::: {.liczby}
-<div><span class="w">40 mA</span><span class="o">prąd źródłowy — maksimum wg Arduino</span></div>
-<div><span class="w">28 mA</span><span class="o">prąd odbiornikowy — maksimum wg Arduino</span></div>
+<div><span class="w">40 mA</span><span class="o">prąd źródłowy</span></div>
+<div><span class="w">28 mA</span><span class="o">prąd odbiornikowy</span></div>
 :::
 
-Nie przenosimy dodatkowych limitów między układami rodziny ESP32: dokumentacja **ESP32-S3** nie powtarza noty `≈29 mA` znanej z datasheetu oryginalnego ESP32 (LX6).
+W datasheecie ESP32-S3 to wartości **typowe**, przy maksymalnej sile wyjścia i spadku napięcia do 2,64 V — domyślna siła wyjścia w ESP-IDF jest niższa.
 
 ::: {.fragment}
 Obciążenia indukcyjne — przekaźnik, zawór, silnik — **zawsze** przez stopień mocy z diodą gaszącą i osobnym zasilaniem.
@@ -392,31 +407,38 @@ Obciążenia indukcyjne — przekaźnik, zawór, silnik — **zawsze** przez sto
 
 ::: {.column width="48%"}
 ::: {.callout-warning title="Granica, nie punkt pracy"}
-**40 mA jest wartością graniczną, której nie wolno przekroczyć** — nie prądem, na który wolno projektować. Dobieramy obciążenie z zapasem i uwzględniamy warunki elektryczne układu.
+**40 mA to wydajność w warunkach katalogowych** — nie prąd, na który wolno projektować. Dobieramy obciążenie z zapasem i uwzględniamy warunki elektryczne układu.
 :::
 :::
 :::
 
-# Energia {.sekcja background-color="#0b3b45"}
+# Energia {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/ogniwa.jpg" background-size="cover"}
+
+
+[Fot. Mk2010, CC BY-SA 3.0]{.zrodlo}
 
 ## <i class="bi bi-battery-half"></i> Deep sleep — na czym polega kompromis {#deep-sleep}
 
 ::: {.columns}
 ::: {.column width="55%"}
 ::: {.incremental}
-* Moduł Wi-Fi pobiera setki miliamperów na samo wyszukanie sieci i zestawienie połączenia TCP/IP.
+* Moduł Wi-Fi pobiera przy nadawaniu szczytowo ponad 300 mA, średnio ok. 100 mA, przez kilka sekund wyszukiwania sieci i zestawiania połączenia.
 * Paradygmat: **obudź się → zmierz → nadaj → uśpij**, wszystko w ułamku sekundy.
 * W deep sleep procesor odcina sobie zasilanie, zostawiając minimalny zegar RTC do wybudzenia.
-* Postęp nie wziął się z pojemności ogniw — przez czterdzieści lat poprawiono ją symbolicznie. Wziął się z agresywnego zarządzania poborem.
+* Pojemność ogniw od 1991 r. wzrosła ok. trzykrotnie; pobór w uśpieniu spadł o kilka rzędów wielkości. Postęp dało przede wszystkim **zarządzanie poborem**.
 :::
 :::
 
 ::: {.column width="45%"}
 ::: {.callout-note title="Dane katalogowe a cała płytka"}
-Wartości **7 µA** i **240 µA** z dokumentacji dotyczą **samego układu ESP32-S3**. Diody LED, stabilizator i mostek USB zwiększają pobór całej płytki w uśpieniu.
+Wartości **7 µA** i **240 µA** z dokumentacji dotyczą **samego układu ESP32-S3** (z 8 MB PSRAM light sleep to ok. 380 µA). Dioda zasilania, przetwornica i pamięci podnoszą pobór seryjnej Nano ESP32 w deep sleep do ok. **2 mA**.
 
 Budżet energii liczymy **z pomiaru na stanowisku**; dane katalogowe służą do sprawdzenia, czy pomiar jest sensowny.
 :::
+
+![](../assets/img/kurs/multimetr-prad.jpg){height="300px" fig-alt="Multimetr w trybie pomiaru prądu stałego z podłączonymi przewodami."}
+
+[Pomiar prądu multimetrem. Fot. Christiankral, CC BY 4.0]{.zrodlo}
 :::
 :::
 
@@ -432,7 +454,7 @@ $$I_{\text{śr}} = \frac{I_{\text{akt}} \cdot t + I_{\text{sleep}} \cdot (T-t)}{
 
 $$Q_{\text{wym}} = I_{\text{śr}} \cdot t_{\text{życia}}$$
 
-**Przykład dydaktyczny** — pomiar co 15 min, faza aktywna 3 s przy 120 mA (Wi-Fi + TLS + publikacja), uśpienie całej płytki 0,05 mA:
+**Przykład dydaktyczny** — pomiar co 15 min, faza aktywna 3 s przy 120 mA (Wi-Fi + TLS + publikacja), uśpienie **płytki zoptymalizowanej** (własne PCB) 0,05 mA; prąd liczony po stronie ogniwa, sprawność przetwornicy pominięta:
 
 ::: {.liczby}
 <div><span class="w">0,45 mA</span><span class="o">prąd średni</span></div>
@@ -444,7 +466,7 @@ $$Q_{\text{wym}} = I_{\text{śr}} \cdot t_{\text{życia}}$$
 ![](../assets/img/energia-okres.png){width="100%" fig-alt="Wykres log-log: prąd średni cyklu w funkcji okresu raportowania od 1 do 120 minut, z poziomą linią progu roku pracy z ogniwa 3400 mAh."}
 
 ::: {.fragment}
-**Wniosek:** ogniwo CR2032 (≈220 mAh) wystarczy na **około 20 dni**. Pojedyncze ogniwo 18650 (≈3400 mAh) — na **około 10 miesięcy**. Roku pracy z jednego 18650 nie osiągniemy przy raportowaniu co 15 minut; osiągniemy go dopiero przy okresie rzędu 20–30 minut albo krótszej fazie aktywnej.
+**Wniosek:** ogniwo 18650 (≈3400 mAh) wystarczy na **około 10 miesięcy**; rok osiągniemy przy okresie **ok. 18 min** lub dłuższym. Seryjna Nano ESP32 (2 mA w uśpieniu) wyczerpie to samo ogniwo w **ok. 2 miesiące** — prawie niezależnie od okresu. CR2032 odpada: nie dostarczy szczytowego prądu Wi-Fi.
 :::
 :::
 :::
@@ -453,7 +475,7 @@ $$Q_{\text{wym}} = I_{\text{śr}} \cdot t_{\text{życia}}$$
 
 ## <i class="bi bi-clipboard-check"></i> Okres raportowania jest decyzją {#decyzja-okres}
 
-[Ta sama płytka, ten sam czujnik, ta sama bateria — a czas pracy różni się o rząd wielkości.]{.lead}
+[Ten sam czujnik, ta sama bateria, płytka zoptymalizowana (0,05 mA w uśpieniu) — a czas pracy różni się o rząd wielkości.]{.lead}
 
 | Okres raportowania | Prąd średni | Czas z ogniwa 3400 mAh |
 |:---|:---|:---|
@@ -489,7 +511,7 @@ Pytanie projektowe nie brzmi „jak często możemy mierzyć", tylko **„jak rz
 * Wartość wysyłana do systemu ma jednostkę w nazwie i jest przeliczona przez urządzenie.
 * Rozdzielczość ADC nie jest dokładnością pomiaru.
 * Stan bezpieczny wyjścia to decyzja zapisana przed implementacją i sprawdzana w trzech scenariuszach.
-* 40 mA na pinie to granica, nie prąd pracy.
+* 40 mA na pinie to wydajność katalogowa, nie prąd pracy.
 * Okres raportowania jest decyzją energetyczną — i da się ją policzyć.
 :::
 :::
@@ -510,7 +532,10 @@ Urządzenie potrafi już zmierzyć i zareagować. Teraz musi utrzymać łącze, 
 * Arduino, strona produktu i pinout Nano ESP32: <https://docs.arduino.cc/hardware/nano-esp32/>
 * u-blox, moduł NORA-W10 series (NORA-W106-10B): <https://www.u-blox.com/en/product/nora-w10-series>
 * M5Stack, dokumentacja Stamp-C3U (SKU C122-B): <https://docs.m5stack.com/en/core/stamp_c3u> oraz Stamp-C3 (C056-B): <https://docs.m5stack.com/en/core/stamp_c3>
-* Espressif, *ADC Oneshot Mode* dla ESP32-S3: <https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/api-reference/peripherals/adc_oneshot.html>
+* Espressif, *ESP32-S3 Datasheet* v2.2 — charakterystyki DC, ADC, pobór prądu: <https://documentation.espressif.com/esp32-s3_datasheet_en.pdf>
+* u-blox, *NORA-W10 Data Sheet* — zakres temperatur modułu: <https://content.u-blox.com/sites/default/files/documents/NORA-W10_DataSheet_UBX-21036702.pdf>
+* Espressif, *ADC Oneshot Mode* dla ESP32-S3 i ESP32-C3: <https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/api-reference/peripherals/adc/adc_oneshot.html>
 * Espressif, *Sleep Modes*: <https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/api-reference/system/sleep_modes.html>
-* Espressif, *GPIO & RTC GPIO* — piny strapping dla ESP32-S3 i ESP32-C3.
+* Espressif, *GPIO & RTC GPIO* — piny strapping dla ESP32-S3 i ESP32-C3: <https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/api-reference/peripherals/gpio.html>
+* Pomiary poboru seryjnej Nano ESP32 w deep sleep (społeczność): <https://forum.arduino.cc/t/power-hungry-in-deep-sleep/1204775>
 :::

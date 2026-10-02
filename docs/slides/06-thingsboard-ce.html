@@ -35,7 +35,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-be59b4774a18734dda35a4a6f13a6e44.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-b14bb2b6d13b9688d52a6d9ae23c2bf3.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -170,7 +170,7 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <h3 id="droga">Droga</h3>
 <ol type="1">
 <li>Dlaczego nie zaczynamy od wykresu</li>
-<li>Trzy rodzaje danych w platformie</li>
+<li>Telemetria i trzy zakresy atrybutów</li>
 <li>Tematy, porty, poświadczenia</li>
 <li>Pulpit i sterowanie przez RPC</li>
 <li>Cyfrowy bliźniak — jedno omówienie</li>
@@ -179,9 +179,9 @@ prof. UPP dr hab. inż. Marek Urbaniak
 </div></div>
 </section>
 <section>
-<section id="model-danych" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
+<section id="model-danych" class="title-slide slide level1 sekcja foto center" data-background-color="#0b3b45" data-background-image="../assets/img/kurs/monitory-diagnostyczne.jpg" data-background-size="cover">
 <h1>Model danych</h1>
-
+<p><span class="zrodlo">Fot. Siarhei Besarab, CC BY-SA 4.0</span></p>
 </section>
 <section id="model-najpierw" class="slide level2">
 <h2><i class="bi bi-layout-text-window"></i> Wykres jest ostatni, nie pierwszy</h2>
@@ -208,7 +208,7 @@ prof. UPP dr hab. inż. Marek Urbaniak
 </div>
 <div class="callout-content">
 <p>Zaczynamy od pulpitu, dobieramy widget, a potem dopasowujemy do niego dane z urządzenia.</p>
-<p>Efekt: wersja firmware i adres IP jako szereg czasowy, progi alarmowe zaszyte w widgecie zamiast w profilu urządzenia, i zmiana okresu próbkowania wymagająca ponownego wgrania firmware.</p>
+<p>Efekt: wersja firmware i adres IP jako szereg czasowy, progi alarmowe zaszyte w widgecie zamiast w regułach alarmowych, i zmiana okresu próbkowania wymagająca ponownego wgrania firmware.</p>
 </div>
 </div>
 </div>
@@ -216,7 +216,7 @@ prof. UPP dr hab. inż. Marek Urbaniak
 </div></div>
 </section>
 <section id="rodzaje" class="slide level2">
-<h2><i class="bi bi-database"></i> Trzy rodzaje danych — cztery kategorie zapisu</h2>
+<h2><i class="bi bi-database"></i> Telemetria i trzy zakresy atrybutów</h2>
 <table class="caption-top">
 <colgroup>
 <col style="width: 25%">
@@ -235,7 +235,7 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Telemetria</strong> (szereg czasowy)</td>
-<td style="text-align: left;">urządzenie</td>
+<td style="text-align: left;">głównie urządzenie (także reguły, REST)</td>
 <td style="text-align: left;"><strong>tak</strong>, z TTL</td>
 <td style="text-align: left;">temperatura, wilgotność, napięcie zasilania</td>
 </tr>
@@ -253,9 +253,9 @@ prof. UPP dr hab. inż. Marek Urbaniak
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Atrybuty serwerowe</strong></td>
-<td style="text-align: left;">platforma (wewnętrznie)</td>
+<td style="text-align: left;">platforma i użytkownik; <strong>urządzenie ich nie widzi</strong></td>
 <td style="text-align: left;">nie</td>
-<td style="text-align: left;"><code>active</code>, <code>lastActivityTime</code>, <code>inactivityTimeout</code></td>
+<td style="text-align: left;"><code>active</code>, <code>lastActivityTime</code>, <code>inactivityTimeout</code>, lokalizacja</td>
 </tr>
 </tbody>
 </table>
@@ -271,6 +271,7 @@ prof. UPP dr hab. inż. Marek Urbaniak
 </div>
 <div class="callout-content">
 <p>Wysyłanie wersji firmware i adresu IP <strong>jako telemetrii</strong>. Powstaje wtedy szereg czasowy tysięcy identycznych wartości, który zajmuje miejsce i niczego nie wnosi. <strong>To są atrybuty</strong> — to samo rozróżnienie, które wprowadziliśmy w module 03 przy sile sygnału i adresie IP.</p>
+<p><strong>Wyjątek:</strong> wbudowane OTA platformy oczekuje stanu aktualizacji (<code>fw_state</code>, <code>current_fw_version</code>) jako <strong>telemetrii</strong> — tu historia przejść ma wartość.</p>
 </div>
 </div>
 </div>
@@ -281,7 +282,7 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <h2><i class="bi bi-sliders"></i> Atrybuty współdzielone: konfiguracja bez OTA</h2>
 <div class="columns">
 <div class="column" style="width:52%;">
-<p>Atrybut współdzielony to kanał <strong>z platformy do urządzenia</strong>, przeznaczony dla wartości, które zmieniają się rzadko i mają przeżyć restart.</p>
+<p>Atrybut współdzielony to kanał <strong>z platformy do urządzenia</strong>, przeznaczony dla wartości, które zmieniają się rzadko i mają przeżyć restart. Subskrypcja dostarcza tylko <strong>zmiany</strong> — po starcie urządzenie samo <strong>pobiera</strong> bieżące wartości (<code>attributes/request</code>).</p>
 <ul>
 <li class="fragment">okres próbkowania,</li>
 <li class="fragment">progi przełączenia wyjścia,</li>
@@ -299,7 +300,7 @@ prof. UPP dr hab. inż. Marek Urbaniak
 <div>
 <svg id="mermaid-figure-1" width="614" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="flowchart" style="; display: block; margin: auto auto auto auto" viewbox="0 0 494.421875 614" role="graphics-document document" aria-roledescription="flowchart-v2" height="346">
 <style>#mermaid-figure-1{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:24px;fill:#333;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#mermaid-figure-1 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#mermaid-figure-1 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#mermaid-figure-1 .error-icon{fill:#552222;}#mermaid-figure-1 .error-text{fill:#552222;stroke:#552222;}#mermaid-figure-1 .edge-thickness-normal{stroke-width:1px;}#mermaid-figure-1 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-figure-1 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-figure-1 .edge-thickness-invisible{stroke-width:0;fill:none;}#mermaid-figure-1 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-figure-1 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-figure-1 .marker{fill:#333333;stroke:#333333;}#mermaid-figure-1 .marker.cross{stroke:#333333;}#mermaid-figure-1 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:24px;}#mermaid-figure-1 p{margin:0;}#mermaid-figure-1 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-figure-1 .cluster-label text{fill:#333;}#mermaid-figure-1 .cluster-label span{color:#333;}#mermaid-figure-1 .cluster-label span p{background-color:transparent;}#mermaid-figure-1 .label text,#mermaid-figure-1 span{fill:#333;color:#333;}#mermaid-figure-1 .node rect,#mermaid-figure-1 .node circle,#mermaid-figure-1 .node ellipse,#mermaid-figure-1 .node polygon,#mermaid-figure-1 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-figure-1 .rough-node .label text,#mermaid-figure-1 .node .label text,#mermaid-figure-1 .image-shape .label,#mermaid-figure-1 .icon-shape .label{text-anchor:middle;}#mermaid-figure-1 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#mermaid-figure-1 .rough-node .label,#mermaid-figure-1 .node .label,#mermaid-figure-1 .image-shape .label,#mermaid-figure-1 .icon-shape .label{text-align:center;}#mermaid-figure-1 .node.clickable{cursor:pointer;}#mermaid-figure-1 .root .anchor path{fill:#333333!important;stroke-width:0;stroke:#333333;}#mermaid-figure-1 .arrowheadPath{fill:#333333;}#mermaid-figure-1 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-figure-1 .flowchart-link{stroke:#333333;fill:none;}#mermaid-figure-1 .edgeLabel{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-1 .edgeLabel p{background-color:rgba(232,232,232, 0.8);}#mermaid-figure-1 .edgeLabel rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-1 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-figure-1 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-figure-1 .cluster text{fill:#333;}#mermaid-figure-1 .cluster span{color:#333;}#mermaid-figure-1 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-figure-1 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-figure-1 rect.text{fill:none;stroke-width:0;}#mermaid-figure-1 .icon-shape,#mermaid-figure-1 .image-shape{background-color:rgba(232,232,232, 0.8);text-align:center;}#mermaid-figure-1 .icon-shape p,#mermaid-figure-1 .image-shape p{background-color:rgba(232,232,232, 0.8);padding:2px;}#mermaid-figure-1 .icon-shape rect,#mermaid-figure-1 .image-shape rect{opacity:0.5;background-color:rgba(232,232,232, 0.8);fill:rgba(232,232,232, 0.8);}#mermaid-figure-1 .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#mermaid-figure-1 .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#mermaid-figure-1 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-figure-1 .n>*{fill:#e8f2f4!important;stroke:#0b6b78!important;stroke-width:2px!important;color:#0b3b45!important;}#mermaid-figure-1 .n span{fill:#e8f2f4!important;stroke:#0b6b78!important;stroke-width:2px!important;color:#0b3b45!important;}#mermaid-figure-1 .n tspan{fill:#0b3b45!important;}</style>
-<g><marker id="mermaid-1790951038325_flowchart-v2-pointEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790951038325_flowchart-v2-pointStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="4.5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790951038325_flowchart-v2-circleEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="11" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790951038325_flowchart-v2-circleStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="-1" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790951038325_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="12" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790951038325_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="-1" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M175.325,164L167.723,171.167C160.12,178.333,144.916,192.667,137.313,207.333C129.711,222,129.711,237,129.711,244.5L129.711,252" id="L_P_D_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_P_D_0" data-points="W3sieCI6MTc1LjMyNDg2NDQxMTE1NzAyLCJ5IjoxNjR9LHsieCI6MTI5LjcxMDkzNzUsInkiOjIwN30seyJ4IjoxMjkuNzEwOTM3NSwieSI6MjU2fV0=" marker-end="url(#mermaid-1790951038325_flowchart-v2-pointEnd)"></path><path d="M129.711,352L129.711,363.167C129.711,374.333,129.711,396.667,139.755,417.537C149.8,438.407,169.888,457.814,179.932,467.517L189.977,477.221" id="L_D_N_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_D_N_0" data-points="W3sieCI6MTI5LjcxMDkzNzUsInkiOjM1Mn0seyJ4IjoxMjkuNzEwOTM3NSwieSI6NDE5fSx7IngiOjE5Mi44NTM1NDcxMjcwMTYxMywieSI6NDgwfV0=" marker-end="url(#mermaid-1790951038325_flowchart-v2-pointEnd)"></path><path d="M323.279,480L333.803,469.833C344.327,459.667,365.374,439.333,375.898,410C386.422,380.667,386.422,342.333,386.422,307C386.422,271.667,386.422,239.333,379.305,216.457C372.187,193.581,357.953,180.163,350.836,173.453L343.719,166.744" id="L_N_P_0" class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_N_P_0" data-points="W3sieCI6MzIzLjI3OTI2NTM3Mjk4MzksInkiOjQ4MH0seyJ4IjozODYuNDIxODc1LCJ5Ijo0MTl9LHsieCI6Mzg2LjQyMTg3NSwieSI6MzA0fSx7IngiOjM4Ni40MjE4NzUsInkiOjIwN30seyJ4IjozNDAuODA3OTQ4MDg4ODQzLCJ5IjoxNjR9XQ==" marker-end="url(#mermaid-1790951038325_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel" transform="translate(129.7109375, 207)"><g class="label" data-id="L_P_D_0" transform="translate(-94.7109375, -18)"><foreignobject width="189.421875" height="36">
+<g><marker id="mermaid-1790953333632_flowchart-v2-pointEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790953333632_flowchart-v2-pointStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="4.5" refy="5" markerunits="userSpaceOnUse" markerwidth="8" markerheight="8" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790953333632_flowchart-v2-circleEnd" class="marker flowchart-v2" viewbox="0 0 10 10" refx="11" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790953333632_flowchart-v2-circleStart" class="marker flowchart-v2" viewbox="0 0 10 10" refx="-1" refy="5" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1790953333632_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="12" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1790953333632_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewbox="0 0 11 11" refx="-1" refy="5.2" markerunits="userSpaceOnUse" markerwidth="11" markerheight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path d="M175.325,164L167.723,171.167C160.12,178.333,144.916,192.667,137.313,207.333C129.711,222,129.711,237,129.711,244.5L129.711,252" id="L_P_D_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_P_D_0" data-points="W3sieCI6MTc1LjMyNDg2NDQxMTE1NzAyLCJ5IjoxNjR9LHsieCI6MTI5LjcxMDkzNzUsInkiOjIwN30seyJ4IjoxMjkuNzEwOTM3NSwieSI6MjU2fV0=" marker-end="url(#mermaid-1790953333632_flowchart-v2-pointEnd)"></path><path d="M129.711,352L129.711,363.167C129.711,374.333,129.711,396.667,139.755,417.537C149.8,438.407,169.888,457.814,179.932,467.517L189.977,477.221" id="L_D_N_0" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_D_N_0" data-points="W3sieCI6MTI5LjcxMDkzNzUsInkiOjM1Mn0seyJ4IjoxMjkuNzEwOTM3NSwieSI6NDE5fSx7IngiOjE5Mi44NTM1NDcxMjcwMTYxMywieSI6NDgwfV0=" marker-end="url(#mermaid-1790953333632_flowchart-v2-pointEnd)"></path><path d="M323.279,480L333.803,469.833C344.327,459.667,365.374,439.333,375.898,410C386.422,380.667,386.422,342.333,386.422,307C386.422,271.667,386.422,239.333,379.305,216.457C372.187,193.581,357.953,180.163,350.836,173.453L343.719,166.744" id="L_N_P_0" class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link" style=";" data-edge="true" data-et="edge" data-id="L_N_P_0" data-points="W3sieCI6MzIzLjI3OTI2NTM3Mjk4MzksInkiOjQ4MH0seyJ4IjozODYuNDIxODc1LCJ5Ijo0MTl9LHsieCI6Mzg2LjQyMTg3NSwieSI6MzA0fSx7IngiOjM4Ni40MjE4NzUsInkiOjIwN30seyJ4IjozNDAuODA3OTQ4MDg4ODQzLCJ5IjoxNjR9XQ==" marker-end="url(#mermaid-1790953333632_flowchart-v2-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel" transform="translate(129.7109375, 207)"><g class="label" data-id="L_P_D_0" transform="translate(-94.7109375, -18)"><foreignobject width="189.421875" height="36">
 <div class="labelBkg" data-xmlns="http://www.w3.org/1999/xhtml" style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;">
 <span class="edgeLabel">
 <p>
@@ -360,9 +361,9 @@ Nowe zachowanie<br><small>bez wgrywania firmware</small>
 </div></div>
 </section></section>
 <section>
-<section id="styk-z-urządzeniem" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
+<section id="styk-z-urządzeniem" class="title-slide slide level1 sekcja foto center" data-background-color="#0b3b45" data-background-image="../assets/img/kurs/panel-robota.jpg" data-background-size="cover">
 <h1>Styk z urządzeniem</h1>
-
+<p><span class="zrodlo">Fot. Artem Svetlov, CC BY 2.0</span></p>
 </section>
 <section id="tematy" class="slide level2">
 <h2><i class="bi bi-signpost-split"></i> Kontrakt tematów MQTT platformy</h2>
@@ -398,15 +399,21 @@ Nowe zachowanie<br><small>bez wgrywania firmware</small>
 <td style="text-align: left;">Atrybuty współdzielone</td>
 <td style="text-align: left;"><code>v1/devices/me/attributes</code></td>
 <td style="text-align: left;"><code>v2/a</code></td>
-<td style="text-align: left;">platforma → urządzenie (subskrypcja)</td>
+<td style="text-align: left;">platforma → urządzenie (subskrypcja zmian)</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">Pobranie atrybutów po starcie</td>
+<td style="text-align: left;"><code>v1/devices/me/attributes/request/$id</code></td>
+<td style="text-align: left;"><code>v2/a/req/$id</code></td>
+<td style="text-align: left;">urządzenie → platforma, odpowiedź w <code>…/response/$id</code></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">Żądanie RPC</td>
 <td style="text-align: left;"><code>v1/devices/me/rpc/request/+</code></td>
 <td style="text-align: left;"><code>v2/r/req/+</code></td>
 <td style="text-align: left;">platforma → urządzenie</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Odpowiedź urządzenia</td>
 <td style="text-align: left;"><code>v1/devices/me/rpc/response/$id</code></td>
 <td style="text-align: left;"><code>v2/r/res/$id</code></td>
@@ -449,7 +456,7 @@ Nowe zachowanie<br><small>bez wgrywania firmware</small>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>MQTT Basic</strong></td>
-<td style="text-align: left;">własny <code>clientId</code>, login i hasło</td>
+<td style="text-align: left;"><code>clientId</code>, login z hasłem — albo oba naraz</td>
 <td style="text-align: left;">gdy potrzebny jawny <code>clientId</code></td>
 </tr>
 <tr class="odd">
@@ -501,31 +508,31 @@ Nowe zachowanie<br><small>bez wgrywania firmware</small>
 </div>
 </div>
 </div>
-</div><div class="column" style="width:52%;">
-<ol type="1">
-<li class="fragment">Pulpit wysyła żądanie z <strong>metodą</strong> (np. <code>setSwitch</code>) i parametrami.</li>
-<li class="fragment">Urządzenie odbiera je w temacie żądań z identyfikatorem <code>$id</code>.</li>
-<li class="fragment">Wykonuje polecenie <strong>idempotentnie</strong> — powtórzenie tego samego <code>$id</code> nie wykonuje akcji ponownie.</li>
-<li class="fragment">Publikuje odpowiedź w temacie odpowiedzi z <strong>tym samym <code>$id</code></strong> i podaje <strong>rzeczywisty stan wyjścia</strong>.</li>
-<li class="fragment">Pulpit pokazuje stan <strong>potwierdzony przez urządzenie</strong>, nie stan żądany przez operatora.</li>
-</ol>
 <div class="fragment">
-<div title="To rozróżnienie jest istotą sterowania, które można audytować">
+<div title="Istota sterowania, które można audytować">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>To rozróżnienie jest istotą sterowania, które można audytować</strong></p>
+<p><strong>Istota sterowania, które można audytować</strong></p>
 </div>
 <div class="callout-content">
-<p>Przełącznik pokazujący stan żądany kłamie zawsze, gdy urządzenie nie odpowiedziało. Przełącznik pokazujący stan potwierdzony <strong>mówi prawdę albo nie mówi nic</strong> — i to drugie jest informacją.</p>
+<p>Przełącznik ze stanem żądanym kłamie, gdy urządzenie nie odpowiedziało. Ze stanem potwierdzonym <strong>mówi prawdę albo nic</strong> — i to drugie też jest informacją.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
+</div><div class="column" style="width:52%;">
+<ol type="1">
+<li class="fragment">Pulpit wysyła żądanie z <strong>metodą</strong> (np. <code>setSwitch</code>) i parametrami.</li>
+<li class="fragment">Urządzenie odbiera je w temacie żądań z identyfikatorem <code>$id</code>.</li>
+<li class="fragment">Wykonuje je <strong>idempotentnie</strong> — najlepiej polecenie „ustaw stan = X”, nie „przełącz”, bo <code>$id</code> może się powtórzyć po restarcie.</li>
+<li class="fragment">Publikuje odpowiedź w temacie odpowiedzi z <strong>tym samym <code>$id</code></strong> i podaje <strong>rzeczywisty stan wyjścia</strong>.</li>
+<li class="fragment">Pulpit pokazuje stan <strong>potwierdzony</strong>. Wymaga to RPC <strong>dwukierunkowego</strong>; jednokierunkowe kończy się na wysłaniu. Trwałe RPC ma statusy i ponowienia.</li>
+</ol>
 </div></div>
 </section>
 <section id="pulpit" class="slide level2">
@@ -537,12 +544,12 @@ Nowe zachowanie<br><small>bez wgrywania firmware</small>
 <li class="fragment">Wartość bieżącą <strong>wraz z jej wiekiem</strong> — „22,5 °C sprzed 4 s” znaczy co innego niż „22,5 °C sprzed dwóch godzin”.</li>
 <li class="fragment">Stan wyjścia <strong>potwierdzony przez urządzenie</strong>.</li>
 <li class="fragment">Wersję firmware jako <strong>atrybut</strong>, nie punkt na wykresie.</li>
-<li class="fragment">Stan łączności — pole <code>active</code> z atrybutów serwerowych.</li>
+<li class="fragment">Stan łączności — <code>active</code> i <code>lastActivityTime</code> z atrybutów serwerowych (<code>active</code> zmienia się dopiero po <code>inactivityTimeout</code>, domyślnie 600 s).</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <p><strong>Czego pulpit nie zastąpi</strong></p>
 <ul>
-<li class="fragment"><strong>Reguł w profilu urządzenia</strong> — próg zaszyty w widgecie działa tylko wtedy, gdy ktoś patrzy na ekran.</li>
+<li class="fragment"><strong>Reguł alarmowych</strong> (od wersji 4.3 przypinanych do profilu albo do encji) — próg zaszyty w widgecie działa tylko wtedy, gdy ktoś patrzy na ekran.</li>
 <li class="fragment"><strong>Retencji danych</strong> — TTL telemetrii jest ustawieniem platformy, nie właściwością wykresu.</li>
 <li class="fragment"><strong>Dowodu</strong> — zrzut pulpitu nie jest zapisem zdarzenia. Zapisem jest telemetria i log alarmów.</li>
 </ul>
@@ -558,7 +565,7 @@ Nowe zachowanie<br><small>bez wgrywania firmware</small>
 <p><strong>Test, który warto wykonać na każdym pulpicie</strong></p>
 </div>
 <div class="callout-content">
-<p>Odłącz urządzenie i popatrz na pulpit przez minutę. Jeżeli wygląda tak samo jak przy działającym urządzeniu — pulpit jest źle zaprojektowany.</p>
+<p>Odłącz urządzenie i popatrz na pulpit przez minutę. Jeżeli wiek ostatniego pomiaru nie rośnie i wszystko wygląda tak samo jak przy działającym urządzeniu — pulpit jest źle zaprojektowany.</p>
 </div>
 </div>
 </div>
@@ -584,9 +591,9 @@ Nowe zachowanie<br><small>bez wgrywania firmware</small>
 </div></div>
 </section></section>
 <section>
-<section id="kontekst-i-ryzyko" class="title-slide slide level1 sekcja center" data-background-color="#0b3b45">
+<section id="kontekst-i-ryzyko" class="title-slide slide level1 sekcja foto center" data-background-color="#0b3b45" data-background-image="../assets/img/kurs/turbina-serwis.jpg" data-background-size="cover">
 <h1>Kontekst i ryzyko</h1>
-
+<p><span class="zrodlo">Fot. U.S. Department of Energy, domena publiczna</span></p>
 </section>
 <section id="bliźniak" class="slide level2">
 <h2><i class="bi bi-boxes"></i> Cyfrowy bliźniak</h2>
@@ -643,7 +650,7 @@ Nowe zachowanie<br><small>bez wgrywania firmware</small>
 </div>
 </div><div class="column" style="width:50%;">
 <p><strong>Oprogramowanie lokalne też zmienia licencję</strong></p>
-<p><strong>ThingsBoard 4.4 używa licencji Business Source License 1.1 (BSL 1.1)</strong> i łączy wcześniejsze linie CE/PE w jeden produkt <em>source-available</em>. Kod wydania przechodzi na Apache 2.0 po czterech latach; wcześniejsze wydania CE pozostają na swoich dotychczasowych licencjach.</p>
+<p><strong>ThingsBoard 4.4 (29.09.2026) używa licencji Business Source License 1.1</strong> i łączy linie CE/PE w jeden produkt <em>source-available</em>. Kod wydania przechodzi na Apache 2.0 po czterech latach. <strong>CE 4.3 LTS</strong> zostaje na Apache 2.0, z poprawkami bezpieczeństwa do 20.07.2027.</p>
 <div class="fragment">
 <div title="Pierwszy krok ćwiczenia">
 <div class="callout callout-important callout-titled callout-style-default">
@@ -669,14 +676,28 @@ Nowe zachowanie<br><small>bez wgrywania firmware</small>
 <div class="column" style="width:52%;">
 <p>Dla instalacji <strong>starszych niż 4.4</strong> Community Edition i Professional Edition różnią się zakresem funkcji. Od wersji 4.4 linie są scalone w jeden produkt <em>source-available</em>.</p>
 <p>Dlatego instrukcja znaleziona w sieci może opisywać inną wersję, edycję lub licencję niż instalacja używana na zajęciach.</p>
+<div title="Rozdział a izolacja">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Rozdział a izolacja</strong></p>
+</div>
+<div class="callout-content">
+<p>Platforma daje <strong>rozdział logiczny</strong>: dzierżawcy, klienci, profile, uprawnienia. <strong>Izolacja fizyczna</strong> to decyzja wdrożeniowa — osobne instalacje albo bazy danych.</p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:48%;">
 <ul>
-<li class="fragment">Dla wersji &lt; 4.4 materiał PE może opisywać funkcję nieobecną w CE.</li>
-<li class="fragment">Dla wersji ≥ 4.4 trzeba sprawdzić bieżące warunki BSL i program grantowy.</li>
+<li class="fragment">Dla wersji &lt; 4.4 (np. 4.3 LTS) materiał PE może opisywać funkcję nieobecną w CE.</li>
+<li class="fragment">Dla wersji ≥ 4.4 darmowa licencja obejmuje zastosowania <strong>niekomercyjne, w tym edukację, do 1000 urządzeń</strong>, z pełnym zestawem funkcji; komercyjnie — do 100 urządzeń na jednym serwerze.</li>
+<li class="fragment">Program grantowy dotyczy tylko wdrożeń produkcyjnych CE sprzed 29.09.2026.</li>
 <li class="fragment">Przed użyciem materiału zapisujemy wersję, licencję i datę sprawdzenia.</li>
 </ul>
-</div><div class="column" style="width:48%;">
-<p>Platforma udostępnia <strong>rozdział logiczny</strong> przez dzierżawców, klientów, profile urządzeń i uprawnienia.</p>
-<p><strong>Izolacja fizyczna jest decyzją wdrożeniową</strong> — wymaga osobnych instalacji albo osobnych baz danych.</p>
 </div></div>
 </section>
 <section id="test-odbioru" class="slide level2">
@@ -684,7 +705,7 @@ Nowe zachowanie<br><small>bez wgrywania firmware</small>
 <div class="pytania">
 <ul>
 <li>Urządzenie widoczne w platformie, telemetria napływa i jest widoczna na wykresie.</li>
-<li><strong>Wersja firmware widnieje jako atrybut klienta</strong>, nie jako szereg czasowy.</li>
+<li><strong>Model płytki i adres IP widnieją jako atrybuty klienta</strong>, nie jako szereg czasowy.</li>
 <li>Zmiana atrybutu współdzielonego (np. okresu próbkowania) zmienia zachowanie urządzenia <strong>bez ponownego wgrywania firmware</strong>.</li>
 <li>Przełącznik na pulpicie zmienia stan aktuatora, a pulpit pokazuje <strong>stan potwierdzony przez urządzenie</strong>.</li>
 <li><strong>Wersja i licencja instalacji zapisane w sprawozdaniu</strong> wraz z datą sprawdzenia.</li>
@@ -710,7 +731,7 @@ Nowe zachowanie<br><small>bez wgrywania firmware</small>
 <li class="fragment">Platforma to najpierw <strong>model danych</strong>, dopiero potem pulpit.</li>
 <li class="fragment">Telemetria ma historię, atrybuty mają ostatnią wartość — pomylenie ich kosztuje miejsce i sens.</li>
 <li class="fragment">Atrybuty współdzielone pozwalają zmieniać konfigurację <strong>bez wydania firmware</strong>.</li>
-<li class="fragment">QoS 2 nie istnieje na styku z platformą; idempotencja jest obowiązkowa.</li>
+<li class="fragment">Platforma gwarantuje na styku MQTT najwyżej QoS 1; idempotencja jest obowiązkowa.</li>
 <li class="fragment">Pulpit pokazuje <strong>stan potwierdzony</strong>, nie żądany.</li>
 <li class="fragment">Wersja i licencja instalacji to zapis w sprawozdaniu, nie ciekawostka.</li>
 </ul>
@@ -738,7 +759,9 @@ Nowe zachowanie<br><small>bez wgrywania firmware</small>
 <ul>
 <li>ThingsBoard, <em>MQTT API</em> — tematy standardowe i skrócone, porty, wersje protokołu, QoS, typy poświadczeń: <a href="https://thingsboard.io/docs/reference/mqtt-api/" class="uri">https://thingsboard.io/docs/reference/mqtt-api/</a></li>
 <li>ThingsBoard, <em>Telemetry</em>: <a href="https://thingsboard.io/docs/user-guide/telemetry/" class="uri">https://thingsboard.io/docs/user-guide/telemetry/</a> oraz <em>Attributes</em>: <a href="https://thingsboard.io/docs/user-guide/attributes/" class="uri">https://thingsboard.io/docs/user-guide/attributes/</a></li>
-<li>ThingsBoard, <em>RPC</em>: <a href="https://thingsboard.io/docs/user-guide/rpc/" class="uri">https://thingsboard.io/docs/user-guide/rpc/</a></li>
+<li>ThingsBoard, <em>RPC</em> — jedno- i dwukierunkowe, trwałe RPC: <a href="https://thingsboard.io/docs/user-guide/rpc/" class="uri">https://thingsboard.io/docs/user-guide/rpc/</a></li>
+<li>ThingsBoard, <em>Device connectivity status</em> — <code>active</code>, <code>inactivityTimeout</code>: <a href="https://thingsboard.io/docs/user-guide/device-connectivity-status/" class="uri">https://thingsboard.io/docs/user-guide/device-connectivity-status/</a></li>
+<li>ThingsBoard 4.3 — <em>Alarm Rules 2.0</em>: <a href="https://thingsboard.io/blog/thingsboard-4-3-alarm-rules-2-0-enhanced-calculated-fields-api-keys-and-more/" class="uri">https://thingsboard.io/blog/thingsboard-4-3-alarm-rules-2-0-enhanced-calculated-fields-api-keys-and-more/</a></li>
 <li>ThingsBoard, <em>Dashboards</em>: <a href="https://thingsboard.io/docs/user-guide/dashboards/" class="uri">https://thingsboard.io/docs/user-guide/dashboards/</a></li>
 <li>ThingsBoard, informacja o scaleniu produktu i licencji BSL 1.1 od wersji 4.4: <a href="https://thingsboard.io/blog/one-thingsboard-source-available/" class="uri">https://thingsboard.io/blog/one-thingsboard-source-available/</a> oraz <em>Community Grant Program</em>: <a href="https://thingsboard.io/community-grant-program/" class="uri">https://thingsboard.io/community-grant-program/</a></li>
 <li>Google Cloud, archiwalne <em>IoT Core release notes</em> — komunikat o wyłączeniu 16 sierpnia 2023 r. (kopia oficjalnej strony z 18 sierpnia 2022 r.): <a href="https://web.archive.org/web/20220818025528id_/https://cloud.google.com/iot/docs/release-notes" class="uri">https://web.archive.org/web/20220818025528id_/https://cloud.google.com/iot/docs/release-notes</a></li>

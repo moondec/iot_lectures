@@ -37,14 +37,19 @@ format:
 :::
 :::
 
-# Rama {#sekcja-rama .sekcja background-color="#0b3b45"}
+# Rama {#sekcja-rama .sekcja .foto background-color="#0b3b45" background-image="../assets/img/lecture00/ziemia-noca.jpg" background-size="cover"}
+
+
+[Fot. NASA Goddard, domena publiczna]{.zrodlo}
 
 ## <i class="bi bi-people"></i> Kto tworzy skutki {#rama}
 
 ::: {.columns}
 ::: {.column width="52%"}
-::: {.callout-note title="Punkt wyjścia" style="font-size: 0.95em;"}
-Rewolucje w technologii informacyjnej przeprowadzają **inżynierowie, przedsiębiorcy i naukowcy**, którzy często nie zdają sobie sprawy z konsekwencji własnych decyzji — i z całą pewnością nikogo nie reprezentują.
+::: {.callout-note title="Wracamy do wykładu 0" style="font-size: 0.95em;"}
+Harari: rewolucje w biotechnologii i infotechnologii przeprowadzają **inżynierowie, przedsiębiorcy i naukowcy**, nieświadomi **politycznych** konsekwencji swoich decyzji. Po siedmiu modułach to zdanie dotyczy już nas.
+
+[Y. N. Harari, *21 lekcji na XXI wiek* (2018)]{.zrodlo}
 :::
 
 ::: {.incremental}
@@ -65,7 +70,10 @@ Projekt, który nie odpowiada na pytanie „jak to wyłączyć, nie niszcząc za
 :::
 :::
 
-# Odporność {.sekcja background-color="#0b3b45"}
+# Odporność {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/oscyloskop.jpg" background-size="cover"}
+
+
+[Fot. Jrmlhermitte, CC BY-SA 4.0]{.zrodlo}
 
 ## <i class="bi bi-activity"></i> Na czym opiera się wykrycie nieaktywności {#nieaktywnosc}
 
@@ -102,15 +110,15 @@ Aktywność jest raportowana do usługi stanu **wsadowo**. Domyślna strategia `
 ostatnią aktywność z okresu o długości `TB_TRANSPORT_SESSIONS_REPORT_TIMEOUT` — domyślnie **3000 ms**.
 
 ::: {.fragment}
-Jeżeli próg nieaktywności jest **krótszy** od okresu raportowania, urządzenie publikujące co sekundę
+Jeżeli próg nieaktywności **nie jest dłuższy** od okresu raportowania, urządzenie publikujące co sekundę
 zostanie **błędnie uznane za nieaktywne**.
 :::
 
 ::: {.fragment}
 ::: {.callout-tip title="Zasada doboru progu"}
-Próg nieaktywności w sekundach **nie mniejszy** niż okres raportowania aktywności podzielony przez 1000 — z zapasem na realne przerwy między komunikatami.
+Próg nieaktywności **dłuższy** niż okres raportowania aktywności — z zapasem na realne przerwy między komunikatami.
 
-Dla ustawień domyślnych: minimum **3 s**, praktycznie **60 s** (dwudziestokrotny zapas).
+Dla ustawień domyślnych: **więcej niż 3 s**, praktycznie **60 s** (dwudziestokrotny zapas).
 :::
 :::
 :::
@@ -119,7 +127,7 @@ Dla ustawień domyślnych: minimum **3 s**, praktycznie **60 s** (dwudziestokrot
 ::: {.callout-warning title="Drugi parametr, o którym się zapomina"}
 `TB_TRANSPORT_SESSIONS_INACTIVITY_TIMEOUT` (domyślnie **300 000 ms**) to **osobny** parametr — timeout sesji transportowej.
 
-Utrzymujemy go **nie krótszym** od progu nieaktywności urządzenia. Inaczej urządzenie zostanie uznane za nieaktywne przy wciąż otwartej sesji, a diagnoza pójdzie w złą stronę: będziemy szukać problemu w sieci, choć przyczyną jest konfiguracja.
+Dokumentacja zaleca, by nie był **krótszy** od progu nieaktywności urządzenia — a wartości domyślne same tę zasadę łamią (300 s < 600 s). Przy niezgodności zdarzenia sesji i aktywności rozjeżdżają się, a diagnoza idzie w złą stronę: szukamy problemu w sieci, choć przyczyną jest konfiguracja.
 :::
 
 ::: {.fragment}
@@ -165,7 +173,10 @@ Alarm, który nigdy się nie zamknął, wygląda w historii tak samo jak awaria 
 :::
 :::
 
-# Bezpieczeństwo {.sekcja background-color="#0b3b45"}
+# Bezpieczeństwo {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/klodka.jpg" background-size="cover"}
+
+
+[Fot. Lacz02, CC BY-SA 4.0]{.zrodlo}
 
 ## <i class="bi bi-shield-exclamation"></i> Model zagrożeń — cztery powierzchnie {#model-zagrozen}
 
@@ -190,22 +201,23 @@ porządkuje istniejące według tego, przed czym chronią.**
 ::: {.column width="52%"}
 To **dwa osobne incydenty**:
 
-**21 października 2016** — atak na operatora DNS **Dyn**. Objął szerszą klasę urządzeń niż same kamery IP: kamery, rejestratory DVR i routery domowe z **fabrycznymi poświadczeniami**.
+**Wrzesień–październik 2016** — Mirai: kamery, rejestratory DVR i routery z **fabrycznymi hasłami**. Atak na blog Krebsa (~620 Gb/s), OVH (~1 Tb/s), a **21 października** na operatora DNS **Dyn**.
 
-**listopad 2016** — wariant Mirai wykorzystujący lukę w interfejsie **TR-064** routerów Deutsche Telekom; pozbawił łączności ok. **900 tys.** klientów.
+**Listopad 2016** — wariant Mirai atakujący interfejs zarządzania **TR-064/TR-069** (port 7547), bez łamania haseł. Routery Deutsche Telekom **zawieszały się przy próbach infekcji** — ok. **900 tys.** klientów bez łączności.
 
-![](../assets/img/axis-ip-cameras.png){width="48%" fig-alt="Dwie kamery sieciowe Axis: starsza kamera obrotowa i kompaktowa kamera kopułkowa."}
+![](../assets/img/axis-ip-cameras.png){height="190px" fig-alt="Dwie kamery sieciowe Axis: starsza kamera obrotowa i kompaktowa kamera kopułkowa."}
 
 ::: {.zrodlo}
-Kamery sieciowe Axis 212PTZ i M3005-V. Fot. Bungle, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Axis_ip_dome_cameras.png), CC BY-SA 4.0. Pomniejszono.
+Zdjęcie poglądowe (kamery Axis); Mirai atakował głównie tanie kamery i DVR innych producentów. Fot. Bungle, CC BY-SA 4.0.
 :::
 :::
 
 ::: {.column width="48%"}
-**Mechanizm, który zadziałał**
+**Mechanizmy, które zadziałały**
 
 ::: {.incremental}
-* Fabryczne, niezmienione hasła w urządzeniach dostępnych z internetu.
+* Dyn: fabryczne, niezmienione hasła w urządzeniach dostępnych z internetu.
+* Deutsche Telekom: interfejs zarządzania wystawiony do internetu.
 * Brak aktualizacji przez cały okres eksploatacji.
 * Urządzenie, które nie ma właściciela odpowiedzialnego za jego bezpieczeństwo.
 :::
@@ -291,7 +303,10 @@ flowchart TD
 :::
 :::
 
-# Eksploatacja {.sekcja background-color="#0b3b45"}
+# Eksploatacja {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/panel-maszyny.jpg" background-size="cover"}
+
+
+[Fot. Shixart1985, CC BY 2.0]{.zrodlo}
 
 ## <i class="bi bi-clipboard-check"></i> Plan testów awarii {#testy-awarii}
 
@@ -304,7 +319,7 @@ flowchart TD
 | **Powrót sieci** | włącz punkt dostępowy | alarm zamyka się **samoczynnie** · telemetria wraca bez interwencji · stan platformy zgodny ze stanem urządzenia |
 | **Zanik zasilania** | odetnij i przywróć zasilanie | urządzenie startuje w stanie bezpiecznym i **nie wykonuje zaległego polecenia** (dowód, że polecenia nie są `retained`) |
 | **Awaria czujnika** | rozłącz czujnik | odczyt odrzucony przez walidację · licznik odrzuceń **z powodem** · brak fałszywej wartości w arkuszu i na pulpicie |
-| **Nieudana aktualizacja** | wydaj obraz z błędną sumą kontrolną | stan `FAILED` i powrót do wersji poprzedniej (moduł 03) |
+| **Nieudana aktualizacja** | wydaj obraz z błędną sumą, potem obraz, który nie przejdzie self-testu | `FAILED` i stara wersja; potem automatyczne wycofanie po restarcie (moduł 03) |
 :::
 
 ::: {.fragment}
@@ -327,7 +342,7 @@ siedem wykładów opisywało **jeden system**, a nie siedem tematów.
 
 ::: {.column width="50%"}
 ::: {.callout-warning title="Dlaczego osobny łańcuch"}
-Błąd w regule umieszczonej w łańcuchu głównym **zatrzymuje przetwarzanie całej dzierżawy** — także dla urządzeń, które z tą regułą nie mają nic wspólnego.
+Błąd w regule umieszczonej w łańcuchu głównym **może zablokować lub zakłócić przetwarzanie dla całej dzierżawy** — także dla urządzeń, które z tą regułą nie mają nic wspólnego.
 
 Objaw: „platforma przestała odbierać telemetrię", przyczyna: jedna źle skonfigurowana reguła powiadomień w cudzym ćwiczeniu.
 :::
@@ -346,7 +361,7 @@ Domena `.invalid` jest zarezerwowana przez IETF właśnie do takich zastosowań 
 ::: {.column width="52%"}
 ::: {.incremental}
 * **Licznik energii** mierzący zużycie co 10 sekund pozwala odczytać z profilu poboru, kiedy ktoś włącza czajnik, wychodzi z domu i wraca.
-* **Zabawki z mikrofonem** wysyłające nieszyfrowane nagrania do chmur w obcych jurysdykcjach bywały wycofywane z rynku europejskiego.
+* **Lalka My Friend Cayla** z mikrofonem i niezabezpieczonym Bluetooth — zakazana w Niemczech (2017); dziecięcy zegarek Safe-KID-One wycofany z rynku UE (2019).
 * **Opaski aktywności** profilujące puls mogą posłużyć do różnicowania składki ubezpieczeniowej.
 :::
 
@@ -378,17 +393,16 @@ Pytanie kontrolne do każdego pola w kontrakcie danych z modułu 04: *jaką decy
 
 ::: {.columns}
 ::: {.column width="52%"}
-**Cyber Resilience Act — stan faktyczny**
+**Cyber Resilience Act — rozporządzenie (UE) 2024/2847**
 
-**Rozporządzenie (UE) 2024/2847 — Cyber Resilience Act:**
+* **10.12.2024** — wejście w życie,
+* **od 11.09.2026 obowiązuje** zgłaszanie do CSIRT i ENISA aktywnie wykorzystywanych podatności i poważnych incydentów (24 h / 72 h / raport końcowy),
+* **11.12.2027** — zasadnicza część wymagań.
 
-* **10 grudnia 2024** — wejście w życie,
-* **11 września 2026** — obowiązek raportowania aktywnie wykorzystywanych podatności,
-* **11 grudnia 2027** — zasadnicza część wymagań.
+**Już dziś** urządzenia radiowe (jak ESP32) obejmuje akt delegowany RED **(UE) 2022/30** — od **01.08.2025**, normy **EN 18031-1/2/3**.
 
 ::: {.fragment}
-Produkt z elementami cyfrowymi wprowadzany na rynek UE musi mieć zapewnione wsparcie bezpieczeństwa
-— a więc **mechanizm OTA przestaje być udogodnieniem i staje się wymogiem**.
+Produkt wprowadzany na rynek UE musi dostawać **aktualizacje bezpieczeństwa przez cały okres wsparcia** (co najmniej 5 lat, chyba że produkt żyje krócej). CRA nie nakazuje wprost OTA — ale w praktyce dla urządzeń sieciowych to właśnie OTA.
 :::
 :::
 
@@ -415,28 +429,29 @@ Projekt semestralny, którego nie da się wyłączyć bez utraty danych, jest ni
 
 ::: {.columns}
 ::: {.column width="55%"}
+Wracamy do rachunku z wykładu 0:
+
+![](../assets/img/energia-auto-czlowiek.png){width="96%" fig-alt="Wykres: 5 km jazdy samochodem spalinowym zużywa 12,1 MJ, tyle co człowiek przez dobę ciężkiej pracy."}
+
 ::: {.incremental}
-* Dorosły człowiek przy ciężkiej pracy zużywa około **3000 kcal** dziennie — to **12,6 MJ**, czyli **3,5 kWh**.
-* Samochód potrzebuje około **2,5 MJ na kilometr**.
-* Stąd: przejechanie **5 km** samochodem uwalnia ładunek energetyczny porównywalny z całodobowym zapotrzebowaniem organizmu jednego człowieka.
-* Ludzki mózg wykonuje operacje, których nie powtórzy żadna serwerownia, pobierając **około 20 W**.
-:::
+* Mózg człowieka pobiera **około 20 W**; serwer z akceleratorem AI — setki watów do kilowatów.
 
 ::: {.fragment}
-Systemy komputerowe są prądożerne na wzór aut. Dlatego budżet energii z modułu 02 nie jest ćwiczeniem
-rachunkowym — jest jedynym miejscem, gdzie ten koszt staje się widoczny na etapie projektu.
+Dlatego budżet energii z modułu 02 nie jest ćwiczeniem
+rachunkowym — jest miejscem, gdzie ten koszt staje się widoczny na etapie projektu.
+:::
 :::
 :::
 
 ::: {.column width="45%"}
 ::: {.liczby}
 <div><span class="w">12,6 MJ</span><span class="o">dobowe zapotrzebowanie człowieka</span></div>
-<div><span class="w">5 km</span><span class="o">tyle samo energii w samochodzie</span></div>
+<div><span class="w">5 km</span><span class="o">tyle samo energii w samochodzie spalinowym (7 l/100 km)</span></div>
 <div><span class="w">20 W</span><span class="o">pobór mózgu</span></div>
 :::
 
 ::: {.zrodlo}
-Przeliczenie: 3000 kcal × 4184 J/kcal = 12,55 MJ = 3,49 kWh. Wartości są poglądowe i zależą od osoby oraz pojazdu.
+Przeliczenie: 3000 kcal × 4184 J/kcal = 12,55 MJ = 3,49 kWh. Samochód elektryczny zużywa ok. 0,6 MJ/km. Wartości poglądowe.
 :::
 :::
 :::
@@ -486,7 +501,7 @@ Podawane dla 6G „opóźnienia sub-milisekundowe" są **celami badawczymi**, a 
 ## <i class="bi bi-flag-fill"></i> Zamknięcie cyklu {#zamkniecie}
 
 ::: {.callout-note icon=false appearance="simple" style="font-size: 1.35em; text-align: center;"}
-Internet Rzeczy zbudowali inżynierowie, którzy chcieli zaoszczędzić sobie chodzenia po schodach po napój.<br>
+Jedną z pierwszych rzeczy w sieci był automat z colą, bo inżynierowie z CMU nie chcieli chodzić na próżno.<br>
 Dziś ta sama filozofia steruje instalacjami, uprawami i systemami, od których zależy czyjeś bezpieczeństwo.
 :::
 
@@ -517,7 +532,9 @@ Jaką inteligentną rzecz zaprojektujesz — i **komu odpowiesz** za to, co ona 
 ::: {style="font-size: 0.62em;"}
 * ThingsBoard, *Device Connectivity Status* — atrybuty stanu, próg nieaktywności, zdarzenia, strategia raportowania aktywności: <https://thingsboard.io/docs/user-guide/device-connectivity-status/>
 * ThingsBoard, *Device Profiles* — alarmy i reguły: <https://thingsboard.io/docs/user-guide/device-profiles/>
-* Rozporządzenie (UE) 2024/2847 — *Cyber Resilience Act*: <https://eur-lex.europa.eu/eli/reg/2024/2847/oj>
+* Rozporządzenie (UE) 2024/2847 — *Cyber Resilience Act*: <https://eur-lex.europa.eu/eli/reg/2024/2847/oj>; obowiązki raportowe: <https://digital-strategy.ec.europa.eu/en/policies/cra-reporting>
+* Rozporządzenie delegowane (UE) 2022/30 (RED, cyberbezpieczeństwo urządzeń radiowych): <https://eur-lex.europa.eu/eli/reg_del/2022/30/oj>
+* B. Krebs, *New Mirai Worm Knocks 900K Germans Offline*: <https://krebsonsecurity.com/2016/11/new-mirai-worm-knocks-900k-germans-offline/>
 * ENISA, *Guidelines for Securing the Internet of Things*: <https://www.enisa.europa.eu/publications/guidelines-for-securing-the-internet-of-things>
 * OWASP, *Internet of Things Project*: <https://owasp.org/www-project-internet-of-things/>
 * Espressif, *Secure Boot V2* dla ESP32-S3: <https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/security/secure-boot-v2.html>
@@ -530,7 +547,7 @@ Jaką inteligentną rzecz zaprojektujesz — i **komu odpowiesz** za to, co ona 
 ::: {.callout-note title="Lektura uzupełniająca" style="font-size: 0.8em;"}
 * Yuval Noah Harari, *21 lekcji na XXI wiek*
 * Yuval Noah Harari, *Homo Deus. Krótka historia jutra* (2015)
-* Aldous Huxley, *Nowy wspaniały świat* (1931)
+* Aldous Huxley, *Nowy wspaniały świat* (1932)
 * Jacek Dukaj, *Po piśmie* (2019)
 * Ramez Naam, trylogia *Nexus · Crux · Apex*
 :::

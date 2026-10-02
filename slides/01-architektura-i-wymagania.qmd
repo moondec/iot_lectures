@@ -36,7 +36,10 @@ format:
 :::
 :::
 
-# Skąd się to wzięło {.sekcja background-color="#0b3b45"}
+# Skąd się to wzięło {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/kasa-kody.jpg" background-size="cover"}
+
+
+[Fot. U.S. Navy, domena publiczna]{.zrodlo}
 
 ## <i class="bi bi-telephone-outbound"></i> Od punktu do punktu {#geneza}
 
@@ -44,9 +47,9 @@ format:
 
 ::: {.incremental}
 * **1832** — Baron Schilling buduje telegraf elektromagnetyczny: komunikacja punkt–punkt.
-* **1844** — publiczne wiadomości telegraficzne kodem Samuela Morse'a.
+* **1844** — pierwsza depesza Samuela Morse'a na linii Waszyngton–Baltimore.
 * **1876** — patent Alexandra Bella na telefon.
-* **1955 / 1960–61** — Edward O. Thorp: koncepcja komputera ubieralnego, a następnie działające urządzenie zbudowane z Claude'em Shannonem.
+* **1955 / 1960–61** — Edward O. Thorp i Claude Shannon: pierwszy komputer ubieralny — elektronika przenosi się z laboratorium na człowieka.
 * **1969** — ARPANET: komutacja pakietów, fundament dzisiejszego Internetu.
 :::
 
@@ -54,14 +57,14 @@ format:
 
 ## <i class="bi bi-cup-straw"></i> Mit założycielski: pragnienie {#coke}
 
-[Kawa, kod i chęć oszczędzenia sobie schodów.]{.lead}
+[Cola, kod i chęć oszczędzenia sobie spaceru.]{.lead}
 
 ::: {.columns}
 ::: {.column width="58%"}
 ::: {.incremental}
 * **Gdzie:** Carnegie Mellon University, wydział informatyki.
 * **Kiedy:** 1982.
-* **Problem:** studenci schodzili piętro niżej do automatu z napojami i często zastawali go pustym.
+* **Problem:** pracownicy i doktoranci chodzili z odległych biur do automatu na 3. piętrze i często zastawali go pustym.
 * **Rozwiązanie:** mikroprzełączniki wykrywały obecność butelek w sześciu kolumnach; program serwera obliczał, jak długo każda butelka była chłodzona. Odczyt zdalny udostępniono później przez `finger coke@cmua`.
 :::
 :::
@@ -77,16 +80,16 @@ Zmierzono **stan fizyczny rzeczy** i udostępniono go w sieci bez człowieka w �
 
 ---
 
-## <i class="bi bi-person-badge"></i> Kevin Ashton: od ciekawostki do łańcucha dostaw {#ashton}
+## <i class="bi bi-person-badge"></i> Od tostera do RFID {#ashton}
 
 ::: {.columns}
 ::: {.column width="50%"}
-### Pierwsze urządzenie w TCP/IP (1990)
+### Toster w sieci TCP/IP (1990)
 
 ::: {.incremental}
-* John Romkey na konferencji Interop: zdalnie sterowany **toster**.
-* Włączany i wyłączany przez sieć.
-* Jedna wada: chleb nadal wkładał człowiek.
+* John Romkey i Simon Hackett na konferencji Interop: **toster** sterowany przez SNMP.
+* Włączany i wyłączany przez sieć — jedno z pierwszych urządzeń AGD w Internecie.
+* Rok później dołożono dźwig, który sam wkładał chleb.
 :::
 :::
 
@@ -94,11 +97,15 @@ Zmierzono **stan fizyczny rzeczy** i udostępniono go w sieci bez człowieka w �
 ### Termin „Internet of Things" (1999)
 
 ::: {.incremental}
-* Kevin Ashton, Procter & Gamble — analiza pustych półek z kosmetykami.
+* Kevin Ashton, Procter & Gamble — problem towaru, którego brakuje na półkach.
 * Prezentacja pt. **„The Internet of Things"**.
 * RFID jako klucz do śledzenia towaru bez udziału człowieka.
 * Teza: *komputery wiedzą o świecie tylko to, co im powiemy*.
 :::
+
+![](../assets/img/kurs/rfid-etykieta.jpg){height="230px" fig-alt="Rozebrana etykieta odzieżowa z wtopionym chipem i anteną RFID."}
+
+[Etykieta RFID w metce odzieżowej. Fot. Boevaya mashina, CC BY-SA 4.0]{.zrodlo}
 :::
 :::
 
@@ -115,13 +122,17 @@ Zmierzono **stan fizyczny rzeczy** i udostępniono go w sieci bez człowieka w �
 * **Dwie rodziny urządzeń:**
   * *digital-first* — projektowane dla sieci (telefon, laptop),
   * *physical-first* — rzeczy, które stają się widoczne w sieci dzięki dołożonej elektronice.
-* Przełom umieszczany w latach **2008–2009**: liczba urządzeń przekracza liczbę ludzi.
+* Teza Cisco (Evans, 2011): w latach **2008–2009** liczba wszystkich podłączonych urządzeń — z telefonami i komputerami — przekroczyła liczbę ludzi.
+* Same urządzenia IoT (bez telefonów i PC): **18,5 mld** w 2024 r. (IoT Analytics).
 :::
 :::
 
 ::: {.column width="48%"}
-![](../assets/img/iot_growth.png){width="98%" fig-alt="Wykres liniowy: szacowana liczba urządzeń IoT na świecie w latach 1990–2025, wzrost od tysięcznych części miliarda do kilkudziesięciu miliardów."}
+![](../assets/img/iot-urzadzenia.png){width="98%" fig-alt="Wykres słupkowy: 18,5 mld aktywnych urządzeń IoT w 2024 r. (szacunek), 21,1 mld w 2025 r. i 39 mld w 2030 r. (prognozy)."}
 
+::: {.zrodlo}
+IoT Analytics, *State of IoT 2025*. Liczba nie obejmuje telefonów i komputerów.
+:::
 :::
 :::
 
@@ -160,7 +171,10 @@ Jeżeli **nikt nie podejmuje decyzji** na podstawie pomiaru, zbudowaliśmy rejes
 :::
 :::
 
-# Model odniesienia {.sekcja background-color="#0b3b45"}
+# Model odniesienia {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/operatorzy.jpg" background-size="cover"}
+
+
+[Fot. PEO ACWA, CC BY 2.0]{.zrodlo}
 
 ## <i class="bi bi-layers"></i> Trzy warstwy {#warstwy}
 
@@ -175,7 +189,7 @@ Jeżeli **nikt nie podejmuje decyzji** na podstawie pomiaru, zbudowaliśmy rejes
 :::
 
 ::: {.fragment}
-Zaleta praktyczna: wymiana routera nie może wymagać zmiany w czujniku, a zmiana czujnika nie może wymagać zmiany pulpitu.
+Cel projektowy: wymiana routera nie powinna wymagać nowego firmware czujnika (wystarczy ponowna konfiguracja), a zmiana czujnika — zmiany pulpitu.
 :::
 :::
 
@@ -183,10 +197,10 @@ Zaleta praktyczna: wymiana routera nie może wymagać zmiany w czujniku, a zmian
 ![](../assets/img/iiot-building-blocks.jpg){width="88%" fig-alt="Schemat bloków przemysłowego IoT: urządzenia i czujniki, łączność, przetwarzanie danych oraz aplikacje biznesowe."}
 
 ::: {.zrodlo}
-S. Tilak, *IIoT System Building Blocks*, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:IIoT_System_Building_Blocks.jpg), CC BY-SA 4.0. Pomniejszono.
+Sujata Tilak, *IIoT System Building Blocks*, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:IIoT_System_Building_Blocks.jpg), CC BY-SA 4.0. Przemysłowy wariant tego samego pomysłu: brzeg · platforma · przedsiębiorstwo.
 :::
 
-Podział na trzy warstwy jest **modelem odniesienia**, który pomaga przypisać odpowiedzialność; konkretne architektury przemysłowe bywają bardziej szczegółowe.
+Podział na trzy warstwy jest **modelem dydaktycznym**, który pomaga przypisać odpowiedzialność. Normy opisują więcej warstw — np. ITU-T Y.2060 cztery.
 :::
 :::
 
@@ -232,11 +246,14 @@ Telemetria idzie **w górę**, polecenia **w dół**, a decyzja krytyczna czasow
 
 Każdy kolejny moduł domyka jeden poziom tego samego, jednego systemu.
 
-# Od narracji do wymagań {.sekcja background-color="#0b3b45"}
+# Od narracji do wymagań {.sekcja .foto background-color="#0b3b45" background-image="../assets/img/kurs/stacja-meteo-antarktyda.jpg" background-size="cover"}
+
+
+[Fot. William M. Connolley, CC BY-SA 3.0]{.zrodlo}
 
 ## <i class="bi bi-bounding-box"></i> Granica systemu — cztery pytania {#granica}
 
-[Zadajemy je **przed** wyborem sprzętu. Brak tego etapu jest najczęstszą przyczyną nieudanych projektów.]{.lead}
+[Zadajemy je **przed** wyborem sprzętu. Brak tego etapu jest jedną z częstych przyczyn nieudanych projektów.]{.lead}
 
 ::: {.pytania}
 * **Kto jest użytkownikiem i jaką decyzję podejmuje?** Bez decyzji nie ma systemu, jest rejestrator.
@@ -259,7 +276,7 @@ Każdy kolejny moduł domyka jeden poziom tego samego, jednego systemu.
 
 ::: {.fragment}
 ::: {.callout-warning title="Pierwsza pułapka, o której wrócimy w module 04"}
-Polecenie opublikowane jako `retained` zostanie wykonane ponownie przy każdym starcie urządzenia. W systemie z pompą albo grzałką ma to konsekwencje fizyczne.
+Polecenie opublikowane jako `retained` zostanie wykonane ponownie przy każdej ponownej subskrypcji — czyli zwykle po każdym restarcie urządzenia. W systemie z pompą albo grzałką ma to konsekwencje fizyczne.
 :::
 :::
 
@@ -275,9 +292,9 @@ Polecenie opublikowane jako `retained` zostanie wykonane ponownie przy każdym s
 ::: {.column width="50%"}
 ### Dobrze
 
-> Po wykonaniu pomiaru wartość pojawia się na pulpicie platformy w czasie **nie dłuższym niż 5 s**; sprawdzane **na pulpicie**, zegarem odniesienia jest znacznik `ts` w komunikacie.
+> Wartość pojawia się na pulpicie platformy w czasie **nie dłuższym niż 5 s** od znacznika `ts` pomiaru, w **co najmniej 95 ze 100** kolejnych pomiarów; zegar urządzenia synchronizowany przez NTP.
 
-Da się sprawdzić stoperem. Da się oblać.
+Da się zmierzyć. Da się oblać.
 :::
 
 ::: {.column width="50%"}
@@ -353,7 +370,7 @@ sieć budynku · broker · konto usługi arkusza · instalacja platformy
 ## <i class="bi bi-question-circle"></i> Pytania sprawdzające {#pytania}
 
 ::: {.pytania}
-* Student zgłasza: „czujnik wysyła co sekundę wilgotność, wersję firmware i adres IP — wszystko jako telemetrię". Które z tych trzech pól jest tu zakwalifikowane błędnie i jaki jest tego koszt po miesiącu pracy?
+* Student zgłasza: „czujnik wysyła co sekundę wilgotność, wersję firmware i adres IP — wszystko jako telemetrię". Które z tych trzech pól są tu zakwalifikowane błędnie i jaki jest tego koszt po miesiącu pracy?
 * Przepisz na kryterium akceptacji zdanie: „pulpit ma się szybko odświeżać". Podaj warunek wejściowy, skutek, limit czasu i miejsce pomiaru.
 * Wi-Fi w laboratorium należy do uczelni i bywa restartowane. Czy to jest część systemu, czy założenie — i co z tej odpowiedzi wynika dla specyfikacji zachowania po awarii?
 :::
@@ -387,9 +404,12 @@ Zejdziemy o warstwę niżej: co fizycznie stoi na stanowisku, jak wielkość fiz
 
 ::: {style="font-size: 0.72em;"}
 * IEEE 2413-2019 — *Standard for an Architectural Framework for the Internet of Things*, <https://standards.ieee.org/ieee/2413/6226/>
-* ISO/IEC/IEEE 42010 — *Architecture description*, <https://www.iso.org/standard/74393.html>
+* ISO/IEC/IEEE 42010:2022 — *Architecture description*, <https://www.iso.org/standard/74393.html>
+* ITU-T Y.2060 (2012) — *Overview of the Internet of things*, <https://www.itu.int/rec/T-REC-Y.2060>
+* IoT Analytics, *State of IoT 2025*, <https://iot-analytics.com/number-connected-iot-devices/>
+* J. Romkey, toster na Interop 1990: <https://www.livinginternet.com/i/ia_myths_toast.htm>
 * K. Ashton, *That „Internet of Things" Thing*, RFID Journal 2009 — autorska relacja z prezentacji z 1999 r., <https://www.rfidjournal.com/expert-views/that-internet-of-things-thing/73881/>
-* Carnegie Mellon University, *The „Only" Coke Machine on the Internet*, <https://www.cs.cmu.edu/~coke/history_long.txt>
+* Carnegie Mellon University, *The „Only" Coke Machine on the Internet*, <https://www.cs.cmu.edu/~coke/> i <https://www.cs.cmu.edu/~coke/history_long.txt>
 * D. Evans, *The Internet of Things* (Cisco IBSG, 2011) — źródło tezy o przełomie 2008–2009.
 * E. O. Thorp, *The Invention of the First Wearable Computer*, Proc. ISWC 1998 — datowanie koncepcji i realizacji.
 :::

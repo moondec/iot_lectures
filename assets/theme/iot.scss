@@ -50,9 +50,9 @@ body.reveal-viewport {
 // Oryginalne tła z repozytorium moondec/iot_lectures. Kolory odpowiadają
 // trzem dawnym częściom kursu: pomarańczowej, zielonej i niebieskiej.
 // Biała warstwa o kryciu 78% rozjaśnia tapetę bez zmiany kontrastu tekstu.
-body.tlo-orange .reveal .slide-background:not(.foto) .slide-background-content,
-body.tlo-green .reveal .slide-background:not(.foto) .slide-background-content,
-body.tlo-blue .reveal .slide-background:not(.foto) .slide-background-content {
+body.tlo-orange .reveal .slide-background:not(.foto) > .slide-background-content,
+body.tlo-green .reveal .slide-background:not(.foto) > .slide-background-content,
+body.tlo-blue .reveal .slide-background:not(.foto) > .slide-background-content {
   background-color: #ffffff !important;
   background-size: 100% 100%, contain !important;
   background-repeat: no-repeat, no-repeat !important;
@@ -60,19 +60,19 @@ body.tlo-blue .reveal .slide-background:not(.foto) .slide-background-content {
   opacity: 1 !important;
 }
 
-body.tlo-orange .reveal .slide-background:not(.foto) .slide-background-content {
+body.tlo-orange .reveal .slide-background:not(.foto) > .slide-background-content {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
     url("../../../../assets/img/background-orange.jpg") !important;
 }
 
-body.tlo-green .reveal .slide-background:not(.foto) .slide-background-content {
+body.tlo-green .reveal .slide-background:not(.foto) > .slide-background-content {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
     url("../../../../assets/img/background-green.jpg") !important;
 }
 
-body.tlo-blue .reveal .slide-background:not(.foto) .slide-background-content {
+body.tlo-blue .reveal .slide-background:not(.foto) > .slide-background-content {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
     url("../../../../assets/img/background-blue.jpg") !important;
@@ -80,9 +80,9 @@ body.tlo-blue .reveal .slide-background:not(.foto) .slide-background-content {
 
 // Przekładki sekcyjne mają jawnie ciemne tło i białą typografię — tapeta nie może
 // ich rozjaśniać, bo zniknąłby kontrast tekstu.
-body.tlo-orange .reveal .backgrounds .slide-background.sekcja .slide-background-content,
-body.tlo-green .reveal .backgrounds .slide-background.sekcja .slide-background-content,
-body.tlo-blue .reveal .backgrounds .slide-background.sekcja .slide-background-content {
+body.tlo-orange .reveal .backgrounds .slide-background.sekcja:not(.foto) .slide-background-content,
+body.tlo-green .reveal .backgrounds .slide-background.sekcja:not(.foto) .slide-background-content,
+body.tlo-blue .reveal .backgrounds .slide-background.sekcja:not(.foto) .slide-background-content {
   background-image: none !important;
   background-color: transparent !important;
   opacity: 1 !important;
@@ -559,6 +559,15 @@ body.media-zoom-open #review-toolbar {
   .cytat {
     border-left-color: #ffffff;
   }
+}
+
+// Section slide on a photo: a dark overlay keeps white headings legible
+// regardless of the photo's brightness.
+.reveal .slide-background.sekcja.foto .slide-background-content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(8, 40, 47, 0.88) 0%, rgba(8, 40, 47, 0.62) 100%);
 }
 
 // Cytat jako główna treść slajdu.

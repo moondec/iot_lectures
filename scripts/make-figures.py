@@ -125,3 +125,39 @@ fig.tight_layout(rect=[0, 0.035, 1, 1])
 fig.savefig(f"{OUT}/iot-urzadzenia.png", dpi=170)
 plt.close(fig)
 print("OK assets/img/iot-urzadzenia.png")
+
+# --- Rys. 5: zasięg a przepustowość technologii radiowych (wykład 03) ---
+# Orientacyjne zakresy z dokumentów specyfikacji (IEEE 802.11/802.15.4,
+# Bluetooth Core, LoRaWAN RP EU868, 3GPP Rel-13/14, Sigfox); zasięg zależy od terenu.
+from matplotlib.patches import Rectangle
+TECH = [  # nazwa, zasięg min–max [m], przepustowość min–max [b/s], kolor
+    ("Wi-Fi", 30, 100, 1e7, 1.5e8, "#0b7285"),
+    ("BLE", 10, 100, 1.25e5, 2e6, "#3b8ea5"),
+    ("Zigbee / Thread", 10, 100, 1e5, 2.5e5, "#5fa8b4"),
+    ("LTE / 5G", 500, 5000, 1e7, 1e9, "#6b7680"),
+    ("LTE-M", 1000, 10000, 1e5, 1e6, "#b8860b"),
+    ("NB-IoT", 1000, 10000, 2e4, 1.27e5, "#d4a017"),
+    ("LoRaWAN", 2000, 15000, 250, 5500, WARN),
+    ("Sigfox", 3000, 40000, 100, 600, "#8f2029"),
+]
+fig, ax = plt.subplots(figsize=(10, 6))
+for n, r0, r1, b0, b1, col in TECH:
+    ax.add_patch(Rectangle((r0, b0), r1 - r0, b1 - b0, facecolor=col, alpha=0.35,
+                           edgecolor=col, lw=2, zorder=3))
+    ax.text((r0 * r1) ** 0.5, (b0 * b1) ** 0.5, n, ha="center", va="center",
+            fontsize=13.5, fontweight="bold", color=TXT, zorder=4)
+ax.set_xscale("log"); ax.set_yscale("log")
+ax.set_xlim(5, 6e4); ax.set_ylim(50, 3e9)
+ax.set_xticks([10, 100, 1000, 10000]); ax.set_xticklabels(["10 m", "100 m", "1 km", "10 km"])
+ax.set_yticks([1e2, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8, 1e9])
+ax.set_yticklabels(["100 b/s", "1 kb/s", "10 kb/s", "100 kb/s", "1 Mb/s", "10 Mb/s", "100 Mb/s", "1 Gb/s"])
+ax.set_xlabel("Typowy zasięg (skala log.)")
+ax.set_ylabel("Przepustowość (skala log.)")
+ax.set_title("Zasięg kupujemy za przepustowość", pad=12)
+ax.grid(True, which="major", ls=":", color=GRID, zorder=1)
+fig.text(0.01, 0.01, "Zakresy orientacyjne wg specyfikacji; rzeczywisty zasięg zależy od terenu, anten i mocy.",
+         fontsize=10.5, color="#5a646e")
+fig.tight_layout(rect=[0, 0.035, 1, 1])
+fig.savefig(f"{OUT}/zasieg-przepustowosc.png", dpi=170)
+plt.close(fig)
+print("OK assets/img/zasieg-przepustowosc.png")
