@@ -49,7 +49,7 @@ z obecną konfiguracją (motyw `../assets/...` jest względny wobec `slides/`).
 - W repo tylko grafiki z jasną licencją (Wikimedia Commons CC/PD, wykresy własne).
   Każdą dopisz do `THIRD_PARTY_NOTICES.md` i `ILUSTRACJE_WYKORZYSTANE` w `build-provenance.py`,
   a na slajdzie podaj autora i licencję w `.zrodlo`.
-- Grafiki bez potwierdzonej licencji (stockowe, zrzuty, kadry) leżą w `private/` (w `.gitignore`).
+- Grafiki bez potwierdzonej licencji (stockowe, zrzuty, kadry) leżą w `private/` (w `.gitignore`), w tym dawne `img/` i `archiwum/img/` w `private/img/legacy/`. Stare `wyklad_*.qmd`, `lectures_en/` i `archiwum/` odwołują się do nich, więc publicznie wyświetlają się bez tych obrazów.
 - Klasy motywu do slajdów obrazowych: `.foto` (zdjęcie na całym tle), `.cytat`, `.wielkie`,
   `.kafelki` (siatka zdjęć), `img.portret`.
 
