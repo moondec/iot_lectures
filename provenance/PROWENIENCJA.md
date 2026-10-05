@@ -16,55 +16,51 @@ Repozytorium źródłowe: `https://github.com/moondec/iot_lectures.git`, commit 
 | Wielkość | Liczba |
 |:---|---:|
 | Slajdów merytorycznych w pięciu taliach źródłowych | 61 |
-| — z nich wykorzystanych (`retained` / `adapted`) | 46 |
-| — z nich świadomie nieprzeniesionych | 15 |
-| Slajdów merytorycznych w nowym kursie | 150 |
-| — `retained` | 8 |
-| — `adapted` | 28 |
-| — `new` | 114 |
+| — z nich wykorzystanych (`retained` / `adapted`) | 54 |
+| — z nich świadomie nieprzeniesionych | 7 |
+| Slajdów merytorycznych w nowym kursie | 137 |
+| — `retained` | 10 |
+| — `adapted` | 38 |
+| — `new` | 89 |
 
 Slajdy `adapted` bywają scaleniem dwóch lub więcej slajdów źródłowych, dlatego liczba wykorzystanych slajdów źródłowych przewyższa liczbę slajdów `retained` i `adapted` razem wziętych.
 
 ## 00-internet-przyszlosci
 
-*Internet przyszłości: obietnice, ryzyka, decyzje*
+*Internet przyszłości*
 
 | Slajd | Pochodzenie | Źródło | Uzasadnienie |
 |:---|:---|:---|:---|
-| `#title-slide` Slajd tytułowy | **new** | — | Nowy nagłówek wykładu zerowego. |
-| `#cele` Po co ten wykład | **new** | — | Cele i plan wykładu zerowego. |
-| `#przyszłość-jest-już-architekturą` Sekcja: Przyszłość jest już architekturą | **new** | — | Przekładka sekcyjna. |
-| `#skala` Przyszłość już jest infrastrukturą | **new** | — | Szacunek IoT Analytics 2025 z jawnym rozróżnieniem estymacji i prognozy. |
-| `#lancuch` Nie rzecz, lecz pętla | **new** | — | Nowa rama wiążąca pomiar, model, decyzję i działanie. |
-| `#obietnica` Obietnica technologii | **new** | — | Synteza korzyści IoT podporządkowana decyzji użytkownika. |
-| `#rolnictwo` Agriculture 4.0 | **new** | — | Proces decyzyjny od obserwacji do oceny efektu. |
-| `#destine` Destination Earth | **new** | — | Aktualny przykład cyfrowego bliźniaka uruchomionego w 2024 r. |
-| `#matter` Matter 1.4 | **new** | — | Aktualny przykład interoperacyjności i zarządzania energią. |
-| `#ntn` Sieci nie-naziemne | **new** | — | Aktualny przykład łączności IoT poza zasięgiem sieci naziemnej. |
-| `#dane-zmieniają-władzę` Sekcja: Dane zmieniają władzę | **new** | — | Przekładka sekcyjna. |
-| `#cambridge` Cambridge Analytica | **new** | — | Zweryfikowane ustalenia FTC oddzielone od tezy o wpływie na wynik wyborów. |
-| `#social-credit` Chiński social credit | **new** | — | Korekta mitu jednego ogólnokrajowego wyniku obywatela. |
-| `#petla-wladzy` Pętla danych i władzy | **new** | — | Model obserwacja–inferencja–klasyfikacja–interwencja. |
-| `#data-act` Data Act | **new** | — | Aktualne obowiązki dotyczące danych z połączonych produktów. |
-| `#ai-wchodzi-do-świata-fizycznego` Sekcja: AI w świecie fizycznym | **new** | — | Przekładka sekcyjna. |
-| `#ai-fizyczny` AI i IoT | **new** | — | Konsekwencje połączenia predykcji z działaniem fizycznym. |
-| `#praca` AI i rynek pracy | **new** | — | Wyniki ILO 2025 z rozróżnieniem ekspozycji zadań i likwidacji zawodów. |
-| `#bci` BCI | **new** | — | Aktualne wyniki neuroprotez mowy i granice interpretacji. |
-| `#blue` Blue Brain a Blue Gene | **new** | — | Rozdzielenie projektu naukowego EPFL od rodziny superkomputerów IBM. |
-| `#granice-nie-znikają` Sekcja: Granice nie znikają | **new** | — | Przekładka sekcyjna. |
-| `#energia` Energia | **new** | — | Bilans korzyści i kosztów w pełnym cyklu życia systemu, uzupełniony o dane IEA 2025. |
-| `#botnet` IoT jako element botnetu | **new** | — | Aktualny przypadek Aisuru i ataku 31,4 Tb/s z raportu Cloudflare 2026. |
-| `#odpornosc` Urządzenie jako zobowiązanie | **new** | — | Bezpieczeństwo i utrzymanie w całym okresie wsparcia. |
-| `#koniec-wsparcia` Sprzęt działa, usługa znika | **new** | — | Przypadek wyłączenia usług chmurowych Wemo w 2026 r. i znaczenie trybu lokalnego. |
-| `#prawo` Prawo zmienia backlog | **new** | — | Daty Data Act, RED, AI Act po zmianie 2026/1744 i Cyber Resilience Act. |
+| `#title-slide` Slajd tytułowy | **new** | — | Podtytuł pierwowzoru: utopia, dystopia, rzeczywistość. |
+| `#motto` Technologia nas wyzwoli? | **adapted** | `wyklad_intro_1.qmd` — 1. Technologia was wyzwoli? (w. 62-74) | Przywrócono otwarcie pierwowzoru: motto Harariego na zdjęciu Ziemi nocą. |
+| `#cele` Kto decyduje o przyszłości? | **adapted** | `wyklad_intro_1.qmd` — 2. Kto tworzy "przyszłość"? (w. 78-91) | Cytat Harariego o inżynierach; zwrot do studentów i trzy pytania wykładu zamiast listy celów. |
+| `#skala` Przyszłość jest już infrastrukturą | **new** | — | Szacunek i prognozy IoT Analytics 2025 jako wykres z rozróżnieniem prognozy. |
+| `#utopia` Sekcja: Utopia | **new** | — | Pierwszy akt struktury pierwowzoru. |
+| `#profity` Jasna strona mocy | **adapted** | `wyklad_intro_1.qmd` — 3. Jasna strona mocy (Profity z IoT) (w. 97-111) + `wyklad_intro_1.qmd` — 5. Medycyna – Poznać Siebie (Smart Wearables), `wyklad_intro_1.qmd` — 6. Zrównoważone Zastosowanie Zasobów | Kolaż obszarów korzyści z pierwowzoru na licencjonowanych zdjęciach. |
+| `#srodowisko` Poszerzenie wiedzy o środowisku | **adapted** | `wyklad_intro_1.qmd` — 10. Przypadek Studyjny: 'Tree Talker' (w. 268-293) | Nature 4.0 (Valentini 2019) pokazane na przykładach pomiarów ekosystemowych. |
+| `#lancuch` Nie rzecz, lecz pętla | **new** | — | Pętla pomiar–model–decyzja–działanie na przykładzie nawadniania. |
+| `#pytanie-sala` Pytanie do sali | **new** | — | Przejście od utopii do dystopii jako pytanie do dyskusji. |
+| `#dystopia` Sekcja: Dystopia | **new** | — | Drugi akt struktury pierwowzoru. |
+| `#cambridge` Ale czy tylko korzyści? | **adapted** | `wyklad_intro_2.qmd` — 1. Ciemna strona mocy: Dobre narzędzia, Złe intencje (w. 62-87) | Cambridge Analytica i system kredytu społecznego z pierwowzoru, w wersji zgodnej z ustaleniami FTC i MERICS. |
+| `#petla-wladzy` Pętla danych jest pętlą władzy | **new** | — | Model obserwacja–inferencja–klasyfikacja–interwencja. |
+| `#huxley` Cukiereczki dla mózgu | **retained** | `wyklad_intro_2.qmd` — 4. Ucieczka z "Tu i Teraz" (w. 141-155) | Cytat Huxleya z pierwowzoru, odniesiony do ekonomii uwagi. |
+| `#człowiek-i-maszyna` Sekcja: Człowiek i maszyna | **new** | — | Przekładka sekcyjna. |
+| `#czy-programy` Czy jesteśmy programami? | **retained** | `wyklad_intro_2.qmd` — 3. Czy jesteśmy programami? (w. 120-137) | Cytat Harariego z pierwowzoru i pytanie o prawo systemu do działania. |
+| `#blue-gene` Ile kosztuje mózg kota? | **adapted** | `wyklad_intro_2.qmd` — 2. Sztuczna Inteligencja: Asystent czy Konkurencja? (w. 91-116) | Symulacja Blue Gene/P z pierwowzoru, poprawiona na publikację SC'09 (2009) zamiast Blue Brain (2007). |
+| `#ai-fizyczny` AI wychodzi z ekranu | **new** | — | Konsekwencje połączenia predykcji z działaniem fizycznym. |
+| `#praca` Bezużyteczna klasa? | **adapted** | `wyklad_intro_2.qmd` — 2. Sztuczna Inteligencja: Asystent czy Konkurencja? (w. 91-116) | Ostrzeżenie Harariego z pierwowzoru zestawione z danymi ILO 2025. |
+| `#bci` Bezpośredni transfer wrażeń? | **adapted** | `wyklad_intro_2.qmd` — 6. Bezpośredni transfer wrażeń (BCI) (w. 187-210) + `wyklad_intro_2.qmd` — 7. Interfejs Człowiek-Człowiek (UW, 2013) | Eksperymenty mózg–mózg z pierwowzoru z publikacjami źródłowymi i granicami interpretacji. |
+| `#rzeczywistość` Sekcja: Rzeczywistość | **new** | — | Trzeci akt struktury pierwowzoru. |
+| `#energia` Energia jest najważniejsza | **retained** | `wyklad_intro_2.qmd` — 8. Podstawowa Blokada: Prawdziwy Koszt Energii (w. 241-265) | Rachunek paliwo–człowiek z pierwowzoru, przeliczony w scripts/verify-calc.py. |
+| `#centrum-danych` Optymalizacja ma własny rachunek | **new** | — | Dane IEA 2025 o zużyciu energii przez centra danych. |
+| `#botnet` Twoje urządzenie, cudza broń, czyjś odpad | **new** | — | Botnet (Cloudflare 2026), koniec chmury Wemo i elektroodpady. |
+| `#koordynacja` Człowiek nie wygrał dzięki samotnej inteligencji | **adapted** | `wyklad_intro_2.qmd` — 5. Kierunki rozwoju: Wychodząc z Jaskini (w. 161-183) | Cytat Naama z pierwowzoru w przekładzie własnym. |
 | `#od-wizji-do-projektu` Sekcja: Od wizji do projektu | **new** | — | Przekładka sekcyjna. |
-| `#pytania-projektowe` Sześć pytań projektowych | **new** | — | Kryteria przed wyborem czujnika. |
-| `#most` Most do modułów 01–07 | **new** | — | Powiązanie problemów wykładu 00 z dalszą strukturą kursu. |
-| `#przypadek` Przypadek nawadniania | **new** | — | Przypadek przewodni łączący decyzję, architekturę i stan bezpieczny. |
-| `#pytania` Pytania sprawdzające | **new** | — | Pytania sprawdzające wykładu zerowego. |
-| `#podsumowanie` Podsumowanie | **new** | — | Synteza wykładu i przejście do modułu 01. |
-| `#zrodla` Źródła: przypadki i badania | **new** | — | Źródła pierwotne i publikacje naukowe. |
-| `#zrodla-2` Źródła: standardy, programy i prawo | **new** | — | Źródła oficjalne i dokumenty instytucjonalne. |
+| `#pytania` Sześć pytań przed wyborem czujnika | **new** | — | Kryteria projektowe; pytania sprawdzające przeniesiono do materiałów prowadzącego. |
+| `#most` Mapa kursu | **new** | — | Powiązanie pytań wykładu 00 z modułami 01–06. |
+| `#podsumowanie` Utopia, dystopia, rzeczywistość | **new** | — | Synteza wykładu. |
+| `#literatura` Co warto przeczytać | **adapted** | `wyklad_intro_2.qmd` — 9. Literatura do Wstępu i Zakończenie (w. 269-289) | Bibliografia filozoficzna i literacka pierwowzoru. |
+| `#zrodla` Źródła | **new** | — | Źródła pierwotne, publikacje naukowe i licencje ilustracji. |
 
 ## 01-architektura-i-wymagania
 
@@ -107,7 +103,7 @@ Slajdy `adapted` bywają scaleniem dwóch lub więcej slajdów źródłowych, dl
 | `#lancuch` Łańcuch pomiarowy | **new** | `lecture-materials/content/uzupelnienie-02.html` | Nowy slajd z materiałów uzupełniających; pięć ogniw od przetwornika do walidacji lokalnej. |
 | `#adc` Rozdzielczość to nie dokładność | **new** | `lecture-materials/content/uzupelnienie-02.html` + `lecture-materials/content/sprostowania-02.html` | Nowy slajd; sprostowanie do materiałów źródłowych, które nie rozdzielały tych pojęć. Liczby z scripts/verify-calc.py. |
 | `#aktuatory` Aktuatory i pętla sterowania | **retained** | `wyklad_1.qmd` — 7. Warstwa Percepcji: Aktuatory (w. 289-304) | Zachowano typologię i ostrzeżenie o ryzyku twardym; pętlę sterowania uzupełniono o pomiar potwierdzający. |
-| `#stan-bezpieczny` Stan bezpieczny wyjścia | **new** | `lecture-materials/content/uzupelnienie-02.html` | Nowy slajd; temat nieobecny w prezentacjach źródłowych, kluczowy dla planu testów w module 07. |
+| `#stan-bezpieczny` Stan bezpieczny wyjścia | **new** | `lecture-materials/content/uzupelnienie-02.html` | Nowy slajd; temat nieobecny w prezentacjach źródłowych, kluczowy dla planu testów w module 06. |
 | `#płytki-stanowiska` Sekcja: Płytki stanowiska | **new** | — | Przekładka sekcyjna. |
 | `#platformy` Klasy platform | **adapted** | `wyklad_1.qmd` — 10. Platformy sprzętowe jako kamień węgielny (w. 354-383) + `lecture-materials/content/sprostowania-02.html` | Zachowano podział MCU / SBC. Sprostowano dwa stwierdzenia: brak radia nie jest cechą marki Arduino, a Raspberry Pi nie jest „przestarzałe”. |
 | `#rodzina` „ESP32” to rodzina, nie układ | **new** | `lecture-materials/content/sprostowania-02.html` + `unified-materials/content/cm178__lesson_page51__contents.html` | Nowy slajd; sprostowanie do slajdu porównawczego, który traktował ESP32 jako jeden model. |
@@ -120,6 +116,7 @@ Slajdy `adapted` bywają scaleniem dwóch lub więcej slajdów źródłowych, dl
 | `#energia` Sekcja: Energia | **new** | — | Przekładka sekcyjna. |
 | `#deep-sleep` Deep sleep | **adapted** | `wyklad_1.qmd` — 11. "Deep Sleep" - czyli kompromis Mocy (w. 387-399) + `lecture-materials/content/sprostowania-02.html` | Zachowano wyjaśnienie paradygmatu. Dodano sprostowanie: wartości 7 µA i 240 µA dotyczą samego SoC, nie całej płytki. |
 | `#budzet` Budżet energii to rachunek | **new** | `lecture-materials/content/uzupelnienie-02.html` | Nowy slajd; wzór i wykres własny wygenerowany przez scripts/make-figures.py. |
+| `#budzet-wniosek` Ile wytrzyma ogniwo? | **new** | `lecture-materials/content/uzupelnienie-02.html` | Wydzielone ze slajdu budzet: wniosek dla płytki zoptymalizowanej i seryjnej (2 mA w uśpieniu). |
 | `#decyzja-okres` Okres raportowania jest decyzją | **new** | `lecture-materials/content/uzupelnienie-02.html` | Nowa tabela; wszystkie wartości z scripts/verify-calc.py. |
 | `#pytania` Pytania sprawdzające | **new** | — | Nowe pytania sprawdzające. |
 | `#podsumowanie` Podsumowanie i przejście | **new** | — | Nowe podsumowanie modułu i zapowiedź modułu 03. |
@@ -139,6 +136,7 @@ Slajdy `adapted` bywają scaleniem dwóch lub więcej slajdów źródłowych, dl
 | `#ble-mesh` Bluetooth LE i sieci kratowe | **adapted** | `wyklad_2.qmd` — 3. Bluetooth i rewolucja BLE (Low Energy) (w. 131-157) + `wyklad_2.qmd` — 4. Zigbee i Z-Wave: Inżynieria Roju (Mesh), `lecture-materials/content/sprostowania-03.html` | Scalono dwa slajdy źródłowe. Dodano warunek „samoleczenia” sieci mesh i aktualną nazwę organizacji (Connectivity Standards Alliance, Matter). |
 | `#lpwan` LPWAN | **retained** | `wyklad_2.qmd` — 5. LPWAN: Telemetria na kilometry (w. 204-227) + `wyklad_2.qmd` — 6. Porównanie technologii radiowych | Zachowano opis i wykres bąbelkowy; scalono ze slajdem porównawczym, by uniknąć powtórzenia. |
 | `#lora-nbiot` LoRaWAN a NB-IoT | **adapted** | `wyklad_2.qmd` — 7. LoRaWAN vs NB-IoT (w. 255-296) + `lecture-materials/content/sprostowania-03.html` | Zachowano zestawienie. Sprostowano „darmowe pasmo 868 MHz” (regulowane, duty cycle) i status NB-IoT (3GPP Rel. 13, własna warstwa radiowa). |
+| `#brama-lorawan` Brama LoRaWAN to infrastruktura | **adapted** | `wyklad_1.qmd` — 8. Brama brzegu sieci (Edge Gateway) (w. 308-332) + `wyklad_2.qmd` — 7. LoRaWAN vs NB-IoT | Dodano fotografię rzeczywistej bramy i rozdzielono role węzła radiowego, bramy i serwera sieciowego. |
 | `#sigfox` Sigfox | **adapted** | `wyklad_2.qmd` — 8. Sigfox: ultralekkie wiadomości jako usługa (w. 300-313) + `lecture-materials/content/sprostowania-03.html` | Zachowano parametry. Dodano zmianę właściciela (UnaBiz, Sigfox 0G) i ryzyko operatora jako parametr projektowy. |
 | `#cztery-liczby` Metodyka doboru — cztery liczby | **new** | `lecture-materials/content/uzupelnienie-03.html` | Nowy slajd metodyczny; zamienia porównanie technologii w powtarzalną procedurę. |
 | `#łącze-które-się-podnosi` Sekcja: Łącze | **new** | — | Przekładka sekcyjna. |
@@ -150,6 +148,7 @@ Slajdy `adapted` bywają scaleniem dwóch lub więcej slajdów źródłowych, dl
 | `#self-test` Self-test i wycofanie | **new** | `lecture-materials/content/uzupelnienie-03.html` | Nowy slajd; kolejność dowód → zatwierdzenie jako sedno mechanizmu. |
 | `#ota-granice` Czego OTA nie gwarantuje | **new** | — | Nowy slajd napisany, by nie formułować fałszywych obietnic o niezawodności aktualizacji. |
 | `#ota-platforma` Wydanie zarządzane przez platformę | **new** | `lecture-materials/content/uzupelnienie-03.html` | Nowy slajd; stany pakietu i tempo wdrożenia, liczby z scripts/verify-calc.py. |
+| `#ota-tempo` Tempo wdrożenia jest ograniczone | **new** | `lecture-materials/content/uzupelnienie-03.html` | Wydzielone ze slajdu ota-platforma: parametry wysyłki i czas wydania. |
 | `#procedura` Procedura wydania w pilocie | **new** | `lecture-materials/content/uzupelnienie-03.html` | Nowy slajd; sześciopunktowa procedura z kryterium zaliczenia. |
 | `#pytania` Pytania sprawdzające | **new** | — | Nowe pytania sprawdzające. |
 | `#podsumowanie` Podsumowanie i przejście | **new** | — | Nowe podsumowanie i zapowiedź modułu 04. |
@@ -168,48 +167,24 @@ Slajdy `adapted` bywają scaleniem dwóch lub więcej slajdów źródłowych, dl
 | `#mqtt` MQTT: publikacja i subskrypcja | **adapted** | `wyklad_2.qmd` — 10. MQTT: Lekki, binarny standard IoT (w. 362-401) + `lecture-materials/content/sprostowania-04.html` | Zachowano opis pub/sub i diagram. Sprostowano autorstwo (Stanford-Clark i Nipper) oraz status normalizacyjny (OASIS, ISO/IEC 20922:2016). |
 | `#naglowek` Ile naprawdę waży nagłówek | **new** | `lecture-materials/content/sprostowania-04.html` | Nowy slajd; sprostowanie do „nagłówek MQTT to 2 bajty”. Rozmiary pakietów policzone w scripts/verify-calc.py. |
 | `#tematy-i-niezawodność` Sekcja: Tematy i niezawodność | **new** | — | Przekładka sekcyjna. |
-| `#tematy` Drzewo tematów pilota | **new** | `lecture-materials/content/uzupelnienie-04.html` | Nowa tabela; konkretne drzewo tematów z kierunkiem i regułą retained. |
-| `#retained` Dlaczego polecenie nigdy nie jest retained | **new** | `lecture-materials/content/uzupelnienie-04.html` | Nowy slajd z diagramem sekwencji; konsekwencja fizyczna błędu projektowego. |
+| `#tematy` Kontrakt tematów: API urządzenia ThingsBoard | **new** | `lecture-materials/content/uzupelnienie-04.html` | Nowa tabela; klasy komunikatów przypisane do tematów API urządzenia platformy (zastąpiła drzewo tematów kursowego brokera Mosquitto, usuniętego z kursu 2026-10-05). |
+| `#retained` Polecenie nigdy nie jest trwałą wartością | **new** | `lecture-materials/content/uzupelnienie-04.html` | Nowy slajd z diagramem sekwencji; retained w MQTT i jego odpowiednik w platformie (atrybut współdzielony), trwałe RPC z krótkim czasem ważności. |
 | `#qos` QoS i jego koszt | **adapted** | `wyklad_2.qmd` — 11. MQTT: Tematy, QoS i „Ostatnia Wola" (w. 405-453) + `lecture-materials/content/sprostowania-04.html`, `lecture-materials/content/sprostowania-06.html` | Zachowano poziomy QoS i LWT. Sprostowano „QoS 2 gwarantuje dostarczenie”; dodano kolumnę kosztu oraz ograniczenie platformy do QoS 0/1. |
+| `#mechanizmy` Retained, Last Will, keep alive, sesja — i platforma | **new** | `lecture-materials/content/uzupelnienie-04.html` | Wydzielone z przeładowanego slajdu QoS; doprecyzowane wg MQTT 5 (0x04, 1,5 × keep alive). Dodano kolumnę z odpowiednikiem w ThingsBoard wg dokumentacji MQTT API, RPC i Device connectivity status. |
 | `#qos-sekwencja` Sekwencja trzech poziomów | **retained** | `wyklad_2.qmd` — 11. MQTT: Tematy, QoS i „Ostatnia Wola" (w. 405-453) | Zachowano diagram sekwencji ze źródła; usunięto transform scale(1.7) powodujący wyjście poza slajd. |
 | `#kontrakt-danych` Sekcja: Kontrakt danych | **new** | — | Przekładka sekcyjna. |
 | `#kontrakt` Samoopisujący się ładunek | **new** | `lecture-materials/content/uzupelnienie-04.html` | Nowy slajd; schemat komunikatu JSON z materiałów uzupełniających. |
 | `#wersjonowanie` Wersjonowanie kontraktu | **new** | `lecture-materials/content/uzupelnienie-04.html` | Nowy slajd; zmiana zgodna i niezgodna wstecz. |
 | `#idempotencja` Idempotencja polecenia | **new** | `lecture-materials/content/uzupelnienie-04.html` | Nowy slajd z diagramem sekwencji. |
-| `#dostep` Zamknięcie dostępu do brokera | **new** | `lecture-materials/content/uzupelnienie-04.html` + `lecture-materials/content/sprostowania-04.html` | Nowy slajd; ACL, TLS, unikalny ClientID. Sprostowano separację środowisk przez prefiks. |
+| `#dostep` Poświadczenia urządzenia i TLS | **new** | `lecture-materials/content/uzupelnienie-04.html` + `lecture-materials/content/sprostowania-04.html` | Nowy slajd; poświadczenie per urządzenie, tożsamość z tokenu zamiast ACL, TLS 8883, unikalny ClientID, X.509 jako opcja. |
 | `#coap-amqp` CoAP i AMQP | **adapted** | `wyklad_2.qmd` — 12. CoAP i AMQP (w. 457-480) + `lecture-materials/content/sprostowania-04.html` | Zachowano zestawienie. Sprostowano „bez gwarancji dostarczenia” dla CoAP (tryb confirmable). |
-| `#test-odbioru` Test odbioru kontraktu | **new** | `lecture-materials/content/uzupelnienie-04.html` | Nowy slajd; pięć dowodów działania kontraktu. |
+| `#test-odbioru` Test odbioru kontraktu | **new** | `lecture-materials/content/uzupelnienie-04.html` | Nowy slajd; pięć dowodów działania kontraktu na brokerze platformy ThingsBoard. |
 | `#zestawienie` Dobór technologii | **retained** | `wyklad_2.qmd` — 13. Podsumowanie: Dobór technologii (w. 484-499) | Zachowano tabelę podsumowującą; zaktualizowano nazwę Sigfox 0G. |
 | `#pytania` Pytania sprawdzające | **new** | — | Nowe pytania sprawdzające. |
-| `#podsumowanie` Podsumowanie i przejście | **new** | — | Nowe podsumowanie i zapowiedź modułu 05. |
-| `#zrodla` Źródła | **new** | — | Nowy wykaz źródeł pierwotnych (OASIS, RFC, Mosquitto). |
+| `#podsumowanie` Podsumowanie i przejście | **new** | — | Nowe podsumowanie i zapowiedź modułu 05 (ThingsBoard CE). |
+| `#zrodla` Źródła | **new** | — | Nowy wykaz źródeł pierwotnych (OASIS, RFC, ThingsBoard). |
 
-## 05-brzeg-node-red-sheets
-
-*Brzeg sieci, Node-RED i zapis do Google Sheets*
-
-| Slajd | Pochodzenie | Źródło | Uzasadnienie |
-|:---|:---|:---|:---|
-| `#title-slide` Slajd tytułowy | **new** | — | Nowy nagłówek modułu. |
-| `#cele` Po co ten wykład | **new** | `lecture-materials/content/uzupelnienie-05.html` | Nowy slajd celów. |
-| `#brzeg-sieci` Sekcja: Brzeg sieci | **new** | — | Przekładka sekcyjna. |
-| `#redukcja` Od gigabajtów do wiedzy | **retained** | `wyklad_3.qmd` — 1. Od gigabajtów do wiedzy (w. 63-110) | Zachowano tezę i diagram redukcji danych; usunięto transform scale(2) i dodano gałąź zapisu raportowego. |
-| `#brama` Brama brzegowa — cztery zadania | **adapted** | `wyklad_1.qmd` — 8. Brama brzegu sieci (Edge Gateway) (w. 308-332) + `lecture-materials/content/sprostowania-05.html` | Zachowano definicję bramy i pojęcie latency. Rozszerzono z samej agregacji na cztery zadania, zgodnie ze sprostowaniem. |
-| `#jakosc` Piąte zadanie: jakość danych | **new** | `lecture-materials/content/sprostowania-05.html` | Nowy slajd; sprostowanie do opisu Node-RED jako „kleju” bez odpowiedzialności. |
-| `#przepływ` Sekcja: Przepływ | **new** | — | Przekładka sekcyjna. |
-| `#przeplyw` Node-RED węzeł po węźle | **new** | `lecture-materials/content/uzupelnienie-05.html` | Nowy slajd; konkretny przepływ z jawną ścieżką błędu. |
-| `#walidacja` Minimalny zestaw reguł walidacji | **new** | `lecture-materials/content/uzupelnienie-05.html` | Nowy slajd; pięć reguł i wymóg logowania powodu odrzucenia. |
-| `#zapis-do-arkusza` Sekcja: Zapis do arkusza | **new** | — | Przekładka sekcyjna. |
-| `#warianty` Dwa warianty zapisu | **new** | `lecture-materials/content/uzupelnienie-05.html` + `lecture-materials/content/sprostowania-05.html` | Nowa tabela; Apps Script a Sheets API v4, wraz ze sprostowaniem o adresie wdrożenia jako sekrecie. |
-| `#limity` Limity Google Sheets API | **new** | `lecture-materials/content/uzupelnienie-05.html` | Nowy slajd; limity z dokumentacji Google, wykres własny z scripts/make-figures.py. |
-| `#ponowienia` Ponowienia i granice arkusza | **new** | `lecture-materials/content/uzupelnienie-05.html` | Nowy slajd; rozróżnienie błędów ponawialnych i nieponawialnych. |
-| `#autoryzacja` Autoryzacja i błędy eksportu | **new** | `lecture-materials/content/uzupelnienie-05.html` | Nowy slajd; procedura konta usługi i tabela kodów odpowiedzi. |
-| `#test-odbioru` Test odbioru przepływu | **new** | `lecture-materials/content/uzupelnienie-05.html` | Nowy slajd; pięć dowodów działania przepływu. |
-| `#pytania` Pytania sprawdzające | **new** | — | Nowe pytania sprawdzające. |
-| `#podsumowanie` Podsumowanie i przejście | **new** | — | Nowe podsumowanie i zapowiedź modułu 06. |
-| `#zrodla` Źródła | **new** | — | Nowy wykaz źródeł pierwotnych (Google, Node-RED). |
-
-## 06-thingsboard-ce
+## 05-thingsboard-ce
 
 *ThingsBoard CE — telemetria, pulpity i sterowanie*
 
@@ -226,6 +201,7 @@ Slajdy `adapted` bywają scaleniem dwóch lub więcej slajdów źródłowych, dl
 | `#poswiadczenia` Poświadczenia urządzenia | **new** | `lecture-materials/content/uzupelnienie-06.html` | Nowy slajd; trzy typy poświadczeń i ostrzeżenie o tokenie jako sekrecie. |
 | `#rpc` Sterowanie zwrotne: RPC | **new** | `lecture-materials/content/uzupelnienie-06.html` | Nowy slajd z diagramem sekwencji; stan potwierdzony wobec żądanego. |
 | `#pulpit` Od telemetrii do pulpitu | **new** | `lecture-materials/content/uzupelnienie-06.html` | Nowy slajd; co pulpit powinien pokazywać i czego nie zastąpi. |
+| `#pulpit-przyklad` Pulpit ma pokazywać stan, nie tylko wykres | **new** | `lecture-materials/content/uzupelnienie-06.html` | Nowy slajd wizualny; przykład pulpitu środowiskowego służy do rozróżnienia stanu bieżącego, kontekstu i alarmu. |
 | `#kontekst-i-ryzyko` Sekcja: Kontekst i ryzyko | **new** | — | Przekładka sekcyjna. |
 | `#bliźniak` Cyfrowy bliźniak | **adapted** | `wyklad_3.qmd` — 6. Cyfrowe Bliźniaki (Digital Twins) (w. 231-251) + `wyklad_1.qmd` — 12. Digital Twins (Cyfrowy Bliźniak), `lecture-materials/content/sprostowania-06.html` | Scalono dwa slajdy źródłowe z dwóch różnych talii w jedno omówienie, zgodnie ze sprostowaniem o powtórzeniu. Dodano zastrzeżenie, że to nie wizualizacja 3D. |
 | `#smart-city` Zastosowania w skali miasta | **adapted** | `wyklad_3.qmd` — 4. Barcelona: Pionierzy „miasta jako komputera" (w. 173-198) + `wyklad_3.qmd` — 5. Smart City i Przemysł 4.0 (IIoT), `lecture-materials/content/sprostowania-01.html` | Scalono dwa slajdy o Smart City. Usunięto konkretne wartości procentowe jako danych pomiarowych; dodano zastrzeżenie o poglądowym charakterze liczb. |
@@ -233,10 +209,10 @@ Slajdy `adapted` bywają scaleniem dwóch lub więcej slajdów źródłowych, dl
 | `#ce-pe` CE a PE | **new** | `lecture-materials/content/uzupelnienie-06.html` + `lecture-materials/content/sprostowania-06.html` | Nowy slajd; sprostowanie o „fizycznej izolacji środowisk” i ostrzeżenie przed materiałami dotyczącymi PE. |
 | `#test-odbioru` Test odbioru modułu | **new** | `lecture-materials/content/uzupelnienie-06.html` | Nowy slajd; pięć dowodów. |
 | `#pytania` Pytania sprawdzające | **new** | — | Nowe pytania sprawdzające. |
-| `#podsumowanie` Podsumowanie i przejście | **new** | — | Nowe podsumowanie i zapowiedź modułu 07. |
+| `#podsumowanie` Podsumowanie i przejście | **new** | — | Nowe podsumowanie i zapowiedź modułu 06. |
 | `#zrodla` Źródła | **new** | — | Nowy wykaz źródeł pierwotnych (ThingsBoard, Google Cloud). |
 
-## 07-odpornosc-bezpieczenstwo-eksploatacja
+## 06-odpornosc-bezpieczenstwo-eksploatacja
 
 *Odporność, bezpieczeństwo i eksploatacja*
 
@@ -251,7 +227,7 @@ Slajdy `adapted` bywają scaleniem dwóch lub więcej slajdów źródłowych, dl
 | `#pulapka` Pułapka fałszywego alarmu | **new** | `lecture-materials/content/uzupelnienie-07.html` | Nowy slajd; zależność progu od okresu raportowania aktywności, liczby z scripts/verify-calc.py. |
 | `#alarm` Alarm i dowód jego zamknięcia | **new** | `lecture-materials/content/uzupelnienie-07.html` | Nowy slajd; wymóg pojedynczego powiadomienia i samoczynnego zamknięcia. |
 | `#bezpieczeństwo` Sekcja: Bezpieczeństwo | **new** | — | Przekładka sekcyjna. |
-| `#model-zagrozen` Model zagrożeń | **new** | `lecture-materials/content/uzupelnienie-07.html` | Nowa tabela czterech powierzchni ataku; porządkuje mechanizmy wprowadzone w modułach 03–06. |
+| `#model-zagrozen` Model zagrożeń | **new** | `lecture-materials/content/uzupelnienie-07.html` | Nowa tabela czterech powierzchni ataku; porządkuje mechanizmy wprowadzone w modułach 03–05. |
 | `#mirai` Mirai — dwa incydenty | **adapted** | `wyklad_3.qmd` — 7. Gdy „rzeczy" stają się bronią DDoS (w. 257-285) + `lecture-materials/content/sprostowania-07.html` | Zachowano przypadek. Rozdzielono dwa łączone wcześniej incydenty (Dyn 2016-10-21, TR-064 Deutsche Telekom 2016-11). Usunięto mapę o nieudokumentowanym pochodzeniu. |
 | `#kryptografia` Brak mocy na kryptografię to nieprawda | **new** | `lecture-materials/content/sprostowania-07.html` | Nowy slajd; dwa sprostowania — akceleratory sprzętowe w ESP32-S3/C3 oraz X.509 jako format, nie algorytm. |
 | `#defence` Obrona warstwowa | **adapted** | `wyklad_3.qmd` — 8. Dobre praktyki bezpieczeństwa (Defence in Depth) (w. 289-337) + `lecture-materials/content/sprostowania-07.html` | Zachowano cztery warstwy i diagram segmentacji. Sprostowano, że VLAN bez polityki odmowy domyślnej nie izoluje; usunięto transform scale(1.7). |
@@ -270,20 +246,12 @@ Slajdy `adapted` bywają scaleniem dwóch lub więcej slajdów źródłowych, dl
 
 | Slajd źródłowy | Plik | Powód |
 |:---|:---|:---|
-| 5. Medycyna – Poznać Siebie (Smart Wearables) | `wyklad_intro_1.qmd` | Przykład aplikacyjny bez związku z zakresem siedmiu modułów; budżet energetyczny urządzenia noszonego omawia moduł 02 na konkretnej płytce. Ilustracja (Oura Ring) bez udokumentowanej licencji. |
 | 9. Cykl IoT & AI – To przyszłość, a obecnie? | `wyklad_intro_1.qmd` | Narracja o generacjach 1.0–4.0 nie wnosi kryterium projektowego; jej funkcję („po co mierzymy”) przejął slajd 01#zastosowania. |
-| 10. Przypadek Studyjny: 'Tree Talker' | `wyklad_intro_1.qmd` | Wartościowy przykład autorski, ale dubluje rolę stanowiska pilotażowego jako przypadku przewodniego. Zachowany w notes/ jako materiał do rozwinięcia ustnego; ilustracja bez udokumentowanej licencji. |
 | 11. Podsumowanie Wstępu | `wyklad_intro_1.qmd` | Podsumowanie nieistniejącej już części „Wstęp 1”; zastąpione podsumowaniami modułów. |
-| 2. Sztuczna Inteligencja: Asystent czy Konkurencja? | `wyklad_intro_2.qmd` | Wątek rynku pracy i „bezużytecznej klasy” wykracza poza zakres kursu inżynierskiego i nie prowadzi do decyzji projektowej. |
-| 3. Czy jesteśmy programami? | `wyklad_intro_2.qmd` | Dygresja filozoficzna bez konsekwencji technicznej. |
-| 4. Ucieczka z "Tu i Teraz" | `wyklad_intro_2.qmd` | Cytat z Huxleya; rama etyczna zachowana w 07#rama w formie zwięzłej. |
-| 5. Kierunki rozwoju: Wychodząc z Jaskini | `wyklad_intro_2.qmd` | Wątek antropologiczny bez związku z zakresem modułów. |
-| 6. Bezpośredni transfer wrażeń (BCI) | `wyklad_intro_2.qmd` | Eksperyment Nicolelisa — ciekawostka bez konsekwencji dla projektowania systemu IoT. |
-| 7. Interfejs Człowiek-Człowiek (UW, 2013) | `wyklad_intro_2.qmd` | Jak wyżej; dodatkowo ilustracja bez udokumentowanej licencji. |
 | 9. Od pomysłu do wdrożenia | `wyklad_1.qmd` | Teza o obniżeniu bariery wejścia wchłonięta przez 02#platformy; osobny slajd nie wnosił kryterium wyboru. |
 | 13. Zestawienie: Arduino vs ESP vs Raspberry Pi | `wyklad_1.qmd` | Tabela zbudowana na nieaktualnych założeniach (Arduino bez radia, Raspberry Pi „przestarzałe”). Zastąpiona przez 02#platformy i 02#rodzina, opartymi na płytkach stanowiska. |
-| 3. Narzędzia otwartoźródłowe | `wyklad_3.qmd` | Lista narzędzi wchłonięta: Node-RED do modułu 05, ThingsBoard do 06 wraz ze sprostowaniem o statusie licencyjnym. Osobny slajd powielałby treść. |
-| 1. Ciemna strona mocy: Dobre narzędzia, Złe intencje | `wyklad_intro_2.qmd` | Przykłady (Cambridge Analytica, system kredytu społecznego) dotyczą analityki danych społecznych, nie projektowania systemu IoT. Rolę ramy odpowiedzialności przejął slajd 07#rama, a konkretne konsekwencje projektowe — 07#prywatnosc i 07#obowiazki. |
+| 1. Od gigabajtów do wiedzy | `wyklad_3.qmd` | Slajd trafił do modułu o brzegu sieci (Node-RED, Google Sheets), usuniętego z kursu 2026-10-05 po decyzji, że urządzenie łączy się bezpośrednio z ThingsBoard. Redukcję danych na urządzeniu omawiają 02#deep-sleep i 04#naglowek. |
+| 3. Narzędzia otwartoźródłowe | `wyklad_3.qmd` | Lista narzędzi wchłonięta: ThingsBoard do modułu 05 wraz ze sprostowaniem o statusie licencyjnym. Osobny slajd powielałby treść. |
 | 14. Dziękuję za uwagę | `wyklad_2.qmd` | Slajd czysto organizacyjny, zapowiadający nieaktualną strukturę trzech wykładów. Każdy moduł ma własne podsumowanie z przejściem do kolejnego. |
 
 ## Ilustracje wykluczone z repozytorium
@@ -296,7 +264,7 @@ Slajdy `adapted` bywają scaleniem dwóch lub więcej slajdów źródłowych, dl
 | `img/smart_transportation_781x512-1163925340.jpg` | Zdjęcie stockowe bez udokumentowanej licencji. |
 | `img/th-1774962466.png` | Brak udokumentowanego źródła. |
 | `img/Pasted image 2022*.png` | Zrzuty ekranu i ilustracje o nieustalonym pochodzeniu (14 plików użytych w taliach źródłowych). |
-| `img/mirai_map.png` | Mapa bez wskazania autora i źródła danych; treść przeniesiona do tekstu slajdu 07#mirai. |
+| `img/mirai_map.png` | Mapa bez wskazania autora i źródła danych; treść przeniesiona do tekstu slajdu 06#mirai. |
 | `img/iot_dashboard.png` | Zrzut ekranu bez wskazania wersji i licencji oprogramowania. |
 | `img/digital_twin_nature.png` | Brak udokumentowanego źródła. |
 | `img/mcu_compare.png` | Brak udokumentowanego źródła; zastąpione tabelami opartymi na dokumentacji producentów. |

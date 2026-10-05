@@ -52,15 +52,6 @@
   "zgodna": false,
   "komentarz": "0,19 mA nie wynika z podanych danych wejsciowych; poprawna wartosc ~0,45 mA"
  },
- "sheets": {
-  "limit_user_min": 60,
-  "limit_proj_min": 300,
-  "raport_1s_zapisow_min": 60,
-  "procent_limitu_uzytkownika_przy_1s": 100.0,
-  "urzadzen_na_limit_uzytkownika_przy_1s": 1.0,
-  "agregacja_1min_urzadzen": 60,
-  "agregacja_1min_urzadzen_projekt": 300
- },
  "ota_tempo": {
   "pack_size": 100,
   "interval_ms": 60000,
@@ -91,19 +82,19 @@
  },
  "mqtt_naglowek": {
   "min_fixed_header_B": 2,
-  "krotki_temat": "lab/z1/d1/t",
-  "krotki_temat_len": 11,
-  "dlugi_temat": "laboratorium/zespol-1/urzadzenie-1/telemetria/pomiar",
-  "dlugi_temat_len": 52,
-  "publish_krotki_qos1_pusty_B": 17,
-  "publish_dlugi_qos1_pusty_B": 58,
-  "roznica_B": 41,
+  "krotki_temat": "v2/t",
+  "krotki_temat_len": 4,
+  "dlugi_temat": "v1/devices/me/telemetry",
+  "dlugi_temat_len": 23,
+  "publish_krotki_qos1_pusty_B": 10,
+  "publish_dlugi_qos1_pusty_B": 29,
+  "roznica_B": 19,
   "okres_publikacji_s": 10,
   "dni_roku": 365,
   "komunikaty_rocznie": 3153600,
-  "roczny_dodatkowy_publish_B": 129297600,
-  "roczny_dodatkowy_publish_MB": 129.3,
-  "roczny_dodatkowy_publish_MiB": 123.3
+  "roczny_dodatkowy_publish_B": 59918400,
+  "roczny_dodatkowy_publish_MB": 59.9,
+  "roczny_dodatkowy_publish_MiB": 57.1
  },
  "adc": {
   "bity": 12,

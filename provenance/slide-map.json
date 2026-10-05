@@ -1,5 +1,5 @@
 {
- "opis": "Mapa pochodzenia slajdów kursu IoT w ośmiu wykładach.",
+ "opis": "Mapa pochodzenia slajdów kursu IoT w siedmiu wykładach.",
  "zrodlo": {
   "repozytorium": "https://github.com/moondec/iot_lectures.git",
   "commit": "c62ccf6174fea4db9d0c0bfefef174fca4b0f709",
@@ -14,16 +14,16 @@
   "new": "slajd napisany od nowa na podstawie materiałów kursu i źródeł pierwotnych"
  },
  "statystyka": {
-  "slajdow_lacznie": 186,
+  "slajdow_lacznie": 168,
   "wg_origin": {
-   "new": 136,
-   "adapted": 39,
-   "retained": 11
+   "new": 120,
+   "adapted": 38,
+   "retained": 10
   },
   "slajdy_merytoryczne_wg_origin": {
-   "adapted": 39,
-   "new": 101,
-   "retained": 11
+   "adapted": 38,
+   "new": 89,
+   "retained": 10
   },
   "wg_talii": {
    "00-internet-przyszlosci": 30,
@@ -31,9 +31,8 @@
    "02-urzadzenie-sensory-energia": 25,
    "03-lacznosc-i-ota": 25,
    "04-mqtt-i-kontrakt-danych": 23,
-   "05-brzeg-node-red-sheets": 18,
-   "06-thingsboard-ce": 21,
-   "07-odpornosc-bezpieczenstwo-eksploatacja": 23
+   "05-thingsboard-ce": 21,
+   "06-odpornosc-bezpieczenstwo-eksploatacja": 23
   }
  },
  "slajdy": [
@@ -345,7 +344,7 @@
    "rodzaj": "tresc",
    "tytul": "Mapa kursu",
    "origin": "new",
-   "uzasadnienie": "Powiązanie pytań wykładu 00 z modułami 01–07."
+   "uzasadnienie": "Powiązanie pytań wykładu 00 z modułami 01–06."
   },
   {
    "deck": "00-internet-przyszlosci",
@@ -763,7 +762,7 @@
    "rodzaj": "tresc",
    "tytul": "Stan bezpieczny wyjścia",
    "origin": "new",
-   "uzasadnienie": "Nowy slajd; temat nieobecny w prezentacjach źródłowych, kluczowy dla planu testów w module 07.",
+   "uzasadnienie": "Nowy slajd; temat nieobecny w prezentacjach źródłowych, kluczowy dla planu testów w module 06.",
    "zrodlo": {
     "typ": "material-kursu",
     "qmd": "lecture-materials/content/uzupelnienie-02.html"
@@ -1401,9 +1400,9 @@
    "deck": "04-mqtt-i-kontrakt-danych",
    "id": "tematy",
    "rodzaj": "tresc",
-   "tytul": "Drzewo tematów pilota",
+   "tytul": "Kontrakt tematów: API urządzenia ThingsBoard",
    "origin": "new",
-   "uzasadnienie": "Nowa tabela; konkretne drzewo tematów z kierunkiem i regułą retained.",
+   "uzasadnienie": "Nowa tabela; klasy komunikatów przypisane do tematów API urządzenia platformy (zastąpiła drzewo tematów kursowego brokera Mosquitto, usuniętego z kursu 2026-10-05).",
    "zrodlo": {
     "typ": "material-kursu",
     "qmd": "lecture-materials/content/uzupelnienie-04.html"
@@ -1413,9 +1412,9 @@
    "deck": "04-mqtt-i-kontrakt-danych",
    "id": "retained",
    "rodzaj": "tresc",
-   "tytul": "Dlaczego polecenie nigdy nie jest retained",
+   "tytul": "Polecenie nigdy nie jest trwałą wartością",
    "origin": "new",
-   "uzasadnienie": "Nowy slajd z diagramem sekwencji; konsekwencja fizyczna błędu projektowego.",
+   "uzasadnienie": "Nowy slajd z diagramem sekwencji; retained w MQTT i jego odpowiednik w platformie (atrybut współdzielony), trwałe RPC z krótkim czasem ważności.",
    "zrodlo": {
     "typ": "material-kursu",
     "qmd": "lecture-materials/content/uzupelnienie-04.html"
@@ -1449,9 +1448,9 @@
    "deck": "04-mqtt-i-kontrakt-danych",
    "id": "mechanizmy",
    "rodzaj": "tresc",
-   "tytul": "Retained, Last Will, keep alive, sesja",
+   "tytul": "Retained, Last Will, keep alive, sesja — i platforma",
    "origin": "new",
-   "uzasadnienie": "Wydzielone z przeładowanego slajdu QoS; doprecyzowane wg MQTT 5 (0x04, 1,5 × keep alive).",
+   "uzasadnienie": "Wydzielone z przeładowanego slajdu QoS; doprecyzowane wg MQTT 5 (0x04, 1,5 × keep alive). Dodano kolumnę z odpowiednikiem w ThingsBoard wg dokumentacji MQTT API, RPC i Device connectivity status.",
    "zrodlo": {
     "typ": "material-kursu",
     "qmd": "lecture-materials/content/uzupelnienie-04.html"
@@ -1519,9 +1518,9 @@
    "deck": "04-mqtt-i-kontrakt-danych",
    "id": "dostep",
    "rodzaj": "tresc",
-   "tytul": "Zamknięcie dostępu do brokera",
+   "tytul": "Poświadczenia urządzenia i TLS",
    "origin": "new",
-   "uzasadnienie": "Nowy slajd; ACL, TLS, unikalny ClientID. Sprostowano separację środowisk przez prefiks.",
+   "uzasadnienie": "Nowy slajd; poświadczenie per urządzenie, tożsamość z tokenu zamiast ACL, TLS 8883, unikalny ClientID, X.509 jako opcja.",
    "zrodlo": {
     "typ": "material-kursu",
     "qmd": "lecture-materials/content/uzupelnienie-04.html"
@@ -1559,7 +1558,7 @@
    "rodzaj": "tresc",
    "tytul": "Test odbioru kontraktu",
    "origin": "new",
-   "uzasadnienie": "Nowy slajd; pięć dowodów działania kontraktu.",
+   "uzasadnienie": "Nowy slajd; pięć dowodów działania kontraktu na brokerze platformy ThingsBoard.",
    "zrodlo": {
     "typ": "material-kursu",
     "qmd": "lecture-materials/content/uzupelnienie-04.html"
@@ -1593,7 +1592,7 @@
    "rodzaj": "tresc",
    "tytul": "Podsumowanie i przejście",
    "origin": "new",
-   "uzasadnienie": "Nowe podsumowanie i zapowiedź modułu 05."
+   "uzasadnienie": "Nowe podsumowanie i zapowiedź modułu 05 (ThingsBoard CE)."
   },
   {
    "deck": "04-mqtt-i-kontrakt-danych",
@@ -1601,10 +1600,10 @@
    "rodzaj": "tresc",
    "tytul": "Źródła",
    "origin": "new",
-   "uzasadnienie": "Nowy wykaz źródeł pierwotnych (OASIS, RFC, Mosquitto)."
+   "uzasadnienie": "Nowy wykaz źródeł pierwotnych (OASIS, RFC, ThingsBoard)."
   },
   {
-   "deck": "05-brzeg-node-red-sheets",
+   "deck": "05-thingsboard-ce",
    "id": "title-slide",
    "rodzaj": "tytulowy",
    "tytul": "Slajd tytułowy",
@@ -1612,211 +1611,7 @@
    "uzasadnienie": "Nowy nagłówek modułu."
   },
   {
-   "deck": "05-brzeg-node-red-sheets",
-   "id": "cele",
-   "rodzaj": "tresc",
-   "tytul": "Po co ten wykład",
-   "origin": "new",
-   "uzasadnienie": "Nowy slajd celów.",
-   "zrodlo": {
-    "typ": "material-kursu",
-    "qmd": "lecture-materials/content/uzupelnienie-05.html"
-   }
-  },
-  {
-   "deck": "05-brzeg-node-red-sheets",
-   "id": "brzeg-sieci",
-   "rodzaj": "sekcja",
-   "tytul": "Sekcja: Brzeg sieci",
-   "origin": "new",
-   "uzasadnienie": "Przekładka sekcyjna."
-  },
-  {
-   "deck": "05-brzeg-node-red-sheets",
-   "id": "redukcja",
-   "rodzaj": "tresc",
-   "tytul": "Od gigabajtów do wiedzy",
-   "origin": "retained",
-   "uzasadnienie": "Zachowano tezę i diagram redukcji danych; usunięto transform scale(2) i dodano gałąź zapisu raportowego.",
-   "zrodlo": {
-    "typ": "prezentacja",
-    "qmd": "wyklad_3.qmd",
-    "tytul": "1. Od gigabajtów do wiedzy",
-    "wiersze": "63-110"
-   }
-  },
-  {
-   "deck": "05-brzeg-node-red-sheets",
-   "id": "brama",
-   "rodzaj": "tresc",
-   "tytul": "Brama brzegowa — cztery zadania",
-   "origin": "adapted",
-   "uzasadnienie": "Zachowano definicję bramy i pojęcie latency. Rozszerzono z samej agregacji na cztery zadania, zgodnie ze sprostowaniem.",
-   "zrodlo": {
-    "typ": "prezentacja",
-    "qmd": "wyklad_1.qmd",
-    "tytul": "8. Brama brzegu sieci (Edge Gateway)",
-    "wiersze": "308-332"
-   },
-   "zrodla_dodatkowe": [
-    {
-     "typ": "material-kursu",
-     "qmd": "lecture-materials/content/sprostowania-05.html"
-    }
-   ]
-  },
-  {
-   "deck": "05-brzeg-node-red-sheets",
-   "id": "jakosc",
-   "rodzaj": "tresc",
-   "tytul": "Piąte zadanie: jakość danych",
-   "origin": "new",
-   "uzasadnienie": "Nowy slajd; sprostowanie do opisu Node-RED jako „kleju” bez odpowiedzialności.",
-   "zrodlo": {
-    "typ": "material-kursu",
-    "qmd": "lecture-materials/content/sprostowania-05.html"
-   }
-  },
-  {
-   "deck": "05-brzeg-node-red-sheets",
-   "id": "przepływ",
-   "rodzaj": "sekcja",
-   "tytul": "Sekcja: Przepływ",
-   "origin": "new",
-   "uzasadnienie": "Przekładka sekcyjna."
-  },
-  {
-   "deck": "05-brzeg-node-red-sheets",
-   "id": "przeplyw",
-   "rodzaj": "tresc",
-   "tytul": "Node-RED węzeł po węźle",
-   "origin": "new",
-   "uzasadnienie": "Nowy slajd; konkretny przepływ z jawną ścieżką błędu.",
-   "zrodlo": {
-    "typ": "material-kursu",
-    "qmd": "lecture-materials/content/uzupelnienie-05.html"
-   }
-  },
-  {
-   "deck": "05-brzeg-node-red-sheets",
-   "id": "walidacja",
-   "rodzaj": "tresc",
-   "tytul": "Minimalny zestaw reguł walidacji",
-   "origin": "new",
-   "uzasadnienie": "Nowy slajd; pięć reguł i wymóg logowania powodu odrzucenia.",
-   "zrodlo": {
-    "typ": "material-kursu",
-    "qmd": "lecture-materials/content/uzupelnienie-05.html"
-   }
-  },
-  {
-   "deck": "05-brzeg-node-red-sheets",
-   "id": "zapis-do-arkusza",
-   "rodzaj": "sekcja",
-   "tytul": "Sekcja: Zapis do arkusza",
-   "origin": "new",
-   "uzasadnienie": "Przekładka sekcyjna."
-  },
-  {
-   "deck": "05-brzeg-node-red-sheets",
-   "id": "warianty",
-   "rodzaj": "tresc",
-   "tytul": "Dwa warianty zapisu",
-   "origin": "new",
-   "uzasadnienie": "Nowa tabela; Apps Script a Sheets API v4, wraz ze sprostowaniem o adresie wdrożenia jako sekrecie.",
-   "zrodlo": {
-    "typ": "material-kursu",
-    "qmd": "lecture-materials/content/uzupelnienie-05.html"
-   },
-   "zrodla_dodatkowe": [
-    {
-     "typ": "material-kursu",
-     "qmd": "lecture-materials/content/sprostowania-05.html"
-    }
-   ]
-  },
-  {
-   "deck": "05-brzeg-node-red-sheets",
-   "id": "limity",
-   "rodzaj": "tresc",
-   "tytul": "Limity Google Sheets API",
-   "origin": "new",
-   "uzasadnienie": "Nowy slajd; limity z dokumentacji Google, wykres własny z scripts/make-figures.py.",
-   "zrodlo": {
-    "typ": "material-kursu",
-    "qmd": "lecture-materials/content/uzupelnienie-05.html"
-   }
-  },
-  {
-   "deck": "05-brzeg-node-red-sheets",
-   "id": "ponowienia",
-   "rodzaj": "tresc",
-   "tytul": "Ponowienia i granice arkusza",
-   "origin": "new",
-   "uzasadnienie": "Nowy slajd; rozróżnienie błędów ponawialnych i nieponawialnych.",
-   "zrodlo": {
-    "typ": "material-kursu",
-    "qmd": "lecture-materials/content/uzupelnienie-05.html"
-   }
-  },
-  {
-   "deck": "05-brzeg-node-red-sheets",
-   "id": "autoryzacja",
-   "rodzaj": "tresc",
-   "tytul": "Autoryzacja i błędy eksportu",
-   "origin": "new",
-   "uzasadnienie": "Nowy slajd; procedura konta usługi i tabela kodów odpowiedzi.",
-   "zrodlo": {
-    "typ": "material-kursu",
-    "qmd": "lecture-materials/content/uzupelnienie-05.html"
-   }
-  },
-  {
-   "deck": "05-brzeg-node-red-sheets",
-   "id": "test-odbioru",
-   "rodzaj": "tresc",
-   "tytul": "Test odbioru przepływu",
-   "origin": "new",
-   "uzasadnienie": "Nowy slajd; pięć dowodów działania przepływu.",
-   "zrodlo": {
-    "typ": "material-kursu",
-    "qmd": "lecture-materials/content/uzupelnienie-05.html"
-   }
-  },
-  {
-   "deck": "05-brzeg-node-red-sheets",
-   "id": "pytania",
-   "rodzaj": "tresc",
-   "tytul": "Pytania sprawdzające",
-   "origin": "new",
-   "uzasadnienie": "Nowe pytania sprawdzające."
-  },
-  {
-   "deck": "05-brzeg-node-red-sheets",
-   "id": "podsumowanie",
-   "rodzaj": "tresc",
-   "tytul": "Podsumowanie i przejście",
-   "origin": "new",
-   "uzasadnienie": "Nowe podsumowanie i zapowiedź modułu 06."
-  },
-  {
-   "deck": "05-brzeg-node-red-sheets",
-   "id": "zrodla",
-   "rodzaj": "tresc",
-   "tytul": "Źródła",
-   "origin": "new",
-   "uzasadnienie": "Nowy wykaz źródeł pierwotnych (Google, Node-RED)."
-  },
-  {
-   "deck": "06-thingsboard-ce",
-   "id": "title-slide",
-   "rodzaj": "tytulowy",
-   "tytul": "Slajd tytułowy",
-   "origin": "new",
-   "uzasadnienie": "Nowy nagłówek modułu."
-  },
-  {
-   "deck": "06-thingsboard-ce",
+   "deck": "05-thingsboard-ce",
    "id": "cele",
    "rodzaj": "tresc",
    "tytul": "Po co ten wykład",
@@ -1828,7 +1623,7 @@
    }
   },
   {
-   "deck": "06-thingsboard-ce",
+   "deck": "05-thingsboard-ce",
    "id": "model-danych",
    "rodzaj": "sekcja",
    "tytul": "Sekcja: Model danych",
@@ -1836,7 +1631,7 @@
    "uzasadnienie": "Przekładka sekcyjna."
   },
   {
-   "deck": "06-thingsboard-ce",
+   "deck": "05-thingsboard-ce",
    "id": "model-najpierw",
    "rodzaj": "tresc",
    "tytul": "Wykres jest ostatni",
@@ -1854,7 +1649,7 @@
    ]
   },
   {
-   "deck": "06-thingsboard-ce",
+   "deck": "05-thingsboard-ce",
    "id": "rodzaje",
    "rodzaj": "tresc",
    "tytul": "Trzy rodzaje danych",
@@ -1866,7 +1661,7 @@
    }
   },
   {
-   "deck": "06-thingsboard-ce",
+   "deck": "05-thingsboard-ce",
    "id": "wspoldzielone",
    "rodzaj": "tresc",
    "tytul": "Atrybuty współdzielone",
@@ -1878,7 +1673,7 @@
    }
   },
   {
-   "deck": "06-thingsboard-ce",
+   "deck": "05-thingsboard-ce",
    "id": "styk-z-urządzeniem",
    "rodzaj": "sekcja",
    "tytul": "Sekcja: Styk z urządzeniem",
@@ -1886,7 +1681,7 @@
    "uzasadnienie": "Przekładka sekcyjna."
   },
   {
-   "deck": "06-thingsboard-ce",
+   "deck": "05-thingsboard-ce",
    "id": "tematy",
    "rodzaj": "tresc",
    "tytul": "Kontrakt tematów MQTT platformy",
@@ -1904,7 +1699,7 @@
    ]
   },
   {
-   "deck": "06-thingsboard-ce",
+   "deck": "05-thingsboard-ce",
    "id": "poswiadczenia",
    "rodzaj": "tresc",
    "tytul": "Poświadczenia urządzenia",
@@ -1916,7 +1711,7 @@
    }
   },
   {
-   "deck": "06-thingsboard-ce",
+   "deck": "05-thingsboard-ce",
    "id": "rpc",
    "rodzaj": "tresc",
    "tytul": "Sterowanie zwrotne: RPC",
@@ -1928,7 +1723,7 @@
    }
   },
   {
-   "deck": "06-thingsboard-ce",
+   "deck": "05-thingsboard-ce",
    "id": "pulpit",
    "rodzaj": "tresc",
    "tytul": "Od telemetrii do pulpitu",
@@ -1940,7 +1735,7 @@
    }
   },
   {
-   "deck": "06-thingsboard-ce",
+   "deck": "05-thingsboard-ce",
    "id": "pulpit-przyklad",
    "rodzaj": "tresc",
    "tytul": "Pulpit ma pokazywać stan, nie tylko wykres",
@@ -1952,7 +1747,7 @@
    }
   },
   {
-   "deck": "06-thingsboard-ce",
+   "deck": "05-thingsboard-ce",
    "id": "kontekst-i-ryzyko",
    "rodzaj": "sekcja",
    "tytul": "Sekcja: Kontekst i ryzyko",
@@ -1960,7 +1755,7 @@
    "uzasadnienie": "Przekładka sekcyjna."
   },
   {
-   "deck": "06-thingsboard-ce",
+   "deck": "05-thingsboard-ce",
    "id": "bliźniak",
    "rodzaj": "tresc",
    "tytul": "Cyfrowy bliźniak",
@@ -1986,7 +1781,7 @@
    ]
   },
   {
-   "deck": "06-thingsboard-ce",
+   "deck": "05-thingsboard-ce",
    "id": "smart-city",
    "rodzaj": "tresc",
    "tytul": "Zastosowania w skali miasta",
@@ -2012,7 +1807,7 @@
    ]
   },
   {
-   "deck": "06-thingsboard-ce",
+   "deck": "05-thingsboard-ce",
    "id": "ryzyko",
    "rodzaj": "tresc",
    "tytul": "Ryzyko dostawcy i licencji",
@@ -2032,7 +1827,7 @@
    ]
   },
   {
-   "deck": "06-thingsboard-ce",
+   "deck": "05-thingsboard-ce",
    "id": "ce-pe",
    "rodzaj": "tresc",
    "tytul": "CE a PE",
@@ -2050,7 +1845,7 @@
    ]
   },
   {
-   "deck": "06-thingsboard-ce",
+   "deck": "05-thingsboard-ce",
    "id": "test-odbioru",
    "rodzaj": "tresc",
    "tytul": "Test odbioru modułu",
@@ -2062,7 +1857,7 @@
    }
   },
   {
-   "deck": "06-thingsboard-ce",
+   "deck": "05-thingsboard-ce",
    "id": "pytania",
    "rodzaj": "tresc",
    "tytul": "Pytania sprawdzające",
@@ -2070,15 +1865,15 @@
    "uzasadnienie": "Nowe pytania sprawdzające."
   },
   {
-   "deck": "06-thingsboard-ce",
+   "deck": "05-thingsboard-ce",
    "id": "podsumowanie",
    "rodzaj": "tresc",
    "tytul": "Podsumowanie i przejście",
    "origin": "new",
-   "uzasadnienie": "Nowe podsumowanie i zapowiedź modułu 07."
+   "uzasadnienie": "Nowe podsumowanie i zapowiedź modułu 06."
   },
   {
-   "deck": "06-thingsboard-ce",
+   "deck": "05-thingsboard-ce",
    "id": "zrodla",
    "rodzaj": "tresc",
    "tytul": "Źródła",
@@ -2086,7 +1881,7 @@
    "uzasadnienie": "Nowy wykaz źródeł pierwotnych (ThingsBoard, Google Cloud)."
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "title-slide",
    "rodzaj": "tytulowy",
    "tytul": "Slajd tytułowy",
@@ -2094,7 +1889,7 @@
    "uzasadnienie": "Nowy nagłówek modułu."
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "cele",
    "rodzaj": "tresc",
    "tytul": "Po co ten wykład",
@@ -2106,7 +1901,7 @@
    }
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "sekcja-rama",
    "rodzaj": "sekcja",
    "tytul": "Sekcja: Rama",
@@ -2114,7 +1909,7 @@
    "uzasadnienie": "Przekładka sekcyjna."
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "rama",
    "rodzaj": "tresc",
    "tytul": "Kto tworzy skutki",
@@ -2140,7 +1935,7 @@
    ]
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "odporność",
    "rodzaj": "sekcja",
    "tytul": "Sekcja: Odporność",
@@ -2148,7 +1943,7 @@
    "uzasadnienie": "Przekładka sekcyjna."
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "nieaktywnosc",
    "rodzaj": "tresc",
    "tytul": "Wykrycie nieaktywności",
@@ -2160,7 +1955,7 @@
    }
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "pulapka",
    "rodzaj": "tresc",
    "tytul": "Pułapka fałszywego alarmu",
@@ -2172,7 +1967,7 @@
    }
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "alarm",
    "rodzaj": "tresc",
    "tytul": "Alarm i dowód jego zamknięcia",
@@ -2184,7 +1979,7 @@
    }
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "bezpieczeństwo",
    "rodzaj": "sekcja",
    "tytul": "Sekcja: Bezpieczeństwo",
@@ -2192,19 +1987,19 @@
    "uzasadnienie": "Przekładka sekcyjna."
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "model-zagrozen",
    "rodzaj": "tresc",
    "tytul": "Model zagrożeń",
    "origin": "new",
-   "uzasadnienie": "Nowa tabela czterech powierzchni ataku; porządkuje mechanizmy wprowadzone w modułach 03–06.",
+   "uzasadnienie": "Nowa tabela czterech powierzchni ataku; porządkuje mechanizmy wprowadzone w modułach 03–05.",
    "zrodlo": {
     "typ": "material-kursu",
     "qmd": "lecture-materials/content/uzupelnienie-07.html"
    }
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "mirai",
    "rodzaj": "tresc",
    "tytul": "Mirai — dwa incydenty",
@@ -2224,7 +2019,7 @@
    ]
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "kryptografia",
    "rodzaj": "tresc",
    "tytul": "Brak mocy na kryptografię to nieprawda",
@@ -2236,7 +2031,7 @@
    }
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "defence",
    "rodzaj": "tresc",
    "tytul": "Obrona warstwowa",
@@ -2256,7 +2051,7 @@
    ]
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "eksploatacja",
    "rodzaj": "sekcja",
    "tytul": "Sekcja: Eksploatacja",
@@ -2264,7 +2059,7 @@
    "uzasadnienie": "Przekładka sekcyjna."
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "testy-awarii",
    "rodzaj": "tresc",
    "tytul": "Plan testów awarii",
@@ -2276,7 +2071,7 @@
    }
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "higiena",
    "rodzaj": "tresc",
    "tytul": "Higiena testu powiadomień",
@@ -2288,7 +2083,7 @@
    }
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "prywatnosc",
    "rodzaj": "tresc",
    "tytul": "Prywatność: dane pośrednie",
@@ -2308,7 +2103,7 @@
    ]
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "obowiazki",
    "rodzaj": "tresc",
    "tytul": "Obowiązki poza kodem",
@@ -2326,7 +2121,7 @@
    ]
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "koszt-energii",
    "rodzaj": "tresc",
    "tytul": "Koszt energii jako rama",
@@ -2340,7 +2135,7 @@
    }
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "bilans",
    "rodzaj": "tresc",
    "tytul": "Bilans korzyści i wyzwań",
@@ -2366,7 +2161,7 @@
    ]
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "pytania",
    "rodzaj": "tresc",
    "tytul": "Pytania sprawdzające",
@@ -2374,7 +2169,7 @@
    "uzasadnienie": "Nowe pytania sprawdzające."
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "zamkniecie",
    "rodzaj": "tresc",
    "tytul": "Zamknięcie cyklu",
@@ -2396,7 +2191,7 @@
    ]
   },
   {
-   "deck": "07-odpornosc-bezpieczenstwo-eksploatacja",
+   "deck": "06-odpornosc-bezpieczenstwo-eksploatacja",
    "id": "zrodla",
    "rodzaj": "tresc",
    "tytul": "Źródła i dalsza lektura",
@@ -2434,11 +2229,18 @@
    "powod": "Tabela zbudowana na nieaktualnych założeniach (Arduino bez radia, Raspberry Pi „przestarzałe”). Zastąpiona przez 02#platformy i 02#rodzina, opartymi na płytkach stanowiska."
   },
   {
+   "skrot": "w3_01",
+   "qmd": "wyklad_3.qmd",
+   "tytul_zrodlowy": "1. Od gigabajtów do wiedzy",
+   "tytul": "Od gigabajtów do wiedzy",
+   "powod": "Slajd trafił do modułu o brzegu sieci (Node-RED, Google Sheets), usuniętego z kursu 2026-10-05 po decyzji, że urządzenie łączy się bezpośrednio z ThingsBoard. Redukcję danych na urządzeniu omawiają 02#deep-sleep i 04#naglowek."
+  },
+  {
    "skrot": "w3_03",
    "qmd": "wyklad_3.qmd",
    "tytul_zrodlowy": "3. Narzędzia otwartoźródłowe",
    "tytul": "Narzędzia otwartoźródłowe",
-   "powod": "Lista narzędzi wchłonięta: Node-RED do modułu 05, ThingsBoard do 06 wraz ze sprostowaniem o statusie licencyjnym. Osobny slajd powielałby treść."
+   "powod": "Lista narzędzi wchłonięta: ThingsBoard do modułu 05 wraz ze sprostowaniem o statusie licencyjnym. Osobny slajd powielałby treść."
   },
   {
    "skrot": "w2_14",
@@ -2527,8 +2329,7 @@
    "zrodlo": "https://commons.wikimedia.org/wiki/File:Raspberry_Pi_4_Model_B_-_Top.jpg",
    "licencja": "CC BY-SA 4.0",
    "slajdy": [
-    "02#platformy",
-    "05#brama"
+    "02#platformy"
    ]
   },
   {
@@ -2613,39 +2414,12 @@
    ]
   },
   {
-   "plik": "kurs/raspberry-przelacznik.jpg",
-   "autor": "RAIL P (RAIL.PHOTOGRAPHY)",
-   "zrodlo": "https://commons.wikimedia.org/wiki/File:Raspberry_Pi_4_on_a_network_switch.jpg",
-   "licencja": "CC0",
-   "slajdy": [
-    "05#brzeg-sieci"
-   ]
-  },
-  {
-   "plik": "kurs/kable-splatane.jpg",
-   "autor": "Kim Scarborough from Chicago, IL",
-   "zrodlo": "https://commons.wikimedia.org/wiki/File:Server_Rack_with_Spaghetti-Like_Mass_of_Network_Cables.jpg",
-   "licencja": "CC BY-SA 2.0",
-   "slajdy": [
-    "05#przepływ"
-   ]
-  },
-  {
-   "plik": "kurs/sterownia-nasa.jpg",
-   "autor": "NASA Glenn Research Center",
-   "zrodlo": "https://commons.wikimedia.org/wiki/File:Operators_in_the_Plum_Brook_Reactor_Facility_Control_Room_(GRC-1970-C-00860).jpg",
-   "licencja": "domena publiczna",
-   "slajdy": [
-    "05#zapis-do-arkusza"
-   ]
-  },
-  {
    "plik": "kurs/monitory-diagnostyczne.jpg",
    "autor": "Siarhei Besarab",
    "zrodlo": "https://commons.wikimedia.org/wiki/File:Diagnostic_monitors_in_the_control_room_of_Wendelstein_7-X.jpg",
    "licencja": "CC BY-SA 4.0",
    "slajdy": [
-    "06#model-danych"
+    "05#model-danych"
    ]
   },
   {
@@ -2654,7 +2428,7 @@
    "zrodlo": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%B0%D0%BD%D0%B5%D0%BB%D1%8C_%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%BE%D0%BC_(14660763727).jpg",
    "licencja": "CC BY 2.0",
    "slajdy": [
-    "06#styk-z-urządzeniem"
+    "05#styk-z-urządzeniem"
    ]
   },
   {
@@ -2663,7 +2437,7 @@
    "zrodlo": "https://commons.wikimedia.org/wiki/File:Wind_turbine_maintenance_(51689968067).jpg",
    "licencja": "domena publiczna",
    "slajdy": [
-    "06#kontekst-i-ryzyko"
+    "05#kontekst-i-ryzyko"
    ]
   },
   {
@@ -2672,7 +2446,7 @@
    "zrodlo": "https://commons.wikimedia.org/wiki/File:Oscilloscope_with_a_Doppler_radar_signal.jpg",
    "licencja": "CC BY-SA 4.0",
    "slajdy": [
-    "07#odporność"
+    "06#odporność"
    ]
   },
   {
@@ -2681,7 +2455,7 @@
    "zrodlo": "https://commons.wikimedia.org/wiki/File:Padlock_with_chain.jpg",
    "licencja": "CC BY-SA 4.0",
    "slajdy": [
-    "07#bezpieczeństwo"
+    "06#bezpieczeństwo"
    ]
   },
   {
@@ -2690,7 +2464,7 @@
    "zrodlo": "https://commons.wikimedia.org/wiki/File:Worker_interacts_with_machine_control_panel_in_a_manufacturing_facility.jpg",
    "licencja": "CC BY 2.0",
    "slajdy": [
-    "07#eksploatacja"
+    "06#eksploatacja"
    ]
   },
   {
@@ -2719,7 +2493,7 @@
    "licencja": "CC BY 4.0",
    "slajdy": [
     "00#energia",
-    "07#koszt-energii"
+    "06#koszt-energii"
    ]
   },
   {
@@ -2729,7 +2503,7 @@
    "licencja": "domena publiczna",
    "slajdy": [
     "00#motto",
-    "07#rama"
+    "06#rama"
    ]
   },
   {
@@ -2963,7 +2737,7 @@
    "zrodlo": "https://commons.wikimedia.org/wiki/File:Aquaculture_iot_water_monitoring_solution_pentair_eagle.io.jpg",
    "licencja": "CC BY-SA 4.0",
    "slajdy": [
-    "06#pulpit-przyklad"
+    "05#pulpit-przyklad"
    ]
   },
   {
@@ -2972,7 +2746,7 @@
    "zrodlo": "https://commons.wikimedia.org/wiki/File:Axis_ip_dome_cameras.png",
    "licencja": "CC BY-SA 4.0",
    "slajdy": [
-    "07#mirai",
+    "06#mirai",
     "00#botnet"
    ]
   }
@@ -3004,7 +2778,7 @@
   },
   {
    "plik": "img/mirai_map.png",
-   "powod": "Mapa bez wskazania autora i źródła danych; treść przeniesiona do tekstu slajdu 07#mirai."
+   "powod": "Mapa bez wskazania autora i źródła danych; treść przeniesiona do tekstu slajdu 06#mirai."
   },
   {
    "plik": "img/iot_dashboard.png",

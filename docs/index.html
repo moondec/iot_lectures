@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Internet Rzeczy — kurs w ośmiu wykładach</title>
+<title>Internet Rzeczy — kurs w siedmiu wykładach</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">IoT — osiem wykładów</span>
+    <span class="navbar-title">IoT — siedem wykładów</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Przełącz nawigację" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -103,16 +103,12 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">04 MQTT</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./slides/05-brzeg-node-red-sheets.html"> 
-<span class="menu-text">05 Brzeg sieci</span></a>
+    <a class="nav-link" href="./slides/05-thingsboard-ce.html"> 
+<span class="menu-text">05 ThingsBoard</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./slides/06-thingsboard-ce.html"> 
-<span class="menu-text">06 ThingsBoard</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./slides/07-odpornosc-bezpieczenstwo-eksploatacja.html"> 
-<span class="menu-text">07 Eksploatacja</span></a>
+    <a class="nav-link" href="./slides/06-odpornosc-bezpieczenstwo-eksploatacja.html"> 
+<span class="menu-text">06 Eksploatacja</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -131,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Internet Rzeczy — kurs w ośmiu wykładach</h1>
+<h1 class="title">Internet Rzeczy — kurs w siedmiu wykładach</h1>
 <p class="subtitle lead">Materiały wykładowe · prof. UPP dr hab. inż. Marek Urbaniak</p>
 </div>
 
@@ -155,7 +151,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Osiem samodzielnych prezentacji <code>reveal.js</code>. Wykład 00 ustawia społeczną i technologiczną ramę kursu, a moduły 01–07 prowadzą od architektury do eksploatacji. Każda prezentacja ma cele, spójną sekwencję od pojęcia do zastosowania, pytania sprawdzające, podsumowanie i wykaz źródeł. Nawigacja w prezentacji: <strong>strzałki</strong>, <code>Esc</code> — widok siatki, <code>F</code> — pełny ekran, <code>?</code> — skróty. Kliknięcie grafiki lub diagramu powiększa go na cały ekran.</p>
+<p>Siedem samodzielnych prezentacji <code>reveal.js</code>. Wykład 00 ustawia społeczną i technologiczną ramę kursu, a moduły 01–06 prowadzą od architektury do eksploatacji. Każda prezentacja ma cele, spójną sekwencję od pojęcia do zastosowania, pytania sprawdzające, podsumowanie i wykaz źródeł. Nawigacja w prezentacji: <strong>strzałki</strong>, <code>Esc</code> — widok siatki, <code>F</code> — pełny ekran, <code>?</code> — skróty. Kliknięcie grafiki lub diagramu powiększa go na cały ekran.</p>
 </div>
 </div>
 </div>
@@ -193,21 +189,16 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td style="text-align: left;"><strong>04</strong></td>
 <td style="text-align: left;"><a href="slides/04-mqtt-i-kontrakt-danych.html">MQTT i kontrakt danych</a></td>
-<td style="text-align: left;">pub/sub, tematy, QoS, retained, LWT, samoopisujący się ładunek, idempotencja</td>
+<td style="text-align: left;">pub/sub, tematy API urządzenia ThingsBoard, QoS, retained i LWT a platforma, samoopisujący się ładunek, idempotencja, token i TLS</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>05</strong></td>
-<td style="text-align: left;"><a href="slides/05-brzeg-node-red-sheets.html">Brzeg sieci, Node-RED i Google Sheets</a></td>
-<td style="text-align: left;">walidacja na brzegu, routing, limity API, ponowienia, agregacja</td>
+<td style="text-align: left;"><a href="slides/05-thingsboard-ce.html">ThingsBoard CE — telemetria i sterowanie</a></td>
+<td style="text-align: left;">model danych, atrybuty, pulpit, RPC z potwierdzeniem, CE vs PE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>06</strong></td>
-<td style="text-align: left;"><a href="slides/06-thingsboard-ce.html">ThingsBoard CE — telemetria i sterowanie</a></td>
-<td style="text-align: left;">model danych, atrybuty, pulpit, RPC z potwierdzeniem, CE vs PE</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>07</strong></td>
-<td style="text-align: left;"><a href="slides/07-odpornosc-bezpieczenstwo-eksploatacja.html">Odporność, bezpieczeństwo i eksploatacja</a></td>
+<td style="text-align: left;"><a href="slides/06-odpornosc-bezpieczenstwo-eksploatacja.html">Odporność, bezpieczeństwo i eksploatacja</a></td>
 <td style="text-align: left;">wykrycie nieaktywności, model zagrożeń, plan testów awarii, obowiązki prawne</td>
 </tr>
 </tbody>
@@ -219,7 +210,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="jak-czytać-te-materiały" class="level2">
 <h2 class="anchored" data-anchor-id="jak-czytać-te-materiały">Jak czytać te materiały</h2>
-<p>Wykłady tworzą jedną ścieżkę: wykład 00 wyjaśnia, dlaczego decyzje o danych, energii, automatyzacji i odpowiedzialności muszą wejść do architektury; moduł 01 wyznacza granice systemu, moduły 02–06 domykają kolejne warstwy tego samego stanowiska, a moduł 07 przechodzi przez całość przekrojowo — od wykrycia awarii po obowiązki, które wychodzą poza kod.</p>
+<p>Wykłady tworzą jedną ścieżkę: wykład 00 wyjaśnia, dlaczego decyzje o danych, energii, automatyzacji i odpowiedzialności muszą wejść do architektury; moduł 01 wyznacza granice systemu, moduły 02–05 domykają kolejne warstwy tego samego stanowiska, a moduł 06 przechodzi przez całość przekrojowo — od wykrycia awarii po obowiązki, które wychodzą poza kod.</p>
 <p>Liczby na slajdach są <strong>dydaktyczne</strong>, nie pomiarowe.</p>
 </section>
 <section id="sprzęt-stanowiska" class="level2">

@@ -1,6 +1,6 @@
 {
- "testow": 96,
- "zaliczonych": 96,
+ "testow": 86,
+ "zaliczonych": 86,
  "bledow": 0,
  "talie": [
   "00-internet-przyszlosci.html",
@@ -8,15 +8,14 @@
   "02-urzadzenie-sensory-energia.html",
   "03-lacznosc-i-ota.html",
   "04-mqtt-i-kontrakt-danych.html",
-  "05-brzeg-node-red-sheets.html",
-  "06-thingsboard-ce.html",
-  "07-odpornosc-bezpieczenstwo-eksploatacja.html"
+  "05-thingsboard-ce.html",
+  "06-odpornosc-bezpieczenstwo-eksploatacja.html"
  ],
  "wyniki": [
   {
-   "test": "Liczba talii = 8",
+   "test": "Liczba talii = 7",
    "ok": true,
-   "szczegol": "znaleziono 8"
+   "szczegol": "znaleziono 7"
   },
   {
    "test": "Strona indeksowa istnieje",
@@ -84,32 +83,22 @@
    "szczegol": ""
   },
   {
-   "test": "05-brzeg-node-red-sheets.html: slajdy obowiązkowe",
+   "test": "05-thingsboard-ce.html: slajdy obowiązkowe",
    "ok": true,
    "szczegol": ""
   },
   {
-   "test": "05-brzeg-node-red-sheets.html: podsumowanie / zamknięcie",
+   "test": "05-thingsboard-ce.html: podsumowanie / zamknięcie",
    "ok": true,
    "szczegol": ""
   },
   {
-   "test": "06-thingsboard-ce.html: slajdy obowiązkowe",
+   "test": "06-odpornosc-bezpieczenstwo-eksploatacja.html: slajdy obowiązkowe",
    "ok": true,
    "szczegol": ""
   },
   {
-   "test": "06-thingsboard-ce.html: podsumowanie / zamknięcie",
-   "ok": true,
-   "szczegol": ""
-  },
-  {
-   "test": "07-odpornosc-bezpieczenstwo-eksploatacja.html: slajdy obowiązkowe",
-   "ok": true,
-   "szczegol": ""
-  },
-  {
-   "test": "07-odpornosc-bezpieczenstwo-eksploatacja.html: podsumowanie / zamknięcie",
+   "test": "06-odpornosc-bezpieczenstwo-eksploatacja.html: podsumowanie / zamknięcie",
    "ok": true,
    "szczegol": ""
   },
@@ -139,17 +128,12 @@
    "szczegol": "[]"
   },
   {
-   "test": "05-brzeg-node-red-sheets.html: identyfikatory unikalne",
+   "test": "05-thingsboard-ce.html: identyfikatory unikalne",
    "ok": true,
    "szczegol": "[]"
   },
   {
-   "test": "06-thingsboard-ce.html: identyfikatory unikalne",
-   "ok": true,
-   "szczegol": "[]"
-  },
-  {
-   "test": "07-odpornosc-bezpieczenstwo-eksploatacja.html: identyfikatory unikalne",
+   "test": "06-odpornosc-bezpieczenstwo-eksploatacja.html: identyfikatory unikalne",
    "ok": true,
    "szczegol": "[]"
   },
@@ -179,17 +163,12 @@
    "szczegol": "znaleziono 0"
   },
   {
-   "test": "05-brzeg-node-red-sheets.html: brak aside.notes",
+   "test": "05-thingsboard-ce.html: brak aside.notes",
    "ok": true,
    "szczegol": "znaleziono 0"
   },
   {
-   "test": "06-thingsboard-ce.html: brak aside.notes",
-   "ok": true,
-   "szczegol": "znaleziono 0"
-  },
-  {
-   "test": "07-odpornosc-bezpieczenstwo-eksploatacja.html: brak aside.notes",
+   "test": "06-odpornosc-bezpieczenstwo-eksploatacja.html: brak aside.notes",
    "ok": true,
    "szczegol": "znaleziono 0"
   },
@@ -229,17 +208,12 @@
    "szczegol": "[]"
   },
   {
-   "test": "05-brzeg-node-red-sheets.html: brak zaślepek",
+   "test": "05-thingsboard-ce.html: brak zaślepek",
    "ok": true,
    "szczegol": "[]"
   },
   {
-   "test": "06-thingsboard-ce.html: brak zaślepek",
-   "ok": true,
-   "szczegol": "[]"
-  },
-  {
-   "test": "07-odpornosc-bezpieczenstwo-eksploatacja.html: brak zaślepek",
+   "test": "06-odpornosc-bezpieczenstwo-eksploatacja.html: brak zaślepek",
    "ok": true,
    "szczegol": "[]"
   },
@@ -274,17 +248,12 @@
    "szczegol": "[]"
   },
   {
-   "test": "05-brzeg-node-red-sheets.html: brak metakomentarzy redakcyjnych",
+   "test": "05-thingsboard-ce.html: brak metakomentarzy redakcyjnych",
    "ok": true,
    "szczegol": "[]"
   },
   {
-   "test": "06-thingsboard-ce.html: brak metakomentarzy redakcyjnych",
-   "ok": true,
-   "szczegol": "[]"
-  },
-  {
-   "test": "07-odpornosc-bezpieczenstwo-eksploatacja.html: brak metakomentarzy redakcyjnych",
+   "test": "06-odpornosc-bezpieczenstwo-eksploatacja.html: brak metakomentarzy redakcyjnych",
    "ok": true,
    "szczegol": "[]"
   },
@@ -319,17 +288,12 @@
    "szczegol": "[]"
   },
   {
-   "test": "05-brzeg-node-red-sheets.html: brak sekretów",
+   "test": "05-thingsboard-ce.html: brak sekretów",
    "ok": true,
    "szczegol": "[]"
   },
   {
-   "test": "06-thingsboard-ce.html: brak sekretów",
-   "ok": true,
-   "szczegol": "[]"
-  },
-  {
-   "test": "07-odpornosc-bezpieczenstwo-eksploatacja.html: brak sekretów",
+   "test": "06-odpornosc-bezpieczenstwo-eksploatacja.html: brak sekretów",
    "ok": true,
    "szczegol": "[]"
   },
@@ -351,7 +315,7 @@
   {
    "test": "Manifest: dozwolone wartości origin",
    "ok": true,
-   "szczegol": "{'new': 136, 'adapted': 39, 'retained': 11}"
+   "szczegol": "{'new': 120, 'adapted': 38, 'retained': 10}"
   },
   {
    "test": "Slajdy retained/adapted mają wskazane źródło",
@@ -389,17 +353,12 @@
    "szczegol": "[]"
   },
   {
-   "test": "05-brzeg-node-red-sheets.html: brak ścieżek bezwzględnych",
+   "test": "05-thingsboard-ce.html: brak ścieżek bezwzględnych",
    "ok": true,
    "szczegol": "[]"
   },
   {
-   "test": "06-thingsboard-ce.html: brak ścieżek bezwzględnych",
-   "ok": true,
-   "szczegol": "[]"
-  },
-  {
-   "test": "07-odpornosc-bezpieczenstwo-eksploatacja.html: brak ścieżek bezwzględnych",
+   "test": "06-odpornosc-bezpieczenstwo-eksploatacja.html: brak ścieżek bezwzględnych",
    "ok": true,
    "szczegol": "[]"
   },
@@ -434,17 +393,12 @@
    "szczegol": "[]"
   },
   {
-   "test": "05-brzeg-node-red-sheets.html: skrypty i style lokalne",
+   "test": "05-thingsboard-ce.html: skrypty i style lokalne",
    "ok": true,
    "szczegol": "[]"
   },
   {
-   "test": "06-thingsboard-ce.html: skrypty i style lokalne",
-   "ok": true,
-   "szczegol": "[]"
-  },
-  {
-   "test": "07-odpornosc-bezpieczenstwo-eksploatacja.html: skrypty i style lokalne",
+   "test": "06-odpornosc-bezpieczenstwo-eksploatacja.html: skrypty i style lokalne",
    "ok": true,
    "szczegol": "[]"
   },
@@ -479,17 +433,12 @@
    "szczegol": "19"
   },
   {
-   "test": "05-brzeg-node-red-sheets.html: 14 slajdów merytorycznych w zakresie 12–28",
-   "ok": true,
-   "szczegol": "14"
-  },
-  {
-   "test": "06-thingsboard-ce.html: 17 slajdów merytorycznych w zakresie 12–28",
+   "test": "05-thingsboard-ce.html: 17 slajdów merytorycznych w zakresie 12–28",
    "ok": true,
    "szczegol": "17"
   },
   {
-   "test": "07-odpornosc-bezpieczenstwo-eksploatacja.html: 18 slajdów merytorycznych w zakresie 12–28",
+   "test": "06-odpornosc-bezpieczenstwo-eksploatacja.html: 18 slajdów merytorycznych w zakresie 12–28",
    "ok": true,
    "szczegol": "18"
   }
