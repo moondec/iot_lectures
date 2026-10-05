@@ -56,20 +56,6 @@ out["sprostowanie_019"] = {
     "komentarz": "0,19 mA nie wynika z podanych danych wejsciowych; poprawna wartosc ~0,45 mA",
 }
 
-# --- 3. Limity Google Sheets API v4 (wykład 05) --------------------------
-LIMIT_USER_MIN = 60          # zapisów/min/użytkownika w projekcie
-LIMIT_PROJ_MIN = 300         # zapisów/min/projekt
-out["sheets"] = {
-    "limit_user_min": LIMIT_USER_MIN, "limit_proj_min": LIMIT_PROJ_MIN,
-    "raport_1s_zapisow_min": 60,
-    "procent_limitu_uzytkownika_przy_1s": round(60 / LIMIT_USER_MIN * 100, 1),
-    "urzadzen_na_limit_uzytkownika_przy_1s": round(LIMIT_USER_MIN / 60, 2),
-    "agregacja_1min_urzadzen": LIMIT_USER_MIN,   # 1 wiersz/min/urządzenie
-    "agregacja_1min_urzadzen_projekt": LIMIT_PROJ_MIN,
-}
-assert out["sheets"]["procent_limitu_uzytkownika_przy_1s"] == 100.0
-assert out["sheets"]["urzadzen_na_limit_uzytkownika_przy_1s"] == 1.0
-
 # --- 4. Tempo wydania OTA w ThingsBoard (wykład 03) ---------------------
 PACK, INTERVAL_MS = 100, 60_000
 def czas_wydania_gorny(n_dev):
@@ -94,7 +80,7 @@ assert out["ota_tempo"]["gorne_s_dla_250"] == 180.0
 assert out["ota_tempo"]["gorne_min_dla_1000"] == 10.0
 assert out["ota_tempo"]["srednie_s_dla_240"] == 144.0
 
-# --- 5. Próg nieaktywności vs okres raportowania (wykład 07) ------------
+# --- 5. Próg nieaktywności vs okres raportowania (wykład 06) ------------
 REPORT_TIMEOUT_MS = 3000     # TB_TRANSPORT_SESSIONS_REPORT_TIMEOUT
 SESSION_INACTIVITY_TIMEOUT_MS = 300_000
 out["nieaktywnosc"] = {
@@ -110,7 +96,7 @@ assert out["nieaktywnosc"]["min_prog_s"] == 3.0
 assert out["nieaktywnosc"]["zapas_krotnosc"] == 20.0
 assert out["nieaktywnosc"]["session_inactivity_timeout_ms"] == 300_000
 
-# --- 6. Koszt energii: człowiek vs samochód (wykład 07) ----------------
+# --- 6. Koszt energii: człowiek vs samochód (wykład 06) ----------------
 KCAL = 3000.0
 J_PER_KCAL = 4184.0
 mj_czlowiek = KCAL * J_PER_KCAL / 1e6
@@ -136,7 +122,8 @@ def publish_bytes(topic, payload_len, qos):
         rl_bytes += 1
         r //= 128
     return fixed + rl_bytes + remaining
-t_krotki, t_dlugi = "lab/z1/d1/t", "laboratorium/zespol-1/urzadzenie-1/telemetria/pomiar"
+# ThingsBoard device API telemetry topic: short form (since 3.5) vs standard form.
+t_krotki, t_dlugi = "v2/t", "v1/devices/me/telemetry"
 out["mqtt_naglowek"] = {
     "min_fixed_header_B": 2,
     "krotki_temat": t_krotki, "krotki_temat_len": len(t_krotki),
@@ -159,12 +146,12 @@ out["mqtt_naglowek"].update({
     "roczny_dodatkowy_publish_MiB": round(annual_bytes / 2**20, 1),
 })
 assert messages_year == 3_153_600
-assert out["mqtt_naglowek"]["publish_krotki_qos1_pusty_B"] == 17
-assert out["mqtt_naglowek"]["publish_dlugi_qos1_pusty_B"] == 58
-assert out["mqtt_naglowek"]["roznica_B"] == 41
-assert annual_bytes == 129_297_600
-assert out["mqtt_naglowek"]["roczny_dodatkowy_publish_MB"] == 129.3
-assert out["mqtt_naglowek"]["roczny_dodatkowy_publish_MiB"] == 123.3
+assert out["mqtt_naglowek"]["publish_krotki_qos1_pusty_B"] == 10
+assert out["mqtt_naglowek"]["publish_dlugi_qos1_pusty_B"] == 29
+assert out["mqtt_naglowek"]["roznica_B"] == 19
+assert annual_bytes == 59_918_400
+assert out["mqtt_naglowek"]["roczny_dodatkowy_publish_MB"] == 59.9
+assert out["mqtt_naglowek"]["roczny_dodatkowy_publish_MiB"] == 57.1
 
 # --- 8. Rozdzielczość ADC ≠ dokładność (wykład 02) ---------------------
 out["adc"] = {

@@ -19,7 +19,7 @@ format:
 
 ::: {.incremental}
 * Uzasadnić wybór pub/sub zamiast żądanie–odpowiedź.
-* Zaprojektować drzewo tematów z jawnym kierunkiem i regułą `retained`.
+* Przypisać każdą klasę komunikatu do tematu API urządzenia ThingsBoard — z jawnym kierunkiem.
 * Dobrać QoS świadomie — wraz z jego kosztem.
 * Zapisać **samoopisujący się ładunek** i uczynić polecenia idempotentnymi.
 :::
@@ -30,9 +30,9 @@ format:
 
 1. Dlaczego HTTP nie pasuje do węzła
 2. MQTT: broker, tematy, faktyczny narzut
-3. QoS, retained, Last Will, keep alive
+3. Tematy platformy, QoS, Last Will, keep alive
 4. Kontrakt danych i jego wersjonowanie
-5. Zamknięcie dostępu do brokera
+5. Poświadczenia urządzenia i TLS
 6. Test odbioru kontraktu
 :::
 :::
@@ -105,20 +105,20 @@ Realny narzut pakietu `PUBLISH` zależy więc głównie od **długości nazwy te
 :::
 
 ::: {.column width="50%"}
-Ten sam pusty ładunek, dwa drzewa tematów (MQTT 3.1.1):
+Ten sam pusty ładunek, dwa tematy telemetrii platformy (MQTT 3.1.1):
 
 | Temat | Długość | Pakiet `PUBLISH` |
 |:---|:---|:---|
-| `lab/z1/d1/t` | 11 zn. | **17 B** (QoS 1) |
-| `laboratorium/zespol-1/`<br>`urzadzenie-1/telemetria/pomiar` | 52 zn. | **58 B** (QoS 1) |
+| `v2/t` (temat skrócony) | 4 zn. | **10 B** (QoS 1) |
+| `v1/devices/me/telemetry` | 23 zn. | **29 B** (QoS 1) |
 
 ::: {.fragment}
-Różnica **41 B na komunikat** wynika wyłącznie z długości tematu. Przy publikacji co 10 s przez 365 dni to **129,3 MB rocznie**
-(123,3 MiB) dodatkowych bajtów `PUBLISH`. Bez ACK, TCP/IP i TLS; czasu pracy radia nie wyliczymy z samej liczby bajtów.
+Różnica **19 B na komunikat** wynika wyłącznie z długości tematu. Przy publikacji co 10 s przez 365 dni to **59,9 MB rocznie**
+(57,1 MiB) dodatkowych bajtów `PUBLISH`. Bez ACK, TCP/IP i TLS; czasu pracy radia nie wyliczymy z samej liczby bajtów.
 :::
 
 ::: {.fragment}
-**Wniosek:** segmenty tematu mają być **krótkie, ale znaczące**. Nie skracamy do szumu (`a/b/c`), nie rozdymamy do zdania.
+**Wniosek:** segmenty tematu mają być **krótkie, ale znaczące**. Dlatego platforma oferuje obok czytelnych tematów `v1/…` także skrócone `v2/…` — dla urządzeń, którym każdy bajt łącza się liczy.
 :::
 :::
 :::
@@ -128,38 +128,39 @@ Różnica **41 B na komunikat** wynika wyłącznie z długości tematu. Przy pub
 
 [Fot. Dsimic, CC BY-SA 4.0]{.zrodlo}
 
-## <i class="bi bi-folder2-open"></i> Drzewo tematów pilota {#tematy}
+## <i class="bi bi-folder2-open"></i> Kontrakt tematów: API urządzenia ThingsBoard {#tematy}
 
-[Temat niesie **kierunek** i **klasę komunikatu**. Jedno i drugie zapisujemy jawnie.]{.lead}
+[Urządzenie nie wymyśla własnych tematów — **przestrzega kontraktu platformy**. Temat niesie **kierunek** i **klasę komunikatu**.]{.lead}
 
-::: {.tabela-duza}
-| Temat | Kto publikuje | `retained` | Zawartość |
-|:---|:---|:---|:---|
-| `lab/{zespol}/{urzadzenie}/telemetry` | **tylko urządzenie** | nie | pomiary okresowe |
-| `lab/{zespol}/{urzadzenie}/state` | **tylko urządzenie** | **tak** | stan i atrybuty: wersja firmware, okres próbkowania, adres |
-| `lab/{zespol}/{urzadzenie}/command` | klient / platforma | **nigdy** | polecenia; urządzenie wyłącznie subskrybuje |
-| `lab/{zespol}/{urzadzenie}/status` | urządzenie (`online` po połączeniu) i broker w jego imieniu (Will `offline`) | **tak** | `online` / `offline` po nieuprzejmym rozłączeniu |
+::: {.tabela-srednia}
+| Klasa komunikatu | Temat | Kto publikuje |
+|:---|:---|:---|
+| Telemetria (pomiary) | `v1/devices/me/telemetry` | **tylko urządzenie** |
+| Stan: wersja firmware, adres, przyjęta konfiguracja | `v1/devices/me/attributes` | urządzenie (atrybuty klienta) |
+| Konfiguracja z platformy | `v1/devices/me/attributes` (subskrypcja), po starcie `…/attributes/request/{id}` | platforma (atrybuty współdzielone) |
+| Polecenie | `v1/devices/me/rpc/request/+` | **platforma**; urządzenie wyłącznie subskrybuje |
+| Odpowiedź na polecenie | `v1/devices/me/rpc/response/{id}` | urządzenie, z **tym samym** `{id}` |
 :::
 
 ::: {.fragment}
-Reguła porządkująca: **kto publikuje, ten nie subskrybuje tego samego tematu**. Złamanie tej zasady
-daje pętle, których nie widać w logu, bo każdy komunikat z osobna wygląda poprawnie.
+`me` znaczy: urządzenie, którego **token** przedstawiono przy połączeniu. Tożsamość wynika z poświadczenia, nie z nazwy tematu.
+Tematy skrócone, porty i format ładunku omawia wykład 05.
 :::
 
 ---
 
-## <i class="bi bi-exclamation-triangle-fill"></i> Dlaczego polecenie nigdy nie jest retained {#retained}
+## <i class="bi bi-exclamation-triangle-fill"></i> Polecenie nigdy nie jest trwałą wartością {#retained}
 
 ::: {.columns}
 ::: {.column width="50%"}
-Komunikat `retained` jest domyślnie dostarczany **każdemu nowemu subskrybentowi** zaraz po subskrypcji.
+W MQTT komunikat `retained` broker dostarcza **każdemu nowemu subskrybentowi** zaraz po subskrypcji. W platformie tę rolę pełni **atrybut współdzielony**: platforma pamięta ostatnią wartość, a urządzenie pobiera ją po każdym starcie.
 
 ::: {.fragment}
-Polecenie `retained` zostanie więc wykonane ponownie **przy każdym restarcie urządzenia**, które po połączeniu znów subskrybuje temat poleceń. Usunięcie: publikacja **pustego ładunku** z flagą retain.
+Polecenie zapisane jako trwała wartość zostanie więc wykonane ponownie **przy każdym restarcie urządzenia**. Polecenie wysyłamy jako **RPC** — jednorazowe żądanie z odpowiedzią. Trwałe RPC czeka na urządzenie offline do upływu czasu ważności, więc polecenie fizyczne dostaje **krótki** termin.
 :::
 
 ::: {.fragment}
-**Stan** natomiast **musi** być retained — żeby nowy odbiorca (pulpit po odświeżeniu) od razu znał stan urządzenia, bez czekania na kolejny cykl.
+**Stan i konfiguracja** natomiast **muszą** być trwałe — żeby pulpit po odświeżeniu i urządzenie po restarcie od razu znały bieżącą wartość.
 :::
 :::
 
@@ -171,17 +172,17 @@ Pompa, grzałka albo zawór po przerwie w zasilaniu **sama** załącza wyjście 
 ::: {.fragment}
 ```{mermaid}
 %%| fig-width: 6.8
-%%| fig-height: 3.1
+%%| fig-height: 3.4
 %%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6, "actorFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif", "messageFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif", "noteFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}, "themeVariables": {"fontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}}}%%
 sequenceDiagram
     participant O as Operator
-    participant B as Broker
+    participant P as Platforma
     participant D as ESP32
-    O->>B: {pump:true}, retained
-    B->>D: {pump:true}
+    O->>P: atrybut pump=true
+    P->>D: aktualizacja: pump=true
     Note over D: pompa startuje
-    D->>B: restart: CONNECT + SUBSCRIBE
-    B->>D: {pump:true} (retained!)
+    D->>P: restart: attributes/request
+    P->>D: pump=true (ostatnia wartość!)
     Note over D: pompa startuje SAMA
 ```
 :::
@@ -210,7 +211,7 @@ QoS działa **na jednym odcinku**: subskrybent dostaje min(QoS publikacji, QoS s
 
 ::: {.fragment}
 ::: {.callout-warning title="I jeszcze jedno ograniczenie"}
-Platforma, której użyjemy w module 06, obsługuje **wyłącznie QoS 0 i 1**. Projekt nie może zakładać semantyki „dokładnie raz" na styku z platformą — **idempotencja odbiornika jest obowiązkowa**, a nie opcjonalna.
+Broker wbudowany w ThingsBoard (wykład 05) obsługuje **wyłącznie QoS 0 i 1** — żądanie subskrypcji z QoS 2 zostaje obniżone do QoS 1. Projekt nie może zakładać semantyki „dokładnie raz" na styku z platformą — **idempotencja odbiornika jest obowiązkowa**, a nie opcjonalna.
 :::
 :::
 :::
@@ -218,17 +219,17 @@ Platforma, której użyjemy w module 06, obsługuje **wyłącznie QoS 0 i 1**. P
 
 ---
 
-## <i class="bi bi-sliders2"></i> Retained, Last Will, keep alive, sesja {#mechanizmy}
+## <i class="bi bi-sliders2"></i> Retained, Last Will, keep alive, sesja — i platforma {#mechanizmy}
 
-[Cztery mechanizmy obok QoS — każdy rozwiązuje inny problem i ma inny koszt.]{.lead}
+[Cztery mechanizmy obok QoS. Specyfikacja MQTT je opisuje, a platforma rozwiązuje te same problemy po swojemu.]{.lead}
 
-::: {.tabela-duza}
-| Mechanizm | Kiedy stosujesz | Koszt i pułapka |
-|:---|:---|:---|
-| **Retained** | stan, który nowy subskrybent musi znać natychmiast | nieaktualny stan „żyje” do nadpisania |
-| **Last Will** | wykrycie nieuprzejmego rozłączenia | ustawiany przy `CONNECT`; **nie zadziała** po `DISCONNECT` z kodem 0x00 (w MQTT 5 kod 0x04 celowo go wyzwala) |
-| **Keep alive** | detekcja martwego łącza TCP | przy braku innego ruchu krótki okres = częstsze `PINGREQ` = więcej energii; broker rozłącza po **1,5 × keep alive** |
-| **Session Expiry** (MQTT 5) | odbiór zaległości po powrocie urządzenia | broker utrzymuje stan sesji — zużycie pamięci serwera |
+::: {.tabela-srednia}
+| Mechanizm MQTT | Problem | Koszt i pułapka w MQTT | Na platformie ThingsBoard |
+|:---|:---|:---|:---|
+| **Retained** | nowy odbiorca od razu zna stan | nieaktualny stan „żyje” do nadpisania | ostatnią wartość przechowuje platforma: atrybuty i najnowsza telemetria; urządzenie po starcie pobiera atrybuty |
+| **Last Will** | wykrycie nieuprzejmego rozłączenia | ustawiany przy `CONNECT`; **nie zadziała** po `DISCONNECT` z kodem 0x00 (w MQTT 5 kod 0x04 celowo go wyzwala) | nie należy do API urządzenia; platforma odnotowuje rozłączenie, a `active = false` ustawia po `inactivityTimeout` (domyślnie 600 s) |
+| **Keep alive** | detekcja martwego łącza TCP | krótki okres = częstsze `PINGREQ` = więcej energii; broker rozłącza po **1,5 × keep alive** | o aktywności decyduje telemetria, atrybuty lub RPC — próg nieaktywności dobieramy do okresu raportowania (wykład 06) |
+| **Sesja trwała**, Session Expiry | odbiór zaległości po powrocie urządzenia | broker utrzymuje stan sesji — pamięć serwera | zaległe polecenie czeka jako **trwałe RPC** (statusy, ponowienia, czas ważności); zwykłe RPC do urządzenia offline przepada |
 :::
 
 ---
@@ -299,27 +300,27 @@ pozostać włączone przez cały czas wymiany.
 ::: {.column width="46%"}
 ```json
 {
-  "schema": 1,
-  "ts": "2026-09-30T09:20:03Z",
-  "device": "iot-lab-01",
-  "fw": "1.4.2",
-  "temperature_c": 22.5,
-  "humidity_pct": 61,
-  "pump": false,
-  "seq": 10472
+  "ts": 1790760003000,
+  "values": {
+    "schema": 1,
+    "temperature_c": 22.5,
+    "humidity_pct": 61,
+    "pump": false,
+    "seq": 10472
+  }
 }
 ```
 
-Ten komunikat da się zinterpretować **bez dokumentacji obok**. To jest cel.
+Telemetria w formacie platformy (`v1/devices/me/telemetry`). Ten komunikat da się zinterpretować **bez dokumentacji obok**. To jest cel.
 :::
 
 ::: {.column width="54%"}
 ::: {.incremental}
 * **`schema`** — numer wersji kontraktu. Bez niego nie da się wprowadzić zmiany bez przestoju wszystkich odbiorców.
-* **`ts`** — czas w **UTC**, ISO 8601 ze strefą. Czas lokalny w telemetrii jest źródłem błędów na przełomie czasu zimowego i letniego: godzina 02:30 występuje dwa razy albo wcale.
+* **`ts`** — czas pomiaru w **UTC**, w milisekundach od epoki Unix; bez `ts` platforma przypisze czas odbioru. Czas lokalny psuje dane przy zmianie czasu: godzina 02:30 występuje dwa razy albo wcale.
 * **Jednostka jest częścią nazwy pola** (`_c`, `_pct`) — odbiorca nie musi zgadywać ani pytać.
 * **`seq`** — licznik rosnący; pozwala wykryć lukę i duplikat z QoS 1. Po restarcie licznik się zeruje — dlatego przechowujemy go nieulotnie albo łączymy z identyfikatorem rozruchu.
-* **`device`, `fw`** — identyfikacja źródła, przydatna przy diagnozie „która partia urządzeń psuje dane".
+* **Tożsamość i `fw` nie jadą w każdym pomiarze** — urządzenie identyfikuje token, a wersję firmware wysyłamy jako atrybut klienta (wykład 05).
 :::
 :::
 :::
@@ -356,7 +357,7 @@ Odbiorca nadal parsuje komunikat poprawnie i wykresy się rysują — ale warto�
 :::
 
 ::: {.fragment}
-Jednostka w **nazwie pola** pomaga człowiekowi, ale niczego nie wymusza. Wymusza dopiero **walidacja schematu** (np. JSON Schema z dopuszczalnym zakresem) na brzegu — moduł 05. Standardowy zapis jednostek: SenML, RFC 8428.
+Jednostka w **nazwie pola** pomaga człowiekowi, ale niczego nie wymusza. Wymusza dopiero **walidacja** po stronie odbiorcy — np. JSON Schema z dopuszczalnym zakresem albo reguła w platformie, która odrzuca wartość spoza zakresu. Standardowy zapis jednostek: SenML, RFC 8428.
 :::
 :::
 :::
@@ -367,37 +368,37 @@ Jednostka w **nazwie pola** pomaga człowiekowi, ale niczego nie wymusza. Wymusz
 
 ::: {.columns}
 ::: {.column width="50%"}
-Polecenie zawiera **identyfikator żądania**. Urządzenie zapamiętuje ostatnie wykonane identyfikatory
-— **nieulotnie**, bo broker może ponowić komunikat po restarcie — i ignoruje powtórzenia.
+Polecenie przychodzi jako RPC w temacie `…/rpc/request/{id}`. `{id}` służy do skojarzenia odpowiedzi,
+ale **nie identyfikuje polecenia na trwałe** — ponowienie trwałego RPC może dostarczyć to samo polecenie drugi raz.
+Dlatego polecenie niesie własny **identyfikator żądania**, a urządzenie zapamiętuje ostatnie wykonane —
+**nieulotnie** — i ignoruje powtórzenia.
 
 ```json
 {
-  "schema": 1,
-  "req_id": "c7f1-0042",
-  "method": "setPump",
-  "params": { "on": true }
+  "method": "setSwitch",
+  "params": { "on": true, "req_id": "c7f1-0042" }
 }
 ```
 
 ::: {.fragment}
-Dzięki temu **QoS 1 z duplikatami przestaje być problemem**, a odpowiedź może być bezpiecznie wysłana ponownie.
+Polecenie „ustaw stan = X” zamiast „przełącz” jest idempotentne z natury. **QoS 1 z duplikatami przestaje być problemem**, a odpowiedź może być bezpiecznie wysłana ponownie.
 :::
 :::
 
 ::: {.column width="50%"}
 ```{mermaid}
 %%| fig-width: 6.6
-%%| fig-height: 5.9
+%%| fig-height: 5.8
 %%{init: {"sequence": {"mirrorActors": false, "actorMargin": 30, "width": 150, "height": 46, "boxMargin": 6, "noteMargin": 6, "messageMargin": 22, "diagramMarginX": 10, "diagramMarginY": 6, "actorFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif", "messageFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif", "noteFontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}, "themeVariables": {"fontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}}}%%
 sequenceDiagram
-    participant B as Broker
+    participant P as Platforma
     participant D as ESP32
-    B->>D: req_id=0042
+    P->>D: request/17: req_id=0042
     Note over D: nowy → wykonaj,<br>zapamiętaj
-    D->>B: odp. 0042, pump=true
-    B->>D: req_id=0042 (duplikat)
+    D->>P: response/17: on=true
+    P->>D: request/18: req_id=0042
     Note over D: znany →<br>NIE wykonuj
-    D->>B: odp. 0042, pump=true
+    D->>P: response/18: on=true
 ```
 
 ::: {.fragment}
@@ -408,27 +409,26 @@ Odpowiedź wysyłamy **za każdym razem** — powtórzenie odpowiedzi jest niesz
 
 ---
 
-## <i class="bi bi-lock"></i> Zamknięcie dostępu do brokera {#dostep}
+## <i class="bi bi-lock"></i> Poświadczenia urządzenia i TLS {#dostep}
 
 ::: {.columns}
 ::: {.column width="52%"}
 ::: {.incremental}
-* **Unikalny identyfikator klienta.** Dwa urządzenia z tym samym `ClientID` wzajemnie się rozłączają — objaw wygląda dokładnie jak „niestabilna sieć" i potrafi kosztować dzień diagnozy.
-* **Osobne konto dla każdego urządzenia**; dostęp anonimowy wyłączony.
-* **Listy kontroli dostępu (ACL)** ograniczają każdemu urządzeniu prawo publikacji do własnego poddrzewa i prawo subskrypcji do własnego tematu poleceń.
-* **TLS na porcie 8883** z weryfikacją certyfikatu serwera po stronie urządzenia. Wgrany certyfikat CA jest częścią firmware — i podlega aktualizacji OTA.
-* **Sekrety nie trafiają** do repozytorium ani do zrzutów ekranu w sprawozdaniu.
+* **Osobne poświadczenie dla każdego urządzenia** — w ThingsBoard zwykle token, podawany jako nazwa użytkownika MQTT. Wspólny token nie pozwala odciąć jednego urządzenia.
+* **Tożsamość z poświadczenia, nie z tematu.** Platforma przypisuje dane do właściciela tokenu — urządzenie nie zapisze cudzej telemetrii. Ogólny broker wymaga do tego list ACL.
+* **TLS na porcie 8883** z weryfikacją certyfikatu serwera; bez TLS token płynie jawnym tekstem. Certyfikat CA jest częścią firmware i podlega OTA.
+* **Unikalny `ClientID`** — wg specyfikacji MQTT broker rozłącza starszą sesję o tym samym identyfikatorze; objaw wygląda jak „niestabilna sieć”.
 :::
 :::
 
 ::: {.column width="48%"}
-Prefiks `dev/`, `test/` lub `prod/` **porządkuje nazwy, ale nie zapewnia izolacji**. Izolację daje osobny broker albo ACL z osobnymi poświadczeniami.
+Certyfikat klienta **X.509** przy dwustronnym TLS usuwa współdzielony sekret z firmware — to opcja na wdrożenie produkcyjne. Typy poświadczeń w platformie omawia wykład 05.
+
+Token i hasło Wi-Fi leżą w `arduino_secrets.h`, **poza repozytorium**.
 
 ::: {.fragment}
-::: {.callout-note title="Minimalna reguła ACL dla urządzenia"}
-publikacja: `lab/z1/d1/telemetry`, `lab/z1/d1/state`, `lab/z1/d1/status` · subskrypcja: `lab/z1/d1/command`
-
-Wildcard `#` dla publikacji objąłby także `command`, dlatego tematy zapisu wyliczamy jawnie. Urządzenie nie ma powodu czytać cudzej telemetrii ani publikować poleceń.
+::: {.callout-note title="Odrzucenie jest widoczne od razu"}
+Połączenie z brakującym albo błędnym tokenem platforma odrzuca już przy `CONNECT` — odpowiedź `CONNACK` niesie kod *bad username or password* albo *not authorized*. Ten objaw sprawdzamy w teście odbioru.
 :::
 :::
 :::
@@ -477,14 +477,14 @@ AMQP — kolejkowanie między usługami serwerowymi.
 
 ## <i class="bi bi-clipboard-check"></i> Test odbioru kontraktu {#test-odbioru}
 
-[Kontrakt nieprzetestowany jest dokumentem, nie umową. Pięć dowodów:]{.lead}
+[Kontrakt nieprzetestowany jest dokumentem, nie umową. Pięć dowodów na brokerze platformy:]{.lead}
 
 ::: {.pytania}
-* Publikacja telemetrii widoczna w subskrypcji `mosquitto_sub` **z jawnie podanym QoS**.
-* Nowy subskrybent otrzymuje stan **natychmiast po podłączeniu** — dowód działania `retained`.
-* Polecenie wykonane **raz**, mimo dwukrotnej publikacji z tym samym identyfikatorem żądania — dowód idempotencji.
-* Odłączenie zasilania urządzenia skutkuje pojawieniem się `offline` w temacie `status` po czasie nie dłuższym niż ok. **1,5 × keep alive** (plus Will Delay Interval w MQTT 5) — dowód działania Last Will.
-* Po przywróceniu zasilania stan i telemetria wracają **bez ręcznej interwencji** — i pompa **nie** włącza się sama.
+* Połączenie z **błędnym tokenem** zostaje odrzucone przy `CONNECT`, a z poprawnym — przyjęte.
+* Firmware łączy się **wyłącznie przez TLS (8883)** i weryfikuje serwer: z podmienionym certyfikatem CA połączenie nie zostaje zestawione.
+* Telemetria publikowana z **jawnie podanym QoS 1** pojawia się w najnowszych wartościach urządzenia (*Latest telemetry*), a kolejne `seq` pozwalają wykryć lukę lub duplikat.
+* Polecenie wykonane **raz**, mimo dwukrotnego wysłania z tym samym identyfikatorem żądania — dowód idempotencji.
+* Po odłączeniu zasilania urządzenie staje się nieaktywne po `inactivityTimeout`; po przywróceniu telemetria wraca **bez ręcznej interwencji** — i pompa **nie** włącza się sama.
 :::
 
 ---
@@ -515,7 +515,7 @@ przesłany bajt był jednoznaczny.
 ## <i class="bi bi-question-circle"></i> Pytania sprawdzające {#pytania}
 
 ::: {.pytania}
-* Operator zgłasza: „po każdej przerwie w prądzie wentylator sam rusza na pełnych obrotach". Wskaż, która decyzja projektowa w drzewie tematów to powoduje, i podaj poprawkę.
+* Operator zgłasza: „po każdej przerwie w prądzie wentylator sam rusza na pełnych obrotach". Wskaż, która decyzja projektowa w kontrakcie z platformą to powoduje, i podaj poprawkę.
 * Zespół zmienia jednostkę pola z °C na dziesiąte części stopnia i zostawia nazwę `temperature_c` oraz `schema: 1`. Wymień dwa różne momenty, w których ten błąd może zostać wykryty, i powiedz, ile danych zdąży się do tego czasu zepsuć przy raportowaniu co 10 s.
 * Na styku z platformą dostępne są tylko QoS 0 i 1. Zaprojektuj obsługę polecenia „otwórz zawór na 30 sekund" tak, żeby dwukrotne dostarczenie tego samego komunikatu nie wydłużyło otwarcia do minuty.
 :::
@@ -530,16 +530,17 @@ przesłany bajt był jednoznaczny.
 
 ::: {.incremental}
 * Narzut MQTT zależy głównie od **długości nazwy tematu**, nie od stałych 2 bajtów.
-* Stan jest `retained`, polecenie **nigdy**.
-* QoS 2 oznacza „dokładnie raz", nie „na pewno dotrze" — a na styku z platformą i tak go nie ma.
+* Urządzenie przestrzega **kontraktu tematów platformy**; tożsamość daje token, poufność — TLS.
+* Stan i konfiguracja są trwałą wartością, polecenie **nigdy** — to jednorazowe RPC.
+* QoS 2 oznacza „dokładnie raz", nie „na pewno dotrze" — a broker platformy i tak go nie obsługuje.
 * Ładunek opisuje sam siebie: `schema`, czas w UTC, jednostka w nazwie pola, licznik `seq`.
 * Idempotencja polecenia jest obowiązkowa, nie opcjonalna.
 :::
 :::
 
 ::: {.column width="45%"}
-::: {.callout-note title="Moduł 05 — brzeg sieci"}
-Umowa jest zapisana. Teraz ktoś musi jej **pilnować**: sprawdzić, czy komunikat jest zgodny z kontraktem, odrzucić to, czego nie wolno zapisać, i przekazać dalej resztę — z jawnym powodem każdego odrzucenia.
+::: {.callout-note title="Moduł 05 — ThingsBoard CE"}
+Umowa jest zapisana, a urządzenie wie, do których tematów pisać. Teraz druga strona kontraktu: jak platforma modeluje urządzenie, telemetrię i atrybuty, jak pokazuje stan na pulpicie i jak wysyła polecenie, którego wykonanie urządzenie **potwierdza**.
 :::
 :::
 :::
@@ -551,10 +552,11 @@ Umowa jest zapisana. Teraz ktoś musi jej **pilnować**: sprawdzić, czy komunik
 ::: {style="font-size: 0.7em;"}
 * OASIS, *MQTT Version 5.0* — struktura pakietu, QoS, retained, Will Message, Session Expiry Interval: <https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html>
 * OASIS, *MQTT Version 3.1.1* (= ISO/IEC 20922:2016): <https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html>
-* Eclipse Mosquitto — konfiguracja brokera, ACL i TLS: <https://mosquitto.org/man/mosquitto-conf-5.html>
+* ThingsBoard, *MQTT Device API* — tematy urządzenia, token jako nazwa użytkownika, QoS 0/1, kody odrzucenia połączenia: <https://thingsboard.io/docs/reference/mqtt-api/>
+* ThingsBoard, *RPC* — trwałe i zwykłe RPC, czas ważności, ponowienia: <https://thingsboard.io/docs/user-guide/rpc/>
+* ThingsBoard, *Device connectivity status* — zdarzenia rozłączenia i nieaktywności, `inactivityTimeout`: <https://thingsboard.io/docs/user-guide/device-connectivity-status/>
 * IETF RFC 7252 — *The Constrained Application Protocol (CoAP)*: <https://www.rfc-editor.org/rfc/rfc7252>
 * OASIS, *AMQP 1.0*: <https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-overview-v1.0-os.html>
-* IETF RFC 3339 / ISO 8601 — zapis znacznika czasu: <https://www.rfc-editor.org/rfc/rfc3339>
 * IETF RFC 8428 — *Sensor Measurement Lists (SenML)*: <https://www.rfc-editor.org/rfc/rfc8428>
 * IETF RFC 7641 — *Observing Resources in CoAP*: <https://www.rfc-editor.org/rfc/rfc7641>
 :::
