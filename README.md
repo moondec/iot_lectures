@@ -122,8 +122,7 @@ notes/                 materiały prowadzącego — tylko lokalnie, poza repozyt
 scripts/               instalacja, generowanie wykresów, manifest, testy, serwer podglądu
 provenance/            mapa pochodzenia slajdów, inwentarz źródeł, wyniki obliczeń
 review/                raport odbioru, wyniki testów w JSON (zrzuty ekranu i logi poza repozytorium)
-docs/                  wynik budowania
-.github/workflows/     publikacja na GitHub Pages po każdym wypchnięciu na main
+docs/                  wynik budowania (śledzony w git; GitHub Pages serwuje go z gałęzi main)
 ```
 
 ## Notatki prowadzącego

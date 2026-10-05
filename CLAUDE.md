@@ -15,7 +15,7 @@ Wykłady (Quarto / reveal.js) do kursu prowadzonego w Moodle UPP
 
 | Ścieżka | Zawartość |
 |:--|:--|
-| `slides/00…07-*.qmd` | **Aktualny kurs** — osiem wykładów (źródło) |
+| `slides/00…06-*.qmd` | **Aktualny kurs** — siedem wykładów (źródło): 00 wstęp i moduły 01–06 |
 | `index.qmd`, `_quarto.yml` | Strona startowa i konfiguracja projektu |
 | `assets/` | Motyw SCSS (`assets/theme/iot.scss`), ilustracje, skrypty JS |
 | `docs/` | Wynik `quarto render` — **śledzony w git**, to on jest publikowany |
@@ -84,6 +84,8 @@ z obecną konfiguracją (motyw `../assets/...` jest względny wobec `slides/`).
 - `Lista_obecnosci.xlsx`, `List.docx` — dane studentów.
 
 ## Platforma na zajęciach
+
+- Architektura (od 5.10.2026): płytka łączy się przez MQTT bezpośrednio z ThingsBoard CE (API urządzenia `v1/devices/me/…`, token, TLS 8883). Node-RED, kursowy broker Mosquitto (drzewo `lab/…`) i Google Sheets zostały usunięte z kursu — nie wprowadzaj ich z powrotem. Dawne `05-brzeg-node-red-sheets` usunięte, `06`→`05`, `07`→`06` (przekierowania w `scripts/legacy-redirects.py`).
 
 - ThingsBoard **CE 4.3 LTS** (Apache 2.0, wsparcie do 20.07.2027), nie 4.4 (BSL).
 
