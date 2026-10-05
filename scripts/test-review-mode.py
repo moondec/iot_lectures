@@ -18,9 +18,8 @@ DECKS = {
     "02-urzadzenie-sensory-energia": ("tlo-orange", "background-orange.jpg"),
     "03-lacznosc-i-ota": ("tlo-green", "background-green.jpg"),
     "04-mqtt-i-kontrakt-danych": ("tlo-green", "background-green.jpg"),
-    "05-brzeg-node-red-sheets": ("tlo-green", "background-green.jpg"),
-    "06-thingsboard-ce": ("tlo-blue", "background-blue.jpg"),
-    "07-odpornosc-bezpieczenstwo-eksploatacja": ("tlo-blue", "background-blue.jpg"),
+    "05-thingsboard-ce": ("tlo-blue", "background-blue.jpg"),
+    "06-odpornosc-bezpieczenstwo-eksploatacja": ("tlo-blue", "background-blue.jpg"),
 }
 
 

@@ -1,25 +1,29 @@
-# Internet Rzeczy — kurs w ośmiu wykładach
+# Internet Rzeczy — kurs w siedmiu wykładach
 
 Materiały wykładowe w formacie Quarto / reveal.js.
 Autor: **prof. UPP dr hab. inż. Marek Urbaniak**, Wydział Inżynierii Środowiska
 i Inżynierii Mechanicznej, Uniwersytet Przyrodniczy w Poznaniu.
 
-Osiem samodzielnych prezentacji tworzących jedną ścieżkę: od społecznych i technologicznych
+Siedem samodzielnych prezentacji tworzących jedną ścieżkę: od społecznych i technologicznych
 konsekwencji Internetu przyszłości, przez granicę systemu i kryterium odbioru, urządzenie,
-łącze, kontrakt danych, brzeg sieci i platformę, po odporność i eksploatację.
+łącze, kontrakt danych i platformę, po odporność i eksploatację.
 
 | | Wykład | Slajdów merytorycznych |
 |:--|:--|--:|
-| 00 | Internet przyszłości — obietnice, ryzyka i decyzje | 28 |
+| 00 | Internet przyszłości — obietnice, ryzyka i decyzje | 24 |
 | 01 | Architektura systemu IoT i wymagania | 17 |
-| 02 | Urządzenie, sensory i energia | 20 |
-| 03 | Łączność sieciowa i aktualizacje OTA | 19 |
-| 04 | MQTT i kontrakt danych | 18 |
-| 05 | Brzeg sieci, Node-RED i Google Sheets | 14 |
-| 06 | ThingsBoard CE — telemetria, pulpity i sterowanie | 16 |
-| 07 | Odporność, bezpieczeństwo i eksploatacja | 18 |
+| 02 | Urządzenie, sensory i energia | 21 |
+| 03 | Łączność sieciowa i aktualizacje OTA | 21 |
+| 04 | MQTT i kontrakt danych | 19 |
+| 05 | ThingsBoard CE — telemetria, pulpity i sterowanie | 17 |
+| 06 | Odporność, bezpieczeństwo i eksploatacja | 18 |
 
-Razem **150 slajdów merytorycznych**, 8 slajdów tytułowych i 27 przekładek sekcyjnych.
+Razem **137 slajdów merytorycznych**, 7 slajdów tytułowych i 24 przekładki sekcyjne.
+
+Urządzenie łączy się przez MQTT bezpośrednio z ThingsBoard CE 4.3 LTS (API urządzenia platformy,
+token, TLS). Dawny wykład 05 (brzeg sieci, Node-RED, Google Sheets) usunięto z kursu 5.10.2026;
+jego stary adres i adresy przenumerowanych wykładów 06 i 07 przekierowują na aktualne
+(`scripts/legacy-redirects.py`).
 
 ## Szybki start
 
@@ -110,7 +114,7 @@ Kolejność przy pełnej weryfikacji: `verify-calc` → `make-figures` → `quar
 ```
 _quarto.yml            konfiguracja projektu (lista renderowanych plików, motyw, mermaid)
 index.qmd              strona indeksowa
-slides/00..07-*.qmd    osiem wykładów — zwykłe, edytowalne pliki Quarto
+slides/00..06-*.qmd    siedem wykładów — zwykłe, edytowalne pliki Quarto
 assets/theme/          wspólny motyw SCSS + arkusz strony indeksowej
 assets/img/            ilustracje (patrz THIRD_PARTY_NOTICES.md)
 assets/vendor/         bootstrap-icons (MIT) i lokalne obejście błędu Quarto
@@ -134,18 +138,18 @@ Test strukturalny sprawdza po każdym budowaniu, że w `docs/` nie ma elementu
 
 ## Pochodzenie treści
 
-Wykłady 01–07 powstały przez **wybór i redakcję** slajdów z pięciu wcześniejszych talii
+Wykłady 01–06 powstały przez **wybór i redakcję** slajdów z pięciu wcześniejszych talii
 z repozytorium [`moondec/iot_lectures`](https://github.com/moondec/iot_lectures)
 (commit `c62ccf6174fea4db9d0c0bfefef174fca4b0f709`, gałąź `main`, odczyt 30.09.2026,
 CC BY 4.0), uzupełnione o tematy nieobecne w materiałach źródłowych — przede wszystkim
-OTA, kontrakt danych, przepływ na brzegu sieci i model danych platformy. Wykład 00 jest
+OTA, kontrakt danych i model danych platformy. Wykład 00 jest
 pełną aktualizacją prezentacji Advanced Slides `Internet_przyszlosci`: zachowuje jej pytanie
 o społeczny wymiar technologii, ale weryfikuje tezy na podstawie źródeł pierwotnych i prowadzi
-bezpośrednio do wymagań rozwijanych w modułach 01–07.
+bezpośrednio do wymagań rozwijanych w modułach 01–06.
 
 Każdy slajd ma wpis w `provenance/slide-map.json` z oznaczeniem pochodzenia
 (`retained` / `adapted` / `new`), wskazaniem slajdu źródłowego i uzasadnieniem zmian.
-Plik zawiera również listę **15 slajdów źródłowych świadomie nieprzeniesionych**
+Plik zawiera również listę **7 slajdów źródłowych świadomie nieprzeniesionych**
 wraz z powodami oraz listę wykluczonych ilustracji. Skrót w `provenance/PROWENIENCJA.md`.
 
 Korekty merytoryczne są wprowadzone **bezpośrednio w treści**, bez etykiet „sprostowanie",

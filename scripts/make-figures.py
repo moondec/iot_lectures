@@ -55,34 +55,6 @@ fig.savefig(f"{OUT}/energia-okres.png", dpi=170)
 plt.close(fig)
 print("OK assets/img/energia-okres.png")
 
-# --- Rys. 2: limit zapisów Google Sheets ------------------------------
-s = CALC["sheets"]
-etykiety = ["1 komunikat\nna sekundę", "1 komunikat\nna 10 s",
-            "agregat\n1 wiersz/min", "agregat\n1 wiersz/5 min"]
-zapisy = [60, 6, 1, 0.2]
-fig, ax = plt.subplots(figsize=(10, 5.6))
-kolory = [WARN if z >= s["limit_user_min"] else ACC for z in zapisy]
-bars = ax.bar(etykiety, zapisy, color=kolory, width=0.58, zorder=3)
-ax.axhline(s["limit_user_min"], ls="--", lw=2.5, color=WARN, zorder=4,
-           label=f"limit użytkownika: {s['limit_user_min']} zapisów/min")
-ax.set_yscale("log")
-ax.set_ylim(0.1, 320)
-ax.set_ylabel("Zapisy do arkusza na minutę\n(jedno urządzenie, skala log.)")
-ax.set_title("Dlaczego brzeg agreguje, zamiast przepisywać każdy komunikat", pad=14)
-ax.grid(True, axis="y", which="both", ls=":", color=GRID, zorder=1)
-for b, z in zip(bars, zapisy):
-    ax.text(b.get_x() + b.get_width() / 2, z * 1.22,
-            f"{z:g}", ha="center", fontsize=14, color=TXT, zorder=5)
-ax.legend(loc="upper center", frameon=True, fontsize=13, ncol=1)
-fig.text(0.01, 0.01,
-         "Limity wg dokumentacji Google Sheets API v4: 60 zapisów/min na użytkownika, "
-         "300 zapisów/min na projekt. Przekroczenie → HTTP 429.",
-         fontsize=10.5, color="#5a646e")
-fig.tight_layout(rect=[0, 0.035, 1, 1])
-fig.savefig(f"{OUT}/sheets-limit.png", dpi=170)
-plt.close(fig)
-print("OK assets/img/sheets-limit.png")
-
 # --- Rys. 3: paliwo a dobowa energia człowieka (wykład 00) -------------
 p = CALC["paliwo_czlowiek"]
 lo, hi = p["czlowiek_MJ_doba"]

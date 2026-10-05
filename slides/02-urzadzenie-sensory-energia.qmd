@@ -210,7 +210,7 @@ MCU z Wi-Fi i Bluetooth LE w jednym układzie. To klasa obu płytek naszego stan
 ::: {.column width="33%"}
 ### Komputer jednopłytkowy (SBC)
 
-Pełny system operacyjny, stałe zasilanie. Rola: **brzeg sieci** — broker, Node-RED, bufor.
+Pełny system operacyjny, stałe zasilanie. Rola: **brama lub serwer lokalny** — bufor danych, konwersja protokołów, usługi sieciowe.
 
 ![](../assets/img/kurs/raspberry-pi.jpg){height="260px" fig-alt="Komputer jednopłytkowy Raspberry Pi 4 widziany z góry."}
 

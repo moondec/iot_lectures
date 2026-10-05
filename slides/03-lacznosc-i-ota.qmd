@@ -234,7 +234,7 @@ Model „sieć jako usługa": operator dostarcza łączność, użytkownik nie b
 Spółka Sigfox została przejęta w 2022 r. przez UnaBiz; sieć działa jako **Sigfox 0G**, a francuska spółka operatora weszła w 2025 r. w sądową restrukturyzację. Przy doborze technologii na lata **ryzyko operatora jest parametrem projektowym** — tak samo jak zasięg.
 
 ::: {.fragment}
-To ten sam rodzaj ryzyka, który w module 06 zobaczymy przy platformach chmurowych. Pytanie brzmi zawsze tak samo: *co robimy, gdy dostawca zamknie usługę?*
+To ten sam rodzaj ryzyka, który w module 05 zobaczymy przy platformach chmurowych. Pytanie brzmi zawsze tak samo: *co robimy, gdy dostawca zamknie usługę?*
 :::
 :::
 :::
@@ -556,7 +556,7 @@ Bez ostatniego punktu — obu przypadków — ćwiczenie nie jest zaliczone. Mec
 
 ::: {.column width="45%"}
 ::: {.callout-note title="Moduł 04 — MQTT i kontrakt danych"}
-Łącze stoi i firmware da się wymienić. Teraz zdefiniujemy, **co dokładnie** przez to łącze płynie: hierarchię tematów, poziomy jakości usługi i samoopisujący się ładunek, którego zmiana nie wywróci wszystkich odbiorców naraz.
+Łącze stoi i firmware da się wymienić. Teraz zdefiniujemy, **co dokładnie** przez to łącze płynie: tematy, którymi urządzenie rozmawia z platformą, poziomy jakości usługi i samoopisujący się ładunek, którego zmiana nie wywróci wszystkich odbiorców naraz.
 :::
 :::
 :::

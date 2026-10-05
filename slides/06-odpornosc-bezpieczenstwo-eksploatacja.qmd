@@ -1,12 +1,12 @@
 ---
 title: "Odporność, bezpieczeństwo i eksploatacja"
-subtitle: "Wykład 7 — jak system sam zauważa, że coś przestało działać"
+subtitle: "Wykład 6 — jak system sam zauważa, że coś przestało działać"
 author: "prof. UPP dr hab. inż. Marek Urbaniak"
 institute: "Wydział Inżynierii Środowiska i Inżynierii Mechanicznej<br>Uniwersytet Przyrodniczy w Poznaniu"
 body-classes: tlo-blue
 format:
   revealjs:
-    footer: "Internet Rzeczy · Wykład 7 — Odporność, bezpieczeństwo i eksploatacja"
+    footer: "Internet Rzeczy · Wykład 6 — Odporność, bezpieczeństwo i eksploatacja"
 ---
 
 ## <i class="bi bi-compass"></i> Po co ten wykład {#cele}
@@ -185,13 +185,13 @@ Alarm, który nigdy się nie zamknął, wygląda w historii tak samo jak awaria 
 |:---|:---|:---|
 | **Urządzenie** | dostęp fizyczny, odczyt pamięci, wgranie obcego firmware | unikalne poświadczenia, podpisany obraz, anti-rollback |
 | **Łącze** | podsłuch, podszycie się, powtórzenie komunikatu | TLS, weryfikacja certyfikatu serwera, identyfikator żądania |
-| **Broker / brzeg** | publikacja w cudzym temacie, zalanie ruchem | ACL per urządzenie, limity, log odrzuceń |
+| **Broker MQTT platformy** | podszycie się pod cudze urządzenie, zalanie ruchem | token per urządzenie (tożsamość z poświadczenia, nie z tematu), limity szybkości komunikatów |
 | **Platforma / dane** | nadmiar uprawnień, wyciek tokenów, nadmierna retencja | role, rotacja tokenów, jawny TTL danych |
 :::
 
 ::: {.fragment}
 Każdy z tych środków pojawił się już wcześniej — anti-rollback w module 03, identyfikator żądania
-w 04, ACL w 04, log odrzuceń w 05, role i TTL w 06. **Ten slajd nie dokłada nowych mechanizmów;
+w 04, poświadczenia per urządzenie w 04 i 05, role i TTL w 05. **Ten slajd nie dokłada nowych mechanizmów;
 porządkuje istniejące według tego, przed czym chronią.**
 :::
 
@@ -317,14 +317,14 @@ flowchart TB
 |:---|:---|:---|
 | **Utrata sieci** | odłącz punkt dostępowy | aktuator w stanie bezpiecznym · ponowienia z wycofaniem · alarm nieaktywności po ustalonym progu · powiadomienie wysłane **raz** |
 | **Powrót sieci** | włącz punkt dostępowy | alarm zamyka się **samoczynnie** · telemetria wraca bez interwencji · stan platformy zgodny ze stanem urządzenia |
-| **Zanik zasilania** | odetnij i przywróć zasilanie | urządzenie startuje w stanie bezpiecznym i **nie wykonuje zaległego polecenia** (dowód, że polecenia nie są `retained`) |
-| **Awaria czujnika** | rozłącz czujnik | odczyt odrzucony przez walidację · licznik odrzuceń **z powodem** · brak fałszywej wartości w arkuszu i na pulpicie |
+| **Zanik zasilania** | odetnij i przywróć zasilanie | urządzenie startuje w stanie bezpiecznym i **nie wykonuje zaległego polecenia** (dowód, że polecenie nie jest trwałą wartością — ani `retained`, ani atrybutem współdzielonym) |
+| **Awaria czujnika** | rozłącz czujnik | odczyt odrzucony przez walidację · licznik odrzuceń **z powodem** · brak fałszywej wartości w telemetrii i na pulpicie |
 | **Nieudana aktualizacja** | wydaj obraz z błędną sumą, potem obraz, który nie przejdzie self-testu | `FAILED` i stara wersja; potem automatyczne wycofanie po restarcie (moduł 03) |
 :::
 
 ::: {.fragment}
 Każdy scenariusz sprawdza mechanizm z innego modułu. To jest właściwy moment, żeby zobaczyć, że
-siedem wykładów opisywało **jeden system**, a nie siedem tematów.
+wykłady 01–06 opisywały **jeden system**, a nie sześć tematów.
 :::
 
 ---
@@ -507,10 +507,10 @@ Dziś ta sama filozofia steruje instalacjami, uprawami i systemami, od których 
 
 ::: {.columns}
 ::: {.column width="55%"}
-**Siedem modułów, jeden system**
+**Sześć modułów, jeden system**
 
 Zaczęliśmy od pytania, jaką decyzję ma wesprzeć pomiar. Skończyliśmy na pytaniu, jak wyłączyć system,
-nie niszcząc zapisów. Pomiędzy — urządzenie, łącze, kontrakt, brzeg, platforma.
+nie niszcząc zapisów. Pomiędzy — urządzenie, łącze, kontrakt, platforma.
 Żaden z tych elementów nie działa sam.
 :::
 

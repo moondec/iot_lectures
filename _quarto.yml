@@ -1,7 +1,7 @@
 project:
   type: website
   output-dir: docs
-  # Renderujemy wyłącznie stronę indeksową i osiem wykładów.
+  # Renderujemy wyłącznie stronę indeksową i siedem wykładów.
   # notes/ (materiały prowadzącego), scripts/, provenance/ i review/ są poza renderem.
   render:
     - index.qmd
@@ -10,26 +10,26 @@ project:
     - slides/02-urzadzenie-sensory-energia.qmd
     - slides/03-lacznosc-i-ota.qmd
     - slides/04-mqtt-i-kontrakt-danych.qmd
-    - slides/05-brzeg-node-red-sheets.qmd
-    - slides/06-thingsboard-ce.qmd
-    - slides/07-odpornosc-bezpieczenstwo-eksploatacja.qmd
+    - slides/05-thingsboard-ce.qmd
+    - slides/06-odpornosc-bezpieczenstwo-eksploatacja.qmd
   resources:
     - assets/img/**
     - assets/vendor/**
     # Pages publishes only docs/, so the previous site is copied in as docs/archiwum/.
     - archiwum/**
     - img/kbig.jpg  # department logo, referenced by the archived decks as ../img/
-  # Old deck URLs (wyklad_*.html, also under the former /docs/ prefix) forward to archiwum/.
+  # Old deck URLs (wyklad_*.html, also under the former /docs/ prefix) forward to archiwum/;
+  # URLs of renumbered or removed decks forward to their current counterparts.
   post-render:
     - scripts/legacy-redirects.py
 
 website:
-  title: "Internet Rzeczy — kurs w ośmiu wykładach"
-  description: "Materiały wykładowe: konsekwencje Internetu przyszłości, architektura, urządzenie, łączność i OTA, MQTT, brzeg sieci, platforma, eksploatacja."
+  title: "Internet Rzeczy — kurs w siedmiu wykładach"
+  description: "Materiały wykładowe: konsekwencje Internetu przyszłości, architektura, urządzenie, łączność i OTA, MQTT, platforma, eksploatacja."
   search: false
   page-navigation: false
   navbar:
-    title: "IoT — osiem wykładów"
+    title: "IoT — siedem wykładów"
     background: "#0b3b45"
     left:
       - text: "Start"
@@ -44,12 +44,10 @@ website:
         file: slides/03-lacznosc-i-ota.qmd
       - text: "04 MQTT"
         file: slides/04-mqtt-i-kontrakt-danych.qmd
-      - text: "05 Brzeg sieci"
-        file: slides/05-brzeg-node-red-sheets.qmd
-      - text: "06 ThingsBoard"
-        file: slides/06-thingsboard-ce.qmd
-      - text: "07 Eksploatacja"
-        file: slides/07-odpornosc-bezpieczenstwo-eksploatacja.qmd
+      - text: "05 ThingsBoard"
+        file: slides/05-thingsboard-ce.qmd
+      - text: "06 Eksploatacja"
+        file: slides/06-odpornosc-bezpieczenstwo-eksploatacja.qmd
   page-footer:
     left: "© 2026 Marek Urbaniak · Uniwersytet Przyrodniczy w Poznaniu"
     right: "Tekst i slajdy: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.pl). Ilustracje — patrz THIRD_PARTY_NOTICES.md"

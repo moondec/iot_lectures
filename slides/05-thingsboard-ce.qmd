@@ -1,12 +1,12 @@
 ---
 title: "ThingsBoard CE — telemetria, pulpity i sterowanie"
-subtitle: "Wykład 6 — platforma to najpierw model danych, dopiero potem wykres"
+subtitle: "Wykład 5 — platforma to najpierw model danych, dopiero potem wykres"
 author: "prof. UPP dr hab. inż. Marek Urbaniak"
 institute: "Wydział Inżynierii Środowiska i Inżynierii Mechanicznej<br>Uniwersytet Przyrodniczy w Poznaniu"
 body-classes: tlo-blue
 format:
   revealjs:
-    footer: "Internet Rzeczy · Wykład 6 — ThingsBoard CE"
+    footer: "Internet Rzeczy · Wykład 5 — ThingsBoard CE"
 ---
 
 ## <i class="bi bi-compass"></i> Po co ten wykład {#cele}
@@ -341,7 +341,7 @@ Cyfrowy bliźniak **nie jest wizualizacją 3D**. Jego istotą jest model zasilan
 :::
 
 ::: {.fragment}
-**Pytanie, które otwiera moduł 07:** gdy system liczy pojazdy i odczytuje tablice rejestracyjne, kto kontroluje dostęp do statystyk o przemieszczaniu się mieszkańców?
+**Pytanie, które otwiera moduł 06:** gdy system liczy pojazdy i odczytuje tablice rejestracyjne, kto kontroluje dostęp do statystyk o przemieszczaniu się mieszkańców?
 :::
 :::
 :::
@@ -449,7 +449,7 @@ Platforma daje **rozdział logiczny**: dzierżawcy, klienci, profile, uprawnieni
 :::
 
 ::: {.column width="45%"}
-::: {.callout-note title="Moduł 07 — odporność i eksploatacja"}
+::: {.callout-note title="Moduł 06 — odporność i eksploatacja"}
 System działa i da się nim sterować. Ostatni moduł przechodzi przez całość przekrojowo: jak system ma **sam zauważyć**, że urządzenie zamilkło, jak udowodnić, że alarm zamyka się po powrocie, i jakie obowiązki wychodzą poza kod.
 :::
 :::

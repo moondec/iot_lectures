@@ -15,6 +15,8 @@ os.chdir(ROOT)
 
 TYTULY = {}
 for f in sorted(glob.glob("docs/slides/*.html")):
+    if 'http-equiv="refresh"' in open(f, encoding="utf-8").read(2000):
+        continue  # redirect stub at an old deck URL
     h = open(f, encoding="utf-8").read()
     m = re.search(r'<h1 class="title">(.*?)</h1>', h, re.S)
     TYTULY[os.path.basename(f).replace(".html", "")] = (

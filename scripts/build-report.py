@@ -29,7 +29,9 @@ t_lnk = wczytaj("review/verification-links.json")
 t_brw = wczytaj("review/verification-browser.json")
 t_sub = wczytaj("review/verification-browser-podkatalog.json")
 
-DECKS = sorted(glob.glob("docs/slides/*.html"))
+# Skip redirect stubs written by scripts/legacy-redirects.py at old deck URLs.
+DECKS = sorted(f for f in glob.glob("docs/slides/*.html")
+               if 'http-equiv="refresh"' not in open(f, encoding="utf-8").read(2000))
 
 # --- liczniki wyliczone z HTML ------------------------------------------
 talie = []

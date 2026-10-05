@@ -524,9 +524,8 @@ Projektujemy nie tylko przepływ danych, ale też **warunki współpracy** — a
 | Ile energii kosztuje pomiar? | **02** Urządzenie, sensory i energia |
 | Co, gdy zniknie łącze? Jak bezpiecznie zmienić firmware? | **03** Łączność i OTA |
 | Jak dane zachowują znaczenie między komponentami? | **04** MQTT i kontrakt danych |
-| Gdzie walidować i agregować? | **05** Brzeg sieci, Node-RED i Sheets |
-| Jak modelować stan, wizualizować i sterować? | **06** ThingsBoard CE |
-| Co przy ataku, awarii i zmianie prawa? | **07** Odporność, bezpieczeństwo i eksploatacja |
+| Jak modelować stan, wizualizować i sterować? | **05** ThingsBoard CE |
+| Co przy ataku, awarii i zmianie prawa? | **06** Odporność, bezpieczeństwo i eksploatacja |
 :::
 
 ## <i class="bi bi-flag"></i> Utopia, dystopia, rzeczywistość {#podsumowanie}

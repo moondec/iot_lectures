@@ -18,6 +18,15 @@ class Q(http.server.SimpleHTTPRequestHandler):
     def log_message(self, *a): pass
 
 docs, out, decks = sys.argv[1], sys.argv[2], sys.argv[3:]
+# Skip redirect stubs left at old deck URLs by scripts/legacy-redirects.py (e.g. when called with 0*.html).
+def is_redirect(name):
+    p = os.path.join(docs, "slides", os.path.basename(name))
+    try:
+        t = open(p, encoding="utf-8").read()
+    except OSError:
+        return False
+    return len(t) < 2000 and 'http-equiv="refresh"' in t
+decks = [d for d in decks if not is_redirect(d)]
 os.makedirs(out, exist_ok=True)
 srv = http.server.ThreadingHTTPServer(("127.0.0.1", 8095), functools.partial(Q, directory=docs))
 threading.Thread(target=srv.serve_forever, daemon=True).start()

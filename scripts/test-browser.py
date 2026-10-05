@@ -34,8 +34,8 @@ TALIE = [
     "00-internet-przyszlosci",
     "01-architektura-i-wymagania", "02-urzadzenie-sensory-energia",
     "03-lacznosc-i-ota", "04-mqtt-i-kontrakt-danych",
-    "05-brzeg-node-red-sheets", "06-thingsboard-ce",
-    "07-odpornosc-bezpieczenstwo-eksploatacja",
+    "05-thingsboard-ce",
+    "06-odpornosc-bezpieczenstwo-eksploatacja",
 ]
 if os.environ.get("TEST_DECKS"):
     wybrane = {x.strip() for x in os.environ["TEST_DECKS"].split(",") if x.strip()}

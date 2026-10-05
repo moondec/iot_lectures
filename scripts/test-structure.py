@@ -13,7 +13,16 @@ import json, os, re, sys, glob, hashlib, collections
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 DOCS = "docs"
-SLIDES = sorted(glob.glob(f"{DOCS}/slides/*.html"))
+
+
+def przekierowanie(p):
+    """Stub from scripts/legacy-redirects.py: only forwards an old URL (archiwum/ or a renumbered deck)."""
+    t = open(p, encoding="utf-8").read()
+    return len(t) < 2000 and 'http-equiv="refresh"' in t
+
+
+# Old URLs of renumbered or removed decks are redirect stubs, not decks.
+SLIDES = sorted(p for p in glob.glob(f"{DOCS}/slides/*.html") if not przekierowanie(p))
 
 wyniki, bledy = [], []
 
@@ -32,15 +41,9 @@ def tekst(html):
     return re.sub(r"\s+", " ", t)
 
 
-# --- 1. Dokładnie osiem talii i strona indeksowa ------------------------
-spr("Liczba talii = 8", len(SLIDES) == 8, f"znaleziono {len(SLIDES)}")
+# --- 1. Dokładnie siedem talii i strona indeksowa -----------------------
+spr("Liczba talii = 7", len(SLIDES) == 7, f"znaleziono {len(SLIDES)}")
 spr("Strona indeksowa istnieje", os.path.isfile(f"{DOCS}/index.html"))
-
-def przekierowanie(p):
-    """Stub from scripts/legacy-redirects.py: only forwards an old URL to archiwum/."""
-    t = open(p, encoding="utf-8").read()
-    return len(t) < 2000 and 'http-equiv="refresh"' in t and "archiwum/" in t
-
 
 obce = [p for p in glob.glob(f"{DOCS}/*.html")
         if os.path.basename(p) != "index.html" and not przekierowanie(p)]

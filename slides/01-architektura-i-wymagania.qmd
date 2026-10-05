@@ -244,10 +244,9 @@ Telemetria idzie **w górę**, polecenia **w dół**, a decyzja krytyczna czasow
 |:---|:---|:---|
 | Percepcja / urządzenie | czujnik, aktuator, firmware, budżet energii | **02** |
 | Sieć | dobór radia, stabilne łącze, wydanie firmware przez OTA | **03** |
-| Transport aplikacyjny | MQTT, kontrakt danych | **04** |
-| Brzeg | Node-RED: walidacja, routing, zapis raportowy | **05** |
-| Platforma / aplikacja | ThingsBoard CE: model danych, pulpit, sterowanie | **06** |
-| Przekrojowo | odporność, bezpieczeństwo, eksploatacja | **07** |
+| Transport aplikacyjny | MQTT, kontrakt danych z API urządzenia platformy | **04** |
+| Platforma / aplikacja | ThingsBoard CE: broker MQTT, model danych, pulpit, sterowanie | **05** |
+| Przekrojowo | odporność, bezpieczeństwo, eksploatacja | **06** |
 :::
 
 Każdy kolejny moduł domyka jeden poziom tego samego, jednego systemu.
@@ -263,7 +262,7 @@ Każdy kolejny moduł domyka jeden poziom tego samego, jednego systemu.
 
 ::: {.pytania}
 * **Kto jest użytkownikiem i jaką decyzję podejmuje?** Bez decyzji nie ma systemu, jest rejestrator.
-* **Co jest wewnątrz, a co poza systemem?** Wi-Fi budynku, konto Google, broker i serwer platformy mogą należeć do kogoś innego — to założenia, nie części.
+* **Co jest wewnątrz, a co poza systemem?** Wi-Fi budynku i serwer platformy z wbudowanym brokerem MQTT mogą należeć do kogoś innego — to założenia, nie części.
 * **Jakie dane płyną i w którą stronę?** Telemetria w górę, polecenia w dół, stan opisuje samo urządzenie.
 * **Co się dzieje, gdy element zawiedzie?** Zachowanie po awarii jest częścią specyfikacji, nie skutkiem ubocznym implementacji.
 :::
@@ -277,14 +276,14 @@ Każdy kolejny moduł domyka jeden poziom tego samego, jednego systemu.
 ::: {.tabela-duza}
 | Klasa | Częstość | Czy strata jest dopuszczalna | Konsekwencja projektowa |
 |:---|:---|:---|:---|
-| **Telemetria** (pomiar) | sekundy–minuty | tak, pojedyncza próbka | osobny temat, QoS 0/1, **bez** retained |
-| **Stan i atrybuty** | rzadko, przy zmianie | nie | publikacja **retained** — nowy odbiorca od razu zna stan |
+| **Telemetria** (pomiar) | sekundy–minuty | tak, pojedyncza próbka | temat telemetrii, QoS 0/1, historia w platformie |
+| **Stan i atrybuty** | rzadko, przy zmianie | nie | atrybut — platforma pamięta ostatnią wartość, nowy odbiorca od razu zna stan |
 | **Polecenie** | pojedyncze zdarzenie | nie | potwierdzenie, identyfikator żądania, **idempotencja** |
 :::
 
 ::: {.fragment}
 ::: {.callout-warning title="Pierwsza pułapka, o której wrócimy w module 04"}
-Polecenie opublikowane jako `retained` zostanie wykonane ponownie przy każdej ponownej subskrypcji — czyli zwykle po każdym restarcie urządzenia. W systemie z pompą albo grzałką ma to konsekwencje fizyczne.
+Polecenie zapisane jako trwała wartość — komunikat `retained` w MQTT albo atrybut współdzielony w platformie — zostanie wykonane ponownie przy każdym odczycie, czyli zwykle po każdym restarcie urządzenia. W systemie z pompą albo grzałką ma to konsekwencje fizyczne.
 :::
 :::
 
@@ -338,25 +337,21 @@ Te pięć pozycji to jednocześnie lista ryzyk projektu. Jeśli któraś jest pu
 
 ## <i class="bi bi-cpu"></i> Przypadek: stanowisko pilotażowe {#stanowisko}
 
-[Ten sam system rozwijamy przez wszystkie siedem modułów.]{.lead}
+[Ten sam system rozwijamy przez wszystkie sześć modułów.]{.lead}
 
 ```{mermaid}
 %%| fig-width: 12
-%%| fig-height: 3.0
+%%| fig-height: 2.3
 %%{init: {"themeVariables": {"fontSize": "30px", "fontFamily": "Arial, Liberation Sans, Helvetica, sans-serif"}, "flowchart": {"nodeSpacing": 22, "rankSpacing": 32, "padding": 16, "diagramPadding": 4}}}%%
 flowchart LR
     D["Urządzenie<br>Nano ESP32 / Stamp-C3U<br>czujnik + wyjście"]
     W(("Wi-Fi<br>2,4 GHz"))
-    M["Broker MQTT"]
-    N["Node-RED<br>walidacja"]
-    G[("Arkusz<br>raportowy")]
-    T["ThingsBoard CE<br>pulpit · reguły"]
-    D --> W --> M
-    M --> N --> G
-    M --> T
-    T -. "polecenie" .-> M
+    T["ThingsBoard CE<br>broker MQTT · model danych"]
+    P["Pulpity<br>alarmy · reguły"]
+    D -- "MQTT, TLS" --> W --> T --> P
+    P -. "polecenie (RPC)" .-> T
     classDef k fill:#e8f2f4,stroke:#0b6b78,stroke-width:2px,color:#0b3b45
-    class D,M,N,T k
+    class D,T,P k
 ```
 
 ::: {.columns}
@@ -369,7 +364,7 @@ Czy w tej chwili włączyć wyjście wykonawcze — i czy wartość, na podstawi
 ::: {.column width="50%"}
 **Co jest założeniem, nie częścią systemu**
 
-sieć budynku · broker · konto usługi arkusza · instalacja platformy
+sieć budynku · instalacja platformy i jej administrator · certyfikat serwera
 :::
 :::
 

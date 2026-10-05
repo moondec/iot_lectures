@@ -1,5 +1,5 @@
 ---
-title: "Internet Rzeczy — kurs w ośmiu wykładach"
+title: "Internet Rzeczy — kurs w siedmiu wykładach"
 subtitle: "Materiały wykładowe · prof. UPP dr hab. inż. Marek Urbaniak"
 format:
   html:
@@ -9,8 +9,8 @@ format:
 ---
 
 ::: {.callout-note appearance="simple"}
-Osiem samodzielnych prezentacji `reveal.js`. Wykład 00 ustawia społeczną i technologiczną ramę kursu,
-a moduły 01–07 prowadzą od architektury do eksploatacji. Każda prezentacja ma cele, spójną sekwencję
+Siedem samodzielnych prezentacji `reveal.js`. Wykład 00 ustawia społeczną i technologiczną ramę kursu,
+a moduły 01–06 prowadzą od architektury do eksploatacji. Każda prezentacja ma cele, spójną sekwencję
 od pojęcia do zastosowania, pytania sprawdzające, podsumowanie i wykaz źródeł. Nawigacja w prezentacji:
 **strzałki**, `Esc` — widok siatki, `F` — pełny ekran, `?` — skróty.
 Kliknięcie grafiki lub diagramu powiększa go na cały ekran.
@@ -24,10 +24,9 @@ Kliknięcie grafiki lub diagramu powiększa go na cały ekran.
 | **01** | [Architektura systemu IoT i wymagania](slides/01-architektura-i-wymagania.html) | model odniesienia, granica systemu, klasy komunikatów, kryterium odbioru |
 | **02** | [Urządzenie, sensory i energia](slides/02-urzadzenie-sensory-energia.html) | łańcuch pomiarowy, Arduino Nano ESP32, M5Stack Stamp-C3U, stan bezpieczny, budżet energii |
 | **03** | [Łączność sieciowa i aktualizacje OTA](slides/03-lacznosc-i-ota.html) | dobór radia, ponowne łączenie, partycje OTA, rollback, wydanie firmware |
-| **04** | [MQTT i kontrakt danych](slides/04-mqtt-i-kontrakt-danych.html) | pub/sub, tematy, QoS, retained, LWT, samoopisujący się ładunek, idempotencja |
-| **05** | [Brzeg sieci, Node-RED i Google Sheets](slides/05-brzeg-node-red-sheets.html) | walidacja na brzegu, routing, limity API, ponowienia, agregacja |
-| **06** | [ThingsBoard CE — telemetria i sterowanie](slides/06-thingsboard-ce.html) | model danych, atrybuty, pulpit, RPC z potwierdzeniem, CE vs PE |
-| **07** | [Odporność, bezpieczeństwo i eksploatacja](slides/07-odpornosc-bezpieczenstwo-eksploatacja.html) | wykrycie nieaktywności, model zagrożeń, plan testów awarii, obowiązki prawne |
+| **04** | [MQTT i kontrakt danych](slides/04-mqtt-i-kontrakt-danych.html) | pub/sub, tematy API urządzenia ThingsBoard, QoS, retained i LWT a platforma, samoopisujący się ładunek, idempotencja, token i TLS |
+| **05** | [ThingsBoard CE — telemetria i sterowanie](slides/05-thingsboard-ce.html) | model danych, atrybuty, pulpit, RPC z potwierdzeniem, CE vs PE |
+| **06** | [Odporność, bezpieczeństwo i eksploatacja](slides/06-odpornosc-bezpieczenstwo-eksploatacja.html) | wykrycie nieaktywności, model zagrożeń, plan testów awarii, obowiązki prawne |
 
 ## Tryb recenzji
 
@@ -39,7 +38,7 @@ Markdown i JSON. Przykład: [recenzuj wykład 01](slides/01-architektura-i-wymag
 
 Wykłady tworzą jedną ścieżkę: wykład 00 wyjaśnia, dlaczego decyzje o danych, energii,
 automatyzacji i odpowiedzialności muszą wejść do architektury; moduł 01 wyznacza granice systemu,
-moduły 02–06 domykają kolejne warstwy tego samego stanowiska, a moduł 07 przechodzi przez całość
+moduły 02–05 domykają kolejne warstwy tego samego stanowiska, a moduł 06 przechodzi przez całość
 przekrojowo — od wykrycia awarii po obowiązki, które wychodzą poza kod.
 
 Liczby na slajdach są **dydaktyczne**, nie pomiarowe.
