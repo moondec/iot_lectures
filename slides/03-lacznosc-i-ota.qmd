@@ -510,7 +510,7 @@ Wartości są **konserwatywnym górnym ograniczeniem dla pełnych okien wysyłki
 
 ---
 
-## <i class="bi bi-list-ol"></i> Procedura wydania w pilocie {#procedura}
+## <i class="bi bi-list-ol"></i> Procedura wydania na stanowisku pilotażowym {#procedura}
 
 ::: {.pytania}
 * **Reprodukowalny build** dla dokładnego modelu płytki i dokładnego układu partycji.
