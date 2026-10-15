@@ -101,3 +101,9 @@ z obecną konfiguracją (motyw `../assets/...` jest względny wobec `slides/`).
 - Agent **Hermes** (kontenery `hermes*`) przygotował slajdy w `/home/marek/.hermes/iot-course-slides`
   i serwuje podgląd na http://localhost:8090. To repo jest teraz źródłem prawdy;
   dalsza praca nad slajdami powinna się odbywać tutaj.
+
+## Nowy rocznik (GitHub / Classroom 50)
+
+- Procedura zapisu studentów i cyklu semestru: `PROCEDURA-NOWY-ROCZNIK.md` w prywatnym repozytorium
+  `iot-marekurbaniak/classroom50` (kopia: `Documents\iot-github\classroom50`). Zaproszenia wysyła
+  `nowy-rocznik.py` z eksportu uczestników Moodle (CSV) — na stronie GitHuba można zapraszać tylko pojedynczo.
