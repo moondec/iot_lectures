@@ -28,11 +28,13 @@ format:
 ::: {.column width="48%"}
 ### Droga
 
+::: {.incremental}
 1. Warstwa percepcji: czujniki i aktuatory
 2. Łańcuch pomiarowy i jego błędy
 3. Dwie płytki stanowiska — konkretne liczby
 4. Zasilanie, logika, prąd wyprowadzeń
 5. Budżet energii jako rachunek
+:::
 :::
 :::
 

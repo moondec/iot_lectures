@@ -28,11 +28,13 @@ format:
 ::: {.column width="48%"}
 ### Droga
 
+::: {.incremental}
 1. Skąd się wzięła idea — i dlaczego to ważne dla inżyniera
 2. Model odniesienia: percepcja → sieć → aplikacja
 3. Granica systemu i lista założeń
 4. Kryterium akceptacji jako liczba
 5. Stanowisko laboratoryjne jako przypadek
+:::
 :::
 :::
 

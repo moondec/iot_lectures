@@ -28,12 +28,14 @@ format:
 ::: {.column width="48%"}
 ### Droga
 
+::: {.incremental}
 1. Dlaczego nie zaczynamy od wykresu
 2. Telemetria i trzy zakresy atrybutów
 3. Tematy, porty, poświadczenia
 4. Pulpit i sterowanie przez RPC
 5. Cyfrowy bliźniak — jedno omówienie
 6. Ryzyko dostawcy i licencji
+:::
 :::
 :::
 

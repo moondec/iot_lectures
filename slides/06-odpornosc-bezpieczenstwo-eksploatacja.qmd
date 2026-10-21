@@ -28,12 +28,14 @@ format:
 ::: {.column width="48%"}
 ### Droga
 
+::: {.incremental}
 1. Rama: kto odpowiada za skutki
 2. Wykrycie nieaktywności i jego pułapki
 3. Model zagrożeń
 4. Bezpieczeństwo w praktyce
 5. Plan testów awarii
 6. Prywatność, regulacje, wyjście z systemu
+:::
 :::
 :::
 

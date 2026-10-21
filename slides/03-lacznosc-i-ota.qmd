@@ -28,12 +28,14 @@ format:
 ::: {.column width="48%"}
 ### Droga
 
+::: {.incremental}
 1. Fizyczne granice: trójkąt niemożliwy
 2. Technologie krótkiego i dalekiego zasięgu
 3. Metodyka doboru — cztery liczby
 4. Łącze, które się samo podnosi
 5. OTA: partycje, self-test, wycofanie
 6. Wydanie zarządzane przez platformę
+:::
 :::
 :::
 

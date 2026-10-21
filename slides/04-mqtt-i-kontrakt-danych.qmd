@@ -28,12 +28,14 @@ format:
 ::: {.column width="48%"}
 ### Droga
 
+::: {.incremental}
 1. Dlaczego HTTP nie pasuje do węzła
 2. MQTT: broker, tematy, faktyczny narzut
 3. Tematy platformy, QoS, Last Will, keep alive
 4. Kontrakt danych i jego wersjonowanie
 5. Poświadczenia urządzenia i TLS
 6. Test odbioru kontraktu
+:::
 :::
 :::
 
