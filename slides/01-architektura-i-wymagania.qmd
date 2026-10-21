@@ -197,7 +197,7 @@ Cel projektowy: wymiana routera nie powinna wymagać nowego firmware czujnika (w
 :::
 
 ::: {.fragment}
-Podział na trzy warstwy jest **modelem dydaktycznym**, który pomaga przypisać odpowiedzialność. Normy opisują więcej warstw — np. ITU-T Y.2060 cztery.
+Podział na trzy warstwy jest **modelem dydaktycznym**, który pomaga przypisać odpowiedzialność. Normy opisują więcej warstw — np. zalecenie ITU-T Y.2060 (Międzynarodowy Związek Telekomunikacyjny) ma cztery: urządzeń, sieci, wsparcia usług i aplikacji oraz aplikacji.
 :::
 :::
 
